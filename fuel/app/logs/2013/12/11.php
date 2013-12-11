@@ -46,3 +46,13 @@ WARNING - 2013-12-11 15:42:54 --> Fuel\Core\Fuel::init - The configured locale e
 WARNING - 2013-12-11 15:43:44 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
 ERROR - 2013-12-11 15:43:44 --> Parsing Error - syntax error, unexpected '/' in /home/weelion/www/evolution/fuel/app/classes/controller/welcome.php on line 33
 WARNING - 2013-12-11 15:44:06 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 16:10:30 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 16:10:34 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 16:10:34 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 16:10:34 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 16:10:38 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 16:10:38 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 16:10:38 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 16:10:45 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 16:10:45 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 16:10:45 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.

@@ -30,8 +30,7 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_index()
 	{
-		$cate = new \Helper\Cate();
-		print_r($cate->cates);
+		// $cate = new \Helper\Cate();
 		return Response::forge(View::forge('welcome/index'));
 	}
 
