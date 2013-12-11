@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `group`, `email`, `last_login`, `login_hash`, `profile_fields`, `created_at`, `updated_at`) VALUES
-(1, 'admin@admin.com', '/ReKio0EZ6joCBm17Dzom8cHmwNh4ybvh6mZSf7Jq4E=', 1, '', '1386732418', 'ac6ca831a885d814e5c7cab980a5223a78fe51a3', '', 0, 0);
+(1, 'admin@admin.com', '/ReKio0EZ6joCBm17Dzom8cHmwNh4ybvh6mZSf7Jq4E=', 100, '', '1386732418', 'ac6ca831a885d814e5c7cab980a5223a78fe51a3', '', 0, 0);
 
 -- --------------------------------------------------------
 

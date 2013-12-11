@@ -56,3 +56,30 @@ WARNING - 2013-12-11 16:10:38 --> Fuel\Core\Fuel::init - The configured locale e
 WARNING - 2013-12-11 16:10:45 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
 WARNING - 2013-12-11 16:10:45 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
 WARNING - 2013-12-11 16:10:45 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:20:59 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:20:59 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:21:03 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:21:03 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:21:07 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+ERROR - 2013-12-11 19:21:08 --> Error - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'email' in 'where clause' with query: "SELECT * FROM `users` WHERE (`username` = 'admin' OR `email` = 'admin') AND `password` = '/ReKio0EZ6joCBm17Dzom8cHmwNh4ybvh6mZSf7Jq4E='" in /home/lan/project/evolution/fuel/core/classes/database/pdo/connection.php on line 234
+WARNING - 2013-12-11 19:21:26 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:21:30 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+ERROR - 2013-12-11 19:21:30 --> Error - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'email' in 'where clause' with query: "SELECT * FROM `users` WHERE (`username` = 'admin@admin.com' OR `email` = 'admin@admin.com') AND `password` = '/ReKio0EZ6joCBm17Dzom8cHmwNh4ybvh6mZSf7Jq4E='" in /home/lan/project/evolution/fuel/core/classes/database/pdo/connection.php on line 234
+WARNING - 2013-12-11 19:27:13 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:27:17 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+ERROR - 2013-12-11 19:27:17 --> Error - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'email' in 'where clause' with query: "SELECT * FROM `users` WHERE (`username` = 'admin@admin.com' OR `email` = 'admin@admin.com') AND `password` = '/ReKio0EZ6joCBm17Dzom8cHmwNh4ybvh6mZSf7Jq4E='" in /home/lan/project/evolution/fuel/core/classes/database/pdo/connection.php on line 234
+WARNING - 2013-12-11 19:40:17 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+ERROR - 2013-12-11 19:40:17 --> Error - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'email' in 'where clause' with query: "SELECT * FROM `users` WHERE (`username` = 'admin@admin.com' OR `email` = 'admin@admin.com') AND `password` = '/ReKio0EZ6joCBm17Dzom8cHmwNh4ybvh6mZSf7Jq4E='" in /home/lan/project/evolution/fuel/core/classes/database/pdo/connection.php on line 234
+WARNING - 2013-12-11 19:40:22 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+ERROR - 2013-12-11 19:40:22 --> Error - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'email' in 'where clause' with query: "SELECT * FROM `users` WHERE (`username` = 'admin@admin.com' OR `email` = 'admin@admin.com') AND `password` = '/ReKio0EZ6joCBm17Dzom8cHmwNh4ybvh6mZSf7Jq4E='" in /home/lan/project/evolution/fuel/core/classes/database/pdo/connection.php on line 234
+WARNING - 2013-12-11 19:56:28 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:56:29 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:56:29 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:56:36 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:56:36 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:56:36 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:56:39 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:56:39 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:56:39 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:56:43 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:56:43 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
