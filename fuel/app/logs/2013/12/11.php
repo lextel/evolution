@@ -56,6 +56,7 @@ WARNING - 2013-12-11 16:10:38 --> Fuel\Core\Fuel::init - The configured locale e
 WARNING - 2013-12-11 16:10:45 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
 WARNING - 2013-12-11 16:10:45 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
 WARNING - 2013-12-11 16:10:45 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+<<<<<<< HEAD
 WARNING - 2013-12-11 19:20:59 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
 WARNING - 2013-12-11 19:20:59 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
 WARNING - 2013-12-11 19:21:03 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
@@ -83,3 +84,21 @@ WARNING - 2013-12-11 19:56:39 --> Fuel\Core\Fuel::init - The configured locale e
 WARNING - 2013-12-11 19:56:39 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
 WARNING - 2013-12-11 19:56:43 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
 WARNING - 2013-12-11 19:56:43 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+=======
+WARNING - 2013-12-11 19:40:25 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:40:30 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:40:30 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:40:32 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:40:32 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:40:38 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+>>>>>>> 665f97d13c37888fd99762435be169cf504e3708
+WARNING - 2013-12-11 19:59:08 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:59:08 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:59:15 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:59:24 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:59:24 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:59:33 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:59:33 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:59:34 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 19:59:35 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
+WARNING - 2013-12-11 20:09:28 --> Fuel\Core\Fuel::init - The configured locale en_HK is not installed on your system.
