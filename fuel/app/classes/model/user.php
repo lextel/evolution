@@ -2,6 +2,8 @@
 
 class Model_User extends \Orm\Model
 {
+    protected static $_table_name = 'users';
+
 	protected static $_properties = array(
 		'id',
 		'username',
@@ -24,7 +26,20 @@ class Model_User extends \Orm\Model
 			'events' => array('before_update'),
 			'mysql_timestamp' => false,
 		),
+		'Orm\Observer_LastLogin' => array(
+			'events' => array('before_update'),
+			'mysql_timestamp' => false,
+		),
 	);
-	protected static $_table_name = 'users';
-
+	
+    
+    public static function validate($factory)
+	{
+		$val = Validation::forge($factory);
+		$val->add_field('username', 'username', 'required|max_length[255]');
+		$val->add_field('password', 'password', 'required');
+		$val->add_field('group', 'group', 'required|valid_string[numeric]');
+		$val->add_field('email', 'email', 'required');
+		return $val;
+	}
 }
