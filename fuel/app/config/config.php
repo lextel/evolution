@@ -316,7 +316,7 @@ return array(
 		        'orm'
 		    ),
 		),
-<<<<<<< HEAD
+
         'sms' => array(
             'type' => array(1=>'晒单', 
                            2=>'商品',
@@ -330,7 +330,7 @@ return array(
                               6=>'审核',
                               7=>'其他')
             ),
-=======
+
 		'upload' => [
 			'item' => [
 			    'path' => DOCROOT.'upload'.DS.'item'.DS.'origin',
@@ -339,5 +339,4 @@ return array(
 			]
 		],
 
->>>>>>> 057f29863edd12911b8070942deb5439a5b8db6c
 );
