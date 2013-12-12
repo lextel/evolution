@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013-12-11 11:30:41
+-- 生成日期: 2013-12-12 09:50:51
 -- 服务器版本: 5.5.34-0ubuntu0.13.10.1
 -- PHP 版本: 5.5.3-1ubuntu2
 
@@ -19,6 +19,24 @@ SET time_zone = "+00:00";
 --
 -- 数据库: `llt_dev`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `items`
+--
+
+CREATE TABLE IF NOT EXISTS `items` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `desc` text NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `cate_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -46,7 +64,29 @@ INSERT INTO `migration` (`type`, `name`, `migration`) VALUES
 ('package', 'auth', '007_auth_add_permissionsfilter'),
 ('package', 'auth', '008_auth_create_providers'),
 ('package', 'auth', '009_auth_create_oauth2tables'),
-('package', 'auth', '010_auth_fix_jointables');
+('package', 'auth', '010_auth_fix_jointables'),
+('app', 'default', '001_create_project_entries'),
+('app', 'default', '002_create_users'),
+('app', 'default', '003_create_items');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `project_entries`
+--
+
+CREATE TABLE IF NOT EXISTS `project_entries` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `abstract` text NOT NULL,
+  `full_text` text NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `is_draft` int(11) NOT NULL,
+  `order` int(11) NOT NULL,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -74,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `group`, `email`, `last_login`, `login_hash`, `profile_fields`, `created_at`, `updated_at`) VALUES
-(1, 'admin@admin.com', '/ReKio0EZ6joCBm17Dzom8cHmwNh4ybvh6mZSf7Jq4E=', 1, '', '1386732418', 'ac6ca831a885d814e5c7cab980a5223a78fe51a3', '', 0, 0);
+(1, 'admin@admin.com', '/ReKio0EZ6joCBm17Dzom8cHmwNh4ybvh6mZSf7Jq4E=', 100, '', '1386812417', '364337bad04ac46399255cb5a31124ba852a8036', '', 1386746289, 1386746289);
 
 -- --------------------------------------------------------
 

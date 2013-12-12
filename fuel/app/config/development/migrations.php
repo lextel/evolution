@@ -4,7 +4,12 @@ return array(
 	array(
 		'app' => 
 		array(
-			'default' => 0,
+			'default' => 
+			array(
+				0 => '001_create_project_entries',
+				1 => '002_create_users',
+				2 => '003_create_items',
+			),
 		),
 		'module' => 
 		array(

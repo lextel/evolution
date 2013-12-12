@@ -11,7 +11,7 @@ class Create_users
 			'username' => array('constraint' => 50, 'type' => 'varchar'),
 			'password' => array('constraint' => 255, 'type' => 'varchar'),
 			'group' => array('constraint' => 11, 'type' => 'int'),
-			'email' => array('constraint' => 255, 'type' => 'varcart'),
+			'email' => array('constraint' => 255, 'type' => 'varchar'),
 			'last_login' => array('constraint' => 25, 'type' => 'varchar'),
 			'login_hash' => array('constraint' => 255, 'type' => 'varchar'),
 			'profile_fields' => array('type' => 'text'),
