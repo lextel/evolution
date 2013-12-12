@@ -1,126 +1,78 @@
 <?php
 class Controller_Admin_Items extends Controller_Admin{
 
-	public function action_index()
-	{
-		$data['items'] = Model_Item::find('all');
-		$this->template->title = "Items";
-		$this->template->content = View::forge('admin/items/index', $data);
 
-	}
+    public function action_index() {
 
-	public function action_view($id = null)
-	{
-		$data['item'] = Model_Item::find($id);
+        $data['items'] = Model_Item::find('all');
 
-		$this->template->title = "Item";
-		$this->template->content = View::forge('admin/items/view', $data);
+        $cates = new Helper\Cate();
+        $data['cates'] = $cates->cates();
 
-	}
+        $this->template->title = "商品管理";
+        $this->template->content = View::forge('admin/items/index', $data);
+    }
 
-	public function action_create()
-	{
-		if (Input::method() == 'POST')
-		{
-			$val = Model_Item::validate('create');
+    public function action_view($id = null) {
 
-			if ($val->run())
-			{
-				$item = Model_Item::forge(array(
-					'title' => Input::post('title'),
-					'desc' => Input::post('desc'),
-					'price' => Input::post('price'),
-					'cate_id' => Input::post('cate_id'),
-					'status' => Input::post('status'),
-				));
+        $data['item'] = Model_Item::find($id);
+        $this->template->title = "Item";
+        $this->template->content = View::forge('admin/items/view', $data);
+    }
 
-				if ($item and $item->save())
-				{
-					Session::set_flash('success', e('Added item #'.$item->id.'.'));
+    public function action_create() {
 
-					Response::redirect('admin/items');
-				}
+        if (Input::method() == 'POST') {
+            $itemModel = new Model_Item();
+            $rs = $itemModel->add();
+            if($rs) {
+              Response::redirect('admin/items');
+            }
+        }
 
-				else
-				{
-					Session::set_flash('error', e('Could not save item.'));
-				}
-			}
-			else
-			{
-				Session::set_flash('error', $val->error());
-			}
-		}
+        $cates = new Helper\Cate();
+        $this->template->set_global('cates', $cates->cates(), false);
+        $this->template->title = "商品管理";
+        $this->template->content = View::forge('admin/items/create');
+    }
 
-		$this->template->title = "Items";
-		$this->template->content = View::forge('admin/items/create');
+    public function action_edit($id = null) {
 
-	}
+        $item = Model_Item::find($id);
 
-	public function action_edit($id = null)
-	{
-		$item = Model_Item::find($id);
-		$val = Model_Item::validate('edit');
+        $itemModel = new Model_Item();
+        $rs = $itemModel->edit($id);
 
-		if ($val->run())
-		{
-			$item->title = Input::post('title');
-			$item->desc = Input::post('desc');
-			$item->price = Input::post('price');
-			$item->cate_id = Input::post('cate_id');
-			$item->status = Input::post('status');
+        if($rs) {
+            Response::redirect('admin/items');
+        }
 
-			if ($item->save())
-			{
-				Session::set_flash('success', e('Updated item #' . $id));
+        $cates = new Helper\Cate();
+        $this->template->set_global('cates', $cates->cates(), false);
+        $this->template->set_global('item', $item, false);
+        $this->template->title = "商品管理";
+        $this->template->content = View::forge('admin/items/edit');
+    }
 
-				Response::redirect('admin/items');
-			}
+    public function action_delete($id = null) {
 
-			else
-			{
-				Session::set_flash('error', e('Could not update item #' . $id));
-			}
-		}
+        if ($item = Model_Item::find($id)) {
+            $item->delete();
+            Session::set_flash('success', e('删除成功 #'.$id));
+        } else {
+            Session::set_flash('error', e('删除失败 #'.$id));
+        }
 
-		else
-		{
-			if (Input::method() == 'POST')
-			{
-				$item->title = $val->validated('title');
-				$item->desc = $val->validated('desc');
-				$item->price = $val->validated('price');
-				$item->cate_id = $val->validated('cate_id');
-				$item->status = $val->validated('status');
+        Response::redirect('admin/items');
+    }
 
-				Session::set_flash('error', $val->error());
-			}
+    public function action_upload() {
 
-			$this->template->set_global('item', $item, false);
-		}
+        $itemModel = new Model_Item();
+        $files = $itemModel->upload();
 
-		$this->template->title = "Items";
-		$this->template->content = View::forge('admin/items/edit');
-
-	}
-
-	public function action_delete($id = null)
-	{
-		if ($item = Model_Item::find($id))
-		{
-			$item->delete();
-
-			Session::set_flash('success', e('Deleted item #'.$id));
-		}
-
-		else
-		{
-			Session::set_flash('error', e('Could not delete item #'.$id));
-		}
-
-		Response::redirect('admin/items');
-
-	}
+        return json_encode(['files' => $files]);
+    }
 
 
 }

@@ -80,7 +80,7 @@ return array(
 	 */
 	// 'language'           => 'en', // Default language
 	// 'language_fallback'  => 'en', // Fallback language when file isn't available for default language
-	'locale'             => 'en_HK', // PHP set_locale() setting, null to not set
+	'locale'             => 'en_HK.utf8', // PHP set_locale() setting, null to not set
 
 	/**
 	 * Internal string encoding charset
@@ -316,5 +316,12 @@ return array(
 		        'orm'
 		    ),
 		),
+		'upload' => [
+			'item' => [
+			    'path' => DOCROOT.'upload'.DS.'item'.DS.'origin',
+		    	'randomize' => true,
+		    	'ext_whitelist' => ['img', 'jpg', 'jpeg', 'gif', 'png'],
+			]
+		],
 
 );

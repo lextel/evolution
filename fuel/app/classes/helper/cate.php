@@ -63,4 +63,19 @@ class Cate {
                         ]
                     ],
 	];
+
+  /**
+   * 获取所有分类
+   *
+   * @return array 分类数组 如[1' => '手机', '2' => '其他']
+   */
+  public function cates() {
+
+     $cates = [];
+     foreach($this->cates as $cate) {
+        $cates = $cates + [$cate['id'] => $cate['name']];
+     }
+
+     return $cates;
+  }
 }
