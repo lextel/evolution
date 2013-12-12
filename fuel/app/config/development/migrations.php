@@ -8,6 +8,7 @@ return array(
 			array(
 				0 => '001_create_project_entries',
 				1 => '002_create_users',
+<<<<<<< HEAD
 				2 => '003_create_posts',
 				3 => '004_create_tests',
 				4 => '005_rename_table_users_to_accounts',
@@ -21,6 +22,9 @@ return array(
 				12 => '015_create_adminsms',
 				13 => '016_delete_group_from_users',
 				14 => '017_add_group_to_users',
+=======
+				2 => '003_create_items',
+>>>>>>> 057f29863edd12911b8070942deb5439a5b8db6c
 			),
 		),
 		'module' => 

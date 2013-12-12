@@ -80,7 +80,7 @@ return array(
 	 */
 	// 'language'           => 'en', // Default language
 	// 'language_fallback'  => 'en', // Fallback language when file isn't available for default language
-	'locale'             => 'en_HK', // PHP set_locale() setting, null to not set
+	'locale'             => 'en_HK.utf8', // PHP set_locale() setting, null to not set
 
 	/**
 	 * Internal string encoding charset
@@ -316,6 +316,7 @@ return array(
 		        'orm'
 		    ),
 		),
+<<<<<<< HEAD
         'sms' => array(
             'type' => array(1=>'晒单', 
                            2=>'商品',
@@ -329,4 +330,14 @@ return array(
                               6=>'审核',
                               7=>'其他')
             ),
+=======
+		'upload' => [
+			'item' => [
+			    'path' => DOCROOT.'upload'.DS.'item'.DS.'origin',
+		    	'randomize' => true,
+		    	'ext_whitelist' => ['img', 'jpg', 'jpeg', 'gif', 'png'],
+			]
+		],
+
+>>>>>>> 057f29863edd12911b8070942deb5439a5b8db6c
 );
