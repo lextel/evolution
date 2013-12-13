@@ -4,5 +4,7 @@ return array(
 	'_404_'   => 'welcome/404',    // The main 404 route
 	
 	'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),
-	'account(/:user_id)?' => array('account/index', 'user_id'=>'index'),
+	//'account(/:user_id)?' => array('account/index', 'user_id'=>'index'),
+	'signin' => 'account/index',
+	'signup' => 'account/create',
 );
