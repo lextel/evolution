@@ -6,8 +6,7 @@ echo Asset::css(
     [
         'jquery.fileupload.css', 
         'http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css',
-        'http://mindmup.github.io/bootstrap-wysiwyg/external/google-code-prettify/prettify.css',
-
+        'prettify.css',
         'admin/items/form.css', 
         ]
     );
@@ -18,8 +17,8 @@ echo Asset::js(
             'jquery.ui.widget.js',
             'jquery.iframe-transport.js',
             'jquery.fileupload.js',
-            'http://mindmup.github.io/bootstrap-wysiwyg/external/google-code-prettify/prettify.js',
-            'http://mindmup.github.io/bootstrap-wysiwyg/external/jquery.hotkeys.js',
+            'prettify.js',
+            'jquery.hotkeys.js',
             'bootstrap-wysiwyg.js',
             'admin/items/form.js', 
             ]
@@ -123,7 +122,7 @@ echo Asset::js(
         </div>
         <div class="form-group">
             <?php echo Form::label('分类:', 'cate_id', array('class'=>'control-label')); ?>
-            <?php echo Form::select('cate_id', Input::post('cate_id', isset($item) ? $item->cate_id : ''), $cates); ?>
+            <?php echo Form::select('cate_id', Input::post('cate_id', isset($item) ? $item->cate_id : ''), $cates, ['class' => 'col-md-4 form-control']); ?>
         </div>
         <div class="form-group">
             <label class='control-label'>&nbsp;</label>

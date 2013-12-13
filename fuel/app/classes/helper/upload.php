@@ -36,10 +36,6 @@ class Upload {
     public function __construct($type) {
 
         $this->_config = Config::get('upload.'.$type);
-
-        if(empty($this->_config)) {
-            Log::error('Upload:' . 'config is not exists');
-        }
     }
 
     /**
@@ -59,12 +55,16 @@ class Upload {
      */
     public function upload() {
 
-    	SysUpload::process($this->_config);
+        if(empty($this->_config)) {
+            throw new Exception('upload config is not exists');
+        }
 
-    	if (SysUpload::is_valid()) {
-		    SysUpload::save();
+        SysUpload::process($this->_config);
 
-		    return true;
+        if (SysUpload::is_valid()) {
+            SysUpload::save();
+
+            return true;
         } else {
           $this->errors();
 
@@ -80,7 +80,7 @@ class Upload {
     protected function errors() {
 
         foreach(SysUpload::get_errors() as $file) {
-        	Log::error('Upload:' . $file['errors']);
+            Log::error('Upload:' . $file['errors']);
         }
     }
 
