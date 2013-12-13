@@ -6,7 +6,7 @@ class Controller_Admin_Items extends Controller_Admin{
 
         $data['items'] = Model_Item::find('all');
 
-        $cates = new Helper\Cate();
+        $cates = new Classes\Cate();
         $data['cates'] = $cates->cates();
 
         $this->template->title = "商品管理";
@@ -32,7 +32,7 @@ class Controller_Admin_Items extends Controller_Admin{
             }
         }
 
-        $cates = new Helper\Cate();
+        $cates = new Classes\Cate();
         $this->template->set_global('cates', $cates->cates(), false);
         $this->template->title = "商品管理";
         $this->template->content = View::forge('admin/items/create');
@@ -50,7 +50,7 @@ class Controller_Admin_Items extends Controller_Admin{
             Response::redirect('admin/items');
         }
 
-        $cates = new Helper\Cate();
+        $cates = new Classes\Cate();
         $this->template->set_global('cates', $cates->cates(), false);
         $this->template->set_global('item', $item, false);
         $this->template->title = "商品管理";

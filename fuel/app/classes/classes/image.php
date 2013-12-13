@@ -5,7 +5,7 @@
  * @author  : weelion<weelion@qq.com>
  * @version : 2.0
  */
-namespace Helper;
+namespace Classes;
 
 use Fuel\Core\Uri;
 use Fuel\Core\Image as SysImage;

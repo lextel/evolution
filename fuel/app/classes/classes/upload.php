@@ -5,7 +5,7 @@
  * @author  : weelion<weelion@qq.com>
  * @version : 2.0
  */
-namespace Helper;
+namespace Classes;
 
 use \Exception;
 use Fuel\Core\Log;

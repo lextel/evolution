@@ -1,9 +1,9 @@
 <?php
 class Model_Item extends \Orm\Model {
 
-    const OFF_SELF = 0;      // 下架
-    const ON_SELF  = 1;      // 上架
-    const ITEM = 1;          // 商品工作流类型
+    const OFF_SELF  = 0;      // 下架
+    const ON_SELF   = 1;      // 上架
+    const ITEM_TASK = 1;      // 商品工作流类型
 
     protected static $_properties = array(
         'id',
@@ -153,13 +153,13 @@ class Model_Item extends \Orm\Model {
      */
     public function upload() {
 
-        $upload  = new Helper\Upload('item');
+        $upload  = new Classes\Upload('item');
         $success = $upload->upload();
 
         $rs = [];
         if($success) {
             $rs =  $upload->getFiles();
-            $image = new Helper\Image();
+            $image = new Classes\Image();
             foreach($rs as $key => $val) {
                 $rs[$key]['path'] = $this->thumb($val['path'], '60x60');
                 $rs[$key]['image'] = $image->path2url($val['path']);
@@ -179,7 +179,7 @@ class Model_Item extends \Orm\Model {
      */
     public function thumb($path, $size) {
 
-        $image = new Helper\Image();
+        $image = new Classes\Image();
         $link = $image->path2url($path);
         $thumb = $image->resize($link, $size);
 
@@ -202,6 +202,8 @@ class Model_Item extends \Orm\Model {
         $item->status = $status;
         $item->save();
 
+        $this->_addTask($id, $operate);
+
         $data = ['status' => 'success', 'operate' => $status == 1 ? 'down' : 'up'];
 
         return $data;
@@ -220,17 +222,9 @@ class Model_Item extends \Orm\Model {
      */
     private function _addTask($id, $type) {
 
-        list(, $userId) = Auth::get_user_id();
-
-        $data = new stdClass();
-        $data->owner_id = $userId;
-        $data->action   = $this->_handleType($type);
-        $data->type     = self::ITEM;
-        $data->user_id  = $userId;
-        $data->obj_id   = $id;
-
-        $adminsmsModel = new Model_Adminsm();
-        $adminsmsModel->pushSingleSms($data, $userId);
+        $action = $this->_handleType($type);
+        $taskModel = new Model_Task();
+        $taskModel->add($action, self::ITEM_TASK, $id);
     }
 
     /**
@@ -251,6 +245,12 @@ class Model_Item extends \Orm\Model {
                 break;
             case 'remove':
                 $action = '删除';
+                break;
+            case 'up':
+                $action = '上架';
+                break;
+            case 'down':
+                $action = '下架';
                 break;
             default :
                 $action = '未知操作';

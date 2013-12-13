@@ -6,7 +6,7 @@
  * @version : 2.0
  */
 
-namespace Helper;
+namespace Classes;
 
 class Cate {
 

@@ -7,28 +7,24 @@ class Controller_Admin extends Controller_Base
 	public function before()
 	{
 		parent::before();
-		if (! in_array(Request::active()->action, array('login', 'logout') and ))
+
+		if (Request::active()->controller !== 'Controller_Admin' or ! in_array(Request::active()->action, array('login', 'logout')))
 		{
-			$this -> admincheck();
-		}
-	}
-    
-    private function admincheck()
-    {
-    	if (Auth::check())
-		{
-			$admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
-			if ( Request::active()->controller == 'Controller_Admin_Users' and ! Auth::member($admin_group_id))
+			if (Auth::check())
 			{
-				Session::set_flash('error', e('You don\'t have access to the admin panel'));
-				Response::redirect('/admin');
+				$admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
+				if ( ! Auth::member($admin_group_id))
+				{
+					Session::set_flash('error', e('You don\'t have access to the admin panel'));
+					Response::redirect('/');
+				}
+			}
+			else
+			{
+				Response::redirect('admin/login');
 			}
 		}
-		else
-		{
-			Response::redirect('admin/login');
-		}
-    }
+	}
 
 	public function action_login()
 	{
@@ -83,7 +79,7 @@ class Controller_Admin extends Controller_Base
 	public function action_logout()
 	{
 		Auth::logout();
-		Response::redirect('/admin/login');
+		Response::redirect('admin');
 	}
 
 	/**
