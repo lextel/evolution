@@ -8,7 +8,7 @@ class Controller_Account extends Controller_Base{
 		parent::before();
 		if (! in_array(Request::active()->action, array('login', 'logout')))
 		{
-			$this -> admincheck();
+			
 		}
 	}
 
