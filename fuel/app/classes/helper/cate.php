@@ -10,7 +10,7 @@ namespace Helper;
 
 class Cate {
 
-	public $cates = [
+    public $cates = [
                     [
                       'id'     => 1, 
                       'name'   => '手机', 
@@ -62,7 +62,7 @@ class Cate {
                           ['id' => 602, 'name' => '宝马'],
                         ]
                     ],
-	];
+    ];
 
   /**
    * 获取所有分类

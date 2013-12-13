@@ -1,7 +1,9 @@
 <?php
 class Model_Item extends \Orm\Model {
 
-    const OFF_SELF = 0;
+    const OFF_SELF = 0;      // 下架
+    const ON_SELF  = 1;      // 上架
+    const ITEM = 1;          // 商品工作流类型
 
     protected static $_properties = array(
         'id',
@@ -64,6 +66,7 @@ class Model_Item extends \Orm\Model {
 
             if ($item and $item->save()) {
                 Session::set_flash('success', e('添加成功 #'.$item->id.'.'));
+                $this->_addTask($item->id, 'add');
                 $result = true;
             } else {
                 Session::set_flash('error', e('保存失败.'));
@@ -77,6 +80,8 @@ class Model_Item extends \Orm\Model {
 
     /**
      * 商品编辑
+     *
+     * @param $id integer 商品ID
      *
      * @return boolean 是否更新成功
      */
@@ -97,6 +102,7 @@ class Model_Item extends \Orm\Model {
 
             if ($item->save()) {
                 Session::set_flash('success', e('更新成功 #' . $id));
+                $this->_addTask($item->id, 'edit');
                 $result = true;
             } else {
                 Session::set_flash('error', e('更新失败 #' . $id));
@@ -107,22 +113,43 @@ class Model_Item extends \Orm\Model {
                 $item->desc = $val->validated('desc');
                 $item->price = $val->validated('price');
                 $item->cate_id = $val->validated('cate_id');
+                $item->images = $val->validated('images');
 
                 Session::set_flash('error', $val->error());
             }
         }
 
         return $result;
-
     }
 
+    /**
+     * 商品删除
+     *
+     * @param $id integer 商品ID
+     *
+     * @return boolean 是否成功
+     */
+    public function remove($id) {
+
+        if ($item = Model_Item::find($id)) {
+            $item->delete();
+            Session::set_flash('success', e('删除成功 #'.$id));
+            $this->_addTask($item->id, 'remove');
+            $result = true;
+        } else {
+            Session::set_flash('error', e('删除失败 #'.$id));
+            $result = false;
+        }
+
+        return $result;
+    }
 
     /**
      * 上传商品图片
      *
      * @param $file $_FILES数组
      *
-     * @reutrn array 
+     * @reutrn array 上传的文件数组
      */
     public function upload() {
 
@@ -148,7 +175,7 @@ class Model_Item extends \Orm\Model {
      * @param $path string 图片路径
      * @param $size string 大小 60x60
      *
-     * @return $link string
+     * @return 返回缩略图路径
      */
     public function thumb($path, $size) {
 
@@ -157,6 +184,80 @@ class Model_Item extends \Orm\Model {
         $thumb = $image->resize($link, $size);
 
         return $thumb;
+    }
+
+    /**
+     * 上下架操作
+     *
+     * @return array 返回ajax结果
+     */
+    public function operate() {
+        
+        $id = Input::post('id', 0);
+
+        $operate = Input::post('operate', 'down');
+        $status  = $operate == 'up' ? 1 : 0;
+
+        $item = Model_Item::find($id);
+        $item->status = $status;
+        $item->save();
+
+        $data = ['status' => 'success', 'operate' => $status == 1 ? 'down' : 'up'];
+
+        return $data;
+    }
+
+    /**
+     * 工作流
+     *
+     * @param $id   integer 商品ID
+     * @param $type string  操作类型
+     *                      add    添加
+     *                      edit   编辑
+     *                      remove 删除
+     *
+     * @return void
+     */
+    private function _addTask($id, $type) {
+
+        list(, $userId) = Auth::get_user_id();
+
+        $data = new stdClass();
+        $data->owner_id = $userId;
+        $data->action   = $this->_handleType($type);
+        $data->type     = self::ITEM;
+        $data->user_id  = $userId;
+        $data->obj_id   = $id;
+
+        $adminsmsModel = new Model_Adminsm();
+        $adminsmsModel->pushSingleSms($data, $userId);
+    }
+
+    /**
+     * 处理任务action
+     * 
+     * @param $type string 任务类型
+     *
+     * @return string 操作名称
+     */
+    private function _handleType($type) {
+
+        switch ($type) {
+            case 'add':
+                $action = '添加';
+                break;
+            case 'edit':
+                $action = '编辑';
+                break;
+            case 'remove':
+                $action = '删除';
+                break;
+            default :
+                $action = '未知操作';
+                break;
+        }
+
+        return $action;
     }
 
 }

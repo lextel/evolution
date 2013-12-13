@@ -1,7 +1,9 @@
 <?php
 class Model_Adminsm extends \Orm\Model
 {
-
+	const ITEM = 1;
+	const POST = 2;
+	
     protected static $_table_name = 'adminsms';
     //protected static $_has_one = array('users');
 
