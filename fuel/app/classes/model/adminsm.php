@@ -42,6 +42,7 @@ class Model_Adminsm extends \Orm\Model
 
 		return $val;
 	}
+    
     //push the sms to some user
 	public function pushMutilSms($params, $users)
 	{
@@ -51,14 +52,16 @@ class Model_Adminsm extends \Orm\Model
         }
         
 	}
+	// push the single user
     public function pushSingleSms($params, $user_id){
-    	$adminsm = DB::forge(array(
-		        'ower_id' => $params->ower_id,
-				'action' => $params->action,
-				'type' => $params->type,
-				'user_id' => $user_id,
-				'isread' => 0,
-				'obj_id' => $params->obj_id,
+    	
+    	$adminsm = Model_Adminsm::forge(array(
+		    'ower_id' => $params->ower_id,
+			'action' => $params->action,
+			'type' => $params->type,
+			'user_id' => $user_id,
+			'isread' => 0,
+			'obj_id' => $params->obj_id,
 		));
 
 		if ($adminsm and $adminsm->save())
@@ -68,9 +71,8 @@ class Model_Adminsm extends \Orm\Model
 		}
 		else
 		{
-			    Session::set_flash('error', e('Could not save adminsm.'));
+			Session::set_flash('error', e('Could not save adminsm.'));
 			return false;
 	    }
 	}
-    
 }

@@ -31,7 +31,7 @@ class Controller_Admin_Adminsms extends Controller_Admin{
 		$current_user = Model_User::find_by_username(Auth::get_screen_name());
 		$user_id = $current_user -> id;
 		$pagination = Pagination::forge('default', $this->config);
-		$data['adminsms'] = Model_Adminsm::find('all', array(
+		$adminsms = Model_Adminsm::find('all', array(
                           'where' => array(
                              array('ower_id', $user_id),
                              ),
@@ -41,18 +41,21 @@ class Controller_Admin_Adminsms extends Controller_Admin{
 
         $data['pagination'] = Pagination::create_links();
 		$this->template->title = "";
-		$this->template->content = View::forge('admin/adminsms/index', $data);
+		$view = ViewModel::forge('admin/adminsms/index', 'view');
+		$view ->set('adminsms', $adminsms);
+		$this->template->content = $view;
 
 	}
 
 	public function action_view($id = null)
 	{
-		$adminsm = Model_Adminsm::find($id);
-		$adminsm->isread = 1;
-		$adminsm->save();
-        $data['adminsm'] = $adminsm;
+		$adminsms = Model_Adminsm::find($id);
+		$adminsms->isread = 1;
+		$adminsms->save();
+        $view = ViewModel::forge('admin/adminsms/view', 'view');
+        $view ->set('adminsm', $adminsms);
 		$this->template->title = "";
-		$this->template->content = View::forge('admin/adminsms/view', $data);
+		$this->template->content = $view;
 
 	}
 

@@ -1,7 +1,7 @@
 <h2></h2>
 <p>
 	<strong>发布人:</strong>
-	<?php echo $adminsm->user_id; ?></p>
+	<?php echo $getUsername($adminsm->user_id); ?></p>
 <p>
 	<strong>操作:</strong>
 	<?php echo $adminsm->action; ?></p>
@@ -13,5 +13,7 @@
 	<strong>发布对象:</strong>
 	<?php echo $adminsm->obj_id; ?></p>
 
-
+<p>
+	<strong>发布时间:</strong>
+	<?php echo $getDatetime($adminsm->created_at); ?></p>
 <?php echo Html::anchor('admin/adminsms', '返回任务消息列表'); ?>

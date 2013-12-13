@@ -16,17 +16,21 @@
  * @package  app
  * @extends  ViewModel
  */
-class View_Welcome_Hello extends ViewModel
+class View_Admin_Adminsms_Index extends ViewModel
 {
 	/**
-	 * Prepare the view data, keeping this in here helps clean up
-	 * the controller.
-	 *
-	 * @return void
+	 * 后台通知用户名获得
 	 */
 	public function view()
 	{
-		$this->name = $this->request()->param('name111111111111111', 'World1111111111');
-		$this->title = '1111111111111111';
+		$this->getUsername = function($user_id) 
+		{ 
+		    $user = Model_User::find($user_id);
+		    echo $user->username; 
+		};
+		$this->getDatetime = function($time)
+		{
+		    echo date("Y-m-d H:i:s",$time);
+		};
 	}
 }
