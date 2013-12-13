@@ -1,43 +1,36 @@
 <?php
 
-class Controller_Admin extends Controller_Base
+class Controller_Center extends Controller_Base
 {
 	public $template = 'admin/template';
 
 	public function before()
 	{
 		parent::before();
-
-		if (! in_array(Request::active()->action, array('login', 'logout')))
-		{
-			$this -> admincheck();
-		}
+		
 	}
     
-    private function admincheck()
+    private function countcheck()
     {
     	if (Auth::check())
 		{
-			if (Auth::check())
+			$admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
+			if ( Request::active()->controller == 'Controller_Admin_Users' and ! Auth::member($admin_group_id))
 			{
-				$admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
-				if ( ! Auth::member($admin_group_id))
-				{
-					Session::set_flash('error', e('You don\'t have access to the admin panel'));
-					Response::redirect('/');
-				}
-			}
-			else
-			{
-				Response::redirect('admin/login');
+				Session::set_flash('error', e('You don\'t have access to the admin panel'));
+				Response::redirect('/signin');
 			}
 		}
-	}
+		else
+		{
+			Response::redirect('/signin');
+		}
+    }
 
 	public function action_login()
 	{
 		// Already logged in
-		Auth::check() and Response::redirect('admin');
+		Auth::check() and Response::redirect('/account/index');
 
 		$val = Validation::forge();
 
@@ -87,7 +80,7 @@ class Controller_Admin extends Controller_Base
 	public function action_logout()
 	{
 		Auth::logout();
-		Response::redirect('admin');
+		Response::redirect('/signup');
 	}
 
 	/**
@@ -99,7 +92,7 @@ class Controller_Admin extends Controller_Base
 	public function action_index()
 	{
 		$this->template->title = 'Dashboard';
-		$this->template->content = View::forge('admin/dashboard');
+		$this->template->content = View::forge('account/index');
 	}
 
 }

@@ -1,16 +1,9 @@
 <?php
-class Controller_Account extends Controller_Base{
+class Controller_Account extends Controller_Center{
 
     public $template = 'layout';
     
-    public function before()
-	{
-		parent::before();
-		if (! in_array(Request::active()->action, array('login', 'logout')))
-		{
-			
-		}
-	}
+    
 
 	public function action_index()
 	{
@@ -38,19 +31,21 @@ class Controller_Account extends Controller_Base{
 	{
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Account::validate('create');
-			
+			//$val = Model_Account::validate('create');
+			$val = Validation::forge('create');
+			$val->add_field('username', 'Username', 'required|max_length[255]');
+            $val->add_field('password', 'Password', 'required|max_length[255]');
 			if ($val->run())
 			{
 				$account = Model_Account::forge(array(
 					'username' => Input::post('username'),
 					'password' => Input::post('password'),
-					'nickname' => Input::post('nickname'),
-					'avatar' => Input::post('avatar'),
-					'bio' => Input::post('bio'),
-					'mobile' => Input::post('mobile'),
-					'points' => Input::post('points'),
-					'last_login' => Input::post('last_login'),
+					'nickname' => '',
+					'avatar' => 'xxoxooxoxoxo',
+					'bio' => '',
+					'mobile' => '',
+					'points' => 0,
+					'last_login' => time(),
 				));
 
 				if ($account and $account->save())
@@ -64,6 +59,7 @@ class Controller_Account extends Controller_Base{
 				{
 					Session::set_flash('error', 'Could not save account.');
 				}
+				
 			}
 			else
 			{
@@ -71,8 +67,9 @@ class Controller_Account extends Controller_Base{
 			}
 		}
 
-		$this->template->title = "Accounts";
-		$this->template->content = View::forge('account/create');
+		//$this->template->title = "Accounts";
+		//$this->template->content = View::forge('account/create');
+		return Response::forge(View::forge('account/create'));
 
 	}
 
@@ -136,25 +133,7 @@ class Controller_Account extends Controller_Base{
 
 	}
 
-	public function action_delete($id = null)
-	{
-		is_null($id) and Response::redirect('account');
-
-		if ($account = Model_Account::find($id))
-		{
-			$account->delete();
-
-			Session::set_flash('success', 'Deleted account #'.$id);
-		}
-
-		else
-		{
-			Session::set_flash('error', 'Could not delete account #'.$id);
-		}
-
-		Response::redirect('account');
-
-	}
+	
 
 
 }

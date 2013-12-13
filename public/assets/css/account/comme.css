@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+body{
+    font: 14px/1.231 "Helvetica Neue", Helvetica, Arial,"宋体", sans-serif;
+    color: #34495E;
+}
+.d_n{
+    display: none;
+}
+.focus-sade{
+
+}
+.focus-sade li{
+    float: left;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.head_portrait{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+.head_portrait img{
+    max-width: 100px;
+    height:auto;
+    vertical-align: middle;
+}
+/*登录*/
+.loginForm{
+    background: #F1F1F1;
+    border-radius: 6px;
+    padding:10px 30px 20px ;
+    margin:0 20px;
+}
+.loginForm h3{
+    line-height: 40px;
+    height: 40px;
+    margin-top: 0;
+}
+.loginForm .form-group{
+    position: relative;
+}
+.loginForm .fa-user,.loginForm .fa-lock{
+    color: #BFC9CA;
+    font-size: 16px;
+    top:22%;
+    right:4%;
+}
+.loginForm .registering {
+    border-top:1px solid #cccccc;
+    padding-top: 10px;
+}
+.loginForm .registering a.btn-link{
+    text-decoration: underline;
+    font-weight: bold;
+}
+.register{
+    border: 1px solid #dddddd;
+    margin-top: 100px;
+}
