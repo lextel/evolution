@@ -7,13 +7,13 @@ class Controller_Admin extends Controller_Base
 	public function before()
 	{
 		parent::before();
-		if (! in_array(Request::active()->action, array('login', 'logout')))
+		if (! in_array(Request::active()->action, array('login', 'logout') and ))
 		{
-			$this -> check();
+			$this -> admincheck();
 		}
 	}
     
-    private function check()
+    private function admincheck()
     {
     	if (Auth::check())
 		{

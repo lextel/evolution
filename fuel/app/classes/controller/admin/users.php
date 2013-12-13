@@ -32,6 +32,14 @@ class Controller_Admin_Users extends Controller_Admin{
 			    {
 				    $user_id = Auth::create_user($username, $password, $email, $group);
                     Session::set_flash('success', e('Added user #'.$user_id.'.'));
+                    
+                    /*Model_Adminsm::pushSingleSms(array(
+                    	          'ower_id'=>1,
+                    	          'action'=>'fabule',
+                    	          'type'=>'1',
+                    	          'obj_id'=>$user_id,
+                    	          ),1);
+			        */
 			        Response::redirect('admin/users');
 			    }
 			    catch (Exception $e)

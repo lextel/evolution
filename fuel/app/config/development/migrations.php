@@ -21,8 +21,9 @@ return array(
 				12 => '015_create_adminsms',
 				13 => '016_delete_group_from_users',
 				14 => '017_add_group_to_users',
-				15 => '003_create_items',
-
+				15 => '018_create_posts',
+				16 => '019_create_accouts',
+				17 => '020_create_accounts',
 			),
 		),
 		'module' => 
