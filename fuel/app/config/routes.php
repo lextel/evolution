@@ -8,6 +8,9 @@ return array(
 	'signin' => 'center/signin',
 	'signup' => 'center/signup',
 	'signout' => 'center/signout',
-	'center' => 'member/index',
+	'u/passwd/forgot' => 'center/forgotpassword',
+	'u' => 'member/index',
+	'u/(\d+)' => 'welcome/hello',
+
 );
 

@@ -78,7 +78,6 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 		// fetch the username and login hash from the session
 		$username    = \Session::get('membername');
 		$login_hash  = \Session::get('member_login_hash');
-
 		// only worth checking if there's both a username and login-hash
 		if ( ! empty($username) and ! empty($login_hash))
 		{
@@ -208,7 +207,7 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 	{
 		$this->user = \Config::get('memberauth.guest_login', true) ? static::$guest_login : false;
 		\Session::delete('membername');
-		\Session::delete('login_hash');
+		\Session::delete('member_login_hash');
 		return true;
 	}
 
@@ -401,7 +400,7 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 	/**
 	 * Generates new random password, sets it for the given username and returns the new password.
 	 * To be used for resetting a user's forgotten password, should be emailed afterwards.
-	 *
+	 * 重置密码
 	 * @param   string  $username
 	 * @return  string
 	 */
@@ -425,7 +424,7 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 
 	/**
 	 * Deletes a given user
-	 *
+	 * 删除用户
 	 * @param   string
 	 * @return  bool
 	 */
