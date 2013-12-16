@@ -1,6 +1,6 @@
-<h2>Listing <span class='muted'>Accounts</span></h2>
+<h2>Listing <span class='muted'>Members</span></h2>
 <br>
-<?php if ($accounts): ?>
+<?php if ($members): ?>
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -16,7 +16,7 @@
 		</tr>
 	</thead>
 	<tbody>
-<?php foreach ($accounts as $item): ?>		<tr>
+<?php foreach ($members as $item): ?>		<tr>
 
 			<td><?php echo $item->username; ?></td>
 			<td><?php echo $item->password; ?></td>
@@ -29,7 +29,7 @@
 			<td>
 				<div class="btn-toolbar">
 					<div class="btn-group">
-						<?php echo Html::anchor('account/view/'.$item->id, '<i class="icon-eye-open"></i> View', array('class' => 'btn btn-small')); ?>						<?php echo Html::anchor('account/edit/'.$item->id, '<i class="icon-wrench"></i> Edit', array('class' => 'btn btn-small')); ?>						<?php echo Html::anchor('account/delete/'.$item->id, '<i class="icon-trash icon-white"></i> Delete', array('class' => 'btn btn-small btn-danger', 'onclick' => "return confirm('Are you sure?')")); ?>					</div>
+						<?php echo Html::anchor('member/view/'.$item->id, '<i class="icon-eye-open"></i> View', array('class' => 'btn btn-small')); ?>						<?php echo Html::anchor('member/edit/'.$item->id, '<i class="icon-wrench"></i> Edit', array('class' => 'btn btn-small')); ?>						<?php echo Html::anchor('member/delete/'.$item->id, '<i class="icon-trash icon-white"></i> Delete', array('class' => 'btn btn-small btn-danger', 'onclick' => "return confirm('Are you sure?')")); ?>					</div>
 				</div>
 
 			</td>
@@ -38,9 +38,9 @@
 </table>
 
 <?php else: ?>
-<p>No Accounts.</p>
+<p>No Members.</p>
 
 <?php endif; ?><p>
-	<?php echo Html::anchor('account/create', 'Add new Account', array('class' => 'btn btn-success')); ?>
+	<?php echo Html::anchor('member/create', 'Add new Member', array('class' => 'btn btn-success')); ?>
 
 </p>

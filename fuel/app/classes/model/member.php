@@ -1,7 +1,7 @@
 <?php
 use Orm\Model;
 
-class Model_Account extends Model
+class Model_Member extends Model
 {
 	protected static $_properties = array(
 		'id',
