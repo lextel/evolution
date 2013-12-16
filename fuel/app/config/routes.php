@@ -11,6 +11,8 @@ return array(
 	'u/passwd/forgot' => 'center/forgotpassword',
 	'u' => 'member/index',
 	'u/(\d+)' => 'welcome/hello',
-
+	'center' => 'member/index',
+	'u/orders' => 'orders/my',
+	'u/friends' => 'friends/list',
 );
 

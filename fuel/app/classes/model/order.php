@@ -1,18 +1,13 @@
 <?php
-/**
- * 商品工作流暂存模型
- */
-class Model_Sditem extends \Orm\Model
+
+class Model_Order extends \Orm\Model
 {
     protected static $_properties = array(
         'id',
-        'title',
-        'image',
-        'images',
-        'desc',
-        'price',
-        'cate_id',
-        'status',
+        'phase_id',
+        'mid',
+        'codes',
+        'code_count',
         'created_at',
         'updated_at',
     );
@@ -27,7 +22,16 @@ class Model_Sditem extends \Orm\Model
             'mysql_timestamp' => false,
         ),
     );
-    
-    protected static $_table_name = 'sditems';
+    protected static $_table_name = 'orders';
 
+    /**
+     * 我的购买记录
+     *
+     */
+    public function myOrders() {
+
+        list(, $userId) = Auth::get_user_id();
+
+        return Model_Order::find('all', ['where' => ['mid' => $userId]]);
+    }
 }
