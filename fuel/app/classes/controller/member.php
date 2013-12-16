@@ -1,6 +1,8 @@
 <?php
 class Controller_Member extends Controller_Center{
 
+    public $template = 'memberlayout';
+
 	public function action_index()
 	{
 		$data['members'] = Model_Member::find('all');

@@ -5,11 +5,22 @@
     text-decoration: none;
 }
 body{
-    font: 14px/1.231 "Helvetica Neue", Helvetica, Arial,"宋体", sans-serif;
     color: #34495E;
+}
+.price{
+    color: #f60;
+}
+.center-nav{
+    margin-left: -16px;
+    margin-bottom: -11px;
+    margin-top: -10px;
 }
 .d_n{
     display: none;
+}
+.comments-btn{
+    margin: 10px 0;
+    overflow: hidden;
 }
 .focus-sade{
 
@@ -29,6 +40,36 @@ body{
 .head_portrait img{
     max-width: 100px;
     height:auto;
+    vertical-align: middle;
+}
+.portrait-side{
+    padding: 15px 0;
+}
+.portrait-side a{
+    color: #ffffff;
+}
+a.top-portrait{
+    width: 18px;
+    height:18px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.top-portrait img{
+    width: 18px;
+    height:18px;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+/*图标*/
+.fa{
+    margin:0 5px;
+}
+.navbar-inverse .navbar-nav > li > a >i{
+    font-size: 16px;
+    font-weight: bold;
+    color:#ffffff;
     vertical-align: middle;
 }
 /*登录*/
@@ -64,3 +105,93 @@ body{
     border: 1px solid #dddddd;
     margin-top: 100px;
 }
+
+.user-title{
+    height: 60px;
+    margin-left: -30px;
+    background: #0093D0;
+
+}
+.user-title h3{
+    color: #ffffff;
+    line-height: 60px;
+    text-indent: 40px;
+    margin: 0;
+}
+.nav-menu{
+    background: #F8F8F8;
+    overflow: hidden;
+    margin: 2px 0 0 0;
+}
+.nav-menu dl{
+   margin: 0;
+}
+.nav-menu dl dt,.nav-menu dl dd{
+    border:1px solid #e7e7e7;
+    height: 46px;
+    border-top: 0;
+    line-height: 46px;
+}
+.nav-menu dl dd{
+    text-indent:50px;
+}
+.nav-menu dl dt{
+    padding-left: 30px;
+    background: #dddddd;
+}
+.nav-menu dl dd:hover{
+    background: #ffffff;
+}
+.nav-menu dl dd.active{
+    border-right: 0;
+    border-left: 2px solid #0AA8E9;
+    background: #ffffff;
+}
+
+.main{
+    border-radius: 0;
+}
+.main .breadcrumb{
+    margin: -15px -15px 15px;
+    border-radius: 0;
+}
+.post-imgBox{
+
+}
+
+.post-imgBox li{
+    float: left;
+    height: 140px;
+    width: 140px;
+}
+.post-imgBox li a{
+    text-align: center;
+    display: block;
+}
+.post-imgBox li a img{
+    height: 140px;
+    max-width: 140px;
+    vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

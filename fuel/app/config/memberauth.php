@@ -42,7 +42,7 @@ return array(
 	/**
 	 * This will allow you to use the group & acl driver for non-logged in users
 	 */
-	'guest_login' => true,
+	'guest_login' => false,
 
 	/**
 	 * This will allow the same user to be logged in multiple times.
@@ -50,7 +50,7 @@ return array(
 	 * Note that this is less secure, as session hijacking countermeasures have to
 	 * be disabled for this to work!
 	 */
-	'multiple_logins' => false,
+	'multiple_logins' => true,
 
 	/**
 	 * Remember-me functionality
@@ -59,7 +59,7 @@ return array(
 		/**
 		 * Whether or not remember me functionality is enabled
 		 */
-		'enabled' => false,
+		'enabled' => true,
 
 		/**
 		 * Name of the cookie used to record this functionality

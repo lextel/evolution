@@ -17,7 +17,9 @@
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <![endif]-->
-
+    <script type="text/javascript">
+    
+    </script>
 </head>
 <body>
 <div class="container">
@@ -25,25 +27,26 @@
         <h2>logo</h2>
     </div>
     <div class="row">
-        <form class="form-horizontal col-md-6 col-md-offset-2 register" action="" role="form">
+        <form class="form-horizontal col-md-6 col-md-offset-2 register" action="/signup" role="form" method="POST">
             <h3>用户注册</h3>
             <div class="form-group">
-                <lable class="col-md-2 control-label">用户名</lable>
+                <lable class="col-md-2 control-label">用户邮箱</lable>
                 <div class="col-md-5">
-                    <input class="form-control" type="text" placeholder=""/>
+                    <input name="username" class="form-control" type="text" placeholder=""/>
                 </div>
             </div>
             <div class="form-group">
                 <lable class="col-md-2 control-label">密码</lable>
                 <div class="col-md-5">
-                    <input class="form-control" type="password" placeholder=""/>
+                    <input name="password" class="form-control" type="password" placeholder=""/>
                 </div>
             </div>
             <div class="form-group">
                 <lable class="col-md-2 control-label">确认密码</lable>
                 <div class="col-md-5">
-                    <input class="form-control" type="password" placeholder=""/>
+                    <input name="password2" class="form-control" type="password" placeholder=""/>
                 </div>
+            <input name="password2" class="form-control" type="hidden" placeholder=""/>
             </div>
             <div class="form-group">
                 <lable class="col-md-2 control-label">性别</lable>

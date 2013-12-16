@@ -7,6 +7,7 @@ return array(
 	//'account(/:user_id)?' => array('account/index', 'user_id'=>'index'),
 	'signin' => 'center/signin',
 	'signup' => 'center/signup',
+	'signout' => 'center/signout',
 	'center' => 'member/index',
 );
 

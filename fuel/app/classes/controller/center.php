@@ -2,7 +2,7 @@
 
 class Controller_Center extends Controller_Template
 {
-	public $template = 'layout';
+	
     public $auth;
 	public function before()
 	{
@@ -16,10 +16,8 @@ class Controller_Center extends Controller_Template
 		{
 			$this->current_user = $this->auth->check() ? Model_Member::find_by_username($this->auth->get_screen_name()) : null;
 		}
-
 		// Set a global variable so views can use it
 		View::set_global('current_user', $this->current_user);
-        echo $this->auth->check();
 		if (! in_array(Request::active()->action, array('signin', 'signup')))
 		{
 			//$this -> membercheck();
@@ -49,18 +47,15 @@ class Controller_Center extends Controller_Template
 		// Already logged in
 		$this->auth->check() and Response::redirect('/center');
 		$val = Validation::forge();
-        echo $this->auth->check();
 		if (Input::method() == 'POST')
 		{
 			$val->add('username', 'Email or Username')
 			    ->add_rule('required');
 			$val->add('password', 'Password')
 			    ->add_rule('required');
-            var_dump($val);
+            
 			if ($val->run())
 			{
-				//$auth = $this->auth->instance();
-                var_dump($this->auth->check());
 				// check the credentials. This assumes that you have the previous table created
 				if ($this->auth->check() or $this->auth->login(Input::post('username'), Input::post('password')))
 				{
@@ -75,6 +70,7 @@ class Controller_Center extends Controller_Template
 					}
 					Session::set_flash('success', e('Welcome denglu, '.$current_user->username));
 					Response::redirect('/center');
+					$this->auth->remember_me();
 				}
 				else
 				{
@@ -93,7 +89,7 @@ class Controller_Center extends Controller_Template
 	 * @access  public
 	 * @return  void
 	 */
-	public function action_logout()
+	public function action_signout()
 	{
 		$this->auth->logout();
 		Response::redirect('/signin');
@@ -101,7 +97,33 @@ class Controller_Center extends Controller_Template
     
     public function action_signup()
 	{
-		$val = '';
+		$this->auth->check() and Response::redirect('/center');
+		$val = Validation::forge();
+		if (Input::method() == 'POST')
+		{
+			$val->add('username', 'Email or Username')
+			    ->add_rule('required');
+			$val->add('password', 'Password')
+			    ->add_rule('required');
+            
+			if ($val->run())
+			{
+				// check the credentials. This assumes that you have the previous table created
+				$username = Input::post('username');
+				$password = Input::post('password');
+				$user = $this->auth->create_user($username, $password, $username);
+				if ($this->auth->check() or $user)
+				{
+					$current_user = Model_Member::find_by_username($this->auth->get_screen_name());
+					Session::set_flash('success', e('Welcome singnup, '.$current_user->username));
+					Response::redirect('/center');
+				}
+				else
+				{
+					$this->template->set_global('signup_error', 'Fail');
+				}
+			}
+		}
 		return Response::forge(View::forge('member/signup', array('val' => $val), false));
 	}
 

@@ -48,15 +48,12 @@ class Controller_Admin extends Controller_Base
 
 			if ($val->run())
 			{
-
 				// check the credentials. This assumes that you have the previous table created
 				if ($this->auth->check() or $this->auth->login(Input::post('email'), Input::post('password')))
 				{
 					// credentials ok, go right in
-					var_dump(Config::get('auth.driver', 'Simpleauth'));
 					if (Config::get('auth.driver', 'Simpleauth') == 'Ormauth')
 					{
-						echo $this->auth->get_screen_name();
 						$current_user = Model\Auth_User::find_by_username($this->auth->get_screen_name());
 					}
 					else

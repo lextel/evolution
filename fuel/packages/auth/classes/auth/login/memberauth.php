@@ -76,8 +76,8 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 	protected function perform_check()
 	{
 		// fetch the username and login hash from the session
-		$username    = \Session::get('username');
-		$login_hash  = \Session::get('login_hash');
+		$username    = \Session::get('membername');
+		$login_hash  = \Session::get('member_login_hash');
 
 		// only worth checking if there's both a username and login-hash
 		if ( ! empty($username) and ! empty($login_hash))
@@ -105,8 +105,8 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 
 		// no valid login when still here, ensure empty session and optionally set guest_login
 		$this->user = \Config::get('memberauth.guest_login', true) ? static::$guest_login : false;
-		\Session::delete('username');
-		\Session::delete('login_hash');
+		\Session::delete('membername');
+		\Session::delete('member_login_hash');
 
 		return false;
 	}
@@ -151,16 +151,16 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 		if ( ! ($this->user = $this->validate_user($username_or_email, $password)))
 		{
 			$this->user = \Config::get('memberauth.guest_login', true) ? static::$guest_login : false;
-			\Session::delete('username');
-			\Session::delete('login_hash');
+			\Session::delete('membername');
+			\Session::delete('member_login_hash');
 			return false;
 		}
 
 		// register so Auth::logout() can find us
 		Auth::_register_verified($this);
 
-		\Session::set('username', $this->user['username']);
-		\Session::set('login_hash', $this->create_login_hash());
+		\Session::set('membername', $this->user['username']);
+		\Session::set('member_login_hash', $this->create_login_hash());
 		\Session::instance()->rotate();
 		return true;
 	}
@@ -189,13 +189,13 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 		if ($this->user == false)
 		{
 			$this->user = \Config::get('memberauth.guest_login', true) ? static::$guest_login : false;
-			\Session::delete('username');
-			\Session::delete('login_hash');
+			\Session::delete('membername');
+			\Session::delete('member_login_hash');
 			return false;
 		}
 
-		\Session::set('username', $this->user['username']);
-		\Session::set('login_hash', $this->create_login_hash());
+		\Session::set('membername', $this->user['username']);
+		\Session::set('member_login_hash', $this->create_login_hash());
 		return true;
 	}
 
@@ -207,7 +207,7 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 	public function logout()
 	{
 		$this->user = \Config::get('memberauth.guest_login', true) ? static::$guest_login : false;
-		\Session::delete('username');
+		\Session::delete('membername');
 		\Session::delete('login_hash');
 		return true;
 	}
@@ -250,7 +250,7 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 			}
 		}
 
-		$user = array(
+		$this->user = array(
 			'username'        => (string) $username,
 			'password'        => $this->hash_password((string) $password),
 			'email'           => $email,
@@ -261,9 +261,10 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 			'created_at'      => \Date::forge()->get_timestamp()
 		);
 		$result = \DB::insert(\Config::get('memberauth.table_name'))
-			->set($user)
+			->set($this->user)
 			->execute(\Config::get('memberauth.db_connection'));
-
+        \Session::set('membername', $username);
+		\Session::set('member_login_hash', $this->create_login_hash());
 		return ($result[1] > 0) ? $result[0] : false;
 	}
 
