@@ -19,7 +19,7 @@ class Controller_Center extends Controller_Template
 
 		// Set a global variable so views can use it
 		View::set_global('current_user', $this->current_user);
-
+        echo $this->auth->check();
 		if (! in_array(Request::active()->action, array('signin', 'signup')))
 		{
 			//$this -> membercheck();
@@ -28,14 +28,14 @@ class Controller_Center extends Controller_Template
     
     private function membercheck()
     {
-    	if (Auth::check())
+    	if ($this->auth->check())
 		{
 			//$admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
 			//if ( Request::active()->controller == 'Controller_Member' and ! Auth::member($admin_group_id))
 			if ( Request::active()->controller == 'Controller_Member')
 			{
 				Session::set_flash('error', e('You don\'t have access to the admin panel'));
-				Response::redirect('/signin');
+				Response::redirect('/center');
 			}
 		}
 		else
@@ -47,16 +47,16 @@ class Controller_Center extends Controller_Template
 	public function action_signin()
 	{
 		// Already logged in
-		$this->auth->check() and Response::redirect('/member/index');
+		$this->auth->check() and Response::redirect('/center');
 		$val = Validation::forge();
-
+        echo $this->auth->check();
 		if (Input::method() == 'POST')
 		{
 			$val->add('username', 'Email or Username')
 			    ->add_rule('required');
 			$val->add('password', 'Password')
 			    ->add_rule('required');
-            
+            var_dump($val);
 			if ($val->run())
 			{
 				//$auth = $this->auth->instance();

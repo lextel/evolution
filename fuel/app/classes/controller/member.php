@@ -1,5 +1,5 @@
 <?php
-class Controller_Member extends Controller_Template{
+class Controller_Member extends Controller_Center{
 
 	public function action_index()
 	{

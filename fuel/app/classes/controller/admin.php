@@ -3,12 +3,10 @@
 class Controller_Admin extends Controller_Base
 {
 	public $template = 'admin/template';
-    //public $auth;
     
 	public function before()
 	{
 		parent::before();
-        //$this->auth = Auth::instance('Simpleauth');
 		if (! in_array(Request::active()->action, array('login', 'logout')))
 		{
 			$this -> admincheck();
@@ -17,23 +15,21 @@ class Controller_Admin extends Controller_Base
     
     private function admincheck()
     {
-    	//$this->auth = Auth::instance('Simpleauth');
-    	if ($this->auth->check())
-		{    
-			if ($this->auth->check())
+   
+		if ($this->auth->check())
+		{
+			$admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
+			if ( Request::active()->controller == 'Controller_Admin_Users' and ! $this->auth->member($admin_group_id))
 			{
-				$admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
-				if ( ! $this->auth->member($admin_group_id))
-				{
-					Session::set_flash('error', e('You don\'t have access to the admin panel'));
-					Response::redirect('/');
-				}
-			}
-			else
-			{
-				Response::redirect('admin/login');
+				Session::set_flash('error', e('You don\'t have access to the admin panel'));
+				Response::redirect('admin');
 			}
 		}
+		else
+		{
+			Response::redirect('admin/login');
+		}
+		
 	}
 
 	public function action_login()
