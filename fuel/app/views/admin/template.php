@@ -26,12 +26,12 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">My Site</a>
+				<a class="navbar-brand" href="#">乐乐淘</a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li class="<?php echo Uri::segment(2) == '' ? 'active' : '' ?>">
-						<?php echo Html::anchor('admin', 'Dashboard') ?>
+						<?php echo Html::anchor('admin', '仪表盘') ?>
 					</li>
 					<?php
 						$files = new GlobIterator(APPPATH.'classes/controller/admin/*.php');
@@ -67,27 +67,25 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h1><?php echo $title; ?></h1>
-				<hr>
-<?php if (Session::get_flash('success')): ?>
+				<?php if (Session::get_flash('success')): ?>
 				<div class="alert alert-success alert-dismissable">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 					<p>
 					<?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
 					</p>
 				</div>
-<?php endif; ?>
-<?php if (Session::get_flash('error')): ?>
+				<?php endif; ?>
+				<?php if (Session::get_flash('error')): ?>
 				<div class="alert alert-error alert-dismissable">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 					<p>
 					<?php echo implode('</p><p>', (array) Session::get_flash('error')); ?>
 					</p>
 				</div>
-<?php endif; ?>
+				<?php endif; ?>
 			</div>
 			<div class="col-md-12">
-<?php echo $content; ?>
+			<?php echo $content; ?>
 			</div>
 		</div>
 		<hr/>

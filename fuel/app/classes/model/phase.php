@@ -50,7 +50,7 @@ class Model_Phase extends \Orm\Model
         $config = Config::load('common');
 
         $item = Model_Item::find('first', ['where' => ['id' => $id, 'status' => self::ON_SELF]]);
-        $phase = Model_Phase::find('first', ['where' => ['item_id' => $id, 'status' => 0]]);
+        $phase = Model_Phase::find('first', ['where' => ['item_id' => $id, 'opentime' => 0]]);
 
         if($item && empty($phase)) {
             $cost = $item->price * $config['point'];

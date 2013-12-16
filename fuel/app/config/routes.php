@@ -9,5 +9,7 @@ return array(
 	'signup' => 'center/signup',
 	'signout' => 'center/signout',
 	'center' => 'member/index',
+	'u/orders' => 'orders/my',
+	'u/friends' => 'friends/list',
 );
 
