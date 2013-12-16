@@ -1,11 +1,10 @@
 <?php
 class Controller_Admin_Items extends Controller_Admin{
 
-
     // 商品列表
     public function action_index() {
 
-        $data['items'] = Model_Item::find('all');
+        $data['items'] = Model_Item::find('all', ['order_by' => ['id' => 'desc']]);
 
         $cates = new Classes\Cate();
         $data['cates'] = $cates->cates();

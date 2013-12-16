@@ -16,11 +16,11 @@
 	<tbody>
     <?php foreach ($tasks as $item): ?>		<tr>
 
-          <td><?php echo $item->owner_id; ?></td>
-          <td><?php echo $item->user_id; ?></td>
+          <td><?php echo $getUserNameById($item->owner_id); ?></td>
+          <td><?php echo $getUserNameById($item->user_id); ?></td>
           <td><?php echo $item->action; ?></td>
-          <td><?php echo $item->type_id; ?></td>
-          <td><?php echo $item->is_read; ?></td>
+          <td><?php echo $getTaskType($item->type_id); ?></td>
+          <td><?php echo $isRead($item->is_read); ?></td>
           <td><?php echo $item->obj_id; ?></td>
           <td>
             <?php echo Html::anchor('admin/tasks/view/'.$item->id, '预览'); ?>
