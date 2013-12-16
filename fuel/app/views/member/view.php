@@ -24,6 +24,15 @@
 <p>
 	<strong>Last login:</strong>
 	<?php echo $member->last_login; ?></p>
+<p>
+	<strong>Email:</strong>
+	<?php echo $member->email; ?></p>
+<p>
+	<strong>Login hash:</strong>
+	<?php echo $member->login_hash; ?></p>
+<p>
+	<strong>Profile fields:</strong>
+	<?php echo $member->profile_fields; ?></p>
 
 <?php echo Html::anchor('member/edit/'.$member->id, 'Edit'); ?> |
 <?php echo Html::anchor('member', 'Back'); ?>

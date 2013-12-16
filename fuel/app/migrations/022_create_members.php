@@ -16,6 +16,9 @@ class Create_members
 			'mobile' => array('constraint' => 255, 'type' => 'varchar'),
 			'points' => array('constraint' => 11, 'type' => 'int'),
 			'last_login' => array('constraint' => 11, 'type' => 'int'),
+			'email' => array('constraint' => 255, 'type' => 'varchar'),
+			'login_hash' => array('constraint' => 255, 'type' => 'varchar'),
+			'profile_fields' => array('type' => 'text'),
 			'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 			'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 

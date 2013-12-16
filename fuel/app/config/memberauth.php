@@ -31,7 +31,7 @@ return array(
 	/**
 	 * DB table name for the user table
 	 */
-	'table_name' => 'users',
+	'table_name' => 'members',
 
 	/**
 	 * Choose which columns are selected, must include: username, password, email, last_login,
@@ -42,7 +42,7 @@ return array(
 	/**
 	 * This will allow you to use the group & acl driver for non-logged in users
 	 */
-	'guest_login' => false,
+	'guest_login' => true,
 
 	/**
 	 * This will allow the same user to be logged in multiple times.

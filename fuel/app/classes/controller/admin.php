@@ -3,11 +3,12 @@
 class Controller_Admin extends Controller_Base
 {
 	public $template = 'admin/template';
-
+    //public $auth;
+    
 	public function before()
 	{
 		parent::before();
-
+        //$this->auth = Auth::instance('Simpleauth');
 		if (! in_array(Request::active()->action, array('login', 'logout')))
 		{
 			$this -> admincheck();
@@ -16,12 +17,13 @@ class Controller_Admin extends Controller_Base
     
     private function admincheck()
     {
-    	if (Auth::check())
-		{
-			if (Auth::check())
+    	//$this->auth = Auth::instance('Simpleauth');
+    	if ($this->auth->check())
+		{    
+			if ($this->auth->check())
 			{
 				$admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
-				if ( ! Auth::member($admin_group_id))
+				if ( ! $this->auth->member($admin_group_id))
 				{
 					Session::set_flash('error', e('You don\'t have access to the admin panel'));
 					Response::redirect('/');
@@ -37,7 +39,8 @@ class Controller_Admin extends Controller_Base
 	public function action_login()
 	{
 		// Already logged in
-		Auth::check() and Response::redirect('admin');
+		//$this->auth = Auth::instance('Simpleauth');
+		$this->auth->check() and Response::redirect('admin');
 
 		$val = Validation::forge();
 
@@ -50,21 +53,23 @@ class Controller_Admin extends Controller_Base
 
 			if ($val->run())
 			{
-				$auth = Auth::instance();
 
 				// check the credentials. This assumes that you have the previous table created
-				if (Auth::check() or $auth->login(Input::post('email'), Input::post('password')))
+				if ($this->auth->check() or $this->auth->login(Input::post('email'), Input::post('password')))
 				{
 					// credentials ok, go right in
+					var_dump(Config::get('auth.driver', 'Simpleauth'));
 					if (Config::get('auth.driver', 'Simpleauth') == 'Ormauth')
 					{
-						$current_user = Model\Auth_User::find_by_username(Auth::get_screen_name());
+						echo $this->auth->get_screen_name();
+						$current_user = Model\Auth_User::find_by_username($this->auth->get_screen_name());
 					}
 					else
 					{
-						$current_user = Model_User::find_by_username(Auth::get_screen_name());
+						$current_user = Model_User::find_by_username($this->auth->get_screen_name());
 					}
-					Session::set_flash('success', e('Welcome, '.$current_user->username));
+					$this->auth->remember_me();
+					Session::set_flash('success', e('Welcometest1, '.$current_user->username));
 					Response::redirect('admin');
 				}
 				else
@@ -86,7 +91,7 @@ class Controller_Admin extends Controller_Base
 	 */
 	public function action_logout()
 	{
-		Auth::logout();
+		$this->auth->logout();
 		Response::redirect('admin');
 	}
 

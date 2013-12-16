@@ -33,6 +33,7 @@ Autoloader::add_classes(array(
 
 	'Auth\\Auth_Login_Driver'            => __DIR__.'/classes/auth/login/driver.php',
 	'Auth\\Auth_Login_Simpleauth'        => __DIR__.'/classes/auth/login/simpleauth.php',
+	'Auth\\Auth_Login_Memberauth'        => __DIR__.'/classes/auth/login/memberauth.php',
 	'Auth\\Auth_Login_Ormauth'           => __DIR__.'/classes/auth/login/ormauth.php',
 
 	'Auth\\SimpleUserUpdateException'    => __DIR__.'/classes/auth/exceptions.php',

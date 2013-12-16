@@ -50,6 +50,24 @@
 
 		</div>
 		<div class="form-group">
+			<?php echo Form::label('Email', 'email', array('class'=>'control-label')); ?>
+
+				<?php echo Form::input('email', Input::post('email', isset($member) ? $member->email : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Email')); ?>
+
+		</div>
+		<div class="form-group">
+			<?php echo Form::label('Login hash', 'login_hash', array('class'=>'control-label')); ?>
+
+				<?php echo Form::input('login_hash', Input::post('login_hash', isset($member) ? $member->login_hash : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Login hash')); ?>
+
+		</div>
+		<div class="form-group">
+			<?php echo Form::label('Profile fields', 'profile_fields', array('class'=>'control-label')); ?>
+
+				<?php echo Form::textarea('profile_fields', Input::post('profile_fields', isset($member) ? $member->profile_fields : ''), array('class' => 'col-md-8 form-control', 'rows' => 8, 'placeholder'=>'Profile fields')); ?>
+
+		</div>
+		<div class="form-group">
 			<label class='control-label'>&nbsp;</label>
 			<?php echo Form::submit('submit', 'Save', array('class' => 'btn btn-primary')); ?>		</div>
 	</fieldset>

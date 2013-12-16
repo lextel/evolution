@@ -12,6 +12,9 @@
 			<th>Mobile</th>
 			<th>Points</th>
 			<th>Last login</th>
+			<th>Email</th>
+			<th>Login hash</th>
+			<th>Profile fields</th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
@@ -26,6 +29,9 @@
 			<td><?php echo $item->mobile; ?></td>
 			<td><?php echo $item->points; ?></td>
 			<td><?php echo $item->last_login; ?></td>
+			<td><?php echo $item->email; ?></td>
+			<td><?php echo $item->login_hash; ?></td>
+			<td><?php echo $item->profile_fields; ?></td>
 			<td>
 				<div class="btn-toolbar">
 					<div class="btn-group">

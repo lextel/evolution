@@ -5,7 +5,8 @@ return array(
 	
 	'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),
 	//'account(/:user_id)?' => array('account/index', 'user_id'=>'index'),
-	'signin' => 'account/index',
-	'signup' => 'account/create',
+	'signin' => 'center/signin',
+	'signup' => 'center/signup',
+	'center' => 'member/index',
 );
 

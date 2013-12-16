@@ -41,6 +41,9 @@ class Controller_Member extends Controller_Template{
 					'mobile' => Input::post('mobile'),
 					'points' => Input::post('points'),
 					'last_login' => Input::post('last_login'),
+					'email' => Input::post('email'),
+					'login_hash' => Input::post('login_hash'),
+					'profile_fields' => Input::post('profile_fields'),
 				));
 
 				if ($member and $member->save())
@@ -88,6 +91,9 @@ class Controller_Member extends Controller_Template{
 			$member->mobile = Input::post('mobile');
 			$member->points = Input::post('points');
 			$member->last_login = Input::post('last_login');
+			$member->email = Input::post('email');
+			$member->login_hash = Input::post('login_hash');
+			$member->profile_fields = Input::post('profile_fields');
 
 			if ($member->save())
 			{
@@ -114,6 +120,9 @@ class Controller_Member extends Controller_Template{
 				$member->mobile = $val->validated('mobile');
 				$member->points = $val->validated('points');
 				$member->last_login = $val->validated('last_login');
+				$member->email = $val->validated('email');
+				$member->login_hash = $val->validated('login_hash');
+				$member->profile_fields = $val->validated('profile_fields');
 
 				Session::set_flash('error', $val->error());
 			}
