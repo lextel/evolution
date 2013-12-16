@@ -33,13 +33,16 @@
 					<li class="<?php echo Uri::segment(2) == '' ? 'active' : '' ?>">
 						<?php echo Html::anchor('admin', 'Dashboard') ?>
 					</li>
-
 					<?php
 						$files = new GlobIterator(APPPATH.'classes/controller/admin/*.php');
+						$navs = Config::get('navs.admin');
 						foreach($files as $file)
 						{
 							$section_segment = $file->getBasename('.php');
 							$section_title = Inflector::humanize($section_segment);
+							if(isset($navs[$section_title])) {
+								$section_title = $navs[$section_title];
+							}
 							?>
 							<li class="<?php echo Uri::segment(2) == $section_segment ? 'active' : '' ?>">
 								<?php echo Html::anchor('admin/'.$section_segment, $section_title) ?>
@@ -89,10 +92,10 @@
 		</div>
 		<hr/>
 		<footer>
-			<p class="pull-right">Page rendered in {exec_time}s using {mem_usage}mb of memory.</p>
+			<p class="pull-right">执行时间 {exec_time}s 消耗内存{mem_usage}mb.</p>
 			<p>
-				<a href="http://fuelphp.com">FuelPHP</a> is released under the MIT license.<br>
-				<small>Version: <?php echo e(Fuel::VERSION); ?></small>
+				<br>
+				<small>Version: 2.0</small>
 			</p>
 		</footer>
 	</div>

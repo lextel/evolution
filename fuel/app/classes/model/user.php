@@ -42,4 +42,5 @@ class Model_User extends \Orm\Model
 		$val->add_field('email', 'email', 'required');
 		return $val;
 	}
+
 }
