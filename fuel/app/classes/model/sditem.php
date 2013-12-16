@@ -25,6 +25,7 @@ class Model_Sditem extends \Orm\Model
 			'mysql_timestamp' => false,
 		),
 	);
+	
 	protected static $_table_name = 'sditems';
 
 }

@@ -1,7 +1,6 @@
 <?php
 class Model_Item extends \Orm\Model {
 
-
     /**
      * @def 商品上架状态
      */
@@ -11,11 +10,6 @@ class Model_Item extends \Orm\Model {
      * @def 商品下架状态
      */
     const OFF_SELF = 0;
-
-    /**
-     * @def 商品工作流类型
-     */
-    const ITEM_TASK = 1;
 
     /**
      * @def 在任务列表
@@ -86,19 +80,23 @@ class Model_Item extends \Orm\Model {
               'image'   => $image,
               'images'  => serialize($post['images']),
               'status'  => self::OFF_SELF,
+              'in_task' => 0
             ];
 
         $item = new Model_Item($data);
 
         $result = false;
         if ($item and $item->save()) {
+            $phaseModel = new Model_Phase();
+            $phaseModel->add($item->id);
             $result = true;
         }
 
         // 如果是编辑复制到临时表
         $group = Auth::get('group');
         if($group == self::EDITER) {
-            $item->delete($item->id);
+            $this->_checkTask($item->id);
+
             $data['id'] = $item->id;
             $sditem = new Model_Sditem($data);
             $result = false;
@@ -108,7 +106,8 @@ class Model_Item extends \Orm\Model {
             }
         }
 
-        return $result; }
+        return $result;
+    }
 
     /**
      * 商品编辑
@@ -120,20 +119,41 @@ class Model_Item extends \Orm\Model {
      */
     public function edit($id, $post) {
 
-        $item = Model_Item::find($id);
-
+        $group = Auth::get('group');
         $image = $post['images'][0];
-        $item->title   = $post['title'];
-        $item->desc    = $post['desc'];
-        $item->price   = $post['price'];
-        $item->cate_id = $post['cate_id'];
-        $item->image   = $image;
-        $item->images  = serialize($post['images']);
-
+        $item = Model_Item::find($id);
         $result = false;
-        if ($item->save()) {
-            $this->_addTask($item->id, 'edit');
-            $result = true;
+        if($group == self::EDITER) {
+            $this->_checkTask($item->id);
+
+            $data = [
+                  'title'   => $post['title'],
+                  'desc'    => $post['desc'],
+                  'price'   => $post['price'],
+                  'cate_id' => $post['cate_id'],
+                  'image'   => $image,
+                  'images'  => serialize($post['images']),
+                  'status'  => $item->status,
+                ];
+
+            $sditem = new Model_Sditem($data);
+            if ($sditem and $sditem->save()) {
+                $this->_addTask($item->id, 'edit');
+                $result = true;
+            }
+
+        } else {
+
+            $item->title   = $post['title'];
+            $item->desc    = $post['desc'];
+            $item->price   = $post['price'];
+            $item->cate_id = $post['cate_id'];
+            $item->image   = $image;
+            $item->images  = serialize($post['images']);
+
+            if ($item->save()) {
+                $result = true;
+            }
         }
 
         return $result;
@@ -148,11 +168,17 @@ class Model_Item extends \Orm\Model {
      */
     public function remove($id) {
 
+        $group = Auth::get('group');
         $result = false;
-        if ($item = Model_Item::find($id)) {
-            $item->delete();
+        if($group == self::EDITER) {
+            $this->_checkTask($id);
             $this->_addTask($item->id, 'remove');
             $result = true;
+        } else {
+            if ($item = Model_Item::find($id)) {
+                $item->delete();
+                $result = true;
+            }
         }
 
         return $result;
@@ -209,11 +235,19 @@ class Model_Item extends \Orm\Model {
         
         $status  = $operate == 'up' ? 1 : 0;
 
-        $item = Model_Item::find($id);
-        $item->status = $status;
-        $item->save();
+        $group = Auth::get('group');
+        if($group == self::EDITER) {
+            $this->_checkTask($id);
+            $this->_addTask($id, $operate);
+        } else {
+            $item = Model_Item::find($id);
+            $item->status = $status;
+            $item->save();
 
-        $this->_addTask($id, $operate);
+            $phaseModel = new Model_Phase();
+            $phaseModel->add($item->id);
+        }
+
 
         $data = ['status' => 'success', 'operate' => $operate == 'up' ? 'down' : 'up'];
 
@@ -228,18 +262,40 @@ class Model_Item extends \Orm\Model {
      *                      add    添加
      *                      edit   编辑
      *                      remove 删除
+     *                      up     上架
+     *                      down   下架
      *
      * @return void
      */
     private function _addTask($id, $type) {
 
         $item = Model_Item::find($id);
-        $item->in_task = 1;
+        $item->in_task = self::IN_TASK;
         $item->save();
 
         $action = $this->_handleType($type);
         $taskModel = new Model_Task();
-        $taskModel->add($action, self::ITEM_TASK, $id);
+
+        $config = Config::load('common');
+
+        $taskModel->noticeAll($action, Config::get('taskType.item.typeId'), $id);
+    }
+
+    /**
+     * 检查工作流
+     *
+     * @param $id integer 商品ID
+     * 
+     * @return void
+     */
+    private function _checkTask($id) {
+
+        $item = Model_Item::find('first', ['where' => ['id' => $id], 'select' => ['in_task']]);
+
+        if($item['in_task']) {
+            Session::set_flash('success', e('商品#'.$id.'任务正在处理中, 不可操作'));
+            Response::redirect('admin/items');
+        }
     }
 
     /**
