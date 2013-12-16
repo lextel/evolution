@@ -15,6 +15,7 @@ return array(
 				6 => '018_create_posts',
 				7 => '020_create_accounts',
 				8 => '021_create_tasks',
+				9 => '022_create_sditems',
 			),
 		),
 		'module' => 

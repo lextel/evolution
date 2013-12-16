@@ -1,6 +1,7 @@
 <?php
 class Controller_Admin_Items extends Controller_Admin{
 
+
     // 商品列表
     public function action_index() {
 
@@ -25,10 +26,19 @@ class Controller_Admin_Items extends Controller_Admin{
     public function action_create() {
 
         if (Input::method() == 'POST') {
-            $itemModel = new Model_Item();
-            $rs = $itemModel->add();
-            if($rs) {
-              Response::redirect('admin/items');
+
+            $val = Model_Item::validate('create');
+            if($val->run()) {
+                $itemModel = new Model_Item();
+                $rs = $itemModel->add(Input::post());
+                if($rs) {
+                    Session::set_flash('success', e('添加成功.'));
+                    Response::redirect('admin/items');
+                } else {
+                  Session::set_flash('error', e('保存失败.'));
+                }
+            } else {
+                Session::set_flash('error', $val->error());
             }
         }
 
@@ -42,12 +52,23 @@ class Controller_Admin_Items extends Controller_Admin{
     public function action_edit($id = null) {
 
         $item = Model_Item::find($id);
+        $val  = Model_Item::validate('edit');
 
-        $itemModel = new Model_Item();
-        $rs = $itemModel->edit($id);
+        if($val->run()) {
 
-        if($rs) {
-            Response::redirect('admin/items');
+            $itemModel = new Model_Item();
+            $rs = $itemModel->edit($id, Input::post());
+            if($rs) {
+                Session::set_flash('success', e('更新成功 #' . $id));
+                Response::redirect('admin/items');
+            } else {
+                Session::set_flash('error', e('更新失败 #' . $id));
+            }
+
+        } else {
+            if (Input::method() == 'POST') {
+                Session::set_flash('error', $val->error());
+            }
         }
 
         $cates = new Classes\Cate();
@@ -60,8 +81,8 @@ class Controller_Admin_Items extends Controller_Admin{
     // 商品删除
     public function action_delete($id = null) {
 
-        if ($item = Model_Item::find($id)) {
-            $item->delete();
+        $itemModel = new Model_Item();
+        if ($itemModel->remove($id)) {
             Session::set_flash('success', e('删除成功 #'.$id));
         } else {
             Session::set_flash('error', e('删除失败 #'.$id));
@@ -81,9 +102,11 @@ class Controller_Admin_Items extends Controller_Admin{
 
     // 上下架
     public function action_operate() {
+        $id      = Input::post('id', 0);
+        $operate = Input::post('operate', 'down');
 
         $itemModel = new Model_Item();
-        $rs = $itemModel->operate();
+        $rs = $itemModel->operate($id, $operate);
 
         return json_encode($rs);
     }
@@ -91,9 +114,8 @@ class Controller_Admin_Items extends Controller_Admin{
     // test
     public function action_test() {
 
-        print_r(Auth::get_user_id());
-
-        return json_encode(Auth::get_user_id());
+        $phaseModel = new Model_Phase();
+        return json_encode($phaseModel->add(1));
     }
 
 

@@ -1,9 +1,36 @@
 <?php
 class Model_Item extends \Orm\Model {
 
-    const OFF_SELF  = 0;      // 下架
-    const ON_SELF   = 1;      // 上架
-    const ITEM_TASK = 1;      // 商品工作流类型
+
+    /**
+     * @def 商品上架状态
+     */
+    const ON_SELF = 1;
+
+    /**
+     * @def 商品下架状态
+     */
+    const OFF_SELF = 0;
+
+    /**
+     * @def 商品工作流类型
+     */
+    const ITEM_TASK = 1;
+
+    /**
+     * @def 在任务列表
+     */
+    const IN_TASK = 1;
+
+    /**
+     * @def 编辑成员标志
+     */
+    const EDITER = 1;
+
+    /**
+     * @var related
+     */
+    protected static $_has_many = array('phases');
 
     protected static $_properties = array(
         'id',
@@ -14,6 +41,7 @@ class Model_Item extends \Orm\Model {
         'price',
         'cate_id',
         'status',
+        'in_task',
         'created_at',
         'updated_at',
     );
@@ -43,80 +71,69 @@ class Model_Item extends \Orm\Model {
     /**
      * 添加商品
      *
+     * @param $post array 表单数据
+     *
      * @return boolean 是否添加成功
      */
-    public function add() {
+    public function add($post) {
 
-        $val = $this->validate('create');
+        $image = $post['images'][0];
+        $data = [
+              'title'   => $post['title'],
+              'desc'    => $post['desc'],
+              'price'   => $post['price'],
+              'cate_id' => $post['cate_id'],
+              'image'   => $image,
+              'images'  => serialize($post['images']),
+              'status'  => self::OFF_SELF,
+            ];
+
+        $item = new Model_Item($data);
 
         $result = false;
-        if ($val->run()) {
-            $image = Input::post('images')[0];
-            $data = [
-                  'title' => Input::post('title'),
-                  'desc' => Input::post('desc'),
-                  'price' => Input::post('price'),
-                  'cate_id' => Input::post('cate_id'),
-                  'image' => $image,
-                  'images' => serialize(Input::post('images')),
-                  'status' => self::OFF_SELF,
-                ];
-
-            $item = new Model_Item($data);
-
-            if ($item and $item->save()) {
-                Session::set_flash('success', e('添加成功 #'.$item->id.'.'));
-                $this->_addTask($item->id, 'add');
-                $result = true;
-            } else {
-                Session::set_flash('error', e('保存失败.'));
-            }
-        } else {
-            Session::set_flash('error', $val->error());
+        if ($item and $item->save()) {
+            $result = true;
         }
 
-        return $result;
-    }
+        // 如果是编辑复制到临时表
+        $group = Auth::get('group');
+        if($group == self::EDITER) {
+            $item->delete($item->id);
+            $data['id'] = $item->id;
+            $sditem = new Model_Sditem($data);
+            $result = false;
+            if($sditem && $sditem->save()) {
+                $this->_addTask($item->id, 'add');
+                $result = true;
+            }
+        }
+
+        return $result; }
 
     /**
      * 商品编辑
      *
-     * @param $id integer 商品ID
+     * @param $id   integer 商品ID
+     * @param $post array   表单数据
      *
      * @return boolean 是否更新成功
      */
-    public function edit($id) {
+    public function edit($id, $post) {
 
         $item = Model_Item::find($id);
-        $val  = Model_Item::validate('edit');
+
+        $image = $post['images'][0];
+        $item->title   = $post['title'];
+        $item->desc    = $post['desc'];
+        $item->price   = $post['price'];
+        $item->cate_id = $post['cate_id'];
+        $item->image   = $image;
+        $item->images  = serialize($post['images']);
 
         $result = false;
-        if ($val->run()) {
-            $image = Input::post('images')[0];
-            $item->title = Input::post('title');
-            $item->desc = Input::post('desc');
-            $item->price = Input::post('price');
-            $item->cate_id = Input::post('cate_id');
-            $item->image = $image;
-            $item->images = serialize(Input::post('images'));
-
-            if ($item->save()) {
-                Session::set_flash('success', e('更新成功 #' . $id));
-                $this->_addTask($item->id, 'edit');
-                $result = true;
-            } else {
-                Session::set_flash('error', e('更新失败 #' . $id));
-            }
-        } else {
-            if (Input::method() == 'POST') {
-                $item->title = $val->validated('title');
-                $item->desc = $val->validated('desc');
-                $item->price = $val->validated('price');
-                $item->cate_id = $val->validated('cate_id');
-                $item->images = $val->validated('images');
-
-                Session::set_flash('error', $val->error());
-            }
+        if ($item->save()) {
+            $this->_addTask($item->id, 'edit');
+            $result = true;
         }
 
         return $result;
@@ -131,14 +148,11 @@ class Model_Item extends \Orm\Model {
      */
     public function remove($id) {
 
+        $result = false;
         if ($item = Model_Item::find($id)) {
             $item->delete();
-            Session::set_flash('success', e('删除成功 #'.$id));
             $this->_addTask($item->id, 'remove');
             $result = true;
-        } else {
-            Session::set_flash('error', e('删除失败 #'.$id));
-            $result = false;
         }
 
         return $result;
@@ -191,11 +205,8 @@ class Model_Item extends \Orm\Model {
      *
      * @return array 返回ajax结果
      */
-    public function operate() {
+    public function operate($id, $operate) {
         
-        $id = Input::post('id', 0);
-
-        $operate = Input::post('operate', 'down');
         $status  = $operate == 'up' ? 1 : 0;
 
         $item = Model_Item::find($id);
@@ -204,7 +215,7 @@ class Model_Item extends \Orm\Model {
 
         $this->_addTask($id, $operate);
 
-        $data = ['status' => 'success', 'operate' => $status == 1 ? 'down' : 'up'];
+        $data = ['status' => 'success', 'operate' => $operate == 'up' ? 'down' : 'up'];
 
         return $data;
     }
@@ -221,6 +232,10 @@ class Model_Item extends \Orm\Model {
      * @return void
      */
     private function _addTask($id, $type) {
+
+        $item = Model_Item::find($id);
+        $item->in_task = 1;
+        $item->save();
 
         $action = $this->_handleType($type);
         $taskModel = new Model_Task();
