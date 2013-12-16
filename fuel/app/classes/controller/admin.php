@@ -40,16 +40,15 @@ class Controller_Admin extends Controller_Base
 	{
 		// Already logged in
 		//$this->auth = Auth::instance('Simpleauth');
-		$this->auth->check() and Response::redirect('admin');
+		$this->auth->check() and Response::redirect('admin');   
+        $val = Validation::forge();
 
-		$val = Validation::forge();
-
-		if (Input::method() == 'POST')
-		{
-			$val->add('email', 'Email or Username')
-			    ->add_rule('required');
-			$val->add('password', 'Password')
-			    ->add_rule('required');
+        if (Input::method() == 'POST')
+        {
+            $val->add('email', 'Email or Username')
+                ->add_rule('required');
+            $val->add('password', 'Password')
+                ->add_rule('required');
 
 			if ($val->run())
 			{
@@ -79,9 +78,9 @@ class Controller_Admin extends Controller_Base
 			}
 		}
 
-		$this->template->title = 'Login';
-		$this->template->content = View::forge('admin/login', array('val' => $val), false);
-	}
+        $this->template->title = 'Login';
+        $this->template->content = View::forge('admin/login', array('val' => $val), false);
+    }
 
 	/**
 	 * The logout action.
@@ -95,17 +94,18 @@ class Controller_Admin extends Controller_Base
 		Response::redirect('admin');
 	}
 
-	/**
-	 * The index action.
-	 *
-	 * @access  public
-	 * @return  void
-	 */
-	public function action_index()
-	{
-		$this->template->title = 'Dashboard';
-		$this->template->content = View::forge('admin/dashboard');
-	}
+
+    /**
+     * The index action.
+     *
+     * @access  public
+     * @return  void
+     */
+    public function action_index()
+    {
+        $this->template->title = 'Dashboard';
+        $this->template->content = View::forge('admin/dashboard');
+    }
 
 }
 

@@ -33,6 +33,16 @@ class Model_Phase extends \Orm\Model
 
     protected static $_table_name = 'phases';
 
+    /**
+     * 添加期数
+     *
+     */
+    public function add($id) {
+        $rs = Model_Item::find('all', ['related' => ['phases'], 'where' => ['id' => $id, 'status' => self::ON_SELF], 'order_by' => ['phases.id' => 'desc'], 'limit' => 1]);
+
+        return $rs;
+
+    }
 
 
 }
