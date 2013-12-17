@@ -68,21 +68,27 @@ class Controller_Member extends Controller_Center{
 
 	public function action_profile($id = null)
 	{
-		$member = Model_Member::validate('edit');
-		if ($member->run())
+		$member = Model_Member_Info::find($this->current_user->id);
+		$val = Model_Member_Info::validate('edit');
+		if ($val->run())
 		{
 			$member->nickname = Input::post('nickname');	
-			$member->bio = Input::post('bio');
-			$member->mobile = Input::post('mobile');
+			$member->local = Input::post('local');
+			$member->address = Input::post('address');
+			$member->gender = Input::post('gender');
+			$member->birth = Input::post('birth');
+			$member->qq = Input::post('qq');
+			$member->horoscope = Input::post('horoscope');
+			$member->salary = Input::post('salary');
+            var_dump($this->current_user);
 			if ($member->save())
 			{
-				Session::set_flash('success', 'Updated member #' . $id);
-
-				Response::redirect('member');
+				Session::set_flash('success', '更新个人设置');
+				Response::redirect('/u');
 			}
 			else
 			{
-				Session::set_flash('error', 'Could not update member #' . $id);
+				Session::set_flash('error', '更新个人设置失败');
 			}
 		}
 
@@ -90,10 +96,10 @@ class Controller_Member extends Controller_Center{
 		{
 			if (Input::method() == 'POST')
 			{
-				$member->nickname = $val->validated('nickname');
-				$member->bio = $val->validated('bio');
-				$member->mobile = $val->validated('mobile');
-				Session::set_flash('error', $val->error());
+				$member->nickname = $member->validated('nickname');
+				$member->bio = $member->validated('bio');
+				$member->mobile = $member->validated('mobile');
+				Session::set_flash('error', $member->error());
 			}
 
 			$this->template->set_global('member', $member, false);

@@ -35,7 +35,7 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 			static::$remember_me = \Session::forge(array(
 				'driver' => 'cookie',
 				'cookie' => array(
-					'cookie_name' => \Config::get('memberauth.remember_me.cookie_name', 'rmcookie'),
+					'cookie_name' => \Config::get('memberauth.remember_me.cookie_name', 'mrmcookie'),
 				),
 				'encrypt_cookie' => true,
 				'expire_on_close' => false,

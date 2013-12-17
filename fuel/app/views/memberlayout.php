@@ -49,7 +49,7 @@
                 <li>
                     <!--登录成功-->
                     <div class="portrait-side">
-                        <a href="/u" class="top-portrait"><img src="img/login_bg3.jpg"/><?php echo 'ceshi';?></a>
+                        <a href="/u" class="top-portrait"><img src="img/login_bg3.jpg"/><?php echo $current_user->username;?></a>
                         <a href="/signout" class="navbar-link">[退出]</a>
                     </div>
                 </li>

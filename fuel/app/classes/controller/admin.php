@@ -15,7 +15,6 @@ class Controller_Admin extends Controller_Base
     
     private function admincheck()
     {
-   
 		if ($this->auth->check())
 		{
 			$admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
@@ -84,7 +83,7 @@ class Controller_Admin extends Controller_Base
 	public function action_logout()
 	{
 		$this->auth->logout();
-		Response::redirect('admin');
+		Response::redirect('/admin/login');
 	}
 
 
