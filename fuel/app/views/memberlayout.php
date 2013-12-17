@@ -49,7 +49,7 @@
                 <li>
                     <!--登录成功-->
                     <div class="portrait-side">
-                        <a href="" class="top-portrait"><img src="img/login_bg3.jpg"/>火枪中路必胜</a>
+                        <a href="/u" class="top-portrait"><img src="img/login_bg3.jpg"/><?php echo 'ceshi';?></a>
                         <a href="/signout" class="navbar-link">[退出]</a>
                     </div>
                 </li>
@@ -82,10 +82,10 @@
             <div class="nav-menu">
                 <dl>
                     <dt><i class="fa fa-cog"></i><a href="javascript:void(0);">个人资料</a></dt>
-                    <dd class="active"><a href="javascript:void(0);">基本资料</a></dd>
-                    <dd><a href="javascript:void(0);">修改头像</a></dd>
-                    <dd><a href="javascript:void(0);">密码修改</a></dd>
-                    <dd><a href="javascript:void(0);">收货地址</a></dd>
+                    <dd class="active"><?php echo Html::anchor('u/profile', '基本资料');?></dd>
+                    <dd><?php echo Html::anchor('u/avatar', '修改头像');?></dd>
+                    <dd><?php echo Html::anchor('u/passwd', '密码修改');?></dd>
+                    <dd><?php echo Html::anchor('u/address', '收货地址');?></dd>
                     <dd><?php echo Html::anchor('u/friends', '好友管理');?></dd>
                 </dl>
                 <dl>

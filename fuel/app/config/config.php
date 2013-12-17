@@ -334,6 +334,11 @@ return array(
                 'path' => DOCROOT.'upload'.DS.'item'.DS.'origin',
                 'randomize' => true,
                 'ext_whitelist' => ['img', 'jpg', 'jpeg', 'gif', 'png'],
+            ],
+            'avatar' => [
+                'path' => DOCROOT.'upload'.DS.'avatar'.DS.'origin',
+                'randomize' => true,
+                'ext_whitelist' => ['img', 'jpg', 'jpeg', 'png'],
             ]
         ],
         'navs' => [

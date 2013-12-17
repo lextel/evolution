@@ -94,6 +94,7 @@ class Controller_Center extends Controller_Template
     
     public function action_signup()
 	{
+
 		$this->auth->check() and Response::redirect('/u');
 		$val = Validation::forge();
 		if (Input::method() == 'POST')
@@ -110,6 +111,7 @@ class Controller_Center extends Controller_Template
 				$password = Input::post('password');
 				try{
 				    $user = $this->auth->create_user($username, $password, $username);
+				    
 					if ($this->auth->check() or $user)
 					{
 						$current_user = Model_Member::find_by_username($this->auth->get_screen_name());
@@ -127,43 +129,6 @@ class Controller_Center extends Controller_Template
 			}
 		}
 		return Response::forge(View::forge('member/signup', array('val' => $val), false));
-	}
-
-	/**
-	 * The index action.
-	 *
-	 * @access  public
-	 * @return  void
-	 */
-	public function action_changepassword()
-	{
-		$val = Validation::forge();
-		if (Input::method() == 'POST')
-		{
-			$val->add('old_password', 'Password')
-			    ->add_rule('required');
-			$val->add('new_password', 'Password')
-			    ->add_rule('required');
-            
-			if ($val->run())
-			{
-				// check the credentials. This assumes that you have the previous table created
-				$old_password = Input::post('old_password');
-				$new_password = Input::post('new_password');
-				$res = $this->auth->change_password($old_password, $new_password, $username);
-				if ($res)
-				{
-					$current_user = Model_Member::find_by_username($this->auth->get_screen_name());
-					Session::set_flash('success', e('Welcome singnup, '.$current_user->username));
-					Response::redirect('/u');
-				}
-				else
-				{
-					$this->template->set_global('signup_error', 'Fail');
-				}
-			}
-		}
-		return Response::forge(View::forge('member/change_password', array('val' => $val), false));
 	}
 	/**
     * forgot the password

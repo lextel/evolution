@@ -6,13 +6,20 @@ return array(
 	'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),
 	//'account(/:user_id)?' => array('account/index', 'user_id'=>'index'),
 	'signin' => 'center/signin',
-	'signup' => 'center/signup',
 	'signout' => 'center/signout',
-	'u/passwd/forgot' => 'center/forgotpassword',
+	'signup' => 'center/signup',
+
+	'center' => 'member/index',
+
 	'u' => 'member/index',
 	'u/(\d+)' => 'welcome/hello',
-	'center' => 'member/index',
+	'u/address' => 'member/address',
+	'u/avatar' => 'member/avatar',
+	'u/friends' => 'friends/list',	
+	'u/passwd' => 'member/changepassword',
+	'u/passwd/forgot' => 'center/forgotpassword',
+	'u/profile' => 'member/profile',
 	'u/orders' => 'orders/my',
-	'u/friends' => 'friends/list',
+	
 );
 
