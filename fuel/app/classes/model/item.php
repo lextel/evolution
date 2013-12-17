@@ -63,6 +63,13 @@ class Model_Item extends \Orm\Model {
     }
 
     /**
+     * 首页列表
+     *
+     */
+    public function index() {
+    }
+
+    /**
      * 添加商品
      *
      * @param $post array 表单数据

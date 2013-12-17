@@ -32,6 +32,6 @@ class Model_Order extends \Orm\Model
 
         list(, $userId) = Auth::get_user_id();
 
-        return Model_Order::find('all', ['where' => ['mid' => $userId]]);
+        return Model_Order::find('all', ['where' => ['mid' => $userId], 'order_by' => ['created_at' => 'desc']]);
     }
 }

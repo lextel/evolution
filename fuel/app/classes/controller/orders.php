@@ -2,7 +2,7 @@
 
 class Controller_Orders extends Controller_Center
 {
-  public $template = 'memberlayout';
+    public $template = 'memberlayout';
 
     public function action_index()
     {

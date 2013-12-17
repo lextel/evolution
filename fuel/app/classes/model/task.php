@@ -82,7 +82,4 @@ class Model_Task extends \Orm\Model
         if(!$rs) Log::error('Task: add error owner@' . $ownerId . ' user@' . $userId . ' action@'. $action . ' typeId@' . $typeId . ' objId@' . $objId);
 
     }
-
-
-
 }
