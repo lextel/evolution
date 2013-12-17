@@ -40,16 +40,16 @@
                         <span class="fa-lock"></span>
                     </div>
                     <div class="form-group">
-                        <a href="#" class="btn-link">忘记密码?</a>
+                        <?php echo Html::anchor('u/passwd/forgot', '忘记密码？', array('class' => 'btn-link'));?>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success btn-block">登录</button>
                     </div>
                     <div class="form-group registering">
                         <span  class=" help-block">可以用其他登录方式</span>
-                        <a class="btn-link" href="">QQ登录</a>
-                        <a class="btn-link" href="">新浪登录</a>
-                        <a class="btn-link" href="">马上注册</a>
+                        <?php echo Html::anchor('signup', 'QQ登录', array('class' => 'btn-link'));?>
+                        <?php echo Html::anchor('signup', '新浪登录', array('class' => 'btn-link'));?>
+                        <?php echo Html::anchor('signup', '马上注册', array('class' => 'btn-link'));?>
                     </div>
 
                 </form>

@@ -2,13 +2,13 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title><?php echo $title; ?></title>
+    <title>找回密码</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <?php echo Asset::css('bootstrap.min.css');?>
+    <?php echo Asset::css('/member/bootstrap.min.css');?>
     <?php echo Asset::css('member/comme.css');?>
     <?php echo Asset::css('member/font-awesome.min.css');?>
-    <?php echo Asset::js(['jquery.min.js', 'bootstrap.min.js', 'common.js']);?>
+    <?php echo Asset::js(array('jquery.min.js', 'bootstrap.min.js', 'common.js', 'holder.js'));?>
     <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
     <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -23,18 +23,36 @@
 </head>
 <body>
 <!--导航开始-->
-<div class="navbar navbar-inverse" role="navigation">
+<div class="navbar navbar-default " role="navigation">
     <div class="container">
         <div class="nav-header">
-            <a class="navbar-brand" href="">乐乐淘</a>
+            <a class="navbar-brand" href="">logo</a>
             <a class="navbar-brand" href="">用户中心</a>
         </div>
         <div class="collapse navbar-collapse ">
             <ul class="nav navbar-nav">
                 <li><a href="">首页</a></li>
-                <li class="active"><a href="">我的主页</a></li>
+                <li class="active"><a href="">个人主页</a></li>
                 <li><a href="">晒单</a></li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">设置
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">安全设置</a></li>
+                        <li><a href="">资料修改</a></li>
+                        <li><a href="">好友管理</a></li>
+                        <li><a href="">收货地址</a></li>
+                        <li><a href="">充值</a></li>
+                    </ul>
+                </li>
             </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+                <button type="submit" class="btn btn-danger">搜索</button>
+            </form>
             <!--<ul class="nav navbar-nav navbar-right">
                 <li>
                     <div class="navbar-text ">
@@ -46,13 +64,8 @@
             </ul>
             -->
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <!--登录成功-->
-                    <div class="portrait-side">
-                        <a href="/u" class="top-portrait"><img src="img/login_bg3.jpg"/><?php echo 'ceshi';?></a>
-                        <a href="/signout" class="navbar-link">[退出]</a>
-                    </div>
-                </li>
+                <li><a href="longin.html">登录</a></li>
+                <li><a href="register.html">注册</a></li>
                 <li class="dropdown">
                     <a href="usercenter-edit.html" class="dropdown-toggle" data-toggle="dropdown">设置
                         <span class="caret"></span>
@@ -65,8 +78,6 @@
                         <li><a href="">找回密码</a></li>
                     </ul>
                 </li>
-                <li><a href=""><i class="glyphicon glyphicon-envelope"></i></a></li>
-                <li><a href=""><i class="glyphicon glyphicon-usd"></i></a></li>
             </ul>
         </div>
     </div>
@@ -75,33 +86,24 @@
 <!--中间内容开始-->
 <div class="container">
     <div class="row">
-        <div class="col-md-2 col-md-offset-1">
-            <div class="user-title">
-                <h3>用户中心</h3>
-            </div>
-            <div class="nav-menu">
-                <dl>
-                    <dt><i class="fa fa-cog"></i><a href="javascript:void(0);">个人资料</a></dt>
-                    <dd class="active"><?php echo Html::anchor('u/profile', '基本资料');?></dd>
-                    <dd><?php echo Html::anchor('u/avatar', '修改头像');?></dd>
-                    <dd><?php echo Html::anchor('u/passwd', '密码修改');?></dd>
-                    <dd><?php echo Html::anchor('u/address', '收货地址');?></dd>
-                    <dd><?php echo Html::anchor('u/friends', '好友管理');?></dd>
-                </dl>
-                <dl>
-                    <dt><i class="fa fa-credit-card"></i><a href="">其他</a></dt>
-                    <dd><?php echo Html::anchor('u/orders', '购买记录');?></dd>
-                    <dd><a href="javascript:void(0);">中奖记录</a></dd>
-                    <dd><a href="javascript:void(0);">晒单</a></dd>
-                    <dd><a href="javascript:void(0);">充值</a></dd>
-                </dl>
-            </div>
-
-        </div>
-        <div class="col-md-9" role="main">
-            <div class="panel panel-default main">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-primary ">
+                <div class="panel-heading">找回密码</div>
                 <div class="panel-body">
-                    <?php echo $content; ?>
+                    <form action="" class="col-md-5 col-md-offset-3">
+                        <div class="form-group">
+                            <label for="" class="control-label">请输入您要找回密码的通行证帐号</label>
+                            <input type="text" type="text" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="control-label">请输入您绑定的邮箱</label>
+                            <input type="text" type="text" class="form-control"/>
+                        </div>
+                        <button class="btn btn-primary">发送邮件</button>
+                    </form>
+                </div>
+                <div class="panel-body">
+                    <div for="" class="col-md-offset-3">发送成功！<a href="">点击查看邮箱</a></div>
                 </div>
             </div>
         </div>

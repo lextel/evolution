@@ -6,19 +6,7 @@ return array(
 		array(
 			'default' => 
 			array(
-				0 => '001_create_project_entries',
-				1 => '002_create_users',
-				2 => '003_create_items',
-				3 => '015_create_adminsms',
-				4 => '016_create_posts',
-				5 => '017_create_phases',
-				6 => '018_create_posts',
-				7 => '020_create_accounts',
-				8 => '021_create_tasks',
-				9 => '022_create_members',
-				10 => '022_create_sditems',
-				11 => '023_create_friends',
-				12 => '024_create_orders',
+
 			),
 		),
 		'module' => 

@@ -33,7 +33,7 @@ class Controller_Center extends Controller_Template
 			if ( Request::active()->controller == 'Controller_Member')
 			{
 				Session::set_flash('error', e('You don\'t have access to the admin panel'));
-				Response::redirect('/center');
+				Response::redirect('/u');
 			}
 		}
 		else
@@ -45,7 +45,7 @@ class Controller_Center extends Controller_Template
 	public function action_signin()
 	{
 		// Already logged in
-		$this->auth->check() and Response::redirect('/center');
+		$this->auth->check() and Response::redirect('/u');
 		$val = Validation::forge();
 		if (Input::method() == 'POST')
 		{
@@ -69,8 +69,7 @@ class Controller_Center extends Controller_Template
 						$current_user = Model_Member::find_by_username($this->auth->get_screen_name());
 					}
 					Session::set_flash('success', e('Welcome denglu, '.$current_user->username));
-					Response::redirect('/center');
-					$this->auth->remember_me();
+					Response::redirect('/u');
 				}
 				else
 				{
@@ -78,8 +77,6 @@ class Controller_Center extends Controller_Template
 				}
 			}
 		}
-
-		//$this->template->title = 'Login';
 		return Response::forge(View::forge('member/signin', array('val' => $val), false));
 	}
 
@@ -97,7 +94,8 @@ class Controller_Center extends Controller_Template
     
     public function action_signup()
 	{
-		$this->auth->check() and Response::redirect('/center');
+
+		$this->auth->check() and Response::redirect('/u');
 		$val = Validation::forge();
 		if (Input::method() == 'POST')
 		{
@@ -111,32 +109,38 @@ class Controller_Center extends Controller_Template
 				// check the credentials. This assumes that you have the previous table created
 				$username = Input::post('username');
 				$password = Input::post('password');
-				$user = $this->auth->create_user($username, $password, $username);
-				if ($this->auth->check() or $user)
-				{
-					$current_user = Model_Member::find_by_username($this->auth->get_screen_name());
-					Session::set_flash('success', e('Welcome singnup, '.$current_user->username));
-					Response::redirect('/center');
-				}
-				else
-				{
+				try{
+				    $user = $this->auth->create_user($username, $password, $username);
+				    
+					if ($this->auth->check() or $user)
+					{
+						$current_user = Model_Member::find_by_username($this->auth->get_screen_name());
+						Session::set_flash('success', e('Welcome singnup, '.$current_user->username));
+						Response::redirect('/u');
+					}
+					else
+					{
+						$this->template->set_global('signup_error', 'Fail');
+					}
+				}catch (Exception $e){
 					$this->template->set_global('signup_error', 'Fail');
 				}
+				
 			}
 		}
 		return Response::forge(View::forge('member/signup', array('val' => $val), false));
 	}
-
 	/**
-	 * The index action.
-	 *
-	 * @access  public
-	 * @return  void
-	 */
-	public function action_index()
+    * forgot the password
+    * it will send a email to the user Email
+    * @access public
+	* @return void
+	*/
+	public function action_forgotpassword()
 	{
-		$this->template->title = 'Dashboard';
-		$this->template->content = View::forge('member/index');
+		
+		//$this->template->title = 'Dashboard';
+		return Response::forge(View::forge('member/forgot'));
 	}
 
 }
