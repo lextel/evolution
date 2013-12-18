@@ -13,7 +13,6 @@ return array(
 	'u/(\d+)' => 'welcome/hello',
 	'u/address' => 'member/address',
 	'u/avatar' => 'member/avatar',
-	'u/friends' => 'friends/list',	
 	'u/passwd' => 'member/changepassword',
 	'u/passwd/forgot' => 'center/forgotpassword',
 	'u/profile' => 'member/profile',
@@ -21,7 +20,7 @@ return array(
     'u/friends' => 'friends/my',
     'u/follow' => 'friends/follow',
     'u/unfollow' => 'friends/unfollow',
+    'm/(\d+)'=> 'items/view/$1',
     'm' => 'items/index',
-    'm/(\d+)' => 'items/view',
 );
 

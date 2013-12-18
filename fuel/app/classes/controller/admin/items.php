@@ -110,6 +110,23 @@ class Controller_Admin_Items extends Controller_Admin{
         return json_encode($rs);
     }
 
+    // 编辑器上传图片
+    public function action_editorUpload() {
+
+        if(Input::get('fetch')) {
+            Config::load('upload');
+            $path = Config::get('editor.path');
+
+            return $path;
+        }
+
+        $itemModel = new Model_Item();
+        $files = $itemModel->editorUpload();
+
+
+        return json_encode([$files]);
+    }
+
     // test
     public function action_test() {
 

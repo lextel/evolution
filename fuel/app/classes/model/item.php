@@ -24,8 +24,11 @@ class Model_Item extends \Orm\Model {
     /**
      * @var related
      */
-    protected static $_has_many = array('phases');
+    protected static $_has_many = ['phases', 'lotteries'];
 
+    /**
+     * @var 定义模型属性
+     */
     protected static $_properties = array(
         'id',
         'title',
@@ -40,6 +43,9 @@ class Model_Item extends \Orm\Model {
         'updated_at',
     );
 
+    /**
+     * @var 定义事件
+     */
     protected static $_observers = array(
         'Orm\Observer_CreatedAt' => array(
             'events' => array('before_insert'),
@@ -51,6 +57,9 @@ class Model_Item extends \Orm\Model {
         ),
     );
 
+    /**
+     * 验证设置
+     */
     public static function validate($factory)    {
         $val = Validation::forge($factory);
         $val->add_field('title', '标题', 'required|max_length[255]');
@@ -67,6 +76,32 @@ class Model_Item extends \Orm\Model {
      *
      */
     public function index() {
+
+        return [];
+    }
+
+    /**
+     * 商品详情
+     *
+     * @param $phaseId integer 期数ID
+     *
+     * @return array 商品数据
+     */
+    public function view($phaseId) {
+
+        return Model_Item::find('last', ['related' => 'phases', 'where' => ['phases.id' => $phaseId]]);
+    }
+
+    /**
+     * 上一期获奖者
+     *
+     * @param $id integer 商品ID
+     *
+     * @return array 上一期信息
+     */
+    public function prevWinner($id) {
+
+        return Model_Item::find('last', ['related' => 'lotteries', 'where' => ['lotteries.item_id' => $id]]);
     }
 
     /**

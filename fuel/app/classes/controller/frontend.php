@@ -6,8 +6,15 @@ class Controller_Frontend extends Controller_Template {
      * @var auth 实例对象
      */
     public $auth;
+
+    /**
+     * @var 当前用户信息
+     */
     public $current_user;
 
+    /**
+     * 获取当前登陆信息并赋值到view层
+     */
     public function before() {
 
         parent::before();

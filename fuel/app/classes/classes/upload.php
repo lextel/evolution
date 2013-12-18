@@ -33,19 +33,19 @@ class Upload {
      *
      * @return void
      */
-    public function __construct($type) {
+    public function __construct($type = '') {
 
         $this->_config = Config::get('upload.'.$type);
     }
 
     /**
-     * 获取配置
+     * 配置
      *
      * @return array
      */
-    public function getConfig() {
+    public function setConfig($config) {
 
-        return $this->_config;
+        return $this->_config = $config;
     }
 
     /**
