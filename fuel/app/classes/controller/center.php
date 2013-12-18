@@ -111,7 +111,7 @@ class Controller_Center extends Controller_Template
 				$password = Input::post('password');
 				try{
 				    $user = $this->auth->create_user($username, $password, $username);
-				    
+
 					if ($this->auth->check() or $user)
 					{
 						$current_user = Model_Member::find_by_username($this->auth->get_screen_name());

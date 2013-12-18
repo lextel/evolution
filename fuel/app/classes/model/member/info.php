@@ -2,10 +2,12 @@
 
 class Model_Member_Info extends \Orm\Model
 {
+	protected static $_table_name = 'member_infos';
+
 	protected static $_properties = array(
 		'id',
 		'uid',
-		'username',
+		'nickname',
 		'local',
 		'address',
 		'gender',
@@ -27,6 +29,14 @@ class Model_Member_Info extends \Orm\Model
 			'mysql_timestamp' => false,
 		),
 	);
-	protected static $_table_name = 'member_infos';
 
+    
+    public static function validate($factory)
+	{
+		$val = Validation::forge($factory);
+		$val->add_field('nickname', '', 'required|max_length[255]');
+		$val->add_field('local', '', 'required');
+		$val->add_field('gender', '', 'required');
+		return $val;
+	}
 }

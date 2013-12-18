@@ -50,7 +50,7 @@ return array(
 	 * Note that this is less secure, as session hijacking countermeasures have to
 	 * be disabled for this to work!
 	 */
-	'multiple_logins' => true,
+	'multiple_logins' => false,
 
 	/**
 	 * Remember-me functionality
@@ -59,12 +59,12 @@ return array(
 		/**
 		 * Whether or not remember me functionality is enabled
 		 */
-		'enabled' => true,
+		'enabled' => false,
 
 		/**
 		 * Name of the cookie used to record this functionality
 		 */
-		'cookie_name' => 'rmcookie',
+		'cookie_name' => 'mrmcookie',
 
 		/**
 		 * Remember me expiration (default: 31 days)
