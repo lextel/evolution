@@ -65,10 +65,18 @@ class Controller_Member extends Controller_Center{
         $this->template->content = View::forge('member/avatar', $data);
     }
 
+    public function action_getprofile($id = null)
+    {
+    	$member = Model_Member_Info::find_by_uid($this->current_user->id);
+		$val = Model_Member_Info::validate('edit');
+		$this->template->title = "用户基本设置";
+		$this->template->content = View::forge('member/profile');
 
-	public function action_profile($id = null)
+    }
+	public function action_postprofile($id = null)
 	{
-		$member = Model_Member_Info::find($this->current_user->id);
+		!Input::method() == 'POST' and Response::redirect('/u/profile');
+		$member = Model_Member_Info::find_by_uid($this->current_user->id);
 		$val = Model_Member_Info::validate('edit');
 		if ($val->run())
 		{
@@ -103,11 +111,7 @@ class Controller_Member extends Controller_Center{
 			}
 
 			$this->template->set_global('member', $member, false);
-		}
-
-		$this->template->title = "Members";
-		$this->template->content = View::forge('member/profile');
-
+	    }
 	}
 	/**
 	 * The index action.
