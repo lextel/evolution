@@ -1,7 +1,7 @@
 <?php
 
-class Controller_Base extends Controller_Template {
-    //public 
+class Controller_Baseend extends Controller_Template {
+    //public
     public $auth;
     public function before()
     {
