@@ -1,5 +1,6 @@
 <?php
-class Controller_Admin_Items extends Controller_Admin{
+
+class Controller_Admin_Items extends Controller_Admin {
 
     // 商品列表
     public function action_index() {
@@ -115,14 +116,13 @@ class Controller_Admin_Items extends Controller_Admin{
 
         if(Input::get('fetch')) {
             Config::load('upload');
-            $path = Config::get('editor.path');
+            $path = Config::get('editor.savePath');
 
             return $path;
         }
 
         $itemModel = new Model_Item();
         $files = $itemModel->editorUpload();
-
 
         return json_encode([$files]);
     }

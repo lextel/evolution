@@ -22,6 +22,16 @@ class Model_Item extends \Orm\Model {
     const EDITER = 1;
 
     /**
+     * @def 未删除
+     */
+    const NOT_DELETE = 0;
+
+    /**
+     * @def 已审核
+     */
+    const CHECK_PASS = 1;
+
+    /**
      * @var related
      */
     protected static $_has_many = ['phases', 'lotteries'];
@@ -37,8 +47,9 @@ class Model_Item extends \Orm\Model {
         'desc',
         'price',
         'cate_id',
+        'brand_id',
         'status',
-        'in_task',
+        'is_delete',
         'created_at',
         'updated_at',
     );
@@ -67,6 +78,7 @@ class Model_Item extends \Orm\Model {
         $val->add_field('desc', '描述', 'required');
         $val->add_field('price', '价格', 'required|valid_string[numeric]');
         $val->add_field('cate_id', '分类', 'required|valid_string[numeric]');
+        $val->add_field('brand_id', '品牌', 'required|valid_string[numeric]');
 
         return $val;
     }
@@ -74,10 +86,57 @@ class Model_Item extends \Orm\Model {
     /**
      * 首页列表
      *
+     * @param $options 筛选条件 & 排序条件
+     *
+     * @return array 商品列表
      */
-    public function index() {
+    public function index($options = []) {
 
-        return [];
+        $phases = Model_Phase::find('all', ['where' => ['opentime' => 0]]);
+        $items = [];
+        $itemModel = new Model_Item();
+        foreach($phases as $phase) {
+            $items[] = $itemModel->itemInfo($phase);
+        }
+
+        return $items;
+    }
+
+    /**
+     * 统计商品数目
+     *
+     * @param $options 筛选条件 & 排序条件
+     *
+     * @return integer
+     */
+    public function countItem($options) {
+
+        $itemModel = new Model_Item();
+        $where = $itemModel->handleWhere($options);
+
+    }
+
+    /**
+     * 解析options获得where条件
+     *
+     * @param $options 筛选条件 & 排序条件
+     *
+     * @return array
+     */
+    public function handleWhere($options) {
+
+        $where = [];
+        if(isset($options['cateId']) && $options['cateId']) {
+            $where += ['cate_id' => $options['cateId']];
+        }
+
+        if(isset($options['brandId']) && $options['brandId']) {
+            $where += ['brand_id' => $options['brandId']];
+        }
+
+        $where += ['is_delete' => self::NOT_DELETE, 'status' => self::CHECK_PASS];
+
+        return $where;
     }
 
     /**
@@ -89,7 +148,35 @@ class Model_Item extends \Orm\Model {
      */
     public function view($phaseId) {
 
-        return Model_Item::find('last', ['related' => 'phases', 'where' => ['phases.id' => $phaseId]]);
+        $phase = Model_Phase::find($phaseId);
+        $itemModel = new Model_Item();
+        $item = $itemModel->itemInfo($phase);
+
+        return $item;
+    }
+
+    /**
+     * 获取商品信息
+     *
+     * @param $phase object 单个期数对象
+     *
+     * @return obj 带期数的商品对象
+     *             $item->phase
+     */
+    public function itemInfo($phase) {
+
+        $item = [];
+        if($phase) {
+            $where = [
+                'id'        => $phase->item_id, 
+                'is_delete' => self::NOT_DELETE, 
+                'status'    => self::CHECK_PASS
+               ];
+            $item = Model_Item::find('first', ['where' => $where]);
+            $item->phase = $phase;
+        }
+
+        return $item;
     }
 
     /**
@@ -246,6 +333,22 @@ class Model_Item extends \Orm\Model {
                 $rs[$key]['path'] = $this->thumb($val['path'], '60x60');
                 $rs[$key]['image'] = $image->path2url($val['path']);
             }
+        }
+
+        return $rs;
+    }
+
+    /**
+     * 编辑器上传图片
+     *
+     */
+    public function editorUpload() {
+        $upload = new Classes\Upload('item');
+        $success = $upload->upload();
+
+        $rs = [];
+        if($success) {
+            $rs = $upload->getFiles();
         }
 
         return $rs;

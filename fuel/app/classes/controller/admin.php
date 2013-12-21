@@ -28,7 +28,6 @@ class Controller_Admin extends Controller_Baseend
         {
             Response::redirect('admin/login');
         }
-
     }
 
     public function action_login()

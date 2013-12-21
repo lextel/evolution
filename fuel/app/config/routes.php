@@ -1,6 +1,6 @@
 <?php
 return array(
-    '_root_'  => 'welcome/index',  // The default route
+    '_root_'  => 'index/index',  // The default route
     '_404_'   => 'welcome/404',    // The main 404 route
 
     'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),
@@ -33,8 +33,10 @@ return array(
     'u/friends' => 'friends/my',
     'u/follow' => 'friends/follow',
     'u/unfollow' => 'friends/unfollow',
-    'm/(\d+)'=> 'items/view/$1',
+    'm/(\d+)' => 'items/view/$1',
     'm' => 'items/index',
+    'm/c/:cate_id' => 'items/index',
+    //'m/c/:cateId/p/:page' => 'items/index',
 
     'p' => 'posts/index',
     'p/p/(\d+)' => 'posts/index/$1',
@@ -44,6 +46,7 @@ return array(
     'comment/(\d+)' => 'comments/index',
     'comment/(\d+)/p/(\d+)' => 'comments/index',
     'comment/(\d+)/add' => 'member/comments/add',
+
 
 );
 
