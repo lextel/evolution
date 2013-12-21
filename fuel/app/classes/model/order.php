@@ -28,10 +28,7 @@ class Model_Order extends \Orm\Model
      * 我的购买记录
      *
      */
-    public function myOrders() {
-
-        list(, $userId) = Auth::get_user_id();
-
-        return Model_Order::find('all', ['where' => ['mid' => $userId], 'order_by' => ['created_at' => 'desc']]);
+    public static function myOrders($uid) {
+        return Model_Order::find('all', ['where' => ['mid' =>$uid ], 'order_by' => ['created_at' => 'desc']]);
     }
 }

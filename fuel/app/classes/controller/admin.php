@@ -3,7 +3,7 @@
 class Controller_Admin extends Controller_Baseend
 {
     public $template = 'admin/template';
-    
+
     public function before()
     {
         parent::before();
@@ -12,7 +12,7 @@ class Controller_Admin extends Controller_Baseend
             $this -> admincheck();
         }
     }
-    
+
     private function admincheck()
     {
         if ($this->auth->check())
@@ -28,14 +28,13 @@ class Controller_Admin extends Controller_Baseend
         {
             Response::redirect('admin/login');
         }
-        
     }
 
     public function action_login()
     {
         // Already logged in
         //$this->auth = Auth::instance('Simpleauth');
-        $this->auth->check() and Response::redirect('admin');   
+        $this->auth->check() and Response::redirect('admin');
         $val = Validation::forge();
 
         if (Input::method() == 'POST')

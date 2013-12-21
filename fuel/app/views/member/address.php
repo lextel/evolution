@@ -2,13 +2,13 @@
     <div class="form-group">
         <label for="" class="col-md-2 control-label">当前地址</label>
         <div class="col-md-6">
-            <textarea name="localaddress" rows="3" class="form-control"></textarea>
+            <textarea name="localaddress" rows="3" class="form-control"><?php echo $address ? $address->address : '';?></textarea>
         </div>
     </div>
     <div class="form-group">
         <label for="" class="control-label col-md-2">新地址</label>
         <div class="col-md-6">
-            <textarea name="newaddress" rows="3" class="form-control"></textarea>
+            <textarea name="address" rows="3" class="form-control"></textarea>
         </div>
     </div>
     <div class="form-group">

@@ -26,12 +26,8 @@ class Model_Friend extends \Orm\Model
     /**
      * 好友列表
      */
-    public function myFriends() {
-        
-        list(, $myId) = Auth::get_user_id();
-
-        $rs = Model_Friend::find('all', ['where' => ['mid' => $myId]]);
-
+    public static function myFriends($mid) {
+        $rs = Model_Friend::find('all', ['where' => ['mid' => $mid]]);
         return $rs;
     }
 
@@ -42,12 +38,8 @@ class Model_Friend extends \Orm\Model
      *
      * @return boolean 是否已关注
      */
-    public function check($mid) {
-
-        list(, $myId) = Auth::get_user_id();
-
-        $rs = Model_Friend::find('first', ['where' => ['mid' => $myId, 'fid' => $mid]]);
-
+    public static function check($mid, $fid) {
+        $rs = Model_Friend::find('first', ['where' => ['mid' => $mid, 'fid' => $fid]]);
         return !empty($rs);
     }
 
@@ -58,13 +50,9 @@ class Model_Friend extends \Orm\Model
      *
      * @return boolean 是否成功
      */
-    public function follow($mid) {
-
-        list(, $myId) = Auth::get_user_id();
-        $data = ['mid' => $myId, 'fid' => $mid];
-
+    public static function follow($mid, $fid) {
+        $data = ['mid' => $mid, 'fid' => $fid];
         $friend = new Model_Friend($data);
-
         return $friend->save();
     }
 
@@ -75,11 +63,8 @@ class Model_Friend extends \Orm\Model
      *
      * @return boolean 是否成功
      */
-    public function unfollow($mid) {
-
-        list(, $myId) = Auth::get_user_id();
-        $friends = Model_Friend::find('first', ['where' => ['mid' => $myId, 'fid' => $mid]]);
-
+    public static function unfollow($mid, $uid) {
+        $friends = Model_Friend::find('first', ['where' => ['mid' => $mid, 'fid' => $fid]]);
         return $friends->delete();
     }
 

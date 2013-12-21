@@ -2,12 +2,12 @@
 class Controller_Member extends Controller_Center{
 
     public $template = 'memberlayout';
-    
+
     public function action_index()
     {
-        data['members'] = Model_Member::find('all');
-        this->template->title = "Members";
-        this->template->content = View::forge('member/index', $data);
+        $data['members'] = Model_Member::find('all');
+        $this->template->title = "Members";
+        $this->template->content = View::forge('member/index', $data);
     }
 
     public function action_view($id = null)
@@ -24,62 +24,112 @@ class Controller_Member extends Controller_Center{
         $this->template->content = View::forge('member/view', $data);
 
     }
-    
-    public function action_address($id=null)
-    {
-        //$member->avatar = Input::post('avatar');
-        $val = Validation::forge();
-        if (Input::method() == 'POST')
-        {
-            $val->add('newaddress', 'Newaddress')
-                ->add_rule('required');        
-            if (!$val->run())
-            {
-                // check the credentials. This assumes that you have the previous table created
-                $newaddress = Input::post('newaddress');
-                $res = $this->auth->change_password($oldpassword, $newpassword, $username);
-                if ($res)
-                {
-                    //$current_user = Model_Member::find_by_username($this->auth->get_screen_name());
-                    Session::set_flash('success', e('修改地址成功, '.$current_user->username));
-                    Response::redirect('/u');
-                }
-                else
-                {
-                    $this->template->set_global('error', '修改地址成功，请再输入');
-                }
-            }
-        }
 
-        $data = array();
-        $this->template->title = '';
+    /*
+    *获得当前收货地址列表
+    */
+    public function action_getaddressindex()
+    {
+        $address = Model_Member_Address::find_by('member_id', $this->current_user->id);
+        $data['address'] = $address;
+        $this->template->title = '用户修改收获地址';
         $this->template->content = View::forge('member/address', $data);
     }
 
-    public function action_avatar($id=null)
+    /*
+    *获得当前快递地址
+    */
+    public function action_getaddress($id=null)
     {
-        //$member->avatar = Input::post('avatar');
-        $data = array();
-        $this->template->title = '';
+        $address = Model_Member_Address::find($id);
+        $data['address'] = $address;
+        $this->template->title = '用户修改收获地址';
+        $this->template->content = View::forge('member/address', $data);
+    }
+
+     /*
+     *更新用户快递地址
+     */
+    public function action_address()
+    {
+        !Input::method() == 'POST' and Response::redirect('/u/getaddress');
+        $val = Model_Member_Address::validate('edit');
+        if ($val->run())
+        {
+            $post = Model_Member_Address::find_by('member_id', $this->current_user->id);
+            if (!$post)
+            {
+                $post = Model_Member_Address::add($this->current_user->id);
+            }
+            $post->address = Input::post('address');
+            if ($post and $post->save())
+            {
+                Session::set_flash('success', e('修改地址成功, '));
+                Response::redirect('/u');
+            }
+        }
+        $this->template->set_global('error', '修改地址失败，请核对输入');
+        Response::redirect('/u/getaddress');
+    }
+
+    /*
+    *获得用户头像数据
+    */
+    public function action_getavatar()
+    {
+        $member = Model_Member::find_by_username($this->current_user->username);
+        $data['member'] = $member;
+        $this->template->title = '修改用户头像';
         $this->template->content = View::forge('member/avatar', $data);
     }
 
+    /*
+    *修改用户头像
+    */
+    public function action_avatar()
+    {
+        !Input::method() == 'POST' and Response::redirect('/u/getavatar');
+        $val = Model_Member::validate('edit');
+        if ($val->run())
+        {
+            $post = $member = Model_Member::find_by_username($this->current_user->username);
+            $post->avatar = Input::post('avatar');
+            if($post->save())
+            {
+                Session::set_flash('success', '更新OK');
+                Response::redirect('/u');
+            }
+        }
+        Session::set_flash('error', '更新失败');
+        Response::redirect('/u/getavatar');
+    }
+
+    /*
+    *获得用户基本信息
+    */
     public function action_getprofile($id = null)
     {
-        $member = Model_Member_Info::find_by_uid($this->current_user->id);
-        $val = Model_Member_Info::validate('edit');
+        $member = Model_Member_Info::find_by('member_id', $this->current_user->id);
+        $data['member'] = $member;
         $this->template->title = "用户基本设置";
-        $this->template->content = View::forge('member/profile');
-
+        $this->template->content = View::forge('member/profile', $data);
     }
-    public function action_postprofile($id = null)
+
+    /*
+    *修改更新用户基本信息
+    */
+    public function action_profile($id = null)
     {
-        !Input::method() == 'POST' and Response::redirect('/u/profile');
-        $member = Model_Member_Info::find_by_uid($this->current_user->id);
+        !Input::method() == 'POST' and Response::redirect('/u/getprofile');
         $val = Model_Member_Info::validate('edit');
         if ($val->run())
         {
-            $member->nickname = Input::post('nickname');    
+            $member = Model_Member_Info::find_by('member_id', $this->current_user->id);
+            if (!$member)
+            {
+                $member = Model_Member_Info::add($this->current_user->id);
+            }
+            $member->nickname = Input::post('nickname');
             $member->local = Input::post('local');
             $member->address = Input::post('address');
             $member->gender = Input::post('gender');
@@ -87,36 +137,21 @@ class Controller_Member extends Controller_Center{
             $member->qq = Input::post('qq');
             $member->horoscope = Input::post('horoscope');
             $member->salary = Input::post('salary');
-            var_dump($this->current_user);
-            if ($member->save())
+            if ($member and $member->save())
             {
                 Session::set_flash('success', '更新个人设置');
                 Response::redirect('/u');
             }
-            else
-            {
-                Session::set_flash('error', '更新个人设置失败');
+            else{
+                $res = Model_Member_Infocreate::create();
+                $res and Response::redirect('/u');
             }
         }
-
-        else
-        {
-            if (Input::method() == 'POST')
-            {
-                $member->nickname = $member->validated('nickname');
-                $member->bio = $member->validated('bio');
-                $member->mobile = $member->validated('mobile');
-                Session::set_flash('error', $member->error());
-            }
-
-            $this->template->set_global('member', $member, false);
-        }
+        Session::set_flash('error', '更新个人设置失败');
+        Response::redirect('/u/getprofile');
     }
     /**
-     * The index action.
-     *
-     * @access  public
-     * @return  void
+     * 修改用户密码
      */
     public function action_changepassword()
     {
@@ -127,7 +162,6 @@ class Controller_Member extends Controller_Center{
                 ->add_rule('required');
             $val->add('newpassword', 'Password')
                 ->add_rule('required');
-            
             if ($val->run())
             {
                 // check the credentials. This assumes that you have the previous table created
@@ -140,14 +174,12 @@ class Controller_Member extends Controller_Center{
                     $current_user = Model_Member::find_by_username($this->auth->get_screen_name());
                     Session::set_flash('success', e('修改密码成功, '.$current_user->username));
                     Response::redirect('/u');
-                }
-                else
-                {
+                }else{
                     $this->template->set_global('error', '密码修改不成功，请再输入');
                 }
             }
         }
-        $this->template->title = '';
+        $this->template->title = '用户修改密码页面';
         $this->template->content = View::forge('member/passwd', array('val' => $val), false);
     }
 

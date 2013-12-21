@@ -268,7 +268,7 @@ class Model_Soft extends Model
 	{
 		//Make sure we are not filtering out soft deleted items
 		$deleted_column = static::soft_delete_property('deleted_field', static::$_default_field_name);
-		$options['where'][] = array($deleted_column, 'IS NOT', null);
+		$options['where'][] = array($deleted_column, 'IS NOT', Null);
 
 		static::disable_filter();
 		$result = parent::find($id, $options);

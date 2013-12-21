@@ -11,6 +11,5 @@ return array(
             'password'   => '1',
         ),
         'profiling' => true,
-
     ),
 );

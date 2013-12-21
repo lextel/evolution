@@ -3,11 +3,11 @@
     <li><a href="">用户中心</a></li>
     <li class="active"><a href="">资料修改</a></li>
 </ol>
-<form action="/u/modifyprofile" role="form" class="form-horizontal" method="POST">
+<form action="/u/profile" role="form" class="form-horizontal" method="POST">
     <div class="form-group">
         <label for="" class="col-md-2 control-label">昵称：</label>
         <div class="col-md-4">
-            <input name="nickname" type="text" class="form-control" placeholder=""/>
+            <input name="nickname" type="text" class="form-control" placeholder=""/ value="">
         </div>
     </div>
     <div class="form-group">
