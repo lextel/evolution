@@ -14,9 +14,7 @@ class Controller_Orders extends Controller_Center
     public function action_my()
     {
 
-        $orderModel = new Model_Order();
-        $data['orders'] = $orderModel->myOrders();
-
+        $data['orders'] = Model_Order::myOrders($this->current_user->id);
         $this->template->title = '购买记录';
         $this->template->content = View::forge('orders/my', $data);
     }

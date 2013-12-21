@@ -81,19 +81,21 @@
             </div>
             <div class="nav-menu">
                 <dl>
-                    <dt><i class="fa fa-cog"></i><a href="javascript:void(0);">个人资料</a></dt>
-                    <dd class="active"><?php echo Html::anchor('u/profile', '基本资料');?></dd>
-                    <dd><?php echo Html::anchor('u/avatar', '修改头像');?></dd>
+                    <dt><i class="fa fa-cog"></i><a href="javascript:;">个人资料</a></dt>
+                    <dd class="active"><?php echo Html::anchor('u/getprofile', '基本资料');?></dd>
+                    <dd><?php echo Html::anchor('u/getavatar', '修改头像');?></dd>
                     <dd><?php echo Html::anchor('u/passwd', '密码修改');?></dd>
-                    <dd><?php echo Html::anchor('u/address', '收货地址');?></dd>
-                    <dd><?php echo Html::anchor('u/friends', '好友管理');?></dd>
+                    <dd><?php echo Html::anchor('u/getaddress/index', '收货地址');?></dd>
+                    
                 </dl>
                 <dl>
-                    <dt><i class="fa fa-credit-card"></i><a href="">其他</a></dt>
-                    <dd><?php echo Html::anchor('u/orders', '购买记录');?></dd>
-                    <dd><a href="javascript:void(0);">中奖记录</a></dd>
-                    <dd><a href="javascript:void(0);">晒单</a></dd>
-                    <dd><a href="javascript:void(0);">充值</a></dd>
+                    <dt><i class="fa fa-credit-card"></i><a href="javascript:;">其他</a></dt>
+                    <dd><?php echo Html::anchor('u/orders', '乐拍记录');?></dd>
+                    <dd><?php echo Html::anchor('u/wins', '获得的商品');?></dd>
+                    <dd><?php echo Html::anchor('u/posts', '晒单');?></dd>
+                    <dd><?php echo Html::anchor('u/money', '充值');?></dd>
+                    <dd><?php echo Html::anchor('u/moneylog', '账户明细');?></dd>
+                    <dd><?php echo Html::anchor('u/friends', '好友管理');?></dd>
                 </dl>
             </div>
 

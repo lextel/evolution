@@ -8,7 +8,7 @@ class Create_member_infos
 	{
 		\DBUtil::create_table('member_infos', array(
 			'id' => array('constraint' => 11, 'type' => 'int', 'auto_increment' => true, 'unsigned' => true),
-			'uid' => array('constraint' => 11, 'type' => 'int'),
+			'member_id' => array('constraint' => 11, 'type' => 'int'),
 			'nickname' => array('constraint' => 255, 'type' => 'varchar'),
 			'local' => array('constraint' => 255, 'type' => 'varchar'),
 			'address' => array('constraint' => 255, 'type' => 'varchar'),

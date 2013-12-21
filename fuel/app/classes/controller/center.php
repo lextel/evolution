@@ -19,23 +19,13 @@ class Controller_Center extends Controller_Template
         View::set_global('current_user', $this->current_user);
         if (! in_array(Request::active()->action, array('signin', 'signup')))
         {
-            //$this -> membercheck();
+            $this -> membercheck();
         }
     }
-    
+
     private function membercheck()
     {
-        if ($this->auth->check())
-        {
-            //$admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
-            //if ( Request::active()->controller == 'Controller_Member' and ! Auth::member($admin_group_id))
-            if ( Request::active()->controller == 'Controller_Member')
-            {
-                Session::set_flash('error', e('You don\'t have access to the admin panel'));
-                Response::redirect('/u');
-            }
-        }
-        else
+        if (!$this->auth->check())
         {
             Response::redirect('/signin');
         }
@@ -52,7 +42,7 @@ class Controller_Center extends Controller_Template
                 ->add_rule('required');
             $val->add('password', 'Password')
                 ->add_rule('required');
-            
+
             if ($val->run())
             {
                 // check the credentials. This assumes that you have the previous table created
@@ -90,7 +80,7 @@ class Controller_Center extends Controller_Template
         $this->auth->logout();
         Response::redirect('/signin');
     }
-    
+
     public function action_signup()
     {
 
@@ -102,7 +92,7 @@ class Controller_Center extends Controller_Template
                 ->add_rule('required');
             $val->add('password', 'Password')
                 ->add_rule('required');
-            
+
             if ($val->run())
             {
                 // check the credentials. This assumes that you have the previous table created
@@ -124,7 +114,7 @@ class Controller_Center extends Controller_Template
                 }catch (Exception $e){
                     $this->template->set_global('signup_error', 'Fail');
                 }
-                
+
             }
         }
         return Response::forge(View::forge('member/signup', array('val' => $val), false));
@@ -137,7 +127,7 @@ class Controller_Center extends Controller_Template
     */
     public function action_forgotpassword()
     {
-        
+
         //$this->template->title = 'Dashboard';
         return Response::forge(View::forge('member/forgot'));
     }
