@@ -6,7 +6,7 @@ class Model_Lottery extends \Orm\Model
 		'id',
 		'item_id',
 		'phase_id',
-    'order_id',
+		 'order_id',
 		'code',
 		'member_id',
 		'created_at',
