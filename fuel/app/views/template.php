@@ -1,96 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title><?php echo $title; ?></title>
-	<?php echo Asset::css('bootstrap.css'); ?>
-	<style>
-		body { margin: 50px; }
-	</style>
-	<?php echo Asset::js(array(
-		'jquery.min.js',
-		'bootstrap.js'
-	)); ?>
-	<script>
-		$(function(){ $('.topbar').dropdown(); });
-	</script>
+    <meta charset="utf-8">
+    <title><?php echo $title?></title>
+    <?php echo Asset::css(['common.css', 'header.css']); ?>
+    <?php echo Asset::js('jquery.min.js'); ?>
 </head>
 <body>
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">My Site</a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li class="<?php echo Uri::segment(2) == '' ? 'active' : '' ?>">
-						<?php echo Html::anchor('admin', 'Dashboard') ?>
-					</li>
-
-					<?php
-						$files = new GlobIterator(APPPATH.'classes/controller/admin/*.php');
-						foreach($files as $file)
-						{
-							$section_segment = $file->getBasename('.php');
-							$section_title = Inflector::humanize($section_segment);
-							?>
-							<li class="<?php echo Uri::segment(2) == $section_segment ? 'active' : '' ?>">
-								<?php echo Html::anchor('admin/'.$section_segment, $section_title) ?>
-							</li>
-							<?php
-						}
-					?>
-				</ul>
-				<ul class="nav navbar-nav pull-right">
-					<li class="dropdown">
-						<a data-toggle="dropdown" class="dropdown-toggle" href="#"><b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><?php echo Html::anchor('admin/logout', 'Logout') ?></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h1><?php echo $title; ?></h1>
-				<hr>
-        <?php if (Session::get_flash('success')): ?>
-				<div class="alert alert-success alert-dismissable">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<p>
-					<?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
-					</p>
-				</div>
-        <?php endif; ?>
-        <?php if (Session::get_flash('error')): ?>
-				<div class="alert alert-error alert-dismissable">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<p>
-					<?php echo implode('</p><p>', (array) Session::get_flash('error')); ?>
-					</p>
-				</div>
-        <?php endif; ?>
-      </div>
-			<div class="col-md-12">
-        <?php echo $content; ?>
-			</div>
-		</div>
-		<hr/>
-		<footer>
-			<p class="pull-right">Page rendered in {exec_time}s using {mem_usage}mb of memory.</p>
-			<p>
-				<small>Version: 2.0</small>
-			</p>
-		</footer>
-	</div>
+    <!--头部开始-->
+    <div class="top-nav">
+        <div class="top-menu">
+            <span class="online">
+                <a href="">在线客服<span class="icon icon-qq"></span></a>
+            </span>
+            <span class="login-bar">
+                 <a href="<?php echo Uri::create('/signin'); ?>">登录</a>
+                 <i>/</i>
+                 <a href="<?php echo Uri::create('/signup'); ?>">注册</a>
+            </span>
+        </div>
+    </div>
+    <div class="logo-box">
+        <div class="logo"><a href=""><img src="" alt=""/>logo</a></div>
+         <div class="right-box">
+                <div class="search">
+                    <input type="text" value=""/>
+                    <a href="" class="search-btn">
+                        <span class="icon icon-search"></span>
+                    </a>
+                </div>
+                <div class="shopping-box">
+                    <div class="shopping-cart"><a href="">购物车</a></div>
+                    <div class="all">
+                        <a href="">当前乐拍人数<b>100000</b></a>
+                    </div>
+                </div>
+         </div>
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="<?php echo Uri::base(); ?>">首页</a></li>
+            <li><a href="<?php echo Uri::create('/m'); ?>">所有商品</a></li>
+            <li><a href="">最新揭晓</a></li>
+            <li><a href="">晒单分享</a></li>
+            <li><a href="">新手指南</a></li>
+        </ul>
+    </div>
+    <!--头部结束-->
+    <?php echo $content; ?>
+    <!--底部开始-->
+    <div class="footer-wrapper">
+        <div class="help-bg">
+            <div class="footer-help w">
+                <dl>
+                    <dt><a href="">帮助中心</a></dt>
+                    <dd><a href="">新手指南</a></dd>
+                    <dd><a href="">乐拍保障</a></dd>
+                    <dd><a href="">商品配送</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="">关注我们</a></dt>
+                    <dd><a href="">新浪微博</a></dd>
+                    <dd><a href="">官方微信</a></dd>
+                    <dd><a href="">官方QQ群：10000000</a></dd>
+                    <dd><a href="">官方QQ群:100000000</a></dd>
+                </dl>
+                <dl>
+                    <dt>联系我们</dt>
+                    <dd><h2 class="red"><span class="icon icon-phone"></span>4008123123</h2></dd>
+                    <dd>仅收市话费，周一至周日8.00-18.00</dd>
+                    <dd><button class="kf">24小时在线客服</button></dd>
+                </dl>
+                <dl>
+                    <dt><a href="">二维码</a></dt>
+                </dl>
+            </div>
+        </div>
+        <div class="footer w">
+            <ul class="bottom-nav">
+                <li><a href="">首页</a></li>
+                <li><a href="">关于乐拍</a></li>
+                <li><a href="">隐私声明</a></li>
+                <li><a href="">合作专区</a></li>
+                <li><a href="">联系我们</a></li>
+            </ul>
+            <P>版权所有</P>
+            <span>乐拍，快乐抢拍你的人生！</span>
+        </div>
+    </div>
+    <!--底部结束-->
 </body>
 </html>

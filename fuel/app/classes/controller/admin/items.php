@@ -1,5 +1,5 @@
 <?php
-class Controller_Admin_Items extends Controller_Admin{
+class Controller_Admin_Items extends Controller_Admin {
 
     // 商品列表
     public function action_index() {

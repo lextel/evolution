@@ -9,7 +9,7 @@ class Controller_Items extends Controller_Frontend {
         $itemModel->index();
 
         $view = ViewModel::forge('items/index');
-        $this->template->title = "商品列表";
+        $this->template->title = "所有商品";
         $this->template->content = $view;
     }
 
