@@ -32,6 +32,10 @@ class Model_Item extends \Orm\Model {
     const CHECK_PASS = 1;
 
     /**
+     *
+     */
+
+    /**
      * @var related
      */
     protected static $_has_many = ['phases', 'lotteries'];
@@ -114,6 +118,7 @@ class Model_Item extends \Orm\Model {
         $itemModel = new Model_Item();
         $where = $itemModel->handleWhere($options);
 
+
     }
 
     /**
@@ -134,7 +139,7 @@ class Model_Item extends \Orm\Model {
             $where += ['brand_id' => $options['brandId']];
         }
 
-        $where += ['is_delete' => self::NOT_DELETE, 'status' => self::CHECK_PASS];
+        $where += ['opentime' => 0];
 
         return $where;
     }

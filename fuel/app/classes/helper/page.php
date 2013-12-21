@@ -9,7 +9,7 @@ namespace Helper;
 
 class Page {
 
-    const PAGESIZE = 10;
+    const PAGESIZE = 5;
     
     /**
      * 设置分页配置

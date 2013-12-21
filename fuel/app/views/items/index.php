@@ -43,6 +43,9 @@
             </div>
             <div class="img-box">
                 <a href=""><img src="<?php echo $topItem->image; ?>" alt=""></a>
+                <div class="sheng-yi">
+                    剩余 <b class="red"><?php echo $topItem->phase->remain ?></b>人本次商品就揭晓了！
+                </div>
             </div>
             <button class="buy">立即乐拍</button>
         </div>
@@ -72,14 +75,14 @@
                         <dd>
                             <div class="progress"><div class="progress-bar"></div></div>
                         </dd>
-                        <dd>
+                        <!--dd>
                             <span class="fl red"><?php echo $item->phase->joined; ?></span>
                             <span class="fr blue"><?php echo $item->phase->remain; ?></span>
                         </dd>
                         <dd>
                             <span class="fl">已参与人次</span>
                             <span class="fr">剩余人次</span>
-                        </dd>
+                        </dd-->
                     </dl>
                     <div class="btn-menu">
                         <span>我要乐拍</span>
@@ -108,12 +111,12 @@
     <!--产品列表结束-->
     <!--今日热门开始-->
         <div class="date-hot w">
-            <div class="title"><h4>大家正在乐拍</h4></div>
+            <div class="title"><h4>今日热门</h4></div>
             <ul>
                 <li>
                     <div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div>
                     <h5>苹果智能手机32G苹果智能手机32G</h5>
-                    <div class="price">价值<b>￥5000</b></div>
+                    <div class="price fr">价值<b>￥5000</b></div>
                     <div class="btn-group">
                         <button class="btn btn-red">立即乐拍</button>
                     </div>
@@ -121,7 +124,7 @@
                 <li>
                     <div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div>
                     <h5>苹果智能手机32G苹果智能手机32G</h5>
-                    <div class="price">价值<b>￥5000</b></div>
+                    <div class="price fr">价值<b>￥5000</b></div>
                     <div class="btn-group">
                         <button class="btn btn-red">立即乐拍</button>
                     </div>
@@ -129,7 +132,7 @@
                 <li>
                     <div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div>
                     <h5>苹果智能手机32G苹果智能手机32G</h5>
-                    <div class="price">价值<b>￥5000</b></div>
+                    <div class="price fr">价值<b>￥5000</b></div>
                     <div class="btn-group">
                         <button class="btn btn-red">立即乐拍</button>
                     </div>
@@ -137,7 +140,7 @@
                 <li>
                     <div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div>
                     <h5>苹果智能手机32G苹果智能手机32G</h5>
-                    <div class="price">价值<b>￥5000</b></div>
+                    <div class="price fr">价值<b>￥5000</b></div>
                     <div class="btn-group">
                         <button class="btn btn-red">立即乐拍</button>
                     </div>
@@ -145,7 +148,7 @@
                 <li>
                     <div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div>
                     <h5>苹果智能手机32G苹果智能手机32G</h5>
-                    <div class="price">价值<b>￥5000</b></div>
+                    <div class="price fr">价值<b>￥5000</b></div>
                     <div class="btn-group">
                         <button class="btn btn-red">立即乐拍</button>
                     </div>

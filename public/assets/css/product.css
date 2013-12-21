@@ -11,7 +11,6 @@
     width: 150px;
     margin: 0 10px;
 }
-
 /*揭晓结果*/
 .panel {
 
@@ -19,12 +18,12 @@
 
 .panel .img-box {
     overflow: hidden;
-    width: 500px;
+    width: 400px;
     background: #EEEEEE;
 }
 
 .panel .state-column {
-    width: 460px;
+    width: 580px;
     overflow: hidden;
 }
 
@@ -34,7 +33,6 @@
     overflow: hidden;
     line-height: 23px;
     margin-bottom: 10px;
-    background: #f1f1f1;
 }
 
 .details {
@@ -57,7 +55,7 @@
 .result-box .H {
     width: 22px;
     overflow: hidden;
-    padding: 70px 28px;
+    padding: 70px 40px;
     word-wrap: break-word;
     font-size: 24px;
     font-weight: bold;
@@ -65,7 +63,7 @@
 
 .result-box .right-box {
     overflow: hidden;
-    width: 358px;
+    width: 450px;
 }
 
 .result-box .right-box h2 {
@@ -102,7 +100,7 @@
 }
 
 .win-number {
-    width: 334px;
+    width: 426px;
     height: 100px;
     clear: both;
     border: 1px solid #EEEEEE;
@@ -250,11 +248,31 @@
     width: 265px;
     height: 337px;
     border: 1px solid #EEEEEE;
+
 }
 .product-hot .buy{
     margin-top: 20px;
 }
+.product-hot .title-box{
+    background: none;
+}
+.product-hot .img-box{
+    height: 216px;
+    line-height: 216px;
+    padding: 0 20px;
+    position: relative;
+}
 
+.sheng-yi{
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    background: #DBDBDB;
+    position: absolute;
+    width:100%;
+    top: 0px;
+    left: 0;
+}
 .list_sort{
     margin-top: 10px;
     overflow: hidden;
@@ -266,6 +284,12 @@
     overflow: hidden;
     margin-top: 10px;
     margin-right: -10px;
+}
+.product-box{
+    overflow: hidden;
+}
+.product-box .price{
+    text-align: right;
 }
 .product-list .product-box li{
     float: left;
@@ -282,22 +306,25 @@
     margin: 0 10px;
 }
 /*今日热门*/
+.date-hot {
+    width: 978px;
+    border: 1px solid #EEEEEE;
+}
 .date-hot .title{
-    background: #EEEEEE;
 }
 .date-hot ul {
     overflow: hidden;
-    border: 1px solid #EEEEEE;
     padding: 10px 15px 10px 0px;
 }
 .date-hot ul li{
     float: left;
-    width: 160px;
-    margin-left: 15px;
+    width: 120px;
+    margin-left: 50px;
+    position: relative;
 }
 .date-hot ul li .img-box{
-    height: 160px;
-    line-height: 150px;
+    height: 100px;
+    line-height: 100px;
 }
 .date-hot ul li h5{
     width: 160px;
@@ -306,7 +333,14 @@
     text-overflow: ellipsis;
 }
 .date-hot ul li .price{
-    margin: 5px 0;
+    position: absolute;
+    top: 5px;
+    right: -30px;
+    width:80px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    background: #DDDDDD;
 }
 /*购物车列表*/
 .pay-prompt{
@@ -367,27 +401,64 @@
 .cart-list .cart-footer label input{
     margin:6px 5px 0 0
 }
+.unveiled{
+    overflow: hidden;
+    margin-top: 40px;
+}
+.unveiled h4{
+    height: 38px;
+    background: #f1f1f1;
+    line-height: 38px;
+    text-indent: 10px;
+}
+.unveiled ul {
+    overflow: hidden;
+    margin-top: 30px;
+}
+.unveiled ul li .title{
+    width: auto;
+    height: 34px;
+    padding: 8px;
+    background: #EEEEEE;
+}
+.unveiled ul li .title .price{
+    text-align: right;
+}
+.unveiled ul li{
+    float: left;
+    width: 235px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    margin: 0 10px 10px 0;
+    border: 1px solid #EEE;
+}
+.unveiled ul li .img-box{
+   margin:10px;
+    position: relative;
+}
+
 /*商品详情*/
 .product-column {
-    width: 460px;
+    width: 558px;
     overflow: hidden;
 }
 .product-column .price{
     margin: 10px auto;
 }
 .product-column .progress-side{
-    width: 350px;
+    width: 80%;
+    margin: 0 auto;
 }
 .product-column .btn-menu{
     text-align: left;
 }
 .product-column .btn-group{
     text-align: left;
-    margin-left: 60px;
+    margin-left: 74px;
 }
 .security-list{
     overflow: hidden;
-    width: 90%;
+    width: 77%;
     margin: 10px auto;
 }
 .security-list li{
@@ -400,14 +471,14 @@
     background: #f1f1f1;
     border: 1px solid #EEEEEE;
 }
-.security-list li a{
-    color: #B91F04;
-}
 .new-buyer{
     overflow: hidden;
 }
+.new-buyer-header{
+    overflow: hidden;
+}
 .new-buyer .new-buyer-header ul li{
-    width: 152px;
+    width: 185px;
     height: 34px;
     text-align: center;
     float: left;
