@@ -33,6 +33,28 @@
                         <?php echo Html::anchor('admin', '管理首页') ?>
                     </li>
                     <?php
+                        Config::load('admin');
+                        $navs = Config::get('navs');
+                        foreach($navs as $key => $nav) {
+                            if($key != 'admin') {
+                                if(isset($nav['childs'])) {
+                                    $subli = '';
+                                    foreach($nav['childs'] as $child) {
+                                        $subli .= "<li><a href='{$child['href']}'>{$child['name']}</a></li>";
+                                    }
+                                    echo '<li class="dropdown">'.
+                                            '<a data-toggle="dropdown" class="dropdown-toggle"  href="javascript:void(0);">'.$nav['name'].'<b class="caret"></b></a>'.
+                                            '<ul class="dropdown-menu">'. $subli . '</ul>'.
+                                         '</li>';
+                                } else {
+                                    echo '<li class=""><a href="'.$nav['href'].'">'.$nav['name'].'</a></li>';
+                                }
+                            }
+                        }
+                    
+                    ?>
+                    <!--
+                    <?php
                         $files = new GlobIterator(APPPATH.'classes/controller/admin/*.php');
                         $navs = Config::get('navs.admin');
                         foreach($files as $file)
@@ -49,12 +71,13 @@
                             <?php
                         }
                     ?>
+                    -->
                 </ul>
                 <ul class="nav navbar-nav pull-right">
                     <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo $current_user->username ?> <b class="caret"></b></a>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0);"><?php echo $current_user->username ?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><?php echo Html::anchor('admin/logout', 'Logout') ?></li>
+                            <li><?php echo Html::anchor('admin/logout', '登出') ?></li>
                         </ul>
                     </li>
                 </ul>

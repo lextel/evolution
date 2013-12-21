@@ -1,8 +1,11 @@
 <?php
-class Model_Member extends \Orm\Model
+class Model_Log extends \Orm\Model
 {
 	protected static $_properties = array(
 		'id',
+		'user_id',
+		'desc',
+		'ip',
 		'created_at',
 		'updated_at',
 	);
@@ -21,6 +24,9 @@ class Model_Member extends \Orm\Model
 	public static function validate($factory)
 	{
 		$val = Validation::forge($factory);
+		$val->add_field('user_id', 'User Id', 'required|valid_string[numeric]');
+		$val->add_field('desc', 'Desc', 'required|max_length[255]');
+		$val->add_field('ip', 'Ip', 'required|max_length[15]');
 
 		return $val;
 	}
