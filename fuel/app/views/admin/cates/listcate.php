@@ -28,19 +28,19 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($cates as $item): ?>
+        <?php foreach ($cates as $cate): ?>
         <tr>
-            <td><?php echo $getCateName($item->id); ?></td>
-            <td class='editItem'><?php echo $item->name; ?></td>
-            <td><?php echo date('Y-m-d', $item->updated_at); ?></td>
+            <td><?php echo $cate->id; ?></td>
+            <td class='editItem'><?php echo $cate->name; ?></td>
+            <td><?php echo date('Y-m-d', $cate->updated_at); ?></td>
             <td>
                 <div class="editing">
-                    <?php echo Html::anchor('javascript:void(0);', '保存', ['action' => 'save', 'data-id'=>$item->id]); ?> |
+                    <?php echo Html::anchor('javascript:void(0);', '保存', ['action' => 'save', 'data-id'=>$cate->id]); ?> |
                     <?php echo Html::anchor('javascript:void(0);', '取消', ['action' => 'cancel']); ?>
                 </div>
                 <div class="edit">
-                    <?php echo Html::anchor('javascript:void(0);', '编辑', ['action' => 'edit', 'data-id'=>$item->id]); ?> |
-                    <?php echo Html::anchor('admin/cates/delete/'.$item->id, '删除', ['onclick' => "return confirm('亲，你确定要删除吗?')"]); ?>
+                    <?php echo Html::anchor('javascript:void(0);', '编辑', ['action' => 'edit', 'data-id'=>$cate->id]); ?> |
+                    <?php echo Html::anchor('admin/cates/delete/'.$cate->id, '删除', ['onclick' => "return confirm('亲，你确定要删除吗?')"]); ?>
                 </div>
             </td>
         </tr>

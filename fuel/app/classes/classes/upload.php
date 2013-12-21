@@ -35,7 +35,8 @@ class Upload {
      */
     public function __construct($type = '') {
 
-        $this->_config = Config::get('upload.'.$type);
+        Config::load('upload');
+        $this->_config = Config::get($type);
     }
 
     /**

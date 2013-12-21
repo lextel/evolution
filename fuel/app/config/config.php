@@ -44,7 +44,7 @@ return array(
      */
     // 'index_file' => false,
 
-    // 'profiling'  => false,
+    'profiling'  => true,
 
     /**
      * Default location for the file cache
@@ -329,26 +329,4 @@ return array(
                 6=>'审核',
                 7=>'其他')
        ),
-        'upload' => [
-            'item' => [
-                'path' => DOCROOT.'upload'.DS.'item'.DS.'origin',
-                'randomize' => true,
-                'ext_whitelist' => ['img', 'jpg', 'jpeg', 'gif', 'png'],
-            ],
-            'avatar' => [
-                'path' => DOCROOT.'upload'.DS.'avatar'.DS.'origin',
-                'randomize' => true,
-                'ext_whitelist' => ['img', 'jpg', 'jpeg', 'png'],
-            ]
-        ],
-        'navs' => [
-            'admin' => [
-              'Tasks' => '任务管理',
-              'Posts' => '晒单审核',
-              'Items' => '商品管理',
-              'Users' => '成员管理',
-            ],
-            
-        ],
-
 );

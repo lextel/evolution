@@ -3,34 +3,39 @@
 class Controller_Admin extends Controller_Baseend
 {
     public $template = 'admin/template';
-
+    
     public function before()
     {
         parent::before();
-
-        if (Request::active()->controller !== 'Controller_Admin' or ! in_array(Request::active()->action, array('login', 'logout')))
+        if (! in_array(Request::active()->action, array('login', 'logout')))
         {
-            if (Auth::check())
+            $this -> admincheck();
+        }
+    }
+    
+    private function admincheck()
+    {
+        if ($this->auth->check())
+        {
+            $admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
+            if ( Request::active()->controller == 'Controller_Admin_Users' and ! $this->auth->member($admin_group_id))
             {
-                $admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
-                if ( ! Auth::member($admin_group_id))
-                {
-                    Session::set_flash('error', e('You don\'t have access to the admin panel'));
-                    Response::redirect('/');
-                }
-            }
-            else
-            {
-                Response::redirect('admin/login');
+                Session::set_flash('error', e('You don\'t have access to the admin panel'));
+                Response::redirect('admin');
             }
         }
+        else
+        {
+            Response::redirect('admin/login');
+        }
+        
     }
 
     public function action_login()
     {
         // Already logged in
-        Auth::check() and Response::redirect('admin');
-
+        //$this->auth = Auth::instance('Simpleauth');
+        $this->auth->check() and Response::redirect('admin');   
         $val = Validation::forge();
 
         if (Input::method() == 'POST')
@@ -42,21 +47,20 @@ class Controller_Admin extends Controller_Baseend
 
             if ($val->run())
             {
-                $auth = Auth::instance();
-
                 // check the credentials. This assumes that you have the previous table created
-                if (Auth::check() or $auth->login(Input::post('email'), Input::post('password')))
+                if ($this->auth->check() or $this->auth->login(Input::post('email'), Input::post('password')))
                 {
                     // credentials ok, go right in
                     if (Config::get('auth.driver', 'Simpleauth') == 'Ormauth')
                     {
-                        $current_user = Model\Auth_User::find_by_username(Auth::get_screen_name());
+                        $current_user = Model\Auth_User::find_by_username($this->auth->get_screen_name());
                     }
                     else
                     {
-                        $current_user = Model_User::find_by_username(Auth::get_screen_name());
+                        $current_user = Model_User::find_by_username($this->auth->get_screen_name());
                     }
-                    Session::set_flash('success', e('Welcome, '.$current_user->username));
+                    $this->auth->remember_me();
+                    Session::set_flash('success', e('Welcometest1, '.$current_user->username));
                     Response::redirect('admin');
                 }
                 else
@@ -78,9 +82,10 @@ class Controller_Admin extends Controller_Baseend
      */
     public function action_logout()
     {
-        Auth::logout();
-        Response::redirect('admin');
+        $this->auth->logout();
+        Response::redirect('/admin/login');
     }
+
 
     /**
      * The index action.
@@ -90,7 +95,7 @@ class Controller_Admin extends Controller_Baseend
      */
     public function action_index()
     {
-        $this->template->title = '管理首页';
+        $this->template->title = 'Dashboard';
         $this->template->content = View::forge('admin/dashboard');
     }
 

@@ -19,7 +19,7 @@ class Controller_Admin_Cates extends Controller_Admin{
         $config = $page->setConfig($url, $total, $uri_segment);
         $pagination = Pagination::forge('mypagination', $config);
 
-        $view = View::forge('admin/cates/listCate');
+        $view = View::forge('admin/cates/listcate');
 
         $breadcrumb = new Helper\Breadcrumb();
         $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
