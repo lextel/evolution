@@ -37,8 +37,10 @@ return array(
     'm' => 'items/index',
 
     'p' => 'posts/index',
-    'p/s(/\d+)?' => 'posts/sort',
-    'p/(\d+)' => 'posts/view',
+    'p/p/(\d+)' => 'posts/index/$1',
+    'p/s(/\d+)?' => 'posts/index/$1/$2',
+    'p/s(/\d+)/p/(\d+)' => 'posts/index/$1/$2',
+    'p/(\d+)' => 'posts/view/$1',
     'comment/(\d+)' => 'comments/index',
     'comment/(\d+)/p/(\d+)' => 'comments/index',
     'comment/(\d+)/add' => 'member/comments/add',
