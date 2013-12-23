@@ -2,21 +2,6 @@
 class Model_Item extends \Orm\Model {
 
     /**
-     * @def 商品上架状态
-     */
-    const ON_SELF = 1;
-
-    /**
-     * @def 商品下架状态
-     */
-    const OFF_SELF = 0;
-
-    /**
-     * @def 在任务列表
-     */
-    const IN_TASK = 1;
-
-    /**
      * @def 编辑成员标志
      */
     const EDITER = 1;
@@ -32,8 +17,9 @@ class Model_Item extends \Orm\Model {
     const CHECK_PASS = 1;
 
     /**
-     *
+     * @def 未开奖
      */
+    const NOT_OPEN = 0;
 
     /**
      * @var related
@@ -96,15 +82,71 @@ class Model_Item extends \Orm\Model {
      */
     public function index($options = []) {
 
-        $phases = Model_Phase::find('all', ['where' => ['opentime' => 0]]);
-        $items = [];
         $itemModel = new Model_Item();
-        foreach($phases as $phase) {
+        $where = $itemModel->handleWhere($options);
+        $orderBy = $itemModel->handleOrderBy($options);
+
+        $phases = Model_Phase::query()->where($where)->order_by($orderBy)->get();
+
+        $limit = \Helper\Page::PAGESIZE;
+        $offset = ($options['page'] - 1) * $limit;
+        $phases = array_slice($phases, $offset, $limit);
+
+        $items = [];
+        foreach($phases as $key => $phase) {
             $items[] = $itemModel->itemInfo($phase);
         }
 
         return $items;
     }
+
+
+    /**
+     * 处理URL
+     *
+     * @param $options array 筛选条件
+     *
+     * @return string URL
+     */
+    public function handleUrl($options) {
+
+        $url = '/m';
+        foreach ($options as $key => $val) {
+            if($key == 'cateId' && !empty($val)) {
+                $url .= '/c/'.$val;
+            }
+
+            if($key == 'brandId' && !empty($val)) {
+                $url .= '/b/'.$val;
+            }
+            
+            if($key == 'sort' && !empty($val)) {
+                $url .= '/s/'.$val;
+            }
+        }
+
+        return Uri::create($url);
+    }
+
+    /**
+     * 统计url参数个数
+     *
+     * @param $options array 筛选条件
+     *
+     * @return integer
+     */
+    public function countParam($options) {
+
+        $count = 0;
+        foreach($options as $key => $val) {
+            if(!empty($val)) {
+                $count+=2;
+            }
+        }
+
+        return $count+1;
+    }
+
 
     /**
      * 统计商品数目
@@ -118,7 +160,9 @@ class Model_Item extends \Orm\Model {
         $itemModel = new Model_Item();
         $where = $itemModel->handleWhere($options);
 
+        $query = Model_Phase::query()->where($where);
 
+        return $query->count();
     }
 
     /**
@@ -126,22 +170,60 @@ class Model_Item extends \Orm\Model {
      *
      * @param $options 筛选条件 & 排序条件
      *
-     * @return array
+     * @return array where && where
      */
     public function handleWhere($options) {
 
-        $where = [];
-        if(isset($options['cateId']) && $options['cateId']) {
+        $where  = [];
+
+        if(isset($options['cateId']) && !empty($options['cateId'])) {
             $where += ['cate_id' => $options['cateId']];
         }
 
-        if(isset($options['brandId']) && $options['brandId']) {
+        if(isset($options['brandId']) && !empty($options['brandId'])) {
             $where += ['brand_id' => $options['brandId']];
         }
 
-        $where += ['opentime' => 0];
+        $where += [
+                'is_delete' => self::NOT_DELETE,
+                'status'    => self::CHECK_PASS,
+                'opentime'  => self::NOT_OPEN,
+                ];
 
         return $where;
+    }
+
+    /**
+     * 解析options排序获取排序
+     *
+     * @param $options array 筛选条件
+     *
+     * @return array
+     */
+    public function handleOrderBy($options) {
+
+        $sort = $options['sort'];
+
+            print_r($options);
+        $orderBy = ['remain' => 'desc'];
+        if($sort) {
+            Config::load('sort');
+            $sorts = Config::get('item');
+
+            $sortArr = [];
+            foreach($sorts as $val) {
+                $key = isset($val['alias']) ? $val['alias'] : $val['field'];
+                $sortArr[$key] = $val['field'];
+            }
+
+            $sort = explode('_', $sort);
+            $orders = ['asc', 'desc'];
+            if(isset($sort[1]) && in_array($sort[1], $orders)) {
+                $orderBy = [$sortArr[$sort[0]] => $sort[1]];
+            }
+        }
+
+        return $orderBy;
     }
 
     /**
@@ -163,12 +245,13 @@ class Model_Item extends \Orm\Model {
     /**
      * 获取商品信息
      *
-     * @param $phase object 单个期数对象
+     * @param $phase   object 单个期数对象
+     * @param $options array  筛选条件
      *
      * @return obj 带期数的商品对象
      *             $item->phase
      */
-    public function itemInfo($phase) {
+    public function itemInfo($phase, $options = []) {
 
         $item = [];
         if($phase) {
@@ -177,8 +260,14 @@ class Model_Item extends \Orm\Model {
                 'is_delete' => self::NOT_DELETE, 
                 'status'    => self::CHECK_PASS
                ];
+            if($options) {
+                list($where, ) = $this->handleWhere($options);
+                $where = $where + $where;
+            }
             $item = Model_Item::find('first', ['where' => $where]);
-            $item->phase = $phase;
+            if($item) {
+                $item->phase = $phase;
+            }
         }
 
         return $item;

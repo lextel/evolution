@@ -101,6 +101,12 @@ a{
     display: block;
     cursor: pointer;
 }
+.tl{
+    text-align:left ;
+}
+.tr{
+    text-align:right ;
+}
 /*图标*/
 .icon{
     text-align: center;
@@ -141,12 +147,42 @@ a{
 }
 .head-img{
     text-align: center;
+<<<<<<< HEAD
+=======
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 3px;
+>>>>>>> 1c10579053e5949d451f0e6c30c06155c3446884
 }
 .head-img a img{
     max-width: 100%;
     vertical-align: middle;
     height: auto;
 }
+<<<<<<< HEAD
+=======
+.head-img .name {
+    line-height: 22px;
+    margin: 5px;
+    width: 70px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.head-img-sm{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius:2px;
+}
+.head-img-sm img{
+    max-width: 100%;
+    vertical-align: middle;
+    height: auto;
+}
+>>>>>>> 1c10579053e5949d451f0e6c30c06155c3446884
 .sidebar{
     border: 1px solid #eeeeee;
     overflow: hidden;
@@ -252,18 +288,23 @@ h4{
 }
 .pagination span a{
     display: block;
+    background: #f1f1f1;
+    border: 1px #EEEEEE solid;
+    border-radius: 3px;
     text-align: center;
     width: 30px;
     height: 28px;
     line-height: 28px;
-    background: #f1f1f1;
-    border: 1px #EEEEEE solid;
-    border-radius: 3px;
 }
+
+
+
 .pagination span a:hover{
     background: #D96D66;
     color: #ffffff;
+    border-radius: 3px;
 }
+
 .pagination span a.active{
     background:#D9534F ;
     color: #ffffff;

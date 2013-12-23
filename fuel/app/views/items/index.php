@@ -21,7 +21,7 @@
                 <dt>品牌</dt>
                 <?php
                     foreach($brand as $val) {
-                        echo "<dd><a href=''>{$val->name}</a></dd>";
+                        echo "<dd><a href='" . Uri::create('/m/c/'. $k . '/b/'. $val->id) . "'>{$val->name}</a></dd>";
                     } 
                 ?>
             </dl>
@@ -54,11 +54,7 @@
     <div class="content">
         <div class="list_sort">
             <span>排序</span>
-            <a class="btn btn-default btn-sx">即将揭晓</a>
-            <a class="btn btn-default  btn-sx">人气</a>
-            <a class="btn btn-default  btn-sx">剩余人次</a>
-            <a class="btn btn-default  btn-sx">最新</a>
-            <a class="btn btn-default  btn-sx">价格</a>
+            <?php echo $sort(); ?>
         </div>
         <div class="product-list">
             <ul class="product-box">
@@ -98,14 +94,7 @@
                 </li>
                 <?php endforeach; ?>
             </ul>
-            <ul class="pages fr">
-                <li><a href="" class="prev-page">上一页<</a></li>
-                <li><a href="" class="curr-page">1</a></li>
-                <li><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-                <li><a href="" class="next-page">下一页></a></li>
-            </ul>
+            <?php echo Pagination::instance('mypagination')->render();?>
         </div>
     </div>
     <!--产品列表结束-->
