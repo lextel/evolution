@@ -29,10 +29,7 @@ class Controller_Items extends Controller_Frontend {
         $view->set('pagination', $pagination);
         $this->template->title = "所有商品";
         $this->template->content = $view;
-        $this->template->content->sort = 'dkfhui324df2341';
     }
-
-
 
     // 商品详情
     public function action_view($id = null) {
