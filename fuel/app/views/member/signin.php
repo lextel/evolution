@@ -2,60 +2,84 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>用户登录</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <?php echo Asset::css('bootstrap.min.css');?>
-    <?php echo Asset::css('member/comme.css');?>
-    <?php echo Asset::js('bootstrap.min.js');?>
-    <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
-    <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <title>登录</title>
+    <?php echo Asset::css('common.css');?> 
+    <?php echo Asset::css('style.css');?>   
     <?php echo Asset::js('jquery.min.js');?>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <![endif]-->
-
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <h2>logo</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <?php echo Asset::img('login_bg3.jpg');?>
+<div class="logo-wrapper">
+    <div class="logo w">
+        <a href="">乐乐淘logo</a>
+    </div>
+</div>
+<!--中间内容开始-->
+<div class="content w">
+    <div class="left-side fl">
+        广告图
+    </div>
+    <div class="login-form fr">
+        <form action="/signin" method="post">
+            <div class="title">
+                <h4>乐拍用户登录</h4>
             </div>
-            <div class="col-lg-4">
-                <form method="POST" action="/signin" role="form" class="loginForm">
-                    <h3>用户登录</h3>
-                    <div class="form-group">
-                        <input name="username" class="form-control" type="text" placeholder="用户名"/>
-                        <span class="fa-user"></span>
-                    </div>
-                    <div class="form-group">
-                        <input name="password" class="form-control" type="password" placeholder="密码"/>
-                        <span class="fa-lock"></span>
-                    </div>
-                    <div class="form-group">
-                        <?php echo Html::anchor('u/passwd/forgot', '忘记密码？', array('class' => 'btn-link'));?>
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-success btn-block">登录</button>
-                    </div>
-                    <div class="form-group registering">
-                        <span  class=" help-block">可以用其他登录方式</span>
-                        <?php echo Html::anchor('signup', 'QQ登录', array('class' => 'btn-link'));?>
-                        <?php echo Html::anchor('signup', '新浪登录', array('class' => 'btn-link'));?>
-                        <?php echo Html::anchor('signup', '马上注册', array('class' => 'btn-link'));?>
-                    </div>
-
-                </form>
-            </div>
+            <ul class="loginBar">
+                <li>
+                   <?php echo Form::input('username', '', array('type'=>"text", 'placeholder'=>'输入邮箱')); ?>
+                </li>
+                <li><label class="error"></label></li>
+                <li><?php echo Form::input('password', '', array('type'=>"password", 'placeholder'=>'输入密码')); ?></li>
+                <li><?php echo Html::anchor('', '忘记密码?', array('class' => 'fr'));?></li>
+                <li><button class="login">登录</button></li>
+            </ul>
+        </form>
+        <div class="register-box">
+            <p>还不是乐拍用户？马上注册</p>
+            <?php echo Html::anchor('signup', '<button class="registered">快速注册</button>', array('class' => 'signup'));?>
         </div>
     </div>
-
+</div>
+<!--中间内容结束-->
+<!--底部开始-->
+<div class="footer-wrapper">
+    <div class="help-bg">
+        <div class="footer-help w">
+            <dl>
+                <dt><a href="">帮助中心</a></dt>
+                <dd><a href="">新手指南</a></dd>
+                <dd><a href="">乐拍保障</a></dd>
+                <dd><a href="">商品配送</a></dd>
+            </dl>
+            <dl>
+                <dt><a href="">关注我们</a></dt>
+                <dd><a href="">新浪微博</a></dd>
+                <dd><a href="">官方微信</a></dd>
+                <dd><a href="">官方QQ群：10000000</a></dd>
+                <dd><a href="">官方QQ群:100000000</a></dd>
+            </dl>
+            <dl>
+                <dt>联系我们</dt>
+                <dd><h2 class="red"><span class="icon icon-phone"></span>4008123123</h2></dd>
+                <dd>仅收市话费，周一至周日8.00-18.00</dd>
+                <dd><button class="kf">24小时在线客服</button></dd>
+            </dl>
+            <dl>
+                <dt><a href="">二维码</a></dt>
+            </dl>
+        </div>
+    </div>
+    <div class="footer w">
+        <ul class="bottom-nav">
+            <li><a href="">首页</a></li>
+            <li><a href="">关于乐拍</a></li>
+            <li><a href="">隐私声明</a></li>
+            <li><a href="">合作专区</a></li>
+            <li><a href="">联系我们</a></li>
+        </ul>
+        <P>版权所有</P>
+        <span>乐拍，快乐抢拍你的人生！</span>
+    </div>
+</div>
+<!--底部结束-->
 </body>
 </html>

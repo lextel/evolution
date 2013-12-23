@@ -1,19 +1,34 @@
 <?php
 return array(
-	'version' =>
+	'version' => 
 	array(
-		'app' =>
+		'app' => 
 		array(
-			'default' =>
+			'default' => 
 			array(
+				0 => '001_create_users',
+				1 => '002_create_items',
+				2 => '003_create_phases',
+				3 => '004_create_tasks',
+				4 => '005_create_members',
+				5 => '006_create_sditems',
+				6 => '007_create_friends',
+				7 => '008_create_orders',
+				8 => '009_create_member_infos',
+				9 => '010_create_lotteries',
+				10 => '011_create_member_addresses',
+				11 => '012_create_posts',
+				12 => '013_create_comments',
+				13 => '027_create_cates',
+				14 => '031_create_logs',
 			),
 		),
-		'module' =>
+		'module' => 
 		array(
 		),
-		'package' =>
+		'package' => 
 		array(
-			'auth' =>
+			'auth' => 
 			array(
 				0 => '001_auth_create_usertables',
 				1 => '002_auth_create_grouptables',
