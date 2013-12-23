@@ -13,12 +13,19 @@ class Model_Phase extends \Orm\Model
     protected static $_properties = array(
             'id',
             'item_id',
+            'phase_id',
+            'cate_id',
+            'brand_id',
+            'title',
             'cost',
             'remain',
             'amount',
             'joined',
             'hots',
+            'codes',
+            'is_delete',
             'opentime',
+            'item_created_at',
             'created_at',
             'updated_at',
             );
@@ -70,8 +77,5 @@ class Model_Phase extends \Orm\Model
                 Log::error('Phase: add #'. $id . ' error');
             }
         }
-
     }
-
-
 }

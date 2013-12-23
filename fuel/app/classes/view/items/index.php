@@ -4,6 +4,7 @@ class View_Items_index extends Viewmodel {
 
     public function view() {
 
+        // 分类类别
         $this->getCates = function($limit = 6) {
 
             return Model_Cate::query()->where('parent_id', 0)
@@ -11,6 +12,7 @@ class View_Items_index extends Viewmodel {
                                       ->limit($limit)->get();
         };
 
+        // 品牌列表
         $this->getBrands = function($cates) {
             $brands = [];
             foreach($cates as $cate) {
@@ -22,14 +24,45 @@ class View_Items_index extends Viewmodel {
             return $brands;
         };
 
+        // 即将揭晓
         $this->getTopItem = function() {
 
             $where = ['opentime' => 0];
             $orderBy = ['remain' => 'desc'];
             $phase = Model_Phase::find('first', ['where' => $where, 'order_by' => $orderBy]);
-
             $itemModel = new Model_Item();
+
             return $itemModel->itemInfo($phase);
+        };
+
+
+        // 排序处理
+        $this->sort = function() {
+            $active = Request::active();
+            $sort = explode('_', $active->param('sort'));
+            $options = [
+                    'cateId'  => $active->param('cate_id'),
+                    'brandId' => $active->param('brand_id'),
+                ];
+            
+            Config::load('sort');
+            $sorts = Config::get('item');
+
+            $list = '';
+            $itemModel = new Model_Item();
+            foreach($sorts as $val) {
+                $url = $itemModel->handleUrl($options);
+                $param = isset($val['alias']) ? $val['alias'] : $val['field'];
+                if($sort[0] == $param && isset($sort[1])) {
+                    $order = $sort[1] == 'desc' ? 'asc' : 'desc';
+                    $orderBy = $param . '_' . $order;
+                } else {
+                    $orderBy = $param . '_desc';
+                }
+                $list .= '<a href="'.$url . '/s/'. $orderBy .'" class="btn btn-default btn-sx">'.$val['name'].'</a>';
+            }
+
+            return $list;
         };
     }
 }

@@ -18,6 +18,9 @@ a{
     overflow: hidden;
     width: 980px;
 }
+.d-n{
+    display: none;
+}
 .price{
     display: block;
     font-size: 12px;
@@ -25,6 +28,10 @@ a{
 .price b{
     color: #FF8A3A;
     padding: 0px 5px;
+}
+.content{
+    position: relative;
+    margin-top: 20px;
 }
 .m{
     margin: 0px;
@@ -50,19 +57,24 @@ a{
 }
 .btn{
     padding:8px 10px;
-    border-radius: 3px;
     border: 1px solid #EEEEEE;
     cursor: pointer;
+    display: inline-block;
 }
 .btn-group{
     margin: 0 auto;
     text-align: center;
+    overflow: hidden;
 }
 .btn-default{
     background:#ffffff;
 }
+.btn-link{
+    border: none;
+    background:#ffffff;
+}
 .btn-sx{
-    padding: 5px 10px;
+    padding:4px 10px;
 }
 .btn-sm{
     padding:2px;
@@ -71,10 +83,6 @@ a{
     display: block;
 }
 .btn-red{
-    border-radius:4px ;
-    background: #b92c00;
-    border: 1px solid #B91F04;
-    color: #ffffff;
     padding: 8px 15px;
     margin-right: 10px;
 }
@@ -85,16 +93,19 @@ a{
  }
 .buy{
     width: 135px;
-    height: 32px;
-    border-radius:4px ;
-    background: #b92c00;
-    line-height: 32px;
+    height: 30px;
+    line-height: 30px;
     text-align: center;
-    color: #ffffff;
     font-size: 16px;
     margin: 0 auto;
     display: block;
     cursor: pointer;
+}
+.tl{
+    text-align:left ;
+}
+.tr{
+    text-align:right ;
 }
 /*图标*/
 .icon{
@@ -134,9 +145,61 @@ a{
     vertical-align: middle;
     height: auto;
 }
+.head-img{
+    text-align: center;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 3px;
+}
+.head-img a img{
+    max-width: 100%;
+    vertical-align: middle;
+    height: auto;
+}
+.head-img .name {
+    line-height: 22px;
+    margin: 5px;
+    width: 70px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.head-img-sm{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius:2px;
+}
+.head-img-sm img{
+    max-width: 100%;
+    vertical-align: middle;
+    height: auto;
+}
 .sidebar{
     border: 1px solid #eeeeee;
     overflow: hidden;
+}
+.info-side{
+    overflow: hidden;
+}
+.info{
+    width: 60%;
+    overflow: hidden;
+}
+.info span{
+    display: block;
+    margin-bottom: 5px;
+}
+.text-title{
+    font-weight: bold;
+}
+.datetime{
+    color: #666;
+}
+.name{
+    font-weight: bold;
 }
 .title{
     padding: 10px;
@@ -207,38 +270,46 @@ h4{
     border-radius: 4px 0 0px 4px;
 }
 /*分页*/
-.pages{
+.pagination{
     overflow: hidden;
     margin-bottom: 10px;
 }
 
-.pages li{
+.pagination span{
     float: left;
     margin-right: 10px;
-}
-.pages li a{
     display: block;
+    background: #f1f1f1;
+    border: 1px #EEEEEE solid;
+    border-radius: 3px;
     text-align: center;
     width: 30px;
     height: 28px;
     line-height: 28px;
-    background: #f1f1f1;
-    border: 1px #EEEEEE solid;
-    border-radius: 3px;
 }
-.pages li a:hover{
+.pagination span a{
+    display: block;
+}
+.pagination span a:hover{
     background: #D96D66;
     color: #ffffff;
+    border-radius: 3px;
 }
-.pages li a.curr-page{
+.pagination span.active{
     background:#D9534F ;
     color: #ffffff;
 }
-.pages li a.disabled{
+.pagination span.active a{
+    color: #ffffff;
+}
+.pagination span.disabled{
     background:#EEEEEE ;
     opacity: 0.3;
 }
-.pages li a.prev-page,.pages li a.next-page{
+.pagination span.previous-inactive{
+    width:60px;
+}
+.pagination span.next{
     width:60px;
 }
 .winner b{

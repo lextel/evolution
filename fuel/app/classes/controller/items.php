@@ -8,19 +8,18 @@ class Controller_Items extends Controller_Frontend {
         $options = [
             'cateId'  => $this->param('cate_id'),
             'brandId' => $this->param('brand_id'),
-            'order'   => $this->param('order'),
             'sort'    => $this->param('sort'),
-            'page'    => $this->param('page'),
+            'page'    => intval($this->param('page')) ? intval($this->param('page')) : 1,
             ];
-
 
         $itemModel = new Model_Item();
 
-        $url         = Uri::create('/admin/cates/cate');
-        $total       = $itemModel->countItem($options);
+        $url        = $itemModel->handleUrl($options) . '/p';
+        $total      = $itemModel->countItem($options);
+        $paramCount = $itemModel->countParam($options);
 
         $page = new \Helper\Page();
-        $config = $page->setConfig($url, $total);
+        $config = $page->setConfig($url, $total, $paramCount);
         $pagination = Pagination::forge('mypagination', $config);
 
         $items = $itemModel->index($options);
@@ -30,7 +29,10 @@ class Controller_Items extends Controller_Frontend {
         $view->set('pagination', $pagination);
         $this->template->title = "所有商品";
         $this->template->content = $view;
+        $this->template->content->sort = 'dkfhui324df2341';
     }
+
+
 
     // 商品详情
     public function action_view($id = null) {
