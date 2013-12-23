@@ -147,21 +147,19 @@ a{
 }
 .head-img{
     text-align: center;
-<<<<<<< HEAD
-=======
+
     width: 70px;
     height: 70px;
     line-height: 70px;
     border-radius: 3px;
->>>>>>> 1c10579053e5949d451f0e6c30c06155c3446884
+
 }
 .head-img a img{
     max-width: 100%;
     vertical-align: middle;
     height: auto;
 }
-<<<<<<< HEAD
-=======
+
 .head-img .name {
     line-height: 22px;
     margin: 5px;
@@ -182,7 +180,7 @@ a{
     vertical-align: middle;
     height: auto;
 }
->>>>>>> 1c10579053e5949d451f0e6c30c06155c3446884
+
 .sidebar{
     border: 1px solid #eeeeee;
     overflow: hidden;
