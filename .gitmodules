@@ -1,10 +1,3 @@
 [submodule "fuel/core"]
   path = fuel/core
   url = git://github.com/fuel/core.git
-[submodule "fuel/packages/fuel-cart"]
-  path = fuel/packages/fuel-cart
-  url = https://github.com/fuel-packages/fuel-cart.git
-[submodule "fuel/vendor/psr/log"]
-  path = fuel/vendor/psr/log
-  url = https://github.com/php-fig/log.git
-
