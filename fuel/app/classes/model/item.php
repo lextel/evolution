@@ -436,7 +436,8 @@ class Model_Item extends \Orm\Model {
      *
      */
     public function editorUpload() {
-        $upload = new Classes\Upload('item');
+
+        $upload = new Classes\Upload('editor');
         $success = $upload->upload();
 
         $rs = [];

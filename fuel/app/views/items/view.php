@@ -1,4 +1,5 @@
-<?php echo Asset::css('product.css'); ?>
+<?php echo Asset::css(['product.css', 'jquery.jqzoom.css']); ?>
+<?php echo Asset::js(['jquery.jqzoom-core.js', 'item/view.js']); ?>
 <div class="wrapper w">
     <!--商品信息开始-->
     <div class="panel w">
@@ -8,7 +9,29 @@
                 <?php echo $item->title; ?>
             </h2>
         </div>
-        <div class="img-box fl">
+        <div class="img-side fl">
+            <!--幻灯片开始-->
+            <div class="lantern-slide">
+                <div class="slide-img">
+                    <a href="<?php echo $item->image; ?>" class="jqzoom" rel="gal1">
+                        <img src="<?php echo /*Uri::create('/image/400x400/'.*/$item->image; ?>" alt=""/>
+                    </a>
+                </div>
+                <ul class="slide-list" id="thumblist">
+                    <?php
+                        $images = unserialize($item->images);
+                        foreach($images as $image):
+                    ?>
+                    <li>
+                        <a class="<?php echo $image == $item->image ? 'zoomThumbActive' : ''; ?>">
+                            <img src="<?php echo $image; ?>" alt=""/>
+                        </a>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <!--幻灯片结束-->
+            <!--获奖者开始-->
             <div class="previous-box">
                 <div class="img-box fl"><a href=""><img src="img/54359.jpg" alt=""></a></div>
                 <div class="info-side fl">
@@ -18,6 +41,7 @@
                     <span class="buy-number">幸运码：<b class="red">1000000</b></span>
                 </div>
             </div>
+            <!--获奖者结束-->
         </div>
         <div class="product-column fr">
             <div class="state-heading">

@@ -31,7 +31,7 @@ class Controller_Cart extends Controller_Template {
         $view = ViewModel::forge('cart/pay');
         
         $view->set('items', $items);
-        $this->template->title = "我的购物车";
+        $this->template->title = "订单支付";
         $this->template->content = $view;
     }
 

@@ -12,16 +12,6 @@
     margin: 0 10px;
 }
 /*揭晓结果*/
-.panel {
-
-}
-
-.panel .img-box {
-    overflow: hidden;
-    width: 400px;
-    background: #EEEEEE;
-}
-
 .panel .state-column {
     width: 580px;
     overflow: hidden;
@@ -281,6 +271,9 @@
     border: 1px solid #EEEEEE;
 }
 .product-list .product-box li .img-box{
+    width: 215px;
+    height: 200px;
+    line-height: 175px;
     margin: 10px;
 }
 .product-list .product-box li .progress-side{
@@ -410,8 +403,147 @@
    margin:10px;
     position: relative;
 }
-
+.pay-way{
+    overflow: hidden;
+}
+.pay-way dl{
+     overflow: hidden;
+     border: 1px solid #f1f1f1;
+     padding: 0 15px;
+     font-size: 14px;
+     margin-bottom: 20px;
+}
+.pay-way dl dt{
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    clear: both;
+    border-bottom: 1px solid #f1f1f1;
+}
+.pay-way dl dd{
+    float: left;
+    margin:0 30px 10px 0;
+    overflow: hidden;
+}
+.pay-way dl dd input{
+    display:block;
+    float: left;
+    margin: 12px 5px 0 0;
+    cursor: pointer;
+}
+.pay-way dl dd label{
+    display:block;
+    cursor: pointer;
+    float: left;
+}
+.pay-way dl dd label span{
+    display: block;
+    width: 105px;
+    height: 31px;
+    float: left;
+    background: url("../images/bank_logo.png")no-repeat;
+}
+.pay-way dl dd label .zhs{
+    background-position: 0 -36px;
+}
+.pay-way dl dd label .jt{
+    background-position: 0 -466px;
+}
+.pay-way dl dd label .gsh{
+    background-position: 0 -3px;
+}
+.pay-way dl dd label .zhg{
+    background-position: 0 -433px;
+}
+.pay-way dl dd label .zhx{
+    background-position: 0 -333px;
+}
+.pay-way dl dd label .jsh{
+    background-position: 0 -69px;
+}
+.pay-way dl dd label .ny{
+    background-position: 0 -102px;
+}
+.pay-way dl dd label .zhf{
+    background-position: 0 -613px;
+}
+.pay-help{
+    margin: 10px 0;
+}
+.pay-help dt{
+    margin-bottom: 10px;
+    line-height: 24px;
+}
+.pay-help dd{
+     margin-bottom: 10px;
+     line-height: 24px;
+}
+.pay-help dd a{
+    margin-right:30px;
+}
+.pay-help dd ol{
+    overflow: hidden;
+    list-style-type: decimal;
+}
 /*商品详情*/
+/*幻灯片开始*/
+.panel .img-side {
+    overflow: hidden;
+    width: 402px;
+}
+.lantern-slide{
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid #EEEEEE;
+}
+.lantern-slide .slide-img{
+    width:400px ;
+    height:340px ;
+    text-align: center;
+}
+.lantern-slide .slide-img a img{
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+.slide-list{
+    overflow: hidden;
+    background: #EEEEEE;
+    padding: 5px 0;
+}
+.slide-list li{
+    width: 74px;
+    height: 67px;
+    line-height: 67px;
+    text-align: center;
+    position: relative;
+    margin-left: 5px;
+    float: left;
+}
+.slide-list li span{
+    width: 74px;
+    height:67px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000000;
+    opacity: 0.5;
+    display: block;
+    cursor: pointer;
+}
+.slide-list li.active span{
+    width: 68px;
+    height: 61px;
+    border: 3px solid #D9534F;
+    background:none;
+    opacity: 1;
+}
+.slide-list li img{
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}
+/*幻灯片结束*/
 .product-column {
     width: 558px;
     overflow: hidden;
@@ -485,11 +617,13 @@
     overflow: hidden;
     padding: 10px;
     border: 1px solid #EEEEEE;
+    background:#EEEEEE;
 }
 .previous-box .img-box{
     width: 70px;
     height: 70px;
     line-height: 70px;
+
 }
 .previous-box .info-side {
     width: 60%;

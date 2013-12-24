@@ -28,6 +28,11 @@ echo Asset::js(
         <div class="form-group">
           <?php echo Form::label('标题:', 'title', array('class'=>'control-label')); ?>
           <?php echo Form::input('title', Input::post('title', isset($item) ? $item->title : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'商品标题')); ?>
+
+        </div>
+        <div class="form-group">
+            <?php echo Form::label('分类:', 'cate_id', array('class'=>'control-label')); ?>
+            <?php echo Form::select('cate_id', Input::post('cate_id', isset($item) ? $item->cate_id : ''), $cates, ['class' => 'col-md-4 form-control']); ?>
         </div>
         <div class="form-group">
           <?php 
@@ -62,10 +67,6 @@ echo Asset::js(
         <div class="form-group">
             <?php echo Form::label('价值:', 'price', array('class'=>'control-label')); ?>
             <?php echo Form::input('price', Input::post('price', isset($item) ? $item->price : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'商品价值')); ?>
-        </div>
-        <div class="form-group">
-            <?php echo Form::label('分类:', 'cate_id', array('class'=>'control-label')); ?>
-            <?php echo Form::select('cate_id', Input::post('cate_id', isset($item) ? $item->cate_id : ''), $cates, ['class' => 'col-md-4 form-control']); ?>
         </div>
         <div class="form-group">
             <label class='control-label'>&nbsp;</label>

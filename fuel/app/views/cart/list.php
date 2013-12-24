@@ -34,11 +34,11 @@
                             <td><input type="checkbox" name="ids[]" value="<?php echo $item->get_id(); ?>"/></td>
                             <td>
                                 <div class="img-box fl">
-                                    <a href=""><img src="<?php echo $info->image; ?>" alt=""></a>
+                                    <a href="<?php echo Uri::create('/m/'. $item->get_id()); ?>"><img src="<?php echo $info->image; ?>" alt=""></a>
                                 </div>
                                 <div class="info-side fl">
                                     <div class="title">
-                                        <a href=""><?php echo $info->title; ?></a>
+                                         <a href="<?php echo Uri::create('/m/'. $item->get_id()); ?>"><?php echo $info->title; ?></a>
                                     </div>
                                     <div class="remain">剩余<b class="red"><?php echo $info->phase->remain; ?></b>人次</div>
                                 </div>
@@ -75,21 +75,30 @@
         <div class="unveiled w">
             <h4>以下商品即将揭晓,快去乐拍吧~</h4>
             <ul>
+                <?php
+                $remains = $getRemains();
+                foreach($remains as $remain):
+                ?>
                 <li>
-                    <div class="title">
-                        <h5>苹果智能手机32G苹果智能手机32G</h5>
-                        <div class="price">价值<b>￥5000</b></div>
-                    </div>
-                    <div class="img-box">
-                        <a href=""><img src="img/54359.jpg" alt=""></a>
-                        <div class="sheng-yi">
-                            剩余 <b class="red">0</b>人次本商品就揭晓了！
+                    <form action="<?php echo Uri::create('cart/add'); ?>" method="post" />
+                        <div class="title">
+                            <h5><?php echo $remain->title; ?></h5>
+                            <div class="price">价值<b>￥<?php echo sprintf('%.2f', $remain->price); ?></b></div>
                         </div>
-                    </div>
-                    <div class="btn-group">
-                        <button class="btn btn-red">放入购物车</button>
-                    </div>
+                        <div class="img-box">
+                            <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>"><img src="<?php echo $remain->image; ?>" alt=""></a>
+                            <div class="sheng-yi">
+                                剩余 <b class="red"><?php echo $remain->phase->remain; ?></b>人次本商品就揭晓了！
+                            </div>
+                        </div>
+                        <div class="btn-group">
+                            <input type="hidden" name="id" value="<?php echo $remain->phase->id; ?>"/>
+                            <input type="hidden" name="qty" value="1"/>
+                            <button class="btn btn-red" type="submit">放入购物车</button>
+                        </div>
+                    </form>
                 </li>
+                <?php endforeach; ?>
             </ul>
         </div>
         <!--今日热门结束-->

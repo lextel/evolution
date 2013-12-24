@@ -7,8 +7,10 @@ class Controller_Admin_Items extends Controller_Admin {
 
         $data['items'] = Model_Item::find('all', ['order_by' => ['id' => 'desc']]);
 
+        // $cateModel = new Model_Cate();
+        // $data['cates'] = $cateModel->getCates();
         $cates = new Classes\Cate();
-        $data['cates'] = $cates->cates();
+        $this->template->set_global('cates', $cates->cates(), false);
 
         $this->template->title = "商品管理";
         $this->template->content = View::forge('admin/items/index', $data);
@@ -93,6 +95,8 @@ class Controller_Admin_Items extends Controller_Admin {
 
     // 上传商品图片
     public function action_upload() {
+        print_r($_FILES);
+        die;
 
         $itemModel = new Model_Item();
         $files = $itemModel->upload();
