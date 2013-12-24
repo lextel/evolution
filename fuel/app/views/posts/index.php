@@ -5,20 +5,20 @@
     </div>
     <div class="list_sort">
         <span>排序</span>
-        <?php echo Html::anchor('', '最新晒单', array('class' => 'btn btn-default btn-sx'));?>
-        <?php echo Html::anchor('', '人气晒单', array('class' => 'btn btn-default btn-sx'));?>
-        <?php echo Html::anchor('', '评论最多', array('class' => 'btn btn-default btn-sx'));?>
+        <?php echo Html::anchor('/p/s/sortnew', '最新晒单', array('class' => 'btn btn-default btn-sx'));?>
+        <?php echo Html::anchor('/p/s/sortup', '人气晒单', array('class' => 'btn btn-default btn-sx'));?>
+        <?php echo Html::anchor('/p/s/sortcomment', '评论最多', array('class' => 'btn btn-default btn-sx'));?>
     </div>
     <div class="content w">
         <ul class="share-list">
         <?php if ($posts): ?>
-        <?php foreach ([1,2,3,0] as $li):?>
+        <?php foreach ([0,1,2,3] as $li):?>
         <li>
         <?php foreach ($posts as $v=>$item): ?>
-            <?php if ($v % 4 == $li):?>
+            <?php if (array_search($v, array_keys($posts)) % 4 == $li):?>
                 <div class="product-item">
                     <div class="img-box">
-                        <?php echo Html::anchor('', Html::img('assets/img/96515277.jpg'));?>
+                        <?php echo Html::anchor('/p/'.$item->id, Html::img('assets/img/96515277.jpg'));?>
                     </div>
                     <div class="info-side">
                         <div class="head-img fl">
@@ -35,10 +35,11 @@
                     </div>
                     <div class="btn-group">
                         <?php echo Html::anchor('', '喜欢<s>('.$item->up.')</s>', array('class'=>'btn btn-link'));?>
-                        <?php echo Html::anchor('', '评论<s>('.$item->comment_count.')</s>', array('class'=>'btn btn-link'));?>
+                        <?php echo Html::anchor('javascript:;', '评论<s>('.$item->comment_count.')</s>', array('class'=>'btn btn-link'));?>
                     </div>
                 </div>
             <?php endif; ?>
+
         <?php endforeach; ?>
         </li>
         <?php endforeach; ?>
@@ -48,13 +49,13 @@
         </ul>
         <!--分页-->
         <?php echo Pagination::instance('postspage')->render(); ?>
-        <div class="pagination fr">
+        <!--<div class="pagination fr">
             <span><a href="" class="previous-inactive">上一页&lt;</a></span>
             <span><a href="" class="active">1</a></span>
             <span><a href="">2</a></span>
             <span><a href="">3</a></span>
             <span><a href="">4</a></span>
             <span><a href="" class="next">下一页&gt;</a></span>
-        </div>
+        </div>-->
     </div>
 </div>

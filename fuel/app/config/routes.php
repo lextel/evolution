@@ -48,9 +48,10 @@ return array(
     'm/c/:cate_id' => 'items/index',
 
     'p' => 'posts/index',
+    'p/up/(\d+)' => 'posts/up/$1',
     'p/p/(\d+)' => 'posts/index/$1',
-    'p/s(/\d+)?' => 'posts/index/$1/$2',
-    'p/s(/\d+)/p/(\d+)' => 'posts/index/$1/$2',
+    'p/s/(\w+)?' => 'posts/sort/$1',
+    'p/s/(\w+)/p/(\d+)' => 'posts/sort/$1/$2',
     'p/(\d+)' => 'posts/view/$1',
     'comment/(\d+)' => 'comments/index',
     'comment/(\d+)/p/(\d+)' => 'comments/index',
