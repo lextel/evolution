@@ -18,6 +18,9 @@ a{
     overflow: hidden;
     width: 980px;
 }
+p{
+    line-height: 22px;
+}
 .d-n{
     display: none;
 }
@@ -55,16 +58,17 @@ a{
     cursor: pointer;
     background: #dbdbdb;
 }
+.btn-group{
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+}
 .btn{
     padding:8px 10px;
     border: 1px solid #EEEEEE;
     cursor: pointer;
     display: inline-block;
-}
-.btn-group{
-    margin: 0 auto;
-    text-align: center;
-    overflow: hidden;
+    border-radius: 4px;
 }
 .btn-default{
     background:#ffffff;
@@ -85,6 +89,9 @@ a{
 .btn-red{
     padding: 8px 15px;
     margin-right: 10px;
+    background: #D9534F;
+    color: #ffffff;
+    border-radius: 4px;
 }
  h5{
      font-size: 12px;
@@ -106,6 +113,28 @@ a{
 }
 .tr{
     text-align:right ;
+}
+.tc{
+    text-align:center ;
+}
+table{
+    border: 1px solid #EEEEEE;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+table thead tr th{
+    border: 1px solid #DDDDDD;
+    text-align: center;
+    background: #f1f1f1;
+    padding: 8px;
+    line-height: 1.38462;
+}
+table tbody tr td{
+    border: 1px solid #EEEEEE;
+    text-align: center;
+    padding: 8px;
+    line-height: 1.38462;
 }
 /*图标*/
 .icon{
@@ -188,6 +217,11 @@ a{
 .info-side{
     overflow: hidden;
 }
+.info-side h4{
+    height: 40px;
+    font-size: 12px;
+    line-height: 20px;
+}
 .info{
     width: 60%;
     overflow: hidden;
@@ -204,6 +238,13 @@ a{
 }
 .name{
     font-weight: bold;
+    line-height: 22px;
+    width: 100px;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+.ip{
+    line-height: 22px;
 }
 .title{
     padding: 10px;
