@@ -42,7 +42,7 @@
             <li><a href="<?php echo Uri::base(); ?>">首页</a></li>
             <li><a href="<?php echo Uri::create('/m'); ?>">所有商品</a></li>
             <li><a href="">最新揭晓</a></li>
-            <li><a href="">晒单分享</a></li>
+            <li><?php echo Html::anchor('p', '晒单分享'); ?></li>
             <li><a href="">新手指南</a></li>
         </ul>
     </div>
