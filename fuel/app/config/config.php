@@ -179,6 +179,7 @@ return array(
             'Fuel\\Core\\View',
             'Fuel\\Core\\ViewModel',
             'Fuel\Core\Validation',
+            'Cart\Cart_Item',
             'Closure',
         ),
     ),
@@ -313,7 +314,8 @@ return array(
         'always_load' => array(
             'packages' => array(
                 'auth',
-                'orm'
+                'orm',
+                'fuel-cart'
             ),
         ),
         'sms' => array(

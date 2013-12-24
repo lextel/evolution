@@ -204,7 +204,6 @@ class Model_Item extends \Orm\Model {
 
         $sort = $options['sort'];
 
-            print_r($options);
         $orderBy = ['remain' => 'desc'];
         if($sort) {
             Config::load('sort');

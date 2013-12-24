@@ -1,15 +1,10 @@
 <?php echo Asset::css('product.css'); ?>
-
-<?php
-serialize(['']);
-
-?>
 <div class="wrapper w">
     <!--商品信息开始-->
     <div class="panel w">
         <div class="title">
             <h2>
-                <b>(第1期)</b>
+                <b>(第<?php echo $item->phase->phase_id; ?>期)</b>
                 <?php echo $item->title; ?>
             </h2>
         </div>
@@ -42,18 +37,21 @@ serialize(['']);
                     <span class="fr">剩余人次</span>
                 </dd>
             </dl>
-            <div class="btn-menu">
-                <span>购买数量：</span>
-                <button class="">-</button>
-                <input type="text" value="1">
-                <button class="">+</button>
-                <span>人次</span>
-                <span>获得几率：<s class="red">0.00%</s> </span>
-            </div>
-            <div class="btn-group">
-                <button class="btn btn-red">立即乐拍</button>
-                <button class="btn btn-default">加入购物车</button>
-            </div>
+            <form action="<?php echo Uri::create('/cart/add'); ?>" method="post">
+                <div class="btn-menu">
+                    <span>购买数量：</span>
+                    <button class="">-</button>
+                    <input type="text" value="1" name="qty">
+                    <button class="">+</button>
+                    <span>人次</span>
+                    <span>获得几率：<s class="red">0.00%</s> </span>
+                </div>
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-red">立即乐拍</button>
+                    <button class="btn btn-default">加入购物车</button>
+                    <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>
+                </div>
+            </form>
             <ul class="security-list">
                 <li><a href="" class="01">100%公平公正</a></li>
                 <li><a href="" class="02">100%正品保证</a></li>
