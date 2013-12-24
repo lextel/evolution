@@ -64,5 +64,17 @@ class View_Items_index extends Viewmodel {
 
             return $list;
         };
+
+        // 今日热门
+        $this->getHots = function() {
+            $phases = Model_Phase::find('all', ['order_by' => ['hots' => 'desc'], 'limit' => 5]);
+            $itemModel = new Model_Item();
+            $items = [];
+            foreach($phases as $phase) {
+                $items[] = $itemModel->itemInfo($phase);
+            }
+
+            return $items;
+        };
     }
 }

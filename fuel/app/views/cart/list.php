@@ -33,12 +33,15 @@
                         <tr>
                             <td><input type="checkbox" name="ids[]" value="<?php echo $item->get_id(); ?>"/></td>
                             <td>
-                                <div class="img-box fl"><a href=""><img src="<?php echo $info->image; ?>" alt=""></a>
+                                <div class="img-box fl">
+                                    <a href=""><img src="<?php echo $info->image; ?>" alt=""></a>
                                 </div>
-                                <div class="title fl">
-                                    <a href=""><?php echo $info->title; ?></a>
+                                <div class="info-side fl">
+                                    <div class="title">
+                                        <a href=""><?php echo $info->title; ?></a>
+                                    </div>
+                                    <div class="remain">剩余<b class="red"><?php echo $info->phase->remain; ?></b>人次</div>
                                 </div>
-                                <div class="remain fl">剩余<b class="red"><?php echo $info->phase->remain; ?></b>人次</div>
                             </td>
                             <td><s class="red">￥<?php echo sprintf('%.2f', $info->price); ?></s></td>
                             <td><s class="red">￥<?php echo sprintf('%.2f', $info->price); ?></s></td>
