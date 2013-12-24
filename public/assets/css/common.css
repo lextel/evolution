@@ -176,16 +176,19 @@ table tbody tr td{
 }
 .head-img{
     text-align: center;
+
     width: 70px;
     height: 70px;
     line-height: 70px;
     border-radius: 3px;
+
 }
 .head-img a img{
     max-width: 100%;
     vertical-align: middle;
     height: auto;
 }
+
 .head-img .name {
     line-height: 22px;
     margin: 5px;
@@ -206,6 +209,7 @@ table tbody tr td{
     vertical-align: middle;
     height: auto;
 }
+
 .sidebar{
     border: 1px solid #eeeeee;
     overflow: hidden;
@@ -320,6 +324,9 @@ h4{
     float: left;
     margin-right: 10px;
     display: block;
+}
+.pagination span a{
+    display: block;
     background: #f1f1f1;
     border: 1px #EEEEEE solid;
     border-radius: 3px;
@@ -328,29 +335,24 @@ h4{
     height: 28px;
     line-height: 28px;
 }
-.pagination span a{
-    display: block;
-}
+
+
+
 .pagination span a:hover{
     background: #D96D66;
     color: #ffffff;
     border-radius: 3px;
 }
-.pagination span.active{
+
+.pagination span a.active{
     background:#D9534F ;
     color: #ffffff;
 }
-.pagination span.active a{
-    color: #ffffff;
-}
-.pagination span.disabled{
+.pagination span a.disabled{
     background:#EEEEEE ;
     opacity: 0.3;
 }
-.pagination span.previous-inactive{
-    width:60px;
-}
-.pagination span.next{
+.pagination span a.previous-inactive,.pagination span a.next{
     width:60px;
 }
 .winner b{

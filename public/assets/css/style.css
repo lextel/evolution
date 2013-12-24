@@ -1,0 +1,448 @@
+.f2{
+    width: 200px;
+}
+/*登录*/
+.logo-wrapper{
+    width: 100%;
+    overflow: hidden;
+}
+.logo-wrapper .logo{
+    margin: 40px auto 10px;
+    width: 980px;
+}
+.left-side{
+    width: 500px;
+    height: 350px;
+    background: #cccccc;
+}
+.login-form{
+    width: 300px;
+    height: 350px;
+    border: 1px solid #EEEEEE;
+}
+.login-form .loginBar{
+    overflow: hidden;
+     margin:10px 20px 20px ;
+ }
+.login-form .title{
+    background: #EEEEEE;
+}
+.login-form .loginBar li{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.login-form .loginBar li input{
+    height: 35px;
+    border: 1px solid #EEEEEE;
+    text-indent:10px;
+    width: 258px;
+ }
+.login-form .loginBar li label{
+    height: 35px;
+}
+.login-form .loginBar li .login,.login-form .register-box .registered {
+    height: 30px;
+    border: 1px solid #EEEEEE;
+    width: 145px;
+    line-height: 30px;
+    text-align: center;
+    margin-left: 52px;
+    cursor: pointer;
+  }
+.register-box{
+    overflow: hidden;
+    padding: 20px;
+    border-top: 1px solid #EEE;
+}
+.register-box .registered{
+    margin-top: 20px;
+}
+/*注册*/
+.register{
+    border: 1px  solid #EEEEEE;
+}
+.register .title{
+    border: 1px  solid #EEEEEE;
+    background: #f1f1f1;
+}
+.register .title ul li{
+    float: left;
+    line-height: 20px;
+    margin-left: 15px;
+}
+ .register-form{
+    margin: 50px 0 0px 100px;
+    overflow: hidden;
+}
+.register-form ul li{
+    margin-bottom: 15px;
+}
+ .register-form ul li label{
+     text-align: right;
+     height: 26px;
+     line-height: 26px;
+     width: 160px;
+     display: inline-block;
+ }
+.register-form ul li input{
+    border: 1px solid #EEEEEE;
+    text-indent: 25px;
+    height: 26px;
+    line-height: 26px;
+    width: 230px;
+    display: inline-block;
+    margin: 0 20px;
+}
+.register-form ul li .btn{
+    margin-left: 180px;
+}
+.register-help{
+    width: 640px;
+    height: 120px;
+    margin: 20px 0 20px 100px;
+    border: 1px solid #EEEEEE;
+    padding: 10px;
+}
+/*个人主页*/
+.number,.datetime{
+    margin-bottom: 5px;
+}
+.left-sidebar{
+    width: 160px;
+    overflow: hidden;
+    padding: 10px;
+    background: #EEEEEE;
+}
+.left-sidebar .img-box{
+    height: 160px;
+    line-height: 160px;
+}
+.left-sidebar .winner{
+    width: 160px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.signature{
+    background: #ffffff;
+    padding: 5px;
+    line-height: 18px;
+    margin-top: 10px;
+}
+.main{
+    width: 780px;
+    overflow: hidden;
+}
+.subNav{
+    height: 30px;
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+}
+.subNav li{
+    height: 30px;
+    width: 193px;
+    float: left;
+    margin-left: -1px;
+    line-height: 30px;
+    text-align: center;
+    border-left: 1px solid #EEEEEE;
+    overflow: hidden;
+}
+.home{
+    border: 1px solid #EEEEEE;
+    overflow: hidden;
+    padding: 20px;
+    margin-top:10px;
+}
+.buy-menu{
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.home ul .right-box{
+    width: 592px;
+}
+.buy-menu .right-box{
+    overflow: hidden;
+    padding: 10px;
+    border: 1px solid #EEEEEE;
+}
+.buy-menu  li{
+    float: left;
+    margin-left: 10px;
+}
+.buy-menu  li .img-box{
+    width: 130px;
+    height: 110px;
+    position: relative;
+}
+.buy-record{
+    margin-left: 15px;
+}
+/*个人中心*/
+.left-nav{
+    overflow: hidden;
+    margin-top: 10px;
+    border-bottom: 1px #DDDDDD solid;
+}
+.left-nav li{
+    height: 35px;
+    line-height: 35px;
+    border: 1px #DDDDDD solid;
+    margin-bottom: -1px;
+    text-indent: 10px;
+}
+.center-main {
+    width: 575px;
+    overflow: hidden;
+    margin-left: 10px;
+    border: 1px solid #EEEEEE;
+}
+.center-main .center-info{
+    overflow: hidden;
+    padding: 10px;
+    border-bottom: 1px solid #DDDDDD;
+    margin-bottom: 15px;
+}
+.center-main .center-info li{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    margin-bottom: 10px;
+}
+.center-main .center-info li .edit{
+    width: 85px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border: 1px solid #DDDDDD;
+    border-radius: 3px;
+    margin-left: 20px;
+}
+.buy-menu .right-box{
+    width: 420px;
+    position: relative;
+}
+.icon-jx{
+    width:40px ;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid #D96D66;
+    background:  #D96D66;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+.right-box .price{
+    padding: 5px 0;
+}
+/*晒单分享*/
+.share-list{
+    overflow: hidden;
+    margin-right: -10px;
+}
+.share-list li{
+    float: left;
+    margin-right: 10px;
+}
+
+.product-item{
+    width: 215px;
+    padding: 10px;
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+    margin-bottom: 10px;
+}
+.product-item .img-box{
+    width: 215px;
+    height: 165px;
+    line-height: 165px;
+    margin-bottom: 5px;
+}
+.product-item .head-img{
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+.text-content{
+    clear: both;
+    line-height: 20px;
+    height: 58px;
+    text-indent: 2em;
+    overflow: hidden;
+}
+/*分享详情*/
+.share-details{
+
+}
+.left-content{
+    border: 1px solid #EEEEEE;
+    overflow: hidden;
+    width: 695px;
+    float: left;
+}
+.content-title{
+    text-align: center;
+    overflow: hidden;
+    padding: 20px 0;
+}
+.content-title h3{
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+}
+.content-nav{
+    overflow: hidden;
+    border-top: 1px solid #EEEEEE;
+    border-bottom:  1px solid #EEEEEE;
+}
+.content-nav li{
+    width: 327px;
+    float: left;
+    border-right: 1px solid #EEEEEE;
+    margin-right: -1px;
+    padding: 10px;
+}
+.content-nav li  .head-img{
+    width:100px;
+    height: 80px;
+    line-height: 80px;
+    margin-right: 15px;
+}
+.left-content .content{
+    overflow: hidden;
+    padding: 20px;
+}
+.content-right{
+    width: 250px;
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+    padding: 10px;
+}
+.content-right .title{
+    height: 34px;
+    margin-bottom: 10px;
+    padding: 10px 0;
+}
+.content-right .title h4{
+    height: 32px;
+    width: 130px;
+    border: 1px solid #EEEEEE;
+    line-height: 32px;
+    text-align: center;
+    margin-right: -10px;
+}
+.before{
+    overflow: hidden;
+}
+.before li,.news li{
+    overflow: hidden;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #EEEEEE;
+}
+.before li .head-img{
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin-right: 10px;
+}
+.news{
+    overflow: hidden;
+}
+.new-text{
+    height:65px;
+    overflow: hidden;
+    line-height: 18px;
+}
+.news li .images-list dd{
+    width: 60px;
+    height: 60px;
+    float: left;
+    line-height: 60px;
+    margin-right: 8px;
+    text-align: center;
+}
+.news li .images-list dd a img{
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+/*评论*/
+.comment-panel{
+    overflow: hidden;
+    margin-top: 20px;
+}
+.comment-box{
+    width: 700px;
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+}
+.comment-box textarea{
+    width: 100%;
+    border-bottom: 1px solid #EEEEEE;
+    display: block;
+}
+.comment-footer{
+    overflow: hidden;
+    height: 40px;
+    padding: 5px;
+    line-height: 40px;
+    background: #f1f1f1;
+}
+.comment-footer .head-img{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 2px;
+    margin-right: 10px;
+    border-bottom: 1px solid #EEEEEE;
+}
+.comment-footer .btn{
+    margin-left: 10px;
+}
+.comment-footer .expression{
+   margin-left: 15px;
+}
+.comment-list{
+    overflow: hidden;
+    margin-top: 15px;
+    width: 700px;
+}
+.comment-list dt{
+    height:36px;
+    border-bottom:1px solid #EEEEEE;
+    margin-bottom: 15px;
+}
+.comment-list dt h4{
+    height:36px;
+    line-height: 36px;
+}
+.comment-list dd{
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-bottom:1px solid #EEEEEE;
+    padding-bottom: 15px;
+}
+.comment-list dd .head-img{
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin-right: 15px;
+}
+.info-side-head{
+    margin-bottom: 5px;
+}
+.comment-list dd .comment-box{
+    width: 620px;
+}
+
+
+
+
+
+

@@ -37,6 +37,10 @@
     overflow: hidden;
     margin-top: 20px;
 }
+.recommended .price{
+    text-align: right;
+}
+
 .recommended .progress-side{
     padding: 0 15px;
 }

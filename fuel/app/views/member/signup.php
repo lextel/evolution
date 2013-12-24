@@ -2,71 +2,50 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>用户登录</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <?php echo Asset::css('bootstrap.min.css');?>
-    <?php echo Asset::css('member/comme.css');?>
-    <?php echo Asset::js('bootstrap.min.js');?>
-    <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
-    <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <title>用户注册</title>
+    <?php echo Asset::css('common.css');?>
+    <?php echo Asset::css('style.css');?>
     <?php echo Asset::js('jquery.min.js');?>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <![endif]-->
-    <script type="text/javascript">
-    
-    </script>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <h2>logo</h2>
+    <div class="register w">
+        <div class="title">
+            <h4 class="fl">新用户注册</h4>
+            <ul class="fl">
+                <li><a href="">1填写注册信息</a></li>
+                <li><a href="">2填写注册信息</a></li>
+                <li><a href=""></a></li>
+            </ul>
+            <div class="login fr">
+                已经是会员，直接登录
+                <?php echo Html::anchor('signup', '登录', array('class' => ''));?>
+            </div>
+        </div>
+        <?php echo Form::open(array("class"=>"register-form")); ?>
+            <ul>
+                <li>
+                   <?php echo Form::label('用户邮箱'); ?>
+                   <?php echo Form::input('username', '', array('type'=>"text", 'placeholder'=>'用户邮箱')); ?>
+                   <?php echo Form::label('', '', array('class'=>'error')); ?>
+                </li>
+                <li>
+                   <?php echo Form::label('输入密码'); ?>
+                   <?php echo Form::input('password', '', array('type'=>"password", 'placeholder'=>'输入密码')); ?>
+                   <?php echo Form::label('', '', array('class'=>'error')); ?>
+                </li>
+                <li>
+                   <?php echo Form::label('确认密码'); ?>
+                   <?php echo Form::input('password', '', array('type'=>"password", 'placeholder'=>'确认密码')); ?>
+                   <?php echo Form::label('', '', array('class'=>'error')); ?>
+                </li>
+                <li><!--<a href="" class="btn btn-default fl">同意协议并注册</a>-->
+                   <?php echo Form::submit('submit', '同意协议并注册', array('class' => 'btn btn-default fl')); ?>
+                </li>
+            </ul>
+        <?php echo Form::close(); ?>
+        <div class="register-help">
+            欢迎你访问并使用
+        </div>
     </div>
-    <div class="row">
-        <form class="form-horizontal col-md-6 col-md-offset-2 register" action="/signup" role="form" method="POST">
-            <h3>用户注册</h3>
-            <div class="form-group">
-                <lable class="col-md-2 control-label">用户邮箱</lable>
-                <div class="col-md-5">
-                    <input name="username" class="form-control" type="text" placeholder=""/>
-                </div>
-            </div>
-            <div class="form-group">
-                <lable class="col-md-2 control-label">密码</lable>
-                <div class="col-md-5">
-                    <input name="password" class="form-control" type="password" placeholder=""/>
-                </div>
-            </div>
-            <div class="form-group">
-                <lable class="col-md-2 control-label">确认密码</lable>
-                <div class="col-md-5">
-                    <input name="password2" class="form-control" type="password" placeholder=""/>
-                </div>
-            <input name="password2" class="form-control" type="hidden" placeholder=""/>
-            </div>
-            <div class="form-group">
-                <lable class="col-md-2 control-label">性别</lable>
-                <div class="col-md-5">
-                        <lable  class="radio-inline">
-                            <input type="radio" name="optionsRadios" value="option1" checked/>男
-                        </lable>
-                        <lable  class="radio-inline">
-                            <input type="radio" name="optionsRadios" value="option1" checked/>女
-                        </lable>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-2">
-                    <button class="btn btn-success">立即注册</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
 </body>
 </html>
