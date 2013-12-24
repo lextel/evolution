@@ -95,8 +95,6 @@ class Controller_Admin_Items extends Controller_Admin {
 
     // 上传商品图片
     public function action_upload() {
-        print_r($_FILES);
-        die;
 
         $itemModel = new Model_Item();
         $files = $itemModel->upload();
@@ -118,17 +116,17 @@ class Controller_Admin_Items extends Controller_Admin {
     // 编辑器上传图片
     public function action_editorUpload() {
 
-        if(Input::get('fetch')) {
-            Config::load('upload');
-            $path = Config::get('editor.savePath');
-
-            return $path;
-        }
-
         $itemModel = new Model_Item();
         $files = $itemModel->editorUpload();
 
-        return json_encode([$files]);
+        $file = array_shift($files);
+        $rs = [
+            'url'      => $file['link'],
+            'original' => $file['name'],
+            'state'    => $file['error'] ? 'FAIL' : 'SUCCESS',
+            ];
+
+        return json_encode($rs);
     }
 
     // test

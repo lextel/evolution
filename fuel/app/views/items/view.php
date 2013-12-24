@@ -1,5 +1,5 @@
 <?php echo Asset::css(['product.css', 'jquery.jqzoom.css']); ?>
-<?php echo Asset::js(['jquery.jqzoom-core.js', 'item/view.js']); ?>
+<?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js', 'item/view.js']); ?>
 <div class="wrapper w">
     <!--商品信息开始-->
     <div class="panel w">
@@ -83,67 +83,83 @@
             </ul>
             <div class="new-buyer">
                 <div class="new-buyer-header">
-                    <ul>
-                        <li><a href="">最新乐拍记录</a></li>
-                        <li><a href="">我的乐拍记录</a></li>
-                        <li><a href="">如何乐拍</a></li>
+                    <ul class="tab">
+                        <li><a href="#buy" data-toggle="tab">最新乐拍记录</a></li>
+                        <li><a href="#myBuy" data-toggle="tab">我的乐拍记录</a></li>
+                        <li><a href="#help" data-toggle="tab">如何乐拍</a></li>
                     </ul>
                  </div>
-                <div class="new-buyer-body">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
-                                <td>火枪中路必胜</td>
-                                <td><s>(广东深圳市)</s><b>1分钟前</b></td>
-                                <td>乐拍了<s>100</s>次</td>
-                            </tr>
-                            <tr>
-                                <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
-                                <td>火枪中路必胜</td>
-                                <td><s>(广东深圳市)</s><b>1分钟前</b></td>
-                                <td>乐拍了<s>100</s>次</td>
-                            </tr>
-                            <tr>
-                                <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
-                                <td>火枪中路必胜</td>
-                                <td><s>(广东深圳市)</s><b>1分钟前</b></td>
-                                <td>乐拍了<s>100</s>次</td>
-                            </tr>
-                            <tr>
-                                <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
-                                <td>火枪中路必胜</td>
-                                <td><s>(广东深圳市)</s><b>1分钟前</b></td>
-                                <td>乐拍了<s>100</s>次</td>
-                            </tr>
-                            <tr>
-                                <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
-                                <td>火枪中路必胜</td>
-                                <td><s>(广东深圳市)</s><b>1分钟前</b></td>
-                                <td>乐拍了<s>100</s>次</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="new-buyer-body" id="tab_content">
+                    <div class="tab-pane active" id='buy'>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
+                                    <td>火枪中路必胜</td>
+                                    <td><s>(广东深圳市)</s><b>1分钟前</b></td>
+                                    <td>乐拍了<s>100</s>次</td>
+                                </tr>
+                                <tr>
+                                    <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
+                                    <td>火枪中路必胜</td>
+                                    <td><s>(广东深圳市)</s><b>1分钟前</b></td>
+                                    <td>乐拍了<s>100</s>次</td>
+                                </tr>
+                                <tr>
+                                    <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
+                                    <td>火枪中路必胜</td>
+                                    <td><s>(广东深圳市)</s><b>1分钟前</b></td>
+                                    <td>乐拍了<s>100</s>次</td>
+                                </tr>
+                                <tr>
+                                    <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
+                                    <td>火枪中路必胜</td>
+                                    <td><s>(广东深圳市)</s><b>1分钟前</b></td>
+                                    <td>乐拍了<s>100</s>次</td>
+                                </tr>
+                                <tr>
+                                    <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
+                                    <td>火枪中路必胜</td>
+                                    <td><s>(广东深圳市)</s><b>1分钟前</b></td>
+                                    <td>乐拍了<s>100</s>次</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="myBuy">
+                        tab b
+                    </div>
+                    <div class="tab-pane" id="help">
+                        nothing
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="sub-nav w">
         <ul>
-            <li><a href="">商品详情</a></li>
-            <li><a href="">计算结果</a></li>
-            <li><a href="">所有参与纪录(<b>100</b>)</a></li>
-            <li><a href="">晒单(<b>100</b>)</a></li>
-            <li><a href="">往期回顾(<b>100</b>)</a></li>
+            <li><a href="#desc" data-toggle="tab">商品详情</a></li>
+            <li><a href="#buylog" data-toggle="tab">所有参与纪录(<b>100</b>)</a></li>
+            <li><a href="#posts" data-toggle="tab">晒单(<b>100</b>)</a></li>
+            <li><a href="#phase" data-toggle="tab">往期回顾(<b>100</b>)</a></li>
         </ul>
     </div>
     <!--商品信息结束-->
     <div class="content">
         <!--商品详情开始-->
-        <div class="product-details">
+        <div class="product-details tab-pane" id="desc">
             <?php echo $item->desc; ?>
         </div>
         <!--商品详情结束-->
+        <div class="tab-pane" id="buylog">
+            buylog
+        </div>
+        <div class="tab-pane" id="posts">
+            posts
+        </div>
+        <div  class="tab-pane" id="phase">
+            往期回顾
+        </div>
     </div>
 
 </div>

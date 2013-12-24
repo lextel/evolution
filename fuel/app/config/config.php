@@ -319,7 +319,7 @@ return array(
             ),
         ),
         'sms' => array(
-            'type' => array(1=>'晒单', 
+            'type' => array(1=>'晒单',
                 2=>'商品',
                 3=>'成员',
                 4=>'其他'),

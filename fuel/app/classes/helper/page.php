@@ -10,7 +10,7 @@ namespace Helper;
 class Page {
 
     const PAGESIZE = 4;
-    
+
     /**
      * 设置分页配置
      *
@@ -26,8 +26,20 @@ class Page {
                 'pagination_url' => $url,
                 'total_items'    => $total,
                 'per_page'       => self::PAGESIZE,
-                'uri_segment'    => $uri_segment
+                'uri_segment'    => $uri_segment,
+                'previous-marker'=> "上一页<",
+                'next-marker'    => "下一页>",
             ];
 
+    }
+
+    public function setCofigPage($url, $totle, $per_page, $uri_segment = 3){
+        $res = $this -> setConfig($url, $totle, $uri_segment);
+        $newconfig = [
+                     'wrapper'=>'<div class="pagination fr">{pagination}</div>',
+                     'previous'=>'<span>{link}</span>',
+                     'per_page' =>$per_page,
+                     ];
+       return array_merge($res, $newconfig);
     }
 }

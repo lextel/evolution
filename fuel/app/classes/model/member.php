@@ -46,5 +46,27 @@ class Model_Member extends \Orm\Model
 
         return $val;
     }
-
+    /*
+    *检测用户昵称
+    */
+    public static function checkNickname($nickname)
+    {
+        $member = Model_Member::find_by_nickname($nickname);
+        if (!$member)
+        {          
+            return true;
+        }       
+        return false;
+    }
+    /*
+    *更新用户昵称
+    */
+    public static function updateNickname($member_id, $nickname, $bio)
+    {
+        $member = Model_Member::find_by_id($member_id);
+        $member->nickname = $nickname;
+        $member->bio = $bio;
+        return $member->save();
+    }
+  
 }

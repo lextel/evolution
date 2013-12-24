@@ -5,9 +5,19 @@ class Controller_Member_Posts extends Controller_Center
     public $template = 'memberlayout';
 
 
-    public function action_index()
+    public function action_index($pagenum=1)
     {
-        $data['list'] = Model_Post::find_by('user_id', $this->current_user->id);
+        $postscount = Model_Post::count();
+        $page = new \Helper\Page();
+        $config = $page->setCofigPage('u/posts/p', $postscount, 4, 4);
+        $pagination = Pagination::forge('postspage', $config);
+        $data['list'] = Model_Post::find('all', [
+                                                  'where'=>['member_id'=>$this->current_user->id,
+                                                                     'is_delete'=>0],
+                                                  'order_by' =>array('id' => 'desc'),
+                                                  'rows_limit'=>$pagination->per_page,
+                                                  'rows_offset'=>$pagination->offset,]
+                                         );
         $this->template->title = '用户晒单列表';
         $this->template->content = View::forge('member/myposts', $data);
     }
@@ -39,15 +49,15 @@ class Controller_Member_Posts extends Controller_Center
 
     public function action_delete($id=null)
     {
-         if ($post = Model_Post::find($id))
+         if ($post = Model_Post::find($id, ['where'=>['is_delete'=>0]]))
         {
-            var_dump($post);
-            $post->delete();
-            Session::set_flash('success', e('删除晒单成功'));
+            $post->is_delete = 1;
+            var_dump($post->save());
+            Session::set_flash('info', e('删除晒单成功'));
         }
         else
         {
-            Session::set_flash('error', e('删除晒单失败'));
+            Session::set_flash('info', e('删除晒单失败'));
         }
         //exit();
         Response::redirect('u/posts');

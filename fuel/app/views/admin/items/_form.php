@@ -1,6 +1,7 @@
 <script type="text/javascript">
     UPLOAD_URL = '<?php echo Uri::create('admin/items/upload'); ?>';
     EDITOR_URL = '<?php echo Uri::create('admin/items/editorUpload'); ?>';
+    IMAGE_URL  = '<?php echo Uri::create('/'); ?>';
 </script>
 <?php
 echo Asset::css(
@@ -35,6 +36,10 @@ echo Asset::js(
             <?php echo Form::select('cate_id', Input::post('cate_id', isset($item) ? $item->cate_id : ''), $cates, ['class' => 'col-md-4 form-control']); ?>
         </div>
         <div class="form-group">
+            <?php echo Form::label('价值:', 'price', array('class'=>'control-label')); ?>
+            <?php echo Form::input('price', Input::post('price', isset($item) ? $item->price : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'商品价值')); ?>
+        </div>
+        <div class="form-group">
           <?php 
             echo Form::label('图片:', 'title', array('class'=>'control-label')); 
           ?>
@@ -62,11 +67,7 @@ echo Asset::js(
         </div>
         <div class="form-group">
             <?php echo Form::label('描述:', 'desc', array('class'=>'control-label')); ?>
-            <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
-        </div>
-        <div class="form-group">
-            <?php echo Form::label('价值:', 'price', array('class'=>'control-label')); ?>
-            <?php echo Form::input('price', Input::post('price', isset($item) ? $item->price : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'商品价值')); ?>
+            <?php echo Form::textarea('desc', Input::post('desc', isset($item) ? $item->desc : ''), array('style' => 'height:400px', 'placeholder'=>'商品描述', 'id' => 'desc')); ?>
         </div>
         <div class="form-group">
             <label class='control-label'>&nbsp;</label>

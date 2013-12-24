@@ -109,10 +109,22 @@ class Controller_Member extends Controller_Center{
     */
     public function action_getprofile($id = null)
     {
-        $member = Model_Member_Info::find_by('member_id', $this->current_user->id);
+        $member = Model_Member_Info::checkInfo($this->current_user->id);
         $data['member'] = $member;
         $this->template->title = "用户基本设置";
         $this->template->content = View::forge('member/profile', $data);
+    }
+
+    /*
+    *单独只修改用户签名
+    */
+    public function action_modifybio()
+    {
+        !Input::method() == 'POST' and Response::redirect('/u');
+        $member = Model_Member::find_by_id($this->current_user->id);
+        $member->bio = Input::post('bio');
+        $member-save();
+        Response::redirect('/u');
     }
 
     /*
@@ -124,11 +136,13 @@ class Controller_Member extends Controller_Center{
         $val = Model_Member_Info::validate('edit');
         if ($val->run())
         {
-            $member = Model_Member_Info::find_by('member_id', $this->current_user->id);
-            if (!$member)
+            $member = Model_Member_Info::checkInfo($this->current_user->id);
+            if (!Model_Member::checkNickname(Input::post('nickname')))
             {
-                $member = Model_Member_Info::add($this->current_user->id);
+                Session::set_flash('error', '用户昵称已经存在了');
+                Response::redirect('/u/getprofile');
             }
+            Model_Member::updateNickname($this->current_user->id,Input::post('nickname'), Input::post('bio'));
             $member->nickname = Input::post('nickname');
             $member->local = Input::post('local');
             $member->address = Input::post('address');
@@ -150,9 +164,9 @@ class Controller_Member extends Controller_Center{
         Session::set_flash('error', '更新个人设置失败');
         Response::redirect('/u/getprofile');
     }
-    /**
-     * 修改用户密码
-     */
+    /*
+    * 修改用户密码
+    */
     public function action_changepassword()
     {
         $val = Validation::forge();

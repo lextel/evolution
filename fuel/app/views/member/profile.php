@@ -7,54 +7,53 @@
     <div class="form-group">
         <label for="" class="col-md-2 control-label">昵称：</label>
         <div class="col-md-4">
-            <input name="nickname" type="text" class="form-control" placeholder=""/ value="">
+            <?php echo Form::input('nickname', Input::post('nickname', $member->nickname), array('class' => 'form-control', 'placeholder'=>'用户昵称'));?>
         </div>
     </div>
     <div class="form-group">
         <label for="" class="control-label col-md-2">性别：</label>
+         
         <div class="col-md-2">
-            <label for="" class="radio-inline">
-                <input type="radio" name="gender" value="男"/>男
-            </label>
-            <label for="" class="radio-inline">
-                <input type="radio" name="gender" value="女"/>女
-            </label>
+            <?php echo Form::label('男', 'gender');?>
+            <?php echo Form::radio('gender', '男', $member->gender === '男'? true : false);?>
+            <?php echo Form::label('女', 'gender');?>
+            <?php echo Form::radio('gender', '女', $member->gender === '女'? true : false);?>
         </div>
     </div>
     <div class="form-group">
         <label for="" class="col-md-2 control-label">生日：</label>
         <div class="col-md-4">
-            <input name="birth" type="text" class="form-control" placeholder=""/>
+            <?php echo Form::input('birth', Input::post('birth', $member->birth), array('class' => 'form-control', 'placeholder'=>'生日'));?>
         </div>
     </div>
     <div class="form-group">
         <label for="" class="col-md-2 control-label">星座：</label>
         <div class="col-md-4">
-            <input name="horoscope" type="text" class="form-control" placeholder=""/>
+            <?php echo Form::input('horoscope', Input::post('horoscope', $member->horoscope), array('class' => 'form-control', 'placeholder'=>'星座'));?>           
         </div>
     </div>
     <div class="form-group">
         <label for="" class="col-md-2 control-label">现居住地：</label>
         <div class="col-md-4">
-            <input name="local" type="text" class="form-control" placeholder=""/>
+            <?php echo Form::input('local', Input::post('local', $member->local), array('class' => 'form-control', 'placeholder'=>'现居住地'));?>           
         </div>
     </div>
     <div class="form-group">
         <label for="" class="control-label col-md-2">家乡：</label>
         <div class="col-md-4">
-            <input name="address" type="text" class="form-control" placeholder=""/>
+            <?php echo Form::input('address', Input::post('address', $member->address), array('class' => 'form-control', 'placeholder'=>'家乡'));?>           
         </div>
     </div>
     <div class="form-group">
         <label for="" class="control-label col-md-2">QQ：</label>
         <div class="col-md-4">
-            <input name="" type="text" class="form-control" placeholder=""/>
+            <?php echo Form::input('qq', Input::post('qq', $member->qq), array('class' => 'form-control', 'placeholder'=>'QQ'));?>     
         </div>
     </div>
     <div class="form-group">
         <label for="" class="col-md-2 control-label">签名：</label>
         <div class="col-md-4">
-            <textarea name="bio" type="text" class="form-control" placeholder=""></textarea>
+            <?php echo Form::textarea('bio', Input::post('bio', ''), array('class' => 'form-control', 'placeholder'=>'签名'));?>
         </div>
     </div>
     <div class="form-group">
