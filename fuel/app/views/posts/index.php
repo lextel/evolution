@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="btn-group">
-                        <?php echo Html::anchor('', '喜欢<s>('.$item->up.')</s>', array('class'=>'btn btn-link'));?>
+                        <?php echo Html::anchor('javascript:;', '喜欢<s>('.$item->up.')</s>', array('class'=>'btn btn-link'));?>
                         <?php echo Html::anchor('javascript:;', '评论<s>('.$item->comment_count.')</s>', array('class'=>'btn btn-link'));?>
                     </div>
                 </div>

@@ -2,7 +2,7 @@
 
 class Model_Member_Info extends \Orm\Model
 {
-    protected static $_table_name = 'member_infos';
+    //protected static $_table_name = 'member_infos';
 
     protected static $_properties = array(
         'id',
@@ -40,10 +40,26 @@ class Model_Member_Info extends \Orm\Model
         return $val;
     }
 
-   public static function add($uid)
+   /*
+   *检测是否存在用户数据
+   */
+   public static function checkInfo($memberid)
+   {
+       $member = Model_Member_Info::find_by_member_id($memberid);
+       if (!$member)
+       {
+            $member = $this->add($memberid);
+       }
+       return $member;
+   }
+
+   /*
+   *给用户信息一个默认的值
+   */
+   public static function add($memberid)
     {
         $val = Model_Member_Info::forge([
-                'member_id'=>$uid,
+                'member_id'=>$memberid,
                 'nickname'=>'',
                 'local'=>'',
                 'address'=>'',
@@ -54,7 +70,7 @@ class Model_Member_Info extends \Orm\Model
                 'salary'=>'',
             ]);
         $val->save();
-        $post = Model_Member_Info::find_by_uid($uid);
+        $post = Model_Member_Info::find_by_member_id($memberid);
         return $post;
     }
 }

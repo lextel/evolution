@@ -13,6 +13,7 @@ class Create_member_addresses
 			'address' => array('constraint' => 255, 'type' => 'varchar'),
 			'mobile' => array('constraint' => 255, 'type' => 'varchar'),
 			'name' => array('constraint' => 255, 'type' => 'varchar'),
+			'rate' => array('constraint' => 11, 'type' => 'int'),
 			'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 			'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 

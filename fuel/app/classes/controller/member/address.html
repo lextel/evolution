@@ -1,6 +1,6 @@
 <?php
 
-class Controller_Member_Posts extends Controller_Center
+class Model_Member_Address extends Controller_Center
 {
     public $template = 'memberlayout';
 
@@ -9,7 +9,7 @@ class Controller_Member_Posts extends Controller_Center
     {
         $postscount = Model_Post::count();
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('u/posts/p', $postscount, 4, 4);
+        $config = $page->setCofigPage('u/address/p', $postscount, 4, 4);
         $pagination = Pagination::forge('postspage', $config);
         $data['list'] = Model_Post::find('all', [
                                                   'where'=>['member_id'=>$this->current_user->id,

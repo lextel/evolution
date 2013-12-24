@@ -22,6 +22,7 @@ class Create_phases
             'is_delete' => array('constraint' => 1, 'type' => 'int'),
             'opentime' => array('constraint' => 11, 'type' => 'int'),
             'item_created_at' => array('constraint' => 11, 'type' => 'int'),
+            'status' => array('constraint' => 11, 'type' => 'int'),
             'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
             'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 

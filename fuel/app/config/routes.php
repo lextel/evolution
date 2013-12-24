@@ -23,16 +23,20 @@ return array(
     'u/passwd/forgot' => 'member/forgotpassword',
 
      'u/posts' => 'member/posts/index',
+     'u/posts/p/(\d+)' => 'member/posts/index/$1',
      'u/posts/view/(\d+)' => 'member/posts/view',
      'u/posts/getadd' => 'member/posts/getadd',
      'u/posts/add' => 'member/posts/add',
      'u/posts/edit/(\d+)' => 'member/posts/edit',
-     'u/posts/delete/(\d+)' => 'member/posts/delete',
+     'u/posts/delete/(\d+)' => 'member/posts/delete/$1',
 
     'u/orders' => 'orders/my',
+    'u/win' => 'member/lottery/index',
+    'u/win/p/\d+' => 'member/lottery/index/$1',
     'u/friends' => 'friends/my',
     'u/follow' => 'friends/follow',
     'u/unfollow' => 'friends/unfollow',
+
     'm/(\d+)' => 'items/view/$1',
     'm' => 'items/index',
     'm/p/:page' => 'items/index',
@@ -53,9 +57,9 @@ return array(
     'p/s/(\w+)?' => 'posts/sort/$1',
     'p/s/(\w+)/p/(\d+)' => 'posts/sort/$1/$2',
     'p/(\d+)' => 'posts/view/$1',
-    'comment/(\d+)' => 'comments/index',
-    'comment/(\d+)/p/(\d+)' => 'comments/index',
-    'comment/(\d+)/add' => 'member/comments/add',
+    'comment/(\d+)' => 'comments/index/$1',
+    'comment/(\d+)/p/(\d+)' => 'comments/index/$1/$2',
+    'comment/(\d+)/add' => 'member/comments/add/$1',
 
 
 );

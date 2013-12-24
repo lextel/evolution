@@ -21,6 +21,7 @@ class Model_Post extends \Orm\Model
         'up',
         'comment_count',
         'comment_top',
+        'is_delete',
     );
 
 
