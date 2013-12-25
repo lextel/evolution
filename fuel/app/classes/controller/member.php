@@ -25,52 +25,6 @@ class Controller_Member extends Controller_Center{
 
     }
 
-    /*
-    *获得当前收货地址列表
-    */
-    public function action_getaddressindex()
-    {
-        $address = Model_Member_Address::find_by('member_id', $this->current_user->id);
-        $data['address'] = $address;
-        $this->template->title = '用户修改收获地址';
-        $this->template->content = View::forge('member/address', $data);
-    }
-
-    /*
-    *获得当前快递地址
-    */
-    public function action_getaddress($id=null)
-    {
-        $address = Model_Member_Address::find($id);
-        $data['address'] = $address;
-        $this->template->title = '用户修改收获地址';
-        $this->template->content = View::forge('member/address', $data);
-    }
-
-     /*
-     *更新用户快递地址
-     */
-    public function action_address()
-    {
-        !Input::method() == 'POST' and Response::redirect('/u/getaddress');
-        $val = Model_Member_Address::validate('edit');
-        if ($val->run())
-        {
-            $post = Model_Member_Address::find_by('member_id', $this->current_user->id);
-            if (!$post)
-            {
-                $post = Model_Member_Address::add($this->current_user->id);
-            }
-            $post->address = Input::post('address');
-            if ($post and $post->save())
-            {
-                Session::set_flash('success', e('修改地址成功, '));
-                Response::redirect('/u');
-            }
-        }
-        $this->template->set_global('error', '修改地址失败，请核对输入');
-        Response::redirect('/u/getaddress');
-    }
 
     /*
     *获得用户头像数据

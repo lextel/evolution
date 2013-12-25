@@ -7,7 +7,7 @@ class Controller_Member_Posts extends Controller_Center
 
     public function action_index($pagenum=1)
     {
-        $postscount = Model_Post::count();
+        $postscount = Model_Post::count(['where'=>['member_id'=>$this->current_user->id]]);
         $page = new \Helper\Page();
         $config = $page->setCofigPage('u/posts/p', $postscount, 4, 4);
         $pagination = Pagination::forge('postspage', $config);

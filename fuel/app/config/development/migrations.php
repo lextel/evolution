@@ -1,49 +1,39 @@
 <?php
 return array(
-	'version' => 
+	'version' =>
 	array(
-		'app' => 
+		'app' =>
 		array(
-			'default' => 
+			'default' =>
 			array(
-				0 => '001_create_project_entries',
-				1 => '001_create_users',
-				2 => '002_create_items',
-				3 => '002_create_users',
-				4 => '003_create_items',
-				5 => '003_create_phases',
-				6 => '004_create_tasks',
-				7 => '005_create_members',
-				8 => '006_create_sditems',
-				9 => '007_create_friends',
-				10 => '008_create_orders',
-				11 => '009_create_member_infos',
-				12 => '010_create_lotteries',
-				13 => '013_create_comments',
-				14 => '014_create_member_addresses',
-				15 => '015_create_adminsms',
-				16 => '016_create_posts',
-				17 => '017_create_phases',
-				18 => '018_create_posts',
-				19 => '020_create_accounts',
-				20 => '021_create_tasks',
-				21 => '022_create_members',
-				22 => '022_create_sditems',
-				23 => '023_create_friends',
-				24 => '024_create_orders',
-				25 => '025_create_member_infos',
-				26 => '026_create_lotteries',
-				27 => '027_create_cates',
-				28 => '031_create_logs',
-				29 => '040_create_posts',
+							0 => '001_create_users',
+				1 => '002_create_items',
+				2 => '003_create_phases',
+				3 => '004_create_tasks',
+				4 => '005_create_members',
+				5 => '006_create_sditems',
+				6 => '007_create_friends',
+				7 => '008_create_orders',
+				8 => '009_create_member_infos',
+				9 => '010_create_lotteries',
+				10 => '011_create_member_addresses',
+				11 => '012_create_posts',
+				12 => '013_create_comments',
+				13 => '014_create_member_addresses',
+				14 => '027_create_cates',
+				15 => '031_create_logs',
+				16 => '032_create_member_moneylogs',
+				17 => '032_create_phases',
+				18 => '033_create_member_addresses',
+				19 => '034_create_member_addresses',
 			),
 		),
-		'module' => 
+		'module' =>
 		array(
 		),
-		'package' => 
+		'package' =>
 		array(
-			'auth' => 
+			'auth' =>
 			array(
 				0 => '001_auth_create_usertables',
 				1 => '002_auth_create_grouptables',
