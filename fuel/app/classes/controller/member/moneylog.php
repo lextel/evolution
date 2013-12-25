@@ -1,7 +1,7 @@
 <?php
 class Controller_Member_Moneylog extends Controller_Center{
 
-    public $template = 'memberlayout';
+    //public $template = 'memberlayout';
 
     /*
     *用户充值明细
@@ -21,7 +21,7 @@ class Controller_Member_Moneylog extends Controller_Center{
                                               'rows_offset'=>$pagination->offset,]
                                              );
         $this->template->title = "用户充值明细";
-        $this->template->content = View::forge('member/moneylog/index_recharge', $data);
+        $this->template->layout->content = View::forge('member/moneylog/index_recharge', $data);
     }
     /*
     *用户消费明细
@@ -41,6 +41,6 @@ class Controller_Member_Moneylog extends Controller_Center{
                                               'rows_offset'=>$pagination->offset,]
                                              );
         $this->template->title = "用户消费明细";
-        $this->template->content = View::forge('member/moneylog/index_buy', $data);
+        $this->template->layout->content = View::forge('member/moneylog/index_buy', $data);
     }
 }

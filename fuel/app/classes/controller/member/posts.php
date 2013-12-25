@@ -2,7 +2,7 @@
 
 class Controller_Member_Posts extends Controller_Center
 {
-    public $template = 'memberlayout';
+    //public $template = 'memberlayout';
 
 
     public function action_index($pagenum=1)
@@ -19,7 +19,7 @@ class Controller_Member_Posts extends Controller_Center
                                                   'rows_offset'=>$pagination->offset,]
                                          );
         $this->template->title = '用户晒单列表';
-        $this->template->content = View::forge('member/myposts', $data);
+        $this->template->layout->content = View::forge('member/myposts', $data);
     }
     public function action_view()
     {

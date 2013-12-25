@@ -1,9 +1,9 @@
 <?php
-class Controller_Posts extends Controller_Template{
+class Controller_Posts extends Controller_Frontend{
 
     public function action_index($pagenum=1)
     {
-        $postscount = Model_Post::count();
+        $postscount = Model_Post::count(['where'=>['is_delete'=>0]]);
         $page = new \Helper\Page();
         $config = $page->setCofigPage('/p/p', $postscount, 4, 3);
         $pagination = Pagination::forge('postspage', $config);
@@ -16,7 +16,7 @@ class Controller_Posts extends Controller_Template{
         $data['postscount'] = $postscount;
         $view = View::forge('posts/index', $data);
         $this->template->title = "晒单列表";
-        $this->template->content = $view;
+        $this->template->layout = $view;
     }
 
     public function action_sort($sort='id', $pagenum=1)
@@ -25,7 +25,7 @@ class Controller_Posts extends Controller_Template{
         $type = array('sortup'=>'up',
                  'sortcomment'=>'comment_count',
                 );
-        $postscount = Model_Post::count();
+        $postscount = Model_Post::count(['where'=>['is_delete'=>0]]);
         if (!in_array($sort, array_keys($type)))
         {
             $sortType = 'id';
@@ -44,19 +44,19 @@ class Controller_Posts extends Controller_Template{
         $data['postscount'] = $postscount;
         $view = View::forge('posts/index', $data);
         $this->template->title = "晒单列表";
-        $this->template->content = $view;
+        $this->template->layout = $view;
     }
 
     public function action_view($id = null)
     {
         is_null($id) and Response::redirect('p');
-        if ( ! $data['post'] = Model_Post::find($id))
+        if ( ! $data['post'] = Model_Post::find($id, ['where'=>['is_delete'=>0]]))
         {
             Session::set_flash('error', '未发现该晒单'.$id);
             Response::redirect('p');
         }
         $this->template->title = "晒单详情页";
-        $this->template->content = View::forge('posts/view', $data);
+        $this->template->layout = View::forge('posts/view', $data);
     }
 
     /*
@@ -67,7 +67,7 @@ class Controller_Posts extends Controller_Template{
     public function action_up($pid)
     {
         $response = new Response();
-        $data = ['code'=>'', 'msg'=>''];
+        $data = ['code'=>-1, 'msg'=>'pid is null'];
         is_null($pid) and $response->body(json_encode($data));
         $post = Model_Post::find($pid);
         if ($post)

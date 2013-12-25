@@ -32,6 +32,9 @@ p{
     color: #FF8A3A;
     padding: 0px 5px;
 }
+.y {
+    color: #FF8A3A;
+}
 .content{
     position: relative;
     margin-top: 20px;
@@ -69,13 +72,21 @@ p{
     cursor: pointer;
     display: inline-block;
     border-radius: 4px;
-}
-.btn-default{
     background:#ffffff;
 }
 .btn-link{
     border: none;
     background:#ffffff;
+    cursor: pointer;
+}
+
+.btn-red{
+    padding: 8px 15px;
+    margin-right: 10px;
+    background: #D9534F;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
 }
 .btn-sx{
     padding:4px 10px;
@@ -85,13 +96,6 @@ p{
 }
 .btn-block{
     display: block;
-}
-.btn-red{
-    padding: 8px 15px;
-    margin-right: 10px;
-    background: #D9534F;
-    color: #ffffff;
-    border-radius: 4px;
 }
  h5{
      font-size: 12px;
@@ -176,19 +180,16 @@ table tbody tr td{
 }
 .head-img{
     text-align: center;
-
     width: 70px;
     height: 70px;
     line-height: 70px;
     border-radius: 3px;
-
 }
 .head-img a img{
     max-width: 100%;
     vertical-align: middle;
     height: auto;
 }
-
 .head-img .name {
     line-height: 22px;
     margin: 5px;
@@ -209,7 +210,6 @@ table tbody tr td{
     vertical-align: middle;
     height: auto;
 }
-
 .sidebar{
     border: 1px solid #eeeeee;
     overflow: hidden;
@@ -314,6 +314,31 @@ h4{
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
     border-radius: 4px 0 0px 4px;
 }
+.toggles{
+    overflow: hidden;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+.toggles a{
+    display:block;
+    float: left;
+    background: #E74C3C;
+    padding: 8px 10px;
+    color: #ffffff;
+}
+.toggles a.first-child{
+    border-radius: 5px 0 0 6px;
+}
+.toggles a.last-child{
+    border-radius: 0 5px 5px 0;
+}
+.toggles a.active{
+    background:#c83f31;
+}
+.toggles a:hover{
+    background:#fc5240;
+}
 /*分页*/
 .pagination{
     overflow: hidden;
@@ -324,9 +349,6 @@ h4{
     float: left;
     margin-right: 10px;
     display: block;
-}
-.pagination span a{
-    display: block;
     background: #f1f1f1;
     border: 1px #EEEEEE solid;
     border-radius: 3px;
@@ -335,24 +357,29 @@ h4{
     height: 28px;
     line-height: 28px;
 }
-
-
-
+.pagination span a{
+    display: block;
+}
 .pagination span a:hover{
     background: #D96D66;
     color: #ffffff;
     border-radius: 3px;
 }
-
-.pagination span a.active{
+.pagination span.active{
     background:#D9534F ;
     color: #ffffff;
 }
-.pagination span a.disabled{
+.pagination span.active a{
+    color: #ffffff;
+}
+.pagination span.disabled{
     background:#EEEEEE ;
     opacity: 0.3;
 }
-.pagination span a.previous-inactive,.pagination span a.next{
+.pagination span.previous-inactive{
+    width:60px;
+}
+.pagination span.next{
     width:60px;
 }
 .winner b{
@@ -525,15 +552,168 @@ h4{
     text-align: center;
 }
 /*底部结束*/
-
-
-
-
-
-
-
-
-
+/*弹出登录*/
+.login2,.prompt{
+    width: 360px;
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    background: #ffffff;
+}
+.login2 .login2-head,.prompt .prompt-head{
+    height: 40px;
+    border-bottom: 1px solid #EEEEEE;
+    background: #f1f1f1;
+    position: relative;
+}
+.close{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background: url("../images/icon_3.png") no-repeat -137px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.login2 .login2-head h4,.prompt .prompt-head h4{
+    line-height: 40px;
+    text-align: center;
+}
+.login2 .login2-body{
+    overflow: hidden;
+    padding:0 30px 30px;
+}
+.login2 .login2-body li{
+    position: relative;
+    margin-bottom:10px;
+    overflow: hidden;
+}
+.login2 .login2-body li input{
+    height: 36px;
+    border: 1px solid #EEEEEE;
+    width: 296px;
+    text-indent: 30px;
+}
+.login2 .login2-body li .register{
+    font-weight: bold;
+    text-decoration: underline;
+}
+.login2 .error{
+    height: 22px;
+    width: 100%;
+    line-height: 22px;
+    color: red;
+    text-indent: 30px;
+    display: inline-block;
+}
+#greybackground {
+   background:#000;
+   display:block;
+   z-index:100;
+   width:100%;
+   position:absolute;
+   top:0;
+   left:0;
+}
+.prompt-panel{
+    overflow: hidden;
+    margin: 80px 0;
+    text-align: center;
+}
+.prompt-panel .btn{
+    margin-right: 20px;
+}
+/*支付*/
+.pay-way{
+    overflow: hidden;
+}
+.pay-way dl{
+    overflow: hidden;
+    border: 1px solid #f1f1f1;
+    padding: 0 15px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.pay-way dl dt{
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    clear: both;
+    border-bottom: 1px solid #f1f1f1;
+}
+.pay-way dl dd{
+    float: left;
+    margin:0 30px 10px 0;
+    overflow: hidden;
+}
+.pay-way dl dd input{
+    display:block;
+    float: left;
+    margin: 12px 5px 0 0;
+    cursor: pointer;
+}
+.pay-way dl dd label{
+    display:block;
+    cursor: pointer;
+    float: left;
+}
+.pay-way dl dd label span{
+    display: block;
+    width: 105px;
+    height: 31px;
+    float: left;
+    background: url("../images/bank_logo.png")no-repeat;
+}
+.pay-way dl dd label .zhs{
+    background-position: 0 -36px;
+}
+.pay-way dl dd label .jt{
+    background-position: 0 -466px;
+}
+.pay-way dl dd label .gsh{
+    background-position: 0 -3px;
+}
+.pay-way dl dd label .zhg{
+    background-position: 0 -433px;
+}
+.pay-way dl dd label .zhx{
+    background-position: 0 -333px;
+}
+.pay-way dl dd label .jsh{
+    background-position: 0 -69px;
+}
+.pay-way dl dd label .ny{
+    background-position: 0 -102px;
+}
+.pay-way dl dd label .zhf{
+    background-position: 0 -613px;
+}
+.pay-way dl dd label .cft{
+    background-position: 0 -501px;
+}
+.pay-way dl dd label .kq{
+    background-position: 0 -577px;
+}
+.pay-help{
+    margin: 10px 0;
+}
+.pay-help dt{
+    margin-bottom: 10px;
+    line-height: 24px;
+}
+.pay-help dd{
+    margin-bottom: 10px;
+    line-height: 24px;
+}
+.pay-help dd a{
+    margin-right:30px;
+}
+.pay-help dd ol{
+    overflow: hidden;
+    list-style-type: decimal;
+}
 
 
 

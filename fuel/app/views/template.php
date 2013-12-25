@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title><?php echo $title?></title>
-    <?php echo Asset::css(['common.css', 'header.css']); ?>
-    <?php echo Asset::js('jquery.min.js'); ?>
+    <?php echo Asset::css(['common.css', 'header.css', 'style.css']); ?>
+    <?php echo Asset::js(['jquery.min.js', 'common.js']); ?>
 </head>
 <body>
     <!--头部开始-->
@@ -14,14 +14,19 @@
                 <a href="">在线客服<span class="icon icon-qq"></span></a>
             </span>
             <span class="login-bar">
+            <?php if (!isset($current_user)):?>
                  <a href="<?php echo Uri::create('/signin'); ?>">登录</a>
                  <i>/</i>
                  <a href="<?php echo Uri::create('/signup'); ?>">注册</a>
+            <?php else:?>
+                 <a href="<?php echo Uri::create('/u'); ?>" class="top-portrait"><?php echo Html::img($current_user->avatar, ['width'=>'15px']);?><?php echo $current_user->username;?></a>
+                 <?php echo Html::anchor('signout', '[退出]', ['class'=>'navbar-link'])?>
+            <?php endif;?>
             </span>
         </div>
     </div>
     <div class="logo-box">
-        <div class="logo"><a href=""><img src="" alt=""/>logo</a></div>
+        <div class="logo"><a href="/">logo</a></div>
          <div class="right-box">
                 <div class="search">
                     <input type="text" value=""/>
@@ -47,7 +52,7 @@
         </ul>
     </div>
     <!--头部结束-->
-    <?php echo $content; ?>
+    <?php echo $layout; ?>
     <!--底部开始-->
     <div class="footer-wrapper">
         <div class="help-bg">

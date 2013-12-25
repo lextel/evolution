@@ -3,10 +3,16 @@
 class Controller_Member_Comments extends Controller_Center
 {
 
-    public function action_create($pid=null)
+    public function action_add($pid=null)
     {
-        !Input::method() == 'POST' and Response::redirect('');
-        is_null($pid) and Response::redirect('');
+        $response = new Response();
+        $data = ['code'=>-1, 'msg'=>'Mehtod is error'];
+        if (!(Input::method() == 'POST'))
+        {
+           return $response->body(json_encode($data));
+        }
+        $data['msg'] = 'pid is null';
+        is_null($pid) and $response->body(json_encode($data));
         $val = Model_Comment::validate('create');
         if ($val->run())
         {
@@ -17,9 +23,13 @@ class Controller_Member_Comments extends Controller_Center
             ));
             if ($comment and $comment->save())
             {
-                return;
+                $data['code'] = 0;
+                $data['msg'] = 'ok';
+                return $response->body(json_encode($data));
             }
         }
+        $data['msg'] = 'data is error';
+        return $response->body(json_encode($data));
     }
 
 }

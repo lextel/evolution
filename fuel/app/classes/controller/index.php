@@ -1,11 +1,11 @@
 <?php
 
-class Controller_Index extends Controller_Template {
+class Controller_Index extends Controller_Frontend {
 
     public function action_index() {
 
         $this->template->title = '乐乐淘';
-        $this->template->content = View::forge('index/index');
+        $this->template->layout = View::forge('index/index');
     }
 
 }

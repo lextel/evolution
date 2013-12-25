@@ -1,13 +1,12 @@
 <?php
 class Controller_Member extends Controller_Center{
 
-    public $template = 'memberlayout';
-
     public function action_index()
     {
         $data['members'] = Model_Member::find('all');
-        $this->template->title = "Members";
-        $this->template->content = View::forge('member/index', $data);
+        $this->template->title = "用户中心";
+        //$this->template->layout = View::forge('memberlayout');
+        $this->template->layout->content = View::forge('member/index', $data);
     }
 
     public function action_view($id = null)
@@ -22,7 +21,6 @@ class Controller_Member extends Controller_Center{
 
         $this->template->title = "Member";
         $this->template->content = View::forge('member/view', $data);
-
     }
 
 
@@ -34,7 +32,7 @@ class Controller_Member extends Controller_Center{
         $member = Model_Member::find_by_username($this->current_user->username);
         $data['member'] = $member;
         $this->template->title = '修改用户头像';
-        $this->template->content = View::forge('member/avatar', $data);
+        $this->template->layout->content = View::forge('member/avatar', $data);
     }
 
     /*
@@ -66,7 +64,7 @@ class Controller_Member extends Controller_Center{
         $member = Model_Member_Info::checkInfo($this->current_user->id);
         $data['member'] = $member;
         $this->template->title = "用户基本设置";
-        $this->template->content = View::forge('member/profile', $data);
+        $this->template->layout->content = View::forge('member/profile', $data);
     }
 
     /*
@@ -148,7 +146,7 @@ class Controller_Member extends Controller_Center{
             }
         }
         $this->template->title = '用户修改密码页面';
-        $this->template->content = View::forge('member/passwd', array('val' => $val), false);
+        $this->template->layout->content = View::forge('member/passwd', array('val' => $val), false);
     }
 
 }

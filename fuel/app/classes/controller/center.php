@@ -1,26 +1,16 @@
 <?php
 
-class Controller_Center extends Controller_Template
+class Controller_Center extends Controller_Frontend
 {
-    public $auth;
+    //public $auth;
     public function before()
     {
         parent::before();
-        $this->auth = Auth::instance('Memberauth');
-        if (Config::get('auth.driver', 'Memberauth') == 'Ormauth')
-        {
-            $this->current_user = $this->auth->check() ? Model\Auth_User::find_by_username($this->auth->get_screen_name()) : null;
-        }
-        else
-        {
-            $this->current_user = $this->auth->check() ? Model_Member::find_by_username($this->auth->get_screen_name()) : null;
-        }
-        // Set a global variable so views can use it
-        View::set_global('current_user', $this->current_user);
         if (! in_array(Request::active()->action, array('signin', 'signup')))
         {
             $this -> membercheck();
         }
+        $this->template->layout = View::forge('memberlayout');
     }
 
     private function membercheck()
