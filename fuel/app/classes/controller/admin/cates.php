@@ -67,6 +67,18 @@ class Controller_Admin_Cates extends Controller_Admin{
         $this->template->content = $view;
     }
 
+    // 分类联动品牌
+    public function action_brands() {
+
+        $parentId = Input::post('id');
+
+        $cateModel = new Model_Cate();
+        $brands = $cateModel->brands($parentId);
+
+        return json_encode($brands);
+    }
+
+
     // 添加分类
     public function action_createCate() {
 

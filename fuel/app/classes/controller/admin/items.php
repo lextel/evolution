@@ -5,15 +5,17 @@ class Controller_Admin_Items extends Controller_Admin {
     // 商品列表
     public function action_index() {
 
-        $data['items'] = Model_Item::find('all', ['order_by' => ['id' => 'desc']]);
+        $itemModel = new Model_Item();
+        $items = $itemModel->lists(Input::get());
 
-        // $cateModel = new Model_Cate();
-        // $data['cates'] = $cateModel->getCates();
-        $cates = new Classes\Cate();
-        $this->template->set_global('cates', $cates->cates(), false);
+        $cateModel = new Model_Cate();
+        $cates = $cateModel->cates();
 
+        $view = View::forge('admin/items/index');
+        $view->set('cates', $cates, false);
+        $view->set('items', $items, false);
         $this->template->title = "商品管理";
-        $this->template->content = View::forge('admin/items/index', $data);
+        $this->template->content = $view;
     }
 
     // 商品详情
@@ -27,27 +29,43 @@ class Controller_Admin_Items extends Controller_Admin {
     // 添加商品
     public function action_create() {
 
-        if (Input::method() == 'POST') {
+        $breads = [
+                ['name' => '商品列表', 'href'=> Uri::create('admin/item/index')], 
+                ['name' => '添加商品'],
+            ];
 
-            $val = Model_Item::validate('create');
-            if($val->run()) {
-                $itemModel = new Model_Item();
-                $rs = $itemModel->add(Input::post());
-                if($rs) {
-                    Session::set_flash('success', e('添加成功.'));
-                    Response::redirect('admin/items');
-                } else {
-                  Session::set_flash('error', e('保存失败.'));
-                }
-            } else {
-                Session::set_flash('error', $val->error());
-            }
-        }
+        $cateModel = new Model_Cate();
+        $cates = $cateModel->cates();
+        $cates = ['0' => '--请选择分类--'] + $cates;
+        $brands = ['0' => '--请选择品牌--'];
 
-        $cates = new Classes\Cate();
-        $this->template->set_global('cates', $cates->cates(), false);
+        $breadcrumb = new Helper\Breadcrumb();
+        $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $this->template->set_global('cates', $cates, false);
+        $this->template->set_global('brands', $brands, false);
+        $this->template->set_global('url', Uri::create('admin/items/add'));
         $this->template->title = "商品管理";
         $this->template->content = View::forge('admin/items/create');
+    }
+
+    // 保存商品
+    public function action_add() {
+
+        $val = Model_Item::validate('create');
+        if($val->run()) {
+            $itemModel = new Model_Item();
+            $rs = $itemModel->add(Input::post());
+            if($rs) {
+                Session::set_flash('success', e('添加成功.'));
+                Response::redirect('admin/items');
+            } else {
+              Session::set_flash('error', e('保存失败.'));
+            }
+        } else {
+            Session::set_flash('error', $val->error());
+        }
+
+        Response::redirect('admin/items/create');
     }
 
     // 编辑商品
@@ -102,17 +120,6 @@ class Controller_Admin_Items extends Controller_Admin {
         return json_encode(['files' => $files]);
     }
 
-    // 上下架
-    public function action_operate() {
-        $id      = Input::post('id', 0);
-        $operate = Input::post('operate', 'down');
-
-        $itemModel = new Model_Item();
-        $rs = $itemModel->operate($id, $operate);
-
-        return json_encode($rs);
-    }
-
     // 编辑器上传图片
     public function action_editorUpload() {
 
@@ -127,6 +134,11 @@ class Controller_Admin_Items extends Controller_Admin {
             ];
 
         return json_encode($rs);
+    }
+
+    // faker
+    public function action_faker() {
+
     }
 
     // test

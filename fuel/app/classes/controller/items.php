@@ -15,7 +15,7 @@ class Controller_Items extends Controller_Frontend {
         $itemModel = new Model_Item();
 
         $url        = $itemModel->handleUrl($options) . '/p';
-        $total      = $itemModel->countItem($options);
+        $total      = $itemModel->countItem($options, true);
         $paramCount = $itemModel->countParam($options);
 
         $page = new \Helper\Page();

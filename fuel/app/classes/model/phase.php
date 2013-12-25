@@ -46,29 +46,35 @@ class Model_Phase extends \Orm\Model
     /**
      * 添加期数
      *
-     * 当商品为上架状态，而且没有正在进行的云购则可添加新一期
-     *
-     * @param $id integer 商品id
+     * @param $item object 商品对象
      *
      * @return void
      */
-    public function add($id) {
+    public function add($item) {
 
         $config = Config::load('common');
 
-        $item = Model_Item::find('first', ['where' => ['id' => $id, 'status' => self::ON_SELF]]);
-        $phase = Model_Phase::find('first', ['where' => ['item_id' => $id, 'opentime' => 0]]);
+        $phase = Model_Phase::find('first', ['where' => ['item_id' => $item->id, 'opentime' => 0]]);
 
         if($item && empty($phase)) {
+            $count = Model_Phase::count(['where' => ['item_id' => $item->id]]);
             $cost = $item->price * $config['point'];
+            $codes = $this->_createCodes($item->price);
             $data = [
-                'item_id'  => $id,
-                'cost'     => $cost,
-                'remain'   => $item->price,
-                'amount'   => $item->price,
-                'joined'   => 0,
-                'hots'     => 0,
-                'opentime' => 0
+                'item_id'         => $item->id,
+                'phase_id'        => $count+1,
+                'cate_id'         => $item->cate_id,
+                'brand_id'        => $item->brand_id,
+                'title'           => $item->title,
+                'cost'            => $cost,
+                'remain'          => $item->price,
+                'amount'          => $item->price,
+                'joined'          => 0,
+                'hots'            => 0,
+                'codes'           => serialize($codes),
+                'is_delete'       => $item->is_delete,
+                'opentime'        => 0,
+                'item_created_at' => $item->created_at,
                 ];
             $phaseModel = new Model_Phase($data);
             $result = $phaseModel->save();
@@ -77,5 +83,25 @@ class Model_Phase extends \Orm\Model
                 Log::error('Phase: add #'. $id . ' error');
             }
         }
+    }
+
+    /**
+     * 生成号码
+     *
+     * @param $len integer 数目
+     *
+     * @return array
+     */
+    public function _createCodes($len) {
+
+        $codes = [];
+        $code  = 10000000;
+        for($i = 1; $i <= $len; $i++) {
+            $codes[] = $code+$i;
+        }
+
+        shuffle($codes);
+
+        return $codes;
     }
 }
