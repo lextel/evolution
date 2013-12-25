@@ -2,31 +2,6 @@
 class Model_Item extends \Orm\Model {
 
     /**
-     * @def 编辑成员标志
-     */
-    const EDITER = 1;
-
-    /**
-     * @def 未删除
-     */
-    const NOT_DELETE = 0;
-
-    /**
-     * @def 已审核
-     */
-    const CHECK_PASS = 1;
-
-    /**
-     * @def 未开奖
-     */
-    const NOT_OPEN = 0;
-
-    /**
-     * @var related
-     */
-    protected static $_has_many = ['phases', 'lotteries'];
-
-    /**
      * @var 定义模型属性
      */
     protected static $_properties = array(
@@ -82,9 +57,8 @@ class Model_Item extends \Orm\Model {
      */
     public function index($options = []) {
 
-        $itemModel = new Model_Item();
-        $where = $itemModel->handleWhere($options);
-        $orderBy = $itemModel->handleOrderBy($options);
+        $where = $this->handleWhere($options, true);
+        $orderBy = $this->handleOrderBy($options);
 
         $phases = Model_Phase::query()->where($where)->order_by($orderBy)->get();
 
@@ -94,7 +68,37 @@ class Model_Item extends \Orm\Model {
 
         $items = [];
         foreach($phases as $key => $phase) {
-            $items[] = $itemModel->itemInfo($phase);
+            $items[] = $this->itemInfo($phase);
+        }
+
+        return $items;
+    }
+
+    /**
+     * 后台列表
+     *
+     * @param $get array GET参数
+     *
+     * @return array 商品列表
+     */
+    public function lists($get) {
+
+        $get['page'] = isset($get['page']) ? $get['page'] : 1;
+
+        $where = $this->handleWhere($get, false);
+        $query = Model_Phase::query();
+        if(!empty($where)) {
+            $query->where($where);
+        }
+        $phases = $query->get();
+
+        $limit = \Helper\Page::PAGESIZE;
+        $offset = ($get['page'] - 1) * $limit;
+        $phases = array_slice($phases, $offset, $limit);
+
+        $items = [];
+        foreach($phases as $key => $phase) {
+            $items[] = $this->itemInfo($phase);
         }
 
         return $items;
@@ -102,7 +106,7 @@ class Model_Item extends \Orm\Model {
 
 
     /**
-     * 处理URL
+     * 处理前台URL
      *
      * @param $options array 筛选条件
      *
@@ -129,7 +133,7 @@ class Model_Item extends \Orm\Model {
     }
 
     /**
-     * 统计url参数个数
+     * 统计前台url参数个数
      *
      * @param $options array 筛选条件
      *
@@ -151,14 +155,15 @@ class Model_Item extends \Orm\Model {
     /**
      * 统计商品数目
      *
-     * @param $options 筛选条件 & 排序条件
+     * @param $options     筛选条件 & 排序条件
+     * @param $isFrontEnd  是否是前台
      *
      * @return integer
      */
-    public function countItem($options) {
+    public function countItem($options, $isFrontEnd) {
 
         $itemModel = new Model_Item();
-        $where = $itemModel->handleWhere($options);
+        $where = $itemModel->handleWhere($options, $isFrontEnd);
 
         $query = Model_Phase::query()->where($where);
 
@@ -168,27 +173,48 @@ class Model_Item extends \Orm\Model {
     /**
      * 解析options获得where条件
      *
-     * @param $options 筛选条件 & 排序条件
+     * @param $options     筛选条件 & 排序条件
+     * @param $isFrontEnd  是否是前台调用
      *
      * @return array where && where
      */
-    public function handleWhere($options) {
+    public function handleWhere($options, $isFrontEnd) {
 
         $where  = [];
 
+        // 分类
         if(isset($options['cateId']) && !empty($options['cateId'])) {
             $where += ['cate_id' => $options['cateId']];
         }
 
+        // 品牌
         if(isset($options['brandId']) && !empty($options['brandId'])) {
             $where += ['brand_id' => $options['brandId']];
         }
 
-        $where += [
-                'is_delete' => self::NOT_DELETE,
-                'status'    => self::CHECK_PASS,
-                'opentime'  => self::NOT_OPEN,
-                ];
+        // 标题
+        if(isset($options['title']) && !empty($options['title'])) {
+            $where += [['title', 'LIKE', '%'.$options['title'].'%']];
+        }
+
+        // 发布时间
+        if(isset($options['start']) && isset($options['end'])) {
+            $where += [['item_created_at', '>=', strtotime($options['start'])]];
+            $where += [['item_created_at', '<=', strtotime($options['end'])]];
+        }
+
+        // 商品状态
+        if(isset($options['status']) && $options['status'] != '') {
+            $where += ['status' => $options['status']];
+        }
+
+        if($isFrontEnd) {
+            $where += [
+                    'is_delete' => \Helper\Item::NOT_DELETE,
+                    'status'    => \Helper\Item::IS_PASS,
+                    'opentime'  => \Helper\Item::NOT_OPEN,
+                    ];
+        }
 
         return $where;
     }
@@ -254,16 +280,7 @@ class Model_Item extends \Orm\Model {
 
         $item = [];
         if($phase) {
-            $where = [
-                'id'        => $phase->item_id, 
-                'is_delete' => self::NOT_DELETE, 
-                'status'    => self::CHECK_PASS
-               ];
-            if($options) {
-                list($where, ) = $this->handleWhere($options);
-                $where = $where + $where;
-            }
-            $item = Model_Item::find('first', ['where' => $where]);
+            $item = Model_Item::find($phase->item_id);
             if($item) {
                 $item->phase = $phase;
             }
@@ -295,22 +312,23 @@ class Model_Item extends \Orm\Model {
 
         $image = $post['images'][0];
         $data = [
-              'title'    => $post['title'],
-              'desc'     => $post['desc'],
-              'price'    => $post['price'],
-              'cate_id'  => $post['cate_id'],
-              'brand_id' => $post['brand_id'],
-              'image'    => $image,
-              'images'   => serialize($post['images']),
-              'status'   => self::OFF_SELF,
+              'title'     => $post['title'],
+              'desc'      => $post['desc'],
+              'price'     => $post['price'],
+              'cate_id'   => $post['cate_id'],
+              'brand_id'  => $post['brand_id'],
+              'image'     => $image,
+              'images'    => serialize($post['images']),
+              'status'    => \Helper\Item::NOT_PASS,
+              'is_delete' => \Helper\Item::NOT_DELETE,
             ];
 
         $item = new Model_Item($data);
 
         $result = false;
-        if ($item and $item->save()) {
+        if ($item && $item->save()) {
             $phaseModel = new Model_Phase();
-            $phaseModel->add($item->id);
+            $phaseModel->add($item);
             $result = true;
         }
 
@@ -355,11 +373,14 @@ class Model_Item extends \Orm\Model {
      */
     public function remove($id) {
 
-        $group = Auth::get('group');
         $result = false;
         if ($item = Model_Item::find($id)) {
-            $item->is_delete = 1;
+            $item->is_delete = \Helper\Item::IS_DELETE;
             $item->save();
+
+            DB::update('phases')->value('is_delete', \Helper\Item::IS_DELETE)
+                                ->where('item_id', $item->id)
+                                ->execute();
             $result = true;
         }
 
@@ -389,6 +410,9 @@ class Model_Item extends \Orm\Model {
     /**
      * 编辑器上传图片
      *
+     * @param $file $_FILES 一维数组
+     * 
+     * @return array 上传的文件数组
      */
     public function editorUpload() {
 

@@ -8,8 +8,11 @@ class Controller_Image extends Controller_Template {
     public function action_index() {
 
         $size = $this->param('size');
-        echo $link = $this->param('link');
+        $link = $this->param('link') . '.jpg';
 
-        return false;
+        $image = new \Classes\Image();
+        $link = $image->resize($link, $size);
+
+        Response::redirect(Uri::create('/'.$link));
     }
 }

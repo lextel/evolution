@@ -5,9 +5,9 @@
  */
 return [
     'item' => [
-        'path' => DOCROOT.'upload'.DS.'item'.DS.'origin',
+        'path' => DOCROOT.'upload'.DS.'item',
         'randomize' => true,
-        'ext_whitelist' => ['img', 'jpg', 'jpeg', 'gif', 'png'],
+        'ext_whitelist' => ['jpg', 'jpeg'],
     ],
     'avatar' => [
         'path' => DOCROOT.'upload'.DS.'avatar'.DS.'origin',
@@ -17,7 +17,7 @@ return [
     'editor' => [
         'path' => DOCROOT.'upload',
         'randomize' => true,
-        'ext_whitelist' => ['img', 'jpg', 'jpeg', 'gif', 'png'],
+        'ext_whitelist' => ['jpg', 'jpeg', 'gif', 'png'],
 		    'savePath'   => 'updateSavePath(["upload"]);',
     ],
     'upload' => [

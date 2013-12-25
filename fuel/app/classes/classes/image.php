@@ -58,13 +58,32 @@ class Image {
     public function resize($link, $size) {
 
         $path   = $this->url2path($link);
+        
+        $resizePath = $this->resizePath($path, $size);
+
         $sizes  = explode('x', $size);
         $width  = $sizes[0];
         $height = $sizes[1];
-        $newPath   = str_replace('origin', $size, $path);
 
-        SysImage::load($path)->crop_resize($width, $height)->save($newPath);
+        if(!file_exists($resizePath)) {
+            SysImage::load($path)->crop_resize($width, $height)->save($resizePath);
+        }
 
-        return $this->path2url($newPath);
+        return $this->path2url($resizePath);
+    }
+
+    public function resizePath($path, $size) {
+
+        preg_match('/upload\/(\w+)\//', $path, $match);
+
+        $path = str_replace($match[1], $match[1].'/'.$size, $path);
+
+        $dir = dirname($path);
+        if(!is_dir($dir)) {
+            mkdir($dir, 0755, true);
+        }
+
+        return $path;
+
     }
 }

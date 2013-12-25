@@ -14,7 +14,7 @@
             <div class="lantern-slide">
                 <div class="slide-img">
                     <a href="<?php echo $item->image; ?>" class="jqzoom" rel="gal1">
-                        <img src="<?php echo /*Uri::create('/image/400x400/'.*/$item->image; ?>" alt=""/>
+                        <img src="<?php echo Uri::create('/image/400x400/' . $item->image); ?>" alt=""/>
                     </a>
                 </div>
                 <ul class="slide-list" id="thumblist">
@@ -50,7 +50,7 @@
             <div class="price">价值:<b><?php echo sprintf('%.2f', $item->price); ?></b></div>
             <dl class="progress-side">
                 <dd>
-                    <div class="progress"><div class="progress-bar"></div></div>
+                    <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->phase->joined/$item->phase->amount); ?>%"></div></div>
                 </dd>
                 <dd>
                     <span class="fl red"><?php echo $item->phase->joined; ?></span>

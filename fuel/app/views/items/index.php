@@ -37,21 +37,27 @@
             $topItem = $getTopItem();
         ?>
         <div class="product-hot fr">
-            <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
-                <div class="title-box">
-                    <h4><a href="<?php echo Uri::create('/m/'.$topItem->phase->id); ?>"><?php echo $topItem->title; ?></a></h4>
-                    <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $topItem->price); ?></b></span>
-                </div>
-                <div class="img-box">
-                    <a href="<?php echo Uri::create('/m/'.$topItem->phase->id); ?>"><img src="<?php echo $topItem->image; ?>" alt=""></a>
-                    <div class="sheng-yi">
-                        剩余 <b class="red"><?php echo $topItem->phase->remain ?></b>人本次商品就揭晓了！
+            <?php
+                if(!empty($topItem)) {
+            ?>
+                <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
+                    <div class="title-box">
+                        <h4><a href="<?php echo Uri::create('/m/'.$topItem->phase->id); ?>"><?php echo $topItem->title; ?></a></h4>
+                        <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $topItem->price); ?></b></span>
                     </div>
-                </div>
-                <input name="id" value="<?php echo $topItem->phase->id;?>" type="hidden"/>
-                <input name="qty" value="1" type="hidden"/>
-                <button class="buy" type="submit">立即乐拍</button>
-            </form>
+                    <div class="img-box">
+                        <a href="<?php echo Uri::create('/m/'.$topItem->phase->id); ?>"><img src="<?php echo $topItem->image; ?>" alt=""></a>
+                        <div class="sheng-yi">
+                            剩余 <b class="red"><?php echo $topItem->phase->remain ?></b>人本次商品就揭晓了！
+                        </div>
+                    </div>
+                    <input name="id" value="<?php echo $topItem->phase->id;?>" type="hidden"/>
+                    <input name="qty" value="1" type="hidden"/>
+                    <button class="buy" type="submit">立即乐拍</button>
+                </form>
+            <?php
+                }
+            ?>
         </div>
     </div>
     <!--产品列表开始-->

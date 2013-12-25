@@ -27,8 +27,13 @@ class View_Items_index extends Viewmodel {
         // 即将揭晓
         $this->getTopItem = function() {
 
-            $where = ['opentime' => 0];
+            $where = [
+                'opentime'  => \Helper\Item::NOT_OPEN, 
+                'is_delete' => \Helper\Item::NOT_DELETE, 
+                'status'    => \Helper\Item::IS_PASS
+                ];
             $orderBy = ['remain' => 'desc'];
+
             $phase = Model_Phase::find('first', ['where' => $where, 'order_by' => $orderBy]);
             $itemModel = new Model_Item();
 
@@ -67,7 +72,14 @@ class View_Items_index extends Viewmodel {
 
         // 今日热门
         $this->getHots = function() {
-            $phases = Model_Phase::find('all', ['order_by' => ['hots' => 'desc'], 'limit' => 5]);
+
+            $where = [
+                'opentime'  => \Helper\Item::NOT_OPEN, 
+                'is_delete' => \Helper\Item::NOT_DELETE, 
+                'status'    => \Helper\Item::IS_PASS
+                ];
+
+            $phases = Model_Phase::find('all', ['where' => $where, 'order_by' => ['hots' => 'desc'], 'limit' => 5]);
             $itemModel = new Model_Item();
             $items = [];
             foreach($phases as $phase) {

@@ -61,22 +61,74 @@ class Model_Cate extends \Orm\Model
     }
 
     /**
+     * 获取分类一维数组
+     *
+     * @return array
+     */
+    public function cates() {
+
+        $cates = $this->getCates();
+
+        $data = [];
+        foreach($cates as $cate) {
+            $data[$cate->id] = $cate->name;
+        }
+
+        return $data;
+    }
+
+    /**
      * 品牌列表
      *
      * @param $options 列表参数
-     *                 $options['offset']  // 分页偏移量
-     *                 $options['limit']   // 每页记录数
+     *                 $options['parentId'] // 分类ID
+     *                 $options['offset']   // 分页偏移量
+     *                 $options['limit']    // 每页记录数
      *
      * @return obj
      */
-    public function getBrands($options) {
+    public function getBrands($options = []) {
 
-        return Model_Cate::query()->where('is_delete', 0)
-                                  ->where('parent_id', '>', 0)
-                                  ->offset($options['offset'])
-                                  ->limit($options['limit'])
-                                  ->order_by(['id' => 'desc'])
-                                  ->get();
+        $query = Model_Cate::query();
+
+        $query->where('is_delete', 0);
+
+        if(isset($options['parentId'])) {
+            $query->where('parent_id', $options['parentId']);
+        } else {
+            $query->where('parent_id', '>', 0);
+        }
+
+        if(isset($options['offset'])) {
+            $query->offset($options['offset']);
+        }
+
+        if(isset($options['limit'])) {
+            $query->limit($options['limit']);
+        }
+
+        $query->order_by(['id' => 'desc']);
+
+        return $query->get();
+    }
+
+    /**
+     * 根据分类获取品牌
+     *
+     * @param $id integer 分类ID
+     *
+     * @return array
+     */
+    public function brands($id) {
+        
+        $brands =  $this->getBrands(['parentId' => $id]);
+
+        $data = [];
+        foreach($brands as $brand) {
+            $data[$brand->id] = $brand->name;
+        }
+
+        return $data;
     }
 
     /**
