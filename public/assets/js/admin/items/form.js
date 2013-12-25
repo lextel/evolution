@@ -7,11 +7,12 @@ $(function () {
         dataType: 'json',
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
-                $('<p style="margin:5px; float: left" />').html('<img src="/'+file.path+'" alt="'+file.name+'"/><input type="hidden" name="images[]" value="'+file.image+'">').appendTo('#files');
+                $('<p style="margin:5px; float: left" />').html('<img width="80px" height="80px" src="'+IMAGE_URL+file.link+'" alt="'+file.name+'"/><input type="hidden" name="images[]" value="'+file.link+'">').appendTo('#files');
             });
         },
     }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
 
     //实例化编辑器
-    var ue = UE.getEditor('editor');
+    var ue = new UE.ui.Editor();
+    ue.render("desc");
 });

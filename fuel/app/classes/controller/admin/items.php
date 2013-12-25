@@ -7,8 +7,10 @@ class Controller_Admin_Items extends Controller_Admin {
 
         $data['items'] = Model_Item::find('all', ['order_by' => ['id' => 'desc']]);
 
+        // $cateModel = new Model_Cate();
+        // $data['cates'] = $cateModel->getCates();
         $cates = new Classes\Cate();
-        $data['cates'] = $cates->cates();
+        $this->template->set_global('cates', $cates->cates(), false);
 
         $this->template->title = "商品管理";
         $this->template->content = View::forge('admin/items/index', $data);
@@ -114,17 +116,17 @@ class Controller_Admin_Items extends Controller_Admin {
     // 编辑器上传图片
     public function action_editorUpload() {
 
-        if(Input::get('fetch')) {
-            Config::load('upload');
-            $path = Config::get('editor.savePath');
-
-            return $path;
-        }
-
         $itemModel = new Model_Item();
         $files = $itemModel->editorUpload();
 
-        return json_encode([$files]);
+        $file = array_shift($files);
+        $rs = [
+            'url'      => $file['link'],
+            'original' => $file['name'],
+            'state'    => $file['error'] ? 'FAIL' : 'SUCCESS',
+            ];
+
+        return json_encode($rs);
     }
 
     // test

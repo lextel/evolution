@@ -19,6 +19,7 @@ class Create_phases
             'joined' => array('constraint' => 11, 'type' => 'int'),
             'hots' => array('constraint' => 11, 'type' => 'int'),
             'codes' => array('type' => 'text'),
+            'status' => array('constraint' => 11, 'type' => 'int'),
             'is_delete' => array('constraint' => 1, 'type' => 'int'),
             'opentime' => array('constraint' => 11, 'type' => 'int'),
             'item_created_at' => array('constraint' => 11, 'type' => 'int'),

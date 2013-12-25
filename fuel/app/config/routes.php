@@ -19,18 +19,15 @@ return array(
     'u/avatar' => 'member/avatar',
     'u/getprofile' => 'member/getprofile',
     'u/profile' => 'member/profile',
-
     'u/passwd' => 'member/changepassword',
     'u/passwd/forgot' => 'member/forgotpassword',
-
-     'u/posts' => 'member/posts/index',
-     'u/posts/p/(\d+)' => 'member/posts/index/$1',
-     'u/posts/view/(\d+)' => 'member/posts/view',
-     'u/posts/getadd' => 'member/posts/getadd',
-     'u/posts/add' => 'member/posts/add',
-     'u/posts/edit/(\d+)' => 'member/posts/edit',
-     'u/posts/delete/(\d+)' => 'member/posts/delete/$1',
-
+    'u/posts' => 'member/posts/index',
+    'u/posts/p/(\d+)' => 'member/posts/index/$1',
+    'u/posts/view/(\d+)' => 'member/posts/view',
+    'u/posts/getadd' => 'member/posts/getadd',
+    'u/posts/add' => 'member/posts/add',
+    'u/posts/edit/(\d+)' => 'member/posts/edit',
+    'u/posts/delete/(\d+)' => 'member/posts/delete/$1',
     'u/orders' => 'orders/my',
     'u/wins' => 'member/lottery/index',
     'u/win/p/\d+' => 'member/lottery/index/$1',
@@ -65,6 +62,7 @@ return array(
     'comment/(\d+)/p/(\d+)' => 'comments/index/$1/$2',
     'comment/(\d+)/add' => 'member/comments/add/$1',
 
+    'image/:size/:link' => 'image/index',
 
 );
 

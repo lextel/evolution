@@ -37,6 +37,32 @@ class Upload {
 
         Config::load('upload');
         $this->_config = Config::get($type);
+
+        // 改写文件夹
+        SysUpload::register('before', function (&$file) {
+            if ($file['error'] == SysUpload::UPLOAD_ERR_OK) {
+                $filename = $file['filename'];
+                $path = $file['path'] . $filename[0];
+                $this->_checkDir($path);
+                $path .= DS . $filename[1];
+                $this->_checkDir($path);
+                $file['path'] = $path . DS;
+            }
+        });
+    }
+
+    /**
+     * 检查目录
+     *
+     * 如果没有创建则创建目录
+     *
+     * @return void
+     */
+    private function _checkDir($path) {
+
+        if(!file_exists($path)) {
+            mkdir($path, 0755, true);
+        }
     }
 
     /**
@@ -93,10 +119,13 @@ class Upload {
     public function getFiles($size = '') {
 
         $files = [];
+
+        $image = new \Classes\Image();
         foreach(SysUpload::get_files() as $file) {
 
             $files[] = [
                 'name'  => $file['saved_as'],
+                'link'  => $image->path2url($file['saved_to'] . $file['saved_as']),
                 'path'  => $file['saved_to'] . $file['saved_as'],
                 'error' => $file['error'],
                 'type'  => $file['type'],

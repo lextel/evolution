@@ -182,7 +182,7 @@ abstract class Cart_Driver {
 			return $rowids;
 		}
 
-		$required = array('id', 'name', 'price');
+		$required = array('id');
 		foreach($required as $field)
 		{
 			if( ! array_key_exists($field, $values))

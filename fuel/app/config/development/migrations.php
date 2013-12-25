@@ -1,12 +1,12 @@
 <?php
 return array(
-	'version' => 
+	'version' =>
 	array(
-		'app' => 
+		'app' =>
 		array(
-			'default' => 
+			'default' =>
 			array(
-				0 => '001_create_users',
+							0 => '001_create_users',
 				1 => '002_create_items',
 				2 => '003_create_phases',
 				3 => '004_create_tasks',
@@ -28,12 +28,12 @@ return array(
 				19 => '034_create_member_addresses',
 			),
 		),
-		'module' => 
+		'module' =>
 		array(
 		),
-		'package' => 
+		'package' =>
 		array(
-			'auth' => 
+			'auth' =>
 			array(
 				0 => '001_auth_create_usertables',
 				1 => '002_auth_create_grouptables',

@@ -41,14 +41,23 @@ class Model_Cate extends \Orm\Model
      *
      * @return obj
      */
-    public function getCates($options) {
+    public function getCates($options = []) {
 
-        return Model_Cate::query()->where('is_delete', 0)
-                                  ->where('parent_id', 0)
-                                  ->offset($options['offset'])
-                                  ->limit($options['limit'])
-                                  ->order_by(['id' => 'desc'])
-                                  ->get();
+        $query = Model_Cate::query();
+        $query->where('is_delete', 0)
+              ->where('parent_id', 0);
+
+        if(isset($options['offset'])) {
+            $query->offset($options['offset']);
+        }
+
+        if(isset($options['limit'])) {
+            $query->limit($options['limit']);
+        }
+
+        $query->order_by(['id' => 'desc']);
+
+        return $query->get();
     }
 
     /**
