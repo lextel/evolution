@@ -11,6 +11,8 @@ class Model_Member_Address extends \Orm\Model
         'name',
         'created_at',
         'updated_at',
+        'rate',
+        'is_delete',
     );
 
     protected static $_observers = array(

@@ -85,7 +85,7 @@
                     <dd class="active"><?php echo Html::anchor('u/getprofile', '基本资料');?></dd>
                     <dd><?php echo Html::anchor('u/getavatar', '修改头像');?></dd>
                     <dd><?php echo Html::anchor('u/passwd', '密码修改');?></dd>
-                    <dd><?php echo Html::anchor('u/getaddress/index', '收货地址');?></dd>
+                    <dd><?php echo Html::anchor('u/address', '收货地址');?></dd>
                     
                 </dl>
                 <dl>
