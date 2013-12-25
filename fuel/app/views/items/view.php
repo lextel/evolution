@@ -1,5 +1,6 @@
 <?php echo Asset::css(['product.css', 'jquery.jqzoom.css']); ?>
 <?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js', 'item/view.js']); ?>
+<?php $this->title = '(第' . $item->phase->phase_id .'期)' . $item->title; ?>
 <div class="wrapper w">
     <!--商品信息开始-->
     <div class="panel w">
@@ -13,7 +14,7 @@
             <!--幻灯片开始-->
             <div class="lantern-slide">
                 <div class="slide-img">
-                    <a href="<?php echo $item->image; ?>" class="jqzoom" rel="gal1">
+                    <a href="<?php echo Uri::create('/image/600x600/' .$item->image); ?>" class="jqzoom" rel="gal1">
                         <img src="<?php echo Uri::create('/image/400x400/' . $item->image); ?>" alt=""/>
                     </a>
                 </div>
@@ -23,8 +24,8 @@
                         foreach($images as $image):
                     ?>
                     <li>
-                        <a class="<?php echo $image == $item->image ? 'zoomThumbActive' : ''; ?>">
-                            <img src="<?php echo $image; ?>" alt=""/>
+                        <a class="<?php echo $image == $item->image ? 'zoomThumbActive' : ''; ?>" rel='<?php echo $getZoom($image);?>'>
+                            <img src="<?php echo Uri::create('/image/80x80/' . $image); ?>" alt=""/>
                         </a>
                     </li>
                     <?php endforeach; ?>

@@ -34,7 +34,7 @@
                             <td><input type="checkbox" name="ids[]" value="<?php echo $item->get_id(); ?>"/></td>
                             <td>
                                 <div class="img-box fl">
-                                    <a href="<?php echo Uri::create('/m/'. $item->get_id()); ?>"><img src="<?php echo $info->image; ?>" alt=""></a>
+                                    <a href="<?php echo Uri::create('/m/'. $item->get_id()); ?>"><img src="<?php echo Uri::create('/image/80x80/' . $info->image); ?>" alt=""></a>
                                 </div>
                                 <div class="info-side fl">
                                     <div class="title">
@@ -86,7 +86,7 @@
                             <div class="price">价值<b>￥<?php echo sprintf('%.2f', $remain->price); ?></b></div>
                         </div>
                         <div class="img-box">
-                            <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>"><img src="<?php echo $remain->image; ?>" alt=""></a>
+                            <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/' . $remain->image); ?>" alt=""></a>
                             <div class="sheng-yi">
                                 剩余 <b class="red"><?php echo $remain->phase->remain; ?></b>人次本商品就揭晓了！
                             </div>

@@ -50,4 +50,19 @@ class Controller_Cart extends Controller_Template {
         Response::redirect('cart/list');
     }
 
+    // 跳转支付
+    public function action_dopay() {
+        $bank = Input::get('bank');
+
+        echo '跳转银行操作。';
+        die;
+    }
+
+    // 支付结果
+    public function action_result() {
+
+        echo '支付成功!';
+        die;
+    }
+
 }

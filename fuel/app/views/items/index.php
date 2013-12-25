@@ -46,7 +46,7 @@
                         <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $topItem->price); ?></b></span>
                     </div>
                     <div class="img-box">
-                        <a href="<?php echo Uri::create('/m/'.$topItem->phase->id); ?>"><img src="<?php echo $topItem->image; ?>" alt=""></a>
+                        <a href="<?php echo Uri::create('/m/'.$topItem->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/' . $topItem->image); ?>" alt=""></a>
                         <div class="sheng-yi">
                             剩余 <b class="red"><?php echo $topItem->phase->remain ?></b>人本次商品就揭晓了！
                         </div>
@@ -76,7 +76,7 @@
                             <span class="price">价值 <b>￥<?php echo sprintf('%.2f' ,$item->price); ?></b></span>
                         </div>
                         <div class="img-box">
-                            <a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><img src="<?php echo $item->image; ?>" alt=""></a>
+                            <a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/' . $item->image); ?>" alt=""></a>
                         </div>
                         <dl class="progress-side">
                             <dd>
@@ -120,7 +120,7 @@
                     foreach($hotItems as $item) :
                 ?>
                 <li>
-                    <div class="img-box"><a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><img src="<?php echo $item->image; ?>" alt=""></a></div>
+                    <div class="img-box"><a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
                     <h5><?php echo $item->phase->title; ?></h5>
                     <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->price); ?></b></div>
                     <div class="btn-group">

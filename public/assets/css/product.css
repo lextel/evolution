@@ -403,88 +403,7 @@
    margin:10px;
     position: relative;
 }
-.pay-way{
-    overflow: hidden;
-}
-.pay-way dl{
-     overflow: hidden;
-     border: 1px solid #f1f1f1;
-     padding: 0 15px;
-     font-size: 14px;
-     margin-bottom: 20px;
-}
-.pay-way dl dt{
-    font-weight: bold;
-    margin-bottom: 10px;
-    padding: 10px 0;
-    clear: both;
-    border-bottom: 1px solid #f1f1f1;
-}
-.pay-way dl dd{
-    float: left;
-    margin:0 30px 10px 0;
-    overflow: hidden;
-}
-.pay-way dl dd input{
-    display:block;
-    float: left;
-    margin: 12px 5px 0 0;
-    cursor: pointer;
-}
-.pay-way dl dd label{
-    display:block;
-    cursor: pointer;
-    float: left;
-}
-.pay-way dl dd label span{
-    display: block;
-    width: 105px;
-    height: 31px;
-    float: left;
-    background: url("../images/bank_logo.png")no-repeat;
-}
-.pay-way dl dd label .zhs{
-    background-position: 0 -36px;
-}
-.pay-way dl dd label .jt{
-    background-position: 0 -466px;
-}
-.pay-way dl dd label .gsh{
-    background-position: 0 -3px;
-}
-.pay-way dl dd label .zhg{
-    background-position: 0 -433px;
-}
-.pay-way dl dd label .zhx{
-    background-position: 0 -333px;
-}
-.pay-way dl dd label .jsh{
-    background-position: 0 -69px;
-}
-.pay-way dl dd label .ny{
-    background-position: 0 -102px;
-}
-.pay-way dl dd label .zhf{
-    background-position: 0 -613px;
-}
-.pay-help{
-    margin: 10px 0;
-}
-.pay-help dt{
-    margin-bottom: 10px;
-    line-height: 24px;
-}
-.pay-help dd{
-     margin-bottom: 10px;
-     line-height: 24px;
-}
-.pay-help dd a{
-    margin-right:30px;
-}
-.pay-help dd ol{
-    overflow: hidden;
-    list-style-type: decimal;
-}
+
 /*商品详情*/
 /*幻灯片开始*/
 .panel .img-side {
@@ -500,6 +419,7 @@
     width:400px ;
     height:340px ;
     text-align: center;
+    overflow: hidden;
 }
 .lantern-slide .slide-img a img{
     max-width: 100%;
@@ -593,10 +513,16 @@
     margin-right: -1px;
     border: 1px solid #DDDDDD;
 }
+.new-buyer .new-buyer-header ul li.active{
+    background: #D9534F;
+}
 .new-buyer  .new-buyer-body{
     overflow: hidden;
     border: 1px solid #DDDDDD;
     padding: 10px;
+}
+.new-buyer  .new-buyer-body div.active{
+    display: block;
 }
 .new-buyer  .new-buyer-body table {
     width: 100%;
@@ -655,6 +581,9 @@
     height: 38px;
     line-height: 38px;
     background: #f7f7f7;
+}
+.sub-nav ul li .active{
+    background: #D9534F;
 }
 .sub-nav ul li a{
     min-width: 40px;

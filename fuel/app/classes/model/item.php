@@ -90,6 +90,8 @@ class Model_Item extends \Orm\Model {
         if(!empty($where)) {
             $query->where($where);
         }
+
+        $query->order_by(['id' => 'desc']);
         $phases = $query->get();
 
         $limit = \Helper\Page::PAGESIZE;

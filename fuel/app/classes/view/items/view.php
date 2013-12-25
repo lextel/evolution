@@ -4,11 +4,15 @@ class View_Items_view extends Viewmodel {
 
     public function view() {
 
-        // TODO 最近购买记录
+        $this->getZoom = function($link) {
 
-        // TODO 我的购买记录
+            $rel = [
+                'gallery'    => 'gal1',
+                'smallimage' => str_replace(Uri::base(), '/', Uri::create('/image/80x80/' . $link)),
+                'largeimage' => str_replace(Uri::base(), '/', Uri::create('/image/600x600/' . $link)),
+            ];
 
-        // TODO 人气推荐
-
+            return json_encode($rel);
+        };
     }
 }
