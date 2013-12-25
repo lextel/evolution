@@ -21,6 +21,7 @@ return array(
     'u/profile' => 'member/profile',
     'u/passwd' => 'member/changepassword',
     'u/passwd/forgot' => 'member/forgotpassword',
+
     'u/posts' => 'member/posts/index',
     'u/posts/p/(\d+)' => 'member/posts/index/$1',
     'u/posts/view/(\d+)' => 'member/posts/view',
@@ -28,12 +29,14 @@ return array(
     'u/posts/add' => 'member/posts/add',
     'u/posts/edit/(\d+)' => 'member/posts/edit',
     'u/posts/delete/(\d+)' => 'member/posts/delete/$1',
+
     'u/orders' => 'orders/my',
     'u/wins' => 'member/lottery/index',
     'u/win/p/\d+' => 'member/lottery/index/$1',
     'u/moneylog' => 'member/moneylog/rechargeIndex',
     'u/moneylog/p/(\d+)' => 'member/moneylog/rechargeIndex/$1',
     'u/moneylog/b/(\d+)' => 'member/moneylog/buyIndex/$1',
+
     'u/friends' => 'friends/my',
     'u/follow' => 'friends/follow',
     'u/unfollow' => 'friends/unfollow',
@@ -58,8 +61,8 @@ return array(
     'p/s/(\w+)?' => 'posts/sort/$1',
     'p/s/(\w+)/p/(\d+)' => 'posts/sort/$1/$2',
     'p/(\d+)' => 'posts/view/$1',
-    'comment/(\d+)' => 'comments/index/$1',
-    'comment/(\d+)/p/(\d+)' => 'comments/index/$1/$2',
+    'comment/(\d+)' => 'comment/index/$1',
+    'comment/(\d+)/p/(\d+)' => 'comment/index/$1/$2',
     'comment/(\d+)/add' => 'member/comments/add/$1',
 
     'image/:size/:link' => 'image/index',

@@ -1,16 +1,16 @@
 <?php
 
-class Controller_Cart extends Controller_Template {
+class Controller_Cart extends Controller_Frontend{
 
     // 我的购物车
     public function action_list() {
 
         $items = Cart::items();
         $view = ViewModel::forge('cart/list');
-        
+
         $view->set('items', $items);
         $this->template->title = "我的购物车";
-        $this->template->content = $view;
+        $this->template->layout = $view;
     }
 
     // 添加到购物车
@@ -29,10 +29,10 @@ class Controller_Cart extends Controller_Template {
 
         $items = Cart::items();
         $view = ViewModel::forge('cart/pay');
-        
+
         $view->set('items', $items);
         $this->template->title = "订单支付";
-        $this->template->content = $view;
+        $this->template->layout = $view;
     }
 
     // 删除商品
