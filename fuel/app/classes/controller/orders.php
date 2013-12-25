@@ -2,13 +2,13 @@
 
 class Controller_Orders extends Controller_Center
 {
-    public $template = 'memberlayout';
+    //public $template = 'memberlayout';
 
     public function action_index()
     {
         $data["subnav"] = array('index'=> 'active' );
         $this->template->title = 'Orders &raquo; Index';
-        $this->template->content = View::forge('orders/index', $data);
+        $this->template->layout = View::forge('orders/index', $data);
     }
 
     public function action_my()
