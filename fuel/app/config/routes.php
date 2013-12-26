@@ -3,14 +3,19 @@ return array(
     '_root_'  => 'index/index',  // The default route
     '_404_'   => 'welcome/404',    // The main 404 route
 
-    'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),
+    //'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),
+
+     'totalbuycount' => 'index/totalCount',
 
     'signin' => 'center/signin',
     'signup' => 'center/signup',
     'signout' => 'center/signout',
 
+    'u/(\d+)' => 'home/index/$1',
+    'u/(\d+)/orders' => 'home/orders/$1',
+    'u/(\d+)/wins' => 'home/wins/$1',
+    'u/(\d+)/posts' => 'home/posts/$1',
     'u' => 'member/index',
-    'u/(\d+)' => 'welcome/hello',
     'u/address' => 'member/address/index',
     'u/address/(\d+)' => 'member/address/view',
      'u/address/add' => 'member/address/add',
@@ -31,8 +36,10 @@ return array(
     'u/posts/delete/(\d+)' => 'member/posts/delete/$1',
 
     'u/orders' => 'orders/my',
+     'u/orders/p/(\d+)' => 'orders/my/$1',
     'u/wins' => 'member/lottery/index',
     'u/win/p/\d+' => 'member/lottery/index/$1',
+    'u/recharge' => 'member/recharge',
     'u/moneylog' => 'member/moneylog/rechargeIndex',
     'u/moneylog/p/(\d+)' => 'member/moneylog/rechargeIndex/$1',
     'u/moneylog/b/(\d+)' => 'member/moneylog/buyIndex/$1',

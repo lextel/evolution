@@ -18,7 +18,7 @@
         <tr>
             <td><?php echo $order->id; ?></td>
             <td><a href=""></a></td>
-            <td><?php echo date('Y-m-d H:M:S', $order->created_at); ?></td>
+            <td><?php echo date('Y-m-d H:i:s', $order->created_at); ?></td>
             <td class="price"><?php echo $order->code_count; ?></td>
             <td><?php echo $order->phase_id; ?></td>
         </tr>

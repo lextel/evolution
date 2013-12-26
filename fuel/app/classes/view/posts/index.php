@@ -1,6 +1,7 @@
 <?php
 
-class View_Posts_User extends Viewmodel {
+class View_Posts_Index extends Viewmodel {
+
     public function view() {
        //获得用户信息（用户名和标题）
        $this->getUser = function($mid) {
@@ -8,6 +9,9 @@ class View_Posts_User extends Viewmodel {
            return $user;
        };
    }
-    
+
+   public function set_view(){
+       $this->_view = View::forge('posts/index');
+   }
 }
 

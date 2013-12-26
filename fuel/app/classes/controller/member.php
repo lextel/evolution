@@ -61,7 +61,7 @@ class Controller_Member extends Controller_Center{
     */
     public function action_getprofile($id = null)
     {
-        $member = Model_Member_Info::checkInfo($this->current_user->id);
+        $member = Model_Member::find($this->current_user->id);
         $data['member'] = $member;
         $this->template->title = "用户基本设置";
         $this->template->layout->content = View::forge('member/profile', $data);
@@ -148,5 +148,28 @@ class Controller_Member extends Controller_Center{
         $this->template->title = '用户修改密码页面';
         $this->template->layout->content = View::forge('member/passwd', array('val' => $val), false);
     }
+    /*
+    *
+    */
+    public function action_recharge()
+    {
+        $this->template->title = '用户修改密码页面';
+        $this->template->layout->content = View::forge('member/money');
+    }
 
+     /*
+    *
+    */
+    public function action_money()
+    {
+
+    }
+
+    /*
+    *
+    */
+    public function action_msg()
+    {
+        return;
+    }
 }

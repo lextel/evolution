@@ -15,6 +15,7 @@ class Create_posts
             'member_id' => array('constraint' => 11, 'type' => 'int'),
             'type_id' => array('constraint' => 11, 'type' => 'int'),
             'phase_id' => array('constraint' => 11, 'type' => 'int'),
+            'lottery_id' => array('constraint' => 11, 'type' => 'int'),
             'topimage' => array('constraint' => 255, 'type' => 'varchar'),
             'images' => array('constraint' => 255, 'type' => 'varchar'),
             'up' => array('constraint' => 11, 'type' => 'int', 'default' => '0'),

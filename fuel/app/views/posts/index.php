@@ -12,25 +12,25 @@
     <div class="content w">
         <ul class="share-list">
         <?php if ($posts): ?>
-        <?php foreach ([0,1,2,3] as $li):?>
+        <?php foreach ([0,1,2,3] as $li){?>
         <li>
-        <?php foreach ($posts as $v=>$item): ?>
-            <?php if (array_search($v, array_keys($posts)) % 4 == $li):?>
+        <?php foreach ($posts as $v=>$item){ ?>
+            <?php if (array_search($v, array_keys($posts)) % 4 == $li){?>
                 <div class="product-item">
                     <div class="img-box">
                         <?php echo Html::anchor('/p/'.$item->id, Html::img('assets/img/96515277.jpg'));?>
                     </div>
                     <div class="info-side">
                         <div class="head-img fl">
-                            <?php echo Html::anchor('', Html::img('assets/img/96515277.jpg'));?>
+                            <?php echo Html::anchor('u/'.$item->member_id, Html::img($getUser($item->member_id)->avatar));?>
                         </div>
                         <div class="info fl">
-                            <span class="name"><a href="" class="blue"><?php echo $item->member_id; ?></a></span>
-                            <span class="datetime"><?php echo $item->created_at; ?></span>
-                            <span class="text-title blue"><?php echo $item->title; ?></span>
+                            <span class="name"><?php echo Html::anchor('u/'.$item->member_id, $getUser($item->member_id)->username, ['class'=>'blue']);?></span>
+                            <span class="datetime"><?php echo date('Y-m-d H:i:s', $item->created_at); ?></span>
+                            <span class="text-title blue"><?php echo Html::anchor('/p/'.$item->id, $item->title);?></span>
                         </div>
                         <div class="text-content">
-                            <?php echo $item->desc; ?>
+                            <?php echo mb_substr($item->desc, 0, 42,'utf-8'); ?>
                         </div>
                     </div>
                     <div class="btn-group">
@@ -38,11 +38,11 @@
                         <?php echo Html::anchor('javascript:;', '评论<s>('.$item->comment_count.')</s>', array('class'=>'btn btn-link'));?>
                     </div>
                 </div>
-            <?php endif; ?>
+            <?php }; ?>
 
-        <?php endforeach; ?>
+        <?php }; ?>
         </li>
-        <?php endforeach; ?>
+        <?php }; ?>
         <?php else: ?>
 
         <?php endif; ?>

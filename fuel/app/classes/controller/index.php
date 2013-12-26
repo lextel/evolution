@@ -1,11 +1,24 @@
 <?php
 
 class Controller_Index extends Controller_Frontend {
-
+    
+    /*
+    *首页功能
+    */
     public function action_index() {
 
         $this->template->title = '乐乐淘';
         $this->template->layout = View::forge('index/index');
     }
 
+    /*
+    *购买人次总统计,每2秒调用一次，不做缓存
+    */
+    public function action_totalCount(){
+        $response = new Response();
+        $count = Model_Order::count();
+        $data['code'] =  0;
+        $data['num'] = $count;
+        return $response->body(json_encode($data));
+    }
 }
