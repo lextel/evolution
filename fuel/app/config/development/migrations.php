@@ -29,7 +29,9 @@ return array(
 				20 => '027_create_cates',
 				21 => '031_create_logs',
 				22 => '040_create_posts',
-				23 => '043_create_notices',
+				23 => '041_create_phases',
+				24 => '042_create_items',
+				25 => '043_create_notices',
 			),
 		),
 		'module' => 

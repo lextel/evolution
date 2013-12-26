@@ -1,120 +1,135 @@
 <?php
 class Controller_Admin_Notices extends Controller_Admin{
 
-	public function action_index()
-	{
-		$data['notices'] = Model_Notice::find('all');
-		$this->template->title = "Notices";
-		$this->template->content = View::forge('admin/notices/index', $data);
+    public function action_index()
+    {
 
-	}
+        $breads = [['name' => '公告管理', 'href' => 'javascript:void(0);'], ['name' => '公告列表', 'href'=> 'javascript:void(0);']];
 
-	public function action_view($id = null)
-	{
-		$data['notice'] = Model_Notice::find($id);
+        $view = View::forge('admin/notices/index');
+        $view->set('notices', Model_Notice::find('all'));
+        $breadcrumb = new Helper\Breadcrumb();
+        $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $this->template->title = "公告列表";
+        $this->template->content = $view;
 
-		$this->template->title = "Notice";
-		$this->template->content = View::forge('admin/notices/view', $data);
+    }
 
-	}
+    public function action_view($id = null)
+    {
+        $data['notice'] = Model_Notice::find($id);
 
-	public function action_create()
-	{
-		if (Input::method() == 'POST')
-		{
-			$val = Model_Notice::validate('create');
+        $this->template->title = "Notice";
+        $this->template->content = View::forge('admin/notices/view', $data);
 
-			if ($val->run())
-			{
-				$notice = Model_Notice::forge(array(
-					'title' => Input::post('title'),
-					'summary' => Input::post('summary'),
-					'desc' => Input::post('desc'),
-				));
+    }
 
-				if ($notice and $notice->save())
-				{
-					Session::set_flash('success', e('Added notice #'.$notice->id.'.'));
+    public function action_create()
+    {
+        $breads = [
+            ['name' => '公告管理', 'href' => 'javascript:void(0);'],
+            ['name' => '公告列表', 'href' => Uri::create('admin/notices')],
+            ['name' => '发布公告', 'href'=> 'javascript:void(0);']
+           ];
 
-					Response::redirect('admin/notices');
-				}
+        if (Input::method() == 'POST')
+        {
+            $val = Model_Notice::validate('create');
 
-				else
-				{
-					Session::set_flash('error', e('Could not save notice.'));
-				}
-			}
-			else
-			{
-				Session::set_flash('error', $val->error());
-			}
-		}
+            if ($val->run())
+            {
+                $notice = Model_Notice::forge(array(
+                    'title' => Input::post('title'),
+                    'summary' => Input::post('summary'),
+                    'desc' => Input::post('desc'),
+                ));
 
-		$this->template->title = "Notices";
-		$this->template->content = View::forge('admin/notices/create');
+                if ($notice and $notice->save())
+                {
+                    Session::set_flash('success', e('Added notice #'.$notice->id.'.'));
 
-	}
+                    Response::redirect('admin/notices');
+                }
 
-	public function action_edit($id = null)
-	{
-		$notice = Model_Notice::find($id);
-		$val = Model_Notice::validate('edit');
+                else
+                {
+                    Session::set_flash('error', e('Could not save notice.'));
+                }
+            }
+            else
+            {
+                Session::set_flash('error', $val->error());
+            }
+        }
 
-		if ($val->run())
-		{
-			$notice->title = Input::post('title');
-			$notice->summary = Input::post('summary');
-			$notice->desc = Input::post('desc');
+        $view = View::forge('admin/notices/create');
+        $breadcrumb = new Helper\Breadcrumb();
+        $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $this->template->title = "添加公告";
+        $this->template->content = $view;
 
-			if ($notice->save())
-			{
-				Session::set_flash('success', e('Updated notice #' . $id));
+    }
 
-				Response::redirect('admin/notices');
-			}
+    public function action_edit($id = null)
+    {
+        $notice = Model_Notice::find($id);
+        $val = Model_Notice::validate('edit');
 
-			else
-			{
-				Session::set_flash('error', e('Could not update notice #' . $id));
-			}
-		}
+        if ($val->run())
+        {
+            $notice->title = Input::post('title');
+            $notice->summary = Input::post('summary');
+            $notice->desc = Input::post('desc');
 
-		else
-		{
-			if (Input::method() == 'POST')
-			{
-				$notice->title = $val->validated('title');
-				$notice->summary = $val->validated('summary');
-				$notice->desc = $val->validated('desc');
+            if ($notice->save())
+            {
+                Session::set_flash('success', e('Updated notice #' . $id));
 
-				Session::set_flash('error', $val->error());
-			}
+                Response::redirect('admin/notices');
+            }
 
-			$this->template->set_global('notice', $notice, false);
-		}
+            else
+            {
+                Session::set_flash('error', e('Could not update notice #' . $id));
+            }
+        }
 
-		$this->template->title = "Notices";
-		$this->template->content = View::forge('admin/notices/edit');
+        else
+        {
+            if (Input::method() == 'POST')
+            {
+                $notice->title = $val->validated('title');
+                $notice->summary = $val->validated('summary');
+                $notice->desc = $val->validated('desc');
 
-	}
+                Session::set_flash('error', $val->error());
+            }
 
-	public function action_delete($id = null)
-	{
-		if ($notice = Model_Notice::find($id))
-		{
-			$notice->delete();
+            $this->template->set_global('notice', $notice, false);
+        }
 
-			Session::set_flash('success', e('Deleted notice #'.$id));
-		}
+        $this->template->title = "Notices";
+        $this->template->content = View::forge('admin/notices/edit');
 
-		else
-		{
-			Session::set_flash('error', e('Could not delete notice #'.$id));
-		}
+    }
 
-		Response::redirect('admin/notices');
+    public function action_delete($id = null)
+    {
+        if ($notice = Model_Notice::find($id))
+        {
+            $notice->delete();
 
-	}
+            Session::set_flash('success', e('Deleted notice #'.$id));
+        }
+
+        else
+        {
+            Session::set_flash('error', e('Could not delete notice #'.$id));
+        }
+
+        Response::redirect('admin/notices');
+
+    }
 
 
 }
