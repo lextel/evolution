@@ -13,6 +13,7 @@ class Create_notices
             'title' => array('constraint' => 255, 'type' => 'varchar'),
             'summary' => array('constraint' => 255, 'type' => 'varchar'),
             'desc' => array('type' => 'text'),
+            'is_delete' => ['constraint'=>1, 'type' => 'int'],
             'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
             'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 

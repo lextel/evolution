@@ -3,7 +3,7 @@
     <?php echo $breadcrumb; ?>
 </ol>
 <?php endif; ?>
-<?php echo Form::open(array("class"=>"form-horizontal")); ?>
+<?php echo Form::open(array("class"=>"form-horizontal", 'action' => $url)); ?>
     <fieldset>
         <div class="form-group">
             <?php echo Form::label('标题:', 'title', array('class'=>'control-label col-sm-1')); ?>
