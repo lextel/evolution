@@ -13,12 +13,12 @@ class Controller_Orders extends Controller_Center
 
     public function action_my($page=1)
     {
-        $count = Model_Order::count(['where'=>['mid'=>$this->current_user->id]]);
+        $count = Model_Order::count(['where'=>['member_id'=>$this->current_user->id]]);
         $page = new \Helper\Page();
         $config = $page->setCofigPage('u/orders/p', $count, 4, 4);
         $pagination = Pagination::forge('uorderpage', $config);
         $data['orders'] = Model_Order::find('all', [
-                                              'where'=>['mid'=>$this->current_user->id],
+                                              'where'=>['member_id'=>$this->current_user->id],
                                               'order_by' =>array('id' => 'desc'),
                                               'rows_limit'=>$pagination->per_page,
                                               'rows_offset'=>$pagination->offset,]

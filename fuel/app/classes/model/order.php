@@ -69,7 +69,7 @@ class Model_Order extends \Orm\Model
         }
 
         // TODO 更新用户积分
-        
+
 
         return $orderIds;
     }
