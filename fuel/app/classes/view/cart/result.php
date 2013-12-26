@@ -1,6 +1,6 @@
 <?php
 
-class View_Cart_List extends Viewmodel {
+class View_Cart_Result extends Viewmodel {
 
     public function view() {
 

@@ -16,6 +16,7 @@ class Create_items
             'cate_id' => array('constraint' => 11, 'type' => 'int'),
             'brand_id' => array('constraint' => 11, 'type' => 'int'),
             'status' => array('constraint' => 11, 'type' => 'int'),
+            'reason' => array('constraint' => 255, 'type' => 'varchar'),
             'is_delete' => array('constraint' => 1, 'type' => 'int'),
             'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
             'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),

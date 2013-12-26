@@ -21,13 +21,8 @@ return [
             ]
         ],
         [
-            'name' => '日志管理',
-            'href' => 'javascript:void(0);',
-            'class' => 'dropdown',
-            'childs' => [
-                ['name' => '管理日志', 'href' => Uri::create('/admin/logs/admin')],
-                ['name' => '用户日志', 'href' => Uri::create('/admin/logs/member')],
-            ]
+            'name' => '管理日志',
+            'href' => Uri::create('/admin/logs/admin'),
         ],
         [
             'name' => '用户管理',
@@ -55,7 +50,10 @@ return [
             'class' => 'dropdown',
             'childs' => [
                 ['name' => '添加商品', 'href' => Uri::create('/admin/items/create')],
-                ['name' => '商品列表', 'href' => Uri::create('/admin/items')],
+                ['name' => '待审核商品列表', 'href' => Uri::create('/admin/items/list/uncheck')],
+                ['name' => '运行中商品列表', 'href' => Uri::create('/admin/items/list/active')],
+                ['name' => '已揭晓商品列表', 'href' => Uri::create('/admin/items/list/open')],
+                ['name' => '审核不通过商品列表', 'href' => Uri::create('/admin/items/list/unpass')],
             ]
         ],
         ['name' => '晒单管理', 'href' => Uri::create('/admin/posts')],
@@ -66,15 +64,6 @@ return [
             'childs' => [
                 ['name' => '用户消费', 'href' => Uri::create('/admin/')],
                 ['name' => '用户充值', 'href' => Uri::create('/admin/items')],
-            ]
-        ],
-        [
-            'name' => '运营管理',
-            'href' => 'javascript:void(0);',
-            'class' => 'dropdown',
-            'childs' => [
-                ['name' => '运营人员', 'href' => Uri::create('/admin/')],
-                ['name' => '数据分析', 'href' => Uri::create('/admin/items')],
             ]
         ],
     ]

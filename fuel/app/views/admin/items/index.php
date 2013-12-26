@@ -22,8 +22,10 @@ echo Asset::js(['admin/items/index.js']);
             <td><?php echo date('Y-m-d H:i', $item->created_at); ?></td>
             <td><?php echo $item->status ? '已审核' : '未审核'; ?></td>
             <td>
-            <?php echo Html::anchor('admin/items/edit/'.$item->id, '编辑'); ?> |
-            <?php echo Html::anchor('admin/items/check/'.$item->id, '审核'); ?> |
+            <!--<?php echo Html::anchor('admin/items/edit/'.$item->id, '编辑'); ?> |-->
+            <?php echo Html::anchor('admin/items/check/'.$item->id, '详情'); ?> |
+            <?php echo Html::anchor('admin/items/checkPass/'.$item->id, '通过'); ?> |
+            <?php echo Html::anchor('admin/items/checkUnPass/'.$item->id, '不通过'); ?> |
             <?php echo Html::anchor('admin/items/delete/'.$item->id, '删除', array('onclick' => "return confirm('亲，确定删除么?')")); ?>
 
             </td>

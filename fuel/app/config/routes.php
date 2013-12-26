@@ -18,7 +18,7 @@ return array(
     'u' => 'member/index',
     'u/address' => 'member/address/index',
     'u/address/(\d+)' => 'member/address/view',
-     'u/address/add' => 'member/address/add',
+    'u/address/add' => 'member/address/add',
     'u/address/delete/(\d+)' => 'member/address/delete/$1',
     'u/getavatar' => 'member/getavatar',
     'u/avatar' => 'member/avatar',

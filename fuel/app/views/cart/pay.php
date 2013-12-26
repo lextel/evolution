@@ -1,5 +1,5 @@
-<?php echo Asset::css('product.css'); ?>
-<?php echo Asset::js('/cart/cart.js'); ?>
+<?php echo Asset::css(['product.css', 'customBootstrap.css']); ?>
+<?php echo Asset::js(['bootstrap.min.js', '/cart/cart.js']); ?>
 <div class="wrapper w">
     <div class="cart-content">
         <ol class="pay-prompt">
@@ -33,7 +33,7 @@
                     <tr>
                         <td><input type="checkbox" name="ids[]" value="<?php echo $item->get_id(); ?>"/></td>
                         <td>
-                            <div class="img-box fl"><a href="<?php echo Uri::create('/m/'.$item->get_id()); ?>"><img src="<?php echo $info->image; ?>" alt=""></a>
+                            <div class="img-box fl"><a href="<?php echo Uri::create('/m/'.$item->get_id()); ?>"><img src="<?php echo Uri::create('/image/80x80/' . $info->image); ?>" alt=""></a>
                             </div>
                             <div class="info-side fl">
                                 <div class="title">
@@ -113,7 +113,23 @@
                 </label>
             </dd>
         </dl>
-        <a href="javascript:void(0);" class="buy fr" id="doPay">确认支付</a>
+        <a href="javascript:void(0);" url="<?php echo Uri::create('/cart/dopay'); ?>" target="_brank" class="btn buy fr" id="doPay">确认支付</a>
+        <!-- 弹出开始 -->
+        <div id="payModal" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="mySmallModalLabel">支付提醒</h4>
+                    </div>
+                    <div class="modal-body">
+                        <button class="btn" id="problem"> 支付遇到问题 </button>
+                        <button class="btn" id="complete"> 完成支付 </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 弹出结束 -->
     </div>
     <!--选择支付方式结束-->
         <dl class="pay-help w">
@@ -128,3 +144,6 @@
             <dd><a href="<?php echo Uri::create('/help'); ?>">更多帮助</a><a href="<?php echo Uri::create('/u'); ?>">进入我的个人中心</a></dd>
         </dl>
 </div>
+<script>
+    COMPLETE_URL = '<?php echo Uri::create('cart/complete'); ?>';
+</script>

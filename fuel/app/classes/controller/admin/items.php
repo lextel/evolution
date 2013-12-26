@@ -18,19 +18,67 @@ class Controller_Admin_Items extends Controller_Admin {
         $this->template->content = $view;
     }
 
-    // 商品详情
-    public function action_view($id = null) {
+    // 列表
+    public function action_list($type = null) {
 
-        $data['item'] = Model_Item::find($id);
-        $this->template->title = "Item";
-        $this->template->content = View::forge('admin/items/view', $data);
+        $itemModel = new Model_Item();
+
+
+        list($name, $get) = $itemModel->handleType($type, Input::get());
+        $total = $itemModel->countItem($get, false);
+
+        $page = new \Helper\Page();
+        $url = Uri::create('/admin/items/list/' . $type);
+        $config = $page->setConfig($url, $total, 'page');
+        $pagination = Pagination::forge('mypagination', $config);
+
+        $get += [
+            'offset'=> $pagination->offset,
+            'limit' => $pagination->per_page,
+            ];
+
+        $items = $itemModel->lists($get);
+
+        $cateModel = new Model_Cate();
+        $cates = $cateModel->cates();
+
+        $breads = [['name' => '商品管理', 'href' => 'javascript:void(0);'], ['name' => $name, 'href'=> 'javascript:void(0);']];
+
+        $view = ViewModel::forge('admin/items/list');
+        $breadcrumb = new Helper\Breadcrumb();
+        $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $view->set('cates', $cates, false);
+        $view->set('items', $items, false);
+        $view->set('type', $type, false);
+        $view->set('pagination', $pagination);
+        $this->template->title = "{$name} > 商品管理";
+        $this->template->content = $view;
+    }
+
+    // 商品详情
+    public function action_view($id = null, $phaseId= null) {
+
+        $breads = [['name' => '商品详情', 'href'=> 'javascript::void(0);']];
+
+        $item = Model_Item::find($id);
+        $phase = Model_Phase::find($phaseId);
+
+        $view = View::forge('admin/items/view');
+
+        $view->set('item', $item, false);
+        $view->set('phase', $phase);
+        $breadcrumb = new Helper\Breadcrumb();
+        $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $view->set('url', Uri::create('admin/items/check/'. $id));
+        $this->template->title = "商品详情";
+        $this->template->content = $view;
     }
 
     // 添加商品
     public function action_create() {
 
         $breads = [
-                ['name' => '商品列表', 'href'=> Uri::create('admin/item/index')], 
+                ['name' => '商品列表', 'href'=> Uri::create('admin/items/list/active')], 
                 ['name' => '添加商品'],
             ];
 
@@ -44,7 +92,7 @@ class Controller_Admin_Items extends Controller_Admin {
         $this->template->set_global('cates', $cates, false);
         $this->template->set_global('brands', $brands, false);
         $this->template->set_global('url', Uri::create('admin/items/add'));
-        $this->template->title = "商品管理";
+        $this->template->title = "添加商品 > 商品管理";
         $this->template->content = View::forge('admin/items/create');
     }
 
@@ -57,7 +105,7 @@ class Controller_Admin_Items extends Controller_Admin {
             $rs = $itemModel->add(Input::post());
             if($rs) {
                 Session::set_flash('success', e('添加成功.'));
-                Response::redirect('admin/items');
+                Response::redirect('admin/items/list/uncheck');
             } else {
               Session::set_flash('error', e('保存失败.'));
             }
@@ -70,6 +118,28 @@ class Controller_Admin_Items extends Controller_Admin {
 
     // 编辑商品
     public function action_edit($id = null) {
+
+        $breads = [
+                ['name' => '商品列表', 'href'=> Uri::create('admin/items/list/active')], 
+                ['name' => '编辑商品'],
+            ];
+
+        $item = Model_Item::find($id);
+
+        $breadcrumb = new Helper\Breadcrumb();
+        $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+
+        $cateModel = new Model_Cate();
+        $this->template->set_global('cates', $cateModel->cates(), false);
+        $this->template->set_global('brands', $cateModel->brands($item->cate_id), false);
+        $this->template->set_global('item', $item, false);
+        $this->template->set_global('url', Uri::create('admin/items/update/' . $item->id));
+        $this->template->title = "编辑商品 > 商品管理";
+        $this->template->content = View::forge('admin/items/edit');
+    }
+
+    // 商品编辑
+    public function action_update($id = null) {
 
         $item = Model_Item::find($id);
         $val  = Model_Item::validate('edit');
@@ -91,11 +161,7 @@ class Controller_Admin_Items extends Controller_Admin {
             }
         }
 
-        $cates = new Classes\Cate();
-        $this->template->set_global('cates', $cates->cates(), false);
-        $this->template->set_global('item', $item, false);
-        $this->template->title = "商品管理";
-        $this->template->content = View::forge('admin/items/edit');
+        Response::redirect('admin/items/edit/'.$id);
     }
 
     // 商品删除
@@ -134,6 +200,45 @@ class Controller_Admin_Items extends Controller_Admin {
             ];
 
         return json_encode($rs);
+    }
+
+    // 审核详情
+    public function action_check($id = null) {
+
+        $itemModel = new Model_Item();
+        if($itemModel->check($id, Input::post())) {
+            Session::set_flash('success', e('操作成功 #'.$id));
+            Response::redirect('admin/items/list/active');
+        } else {
+            Session::set_flash('error', e('操作失败 #'.$id));
+            Response::redirect('admin/items/list/check/'.$id);
+        }
+    }
+
+    // 快速审核通过
+    public function action_isPass($id) {
+
+        $itemModel = new Model_Item();
+        if($itemModel->pass($id)) {
+            Session::set_flash('success', e('审核成功 #'.$id));
+        } else {
+            Session::set_flash('error', e('审核失败 #'.$id));
+        }
+
+        Response::redirect('admin/items/list/uncheck');
+    }
+
+    // 快速审核不通过
+    public function action_notPass($id) {
+
+        $itemModel = new Model_Item();
+        if($itemModel->notPass($id)) {
+            Session::set_flash('success', e('操作成功 #'.$id));
+        } else {
+            Session::set_flash('error', e('操作失败 #'.$id));
+        }
+
+        Response::redirect('admin/items/list/uncheck');
     }
 
     // faker

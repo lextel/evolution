@@ -50,4 +50,44 @@ class Controller_Cart extends Controller_Frontend{
         Response::redirect('cart/list');
     }
 
+    // 跳转支付
+    public function action_dopay() {
+        $bank = Input::get('bank');
+
+        echo '跳转银行操作。';
+        die;
+    }
+
+    // 完成支付处理
+    public function action_complete() {
+
+        // TODO 检查银行结果支付失败跳转首页
+        if(false) {
+            Response::redirect('/');
+        }
+
+        $items = Cart::items();
+        $orderModel = new Model_Order();
+        $memberId = $this->current_user->id;
+        $orderIds = $orderModel->add($memberId, $items);
+
+        Response::redirect('cart/result/?orderIds='. implode(',',$orderIds));
+    }
+
+    // 支付结果
+    public function action_result() {
+
+        $orderIds = Input::get('orderIds', 0);
+        $orderIds = explode(',', $orderIds);
+
+        $orderModel = new Model_Order();
+        $orders = $orderModel->orders($orderIds);
+
+        $view = ViewModel::forge('cart/result');
+
+        $view->set('orders', $orders);
+        $this->template->title = "支付结果";
+        $this->template->layout = $view;
+    }
+
 }

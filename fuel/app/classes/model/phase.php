@@ -25,6 +25,7 @@ class Model_Phase extends \Orm\Model
             'codes',
             'is_delete',
             'opentime',
+            'status',
             'item_created_at',
             'created_at',
             'updated_at',
@@ -52,11 +53,12 @@ class Model_Phase extends \Orm\Model
      */
     public function add($item) {
 
-        $config = Config::load('common');
 
-        $phase = Model_Phase::find('first', ['where' => ['item_id' => $item->id, 'opentime' => 0]]);
+        $phase = Model_Phase::count(['where' => ['item_id' => $item->id, 'opentime' => 0]]);
 
         if($item && empty($phase)) {
+
+            $config = Config::load('common');
             $count = Model_Phase::count(['where' => ['item_id' => $item->id]]);
             $cost = $item->price * $config['point'];
             $codes = $this->_createCodes($item->price);
@@ -74,6 +76,7 @@ class Model_Phase extends \Orm\Model
                 'codes'           => serialize($codes),
                 'is_delete'       => $item->is_delete,
                 'opentime'        => 0,
+                'status'          => $item->status,
                 'item_created_at' => $item->created_at,
                 ];
             $phaseModel = new Model_Phase($data);
