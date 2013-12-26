@@ -1,7 +1,7 @@
 <?php
 class Controller_Member_Address extends Controller_Center{
 
-     public $template = 'memberlayout';
+     //public $template = 'memberlayout';
      /*
     *获得当前收货地址列表
     */
@@ -10,7 +10,7 @@ class Controller_Member_Address extends Controller_Center{
         $address = Model_Member_Address::find_by('member_id', $this->current_user->id);
         $data['list'] = $address;
         $this->template->title = '用户修改收获地址';
-        $this->template->content = View::forge('member/myaddress', $data);
+        $this->template->layout->content = View::forge('member/myaddress', $data);
     }
 
     /*

@@ -1,6 +1,8 @@
 <?php
 class Controller_Posts extends Controller_Frontend{
-
+    /*
+    *默认翻页功能
+    */
     public function action_index($pagenum=1)
     {
         $postscount = Model_Post::count(['where'=>['is_delete'=>0]]);
@@ -14,11 +16,16 @@ class Controller_Posts extends Controller_Frontend{
                                                   'rows_offset'=>$pagination->offset,)
                                          );
         $data['postscount'] = $postscount;
-        $view = View::forge('posts/index', $data);
+        $view = ViewModel::forge('posts/index', 'view');
+        $view->set('postscount', $postscount);
+        $view->set('posts', $data['posts'] );
         $this->template->title = "晒单列表";
         $this->template->layout = $view;
     }
 
+    /*
+    *按排序以及翻页
+    */
     public function action_sort($sort='id', $pagenum=1)
     {
         //默认为按最新，up为按人气，comment_count为按评论总量
@@ -42,11 +49,16 @@ class Controller_Posts extends Controller_Frontend{
                                                   'rows_offset'=>$pagination->offset,)
                                          );
         $data['postscount'] = $postscount;
-        $view = View::forge('posts/index', $data);
+        $view = ViewModel::forge('posts/index', 'view');
+        $view->set('postscount', $postscount);
+        $view->set('posts', $data['posts'] );
         $this->template->title = "晒单列表";
         $this->template->layout = $view;
     }
-
+    
+    /*
+    *晒单详情功能
+    */
     public function action_view($id = null)
     {
         is_null($id) and Response::redirect('p');
@@ -55,8 +67,10 @@ class Controller_Posts extends Controller_Frontend{
             Session::set_flash('error', '未发现该晒单'.$id);
             Response::redirect('p');
         }
+        $view = ViewModel::forge('posts/view', 'view');
+        $view->set('post', $data['post'] );
         $this->template->title = "晒单详情页";
-        $this->template->layout = View::forge('posts/view', $data);
+        $this->template->layout = $view;
     }
 
     /*
@@ -80,6 +94,21 @@ class Controller_Posts extends Controller_Frontend{
         }
         $data['code'] = -1;
         $data['msg'] = 'postid is valid';
+        return $response->body(json_encode($data));
+    }
+    /*
+    * 获得往期中奖记录列表翻页选择
+    */
+    public function action_lastWin($item_id, $page=1)
+    {
+        $response = new Response();
+        $wins = Model_Lottery::find('all',[
+                  'where' => ['item_id'=>$item_id],
+                  'order_by' =>['id'=>'desc'],
+                  'rows_limit'=>5,
+                  'rows_offset'=>$page*5]);
+        $data['code'] = 0;
+        $data['list'] = $wins;
         return $response->body(json_encode($data));
     }
 }

@@ -3,11 +3,11 @@
     <!--banner开始-->
     <div class="banner">
         <ul class="rslides f426x240">
-            <li><a href="" target="_blank"><img src="images/01.jpg" alt="" /></a></li>
-            <li><a href="" target="_blank"><img src="images/02.jpg" alt="" /></a></li>
-            <li><a href="" target="_blank"><img src="images/03.jpg" alt="" /></a></li>
-            <li><a href="" target="_blank"><img src="images/04.jpg" alt="" /></a></li>
-            <li><a href="" target="_blank"><img src="images/05.jpg" alt="" /></a></li>
+            <li><a href="" target="_blank"><img src="assets/images/01.jpg" alt="" /></a></li>
+            <li><a href="" target="_blank"><img src="assets/images/02.jpg" alt="" /></a></li>
+            <li><a href="" target="_blank"><img src="assets/images/03.jpg" alt="" /></a></li>
+            <li><a href="" target="_blank"><img src="assets/images/04.jpg" alt="" /></a></li>
+            <li><a href="" target="_blank"><img src="assets/images/05.jpg" alt="" /></a></li>
         </ul>
     </div>
     <!--banner结束-->
@@ -25,28 +25,28 @@
                     <ul>
                         <li>
                             <div class="img-box">
-                                <a href=""><img src="img/54359.jpg" alt=""/></a>
+                                <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                             </div>
                             <h5><a href="">苹果智能手机32G苹果智能手机32G</a></h5>
                             <div class="winner"><a href="">获得者: <b>王大锤</b></a></div>
                         </li>
                         <li>
                             <div class="img-box">
-                                <a href=""><img src="img/54359.jpg" alt=""/></a>
+                                <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                             </div>
                             <h5><a href="">苹果智能手机32G</a></h5>
                             <div class="winner"><a href="">获得者: <b>王大锤</b></a></div>
                         </li>
                         <li>
                             <div class="img-box">
-                                <a href=""><img src="img/54359.jpg" alt=""/></a>
+                                <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                             </div>
                             <h5><a href="">苹果智能手机32G</a></h5>
                             <div class="winner"><a href="">获得者: <b>王大锤</b></a></div>
                         </li>
                         <li>
                             <div class="img-box">
-                                <a href=""><img src="img/54359.jpg" alt=""/></a>
+                                <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                             </div>
                             <h5><a href="">苹果智能手机32G</a></h5>
                             <div class="winner"><a href="">获得者: <b>王大锤</b></a></div>
@@ -67,7 +67,7 @@
                             <span class="price">价值 <b>￥1999.00</b></span>
                         </div>
                         <div class="img-box">
-                            <a href=""><img src="img/54359.jpg" alt=""/></a>
+                            <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                         </div>
                         <dl class="progress-side">
                             <dd>
@@ -90,7 +90,7 @@
                             <span class="price">价值 <b>￥1999.00</b></span>
                         </div>
                         <div class="img-box">
-                            <a href=""><img src="img/54359.jpg" alt=""/></a>
+                            <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                         </div>
                         <dl class="progress-side">
                             <dd>
@@ -113,7 +113,7 @@
                             <span class="price">价值 <b>￥1999.00</b></span>
                         </div>
                         <div class="img-box">
-                            <a href=""><img src="img/54359.jpg" alt=""/></a>
+                            <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                         </div>
                         <dl class="progress-side">
                             <dd>
@@ -154,7 +154,7 @@
                 <ul>
                     <li>
                         <div class="img-box">
-                            <a href=""><img src="img/54359.jpg" alt=""/></a>
+                            <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                         </div>
                         <div class="info-side">
                             <div class="winner"><a href=""><b>王大锤</b>刚刚乐拍了</a></div>
@@ -164,7 +164,7 @@
                     </li>
                     <li>
                         <div class="img-box">
-                            <a href=""><img src="img/54359.jpg" alt=""/></a>
+                            <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                         </div>
                         <div class="info-side">
                             <div class="winner"><a href=""><b>王大锤</b>刚刚乐拍了</a></div>
@@ -174,7 +174,7 @@
                     </li>
                     <li>
                         <div class="img-box">
-                            <a href=""><img src="img/54359.jpg" alt=""/></a>
+                            <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                         </div>
                         <div class="info-side">
                             <div class="winner"><a href=""><b>王大锤</b>刚刚乐拍了</a></div>
@@ -184,7 +184,7 @@
                     </li>
                     <li>
                         <div class="img-box">
-                            <a href=""><img src="img/54359.jpg" alt=""/></a>
+                            <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                         </div>
                         <div class="info-side">
                             <div class="winner"><a href=""><b>王大锤</b>刚刚乐拍了</a></div>
@@ -205,7 +205,7 @@
                     <span class="price">价值 <b>￥1999.00</b></span>
                 </div>
                 <div class="img-box">
-                    <a href=""><img src="img/54359.jpg" alt=""/></a>
+                    <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                 </div>
                 <dl class="progress-side">
                     <dd>
@@ -228,7 +228,7 @@
                     <span class="price">价值 <b>￥1999.00</b></span>
                 </div>
                 <div class="img-box">
-                    <a href=""><img src="img/54359.jpg" alt=""/></a>
+                    <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                 </div>
                 <dl class="progress-side">
                     <dd>
@@ -251,7 +251,7 @@
                     <span class="price">价值 <b>￥1999.00</b></span>
                 </div>
                 <div class="img-box">
-                    <a href=""><img src="img/54359.jpg" alt=""/></a>
+                    <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                 </div>
                 <dl class="progress-side">
                     <dd>
@@ -274,7 +274,7 @@
                     <span class="price">价值 <b>￥1999.00</b></span>
                 </div>
                 <div class="img-box">
-                    <a href=""><img src="img/54359.jpg" alt=""/></a>
+                    <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                 </div>
                 <dl class="progress-side">
                     <dd>
@@ -299,7 +299,7 @@
         <div class="bask-side">
             <div class="bask fl">
                 <div class="img-box fl">
-                    <a href=""><img src="img/54359.jpg" alt=""/></a>
+                    <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                 </div>
                 <div class="bask-info fr">
                     <div class="title-box">
@@ -316,7 +316,7 @@
                 <ul>
                     <li>
                         <div class="img-box">
-                            <a href=""><img src="img/54359.jpg" alt=""/></a>
+                            <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                         </div>
                         <h5><a href="">苹果智能手机32G苹果智能手机32G</a></h5>
                         <div class="winner"><a href="">获得者: <b>王大锤</b></a></div>
@@ -324,7 +324,7 @@
                     </li>
                     <li>
                         <div class="img-box">
-                            <a href=""><img src="img/54359.jpg" alt=""/></a>
+                            <a href=""><img src="assets/img/54359.jpg" alt=""/></a>
                         </div>
                         <h5><a href="">苹果智能手机32G苹果智能手机32G</a></h5>
                         <div class="winner"><a href="">获得者: <b>王大锤</b></a></div>

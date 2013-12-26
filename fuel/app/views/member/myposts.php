@@ -5,7 +5,7 @@
         <div class="toggles">
             <a href="javascript:void(0)" class="first-child active">已晒单</a>
             <a href="javascript:void(0)" class="last-child">未晒单</a>
-            
+
         </div>
 
         <div class="show-c">
@@ -30,7 +30,7 @@
                     <td><div class="img-box"><?php echo Html::anchor('u/posts/view/'.$post->id, Html::img($post->topimage)); ?></div></td>
                     <td>
                         <div class="text-title"><?php $post->title;?></div>
-                        <div class="text-content"><?php echo mb_substr($post->desc, 0, 32,'utf-8'); ?></div>
+                        <div class="text-content"><?php echo mb_substr($post->desc, 0, 42,'utf-8'); ?></div>
                     </td>
                     <td><?php echo $post->status; ?></td>
                     <td>
@@ -41,7 +41,7 @@
                 </tr>
                <?php };?>
                 </tbody>
-                
+
             </table>
             <br />
             <?php echo Pagination::instance('postspage')->render(); ?>

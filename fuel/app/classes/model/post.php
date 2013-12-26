@@ -14,6 +14,7 @@ class Model_Post extends \Orm\Model
         'member_id',
         'type_id',
         'phase_id',
+        'lottery_id',
         'created_at',
         'updated_at',
         'topimage',

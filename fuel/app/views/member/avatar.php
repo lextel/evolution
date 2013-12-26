@@ -1,32 +1,25 @@
-<form action="" role="form" class="form-horizontal">
-    <div class="form-group">
-              <div class="col-md-5 rigth" id="images">
-
-              </div>
-          </div>
-            <span class="btn btn-success fileinput-button">
-                <i class="glyphicon glyphicon-plus"></i>
-                <span>选择图片...</span>
-                <input id="fileupload" type="file" name="files[]" multiple>
-            </span>
-            <br>
-            <br>
-            <div id="files" class="files">
-              <?php 
-                if(isset($item)) {
-                    $images = unserialize($item->images);
-                    foreach($images as $image) {
-                        echo '<p><img style="width: 60px; height: 60px; margin:5px; float: left" src="/'.$image.'"><input type="hidden" name="images[]" value="'.$image.'"></p>';
-                    }
-                }
-              ?>
-            </div>
-            <br>
+<br />
+<div class="set-wrap">
+        <div class="navbar-inner">
+            <ul>
+                <li><?php echo Html::anchor('u/getprofile', '个人资料'); ?></li>
+                <li class="active"><?php echo Html::anchor('u/getavatar', '更换头像'); ?></li>
+                <li><?php echo Html::anchor('u/address', '收货地址'); ?></li>
+                <li><?php echo Html::anchor('u/passwd', '修改密码'); ?></li>
+            </ul>
         </div>
-    <div class="form-group">
-        <div class="col-lg-4 col-md-offset-1">
-            <button type="button" class="btn btn-primary">确定</button>
-            <button type="button" class="btn btn-default">取消</button>
-        </div>
-    </div>
-</form>
+        <!--修改资头像-->
+        <ul class="edit-data">
+            <li>
+                <button class="btn">上传头像</button>
+            </li>
+            <li>
+                <div class="upload-photo">
+                    <img src="" alt=""/>
+                </div>
+            </li>
+            <li>
+                <a href="javascript:void(0);" class="btn btn-red">保存头像</a>
+            </li>
+        </ul>
+</div>

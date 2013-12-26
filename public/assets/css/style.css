@@ -349,6 +349,9 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 .show-form li label.body-label{
     vertical-align: top;
 }
+.show-form li label.error{
+    color: red;
+}
 .show-form li input{
     width:350px;
     height: 28px;
@@ -357,13 +360,6 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     margin: 0 10px;
 }
 .show-form li textarea{
-    width:600px;
-    border: 1px solid #EEEEEE;
-    text-indent: 10px;
-    margin: 0 10px;
-}
-.show-form li textarea{
-    width:600px;
     border: 1px solid #EEEEEE;
     text-indent: 10px;
     margin: 0 10px;

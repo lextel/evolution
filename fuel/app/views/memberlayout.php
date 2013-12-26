@@ -1,3 +1,4 @@
+<?php echo Asset::css(['common.css', 'style.css']); ?>
 <div class="wrapper w">
     <!--获得的商品开始-->
     <div class="left-sidebar fl">
@@ -28,5 +29,5 @@
         </ul>
     </div>
     <!--获得的商品结束-->
-    <?php echo $content;?> 
+    <?php echo $content;?>
 </div>

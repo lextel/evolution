@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title><?php echo $title?></title>
-    <?php echo Asset::css(['common.css', 'header.css', 'style.css']); ?>
+    <?php echo Asset::css(['common.css', 'header.css']); ?>
     <?php echo Asset::js(['jquery.min.js', 'common.js']); ?>
 </head>
 <body>
