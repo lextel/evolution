@@ -37,7 +37,6 @@ $(function () {
         } else {
             $('#form_brand_id').html(options);
         }
-
     });
 
     // 删除图片

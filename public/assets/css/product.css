@@ -403,7 +403,22 @@
    margin:10px;
     position: relative;
 }
-
+.pay-panel{
+    border: 1px solid #EEEEEE;
+    padding: 30px;
+}
+.pay-panel-head{
+    overflow: hidden;
+    margin: 0 200px 20px;
+}
+.pay-panel-head a{
+    font-size: 14px;
+    text-decoration: underline;
+    color: #4FBAFF;
+}
+.pay-panel-head p{
+    line-height: 24px;
+}
 /*商品详情*/
 /*幻灯片开始*/
 .panel .img-side {

@@ -30,7 +30,7 @@ class View_Items_index extends Viewmodel {
             $where = [
                 'opentime'  => \Helper\Item::NOT_OPEN, 
                 'is_delete' => \Helper\Item::NOT_DELETE, 
-                'status'    => \Helper\Item::IS_PASS
+                'status'    => \Helper\Item::IS_CHECK
                 ];
             $orderBy = ['remain' => 'desc'];
 
@@ -76,7 +76,7 @@ class View_Items_index extends Viewmodel {
             $where = [
                 'opentime'  => \Helper\Item::NOT_OPEN, 
                 'is_delete' => \Helper\Item::NOT_DELETE, 
-                'status'    => \Helper\Item::IS_PASS
+                'status'    => \Helper\Item::IS_CHECK
                 ];
 
             $phases = Model_Phase::find('all', ['where' => $where, 'order_by' => ['hots' => 'desc'], 'limit' => 5]);

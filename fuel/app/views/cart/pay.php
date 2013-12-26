@@ -114,6 +114,7 @@
             </dd>
         </dl>
         <a href="javascript:void(0);" url="<?php echo Uri::create('/cart/dopay'); ?>" target="_brank" class="btn buy fr" id="doPay">确认支付</a>
+        <!-- 弹出开始 -->
         <div id="payModal" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
@@ -125,9 +126,10 @@
                         <button class="btn" id="problem"> 支付遇到问题 </button>
                         <button class="btn" id="complete"> 完成支付 </button>
                     </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
+                </div>
+            </div>
         </div>
+        <!-- 弹出结束 -->
     </div>
     <!--选择支付方式结束-->
         <dl class="pay-help w">
@@ -143,5 +145,5 @@
         </dl>
 </div>
 <script>
-    COMPLETE_URL = '<?php echo Uri::create('cart/result'); ?>';
+    COMPLETE_URL = '<?php echo Uri::create('cart/complete'); ?>';
 </script>

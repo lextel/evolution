@@ -61,6 +61,8 @@ class Controller_Admin_Cates extends Controller_Admin{
             'offset'=> $pagination->offset,
             'limit' => $pagination->per_page,
             ];
+
+        $view->set('cates', $cateModel->cates());
         $view->set('brands', $cateModel->getBrands($options));
         $view->set('pagination', $pagination);
         $this->template->title = $breadcrumb->title($breads);

@@ -14,6 +14,7 @@ class Model_Item extends \Orm\Model {
         'cate_id',
         'brand_id',
         'status',
+        'reason',
         'is_delete',
         'created_at',
         'updated_at',
@@ -106,6 +107,101 @@ class Model_Item extends \Orm\Model {
         return $items;
     }
 
+    /**
+     * 审核
+     * 
+     * @param $id   integer 商品ID
+     * @param $post array post数据
+     *
+     * @return boolean 是否操作成功
+     */
+    public function check($id, $post) {
+
+        $item = Model_Item::find($id);
+        $item->status = $post['status'];
+        $item->reason = $post['reason'];
+        $rs = $item->save();
+
+        DB::update('phases')->value('status', $post['status'])
+                            ->where('item_id', $id)
+                            ->execute();
+
+        return $rs;
+    }
+
+    /**
+     * 快速审核通过
+     *
+     * @param $id integer 商品ID
+     *
+     * @return boolean 是否审核成功
+     */
+    public function pass($id) {
+
+        $item = Model_Item::find($id);
+        $item->status = \Helper\Item::IS_CHECK;
+        $rs = $item->save();
+
+        DB::update('phases')->value('status', \Helper\Item::IS_CHECK)
+                            ->where('item_id', $item->id)
+                            ->execute();
+
+        return $rs;
+    }
+
+    /**
+     * 快速审核不通过
+     *
+     * @param $id integer 商品ID
+     *
+     * @return boolean 是否审核成功
+     */
+    public function notPass($id) {
+
+        $item = Model_Item::find($id);
+        $item->status = \Helper\Item::NOT_PASS;
+        $rs = $item->save();
+
+        DB::update('phases')->value('status', \Helper\Item::NOT_PASS)
+                            ->where('item_id', $item->id)
+                            ->execute();
+
+        return $rs;
+    }
+
+
+    /**
+     * 处理后台列表类型
+     *
+     * @param $type string 类型
+     *
+     *
+     * @return array ['名称', '筛选条件数组']
+     */
+    public function handleType($type, $get) {
+
+        $name = '';
+        switch ($type) {
+            case 'uncheck':
+                $name = '待审核商品';
+                $get['status'] = \Helper\Item::NOT_CHECK;
+                break;
+            case 'active':
+                $name = '进行中商品';
+                $get['status'] = \Helper\Item::IS_CHECK;
+                break;
+            case 'open':
+                $name = '已揭晓商品';
+                $get['opentime'] = \Helper\Item::IS_OPEN;
+                break;
+            case 'unpass':
+                $name = '审核不通过';
+                $get['status'] = \Helper\Item::NOT_PASS;
+                break;
+        }
+
+        return [$name, $get];
+    }
 
     /**
      * 处理前台URL
@@ -206,17 +302,24 @@ class Model_Item extends \Orm\Model {
         }
 
         // 商品状态
-        if(isset($options['status']) && $options['status'] != '') {
+        if(isset($options['status']) && $options['status'] !== '') {
             $where += ['status' => $options['status']];
         }
 
         if($isFrontEnd) {
             $where += [
-                    'is_delete' => \Helper\Item::NOT_DELETE,
-                    'status'    => \Helper\Item::IS_PASS,
-                    'opentime'  => \Helper\Item::NOT_OPEN,
+                    'status'    => \Helper\Item::IS_CHECK,
                     ];
         }
+
+        if(!isset($options['opentime'])) {
+            $where += ['opentime' => \Helper\Item::NOT_OPEN];
+        } else {
+            $where += [['opentime', '>', 0]];
+        }
+
+        
+        $where += ['is_delete' => \Helper\Item::NOT_DELETE];
 
         return $where;
     }
@@ -273,12 +376,11 @@ class Model_Item extends \Orm\Model {
      * 获取商品信息
      *
      * @param $phase   object 单个期数对象
-     * @param $options array  筛选条件
      *
      * @return obj 带期数的商品对象
      *             $item->phase
      */
-    public function itemInfo($phase, $options = []) {
+    public function itemInfo($phase) {
 
         $item = [];
         if($phase) {
@@ -321,7 +423,7 @@ class Model_Item extends \Orm\Model {
               'brand_id'  => $post['brand_id'],
               'image'     => $image,
               'images'    => serialize($post['images']),
-              'status'    => \Helper\Item::NOT_PASS,
+              'status'    => \Helper\Item::NOT_CHECK,
               'is_delete' => \Helper\Item::NOT_DELETE,
             ];
 

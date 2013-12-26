@@ -9,13 +9,17 @@
 <form class="form-horizontal" role="form" id="addBrand" method="post" action="<?php echo Uri::create('admin/cates/createBrand'); ?>">
   <div class="form-group">
     <label for="name" class="col-sm-2 control-label">添加商品品牌</label>
-    <div class="col-sm-4">
-        <select>
-            <option>---</option>
+    <div class="col-sm-2">
+        <select class="form-control" name="parent_id">
+            <?php 
+            foreach($cates as $key => $cate) :
+                echo '<option value="'.$key.'">'.$cate.'</option>';
+            endforeach; 
+            ?>
         </select>
     </div>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" name="name" id="name" placeholder="分类名称">
+    <div class="col-sm-3">
+      <input type="text" class="form-control" name="name" id="name" placeholder="品牌名称">
     </div>
     <div class="col-sm-2">
       <button id="addCateSubmit" class="btn btn-default">添加</button>
@@ -37,7 +41,7 @@
         <?php foreach ($brands as $item): ?>
         <tr>
             <td><?php echo $item->id; ?></td>
-            <td><?php echo $item->parent_id; ?></td>
+            <td><?php echo $cates[$item->parent_id]; ?></td>
             <td class="editItem"><?php echo $item->name; ?></td>
             <td><?php echo date('Y-m-d', $item->updated_at); ?></td>
             <td>

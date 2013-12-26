@@ -180,5 +180,29 @@ class Model_Cate extends \Orm\Model
         return $result;
     }
 
+    /**
+     * 添加品牌
+     *
+     * @param $post array post数据
+     *
+     * @return boolean 是否成功
+     */
+    public function addBrand($post) {
+
+        $data = [
+                'parent_id' => $post['parent_id'],
+                'name'      => $post['name'],
+                'is_delete' => self::NOT_DELETE,
+            ];
+
+        $brand = new Model_Cate($data);
+        $result = false;
+        if($brand && $brand->save()) {
+            $result = true;
+        }
+
+        return $result;
+    }
+
 
 }
