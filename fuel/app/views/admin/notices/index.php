@@ -1,35 +1,58 @@
-<h2>Listing Notices</h2>
-<br>
+<?php if($breadcrumb): ?>
+<ol class="breadcrumb">
+    <?php echo $breadcrumb; ?>
+</ol>
+<?php endif; ?>
+<form class="form-inline" role="form" action="" method="get">
+  <div class="form-group">
+    <select class="form-control" name="user_id" id="form_user_id">
+        <option value=''>发布人</option>
+        <?php 
+            foreach($users as $user):
+                echo '<option value="'.$user->id.'">'.$user->username.'</option>';
+            endforeach;
+        ?>
+    </select>
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" name="title" placeholder="公告标题">
+  </div>
+  <button type="submit" class="btn btn-default">搜索</button>
+  <?php echo Html::anchor('admin/notices/create', '发布公告', array('class' => 'btn btn-success  col-md-offset-7')); ?>
+</form>
 <?php if ($notices): ?>
 <table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Title</th>
-			<th>Summary</th>
-			<th>Desc</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-<?php foreach ($notices as $item): ?>		<tr>
+    <thead>
+        <tr>
+            <th>标题</th>
+            <th>概要</th>
+            <td>发布时间</th>
+            <td>操作人</th>
+            <th>置顶</th>
+            <td>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($notices as $item): ?>
+        <tr>
+            <td><?php echo $item->title; ?></td>
+            <td><?php echo $item->summary; ?></td>
+            <td><?php echo date('Y-m-d H:i:s', $item->created_at); ?></td>
+            <td><?php echo $getUsername($item->user_id); ?></td>
+            <td><?php echo $item->is_top ? '是' : '否';?></td>
+            <td>
+                <?php echo Html::anchor('admin/notices/view/'.$item->id, '查看'); ?> |
+                <?php echo Html::anchor('admin/notices/edit/'.$item->id, '编辑'); ?> |
+                <?php echo Html::anchor('admin/notices/delete/'.$item->id, '删除', array('onclick' => "return confirm('亲，真的要删除么?')")); ?>
 
-			<td><?php echo $item->title; ?></td>
-			<td><?php echo $item->summary; ?></td>
-			<td><?php echo $item->desc; ?></td>
-			<td>
-				<?php echo Html::anchor('admin/notices/view/'.$item->id, 'View'); ?> |
-				<?php echo Html::anchor('admin/notices/edit/'.$item->id, 'Edit'); ?> |
-				<?php echo Html::anchor('admin/notices/delete/'.$item->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?>
-
-			</td>
-		</tr>
-<?php endforeach; ?>	</tbody>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+        </tbody>
 </table>
 
 <?php else: ?>
-<p>No Notices.</p>
+<p style="text-align:center">没有任何公告.</p>
 
-<?php endif; ?><p>
-	<?php echo Html::anchor('admin/notices/create', 'Add new Notice', array('class' => 'btn btn-success')); ?>
-
-</p>
+<?php endif; ?>
+<?php echo Pagination::instance('mypagination')->render();?>

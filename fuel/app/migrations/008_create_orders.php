@@ -12,7 +12,7 @@ class Create_orders
             'member_id' => array('constraint' => 11, 'type' => 'int'),
             'codes' => array('type' => 'text'),
             'code_count' => array('constraint' => 11, 'type' => 'int'),
-            'ordered_at' => ['constraint' => '10,3', 'type' => 'decimal'],
+            'ordered_at' => ['constraint' => '13,3', 'type' => 'decimal'],
             'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
             'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 
