@@ -1,0 +1,895 @@
+.breadcrumb {
+    background: #EEEEEE;
+    border: 1px solid #DDDDDD;
+    margin-top: 10px;
+}
+
+.breadcrumb ol li {
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    width: 150px;
+    margin: 0 10px;
+}
+/*揭晓结果*/
+.panel .state-column {
+    width: 580px;
+    overflow: hidden;
+}
+
+.state-heading {
+    border: 1px solid #EEEEEE;
+    padding: 10px 10px;
+    overflow: hidden;
+    line-height: 23px;
+    margin-bottom: 10px;
+}
+
+.details {
+    width: 100px;
+    height: 22px;
+    line-height: 22px;
+    border: 1px solid #EEEEEE;
+    text-align: center;
+    border-radius: 3px;
+    background: #f7f7f7;
+}
+
+.result-box {
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+    padding: 0 10px 10px 10px;
+    margin-top: 10px;
+}
+
+.result-box .H {
+    width: 22px;
+    overflow: hidden;
+    padding: 70px 40px;
+    word-wrap: break-word;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.result-box .right-box {
+    overflow: hidden;
+    width: 450px;
+}
+
+.result-box .right-box h2 {
+    height: 50px;
+    line-height: 50px;
+    font-size: 40px;
+    text-indent: 10px;
+    border: 1px solid #EEEEEE;
+    margin: 10px 0;
+    background: #f7f7f7;
+}
+
+.right-box .result-info {
+    border: 1px solid #EEEEEE;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.right-box .result-info .img-box {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+}
+
+.right-box .result-info .info-side {
+    width: 60%;
+    height: 70px;
+    margin-left: 10px;
+}
+
+.right-box .result-info .info-side span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.win-number {
+    width: 426px;
+    height: 100px;
+    clear: both;
+    border: 1px solid #EEEEEE;
+}
+
+/*计算结果*/
+.calculation-box {
+    padding: 10px;
+}
+
+.calculation-box ol {
+    overflow: hidden;
+    padding: 10px;
+    background: #EEEEEE;
+}
+
+.calculation-box ol li {
+    height: 22px;
+    line-height:22px;
+}
+.calculation-list {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.calculation-list table{
+    width: 100%;
+    border: 1px solid #EEEEEE;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.calculation-list table thead tr th{
+    background: #EEEEEE;
+}
+.calculation-list table thead tr th,.calculation-list table tbody tr td{
+    padding: 8px;
+    line-height: 1.38462;
+    text-align: left;
+    border: 1px solid #EEEEEE;
+}
+.calculation-list table tbody tr td h4{
+    background: #f7f7f7;
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+    margin: -8px;
+}
+
+.calculation-list table tbody tr td s{
+    margin-right: 20px;
+}
+ .calculation-results{
+    overflow: hidden;
+    background: #EEEEEE;
+    padding:30px 30px 10px;
+}
+.calculation-results ul{
+    overflow: hidden;
+    margin-left: 20px;
+    width: 90%;
+}
+.calculation-results ul li{
+    line-height: 24px;
+    overflow: hidden;
+}
+.calculation-results ul li span{
+    display: block;
+    height: 25px;
+    width: 180px;
+    line-height: 25px;
+    text-align: center;
+    background: #dbdbdb;
+    margin: 0 auto;
+}
+
+/*产品列表*/
+.product-inner{
+
+}
+.product-inner .left-sidebar{
+    width: 75px;
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+}
+.product-inner .left-sidebar .header{
+    width: 75px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    background: #f1f1f1;
+    border-bottom: 1px solid #EEEEEE;
+}
+.product-inner .left-sidebar li{
+    width: 75px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    border-bottom: 1px solid #EEEEEE;
+    margin-bottom: -1px;
+}
+.product-inner .sidebar{
+   overflow: hidden;
+    border: none;
+}
+.product-inner .sidebar dl{
+    height: 317px;
+    width: 145px;
+    padding: 10px;
+    border: 1px solid #EEEEEE;
+}
+.product-inner .sidebar dl dt{
+    line-height: 26px;
+    font-weight: bold;
+}
+.product-inner .sidebar dl dd{
+    line-height: 26px;
+}
+.product-inner .sidebar .img-box{
+    width: 435px;
+    height: 337px;
+    border: 1px solid #EEEEEE;
+    margin-left: 15px;
+}
+.product-hot{
+    width: 265px;
+    height: 337px;
+    border: 1px solid #EEEEEE;
+
+}
+.product-hot .buy{
+    margin-top: 20px;
+}
+.product-hot .title-box{
+    background: none;
+}
+.product-hot .img-box{
+    height: 216px;
+    line-height: 216px;
+    padding: 0 20px;
+    position: relative;
+}
+
+.sheng-yi{
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    background: #DBDBDB;
+    position: absolute;
+    width:100%;
+    top: 0px;
+    left: 0;
+}
+.list_sort{
+    margin-top: 10px;
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+    padding: 5px 10px;
+    background: #f7f7f7;
+}
+.product-list {
+    overflow: hidden;
+    margin-top: 10px;
+    margin-right: -10px;
+}
+.product-box{
+    overflow: hidden;
+}
+.product-box .price{
+    text-align: right;
+}
+.product-list .product-box li{
+    float: left;
+    width: 235px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    margin:0 10px 10px 0;
+    border: 1px solid #EEEEEE;
+}
+.product-list .product-box li .img-box{
+    width: 215px;
+    height: 200px;
+    line-height: 175px;
+    margin: 10px;
+}
+.product-list .product-box li .progress-side{
+    margin: 0 10px;
+}
+/*今日热门*/
+.date-hot {
+    width: 978px;
+    border: 1px solid #EEEEEE;
+}
+.date-hot .title{
+}
+.date-hot ul {
+    overflow: hidden;
+    padding: 10px 15px 10px 0px;
+}
+.date-hot ul li{
+    float: left;
+    width: 120px;
+    margin-left: 50px;
+    position: relative;
+}
+.date-hot ul li .img-box{
+    height: 100px;
+    line-height: 100px;
+}
+.date-hot ul li h5{
+    width: 160px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.date-hot ul li .price{
+    position: absolute;
+    top: 5px;
+    right: -30px;
+    width:80px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    background: #DDDDDD;
+}
+/*购物车列表*/
+.pay-prompt{
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+    background: #f1f1f1;
+}
+.pay-prompt li{
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    float: left;
+}
+.cart-list{
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.cart-list table tbody tr td .img-box{
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+}
+.cart-list table tbody tr td .info-side{
+    margin: 10px 0 0 10px;
+    overflow: hidden;
+}
+.cart-list table tbody tr td .info-side .title{
+    text-align: left;
+    width: 370px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    padding:0;
+}
+.remain{
+    line-height: 24px;
+    text-align: left;
+}
+.cart-list .cart-footer{
+    border: 1px solid #EEEEEE;
+    overflow: hidden;
+    margin-top: -1px;
+    padding: 5px 10px;
+    line-height: 28px;
+}
+.cart-list .cart-footer .btn{
+    margin-left: 30px;
+}
+.cart-list .cart-footer label input{
+    margin:6px 5px 0 0
+}
+.unveiled{
+    overflow: hidden;
+    margin-top: 40px;
+}
+.unveiled h4{
+    height: 38px;
+    background: #f1f1f1;
+    line-height: 38px;
+    text-indent: 10px;
+}
+.unveiled ul {
+    overflow: hidden;
+    margin-top: 30px;
+}
+.unveiled ul li .title{
+    width: auto;
+    height: 34px;
+    padding: 8px;
+    background: #EEEEEE;
+}
+.unveiled ul li .title .price{
+    text-align: right;
+}
+.unveiled ul li{
+    float: left;
+    width: 235px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    margin: 0 10px 10px 0;
+    border: 1px solid #EEE;
+}
+.unveiled ul li .img-box{
+   margin:10px;
+    position: relative;
+}
+.pay-panel{
+    border: 1px solid #EEEEEE;
+    padding: 30px;
+}
+.pay-panel-head{
+    overflow: hidden;
+    margin: 0 200px 20px;
+}
+.pay-panel-head a{
+    font-size: 14px;
+    text-decoration: underline;
+    color: #4FBAFF;
+}
+.pay-panel-head p{
+    line-height: 24px;
+}
+.balance-box{
+    padding: 0px 10px 10px;
+    border-bottom: 1px solid #EEEEEE;
+    margin-bottom: 10px;
+}
+/*商品详情*/
+/*幻灯片开始*/
+.panel .img-side {
+    overflow: hidden;
+    width: 402px;
+}
+.lantern-slide{
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid #EEEEEE;
+}
+.lantern-slide .slide-img{
+    width:400px ;
+    height:340px ;
+    text-align: center;
+    overflow: hidden;
+}
+.lantern-slide .slide-img a img{
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+.slide-list{
+    overflow: hidden;
+    background: #EEEEEE;
+    padding: 5px 0;
+}
+.slide-list li{
+    width: 74px;
+    height: 67px;
+    line-height: 67px;
+    text-align: center;
+    position: relative;
+    margin-left: 5px;
+    float: left;
+}
+.slide-list li span{
+    width: 74px;
+    height:67px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000000;
+    opacity: 0.5;
+    display: block;
+    cursor: pointer;
+}
+.slide-list li.active span{
+    width: 68px;
+    height: 61px;
+    border: 3px solid #D9534F;
+    background:none;
+    opacity: 1;
+}
+.slide-list li img{
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}
+/*幻灯片结束*/
+.product-column {
+    width: 558px;
+    overflow: hidden;
+}
+.product-column .price{
+    margin: 10px auto;
+}
+.product-column .progress-side{
+    width: 80%;
+    margin: 0 auto;
+}
+.product-column .btn-menu{
+    text-align: left;
+}
+.product-column .btn-group{
+    text-align: left;
+    margin-left: 74px;
+}
+.security-list{
+    overflow: hidden;
+    width: 77%;
+    margin: 10px auto;
+}
+.security-list li{
+    width: 110px;
+    height: 33px;
+    float: left;
+    margin:0 10px;
+    text-align: center;
+    line-height: 33px;
+    background: #f1f1f1;
+    border: 1px solid #EEEEEE;
+}
+.new-buyer{
+    overflow: hidden;
+}
+.new-buyer-header{
+    overflow: hidden;
+}
+.new-buyer .new-buyer-header ul li{
+    width: 185px;
+    height: 34px;
+    text-align: center;
+    float: left;
+    line-height: 33px;
+    background: #f1f1f1;
+    margin-right: -1px;
+    border: 1px solid #DDDDDD;
+}
+.new-buyer .new-buyer-header ul li.active{
+    background: #D9534F;
+}
+.new-buyer  .new-buyer-body{
+    overflow: hidden;
+    border: 1px solid #DDDDDD;
+    padding: 10px;
+}
+.new-buyer  .new-buyer-body div.active{
+    display: block;
+}
+.new-buyer  .new-buyer-body table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+}
+.new-buyer  .new-buyer-body table tr td{
+    vertical-align:middle;
+    text-align: center;
+}
+.new-buyer  .new-buyer-body table tr td .img-box{
+    width:30px;
+    height: 30px;
+    line-height:30px;
+}
+.new-buyer  .new-buyer-body  p{
+    line-height: 24px;
+    color: #666666;
+    font-size: 14px;
+}
+.new-buyer  .new-buyer-body .link{
+    color: #5BC5FF;
+    font-size: 14px;
+    text-decoration: underline;
+}
+.previous-box{
+    overflow: hidden;
+    padding: 10px;
+    border: 1px solid #EEEEEE;
+    background:#EEEEEE;
+}
+.previous-box .img-box{
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+
+}
+.previous-box .info-side {
+    width: 60%;
+    margin-left: 15px;
+    text-align: left;
+}
+.previous-box .info-side span{
+    display: block;
+    margin-bottom: 5px;
+}
+.product-details{
+    padding: 20px;
+    border: 1px solid #EEEEEE;
+    border-top: 0;
+}
+
+.sub-nav {
+    margin-top: 20px;
+}
+
+.sub-nav ul {
+    border: 1px solid #EEEEEE;
+    overflow: hidden;
+}
+
+.sub-nav ul li {
+    text-align: center;
+    float: left;
+    height: 38px;
+    line-height: 38px;
+    background: #f7f7f7;
+}
+.sub-nav ul li .active{
+    background: #D9534F;
+}
+.sub-nav ul li a{
+    min-width: 40px;
+    display: block;
+    padding: 0 20px;
+    border-right: 1px  solid #EEEEEE;
+}
+.sub-nav li a.active{
+    background: #ffffff;
+    margin-bottom: -1px;
+    border-top:3px solid #D9534F;
+}
+/*商品详情--晒单*/
+.product-bask{
+    border: 1px solid #EEEEEE;
+    border-top: none;
+    padding: 30px 30px 0;
+    overflow: hidden;
+}
+.product-bask ul{
+    overflow: hidden;
+}
+.product-bask ul li{
+    margin-bottom: 15px;
+    border-bottom: 1px solid #EEEEEE;
+    padding-bottom: 15px;
+    overflow: hidden;
+    position: relative;
+}
+.product-bask ul li .bask-list{
+    width:86%;
+    overflow: hidden;
+}
+.bask-list .bask-text{
+    line-height: 22px;
+    overflow: hidden;
+    width: auto;
+    height: 45px;
+}
+.bask-list .bask-imgBox{
+    overflow: hidden;
+}
+
+.bask-list .bask-imgBox dd{
+    float: left;
+    width: 130px;
+    height: 130px;
+    line-height: 130px;
+    margin-right: 10px;
+}
+.bask-number{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px;
+    border: 1px solid #EEEEEE;
+}
+/*所有参与记录*/
+.record,.look-bak{
+    overflow: hidden;
+    padding: 20px 20px 0;
+    border: 1px solid #EEEEEE;
+    border-top: none;
+}
+.record table,.look-bak table{
+    width: 100%;
+    border-collapse:collapse;
+    border-spacing: 0;
+    text-align: center;
+}
+.record table thead th,.look-bak table thead th{
+    padding:5px;
+    border: 1px solid #EEEEEE;
+    line-height: 22px;
+    background: #EEEEEE;
+}
+.record table tbody tr td,.look-bak table tbody tr td{
+    padding:5px;
+    border-top: 1px solid #EEEEEE;
+    line-height: 22px;
+}
+.record table tbody tr span,.look-bak table tbody tr span{
+    display: inline-block;
+    margin-right: 5px;
+    line-height: 26px;
+}
+/*最新揭晓*/
+.latest-wrap .left-content{
+    float: left;
+    width:71%;
+    overflow: hidden;
+}
+.left-content .item-group{
+    overflow: hidden;
+    min-height: 600px;
+}
+.left-content .item-group li{
+    float: left;
+    width: 335px;
+    height: 184px;
+    border: 1px solid #EEEEEE;
+    margin: 0 10px 10px 0;
+}
+.item-group li .item-head{
+    line-height: 24px;
+    padding:3px 10px;
+    overflow: hidden;
+}
+.item-group li .item-body{
+    overflow: hidden;
+    padding: 10px;
+    height: 122px;
+}
+.item-group li .item-body .winner{
+    width: 110px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.item-group li .item-body .info-side{
+    width: 58%;
+}
+.item-group li .item-footer{
+    overflow: hidden;
+    background: #EEEEEE;
+    padding: 5px 10px;
+}
+.item-group li .item-footer span{
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    color: #f60;
+    padding: 7px;
+}
+.lucky-code{
+    vertical-align: middle;
+    font-size: 16px;
+    padding: 5px 0;
+}
+.lucky-code b{
+    font-weight: bold;
+    color: #f60;
+}
+.user-info{
+    overflow: hidden;
+    width: 60%;
+    margin-left: 10px;
+}
+.p-info{
+    overflow: hidden;
+    width: 100%;
+    clear: both;
+}
+.countdown{
+    overflow: hidden;
+    background: #f60;
+    padding: 8px;
+    margin-top: 10px;
+}
+.countdown dt{
+    color: #ffffff;
+    font-size: 14px;
+    float: left;
+    line-height: 26px;
+    font-weight: bold;
+    margin: 0 5px;
+}
+.countdown dd{
+    background: #ffffff;
+    float: left;
+    color: #f60;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+/*右边内容*/
+.latest-wrap .right-box{
+    width:280px;
+    overflow: hidden;
+}
+.latest-wrap .right-box .buying-box{
+    width:278px;
+    overflow: hidden;
+    margin: 0;
+}
+.latest-wrap .right-box .buying-box ul{
+    width: 100%;
+}
+.info-side h4{
+    font-size: 12px;
+}
+.sort-list{
+    margin-top: 20px;
+    overflow: hidden;
+}
+.sort-list title{
+    padding: 5px;
+}
+.sort-list ul{
+    padding: 10px 10px 0;
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+}
+.sort-list ul li{
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+}
+.top{
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    position: absolute;
+    border-radius: 50%;
+    background: #DBDBDB;
+    top: 0;
+    left: 0;
+}
+ .one{
+    color: #ffffff;
+    background: #f60;
+}
+.sort-list ul li .img-box{
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    margin-right: 10px;
+}
+.sort-list ul li .info-side{
+    width: 68%;
+    overflow: hidden;
+}
+.sort-list ul li.active{
+    background: #EEEEEE;
+    padding-bottom: 10px;
+}
+.sort-list ul li.active .img-box{
+    width: 220px;
+    height:220px;
+    line-height: 200px;
+    margin: 0 auto;
+}
+/*商品搜索*/
+.top-navbar{
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 1px solid #EEEEEE;
+    font-size: 14px;
+}
+.top-navbar li{
+    float: left;
+    width:16% ;
+    height: 36px;
+    text-align: center;
+    line-height: 36px;
+}
+.select-result{
+    height: 38px;
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+}
+.select-result h2{
+    text-indent: 2em;
+    line-height: 38px;
+}
+.select-result h2 b{
+    color: #f60;
+    margin: 0 5px;
+}
+
+
+
+
+
+
+
+
+

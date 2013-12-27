@@ -1,135 +1,145 @@
 <?php
 class Controller_Admin_Notices extends Controller_Admin{
 
-    public function action_index()
-    {
+    public function action_index() {
 
-        $breads = [['name' => '公告管理', 'href' => 'javascript:void(0);'], ['name' => '公告列表', 'href'=> 'javascript:void(0);']];
+        $breads = [
+            ['name' => '公告管理', 'href' => 'javascript:void(0);'], 
+            ['name' => '公告列表', 'href'=> 'javascript:void(0);']
+        ];
 
-        $view = View::forge('admin/notices/index');
-        $view->set('notices', Model_Notice::find('all'));
+        $noticeModel = new Model_Notice();
+        $total = $noticeModel->countNotice(Input::get());
+        $page = new \Helper\Page();
+        $url = Uri::create('/admin/notices/index/' . Uri::build_query_string(Input::get()));
+        $config = $page->setConfig($url, $total, 'page');
+        $pagination = Pagination::forge('mypagination', $config);
+
+        $get = Input::get();
+        $get['offset'] = $pagination->offset;
+        $get['limit'] = $pagination->per_page;
+
+        $users = Model_User::find('all');
+
+        $view = ViewModel::forge('admin/notices/index');
+        $view->set('notices', $noticeModel->index($get));
         $breadcrumb = new Helper\Breadcrumb();
         $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $view->set('pagination', $pagination);
+        $view->set('users', $users);
         $this->template->title = "公告列表";
         $this->template->content = $view;
 
     }
 
-    public function action_view($id = null)
-    {
-        $data['notice'] = Model_Notice::find($id);
+    public function action_view($id = null) {
 
-        $this->template->title = "Notice";
-        $this->template->content = View::forge('admin/notices/view', $data);
+        $breads = [
+            ['name' => '公告管理', 'href' => 'javascript:void(0);'], 
+            ['name' => '公告列表', 'href'=> Uri::create('admin/notices')],
+            ['name' => '公告详情', 'href'=> 'javascript:void(0);']
+        ];
+
+        $notice = Model_Notice::find($id);
+
+        $view = ViewModel::forge('admin/notices/view');
+
+        $breadcrumb = new Helper\Breadcrumb();
+        $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $view->set('notice', $notice, false);
+        $this->template->title = "公告详情";
+        $this->template->content = $view;
 
     }
 
-    public function action_create()
-    {
+    // 添加公告
+    public function action_create() {
+
         $breads = [
             ['name' => '公告管理', 'href' => 'javascript:void(0);'],
             ['name' => '公告列表', 'href' => Uri::create('admin/notices')],
             ['name' => '发布公告', 'href'=> 'javascript:void(0);']
            ];
 
-        if (Input::method() == 'POST')
-        {
-            $val = Model_Notice::validate('create');
-
-            if ($val->run())
-            {
-                $notice = Model_Notice::forge(array(
-                    'title' => Input::post('title'),
-                    'summary' => Input::post('summary'),
-                    'desc' => Input::post('desc'),
-                ));
-
-                if ($notice and $notice->save())
-                {
-                    Session::set_flash('success', e('Added notice #'.$notice->id.'.'));
-
-                    Response::redirect('admin/notices');
-                }
-
-                else
-                {
-                    Session::set_flash('error', e('Could not save notice.'));
-                }
-            }
-            else
-            {
-                Session::set_flash('error', $val->error());
-            }
-        }
-
+        $url = Uri::create('admin/notices/add');
         $view = View::forge('admin/notices/create');
+        $view->set_global('url', $url);
         $breadcrumb = new Helper\Breadcrumb();
         $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $this->template->title = "添加公告";
         $this->template->content = $view;
-
     }
 
-    public function action_edit($id = null)
-    {
-        $notice = Model_Notice::find($id);
-        $val = Model_Notice::validate('edit');
+    // 保存公告
+    public function action_add() {
 
-        if ($val->run())
-        {
-            $notice->title = Input::post('title');
-            $notice->summary = Input::post('summary');
-            $notice->desc = Input::post('desc');
+        if (Input::method() == 'POST') {
+            $val = Model_Notice::validate('create');
 
-            if ($notice->save())
-            {
-                Session::set_flash('success', e('Updated notice #' . $id));
+            if ($val->run()) {
 
-                Response::redirect('admin/notices');
-            }
-
-            else
-            {
-                Session::set_flash('error', e('Could not update notice #' . $id));
-            }
-        }
-
-        else
-        {
-            if (Input::method() == 'POST')
-            {
-                $notice->title = $val->validated('title');
-                $notice->summary = $val->validated('summary');
-                $notice->desc = $val->validated('desc');
-
+                $noticeModel = new Model_Notice();
+                if($noticeModel->add($this->current_user->id, Input::post())) {
+                    Session::set_flash('success', e('公告添加成功'));
+                    Response::redirect('admin/notices');
+                } else {
+                    Session::set_flash('error', e('操作失败'));
+                }
+            } else {
                 Session::set_flash('error', $val->error());
             }
-
-            $this->template->set_global('notice', $notice, false);
         }
-
-        $this->template->title = "Notices";
-        $this->template->content = View::forge('admin/notices/edit');
-
     }
 
-    public function action_delete($id = null)
-    {
-        if ($notice = Model_Notice::find($id))
-        {
-            $notice->delete();
+    public function action_edit($id = null) {
 
-            Session::set_flash('success', e('Deleted notice #'.$id));
+        $breads = [
+            ['name' => '公告管理', 'href' => 'javascript:void(0);'],
+            ['name' => '公告列表', 'href' => Uri::create('admin/notices')],
+            ['name' => '编辑公告', 'href'=> 'javascript:void(0);']
+           ];
+
+        $notice = Model_Notice::find($id);
+
+        $view = View::forge('admin/notices/edit');
+        $url = Uri::create('admin/notices/update/'.$id);
+        $view->set_global('url', $url);
+        $breadcrumb = new Helper\Breadcrumb();
+        $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $view->set_global('notice', $notice, false);
+        $this->template->title = "编辑公告";
+        $this->template->content = $view;
+    }
+
+    // 更新公告
+    public function action_update($id = null) {
+
+        $val = Model_Notice::validate('edit');
+        if ($val->run()) {
+            $noticeModel = new Model_Notice();
+            if ($noticeModel->edit($id, Input::post())) {
+                Session::set_flash('success', e('编辑成功 #' . $id));
+                Response::redirect('admin/notices');
+            } else {
+                Session::set_flash('error', e('编辑失败 #' . $id));
+            }
+        } else  {
+            Session::set_flash('error', $val->error());
         }
 
-        else
-        {
-            Session::set_flash('error', e('Could not delete notice #'.$id));
+        Response::redirect('admin/edit/'.$id);
+    }
+
+    // 删除公告
+    public function action_delete($id = null) {
+
+        $noticeModel = Model_Notice();
+        if ($noticeModel->remove($id)) {
+            Session::set_flash('success', e('删除成功 #'.$id));
+        } else {
+            Session::set_flash('error', e('删除失败 #'.$id));
         }
 
         Response::redirect('admin/notices');
-
     }
-
-
 }

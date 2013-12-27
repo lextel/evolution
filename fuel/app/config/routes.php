@@ -1,7 +1,8 @@
 <?php
 return array(
     '_root_'  => 'index/index',  // The default route
-    '_404_'   => 'welcome/404',    // The main 404 route
+    '_404_'   => 'error/404',    // The main 404 route
+    '_500_'   => 'error/500',    // The main 404 route
 
     //'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),
 
@@ -32,11 +33,11 @@ return array(
     'u/posts/view/(\d+)' => 'member/posts/view',
     'u/posts/getadd' => 'member/posts/getadd',
     'u/posts/add' => 'member/posts/add',
-    'u/posts/edit/(\d+)' => 'member/posts/edit',
+    'u/posts/edit/(\d+)' => 'member/posts/edit/$1',
     'u/posts/delete/(\d+)' => 'member/posts/delete/$1',
 
     'u/orders' => 'orders/my',
-     'u/orders/p/(\d+)' => 'orders/my/$1',
+    'u/orders/p/(\d+)' => 'orders/my/$1',
     'u/wins' => 'member/lottery/index',
     'u/win/p/\d+' => 'member/lottery/index/$1',
     'u/recharge' => 'member/recharge',
@@ -71,6 +72,10 @@ return array(
     'comment/(\d+)' => 'comment/index/$1',
     'comment/(\d+)/p/(\d+)' => 'comment/index/$1/$2',
     'comment/(\d+)/add' => 'member/comments/add/$1',
+
+    'w' => 'wins/index',
+    'w/p/(\d+)' => 'wins/index/$1',
+    'w/(\d+)' => 'wins/view/$1',
 
     'image/:size/:link' => 'image/index',
 

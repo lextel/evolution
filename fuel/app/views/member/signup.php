@@ -18,7 +18,7 @@
             </ul>
             <div class="login fr">
                 已经是会员，直接登录
-                <?php echo Html::anchor('signup', '登录', array('class' => ''));?>
+                <?php echo Html::anchor('signin', '登录', array('class' => ''));?>
             </div>
         </div>
         <?php echo Form::open(array("class"=>"register-form")); ?>

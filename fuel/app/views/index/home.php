@@ -1,19 +1,8 @@
-<div class="wrapper w">
-        <div class="left-sidebar fl">
-            <div class="img-box">
-                <?php echo Html::anchor('u/'.$member->id, Html::img($member->avatar));?>
-            </div>
-            <div class="winner"><?php echo Html::anchor('u/'.$member->id, $member->nickname);?></div>
-            <div class="signature">
-                个性签名:
-                <?php echo $member->bio;?>
-            </div>
-        </div>
-        <br />
+
         <div class="main fr">
             <ul class="subNav">
                 <li><?php echo Html::anchor('u/'.$member->id, '主页');?></li>
-                <li><?php echo Html::anchor('u/'.$member->id.'/order', '乐拍记录');?></li>
+                <li><?php echo Html::anchor('u/'.$member->id.'/orders', '乐拍记录');?></li>
                 <li><?php echo Html::anchor('u/'.$member->id.'/wins', '获得的商品');?></li>
                 <li><?php echo Html::anchor('u/'.$member->id.'/posts', '晒单');?></li>
             </ul>
@@ -85,4 +74,3 @@
             <div class="obtain"></div>
             <div class="single"></div>
         </div>
-    </div>

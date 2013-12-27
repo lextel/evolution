@@ -1,14 +1,20 @@
 <?php
 
 class Controller_Index extends Controller_Frontend {
-    
+
     /*
     *首页功能
+    *幻灯片播放
+    *右侧公告
+    *最新揭晓
+    *人气推荐
+    *右侧大家在乐拍
+    *最下大家晒单
     */
     public function action_index() {
-
-        $this->template->title = '乐乐淘';
-        $this->template->layout = View::forge('index/index');
+        $view = ViewModel::forge('index', 'view');
+        $this->template->title = '乐乐淘首页';
+        $this->template->layout = $view;
     }
 
     /*

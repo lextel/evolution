@@ -64,6 +64,7 @@
         </div>
     </div>
     <!--产品列表开始-->
+    <a name="list"></a>
     <div class="content">
         <div class="list_sort">
             <span>排序</span>
@@ -97,9 +98,15 @@
                         </dl>
                         <div class="btn-menu">
                             <span>我要乐拍</span>
+<<<<<<< HEAD
                             <a class="btn-jian" >----</a>
                             <input id="qty" type="text" value="1" name="qty"/>
                             <a class="btn-jia" >+++++</a>
+=======
+                            <a class="add">-</a>
+                            <input type="text" value="1" name="qty"/>
+                            <a class="add">+</a>
+>>>>>>> 28b5c9b8e5647e6e70db37771193bf00021cd19f
                             <span>人次</span>
                         </div>
                         <div class="btn-group">
