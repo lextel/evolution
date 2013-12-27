@@ -6,3 +6,12 @@ $(function(){
         alwaysOn:false
     });
 });
+
+
+$(function(){
+    $(".btn-jian").bind("click", function (){
+    alert(1);
+        //$(this).val();
+    });
+
+});
