@@ -587,7 +587,8 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 }
 .edit-data li textarea{
     border: 1px solid #f1f1f1;
-    padding: 10px;
+    width: 430px;
+    padding: 5px;
 }
 .edit-data li select{
     display: inline-block;
