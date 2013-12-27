@@ -54,6 +54,11 @@
     padding: 20px;
     border-top: 1px solid #EEE;
 }
+.register .content{
+    margin:0 auto;
+    width: 500px;
+    padding: 100px 0;
+}
 .register-box .registered{
     margin-top: 20px;
 }
