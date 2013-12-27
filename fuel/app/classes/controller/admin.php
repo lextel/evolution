@@ -20,7 +20,7 @@ class Controller_Admin extends Controller_Baseend
             $admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
             if ( Request::active()->controller == 'Controller_Admin_Users' and ! $this->auth->member($admin_group_id))
             {
-                Session::set_flash('error', e('You don\'t have access to the admin panel'));
+                Session::set_flash('error', e('您没有权限'));
                 Response::redirect('admin');
             }
         }
@@ -59,17 +59,17 @@ class Controller_Admin extends Controller_Baseend
                         $current_user = Model_User::find_by_username($this->auth->get_screen_name());
                     }
                     $this->auth->remember_me();
-                    Session::set_flash('success', e('Welcometest1, '.$current_user->username));
+                    Session::set_flash('success', e('欢迎您, '.$current_user->username));
                     Response::redirect('admin');
                 }
                 else
                 {
-                    $this->template->set_global('login_error', 'Fail');
+                    $this->template->set_global('login_error', '登陆失败');
                 }
             }
         }
 
-        $this->template->title = 'Login';
+        $this->template->title = '管理登陆';
         $this->template->content = View::forge('admin/login', array('val' => $val), false);
     }
 

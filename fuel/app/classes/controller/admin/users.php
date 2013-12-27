@@ -1,113 +1,115 @@
 <?php
 class Controller_Admin_Users extends Controller_Admin{
 
-    public function action_index()
-    {
-        $data['users'] = Model_User::find('all');
-        $this->template->title = "";
-        $this->template->content = View::forge('admin/users/index', $data);
+    // 管理员列表
+    public function action_index() {
 
+        $breads = [
+                ['name' => '用户管理'], 
+                ['name' => '管理员列表'],
+            ];
+
+        $view = View::forge('admin/users/index');
+        $breadcrumb = new Helper\Breadcrumb();
+        $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $users = Model_User::find('all');
+        $view->set('users', $users);
+        $this->template->title = "管理员列表 > 用户管理";
+        $this->template->content = $view;
     }
 
-    public function action_view($id = null)
-    {
-        $data['user'] = Model_User::find($id);
-        $this->template->title = "";
-        $this->template->content = View::forge('admin/users/view', $data);
+    // 添加管理员
+    public function action_create() {
 
+        $breads = [
+                ['name' => '用户管理'], 
+                ['name' => '管理员列表', 'href' => Uri::create('admin/users')],
+                ['name' => '添加管理员'],
+            ];
+
+        $view = View::forge('admin/users/create');
+        $breadcrumb = new Helper\Breadcrumb();
+        $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $view->set_global('url', Uri::create('admin/users/add'));
+        $this->template->title = "添加管理员";
+        $this->template->content = $view;
     }
 
-    public function action_create()
-    {
-        if (Input::method() == 'POST')
-        {
-            $val = Model_User::validate('create');
-            if ($val->run())
-            {
-                $username = Input::post('username');
-                $password = Input::post('password');
-                $email = Input::post('email');
-                $group = Input::post('group');
-                try
-                {
-                    $user_id = Auth::create_user($username, $password, $email, $group);
-                    Session::set_flash('success', e('Added user #'.$user_id.'.'));
+    // 保存管理员
+    public function action_add() {
 
-                    /*Model_Adminsm::pushSingleSms(array(
-                                  'ower_id'=>1,
-                                  'action'=>'fabule',
-                                  'type'=>'1',
-                                  'obj_id'=>$user_id,
-                                  ),1);
-                    */
-                    Response::redirect('admin/users');
-                }
-                catch (Exception $e)
-                {
-                    Log::error($e);
-                    Session::set_flash('error', e('Could not save user.'));
-                }
+        $val = Model_User::validate('create');
+        if ($val->run()) {
+            $username = Input::post('username');
+            $password = Input::post('password');
+            $email = Input::post('email');
+            $group = Input::post('group');
+            try {
+                $user_id = $this->auth->create_user($username, $password, $email, $group);
+                Session::set_flash('success', e('添加成功 #'.$user_id.'.'));
+
+                Response::redirect('admin/users');
+            } catch (Exception $e) {
+                Log::error($e);
+                Session::set_flash('error', e('添加失败'));
             }
-            else
-            {
-                Session::set_flash('error', $val->error());
-            }
+        } else {
+            Session::set_flash('error', $val->error());
         }
-        $this->template->title = "";
-        $this->template->content = View::forge('admin/users/create');
+
+        Response::redirect('admin/users/create');
     }
 
-    public function action_edit($id = null)
-    {
+    // 编辑管理员
+    public function action_edit($id = null) {
+
+        $breads = [
+                ['name' => '用户管理'], 
+                ['name' => '管理员列表', 'href' => Uri::create('admin/users')],
+                ['name' => '编辑管理员'],
+            ];
+
+        $user = Model_User::find($id);
+
+        $view = View::forge('admin/users/edit');
+        $breadcrumb = new Helper\Breadcrumb();
+        $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $view->set_global('url', Uri::create('admin/users/update/'.$id));
+        $view->set_global('user', $user);
+        $this->template->title = "编辑管理员 > 管理员管理";
+        $this->template->content = $view;
+    }
+
+    // 更新管理员
+    public function action_update($id = null) {
+
         $user = Model_User::find($id);
         $val = Model_User::validate('edit');
 
-        if ($val->run())
-        {
-            //$user->username = Input::post('username');
+        if ($val->run()) {
             $user->group = Input::post('group');
-            if (Auth::update_user(array('group'=>$user->group), $user->username))
-            {
-                Session::set_flash('success', e('Updated user #' . $id));
+            if ($this->auth->update_user(array('group'=>$user->group), $user->username)) {
+                Session::set_flash('success', e('更新成功 #' . $id));
                 Response::redirect('admin/users');
+            } else {
+                Session::set_flash('error', e('更新失败 #' . $id));
             }
-
-            else
-            {
-                Session::set_flash('error', e('Could not update user #' . $id));
-            }
+        } else {
+            Session::set_flash('error', $val->error());
         }
 
-        else
-        {
-            if (Input::method() == 'POST')
-            {
-                $user->username = $val->validated('username');
-                $user->password = $val->validated('password');
-                $user->email = $val->validated('email');
-                $user->group = $val->validated('group');
-
-                Session::set_flash('error', $val->error());
-            }
-
-            $this->template->set_global('user', $user, false);
-        }
-
-        $this->template->title = "";
-        $this->template->content = View::forge('admin/users/edit');
+        Response::redirect('admin/user/edit/' .$id);
 
     }
 
-    public function action_delete($id = null)
-    {
-        if ($user = Model_User::find($id))
-        {
-            Auth::delete_user($user->username);
-            Session::set_flash('success', e('Deleted user #'.$id));
-        }
-        else
-        {
-            Session::set_flash('error', e('Could not delete user #'.$id));
+    // 删除管理员
+    public function action_delete($id = null) {
+
+        if ($user = Model_User::find($id)) {
+            $this->auth->delete_user($user->username);
+            Session::set_flash('success', e('删除成功 #'.$id));
+        } else {
+            Session::set_flash('error', e('删除失败 #'.$id));
         }
 
         Response::redirect('admin/users');

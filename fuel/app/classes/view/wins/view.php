@@ -1,6 +1,6 @@
 <?php
 
-class View_Posts_View extends Viewmodel {
+class View_Wins_View extends Viewmodel {
 
     public function view() {
        //获得商品标题
@@ -33,7 +33,7 @@ class View_Posts_View extends Viewmodel {
         };
     }
     public function set_view(){
-        $this->_view = View::forge('posts/view');
+        $this->_view = View::forge('wins/view');
    }
 
 }

@@ -89,16 +89,16 @@
                 <ul>
                     <?php foreach($orders() as $order) {?>
                     <li>
-                        <div class="img-box">
-                            <?php echo Html::anchor('m/'.$phase->id, '<img src="http://www.llt.com/'.$getItemInfo($phase->item_id)->image.'" alt="" />');?>
+                        <div class="head-img fl">
+                            <?php echo Html::anchor('m/'.$order->phase_id, '<img src="http://www.llt.com/'.$getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image.'" alt="" />');?>
                         </div>
                         <div class="info-side">
                             <div class="winner"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'bule']);?> 刚刚乐拍了</div>
-                            <h4><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h4>
+                            <h4><?php echo Html::anchor('m/'.$order->phase_id, $getPhaseInfo($order->phase_id)->title);?></h4>
                         </div>
 
                     </li>
-                   <?php } ?> 
+               <?php } ?> 
                 </ul>
             </div>
         </div>
@@ -140,9 +140,12 @@
            <h4>晒单分享</h4>
            <?php echo Html::anchor('p', '更多>>', ['class'=>'more']);?>
         </div>
+        
         <div class="bask-side">
+            <?php if($topPost) { ?>
             <div class="bask fl">
                 <div class="img-box fl">
+                    
                     <?php echo Html::anchor('p/'.$topPost->id, Html::img($topPost->topimage));?>
                 </div>
                 <div class="bask-info fr">
@@ -155,6 +158,8 @@
                     </div>
                 </div>
             </div>
+            <?php } ?>
+            <?php if($posts()) { ?>
             <div class="bask-list">
                 <ul>
                     <?php foreach($posts() as $post) { ?>
@@ -169,6 +174,7 @@
                     <?php } ?>
                 </ul>
             </div>
+            <?php } ?>
         </div>
     </div>
     <!--晒单分享结束-->

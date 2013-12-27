@@ -1,111 +1,121 @@
 <?php
 class Controller_Admin_Members extends Controller_Admin{
 
-	public function action_index()
-	{
-		$data['members'] = Model_Member::find('all');
-		$this->template->title = "Members";
-		$this->template->content = View::forge('admin/members/index', $data);
+    public function action_index() {
 
-	}
+        $breads = [
+                ['name' => '用户管理'], 
+                ['name' => '会员列表'],
+            ];
 
-	public function action_view($id = null)
-	{
-		$data['member'] = Model_Member::find($id);
+        $view = View::forge('admin/members/index');
+        $breadcrumb = new Helper\Breadcrumb();
+        $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
 
-		$this->template->title = "Member";
-		$this->template->content = View::forge('admin/members/view', $data);
+        $members = Model_Member::find('all');
+        $view->set('members', $members);
+        $this->template->title = "会员列表 > 用户管理";
+        $this->template->content = $view;
 
-	}
+    }
 
-	public function action_create()
-	{
-		if (Input::method() == 'POST')
-		{
-			$val = Model_Member::validate('create');
+    public function action_view($id = null)
+    {
+        $data['member'] = Model_Member::find($id);
 
-			if ($val->run())
-			{
-				$member = Model_Member::forge(array(
-				));
+        $this->template->title = "Member";
+        $this->template->content = View::forge('admin/members/view', $data);
 
-				if ($member and $member->save())
-				{
-					Session::set_flash('success', e('Added member #'.$member->id.'.'));
+    }
 
-					Response::redirect('admin/members');
-				}
+    public function action_create()
+    {
+        if (Input::method() == 'POST')
+        {
+            $val = Model_Member::validate('create');
 
-				else
-				{
-					Session::set_flash('error', e('Could not save member.'));
-				}
-			}
-			else
-			{
-				Session::set_flash('error', $val->error());
-			}
-		}
+            if ($val->run())
+            {
+                $member = Model_Member::forge(array(
+                ));
 
-		$this->template->title = "Members";
-		$this->template->content = View::forge('admin/members/create');
+                if ($member and $member->save())
+                {
+                    Session::set_flash('success', e('Added member #'.$member->id.'.'));
 
-	}
+                    Response::redirect('admin/members');
+                }
 
-	public function action_edit($id = null)
-	{
-		$member = Model_Member::find($id);
-		$val = Model_Member::validate('edit');
+                else
+                {
+                    Session::set_flash('error', e('Could not save member.'));
+                }
+            }
+            else
+            {
+                Session::set_flash('error', $val->error());
+            }
+        }
 
-		if ($val->run())
-		{
+        $this->template->title = "Members";
+        $this->template->content = View::forge('admin/members/create');
 
-			if ($member->save())
-			{
-				Session::set_flash('success', e('Updated member #' . $id));
+    }
 
-				Response::redirect('admin/members');
-			}
+    public function action_edit($id = null)
+    {
+        $member = Model_Member::find($id);
+        $val = Model_Member::validate('edit');
 
-			else
-			{
-				Session::set_flash('error', e('Could not update member #' . $id));
-			}
-		}
+        if ($val->run())
+        {
 
-		else
-		{
-			if (Input::method() == 'POST')
-			{
+            if ($member->save())
+            {
+                Session::set_flash('success', e('Updated member #' . $id));
 
-				Session::set_flash('error', $val->error());
-			}
+                Response::redirect('admin/members');
+            }
 
-			$this->template->set_global('member', $member, false);
-		}
+            else
+            {
+                Session::set_flash('error', e('Could not update member #' . $id));
+            }
+        }
 
-		$this->template->title = "Members";
-		$this->template->content = View::forge('admin/members/edit');
+        else
+        {
+            if (Input::method() == 'POST')
+            {
 
-	}
+                Session::set_flash('error', $val->error());
+            }
 
-	public function action_delete($id = null)
-	{
-		if ($member = Model_Member::find($id))
-		{
-			$member->delete();
+            $this->template->set_global('member', $member, false);
+        }
 
-			Session::set_flash('success', e('Deleted member #'.$id));
-		}
+        $this->template->title = "Members";
+        $this->template->content = View::forge('admin/members/edit');
 
-		else
-		{
-			Session::set_flash('error', e('Could not delete member #'.$id));
-		}
+    }
 
-		Response::redirect('admin/members');
+    public function action_delete($id = null)
+    {
+        if ($member = Model_Member::find($id))
+        {
+            $member->delete();
 
-	}
+            Session::set_flash('success', e('Deleted member #'.$id));
+        }
+
+        else
+        {
+            Session::set_flash('error', e('Could not delete member #'.$id));
+        }
+
+        Response::redirect('admin/members');
+
+    }
 
 
 }

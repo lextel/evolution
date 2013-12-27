@@ -5,36 +5,65 @@
         <div class="title">
             <h4>最新揭晓 <small>(截至目前共揭晓商品 <s class="red"><?php echo $count;?></s>件)</small></h4>
         </div>
-        <ul class="latest-item">
-            <?php foreach($wins as $win) { ?>
+        <ul class="item-group">
             <li>
-                <div class="item-head">
-                    <h4 class="fl"><small>(第30期)</small>小米超薄800mAh移动电源</h4>
-                    <span class="price fr">价值：<s class="red">￥2666.00</s></span>
-                </div>
                 <div class="item-body">
-                    <div class="img-box fl">
-                        <a href=""><img src="img/54359.jpg" alt=""/></a>
+                    <div class="img-box img-md fl">
+                        <a href=""><img src="/assets/img/54359.jpg" alt=""/></a>
                     </div>
                     <div class="info-side fr">
-                          <div class="head-img fl">
-                              <a href=""><img src="img/54359.jpg" alt=""/></a>
-                          </div>
-                          <div class="name-box fr">
-                              <div class="name">老衲用飘柔</div>
-                              <div class="ip">来自：广东省深圳市</div>
-                          </div>
-                          <div class="number">当前乐拍:<s>10</s>人次</div>
-                          <div class="datetime">揭晓时间：10分钟前</div>
+                        <div class="p-info">
+                            <h5 class="title-sm">
+                                <a href="">(第478期)小米（MIUI） 小米3 智能手机(16G)</a>
+                            </h5>
+                            <div class="price">价值：<b>￥2000</b>元</div>
+                        </div>
+                        <dl class="countdown">
+                            <dt>倒计时</dt>
+                            <dd>01</dd>
+                            <dt>:</dt>
+                            <dd>08</dd>
+                            <dt>:</dt>
+                            <dd>37</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="item-footer">
+                    <span>即将揭晓，敬请期待...</span>
+                </div>
+            </li>
+            <?php foreach($wins as $win) { ?>
+            <li>
+                <div class="item-body">
+                    <div class="img-box img-md fl">
+                        <?php echo Html::anchor('w/'.$win->id, '<img src="http://www.llt.com/'.$getItemInfo($getPhaseInfo($win->phase_id)->item_id)->image.'" alt="" />');?>
+                    </div>
+                    <div class="info-side fr">
+                        <div class="head-img fl">
+                            <?php echo Html::anchor('u/'.$win->member_id, Html::img($getMemberInfo($win->member_id)->avatar));?>
+                        </div>
+                        <div class="user-info fl">
+                            <div class="winner">获奖者：<b><?php echo Html::anchor('u/'.$win->member_id, $getMemberInfo($win->member_id)->username);?></b></div>
+                            <div class="ip">来自：广东省深圳市</div>
+                            <div class="number">乐拍:<b>10</b>人次</div>
+                        </div>
+                        <div class="p-info">
+                            <h5 class="title-sm">
+                                <a href="">(第<?php echo $win->phase_id;?>期)<?php echo Html::anchor('w/'.$win->id, $getPhaseInfo($win->phase_id)->title);?></a>
+                            </h5>
+                            <div class="price">价值：<b>￥<?php echo $getItemInfo($win->item_id)->price;?></b>元</div>
+                            <div class="datetime">揭晓时间：<?php echo $getPhaseInfo($win->phase_id)->opentime?></div>
+                        </div>
                     </div>
                 </div>
                 <div class="item-footer">
                     <div class="lucky-code fl">
-                        幸运乐拍码:<b class="red">10000016</b>
+                        幸运乐拍码:<b><?php echo $win->code?></b>
                     </div>
-                    <a href="" class="btn btn-default fr">查看详情</a>
+                    <?php echo Html::anchor('w/'.$win->id, '查看详情', ['class'=>'btn btn-default fr']); ?>
                 </div>
             </li>
+            
             <?php } ?>
         </ul>
         <?php echo Pagination::instance('winspage')->render(); ?>
@@ -46,45 +75,18 @@
         <div class="buying-box">
             <div class="title"><h4>大家正在乐拍</h4></div>
             <ul>
-                <li>
-                    <div class="img-box">
-                        <a href=""><img src="img/54359.jpg" alt=""></a>
-                    </div>
-                    <div class="info-side">
-                        <div class="winner"><a href=""><b>王大锤</b>刚刚乐拍了</a></div>
-                        <h4><a href="">苹果智能手机32G苹果智能手机32G苹果智能手机</a></h4>
-                    </div>
+                <?php foreach($orders() as $order) {?>
+                    <li>
+                        <div class="head-img fl">
+                            <?php echo Html::anchor('m/'.$order->phase_id, '<img src="http://www.llt.com/'.$getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image.'" alt="" />');?>
+                        </div>
+                        <div class="info-side">
+                            <div class="winner"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'bule']);?> 刚刚乐拍了</div>
+                            <h4><?php echo Html::anchor('m/'.$order->phase_id, $getPhaseInfo($order->phase_id)->title);?></h4>
+                        </div>
 
-                </li>
-                <li>
-                    <div class="img-box">
-                        <a href=""><img src="img/54359.jpg" alt=""></a>
-                    </div>
-                    <div class="info-side">
-                        <div class="winner"><a href=""><b>王大锤</b>刚刚乐拍了</a></div>
-                        <h4><a href="">苹果智能手机32G苹果智能手机32G苹果智能手机</a></h4>
-                    </div>
-
-                </li>
-                <li>
-                    <div class="img-box">
-                        <a href=""><img src="img/54359.jpg" alt=""></a>
-                    </div>
-                    <div class="info-side">
-                        <div class="winner"><a href=""><b>王大锤</b>刚刚乐拍了</a></div>
-                        <h4><a href="">苹果智能手机32G苹果智能手机32G苹果智能手机</a></h4>
-                    </div>
-
-                </li>
-                <li>
-                    <div class="img-box">
-                        <a href=""><img src="img/54359.jpg" alt=""></a>
-                    </div>
-                    <div class="info-side">
-                        <div class="winner"><a href=""><b>王大锤</b>刚刚乐拍了</a></div>
-                        <h4><a href="">苹果智能手机32G苹果智能手机32G苹果智能手机</a></h4>
-                    </div>
-                </li>
+                    </li>
+               <?php } ?>
             </ul>
         </div>
         <!--大家正在乐拍内容结束-->

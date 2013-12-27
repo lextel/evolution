@@ -149,3 +149,11 @@ button.close {
     opacity: .2;
     filter: alpha(opacity=20);
 }
+
+.tab-content>.tab-pane {
+    display: none;
+}
+
+.tab-content>.active {
+    display: block;
+}
