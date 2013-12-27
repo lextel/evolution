@@ -21,6 +21,20 @@ a{
 p{
     line-height: 22px;
 }
+textarea{
+    width: 100%;
+    overflow:auto;
+    resize: none;
+    font-size: 14px;
+    line-height: 1.428571429;
+}
+button,input{
+    outline: none;
+}
+textarea:focus,input:focus{
+    outline: none;
+    border: 1px solid #00CCFF;
+}
 .d-n{
     display: none;
 }
@@ -38,6 +52,7 @@ p{
 .content{
     position: relative;
     margin-top: 20px;
+    overflow: hidden;
 }
 .m{
     margin: 0px;
@@ -47,16 +62,19 @@ p{
     text-align: center;
 }
 .btn-menu input{
-    width: 86px;
+    width: 84px;
+    text-align: center;
     border: 1px solid #f1f1f1;
     height: 22px;
     display: inline-block;
     margin:0 -4px;
 }
-.btn-menu button{
+.btn-menu a.add{
     width: 22px;
     border: 1px solid #f1f1f1;
-    height: 24px;
+    height: 22px;
+    text-align: center;
+    line-height: 22px;
     display: inline-block;
     cursor: pointer;
     background: #dbdbdb;
@@ -78,8 +96,11 @@ p{
     border: none;
     background:#ffffff;
     cursor: pointer;
+    display: inline-block;
 }
-
+.btn-group .btn-link{
+    padding:8px 10px;
+}
 .btn-red{
     padding: 8px 15px;
     margin-right: 10px;
@@ -168,10 +189,47 @@ table tbody tr td{
     width: 19px;
     height:23px;
     vertical-align: middle;
-    background-position:3px -105px;
+    background-position:0px -105px;
+}
+.icon-like{
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    background-position:0 -135px;
+}
+.icon-comment{
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    background-position:0 -164px;
+}
+.icon-love{
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    background-position:0 -196px;
+}
+.icon-expression{
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    background-position:0 -226px;
 }
 .img-box{
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+}
+.img-md{
+    width: 120px;
+    height: 100px;
+    line-height: 100px;
+}
+.img-sm{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
 }
 .img-box a img{
     max-width: 100%;
@@ -180,10 +238,10 @@ table tbody tr td{
 }
 .head-img{
     text-align: center;
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
-    border-radius: 3px;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 5px;
 }
 .head-img a img{
     max-width: 100%;
@@ -250,6 +308,12 @@ table tbody tr td{
     padding: 10px;
     overflow: hidden;
 }
+.title-sm{
+    width: 180px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 .title h4{
     float: left;
     text-indent: 15px;
@@ -260,7 +324,7 @@ table tbody tr td{
     line-height: 30px;
 }
 .title-box{
-    height: 40px;
+    min-height: 40px;
     background: #eeeeee;
     padding:5px 10px;
 }
@@ -292,6 +356,13 @@ h4{
 .fr{
     float: right;
     display: block;
+}
+.number,.ip,.winner,.price,.datetime{
+    line-height: 20px;
+}
+.number b,.price p{
+    color: #f60;
+    margin: 0 5px;
 }
 /*进度条*/
 .progress-side dd{
@@ -444,7 +515,6 @@ h4{
 .right-box .shopping-box{
     float: left;
     margin-left: 30px;
-    overflow: hidden;
 }
 .shopping-box .shopping-cart{
     width: 130px;
@@ -453,11 +523,50 @@ h4{
     margin: 10px 0 10px 57px;
     background:#af2812;
     text-align: center;
+    position: relative;
 }
+
 .shopping-box .shopping-cart a{
     color: #ffffff;
     font-size: 14px;
 }
+.shopping-cart .dropdown-list{
+    position: absolute;
+    top: 28px;
+    right: 0;
+    width: 334px;
+    overflow: hidden;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #EEEEEE;
+    z-index: 9999;
+}
+.shopping-cart .dropdown-list li{
+    padding-bottom: 8px;
+    border-bottom: 1px solid #EEEEEE;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+.shopping-cart .dropdown-list li .info-side{
+    position: relative;
+    width: 83%;
+}
+.shopping-cart .dropdown-list li .info-side .btn-link{
+    position: absolute;
+    top: 29px;
+    right: 0;
+}
+.shopping-cart .dropdown-list li .info-side .title{
+    overflow: hidden;
+    width: 275px;
+    padding: 5px;
+    height: 22px;
+}
+.shopping-cart .dropdown-list li .info-side .title a{
+   color: #333333;
+    text-align: left;
+}
+
 .shopping-box  .all{
     height: 25px;
     line-height: 25px;
@@ -715,9 +824,33 @@ h4{
     list-style-type: decimal;
 }
 
-
-
-
-
+.announcement{
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+    padding: 20px;
+}
+.announcement dt{
+    height: 36px;
+    line-height: 36px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.announcement dd{
+    overflow: hidden;
+    border-top:1px dashed #EEEEEE ;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+.announcement dd .a-content{
+    line-height: 22px;
+    overflow: hidden;
+    text-indent: 2em;
+}
+.announcement dd .a-title{
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+}
 
 

@@ -93,9 +93,9 @@
                         </dl>
                         <div class="btn-menu">
                             <span>我要乐拍</span>
-                            <button class="">-</button>
+                            <a class="add">-</a>
                             <input type="text" value="1" name="qty"/>
-                            <button class="">+</button>
+                            <a class="add">+</a>
                             <span>人次</span>
                         </div>
                         <div class="btn-group">

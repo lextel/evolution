@@ -708,6 +708,7 @@
 }
 .left-content .item-group{
     overflow: hidden;
+    min-height: 600px;
 }
 .left-content .item-group li{
     float: left;
