@@ -1,0 +1,839 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: 0;
+}
+body{
+    font:12px/1.231 "微软雅黑","宋体",Helvetica,Arial,sans-serif;
+    color: #333;
+    background: #ffffff;
+}
+a{
+    color: #333333;
+}
+.w{
+    margin: 0 auto;
+    overflow: hidden;
+    width: 980px;
+}
+p{
+    line-height: 22px;
+}
+.d-n{
+    display: none;
+}
+.price{
+    display: block;
+    font-size: 12px;
+}
+.price b{
+    color: #FF8A3A;
+    padding: 0px 5px;
+}
+.y {
+    color: #FF8A3A;
+}
+.content{
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+}
+.m{
+    margin: 0px;
+}
+.btn-menu {
+    margin: 0 10px 10px;
+    text-align: center;
+}
+.btn-menu input{
+    width: 86px;
+    border: 1px solid #f1f1f1;
+    height: 22px;
+    display: inline-block;
+    margin:0 -4px;
+}
+.btn-menu button{
+    width: 22px;
+    border: 1px solid #f1f1f1;
+    height: 24px;
+    display: inline-block;
+    cursor: pointer;
+    background: #dbdbdb;
+}
+.btn-group{
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+}
+.btn{
+    padding:8px 10px;
+    border: 1px solid #EEEEEE;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 4px;
+    background:#ffffff;
+}
+.btn-link{
+    border: none;
+    background:#ffffff;
+    cursor: pointer;
+    display: inline-block;
+}
+.btn-group .btn-link{
+    padding:8px 10px;
+}
+.btn-red{
+    padding: 8px 15px;
+    margin-right: 10px;
+    background: #D9534F;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-sx{
+    padding:4px 10px;
+}
+.btn-sm{
+    padding:2px;
+}
+.btn-block{
+    display: block;
+}
+ h5{
+     font-size: 12px;
+     line-height: 22px;
+     font-weight: normal;
+ }
+.buy{
+    width: 135px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+}
+.tl{
+    text-align:left ;
+}
+.tr{
+    text-align:right ;
+}
+.tc{
+    text-align:center ;
+}
+table{
+    border: 1px solid #EEEEEE;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+table thead tr th{
+    border: 1px solid #DDDDDD;
+    text-align: center;
+    background: #f1f1f1;
+    padding: 8px;
+    line-height: 1.38462;
+}
+table tbody tr td{
+    border: 1px solid #EEEEEE;
+    text-align: center;
+    padding: 8px;
+    line-height: 1.38462;
+}
+/*图标*/
+.icon{
+    text-align: center;
+    display: inline-block;
+    background:url("../images/icon.png") no-repeat;
+}
+.icon-search{
+    width: 25px;
+    height: 25px;
+    margin:0;
+    background-position: 0px -3px;
+}
+.icon-horn{
+    width: 19px;
+    height: 19px;
+    vertical-align: middle;
+    background-position: 0px -78px;
+}
+.icon-phone{
+     width: 22px;
+     height: 22px;
+     vertical-align: middle;
+     background-position:0px -41px;
+ }
+.icon-qq{
+    width: 19px;
+    height:23px;
+    vertical-align: middle;
+    background-position:0px -105px;
+}
+.icon-like{
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    background-position:0 -135px;
+}
+.icon-comment{
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    background-position:0 -164px;
+}
+.icon-love{
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    background-position:0 -196px;
+}
+.icon-expression{
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    background-position:0 -226px;
+}
+.img-box{
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+}
+.img-md{
+    width: 120px;
+    height: 100px;
+    line-height: 100px;
+}
+.img-sm{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+}
+.img-box a img{
+    max-width: 100%;
+    vertical-align: middle;
+    height: auto;
+}
+.head-img{
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.head-img a img{
+    max-width: 100%;
+    vertical-align: middle;
+    height: auto;
+}
+.head-img .name {
+    line-height: 22px;
+    margin: 5px;
+    width: 70px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.head-img-sm{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius:2px;
+}
+.head-img-sm img{
+    max-width: 100%;
+    vertical-align: middle;
+    height: auto;
+}
+.sidebar{
+    border: 1px solid #eeeeee;
+    overflow: hidden;
+}
+.info-side{
+    overflow: hidden;
+}
+.info-side h4{
+    height: 40px;
+    font-size: 12px;
+    line-height: 20px;
+}
+.info{
+    width: 60%;
+    overflow: hidden;
+}
+.info span{
+    display: block;
+    margin-bottom: 5px;
+}
+.text-title{
+    font-weight: bold;
+}
+.datetime{
+    color: #666;
+}
+.name{
+    font-weight: bold;
+    line-height: 22px;
+    width: 100px;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+.ip{
+    line-height: 22px;
+}
+.title{
+    padding: 10px;
+    overflow: hidden;
+}
+.title-sm{
+    width: 180px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.title h4{
+    float: left;
+    text-indent: 15px;
+    font-size: 16px;
+}
+.title h2{
+    font-size: 18px;
+    line-height: 30px;
+}
+.title-box{
+    min-height: 40px;
+    background: #eeeeee;
+    padding:5px 10px;
+}
+.title-box h4{
+    width: 220px;
+    white-space:nowrap ;
+    text-overflow:ellipsis ;
+}
+h4{
+    line-height: 22px;
+    font-size: 14px;
+}
+
+.title .more{
+    display: block;
+    float: right;
+}
+.title .more:hover{
+    color: #3562c3;
+}
+.red{ color: #D9534F}
+.blue{
+    color: #588cff;
+}
+.fl{
+    float: left;
+    display: block;
+}
+.fr{
+    float: right;
+    display: block;
+}
+.number,.ip,.winner,.price,.datetime{
+    line-height: 20px;
+}
+.number b,.price p{
+    color: #f60;
+    margin: 0 5px;
+}
+/*进度条*/
+.progress-side dd{
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+.progress{
+    height: 15px;
+    border-radius: 4px;
+    background: #f1f1f1;
+    overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+}
+.progress .progress-bar{
+    height: 100%;
+    line-height: 15px;
+    background: #D9534F;
+    width: 10%;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+    border-radius: 4px 0 0px 4px;
+}
+.toggles{
+    overflow: hidden;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+.toggles a{
+    display:block;
+    float: left;
+    background: #E74C3C;
+    padding: 8px 10px;
+    color: #ffffff;
+}
+.toggles a.first-child{
+    border-radius: 5px 0 0 6px;
+}
+.toggles a.last-child{
+    border-radius: 0 5px 5px 0;
+}
+.toggles a.active{
+    background:#c83f31;
+}
+.toggles a:hover{
+    background:#fc5240;
+}
+/*分页*/
+.pagination{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.pagination span{
+    float: left;
+    margin-right: 10px;
+    display: block;
+    background: #f1f1f1;
+    border: 1px #EEEEEE solid;
+    border-radius: 3px;
+    text-align: center;
+    width: 30px;
+    height: 28px;
+    line-height: 28px;
+}
+.pagination span a{
+    display: block;
+}
+.pagination span a:hover{
+    background: #D96D66;
+    color: #ffffff;
+    border-radius: 3px;
+}
+.pagination span.active{
+    background:#D9534F ;
+    color: #ffffff;
+}
+.pagination span.active a{
+    color: #ffffff;
+}
+.pagination span.disabled{
+    background:#EEEEEE ;
+    opacity: 0.3;
+}
+.pagination span.previous-inactive{
+    width:60px;
+}
+.pagination span.next{
+    width:60px;
+}
+.winner b{
+    color: #437eff;
+    padding: 0 5px;
+}
+/*头部开始*/
+.top-nav{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background: #f7f7f7;
+}
+.top-menu{
+     width: 980px;
+     margin: 0 auto;
+ }
+.top-menu span{
+    float: right;
+}
+.top-menu span.online{
+    margin-left: 20px;
+}
+.top-menu span a{
+}
+.logo-box{
+    width: 980px;
+    height: 88px;
+    margin: 0 auto;
+}
+.logo-box .logo{
+    width: 150px;
+    height: 55px;
+    float: left;
+    background: red;
+    margin: 20px 0 0 20px;
+}
+.logo-box .right-box{
+    float: right;
+}
+.right-box .search{
+    float: left;
+    margin-top: 44px;
+}
+.search input{
+    width: 220px;
+    height: 25px;
+    border: 2px  solid #af2812;
+    border-right: 0;
+    display:block;
+    float: left;
+    text-indent: 2em;
+}
+.search .search-btn{
+    width: 25px;
+    display:block;
+    float: left;
+    height: 25px;
+    border: 2px  solid #af2812;
+    border-left:0;
+}
+.right-box .shopping-box{
+    float: left;
+    margin-left: 30px;
+}
+.shopping-box .shopping-cart{
+    width: 130px;
+    height: 25px;
+    line-height: 25px;
+    margin: 10px 0 10px 57px;
+    background:#af2812;
+    text-align: center;
+    position: relative;
+}
+
+.shopping-box .shopping-cart a{
+    color: #ffffff;
+    font-size: 14px;
+}
+.shopping-cart .dropdown-list{
+    position: absolute;
+    top: 28px;
+    right: 0;
+    width: 334px;
+    overflow: hidden;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #EEEEEE;
+    z-index: 9999;
+}
+.shopping-cart .dropdown-list li{
+    padding-bottom: 8px;
+    border-bottom: 1px solid #EEEEEE;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+.shopping-cart .dropdown-list li .info-side{
+    position: relative;
+    width: 83%;
+}
+.shopping-cart .dropdown-list li .info-side .btn-link{
+    position: absolute;
+    top: 29px;
+    right: 0;
+}
+.shopping-cart .dropdown-list li .info-side .title{
+    overflow: hidden;
+    width: 275px;
+    padding: 5px;
+    height: 22px;
+}
+.shopping-cart .dropdown-list li .info-side .title a{
+   color: #333333;
+    text-align: left;
+}
+
+.shopping-box  .all{
+    height: 25px;
+    line-height: 25px;
+    border: 1px solid #eeeeee;
+    text-indent: 10px;
+}
+.shopping-box  .all b{
+    color: #437eff;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left:5px;
+}
+.navbar{
+    width: 100%;
+    background:#af2812 ;
+    height: 35px;
+}
+.navbar ul{
+    width: 980px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.navbar ul li{
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    float: left;
+    width: 196px;
+}
+.navbar ul li a{
+    color: #ffffff;
+    font-size: 14px;
+}
+/*头部结束*/
+/*底部开始*/
+.footer-wrapper{
+    overflow: hidden;
+    margin-top: 20px;
+}
+.help-bg{
+    width: 100%;
+    border-bottom: 2px solid #eeeeee;
+    border-top: 2px solid #eeeeee;
+}
+.footer-help {
+    overflow: hidden;
+    padding: 20px;
+}
+.footer-help dl{
+    float: left;
+    width: 200px;
+    margin-left: 30px;
+}
+.footer-help dl dt{
+    font-weight: bold;
+    font-size: 14px;
+}
+.footer-help dl dd{
+    line-height: 24px;
+}
+.footer{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.bottom-nav{
+    margin: 0 auto;
+    width: 320px;
+    overflow: hidden;
+}
+.bottom-nav li{
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    padding: 10px;
+    text-align: center;
+}
+.footer p{
+    line-height: 18px;
+}
+.footer span{
+    color: red;
+    font-size: 18px;
+    font-weight: #af2812;
+}
+.kf{
+    background: #af2812;
+    color: #ffffff;
+    font-size: 16px;
+    height: 35px;
+    width: 210px;
+    line-height: 35px;
+    text-align: center;
+}
+/*底部结束*/
+/*弹出登录*/
+.login2,.prompt{
+    width: 360px;
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    background: #ffffff;
+}
+.login2 .login2-head,.prompt .prompt-head{
+    height: 40px;
+    border-bottom: 1px solid #EEEEEE;
+    background: #f1f1f1;
+    position: relative;
+}
+.close{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background: url("../images/icon_3.png") no-repeat -137px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.login2 .login2-head h4,.prompt .prompt-head h4{
+    line-height: 40px;
+    text-align: center;
+}
+.login2 .login2-body{
+    overflow: hidden;
+    padding:0 30px 30px;
+}
+.login2 .login2-body li{
+    position: relative;
+    margin-bottom:10px;
+    overflow: hidden;
+}
+.login2 .login2-body li input{
+    height: 36px;
+    border: 1px solid #EEEEEE;
+    width: 296px;
+    text-indent: 30px;
+}
+.login2 .login2-body li .register{
+    font-weight: bold;
+    text-decoration: underline;
+}
+.login2 .error{
+    height: 22px;
+    width: 100%;
+    line-height: 22px;
+    color: red;
+    text-indent: 30px;
+    display: inline-block;
+}
+#greybackground {
+   background:#000;
+   display:block;
+   z-index:100;
+   width:100%;
+   position:absolute;
+   top:0;
+   left:0;
+}
+.prompt-panel{
+    overflow: hidden;
+    margin: 80px 0;
+    text-align: center;
+}
+.prompt-panel .btn{
+    margin-right: 20px;
+}
+/*支付*/
+.pay-way{
+    overflow: hidden;
+}
+.pay-way dl{
+    overflow: hidden;
+    border: 1px solid #f1f1f1;
+    padding: 0 15px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.pay-way dl dt{
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    clear: both;
+    border-bottom: 1px solid #f1f1f1;
+}
+.pay-way dl dd{
+    float: left;
+    margin:0 30px 10px 0;
+    overflow: hidden;
+}
+.pay-way dl dd input{
+    display:block;
+    float: left;
+    margin: 12px 5px 0 0;
+    cursor: pointer;
+}
+.pay-way dl dd label{
+    display:block;
+    cursor: pointer;
+    float: left;
+}
+.pay-way dl dd label span{
+    display: block;
+    width: 105px;
+    height: 31px;
+    float: left;
+    background: url("../images/bank_logo.png")no-repeat;
+}
+.pay-way dl dd label .zhs{
+    background-position: 0 -36px;
+}
+.pay-way dl dd label .jt{
+    background-position: 0 -466px;
+}
+.pay-way dl dd label .gsh{
+    background-position: 0 -3px;
+}
+.pay-way dl dd label .zhg{
+    background-position: 0 -433px;
+}
+.pay-way dl dd label .zhx{
+    background-position: 0 -333px;
+}
+.pay-way dl dd label .jsh{
+    background-position: 0 -69px;
+}
+.pay-way dl dd label .ny{
+    background-position: 0 -102px;
+}
+.pay-way dl dd label .zhf{
+    background-position: 0 -613px;
+}
+.pay-way dl dd label .cft{
+    background-position: 0 -501px;
+}
+.pay-way dl dd label .kq{
+    background-position: 0 -577px;
+}
+.pay-help{
+    margin: 10px 0;
+}
+.pay-help dt{
+    margin-bottom: 10px;
+    line-height: 24px;
+}
+.pay-help dd{
+    margin-bottom: 10px;
+    line-height: 24px;
+}
+.pay-help dd a{
+    margin-right:30px;
+}
+.pay-help dd ol{
+    overflow: hidden;
+    list-style-type: decimal;
+}
+
+.announcement{
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+    padding: 20px;
+}
+.announcement dt{
+    height: 36px;
+    line-height: 36px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.announcement dd{
+    overflow: hidden;
+    border-top:1px dashed #EEEEEE ;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+.announcement dd .a-content{
+    line-height: 22px;
+    overflow: hidden;
+    text-indent: 2em;
+}
+.announcement dd .a-title{
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+}
+
+
