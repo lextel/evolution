@@ -424,6 +424,7 @@ class Model_Item extends \Orm\Model {
               'image'     => $image,
               'images'    => serialize($post['images']),
               'status'    => \Helper\Item::NOT_CHECK,
+              'reason'    => '',
               'is_delete' => \Helper\Item::NOT_DELETE,
             ];
 

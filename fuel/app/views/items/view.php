@@ -1,4 +1,4 @@
-<?php echo Asset::css(['product.css', 'jquery.jqzoom.css']); ?>
+<?php echo Asset::css(['product.css', 'jquery.jqzoom.css', 'customBootstrap.css']); ?>
 <?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js', 'item/view.js']); ?>
 <?php $this->title = '(第' . $item->phase->phase_id .'期)' . $item->title; ?>
 <div class="wrapper w">
@@ -85,12 +85,12 @@
             <div class="new-buyer">
                 <div class="new-buyer-header">
                     <ul class="tab">
-                        <li><a href="#buy" data-toggle="tab">最新乐拍记录</a></li>
+                        <li class="active"><a href="#buy" data-toggle="tab">最新乐拍记录</a></li>
                         <li><a href="#myBuy" data-toggle="tab">我的乐拍记录</a></li>
                         <li><a href="#help" data-toggle="tab">如何乐拍</a></li>
                     </ul>
                  </div>
-                <div class="new-buyer-body" id="tab_content">
+                <div class="new-buyer-body tab-content">
                     <div class="tab-pane active" id='buy'>
                         <table>
                             <tbody>
@@ -110,8 +110,7 @@
                                     <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
                                     <td>火枪中路必胜</td>
                                     <td><s>(广东深圳市)</s><b>1分钟前</b></td>
-                                    <td>乐拍了<s>100</s>次</td>
-                                </tr>
+                                    <td>乐拍了<s>100</s>次</td> </tr>
                                 <tr>
                                     <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
                                     <td>火枪中路必胜</td>
@@ -139,27 +138,238 @@
     </div>
     <div class="sub-nav w">
         <ul>
-            <li><a href="#desc" data-toggle="tab">商品详情</a></li>
+            <li><a href="#desc" data-toggle="tab" class="active">商品详情</a></li>
             <li><a href="#buylog" data-toggle="tab">所有参与纪录(<b>100</b>)</a></li>
             <li><a href="#posts" data-toggle="tab">晒单(<b>100</b>)</a></li>
             <li><a href="#phase" data-toggle="tab">往期回顾(<b>100</b>)</a></li>
         </ul>
     </div>
     <!--商品信息结束-->
-    <div class="content">
+    <div class="content tab-content">
         <!--商品详情开始-->
-        <div class="product-details tab-pane" id="desc">
+        <div class="product-details tab-pane active" id="desc">
             <?php echo $item->desc; ?>
         </div>
         <!--商品详情结束-->
-        <div class="tab-pane" id="buylog">
-            buylog
+        <!--参与记录开始-->
+        <div class="record d-n tab-pane" id="buylog">
+            <table>
+                <thead>
+                    <tr>
+                        <th>会员帐号</th>
+                        <th>数量/人次</th>
+                        <th>时间</th>
+                    <tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="head-img-sm fl"><a href=""><img src="img/54359.jpg" alt=""/></a></span>
+                            <span class="name fl">我是买家名字</span>
+                            <span class="ip fl">（广东深圳市 IP:25.42.251.11）</span>
+                        </td>
+                        <td>10</td>
+                        <td>2013-12-23 10:16:22</td>
+                    <tr>
+                    <tr>
+                        <td>
+                            <span class="head-img-sm fl"><a href=""><img src="img/54359.jpg" alt=""/></a></span>
+                            <span class="name fl">我是买家名字</span>
+                            <span class="ip fl">（广东深圳市 IP:25.42.251.11）</span>
+                        </td>
+                        <td>10</td>
+                        <td>2013-12-23 10:16:22</td>
+                    <tr>
+                    <tr>
+                        <td>
+                            <span class="head-img-sm fl"><a href=""><img src="img/54359.jpg" alt=""/></a></span>
+                            <span class="name fl">我是买家名字</span>
+                            <span class="ip fl">（广东深圳市 IP:25.42.251.11）</span>
+                        </td>
+                        <td>10</td>
+                        <td>2013-12-23 10:16:22</td>
+                    <tr>
+                    <tr>
+                        <td>
+                            <span class="head-img-sm fl"><a href=""><img src="img/54359.jpg" alt=""/></a></span>
+                            <span class="name fl">我是买家名字</span>
+                            <span class="ip fl">（广东深圳市 IP:25.42.251.11）</span>
+                        </td>
+                        <td>10</td>
+                        <td>2013-12-23 10:16:22</td>
+                    <tr>
+                </tbody>
+            </table>
+            <!--分页-->
+            <div class="pagination fr">
+                <span><a href="" class="previous-inactive">上一页&lt;</a></span>
+                <span><a href="" class="active">1</a></span>
+                <span><a href="">2</a></span>
+                <span><a href="">3</a></span>
+                <span><a href="">4</a></span>
+                <span><a href="" class="next">下一页&gt;</a></span>
+            </div>
+            <!--结束-->
         </div>
-        <div class="tab-pane" id="posts">
-            posts
+        <!--参与记录结束-->
+        <!--晒单开始-->
+        <div class="product-bask tab-pane" id="posts">
+            <ul>
+                <li>
+                    <div class="head-img fl">
+                        <a href=""><img src="img/54359.jpg" alt=""></a>
+                        <div class="name"><a href="">我是买家名字</a></div>
+                    </div>
+                    <div class="bask-list fr">
+                        <h4 class="text-title">终于中了一个！</h4>
+                        <div class="datetime">2013-12-30</div>
+                        <div class="bask-text">
+                           艳遇地点：重庆。理由：重庆也许是中国美女最集中的城市，重庆特殊的地理环境造就重庆女孩天生的漂亮，
+                            加上重庆是雾城，长年都有雾，女孩都长得很水灵，化妆品不外是保持水份，而重庆却是一个长年潮湿的城市。
+                        </div>
+                        <dl class="bask-imgBox">
+                            <dd class="img-box">
+                                <a href=""><img src="img/54359.jpg" alt=""></a>
+                            </dd>
+                            <dd class="img-box">
+                                <a href=""><img src="img/54359.jpg" alt=""></a>
+                            </dd>
+                            <dd class="img-box">
+                                <a href=""><img src="img/54359.jpg" alt=""></a>
+                            </dd>
+                        </dl>
+                        <div class="btn-group tl">
+                            <a href="" class="btn btn-link">喜欢<s>(0)</s></a>
+                            <a href="" class="btn btn-link">评论<s>(0)</s></a>
+                        </div>
+                        <div class="bask-number">
+                            第01期晒单
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="head-img fl">
+                        <a href=""><img src="img/54359.jpg" alt=""></a>
+                        <div class="name"><a href="">我是买家名字</a></div>
+                    </div>
+                    <div class="bask-list fr">
+                        <h4 class="text-title">终于中了一个！</h4>
+                        <div class="datetime">2013-12-30</div>
+                        <div class="bask-text">
+                            艳遇地点：重庆。理由：重庆也许是中国美女最集中的城市，重庆特殊的地理环境造就重庆女孩天生的漂亮，
+                            加上重庆是雾城，长年都有雾，女孩都长得很水灵，化妆品不外是保持水份，而重庆却是一个长年潮湿的城市。
+                        </div>
+                        <dl class="bask-imgBox">
+                            <dd class="img-box">
+                                <a href=""><img src="img/54359.jpg" alt=""></a>
+                            </dd>
+                            <dd class="img-box">
+                                <a href=""><img src="img/54359.jpg" alt=""></a>
+                            </dd>
+                            <dd class="img-box">
+                                <a href=""><img src="img/54359.jpg" alt=""></a>
+                            </dd>
+                        </dl>
+                        <div class="btn-group tl">
+                            <a href="" class="btn btn-link">喜欢<s>(0)</s></a>
+                            <a href="" class="btn btn-link">评论<s>(0)</s></a>
+                        </div>
+                        <div class="bask-number">
+                            第01期晒单
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="head-img fl">
+                        <a href=""><img src="img/54359.jpg" alt=""></a>
+                        <div class="name"><a href="">我是买家名字</a></div>
+                    </div>
+                    <div class="bask-list fr">
+                        <h4 class="text-title">终于中了一个！</h4>
+                        <div class="datetime">2013-12-30</div>
+                        <div class="bask-text">
+                            艳遇地点：重庆。理由：重庆也许是中国美女最集中的城市，重庆特殊的地理环境造就重庆女孩天生的漂亮，
+                            加上重庆是雾城，长年都有雾，女孩都长得很水灵，化妆品不外是保持水份，而重庆却是一个长年潮湿的城市。
+                        </div>
+                        <dl class="bask-imgBox">
+                            <dd class="img-box">
+                                <a href=""><img src="img/54359.jpg" alt=""></a>
+                            </dd>
+                            <dd class="img-box">
+                                <a href=""><img src="img/54359.jpg" alt=""></a>
+                            </dd>
+                            <dd class="img-box">
+                                <a href=""><img src="img/54359.jpg" alt=""></a>
+                            </dd>
+                        </dl>
+                        <div class="btn-group tl">
+                            <a href="" class="btn btn-link">喜欢<s>(0)</s></a>
+                            <a href="" class="btn btn-link">评论<s>(0)</s></a>
+                        </div>
+                        <div class="bask-number">
+                            第01期晒单
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!--分页-->
+            <div class="pagination fr">
+                <span class="previous-inactive"><a href="">上一页&lt;</a></span>
+                <span class="active"><a href="">1</a></span>
+                <span><a href="">2</a></span>
+                <span><a href="">3</a></span>
+                <span><a href="">4</a></span>
+                <span class="next"><a href="">下一页&gt;</a></span>
+            </div>
+            <!--结束-->
         </div>
-        <div  class="tab-pane" id="phase">
-            往期回顾
+        <!--晒单结束-->
+        <!--往期回顾开始-->
+        <div  class="look-bak d-n tab-pane" id="phase">
+            <table>
+                <thead>
+                <tr>
+                    <th>期数</th>
+                    <th>幸运获奖者</th>
+                    <th>幸运乐拍码</th>
+                    <th>购买数量</th>
+                    <th>揭晓时间</th>
+                <tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>第516期</td>
+                        <td>正在进行中...</td>
+                        <td>我是买家名字</td>
+                        <td>10</td>
+                        <td>2013-12-30 10:22:33</td>
+                    <tr>
+                    <tr>
+                        <td>第516期</td>
+                        <td>10002103</td>
+                        <td>我是买家名字</td>
+                        <td>10</td>
+                        <td>2013-12-30 10:22:33</td>
+                    <tr>
+                    <tr>
+                        <td>第516期</td>
+                        <td>10001582</td>
+                        <td>我是买家名字</td>
+                        <td>10</td>
+                        <td>2013-12-30 10:22:33</td>
+                    <tr>
+                </tbody>
+            </table>
+            <!--分页-->
+            <div class="pagination fr">
+                <span><a href="" class="previous-inactive">上一页&lt;</a></span>
+                <span><a href="" class="active">1</a></span>
+                <span><a href="">2</a></span>
+                <span><a href="">3</a></span>
+                <span><a href="">4</a></span>
+                <span><a href="" class="next">下一页&gt;</a></span>
+            </div>
+            <!--结束-->
         </div>
     </div>
 
