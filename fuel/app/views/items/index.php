@@ -1,4 +1,7 @@
 <?php echo Asset::css('product.css'); ?>
+<?php echo Asset::js('jquery1.8.2jquery.min.js'); ?>
+<?php echo Asset::js('./item/view.js'); ?>
+
 <div class="wrapper w">
     <div class="product-inner w">
         <ul class="left-sidebar fl">
@@ -66,11 +69,12 @@
             <span>排序</span>
             <?php echo $sort(); ?>
         </div>
+
         <div class="product-list">
             <ul class="product-box">
                 <?php foreach($items as $item): ?>
                 <li>
-                    <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
+                    <form class="xpxp" id="xpxp" action="<?php echo Uri::create('cart/add'); ?>" method="post">
                         <div class="title-box">
                             <h4><a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><?php echo $item->title; ?></a></h4>
                             <span class="price">价值 <b>￥<?php echo sprintf('%.2f' ,$item->price); ?></b></span>
@@ -93,14 +97,14 @@
                         </dl>
                         <div class="btn-menu">
                             <span>我要乐拍</span>
-                            <button class="">-</button>
-                            <input type="text" value="1" name="qty"/>
-                            <button class="">+</button>
+                            <a class="btn-jian" >----</a>
+                            <input id="qty" type="text" value="1" name="qty"/>
+                            <a class="btn-jia" >+++++</a>
                             <span>人次</span>
                         </div>
                         <div class="btn-group">
                             <input name="id" value="<?php echo $item->phase->id; ?>" type="hidden">
-                            <button class="btn btn-red" type="submit">立即乐拍</button>
+                            <button class="btn btn-red" type="Submit" onclick="ck();">立即乐拍</button>
                             <a class="btn btn-default" href="javascript:void(0);">加入购物车</a>
                         </div>
                     </form>

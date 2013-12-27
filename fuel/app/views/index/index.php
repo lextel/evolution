@@ -1,8 +1,15 @@
+<?php echo Asset::css('jquery.bxslider.css'); ?>
 <?php echo Asset::css('focus.css'); ?>
-<?php echo Asset::js('focus.js'); ?>
+<?php echo Asset::js('jquery.bxslider.min.js'); ?>
+
+<script>
+$(document).ready(function(){
+  $('.bxslider').bxSlider();
+});
+</script>
     <!--banner开始-->
     <div class="banner">
-        <ul class="rslides f426x240">
+        <ul class="bxslider" >
             <li><a href="" target="_blank"><img src="assets/images/01.jpg" alt="" /></a></li>
             <li><a href="" target="_blank"><img src="assets/images/02.jpg" alt="" /></a></li>
             <li><a href="" target="_blank"><img src="assets/images/03.jpg" alt="" /></a></li>
