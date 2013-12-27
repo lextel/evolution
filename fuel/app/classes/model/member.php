@@ -43,7 +43,22 @@ class Model_Member extends \Orm\Model
         $val->add_field('email', 'Email', 'required|valid_email|max_length[255]');
         $val->add_field('login_hash', 'Login Hash', 'required|max_length[255]');
         $val->add_field('profile_fields', 'Profile Fields', 'required');
+        return $val;
+    }
 
+    public static function validateProfile($factory)
+    {
+        $val = Validation::forge($factory);
+        $val->add_field('nickname', '', 'required');
+        $val->add_field('mobile', '', '');
+        $val->add_field('bio', '', '');
+        return $val;
+    }
+
+    public static function validateAvatar($factory)
+    {
+        $val = Validation::forge($factory);
+        $val->add_field('avatar', '', 'required');
         return $val;
     }
     /*
@@ -53,20 +68,25 @@ class Model_Member extends \Orm\Model
     {
         $member = Model_Member::find_by_nickname($nickname);
         if (!$member)
-        {          
+        {
             return true;
-        }       
+        }
         return false;
     }
-    /*
-    *更新用户昵称
-    */
-    public static function updateNickname($member_id, $nickname, $bio)
-    {
-        $member = Model_Member::find_by_id($member_id);
-        $member->nickname = $nickname;
-        $member->bio = $bio;
-        return $member->save();
+        /**
+     * 上传商品图片
+     *
+     * @param $file $_FILES数组
+     *
+     * @reutrn array 上传的文件数组
+     */
+    public static function  upload() {
+        $upload  = new Classes\Upload('avatar');
+        $success = $upload->upload();
+        $rs = [];
+        if($success) {
+            $rs =  $upload->getFiles();
+        }
+        return $rs;
     }
-  
 }

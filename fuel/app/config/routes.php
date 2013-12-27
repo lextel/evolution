@@ -23,6 +23,7 @@ return array(
     'u/address/delete/(\d+)' => 'member/address/delete/$1',
     'u/getavatar' => 'member/getavatar',
     'u/avatar' => 'member/avatar',
+    'u/avatar/upload' => 'member/avatarUpload',
     'u/getprofile' => 'member/getprofile',
     'u/profile' => 'member/profile',
     'u/passwd' => 'member/changepassword',
