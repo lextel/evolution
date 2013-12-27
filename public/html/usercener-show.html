@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>晒单</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/header.css"/>
+    <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+</head>
+<body>
+<div class="wrapper w">
+    <!--左边内容开始-->
+    <div class="left-sidebar fl">
+        <div class="img-box">
+            <a href=""><img src="img/54359.jpg" alt=""/></a>
+        </div>
+        <ul class="left-nav">
+            <li><a href="">我的主页</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(null)">我的乐拍</a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:void(null)">乐拍记录</a></li>
+                    <li><a href="javascript:void(null)">获得的商品</a></li>
+                    <li><a href="javascript:void(null)">晒单</a></li>
+                </ul>
+                <span class="icon-arrow"></span>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(null)">帐户管理</a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:void(null)">帐户明细</a></li>
+                    <li><a href="javascript:void(null)">帐号充值</a></li>
+                </ul>
+                <span class="icon-arrow"></span>
+            </li>
+            <li><a href="">消息管理</a></li>
+            <li><a href="">个人设置</a></li>
+        </ul>
+    </div>
+    <!--右左边内容结束-->
+    <div class="content-inner">
+        <!--晒单开始-->
+        <div class="show-box">
+            <div class="toggles">
+                <a href="javascript:void(0)" class="first-child active">未晒单</a>
+                <a href="javascript:void(0)" class="last-child">已晒单</a>
+            </div>
+            <!--未晒单-->
+            <div class="show-c" >
+                <table>
+                    <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>商品图片</th>
+                        <th>商品信息</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""/></a></div></td>
+                        <td>
+                            <div class="text-title">（第539期）苹果Iphone 5s 16G版 3G手机</div>
+                            <div class="number">幸运乐拍码：10000121</div>
+                            <div class="datetime">揭晓时间：2013-12-33 10:00:00</div>
+                        </td>
+                        <td><a href="" class=" btn btn-default btn-sx">晒单</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul class="show-form">
+                    <li>
+                        <label for="">标题</label>
+                        <input type="text"/><span></span>
+                        <label for="" class="error"></label>
+                    </li>
+                    <li>
+                        <label for="" class="body-label">正文</label>
+                        <textarea name="" id="" cols="70" rows="6"></textarea>
+                        <label for="" class="error"></label>
+                    </li>
+                    <li>
+                        <label for="" class="body-label">图片</label>
+                        <dl>
+                            <dd class="img-box">
+                                <img src="img/54359.jpg" alt=""/>
+                                <button class="delete"></button>
+                            </dd>
+                            <dd class="img-box">
+                                <img src="img/54359.jpg" alt=""/>
+                                <button class="delete"></button>
+                            </dd>
+                            <dd class="img-box">
+                                <img src="img/54359.jpg" alt=""/>
+                                <button class="delete"></button>
+                            </dd>
+                        </dl>
+                        <button class="btn btn-default">上传图片</button>
+                        <label for="" class="error"></label>
+                    </li>
+                    <li><button class="btn btn-red tj">发布</button></li>
+                </ul>
+            </div>
+            <!--已晒单-->
+            <div class="show-c">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>晒单图片</th>
+                        <th>晒单信息</th>
+                        <th>晒单状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""/></a></div></td>
+                        <td>
+                            <div class="text-title">（第539期）苹果Iphone 5s 16G版 3G手机</div>
+                            <div class="text-content">揭晓时间：2013-12-33 10:00:00</div>
+                        </td>
+                        <td>等待审核</td>
+                        <td>
+                            <a href="" class=" btn btn-sx btn-link btn-block">查看</a>
+                            <a href="" class=" btn btn-sx btn-link btn-block">编辑</a>
+                            <a href="" class=" btn btn-sx btn-link  btn-block">删除</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--获晒单结束-->
+    </div>
+</div>
+</body>
+</html>

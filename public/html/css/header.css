@@ -1,0 +1,201 @@
+
+.content{
+    margin-top: 20px;
+    width: 980px;
+}
+/*左边开始*/
+.left-content{
+    width: 710px;
+    float: left;
+}
+/*最新揭晓开始*/
+.announced-news{
+
+}
+.announced-news ul{
+    overflow: hidden;
+    padding: 20px 20px 20px 0px ;
+}
+.announced-news ul li{
+    float: left;
+    margin-left:20px;
+    width: 152px;
+}
+.announced-news ul li h5{
+    width: 150px;
+    overflow: hidden;
+    white-space:nowrap ;
+    text-overflow: ellipsis;
+}
+
+.announced-news ul li .img-box{
+    height: 130px;
+    line-height: 130px;
+}
+/*人气推荐开始*/
+.recommended{
+    overflow: hidden;
+    margin-top: 20px;
+}
+.recommended .price{
+    text-align: right;
+}
+.recommended .img-box{
+   margin-bottom: 10px;
+    border: none;
+}
+.recommended .progress-side{
+    padding: 0 15px;
+}
+.recommended ul li{
+    float: left;
+    width: 228px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    margin-right: 10px;
+}
+
+.recommended ul li.m{
+    margin: 0;
+}
+ .title-box{
+     height: 40px;
+     background: #eeeeee;
+     padding:5px 10px;
+ }
+ .title-box h4{
+    width: 220px;
+    white-space:nowrap ;
+    text-overflow:ellipsis ;
+}
+.recommended ul li .img-box{
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    padding: 0 15px;
+}
+/*左边结束*/
+/*右边开始*/
+.right-content{
+    width: 258px;
+    float: right;
+}
+/*公告*/
+.notice{
+    overflow: hidden;
+}
+.notice .title,.buying-box .title{
+    background: #eeeeee;
+}
+.notice ul{
+    border: 1px solid #eeeeee;
+    overflow: hidden;
+    padding: 10px;
+    list-style-type: square;
+}
+.notice ul li{
+    height: 21px;
+    line-height: 21px;
+    padding:5px;
+    width: 230px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/*正在乐拍*/
+.buying-box{
+    overflow: hidden;
+    border: 1px solid #eeeeee;
+    width: 255px;
+    margin-top: 20px;
+}
+.buying-box ul{
+    width: 258px;
+}
+.buying-box ul li{
+    height: 80px;
+    margin:10px 10px 0 10px;
+    border-bottom: 1px dashed #eeeeee;
+}
+.buying-box ul li .info-side{
+    width: 156px;
+    float: left;
+    margin-left: 10px;
+}
+/*右边结束*/
+/*晒单分享*/
+.bask-side{
+    overflow: hidden;
+}
+.bask-side .bask{
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #eeeeee;
+}
+.bask .img-box{
+    width: 130px;
+    height: 140px;
+    line-height: 140px;
+}
+.bask .bask-info{
+    width: 320px;
+    height: 150px;
+    background: #edf1f4;
+    border-radius: 4px;
+    padding: 10px;
+    position: relative;
+}
+.bask-info::before{
+    content: "";
+    border-style: solid;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #ECEFF1 transparent transparent;
+    position: absolute;
+    left: -10px;
+    top: 35px;
+}
+.bask .title-box{
+    border-bottom: 1px dashed #959595;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.bask .title-box h4{
+    width:300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.bask .bask-content{
+    line-height: 22px;
+    width: 300px;
+    height: 145px;
+    overflow: hidden;
+}
+.bask-side .bask-list{
+    float: right;
+    width: 425px;
+    border: 1px solid #eeeeee;
+    padding: 10px 0px 10px 10px;
+ }
+.bask-side .bask-list ul li{
+    float: left;
+    width:160px;
+    margin-right: 10px;
+    padding: 0 20px;
+}
+.bask-side .bask-list ul li .img-box{
+    height: 120px;
+    width: 150px;
+    margin: 0 auto;
+    line-height: 120px;
+}
+.bask-side .bask-list ul li h5{
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+
+

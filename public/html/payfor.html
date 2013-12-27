@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>支付</title>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/product.css"/>
+    <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+</head>
+<body>
+<!--头部开始-->
+<div class="logo-box">
+    <div class="logo"><a href=""><img src="" alt=""/>logo</a></div>
+    <div class="right-box">
+        <div class="shopping-box">
+            <div class="shopping-cart"><a href="">购物车</a></div>
+            <div class="btn-group tr">
+                <a href="" class="btn btn-link">返回首页</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--头部结束-->
+<div class="wrapper w">
+    <div class="cart-content">
+        <ol class="pay-prompt">
+            <li><a href=""><span>1</span>确认提交订单>></a></li>
+            <li><a href=""><span>2</span>网银支付>></a></li>
+            <li><a href=""><span>3</span>等待揭晓>></a></li>
+            <li><a href=""><span>4</span>揭晓获奖者>></a></li>
+            <li><a href=""><span>5</span>晒单分享>></a></li>
+        </ol>
+        <div class="cart-list">
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>商品名称</th>
+                    <th>价值</th>
+                    <th>单价</th>
+                    <th>购买数量</th>
+                    <th>小计</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="checkbox"/></td>
+                    <td>
+                        <div class="img-box fl"><a href=""><img src="img/54359.jpg" alt=""></a>
+                        </div>
+                        <div class="info-side fl">
+                            <div class="title">
+                                <a href="">联通0元购机酷派 7296 手机 智尚白（推荐订购两年期</a>
+                            </div>
+                            <div class="remain">剩余次数: <b class="red">0</b></div>
+                        </div>
+                    </td>
+                    <td><s class="red">￥2000.00</s></td>
+                    <td><s class="red">￥2000.00</s></td>
+                    <td>1</td>
+                    <td><s class="red">￥2000.00</s></td>
+                    <td><button class="btn btn-default btn-sx">删除</button></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="cart-footer">
+                <button class="btn btn-default btn-sx fl">返回修改订单</button>
+                <div class="price fr">总金额：<s class="red">￥00.00</s></div>
+            </div>
+        </div>
+        <div class="balance-box w">
+            <input type="checkbox"/>
+            <span>使用帐户余额支付，帐户余额：<b class="y">0.00</b>元 </span>
+        </div>
+    </div>
+    <!--选择支付方式开始-->
+    <div class="pay-way">
+        <div class="title"><h4>选择付款方式</h4></div>
+        <dl>
+            <dt>第三方平台</dt>
+            <dd>
+                <input type="radio" name="account"/>
+                <label for="">
+                    <span class="zhf"></span>
+                </label>
+            </dd>
+            <dd>
+                <input type="radio" name="account"/>
+                <label for="">
+                    <span class="cft"></span>
+                </label>
+            </dd>
+            <dd>
+                <input type="radio" name="account"/>
+                <label for="">
+                    <span class="kq"></span>
+                </label>
+            </dd>
+            <dt>网银支付</dt>
+            <dd>
+                <input type="radio" name="account"/>
+                <label for="">
+                    <span class="zhs"></span>
+                </label>
+            </dd>
+            <dd>
+                <input type="radio" name="account"/>
+                <label for="">
+                    <span class="jt"></span>
+                </label>
+            </dd>
+            <dd>
+                <input type="radio" name="account"/>
+                <label for="">
+                    <span class="gsh"></span>
+                </label>
+            </dd>
+            <dd>
+                <input type="radio" name="account"/>
+                <label for="">
+                    <span class="zhg"></span>
+                </label>
+            </dd>
+            <dd>
+                <input type="radio" name="account"/>
+                <label for="">
+                    <span class="zhx"></span>
+                </label>
+            </dd>
+            <dd>
+                <input type="radio" name="account"/>
+                <label for="">
+                    <span class="jsh"></span>
+                </label>
+            </dd>
+            <dd>
+                <input type="radio" name="account"/>
+                <label for="">
+                    <span class="ny"></span>
+                </label>
+            </dd>
+        </dl>
+        <button class="buy fr">确认支付</button>
+    </div>
+    <!--选择支付方式结束-->
+    <dl class="pay-help w">
+          <dt><h4>付款遇到问题</h4></dt>
+          <dd>
+          <ol>
+             <li>1.如果你未开通网上银行，可以使用储蓄卡快捷支付轻松完成付款;</li>
+             <li>2.如果你未开通网上银行，可以使用储蓄卡快捷支付轻松完成付款;</li>
+             <li>3.如果你未开通网上银行，可以使用储蓄卡快捷支付轻松完成付款;</li>
+          </ol>
+          </dd>
+          <dd><a href="">更多帮助</a><a href="">进入我的个人中心</a></dd>
+     </dl>
+</div>
+<!--弹出登录框-->
+<div class="prompt">
+        <div class="prompt-head">
+            <h4>支付提醒</h4>
+            <button class="close" id="close"></button>
+        </div>
+        <div class="prompt-panel">
+            <a href="" class=" btn btn-default">付款遇到问题</a><a href=""  class=" btn btn-default">完成付款</a>
+        </div>
+</div>
+</body>
+</html>

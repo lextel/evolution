@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>我的购物车</title>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/product.css"/>
+    <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+</head>
+<body>
+<!--头部开始-->
+<div class="logo-box">
+    <div class="logo"><a href=""><img src="" alt=""/>logo</a></div>
+    <div class="right-box">
+        <div class="shopping-box">
+            <div class="shopping-cart"><a href="">购物车</a></div>
+            <div class="btn-group tr">
+                <a href="" class="btn btn-link">返回首页</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--头部结束-->
+    <div class="wrapper w">
+        <div class="cart-content">
+            <ol class="pay-prompt">
+                <li><a href=""><span>1</span>确认提交订单>></a></li>
+                <li><a href=""><span>2</span>网银支付>></a></li>
+                <li><a href=""><span>3</span>等待揭晓>></a></li>
+                <li><a href=""><span>4</span>揭晓获奖者>></a></li>
+                <li><a href=""><span>5</span>晒单分享>></a></li>
+            </ol>
+            <div class="cart-list">
+                <table>
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>商品名称</th>
+                        <th>价值</th>
+                        <th>单价</th>
+                        <th>购买数量</th>
+                        <th>小计</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="checkbox"/></td>
+                        <td>
+                            <div class="img-box fl"><a href=""><img src="img/54359.jpg" alt=""></a>
+                            </div>
+                            <div class="info-side fl">
+                                <div class="title">
+                                    <a href="">酷派 7296 手机 智尚白（推荐订购两年期）酷派 7296 手机 智尚白（推荐订购两年期）</a>
+                                </div>
+                                <div class="remain">剩余次数: <b class="red">0</b></div>
+                            </div>
+                        </td>
+                        <td><s class="red">￥2000.00</s></td>
+                        <td><s class="red">￥2000.00</s></td>
+                        <td>
+                            <div class="btn-menu">
+                                <button class="">-</button>
+                                <input type="text">
+                                <button class="">+</button>
+                                <span>人次</span>
+                            </div>
+                        </td>
+                        <td><s class="red">￥2000.00</s></td>
+                        <td><button class="btn btn-default btn-sx">删除</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="cart-footer">
+                    <label for="" class="fl"><input type="checkbox"/>全选</label>
+                    <button class="btn btn-default btn-sx fl">批量删除</button>
+                    <div class="price fr">总金额：<s class="red">￥00.00</s></div>
+                </div>
+            </div>
+            <div class="btn-group tr">
+                <a href="" class="btn btn-default">返回首页</a>
+                <a href="" class="btn btn-red" id="popup">提交订单</a>
+            </div>
+        </div>
+        <!--今日热门开始-->
+        <div class="unveiled w">
+            <h4>以下商品即将揭晓,快去乐拍吧~</h4>
+            <ul>
+                <li>
+                    <div class="title">
+                        <h5>苹果智能手机32G苹果智能手机32G</h5>
+                        <div class="price">价值<b>￥5000</b></div>
+                    </div>
+                    <div class="img-box">
+                        <a href=""><img src="img/54359.jpg" alt=""></a>
+                        <div class="sheng-yi">
+                            剩余 <b class="red">0</b>人次本商品就揭晓了！
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-red">放入购物车</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--今日热门结束-->
+    </div>
+<!--弹出登录框-->
+<div class="login2">
+    <form action="">
+        <div class="login2-head">
+          <h4>用户登录</h4>
+           <button class="close" id="close"></button>
+        </div>
+        <label for="" class="error"></label>
+        <ul class="login2-body">
+            <li>
+                <input type="text" value="用户名"/>
+                <span class="icon-user"></span>
+            </li>
+            <li>
+                <input type="text" value="密码"/>
+                <span class="icon-password"></span>
+
+            </li>
+            <li>
+                <a href="" class="fr">忘记密码？</a>
+            </li>
+            <li>
+                <button class=" btn btn-red">登录</button>
+            </li>
+            <li>还没有帐号？<a href="" class="register">马上注册</a> </li>
+        </ul>
+    </form>
+</div>
+</body>
+</html>
