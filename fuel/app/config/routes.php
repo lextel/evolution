@@ -2,11 +2,9 @@
 return array(
     '_root_'  => 'index/index',  // The default route
     '_404_'   => 'error/404',    // The main 404 route
-    '_500_'   => 'error/500',    // The main 404 route
+    '_500_'   => 'error/500',    // The main 500 route
 
-    //'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),
-
-     'totalbuycount' => 'index/totalCount',
+    'totalbuycount' => 'index/totalCount',
 
     'signin' => 'center/signin',
     'signup' => 'center/signup',
