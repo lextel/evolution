@@ -10,7 +10,7 @@
             </li>
             <li>
                 <div class="price fl">帐户余额： <b>￥<?php echo $current_user->points;?></b> </div>
-                <button class="edit fl">充值</button>
+                <?php echo Html::anchor('/u/recharge', '<button class="edit fl">充值</button>');?>
             </li>
         </ul>
         <ul class="buy-menu">

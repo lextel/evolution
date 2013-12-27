@@ -1,7 +1,9 @@
 <br />
 <script type="text/javascript">
 $(function(){
-    
+    $(".btn-profile").click(function(){
+        $(".form-profile").submit();
+    });
 });
 </script>
 <div class="set-wrap">
@@ -15,11 +17,18 @@ $(function(){
         </div>
         <!--修改资料-->
         <ul class="edit-data">
-            <?php echo Form::open(['action' => 'u/profile', 'method' => 'post', 'class'=>'profile']); ?>
+            <?php echo Form::open(['action' => 'u/profile', 'method' => 'post', 'class'=>'form-profile']); ?>
+            <li>
+            <?php if (Session::get_flash('success')): ?>
+                 <?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
+            <?php endif; ?>
+            <?php if (Session::get_flash('error')): ?>
+                 <?php echo implode('</p><p>', (array) Session::get_flash('error')); ?>
+            <?php endif; ?>
+            </li>
             <li>
                 <label>邮箱：</label>
-                <?php echo Form::input('email', Input::post('email', $member->email), array('class' => 'form-control', 'placeholder'=>'邮箱'));?>
-                <span for="" class=""></span>
+                <?php echo Form::input('email', Input::post('email', $member->email), array('class' => 'form-control', 'placeholder'=>'邮箱', 'readonly'));?>
             </li>
             <li>
                 <label>昵称：</label>
@@ -37,7 +46,7 @@ $(function(){
                 <span for="" class="error align"></span>
             </li>
             <li>
-                <a href="javascript:void(0);" class="btn btn-red profile">保存</a>
+                <a href="javascript:void(0);" class="btn btn-red btn-profile">保存</a>
             </li>
             <?php echo Form::close(); ?>
         </ul>

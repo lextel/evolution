@@ -3,10 +3,10 @@
     <!--获得的商品开始-->
     <div class="left-sidebar fl">
         <div class="img-box">
-            <a href="<?php echo Uri::create('/u'); ?>"><?php echo Html::img($current_user->avatar, ['width'=>'px']);?></a>
+            <?php echo Html::anchor('u', Html::img($current_user->avatar));?></a>
         </div>
         <ul class="left-nav">
-            <li><a href="/u">我的主页</a></li>
+            <li><?php echo Html::anchor('u', '我的主页');?></li>
             <li class="dropdown">
                 <a href="javascript:void(null)">我的乐拍</a>
                 <ul class="dropdown-menu">
