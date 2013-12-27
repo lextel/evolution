@@ -1,4 +1,4 @@
-* {
+﻿* {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -209,6 +209,12 @@ table tbody tr td{
 .icon-expression{
     width: 18px;
     height: 18px;
+    vertical-align: middle;
+    background-position:0 -226px;
+}
+.icon-prompt{
+    width: 60px;
+    height: 60px;
     vertical-align: middle;
     background-position:0 -226px;
 }
@@ -429,7 +435,7 @@ h4{
     display: block;
 }
 .pagination span a:hover{
-    background: #D96D66;
+    background: #D9534F;
     color: #ffffff;
     border-radius: 3px;
 }
@@ -440,16 +446,19 @@ h4{
 .pagination span.active a{
     color: #ffffff;
 }
-.pagination span.disabled{
-    background:#EEEEEE ;
-    opacity: 0.3;
-}
 .pagination span.previous-inactive{
     width:60px;
 }
 .pagination span.next{
     width:60px;
 }
+.pagination span.previous{
+    width:60px;
+}
+.pagination span.next-inactive{
+    width:60px;
+}
+
 .winner b{
     color: #437eff;
     padding: 0 5px;
@@ -849,3 +858,4 @@ h4{
     height: 24px;
     line-height: 24px;
 }
+

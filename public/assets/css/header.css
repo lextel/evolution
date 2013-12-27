@@ -40,7 +40,10 @@
 .recommended .price{
     text-align: right;
 }
-
+.recommended .img-box{
+   margin-bottom: 10px;
+    border: none;
+}
 .recommended .progress-side{
     padding: 0 15px;
 }

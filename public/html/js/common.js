@@ -114,13 +114,6 @@ $(function(){
         $(this).children(".icon-like").next("s").text(a);
     });
 });
-$(function(){
-    $(".comment-box textarea").focusin(function(){
-        $(this).next(".comment-footer").slideDown();
-        $(this).css({"border":"1px solid #09b2ea"});
-    });
-});
-
 
 /**
  * jQuery :  城市联动插件

@@ -21,6 +21,20 @@ a{
 p{
     line-height: 22px;
 }
+textarea{
+    width: 100%;
+    overflow:auto;
+    resize: none;
+    font-size: 14px;
+    line-height: 1.428571429;
+}
+button,input{
+    outline: none;
+}
+textarea:focus,input:focus{
+    outline: none;
+    border: 1px solid #00CCFF;
+}
 .d-n{
     display: none;
 }
@@ -48,16 +62,19 @@ p{
     text-align: center;
 }
 .btn-menu input{
-    width: 86px;
+    width: 84px;
+    text-align: center;
     border: 1px solid #f1f1f1;
     height: 22px;
     display: inline-block;
     margin:0 -4px;
 }
-.btn-menu button{
+.btn-menu a.add{
     width: 22px;
     border: 1px solid #f1f1f1;
-    height: 24px;
+    height: 22px;
+    text-align: center;
+    line-height: 22px;
     display: inline-block;
     cursor: pointer;
     background: #dbdbdb;
@@ -191,6 +208,12 @@ table tbody tr td{
     height: 18px;
     vertical-align: middle;
     background-position:0 -196px;
+}
+.icon-prompt{
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+    background-position:0 -226px;
 }
 .icon-expression{
     width: 18px;
