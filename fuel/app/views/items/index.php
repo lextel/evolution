@@ -1,5 +1,5 @@
 <?php echo Asset::css('product.css'); ?>
-<?php echo Asset::js('./item/view.js'); ?>
+<?php echo Asset::js('item/index.js'); ?>
 
 <div class="wrapper w">
     <div class="product-inner w">
@@ -97,15 +97,9 @@
                         </dl>
                         <div class="btn-menu">
                             <span>我要乐拍</span>
-<<<<<<< HEAD
-                            <a class="btn-jian" >----</a>
-                            <input id="qty" type="text" value="1" name="qty"/>
-                            <a class="btn-jia" >+++++</a>
-=======
-                            <a class="add">-</a>
+                            <a class="add btn-jian">-</a>
                             <input type="text" value="1" name="qty"/>
-                            <a class="add">+</a>
->>>>>>> 28b5c9b8e5647e6e70db37771193bf00021cd19f
+                            <a class="add btn-jia">+</a>
                             <span>人次</span>
                         </div>
                         <div class="btn-group">
