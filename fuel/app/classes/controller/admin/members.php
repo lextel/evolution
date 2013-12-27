@@ -2,9 +2,20 @@
 class Controller_Admin_Members extends Controller_Admin{
 
     public function action_index() {
-        $data['members'] = Model_Member::find('all');
-        $this->template->title = "Members";
-        $this->template->content = View::forge('admin/members/index', $data);
+
+        $breads = [
+                ['name' => '用户管理'], 
+                ['name' => '会员列表'],
+            ];
+
+        $view = View::forge('admin/members/index');
+        $breadcrumb = new Helper\Breadcrumb();
+        $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+
+        $members = Model_Member::find('all');
+        $view->set('members', $members);
+        $this->template->title = "会员列表 > 用户管理";
+        $this->template->content = $view;
 
     }
 

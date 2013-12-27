@@ -104,6 +104,10 @@
     padding: 10px;
 }
 /*个人主页*/
+.home-wrap{
+    border: 1px solid #EEEEEE;
+    width: 780px;
+}
 .number,.datetime{
     margin-bottom: 5px;
 }
@@ -147,35 +151,67 @@
     overflow: hidden;
 }
 .home{
-    border: 1px solid #EEEEEE;
     overflow: hidden;
-    padding: 20px;
-    margin-top:10px;
+    padding:10px 20px;
 }
-.buy-menu{
+
+.buy-record{
+    margin-left: 15px;
+}
+.home-wrap .home-c{
+    overflow: hidden;
+}
+.home-wrap .home-c ul li{
+    width: 218px;
+    padding: 10px;
+    border: 1px solid #EEEEEE;
+    float: left;
+    margin:0 0 15px 15px;
+}
+.home-wrap .home-c ul li .img-box{
+    width: 218px;
+    height: 200px;
+    text-align: center;
+}
+.home-c{
     overflow: hidden;
     width: 100%;
     margin-bottom: 15px;
 }
-.home ul .right-box{
+.home-c dl .right-box{
     width: 592px;
 }
-.buy-menu .right-box{
+.home-c .right-box{
     overflow: hidden;
     padding: 10px;
     border: 1px solid #EEEEEE;
 }
-.buy-menu  li{
+.home-c dl dd{
     float: left;
     margin-left: 10px;
+    margin-bottom: 10px;
 }
-.buy-menu  li .img-box{
+.home-c dl dd .img-box{
     width: 130px;
     height: 110px;
     position: relative;
 }
-.buy-record{
+.home-c .bask-menu{
+    overflow: hidden;
+    padding: 0 10px;
+}
+.home-c .bask-menu dd{
+    overflow: hidden;
+    border-bottom: 1px solid #EEEEEE;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+.home-c .bask-menu .info-side{
     margin-left: 15px;
+    width: 600px;
+}
+.home-c .bask-menu .info-side .text-content{
+    height: 38px;
 }
 /*个人中心*/
 .left-nav{
@@ -244,6 +280,21 @@
     border: 1px solid #DDDDDD;
     border-radius: 3px;
     margin-left: 20px;
+}
+.buy-menu {
+    padding:0 15px;
+    overflow: hidden;
+}
+.buy-menu dt{
+    height:30px;
+    line-height: 30px;
+    overflow: hidden;
+}
+.buy-menu dd{
+    overflow: hidden;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    margin-left:50px;
 }
 .buy-menu .right-box{
     width: 420px;
@@ -518,6 +569,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     border: 1px solid #f1f1f1;
     padding: 8px;
 }
+
 .edit-data li span{
     display: inline-block;
     min-width:18px;
@@ -539,12 +591,16 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 }
 .edit-data li select{
     display: inline-block;
-    width: 120px;
+    width: 110px;
     font-size: 14px;
     border: 1px solid #f1f1f1;
     padding:5px;
-    margin-right: 10px;
 }
+.edit-data li b{
+    margin: 0 10px;
+    font-size: 14px;
+}
+
 .edit-data li .upload-photo{
     border: 1px solid #f1f1f1;
     width:300px ;
@@ -590,6 +646,22 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     margin-right: 10px;
     border-radius: 3px;
 }
+.love-box .btn-link{
+    position: relative;
+}
+.love-box .love{
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    z-index: 999;
+    width: 60px;
+    opacity: 0;
+    height: 18px;
+    display: none;
+    border: 1px solid #df5646;
+    color:#df5646 ;
+}
+
 .text-content{
     clear: both;
     line-height: 20px;
@@ -712,19 +784,12 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 }
 .comment-footer{
     overflow: hidden;
-    height: 40px;
+    height: 34px;
     padding: 5px;
     line-height: 40px;
     background: #f1f1f1;
 }
-.comment-footer .head-img{
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 2px;
-    margin-right: 10px;
-    border-bottom: 1px solid #EEEEEE;
-}
+
 .comment-footer .btn{
     margin-left: 10px;
 }
@@ -763,9 +828,69 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 .comment-list dd .comment-box{
     width: 620px;
 }
-
-
-
-
-
-
+/*帮助中心*/
+.help-center{
+    border: 1px solid #EEEEEE;
+    overflow: hidden;
+    text-indent: 10px;
+}
+.help-center dt{
+    border: 1px solid #EEEEEE;
+    background: #f1f1f1;
+    height: 33px;
+    line-height: 33px;
+}
+.help-center dd{
+    border-top: 1px solid #EEEEEE;
+    text-indent: 20px;
+    height: 33px;
+    line-height: 33px;
+    cursor: pointer;
+}
+.left-sidebar h2{
+    border: 1px solid #EEEEEE;
+    text-align: center;
+}
+.help-main{
+    width: 745px;
+    float: right;
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+    padding:0 20px 15px;
+    margin: 10px 0;
+}
+.help-main h2{
+    font-size: 14px;
+    font-weight: bold;
+    height: 36px;
+    line-height: 36px;
+    border-bottom: 2px  solid #D96D66;
+}
+.help-main  .content p{
+    line-height: 22px;
+    margin-bottom: 5px;
+}
+/*历史记录*/
+.history .title{
+    padding: 6px;
+    font-size: 16px;
+    border-bottom: 1px solid#EEEEEE;
+    margin-bottom: 10px;
+}
+.history-content{
+    overflow: hidden;
+}
+.history-content .search{
+    height: 36px;
+    margin-bottom: 10px;
+}
+.error-box{
+    overflow: hidden;
+    width: 510px;
+    height: 400px;
+    margin: 100px auto 0;
+}
+.error-box p a{
+    color: #4CAFFF;
+    font-size: 13px;
+}
