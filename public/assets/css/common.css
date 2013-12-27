@@ -21,6 +21,20 @@ a{
 p{
     line-height: 22px;
 }
+textarea{
+    width: 100%;
+    overflow:auto;
+    resize: none;
+    font-size: 14px;
+    line-height: 1.428571429;
+}
+button,input{
+    outline: none;
+}
+textarea:focus,input:focus{
+    outline: none;
+    border: 1px solid #00CCFF;
+}
 .d-n{
     display: none;
 }
@@ -835,5 +849,3 @@ h4{
     height: 24px;
     line-height: 24px;
 }
-
-

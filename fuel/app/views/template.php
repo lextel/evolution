@@ -52,7 +52,9 @@
         </ul>
     </div>
     <!--头部结束-->
+    <div class="w">
     <?php echo $layout; ?>
+    </div>
     <!--底部开始-->
     <div class="footer-wrapper">
         <div class="help-bg">

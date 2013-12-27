@@ -674,7 +674,6 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 
 }
 .left-content{
-    border: 1px solid #EEEEEE;
     overflow: hidden;
     width: 695px;
     float: left;
@@ -683,6 +682,8 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     text-align: center;
     overflow: hidden;
     padding: 20px 0;
+    border: 1px solid #EEEEEE;
+    margin-bottom: -1px;
 }
 .content-title h3{
     height: 30px;
@@ -691,14 +692,14 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 }
 .content-nav{
     overflow: hidden;
-    border-top: 1px solid #EEEEEE;
-    border-bottom:  1px solid #EEEEEE;
+    border: 1px solid #EEEEEE;
+    border-right: none;
 }
 .content-nav li{
     width: 327px;
     float: left;
     border-right: 1px solid #EEEEEE;
-    margin-right: -1px;
+    margin-right: -2px;
     padding: 10px;
 }
 .content-nav li  .head-img{
@@ -709,6 +710,8 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 }
 .left-content .content{
     overflow: hidden;
+    border: 1px solid #EEEEEE;
+    margin-top: -1px;
     padding: 20px;
 }
 .content-right{
@@ -773,14 +776,8 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     margin-top: 20px;
 }
 .comment-box{
-    width: 700px;
-    overflow: hidden;
+    width:692px;
     border: 1px solid #EEEEEE;
-}
-.comment-box textarea{
-    width: 100%;
-    border-bottom: 1px solid #EEEEEE;
-    display: block;
 }
 .comment-footer{
     overflow: hidden;
@@ -792,6 +789,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 
 .comment-footer .btn{
     margin-left: 10px;
+    line-height: 16px;
 }
 .comment-footer .expression{
    margin-left: 15px;
@@ -807,8 +805,10 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     margin-bottom: 15px;
 }
 .comment-list dt h4{
-    height:36px;
-    line-height: 36px;
+    height:33px;
+    line-height: 33px;
+    width: 60px;
+    border-bottom: 3px solid #D9534F;
 }
 .comment-list dd{
     overflow: hidden;
@@ -826,7 +826,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     margin-bottom: 5px;
 }
 .comment-list dd .comment-box{
-    width: 620px;
+    width: 614px;
 }
 /*帮助中心*/
 .help-center{
