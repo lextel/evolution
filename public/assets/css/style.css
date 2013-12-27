@@ -71,7 +71,7 @@
     margin-left: 15px;
 }
  .register-form{
-    margin: 50px 0 0px 100px;
+    margin: 50px 0 0 100px;
     overflow: hidden;
 }
 .register-form ul li{
@@ -234,10 +234,10 @@
     position: absolute;
     top: 4px;
     right: 15px;
-    background: url("../images/icon_3.png") no-repeat -184px 0px;
+    background: url("../images/icon_3.png") no-repeat -184px 0;
 }
 .icon-arrow-down{
-    background: url("../images/icon_3.png") no-repeat -212px 0px;
+    background: url("../images/icon_3.png") no-repeat -212px 0;
 }
 .left-nav li a{
     display: block;
@@ -587,7 +587,8 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 }
 .edit-data li textarea{
     border: 1px solid #f1f1f1;
-    padding: 10px;
+    padding: 5px;
+    width: 428px;
 }
 .edit-data li select{
     display: inline-block;
@@ -893,8 +894,4 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 .error-box p a{
     color: #4CAFFF;
     font-size: 13px;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 16305891f6ccc1a5fcf709ed5fcfb6c7f5fb4aba
