@@ -45,7 +45,7 @@ class Controller_Admin_Users extends Controller_Admin{
             $email = Input::post('email');
             $group = Input::post('group');
             try {
-                $user_id = Auth::create_user($username, $password, $email, $group);
+                $user_id = $this->auth->create_user($username, $password, $email, $group);
                 Session::set_flash('success', e('添加成功 #'.$user_id.'.'));
 
                 Response::redirect('admin/users');
@@ -88,7 +88,7 @@ class Controller_Admin_Users extends Controller_Admin{
 
         if ($val->run()) {
             $user->group = Input::post('group');
-            if (Auth::update_user(array('group'=>$user->group), $user->username)) {
+            if ($this->auth->update_user(array('group'=>$user->group), $user->username)) {
                 Session::set_flash('success', e('更新成功 #' . $id));
                 Response::redirect('admin/users');
             } else {
@@ -106,7 +106,7 @@ class Controller_Admin_Users extends Controller_Admin{
     public function action_delete($id = null) {
 
         if ($user = Model_User::find($id)) {
-            Auth::delete_user($user->username);
+            $this->auth->delete_user($user->username);
             Session::set_flash('success', e('删除成功 #'.$id));
         } else {
             Session::set_flash('error', e('删除失败 #'.$id));

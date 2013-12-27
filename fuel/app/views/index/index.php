@@ -140,9 +140,12 @@
            <h4>晒单分享</h4>
            <?php echo Html::anchor('p', '更多>>', ['class'=>'more']);?>
         </div>
+        
         <div class="bask-side">
+            <?php if($topPost) { ?>
             <div class="bask fl">
                 <div class="img-box fl">
+                    
                     <?php echo Html::anchor('p/'.$topPost->id, Html::img($topPost->topimage));?>
                 </div>
                 <div class="bask-info fr">
@@ -155,6 +158,8 @@
                     </div>
                 </div>
             </div>
+            <?php } ?>
+            <?php if($posts()) { ?>
             <div class="bask-list">
                 <ul>
                     <?php foreach($posts() as $post) { ?>
@@ -169,6 +174,7 @@
                     <?php } ?>
                 </ul>
             </div>
+            <?php } ?>
         </div>
     </div>
     <!--晒单分享结束-->

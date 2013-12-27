@@ -47,7 +47,7 @@ class View_Index extends Viewmodel {
        $this->topPost = Model_Post::find('first', ['where'=>['status'=>1],
                       'order_by'=>['id'=>'desc']
                       ]);
-                      
+
        //获得最新晒单TOP2
        $this->posts = function() {
            $posts = Model_Post::find('all', ['where'=>['status'=>1],
@@ -79,7 +79,7 @@ class View_Index extends Viewmodel {
        $this->getMemberInfo = function($member_id) {
            $member = Model_Member::find_by_id($member_id);
            return $member;
-       }; 
+       };
    }
 
    public function set_view(){

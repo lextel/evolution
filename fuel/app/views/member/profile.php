@@ -1,8 +1,8 @@
 <br />
-<script src="text/script">
-$(function (){
-   alert(1111);
-}
+<script type="text/javascript">
+$(function(){
+    
+});
 </script>
 <div class="set-wrap">
         <div class="navbar-inner">
