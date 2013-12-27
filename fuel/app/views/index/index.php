@@ -1,11 +1,27 @@
+<?php echo Asset::css('jquery.bxslider.css'); ?>
 <?php echo Asset::css('focus.css'); ?>
-<?php echo Asset::js('focus.js'); ?>
+<?php echo Asset::js('jquery.bxslider.min.js'); ?>
+
+<script>
+$(document).ready(function(){
+  $('.bxslider').bxSlider();
+});
+</script>
     <!--banner开始-->
     <div class="banner">
+<<<<<<< HEAD
+        <ul class="bxslider" >
+            <li><a href="" target="_blank"><img src="assets/images/01.jpg" alt="" /></a></li>
+            <li><a href="" target="_blank"><img src="assets/images/02.jpg" alt="" /></a></li>
+            <li><a href="" target="_blank"><img src="assets/images/03.jpg" alt="" /></a></li>
+            <li><a href="" target="_blank"><img src="assets/images/04.jpg" alt="" /></a></li>
+            <li><a href="" target="_blank"><img src="assets/images/05.jpg" alt="" /></a></li>
+=======
         <ul class="rslides f426x240">
             <?php foreach($flashs() as $flash) { ?>
             <li><?php echo Html::anchor('', '<img src="'.$flash.'" alt="" />', ['target'=>'_blank']);?></li>
             <?php } ?>
+>>>>>>> 28b5c9b8e5647e6e70db37771193bf00021cd19f
         </ul>
     </div>
     <!--banner结束-->
