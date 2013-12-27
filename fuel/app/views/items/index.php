@@ -1,5 +1,4 @@
 <?php echo Asset::css('product.css'); ?>
-<?php echo Asset::js('jquery1.8.2jquery.min.js'); ?>
 <?php echo Asset::js('./item/view.js'); ?>
 
 <div class="wrapper w">
