@@ -26,6 +26,22 @@ class View_Wins_Index extends Viewmodel {
                      ]);
            return $items;
        };
+       
+       //获得商品信息
+       $this->getItemInfo = function($item_id) {
+           $item = Model_Item::find_by_id($item_id);
+           return $item;
+       };
+       //获得期数信息
+       $this->getPhaseInfo = function($phase_id) {
+           $phase = Model_Phase::find_by_id($phase_id);
+           return $phase;
+       };
+       //获得用户信息
+       $this->getMemberInfo = function($member_id) {
+           $member = Model_Member::find_by_id($member_id);
+           return $member;
+       }; 
    }
 
    public function set_view(){

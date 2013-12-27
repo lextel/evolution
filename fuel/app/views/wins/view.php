@@ -1,143 +1,109 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
-<div class="share-details w">
-   <div class="left-content">
-       <div class="content-title">
-           <h3><?php echo $post->title; ?></h3>
-           <div class="datetime">晒单时间：<?php echo date('Y-m-d H:i:s', $post->created_at); ?></div>
-       </div>
-       <ul class="content-nav">
-           <li>
-               <div class="head-img fl">
-                   <?php echo Html::anchor('u/'.$post->member_id, Html::img($getUser($post->member_id)->avatar));?>
-               </div>
-               <div class="info fl">
-                   <span class="text-title blue">幸运获奖者：<?php echo Html::anchor('u/'.$post->member_id, $getUser($post->member_id)->username, ['class'=>'blue']);?></span>
-                   <span>共乐拍：<b>1</b> 人次</span>
-                   <span>幸运乐拍码：<b>1000000</b></span>
-                   <span class="datetime">揭晓时间：<s>2013-11-22 22:10:10</s></span>
-               </div>
-           </li>
-           <li>
-               <div class="head-img fl">
-                   <?php echo Html::anchor('m/'.$post->item_id, Html::img($getItem($post->item_id)->image));?>
-               </div>
-               
-	           
-               <div class="info fl">
-                   <span class="text-title blue">
-                       (第<?php echo $post->phase_id; ?>期)<?php echo Html::anchor('/m/'.$post->item_id, $getItem($post->item_id)->title); ?>|
-                   </span>
-                   <span class="price">价值<b>￥<?php echo $getItem($post->item_id)->price;?></b></span>
-                   <a href="" class="btn btn-default btn-sx">第48期进行中...</a>
-               </div>
-           </li>
-       </ul>
-       <div class="content">
-       <?php echo $post->desc; ?>
-       <?php echo $post->images; ?>
-       </div>
-       <div class="btn-group">
-           <?php echo Html::anchor('javascript:;', '喜欢<s>('.$post->up.')</s>', array('class'=>'btn btn-link'));?>
-           <?php echo Html::anchor('javascript:;', '评论<s>('.$post->comment_count.')</s>', array('class'=>'btn btn-link'));?>
-       </div>
-   </div>
-    <div class="content-right fr">
+
+    <div class="panel w">
         <div class="title">
-            <h4 class="fl">往期获得者</h4>
+            <h2>
+                <b>(第1期)</b>
+                <a href="">苹果5s16G版3G手机</a>
+            </h2>
         </div>
-        <ul class="before">
-            <?php foreach($getLastWins($post->item_id) as $lwin){?>
-            <li>
-                <div class="head-img fl">
-                    <?php echo Html::anchor('u/'.$lwin->member_id, Html::img($getUser($lwin->member_id)->avatar));?>
-                </div>
-                <div class="info-side">
-                    <div class="info-side-head">
-                        <span class="name blue"><?php echo Html::anchor('u/'.$lwin->member_id, $getUser($lwin->member_id)->username, ['class'=>'blue']);?></span>
-                        <span class="datetime"><?php echo '获得了第'.$lwin->phase_id.'期';?></span>
-                    </div>
-                    <?php if($lwin->post_id == 0){?>
-                        <p>暂未晒单</p>
-                    <?php }else{?>
-                        <p><?php echo Html::anchor('p/'.$lwin->post_id, '查看晒单', ['class'=>'blue']);?></p>
-                    <?php }?>
-                </div>
-            </li>
-            <?php }?>
-        </ul>
-        <div class="title">
-            <h4 class="fl">最新晒单</h4>
+        <div class="img-box fl">
         </div>
-        <ul class="news">
-            <?php foreach($getNewPosts() as $npost){?>
-            <li>
-                <div class="info-side">
-                    <div class="info-side-head">
-                        <span class="name blue"><?php echo Html::anchor('u/'.$npost->member_id, $getUser($npost->member_id)->username, ['class'=>'blue']);?></span>
-                        <span class="datetime"><?php echo date('Y-m-d H:i:s', $npost->created_at); ?></span>
+        <div class="state-column fr">
+            <div class="state-heading">
+                <span class="fl">本商品已开出 <b class="blue">40</b>期，第<b class="blue">40</b>期正在进行中...</span>
+                <a href="" class="details fr">查看详情</a>
+            </div>
+            <div class="price">价值:<b>5000.00</b></div>
+            <div class="result-box">
+                <div class="H fl">揭晓结果</div>
+                <div class="right-box fl">
+                    <h2>10001997</h2>
+                    <div class="result-info">
+                         <div class="img-box fl">
+                              <a href=""><img src="img/54359.jpg" alt=""></a>
+                         </div>
+                         <div class="info-side fl">
+                              <div class="winner">获得者<a href=""><b>王大锤</b></a></div>
+                              <span class="announce-time">揭晓时间：<b>2012-12-30</b></span>
+                              <span class="buy-time">乐拍时间：<b>2012-12-30</b></span>
+                              <span class="buy-number">乐购数量：<b class="red">35</b>人次</span>
+                         </div>
+                        <div class="win-number">
+                        </div>
                     </div>
-                    <div class="new-text">
-                        <?php echo Html::anchor('p/'.$npost->id, mb_substr($npost->desc, 0, 100,'utf-8')); ?>
-                    </div>
-                    <dl class="images-list">
-                       <a href="">
-                        <dd><img src="img/96515277.jpg" alt=""/></dd>
-                        <dd><img src="img/96515277.jpg" alt=""/></dd>
-                        <dd><img src="img/96515277.jpg" alt=""/></dd>
-                       </a>
-                    </dl>
                 </div>
-            </li>
-            <?php }?>
-        </ul>
-    </div>
-</div>
-<!--评论-->
-<div class="comment-panel w">
-    <div class="comment-box">
-        <textarea name="" id="" cols="30" rows="4"></textarea>
-        <div class="comment-footer d-n">
-            <div class="head-img fl">
-                <a href=""><img src="img/96515277.jpg" alt=""/></a>
             </div>
-            <div class="btn-group fl">
-                <a href="" class="blue">登录</a>
-            </div>
-            <div class="expression fl">表情</div>
-            <button class="fr btn btn-default">发表评论</button>
-            <span class="fr"><s>0</s>/200字</span>
         </div>
     </div>
-    <dl class="comment-list">
-        <dt><h4>全部评论</h4></dt>
-        <dd>
-            <div class="head-img fl">
-                <a href=""><img src="img/96515277.jpg" alt=""/></a>
+    <div class="sub-nav w">
+        <ul>
+            <li><a href="">计算结果</a></li>
+            <li><a href="">所有参与纪录(<b>100</b>)</a></li>
+            <li><a href="">晒单(<b>100</b>)</a></li>
+            <li><a href="">往期回顾(<b>100</b>)</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <!--计算结果开始-->
+        <div class="calculation-box">
+            <ol>
+                <li>1、取该商品最后购买时间前网站所有商品的最后100条购买时间记录</li>
+                <li>2、每个时间记录按时、分、秒、毫秒依次排列取数值 </li>
+                <li>3、将这100个数值之和除以该商品总参与人次后取余数，余数加上10000001 即为“幸运云购码”。</li>
+            </ol>
+            <div class="calculation-list">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>乐拍时间</th>
+                        <th>会员帐号</th>
+                        <th>购买数量</th>
+                        <th>商品名称</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><s>2013-12-20</s>10:46:49.687</td>
+                            <td><a href="">最后一次</a></td>
+                            <td>1</td>
+                            <td><a href="">（第633期）<b>苹果（Apple）iPhone 5S 16G版 3G手机</b> </a></td>
+                        </tr>
+                        <tr>
+                            <td><s>2013-12-20</s>10:46:49.687</td>
+                            <td><a href="">最后一次</a></td>
+                            <td>1</td>
+                            <td><a href="">（第633期）<b>苹果（Apple）iPhone 5S 16G版 3G手机</b> </a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <h4>截止该商品最后购买时间【2013-12-20 10:46:36.578】最后100条全站购买时间记录</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><s>2013-12-20</s>10:46:49.687</td>
+                            <td><a href="">最后一次</a></td>
+                            <td>1</td>
+                            <td><a href="">（第633期）<b>苹果（Apple）iPhone 5S 16G版 3G手机</b> </a></td>
+                        </tr>
+                        <tr>
+                            <td><s>2013-12-20</s>10:46:49.687</td>
+                            <td><a href="">最后一次</a></td>
+                            <td>1</td>
+                            <td><a href="">（第633期）<b>苹果（Apple）iPhone 5S 16G版 3G手机</b> </a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="info-side">
-                <div class="info-side-head">
-                    <span class="name blue">幸运获奖者</span>
-                    <span class="datetime">55分钟前</span>
-                </div>
-                <div class="comment-text">
-                    我也想中一个！
-                </div>
-                <button class="btn btn-link blue">回复</button>
-                <div class="comment-box d-n">
-                    <textarea name="" cols="30" rows="4"></textarea>
-                    <div class="comment-footer">
-                        <div class="head-img fl">
-                            <a href=""><img src="img/96515277.jpg" alt=""/></a>
-                        </div>
-                        <div class="btn-group fl">
-                            <a href="" class="blue">登录</a>
-                        </div>
-                        <div class="expression fl">表情</div>
-                        <button class="fr btn btn-default">发表评论</button>
-                        <span class="fr"><s>0</s>/200字</span>
-                    </div>
-                </div>
+            <div class="calculation-results">
+                <h3 class="fl">计算结果</h3>
+                <ul class="fl">
+                    <li>求和：10445775630(上面100条云购记录时间取值相加之和)</li>
+                    <li>取余：10445775630(100条时间记录之和) % 72(本商品总需参与人次) = 6(余数)</li>
+                    <li>结果：6(余数) + 10000001 = 10000007</li>
+                    <li><span>最终结果：<s>10000007</s></span></li>
+                </ul>
             </div>
-        </dd>
-    </dl>
-</div>
+        </div>
+        <!--揭计算结果结束-->
+    </div>

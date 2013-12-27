@@ -27,14 +27,14 @@ class Controller_Wins extends Controller_Frontend{
     */
     public function action_view($id = null)
     {
-        is_null($id) and Response::redirect('p');
-        if ( ! $data['post'] = Model_Post::find($id, ['where'=>['is_delete'=>0]]))
+        is_null($id) and Response::redirect('w');
+        if ( ! $data['win'] = Model_Post::find($id, ['where'=>['is_delete'=>0]]))
         {
             Session::set_flash('error', '未发现该晒单'.$id);
-            Response::redirect('p');
+            //Response::redirect('w');
         }
-        $view = ViewModel::forge('posts/view', 'view');
-        $view->set('post', $data['post'] );
+        $view = ViewModel::forge('wins/view', 'view');
+        $view->set('win', $data['win'] );
         $this->template->title = "晒单详情页";
         $this->template->layout = $view;
     }

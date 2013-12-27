@@ -1,4 +1,9 @@
 <br />
+<script src="text/script">
+$(function (){
+   alert(1111);
+}
+</script>
 <div class="set-wrap">
         <div class="navbar-inner">
             <ul>
@@ -10,6 +15,7 @@
         </div>
         <!--修改资料-->
         <ul class="edit-data">
+            <?php echo Form::open(['action' => 'u/profile', 'method' => 'post', 'class'=>'profile']); ?>
             <li>
                 <label>邮箱：</label>
                 <?php echo Form::input('email', Input::post('email', $member->email), array('class' => 'form-control', 'placeholder'=>'邮箱'));?>
@@ -31,8 +37,9 @@
                 <span for="" class="error align"></span>
             </li>
             <li>
-                <a href="javascript:void(0);" class="btn btn-red">保存</a>
+                <a href="javascript:void(0);" class="btn btn-red profile">保存</a>
             </li>
+            <?php echo Form::close(); ?>
         </ul>
 </div>
 

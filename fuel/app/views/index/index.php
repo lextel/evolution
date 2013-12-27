@@ -90,15 +90,15 @@
                     <?php foreach($orders() as $order) {?>
                     <li>
                         <div class="img-box">
-                            <?php echo Html::anchor('m/'.$phase->id, '<img src="http://www.llt.com/'.$getItemInfo($phase->item_id)->image.'" alt="" />');?>
+                            <?php echo Html::anchor('m/'.$order->phase_id, '<img src="http://www.llt.com/'.$getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image.'" alt="" />');?>
                         </div>
                         <div class="info-side">
                             <div class="winner"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'bule']);?> 刚刚乐拍了</div>
-                            <h4><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h4>
+                            <h4><?php echo Html::anchor('m/'.$order->phase_id, $getPhaseInfo($order->phase_id)->title);?></h4>
                         </div>
 
                     </li>
-                   <?php } ?> 
+               <?php } ?> 
                 </ul>
             </div>
         </div>
