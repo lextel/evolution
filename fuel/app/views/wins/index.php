@@ -5,36 +5,65 @@
         <div class="title">
             <h4>最新揭晓 <small>(截至目前共揭晓商品 <s class="red"><?php echo $count;?></s>件)</small></h4>
         </div>
-        <ul class="latest-item">
+        <ul class="item-group">
+            <li>
+                <div class="item-body">
+                    <div class="img-box img-md fl">
+                        <a href=""><img src="/assets/img/54359.jpg" alt=""/></a>
+                    </div>
+                    <div class="info-side fr">
+                        <div class="p-info">
+                            <h5 class="title-sm">
+                                <a href="">(第478期)小米（MIUI） 小米3 智能手机(16G)</a>
+                            </h5>
+                            <div class="price">价值：<b>￥2000</b>元</div>
+                        </div>
+                        <dl class="countdown">
+                            <dt>倒计时</dt>
+                            <dd>01</dd>
+                            <dt>:</dt>
+                            <dd>08</dd>
+                            <dt>:</dt>
+                            <dd>37</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="item-footer">
+                    <span>即将揭晓，敬请期待...</span>
+                </div>
+            </li>
             <?php foreach($wins as $win) { ?>
             <li>
-                <div class="item-head">
-                    <h4 class="fl"><small>(第<?php echo $win->phase_id;?>期)</small><?php echo Html::anchor('w/'.$win->id, $getPhaseInfo($win->phase_id)->title);?></h4>
-                    <span class="price fr">价值：<s class="red">￥<?php echo $getItemInfo($win->item_id)->price;?></s></span>
-                </div>
                 <div class="item-body">
-                    <div class="img-box fl">
+                    <div class="img-box img-md fl">
                         <?php echo Html::anchor('w/'.$win->id, '<img src="http://www.llt.com/'.$getItemInfo($getPhaseInfo($win->phase_id)->item_id)->image.'" alt="" />');?>
                     </div>
                     <div class="info-side fr">
-                          <div class="head-img fl">
-                              <?php echo Html::anchor('u/'.$win->member_id, Html::img($getMemberInfo($win->member_id)->avatar));?>
-                          </div>
-                          <div class="name-box fr">
-                              <div class="name"><?php echo $getMemberInfo($win->member_id)->username;?></div>
-                              <div class="ip">来自：广东省深圳市</div>
-                          </div>
-                          <div class="number">当前乐拍:<s>10</s>人次</div>
-                          <div class="datetime">揭晓时间：<?php echo $getPhaseInfo($win->phase_id)->opentime?></div>
+                        <div class="head-img fl">
+                            <?php echo Html::anchor('u/'.$win->member_id, Html::img($getMemberInfo($win->member_id)->avatar));?>
+                        </div>
+                        <div class="user-info fl">
+                            <div class="winner">获奖者：<b><?php echo Html::anchor('u/'.$win->member_id, $getMemberInfo($win->member_id)->username);?></b></div>
+                            <div class="ip">来自：广东省深圳市</div>
+                            <div class="number">乐拍:<b>10</b>人次</div>
+                        </div>
+                        <div class="p-info">
+                            <h5 class="title-sm">
+                                <a href="">(第<?php echo $win->phase_id;?>期)<?php echo Html::anchor('w/'.$win->id, $getPhaseInfo($win->phase_id)->title);?></a>
+                            </h5>
+                            <div class="price">价值：<b>￥<?php echo $getItemInfo($win->item_id)->price;?></b>元</div>
+                            <div class="datetime">揭晓时间：<?php echo $getPhaseInfo($win->phase_id)->opentime?></div>
+                        </div>
                     </div>
                 </div>
                 <div class="item-footer">
                     <div class="lucky-code fl">
-                        幸运乐拍码:<b class="red"><?php echo $win->code?></b>
+                        幸运乐拍码:<b><?php echo $win->code?></b>
                     </div>
                     <?php echo Html::anchor('w/'.$win->id, '查看详情', ['class'=>'btn btn-default fr']); ?>
                 </div>
             </li>
+            
             <?php } ?>
         </ul>
         <?php echo Pagination::instance('winspage')->render(); ?>
@@ -48,7 +77,7 @@
             <ul>
                 <?php foreach($orders() as $order) {?>
                     <li>
-                        <div class="img-box">
+                        <div class="head-img fl">
                             <?php echo Html::anchor('m/'.$order->phase_id, '<img src="http://www.llt.com/'.$getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image.'" alt="" />');?>
                         </div>
                         <div class="info-side">
@@ -57,7 +86,7 @@
                         </div>
 
                     </li>
-               <?php } ?> 
+               <?php } ?>
             </ul>
         </div>
         <!--大家正在乐拍内容结束-->

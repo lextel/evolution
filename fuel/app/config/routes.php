@@ -36,7 +36,7 @@ return array(
     'u/posts/delete/(\d+)' => 'member/posts/delete/$1',
 
     'u/orders' => 'orders/my',
-     'u/orders/p/(\d+)' => 'orders/my/$1',
+    'u/orders/p/(\d+)' => 'orders/my/$1',
     'u/wins' => 'member/lottery/index',
     'u/win/p/\d+' => 'member/lottery/index/$1',
     'u/recharge' => 'member/recharge',

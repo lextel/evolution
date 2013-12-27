@@ -419,6 +419,11 @@
 .pay-panel-head p{
     line-height: 24px;
 }
+.balance-box{
+    padding: 0px 10px 10px;
+    border-bottom: 1px solid #EEEEEE;
+    margin-bottom: 10px;
+}
 /*商品详情*/
 /*幻灯片开始*/
 .panel .img-side {
@@ -554,6 +559,16 @@
     height: 30px;
     line-height:30px;
 }
+.new-buyer  .new-buyer-body  p{
+    line-height: 24px;
+    color: #666666;
+    font-size: 14px;
+}
+.new-buyer  .new-buyer-body .link{
+    color: #5BC5FF;
+    font-size: 14px;
+    text-decoration: underline;
+}
 .previous-box{
     overflow: hidden;
     padding: 10px;
@@ -685,63 +700,95 @@
     margin-right: 5px;
     line-height: 26px;
 }
-/*往期回顾*/
-
 /*最新揭晓*/
 .latest-wrap .left-content{
     float: left;
     width:71%;
     overflow: hidden;
 }
-.left-content .latest-item{
+.left-content .item-group{
     overflow: hidden;
+    min-height: 600px;
 }
-.latest-item li{
+.left-content .item-group li{
     float: left;
     width: 335px;
-    overflow: hidden;
+    height: 184px;
     border: 1px solid #EEEEEE;
     margin: 0 10px 10px 0;
 }
-.latest-item li .item-head{
+.item-group li .item-head{
     line-height: 24px;
     padding:3px 10px;
     overflow: hidden;
 }
-.latest-item li .item-body{
+.item-group li .item-body{
     overflow: hidden;
-    padding: 5px;
+    padding: 10px;
+    height: 122px;
 }
-.latest-item li .item-body .img-box{
-    width: 120px;
-    height: 100px;
-    line-height: 100px;
+.item-group li .item-body .winner{
+    width: 110px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
-.latest-item li .item-body .info-side .name-box{
-    padding: 15px 5px;
+.item-group li .item-body .info-side{
+    width: 58%;
 }
-.latest-item li .item-body .img-box{
-    width: 120px;
-    height: 100px;
-    line-height: 100px;
-}
-.info-side .number,.info-side .datetime{
-    clear: both;
-}
-.latest-item li .item-footer{
+.item-group li .item-footer{
     overflow: hidden;
     background: #EEEEEE;
     padding: 5px 10px;
 }
-.latest-item li .item-footer .lucky-code{
-    margin-top:5px;
-    font-size: 14px;
+.item-group li .item-footer span{
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    color: #f60;
+    padding: 7px;
 }
-
 .lucky-code{
-    line-height: 22px;
+    vertical-align: middle;
+    font-size: 16px;
+    padding: 5px 0;
 }
-
+.lucky-code b{
+    font-weight: bold;
+    color: #f60;
+}
+.user-info{
+    overflow: hidden;
+    width: 60%;
+    margin-left: 10px;
+}
+.p-info{
+    overflow: hidden;
+    width: 100%;
+    clear: both;
+}
+.countdown{
+    overflow: hidden;
+    background: #f60;
+    padding: 8px;
+    margin-top: 10px;
+}
+.countdown dt{
+    color: #ffffff;
+    font-size: 14px;
+    float: left;
+    line-height: 26px;
+    font-weight: bold;
+    margin: 0 5px;
+}
+.countdown dd{
+    background: #ffffff;
+    float: left;
+    color: #f60;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 4px;
+}
 /*右边内容*/
 .latest-wrap .right-box{
     width:280px;
@@ -810,12 +857,33 @@
     line-height: 200px;
     margin: 0 auto;
 }
-
-
-
-
-
-
+/*商品搜索*/
+.top-navbar{
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 1px solid #EEEEEE;
+    font-size: 14px;
+}
+.top-navbar li{
+    float: left;
+    width:16% ;
+    height: 36px;
+    text-align: center;
+    line-height: 36px;
+}
+.select-result{
+    height: 38px;
+    overflow: hidden;
+    border: 1px solid #EEEEEE;
+}
+.select-result h2{
+    text-indent: 2em;
+    line-height: 38px;
+}
+.select-result h2 b{
+    color: #f60;
+    margin: 0 5px;
+}
 
 
 
