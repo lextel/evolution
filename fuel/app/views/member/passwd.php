@@ -1,4 +1,11 @@
 <br />
+<script type="text/javascript">
+$(function(){
+    $(".btn-password").click(function(){
+        $(".form-password").submit();
+    });
+});
+</script>
 <div class="set-wrap">
         <div class="navbar-inner">
             <ul>
@@ -10,6 +17,15 @@
         </div>
         <!--修改密码-->
         <ul class="edit-data">
+            <?php echo Form::open(['action' => 'u/passwd', 'method' => 'post', 'class'=>'form-password']); ?>
+            <li>
+            <?php if (Session::get_flash('success')): ?>
+                 <?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
+            <?php endif; ?>
+            <?php if (Session::get_flash('error')): ?>
+                 <?php echo implode('</p><p>', (array) Session::get_flash('error')); ?>
+            <?php endif; ?>
+            </li>
             <li>
                 <label>原密码：</label>
                 <input name="oldpassword" type="password" class="form-control" placeholder="原密码"/>
@@ -26,9 +42,8 @@
                 <span for="" class=""></span>
             </li>
             <li>
-                <a href="javascript:void(0);" class="btn btn-red">保存</a>
-                <!--<button type="button" class="btn btn-red">保存</button>
-                <button type="button" class="btn btn-default">取消</button>-->
+                <a href="javascript:void(0);" class="btn btn-red btn-password">保存</a>
             </li>
+            <?php echo Form::close(); ?>
         </ul>
 </div>
