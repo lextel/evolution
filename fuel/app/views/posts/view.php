@@ -1,4 +1,5 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
+<?php echo Asset::js(['jquery.cookie.js', 'post/postup.js']);?>
 <div class="share-details w">
    <div class="left-content">
        <div class="content-title">
@@ -37,8 +38,8 @@
        <?php echo $post->images; ?>
        </div>
        <div class="btn-group">
-           <?php echo Html::anchor('javascript:;', '喜欢<s>('.$post->up.')</s>', array('class'=>'btn btn-link'));?>
-           <?php echo Html::anchor('javascript:;', '评论<s>('.$post->comment_count.')</s>', array('class'=>'btn btn-link'));?>
+           <?php echo Html::anchor('javascript:;', '喜欢(<s>'.$post->up.'</s>)', array('class'=>'btn btn-link btn-up', 'id'=>$post->id));?>
+           <?php echo Html::anchor('javascript:;', '评论(<s>'.$post->comment_count.'</s>)', array('class'=>'btn btn-link'));?>
        </div>
    </div>
     <div class="content-right fr">
@@ -95,16 +96,11 @@
 <!--评论-->
 <div class="comment-panel w">
     <div class="comment-box">
-        <textarea name="" id="" cols="30" rows="4"></textarea>
-        <div class="comment-footer d-n">
-            <div class="head-img fl">
-                <a href=""><img src="img/96515277.jpg" alt=""/></a>
-            </div>
-            <div class="btn-group fl">
-                <a href="" class="blue">登录</a>
-            </div>
-            <div class="expression fl">表情</div>
-            <button class="fr btn btn-default">发表评论</button>
+        <input id="<?php echo $post->id;?>" type="hidden" class="postid">
+        <textarea name="text" id="comment" cols="30" rows="5"></textarea>
+        <div class="comment-footer">
+            <div class="expression fl"><span class="icon icon-expression"></span>表情</div>
+            <button class="fr btn btn-default btn-comment">发表评论</button>
             <span class="fr"><s>0</s>/200字</span>
         </div>
     </div>
@@ -122,7 +118,9 @@
                 <div class="comment-text">
                     我也想中一个！
                 </div>
+                <!--
                 <button class="btn btn-link blue">回复</button>
+                
                 <div class="comment-box d-n">
                     <textarea name="" cols="30" rows="4"></textarea>
                     <div class="comment-footer">
@@ -137,7 +135,9 @@
                         <span class="fr"><s>0</s>/200字</span>
                     </div>
                 </div>
+                -->
             </div>
         </dd>
+        
     </dl>
 </div>
