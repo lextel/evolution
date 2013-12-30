@@ -111,4 +111,21 @@ class Controller_Posts extends Controller_Frontend{
         $data['list'] = $wins;
         return $response->body(json_encode($data));
     }
+
+    /**
+     * 详情调用晒单
+     */
+    public function action_posts() {
+
+        $postModel = new Model_Post();
+        $total = $postModel->countByItemId(Input::get('itemId'));
+
+        $page = new \Helper\Page();
+        $config = $page->setAjaxConfig('posts', $total);
+        Pagination::forge('mypagination', $config);
+
+        $posts = $postModel->posts(Input::get());
+
+        return json_encode(['posts' => $posts, 'page' => Pagination::instance('mypagination')->render()]);
+    }
 }

@@ -215,7 +215,6 @@ class Model_Order extends \Orm\Model
                     'ip'    => $order->ip,
                     'created_at' => date('Y-m-d H:i:s', $order->created_at),
                 ];
-
         }
 
         return $orders;

@@ -64,7 +64,7 @@ class View_Items_index extends Viewmodel {
                 } else {
                     $orderBy = $param . '_desc';
                 }
-                $list .= '<a href="'.$url . '/s/'. $orderBy .'" class="btn btn-default btn-sx">'.$val['name'].'</a>';
+                $list .= '<a href="'.$url . '/s/'. $orderBy .'#list" class="btn btn-default btn-sx">'.$val['name'].'</a>';
             }
 
             return $list;
