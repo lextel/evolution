@@ -47,8 +47,6 @@ class Controller_Items extends Controller_Frontend {
         $postModel  = new Model_Post();
         $postCount  = $postModel->countByItemId($item->id);
 
-
-
         $view = ViewModel::forge('items/view');
         $view->set('item', $item, false);
         $view->set('newOrders', $newOrders);
@@ -58,6 +56,12 @@ class Controller_Items extends Controller_Frontend {
         $view->set('prevWinner', $prevWinner);
         $this->template->title = '(第'.$item->phase->phase_id.'期)' . $item->phase->title;
         $this->template->layout = $view;
+    }
+
+    // 商品详情往期回顾
+    public function action_phases($id = null) {
+
+
     }
 
 }

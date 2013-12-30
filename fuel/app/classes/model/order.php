@@ -8,6 +8,8 @@ class Model_Order extends \Orm\Model
         'member_id',
         'codes',
         'code_count',
+        'ip',
+        'area',
         'ordered_at',
         'created_at',
         'updated_at',
@@ -52,11 +54,16 @@ class Model_Order extends \Orm\Model
 
             $phaseId = $cart->get_id();
             $fetchCodes = $this->buy($phaseId, $cart->get_qty());
+
+            $memberHelper = new \Helper\Member();
+            $ip = $memberHelper->getIp();
             $data = [
                 'phase_id'   => $phaseId,
                 'member_id'  => $memberId,
                 'codes'      => serialize($fetchCodes),
                 'code_count' => count($fetchCodes),
+                'ip'         => $ip,
+                'area'       => '',
                 'ordered_at' => $timer->millitime(),
                 ];
 
@@ -131,7 +138,9 @@ class Model_Order extends \Orm\Model
      */
     public function orders($memberId, $orderIds) {
 
-        return Model_Order::find('all', ['where' => ['member_id' => $memberId, ['id', 'IN', $orderIds]]]);
+        $where = ['member_id' => $memberId, ['id', 'IN', $orderIds]];
+
+        return Model_Order::find('all', ['where' => $where]);
     }
 
     /**
@@ -156,7 +165,10 @@ class Model_Order extends \Orm\Model
      */
     public function newOrders($phaseId, $len = 5) {
 
-        return Model_Order::find('all', ['where' => ['phase_id' => $phaseId], 'limit' => $len, 'order_by' => ['id' => 'desc']]);
+        $where   = ['phase_id' => $phaseId];
+        $orderBy = ['id' => 'desc'];
+
+        return Model_Order::find('all', ['where' => $where, 'limit' => $len, 'order_by' => $orderBy]);
     }
 
     /**
@@ -170,6 +182,41 @@ class Model_Order extends \Orm\Model
      */
     public function myOrder($memberId, $phaseId, $len = 5) {
 
-        return Model_Order::find('all', ['where' => ['member_id' => $memberId, 'phase_id' => $phaseId], 'limit' => $len, 'order_by' => ['id' => 'desc']]);
+        $where = ['member_id' => $memberId, 'phase_id' => $phaseId];
+        $orderBy = ['id' => 'desc'];
+
+        return Model_Order::find('all', ['where' => $where, 'limit' => $len, 'order_by' => $orderBy]);
+    }
+
+    /**
+     * 参与记录
+     *
+     * @param $phaseId integer 期数ID
+     * @param $page    integer 页数
+     *
+     * @return array
+     */
+    public function joined($get) {
+
+        $offset = ($get['page'] - 1)*\Helper\Page::PAGESIZE;
+
+        $where   = ['phase_id' => $get['phaseId']];
+        $orderBy = ['id' => 'desc']; 
+
+        $orders = Model_Order::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::PAGESIZE]);
+
+        foreach($orders as $key => $order) {
+            $member = Model_Member::find($order->member_id);
+            $orders[$key] = [
+                    'link' => Uri::create('u/'.$member->id),
+                    'avatar' => Uri::create($member->avatar),
+                    'nickname' => $member->nickname,
+                    'count' => $order->code_count,
+                    'ip'    => $order->ip,
+                    'created_at' => date('Y-m-d H:i:s', $order->created_at),
+                ];
+        }
+
+        return $orders;
     }
 }
