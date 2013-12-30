@@ -5,6 +5,20 @@
     <title><?php echo $title?></title>
     <?php echo Asset::css(['common.css', 'header.css']); ?>
     <?php echo Asset::js(['jquery.min.js', 'common.js']); ?>
+    <script type="text/javascript">
+         $(function(){
+            function getTotalBuy(){
+                $.get("totalbuycount?callback=?", function(data){
+                    alert(data);
+                });
+            };
+            function timer(){
+                getTotalBuy();
+                window.setTimeout(timer(),3);
+            };
+            //timer();
+         });
+    </script>
 </head>
 <body>
     <!--头部开始-->
@@ -37,7 +51,7 @@
                 <div class="shopping-box">
                     <div class="shopping-cart"><a href="">购物车</a></div>
                     <div class="all">
-                        <a href="">当前乐拍人数<b>100000</b></a>
+                        <a href="">当前乐拍人数<b>10000</b></a>
                     </div>
                 </div>
          </div>
