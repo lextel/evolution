@@ -14,7 +14,7 @@
 	<?php echo $post->item_id; ?></p>
 <p>
 	<strong>发布人:</strong>
-	<?php echo $post->user_id; ?></p>
+	<?php echo $post->member_id; ?></p>
 <p>
 	<strong>商品类型:</strong>
 	<?php echo $post->type_id; ?></p>
