@@ -155,7 +155,7 @@
     <div class="sub-nav w">
         <ul>
             <li><a href="#desc" data-toggle="tab" class="active">商品详情</a></li>
-            <li><a href="#buylog" data-toggle="tab">所有参与纪录(<b><?php echo $orderCount; ?></b>)</a></li>
+            <li><a href="#buylog" phaseId="<?php echo $item->phase->id; ?>" data-toggle="tab">所有参与纪录(<b><?php echo $orderCount; ?></b>)</a></li>
             <li><a href="#posts" data-toggle="tab">晒单(<b><?php echo $postCount; ?></b>)</a></li>
             <li><a href="#phase" data-toggle="tab">往期回顾(<b><?php echo $item->phase->phase_id; ?></b>)</a></li>
         </ul>
@@ -388,6 +388,8 @@
             <!--结束-->
         </div>
     </div>
-
 </div>
+<script>
+    BUYLOG_URL = '<?php echo Uri::create('l/joined'); ?>';
+</script>
 
