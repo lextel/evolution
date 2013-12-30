@@ -169,7 +169,7 @@
 
 /*产品列表*/
 .product-inner{
-
+    margin-top: 20px;
 }
 .product-inner .left-sidebar{
     width: 75px;
@@ -250,6 +250,9 @@
     border: 1px solid #EEEEEE;
     padding: 5px 10px;
     background: #f7f7f7;
+}
+.list_sort a{
+    margin: 0 5px;
 }
 .product-list {
     overflow: hidden;
@@ -598,6 +601,7 @@
 
 .sub-nav {
     margin-top: 20px;
+    background: #ffffff;
 }
 
 .sub-nav ul {
