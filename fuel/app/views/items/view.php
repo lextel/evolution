@@ -32,6 +32,7 @@
                 </ul>
             </div>
             <!--幻灯片结束-->
+            <?php if($prevWinner):?>
             <!--获奖者开始-->
             <div class="previous-box">
                 <div class="img-box fl"><a href=""><img src="img/54359.jpg" alt=""></a></div>
@@ -43,6 +44,7 @@
                 </div>
             </div>
             <!--获奖者结束-->
+            <?php endif; ?>
         </div>
         <div class="product-column fr">
             <div class="state-heading">
@@ -65,9 +67,9 @@
             <form action="<?php echo Uri::create('/cart/add'); ?>" method="post">
                 <div class="btn-menu">
                     <span>购买数量：</span>
-                    <button class="">-</button>
+                    <a class="add">-</a>
                     <input type="text" value="1" name="qty">
-                    <button class="">+</button>
+                    <a class="add">+</a>
                     <span>人次</span>
                     <span>获得几率：<s class="red">0.00%</s> </span>
                 </div>
@@ -94,43 +96,57 @@
                     <div class="tab-pane active" id='buy'>
                         <table>
                             <tbody>
-                                <tr>
-                                    <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
-                                    <td>火枪中路必胜</td>
-                                    <td><s>(广东深圳市)</s><b>1分钟前</b></td>
-                                    <td>乐拍了<s>100</s>次</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
-                                    <td>火枪中路必胜</td>
-                                    <td><s>(广东深圳市)</s><b>1分钟前</b></td>
-                                    <td>乐拍了<s>100</s>次</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
-                                    <td>火枪中路必胜</td>
-                                    <td><s>(广东深圳市)</s><b>1分钟前</b></td>
-                                    <td>乐拍了<s>100</s>次</td> </tr>
-                                <tr>
-                                    <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
-                                    <td>火枪中路必胜</td>
-                                    <td><s>(广东深圳市)</s><b>1分钟前</b></td>
-                                    <td>乐拍了<s>100</s>次</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""></a></div></td>
-                                    <td>火枪中路必胜</td>
-                                    <td><s>(广东深圳市)</s><b>1分钟前</b></td>
-                                    <td>乐拍了<s>100</s>次</td>
-                                </tr>
+                                <?php
+                                    if($newOrders):
+                                        foreach($newOrders as $newOrder):
+                                        $member = $getMember($newOrder->member_id);
+                                    ?>
+                                    <tr>
+                                        <td><div class="img-box"><a href=""><img src="<?php echo Uri::create($member->avatar); ?>" alt=""></a></div></td>
+                                        <td><?php echo $member->nickname; ?></td>
+                                        <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($newOrder->created_at); ?></b></td>
+                                        <td>乐拍了<s><?php echo $newOrder->code_count; ?></s>次</td>
+                                    </tr>
+                                <?php
+                                        endforeach;
+                                    else:
+                                    echo '<tr><td>暂时没有乐拍记录.</td></tr>';
+                                    endif;
+                                ?>
                             </tbody>
                         </table>
                     </div>
                     <div class="tab-pane" id="myBuy">
-                        tab b
+                        <table>
+                            <tbody>
+                                <?php
+                                    if($myOrders):
+                                        foreach($myOrders as $myOrder):
+                                    ?>
+                                    <tr>
+                                        <td><div class="img-box"><a href=""><img src="<?php echo Uri::create($current_user->avatar); ?>" alt=""></a></div></td>
+                                        <td><?php echo $current_user->nickname; ?></td>
+                                        <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($myOrder->created_at); ?></b></td>
+                                        <td>乐拍了<s><?php echo $myOrder->code_count; ?></s>次</td>
+                                    </tr>
+                                <?php
+                                        endforeach;
+                                    else:
+                                    echo '<tr><td>暂时没有乐拍记录.</td></tr>';
+                                    endif;
+                                ?>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="tab-pane" id="help">
-                        nothing
+                        如何乐拍
+                        如何乐拍
+                        如何乐拍
+                        如何乐拍
+                        如何乐拍
+                        如何乐拍
+                        如何乐拍
+                        如何乐拍
                     </div>
                 </div>
             </div>
@@ -139,9 +155,9 @@
     <div class="sub-nav w">
         <ul>
             <li><a href="#desc" data-toggle="tab" class="active">商品详情</a></li>
-            <li><a href="#buylog" data-toggle="tab">所有参与纪录(<b>100</b>)</a></li>
-            <li><a href="#posts" data-toggle="tab">晒单(<b>100</b>)</a></li>
-            <li><a href="#phase" data-toggle="tab">往期回顾(<b>100</b>)</a></li>
+            <li><a href="#buylog" data-toggle="tab">所有参与纪录(<b><?php echo $orderCount; ?></b>)</a></li>
+            <li><a href="#posts" data-toggle="tab">晒单(<b><?php echo $postCount; ?></b>)</a></li>
+            <li><a href="#phase" data-toggle="tab">往期回顾(<b><?php echo $item->phase->phase_id; ?></b>)</a></li>
         </ul>
     </div>
     <!--商品信息结束-->
