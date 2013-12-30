@@ -28,6 +28,12 @@ class Page {
                 'per_page'       => self::PAGESIZE,
                 'uri_segment'    => $uri_segment,
                 'wrapper'=>'<div class="pagination fr">{pagination}</div>',
+                'regular-link' => "\t\t<a href='{uri}#list'>{page}</a>\n",
+                'active-link' => "\t\t<a href='{uri}#list'>{page}</a>\n",
+                'next-link' => "\t\t<a href='{uri}#list' rel='next'>{page}</a>\n",
+                'previous-link' => "\t\t<a href='{uri}#list' rel='prev'>{page}</a>\n",
+                'previous-inactive-link' => '<上一页',
+                'next-inactive-link' => '下一页>',
                 'previous-marker'=> "<上一页",
                 'next-marker'    => "下一页>",
             ];
@@ -44,9 +50,9 @@ class Page {
     }
 
     /**
-     * ajax翻页
+     * ajax翻页配置
      *
-     * @param $fun   string  javascript函数
+     * @param $fun   string  javascript函数名称
      * @param $total integer 总页数
      *
      * @return array 配置数组
@@ -59,8 +65,10 @@ class Page {
              'per_page'       => self::PAGESIZE,
              'regular-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}({page})'>{page}</a>\n",
              'active-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}({page})'>{page}</a>\n",
-             'next-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}({page})' rel='next'>{page}</a>\n",
-             'previous-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}({page})' rel='prev'>{page}</a>\n",
+             'next-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}(\"+1\")' rel='next'>{page}</a>\n",
+             'previous-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}(\"-1\")' rel='prev'>{page}</a>\n",
+             'previous-inactive-link' => '<上一页',
+             'next-inactive-link' => '下一页>',
              'previous-marker'=> "<上一页",
              'next-marker'    => "下一页>",
              'uri_segment' => 'page',

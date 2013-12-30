@@ -78,6 +78,7 @@ return array(
 
     'l' => 'orders/index',
     'l/joined' => 'orders/joined',
+    'l/posts' => 'posts/posts',
 
     'image/:size/:link' => 'image/index',
 
