@@ -51,7 +51,6 @@ textarea:focus,input:focus{
 }
 .content{
     position: relative;
-    margin-top: 20px;
     overflow: hidden;
 }
 .m{
@@ -73,9 +72,10 @@ textarea:focus,input:focus{
 .btn-menu input{
     width: 86px;
     border: 1px solid #f1f1f1;
-    height: 19px;
+    height: 20px;
     display: inline-block;
     margin:0 -4px;
+    text-align: center;
 }
 .btn-menu button{
     width: 22px;
