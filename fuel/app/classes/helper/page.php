@@ -27,13 +27,13 @@ class Page {
                 'total_items'    => $total,
                 'per_page'       => self::PAGESIZE,
                 'uri_segment'    => $uri_segment,
-                'previous-marker'=> "上一页<",
+                'previous-marker'=> "<上一页",
                 'next-marker'    => "下一页>",
             ];
 
     }
 
-    public function setCofigPage($url, $totle, $per_page, $uri_segment = 3){
+    public function setCofigPage($url, $totle, $per_page=4, $uri_segment = 3){
         $res = $this -> setConfig($url, $totle, $uri_segment);
         $newconfig = [
                      'wrapper'=>'<div class="pagination fr">{pagination}</div>',

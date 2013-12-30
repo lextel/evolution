@@ -10,7 +10,12 @@ return [
         'ext_whitelist' => ['jpg', 'jpeg'],
     ],
     'avatar' => [
-        'path' => DOCROOT.'upload'.DS.'avatar'.DS.'origin',
+        'path' => DOCROOT.'upload'.DS.'avatar',
+        'randomize' => true,
+        'ext_whitelist' => ['img', 'jpg', 'jpeg', 'png'],
+    ],
+    'post' => [
+        'path' => DOCROOT.'upload'.DS.'post',
         'randomize' => true,
         'ext_whitelist' => ['img', 'jpg', 'jpeg', 'png'],
     ],
