@@ -76,6 +76,9 @@ return array(
     'w/p/(\d+)' => 'wins/index/$1',
     'w/(\d+)' => 'wins/view/$1',
 
+    'l' => 'orders/index',
+    'l/joined' => 'orders/joined',
+
     'image/:size/:link' => 'image/index',
 
 );
