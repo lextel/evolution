@@ -27,6 +27,13 @@ class Page {
                 'total_items'    => $total,
                 'per_page'       => self::PAGESIZE,
                 'uri_segment'    => $uri_segment,
+                'wrapper'=>'<div class="pagination fr">{pagination}</div>',
+                'regular-link' => "\t\t<a href='{uri}#list'>{page}</a>\n",
+                'active-link' => "\t\t<a href='{uri}#list'>{page}</a>\n",
+                'next-link' => "\t\t<a href='{uri}#list' rel='next'>{page}</a>\n",
+                'previous-link' => "\t\t<a href='{uri}#list' rel='prev'>{page}</a>\n",
+                'previous-inactive-link' => '<上一页',
+                'next-inactive-link' => '下一页>',
                 'previous-marker'=> "<上一页",
                 'next-marker'    => "下一页>",
             ];
@@ -36,10 +43,36 @@ class Page {
     public function setCofigPage($url, $totle, $per_page=4, $uri_segment = 3){
         $res = $this -> setConfig($url, $totle, $uri_segment);
         $newconfig = [
-                     'wrapper'=>'<div class="pagination fr">{pagination}</div>',
                      'previous'=>'<span>{link}</span>',
                      'per_page' =>$per_page,
                      ];
        return array_merge($res, $newconfig);
+    }
+
+    /**
+     * ajax翻页配置
+     *
+     * @param $fun   string  javascript函数名称
+     * @param $total integer 总页数
+     *
+     * @return array 配置数组
+     */
+    public function setAjaxConfig($fun, $total) {
+
+        return [
+             'wrapper'=>'<div class="pagination fr">{pagination}</div>',
+             'total_items' => $total,
+             'per_page'       => self::PAGESIZE,
+             'regular-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}({page})'>{page}</a>\n",
+             'active-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}({page})'>{page}</a>\n",
+             'next-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}(\"+1\")' rel='next'>{page}</a>\n",
+             'previous-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}(\"-1\")' rel='prev'>{page}</a>\n",
+             'previous-inactive-link' => '<上一页',
+             'next-inactive-link' => '下一页>',
+             'previous-marker'=> "<上一页",
+             'next-marker'    => "下一页>",
+             'uri_segment' => 'page',
+            ];
+
     }
 }
