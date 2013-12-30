@@ -68,9 +68,37 @@
             </form>
             <div class="btn-group tr">
                 <a href="<?php echo Uri::base(); ?>" class="btn btn-default">< 返回首页</a>
-                <a href="<?php echo Uri::create('cart/pay'); ?>" class="btn btn-default">提交订单</a>
+                <a href="<?php echo Uri::create('cart/pay'); ?>" class="btn btn-default" id="doOrder">提交订单</a>
             </div>
         </div>
+        <!--弹出登录框-->
+        <div class="login2">
+            <form action="<?php echo Uri::create('signin'); ?>" method="post">
+                <div class="login2-head">
+                  <h4>用户登录</h4>
+                   <button class="close" id="close"></button>
+                </div>
+                <label for="" class="error"></label>
+                <ul class="login2-body">
+                    <li>
+                        <input type="text" value="" name="username" placeholder="输入邮箱"/>
+                        <span class="icon-user"></span>
+                    </li>
+                    <li>
+                        <input type="password" value="" name="password" placeholder="输入密码"/>
+                        <span class="icon-password"></span>
+                    </li>
+                    <li>
+                        <a href="<?php echo Uri::create('/u/passwd/forgot'); ?>" class="fr">忘记密码？</a>
+                    </li>
+                    <li>
+                        <button class="btn btn-red">登录</button>
+                    </li>
+                    <li>还没有帐号？<a href="<?php echo Uri::create('signup'); ?>" class="register">马上注册</a> </li>
+                </ul>
+            </form>
+        </div>
+        <!--登陆框-->
         <!--今日热门开始-->
         <div class="unveiled w">
             <h4>以下商品即将揭晓,快去乐拍吧~</h4>
@@ -103,4 +131,7 @@
         </div>
         <!--今日热门结束-->
     </div>
+    <script>
+        IS_LOGIN = <?php echo isset($current_user) ? 'true' : 'false';?>;
+    </script>
 
