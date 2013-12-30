@@ -41,10 +41,10 @@ class Controller_Member extends Controller_Center{
     public function action_avatar()
     {
         !Input::method() == 'POST' and Response::redirect('/u/getavatar');
-        $val = Model_Member::validate('edit');
+        $val = Model_Member::validateAvatar('edit');
         if ($val->run())
         {
-            $post = $member = Model_Member::find_by_username($this->current_user->username);
+            $post = $member = Model_Member::find($this->current_user->id);
             $post->avatar = Input::post('avatar');
             if($post->save())
             {
@@ -85,32 +85,28 @@ class Controller_Member extends Controller_Center{
     public function action_profile($id = null)
     {
         !Input::method() == 'POST' and Response::redirect('/u/getprofile');
-        $val = Model_Member_Info::validate('edit');
+        $val = Model_Member::validateProfile('edit');
         if ($val->run())
         {
-            $member = Model_Member_Info::checkInfo($this->current_user->id);
-            if (!Model_Member::checkNickname(Input::post('nickname')))
+            $member = Model_Member::find($this->current_user->id);
+            if ($member->nickname != Input::post('nickname'))
             {
-                Session::set_flash('error', '用户昵称已经存在了');
-                Response::redirect('/u/getprofile');
+                if (!Model_Member::checkNickname(Input::post('nickname')))
+                {
+                    Session::set_flash('error', '用户昵称已经存在了');
+                    Response::redirect('/u/getprofile');
+                }
             }
-            Model_Member::updateNickname($this->current_user->id,Input::post('nickname'), Input::post('bio'));
             $member->nickname = Input::post('nickname');
-            $member->local = Input::post('local');
-            $member->address = Input::post('address');
-            $member->gender = Input::post('gender');
-            $member->birth = Input::post('birth');
-            $member->qq = Input::post('qq');
-            $member->horoscope = Input::post('horoscope');
-            $member->salary = Input::post('salary');
+            $member->mobile = Input::post('mobile');
+            $member->bio = Input::post('bio');
             if ($member and $member->save())
             {
-                Session::set_flash('success', '更新个人设置');
-                Response::redirect('/u');
+                Session::set_flash('success', '更新个人设置OK');
+                Response::redirect('/u/getprofile');
             }
             else{
-                $res = Model_Member_Infocreate::create();
-                $res and Response::redirect('/u');
+                $res and Response::redirect('/u/getprofile');
             }
         }
         Session::set_flash('error', '更新个人设置失败');
@@ -171,5 +167,11 @@ class Controller_Member extends Controller_Center{
     public function action_msg()
     {
         return;
+    }
+
+    // 上传图片
+    public function action_avatarUpload() {
+        $files = Model_Member::upload();
+        return json_encode(['files' => $files]);
     }
 }
