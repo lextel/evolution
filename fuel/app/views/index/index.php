@@ -9,9 +9,9 @@ $(document).ready(function(){
 </script>
     <!--banner开始-->
     <div class="banner">
-        <ul class="rslides f426x240">
+        <ul class="rslides f426x240 bxslider">
             <?php foreach($flashs() as $flash) { ?>
-            <li><?php echo Html::anchor('', '<img src="'.$flash.'" alt="" />', ['target'=>'_blank']);?></li>
+            <li><?php echo Html::anchor('', Html::img($flash), ['target'=>'_blank']);?></li>
             <?php } ?>
         </ul>
     </div>
@@ -82,12 +82,9 @@ $(document).ready(function(){
             <div class="notice">
                 <div class="title"><h4>乐拍公告 <span class="icon icon-horn"></span></h4></div>
                 <ul>
-                    <li><a href="">关于春节放假通知！通知如下：元月1号到30号为放假时间</a></li>
-                    <li><a href="">关于春节放假通知！</a></li>
-                    <li><a href="">关于春节放假通知！</a></li>
-                    <li><a href="">关于春节放假通知！</a></li>
-                    <li><a href="">关于春节放假通知！</a></li>
-                    <li><a href="">关于春节放假通知！</a></li>
+                    <?php foreach($notices() as $notice) { ?>
+                    <li><?php echo Html::anchor('/notice/'.$notice->id, $notice->title); ?></li>
+                    <?php } ?>
                 </ul>
             </div>
             <!--大家正在乐拍-->
@@ -105,7 +102,7 @@ $(document).ready(function(){
                         </div>
 
                     </li>
-               <?php } ?> 
+               <?php } ?>
                 </ul>
             </div>
         </div>
@@ -147,12 +144,12 @@ $(document).ready(function(){
            <h4>晒单分享</h4>
            <?php echo Html::anchor('p', '更多>>', ['class'=>'more']);?>
         </div>
-        
+
         <div class="bask-side">
             <?php if($topPost) { ?>
             <div class="bask fl">
                 <div class="img-box fl">
-                    
+
                     <?php echo Html::anchor('p/'.$topPost->id, Html::img($topPost->topimage));?>
                 </div>
                 <div class="bask-info fr">
