@@ -55,7 +55,7 @@ class Controller_Posts extends Controller_Frontend{
         $this->template->title = "晒单列表";
         $this->template->layout = $view;
     }
-    
+
     /*
     *晒单详情功能
     */
@@ -81,6 +81,7 @@ class Controller_Posts extends Controller_Frontend{
     public function action_up($pid)
     {
         $response = new Response();
+        $response->set_header('Content-Type', 'application/json');
         $data = ['code'=>-1, 'msg'=>'pid is null'];
         is_null($pid) and $response->body(json_encode($data));
         $post = Model_Post::find($pid);

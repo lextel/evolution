@@ -1,41 +1,5 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
-<?php echo Asset::js(['jquery.cookie.js']);?>
-<script type="text/javascript">
-    $(function(){
-         //刷新页面同时检测cookie里是否有喜欢数据
-         function upcookie(){
-            var c = $.cookie('postup');
-            if (c == null || c == "") {
-                c = ","
-            }
-            var cs = c.split(",");
-            for(var i= 1; i<cs.length;i++){                
-                var up = $("#"+cs[i]).find("s").html();
-                $("#"+cs[i]).html("已喜欢(<s>"+up+"</s>)");
-                }
-         }
-         //点击刷新
-         $('.btn-up').click(function(){
-            var postid =  this.id;
-            var up =  $(this).find("s").html();
-            var c = $.cookie('postup');
-            if (c == null || c == "") {
-                c = ","
-            }
-            
-            if (c.indexOf("," + postid + ",") >= 0) {
-                $(this).html("已喜欢(<s>"+up+"</s>)");
-            } else {
-                //getData
-                c = c + postid + ",";
-                $.cookie('postup', c);                
-                $(this).html("已喜欢(<s>" + (parseInt(up) + 1) + "<s>)");
-            }
-         });
-         
-         upcookie();
-    });
-</script>
+<?php echo Asset::js(['jquery.cookie.js', 'post/postup.js']);?>
 <div class="wrapper w">
     <div class="title">
         <h2>晒单分享<span>（截止目前共 <b class="red"><?php echo $postscount; ?></b> 个幸运者晒单）</span></h2>

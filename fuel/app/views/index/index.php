@@ -3,7 +3,7 @@
 <?php echo Asset::js('jquery.bxslider.min.js'); ?>
 
 <script>
-$(document).ready(function(){
+$(function(){
   $('.bxslider').bxSlider();
 });
 </script>
@@ -58,7 +58,7 @@ $(document).ready(function(){
                         </div>
                         <dl class="progress-side">
                             <dd>
-                                <div class="progress"><div class="progress-bar"></div></div>
+                                <div class="progress"><div class="progress-bar" style="width:<?php echo $phase->joined/$phase->amount * 100;?>%"></div></div>
                             </dd>
                             <dd>
                                 <span class="fl red"><?php echo $phase->joined;?></span>
@@ -122,7 +122,7 @@ $(document).ready(function(){
                 </div>
                 <dl class="progress-side">
                     <dd>
-                        <div class="progress"><div class="progress-bar"></div></div>
+                        <div class="progress"><div class="progress-bar" style="width:<?php echo $phase->joined/$phase->amount * 100;?>%"></div></div>
                     </dd>
                     <dd>
                         <span class="fl red"><?php echo $phase->joined;?></span>
