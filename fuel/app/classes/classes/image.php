@@ -65,13 +65,21 @@ class Image {
         $width  = $sizes[0];
         $height = $sizes[1];
 
-        if(!file_exists($resizePath)) {
+        if(file_exists($path) && !file_exists($resizePath)) {
             SysImage::load($path)->crop_resize($width, $height)->save($resizePath);
         }
 
         return $this->path2url($resizePath);
     }
 
+    /**
+     * 获取resize后的路径
+     *
+     * @param $path string 原图路径
+     * @param $size string 尺寸
+     *
+     * @return string 
+     */
     public function resizePath($path, $size) {
 
         preg_match('/upload\/(\w+)\//', $path, $match);

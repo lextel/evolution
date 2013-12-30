@@ -45,6 +45,7 @@ class Model_Order extends \Orm\Model
 
         $timer = new \Helper\Timer();
 
+
         $quantity   = 0;
         $orderIds = [0];
         foreach($carts as $cart) {
@@ -60,16 +61,18 @@ class Model_Order extends \Orm\Model
                 ];
 
             $orderModel = new Model_Order($data);
-            $order = $orderModel->save();
+            if($orderModel->save()) {
+                $cart->delete();
 
-            $cart->delete();
-
-            $quantity += count($fetchCodes);
-            $orderIds[] = $order->id;
+                $quantity += count($fetchCodes);
+                $orderIds[] = $orderModel->id;
+            }
         }
 
-        // TODO 更新用户积分
-
+        // 更新用户积分
+        $member = Model_Member::find($memberId);
+        $member->points = $member->points - $quantity;
+        $member->save();
 
         return $orderIds;
     }
@@ -129,5 +132,44 @@ class Model_Order extends \Orm\Model
     public function orders($memberId, $orderIds) {
 
         return Model_Order::find('all', ['where' => ['member_id' => $memberId, ['id', 'IN', $orderIds]]]);
+    }
+
+    /**
+     * 获得某一期的参与者数目
+     *
+     * @param $phaseId integer 期数ID
+     *
+     * @return integer
+     */
+    public function countByPhaseId($phaseId) {
+
+        return Model_Order::count(['where' => ['phase_id' => $phaseId]]);
+    }
+
+    /**
+     * 最新乐拍记录
+     *
+     * @param $phaseId integer 期数ID
+     * @param $len     integer 调用条数
+     *
+     * @return array
+     */
+    public function newOrders($phaseId, $len = 5) {
+
+        return Model_Order::find('all', ['where' => ['phase_id' => $phaseId], 'limit' => $len, 'order_by' => ['id' => 'desc']]);
+    }
+
+    /**
+     * 我的乐拍记录
+     *
+     * @param $memberId integer 会员ID
+     * @param $phaseId  integer 期数ID
+     * @param $len      integer 调用条数
+     *
+     * @return array
+     */
+    public function myOrder($memberId, $phaseId, $len = 5) {
+
+        return Model_Order::find('all', ['where' => ['member_id' => $memberId, 'phase_id' => $phaseId], 'limit' => $len, 'order_by' => ['id' => 'desc']]);
     }
 }

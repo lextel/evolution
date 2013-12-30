@@ -2,6 +2,22 @@
 class Model_Post extends \Orm\Model
 {
 
+    /**
+     * @def 已审核
+     */
+    const IS_PASS    = 1;
+
+    /**
+     * @def 已删除
+     */
+    const IS_DELETE  = 1;
+
+    /**
+     * @def 未删除
+     */
+    const NOT_DELETE = 0;
+
+
     //protected static $_belongs_to = array('user', 'item', 'phase');
     protected static $_table_name = 'posts';
 
@@ -50,6 +66,18 @@ class Model_Post extends \Orm\Model
         $val->add_field('topimage', 'Topimage', 'required');
         $val->add_field('images', 'Images', 'required');
         return $val;
+    }
+
+    /**
+     * 统计商品的晒单数目
+     *
+     * @param $itemId integer 商品ID
+     *
+     * @return integer
+     */
+    public function countByItemId($itemId) {
+
+        return Model_Post::count(['where' => ['status' => self::IS_PASS, 'is_delete' => self::NOT_DELETE]]);
     }
 
 }

@@ -80,8 +80,10 @@ class Controller_Cart extends Controller_Frontend{
         $orderIds = Input::get('orderIds', 0);
         $orderIds = explode(',', $orderIds);
 
+        $memberId = $this->current_user->id;
+
         $orderModel = new Model_Order();
-        $orders = $orderModel->orders($orderIds);
+        $orders = $orderModel->orders($memberId, $orderIds);
 
         $view = ViewModel::forge('cart/result');
 
