@@ -65,8 +65,9 @@ $(function(){
             <?php endif; ?>
             </li>
             <li>
-                <a href="javascript:;" class="btn">上传头像</a>
-                <input id="avatarUpload" type="file" name="avatar" multiple>
+				<div class="file-img">
+					<input id="avatarUpload" type="file" name="avatar" multiple>
+				</div>               
             </li>
             <li>
                 <div class="upload-photo">
