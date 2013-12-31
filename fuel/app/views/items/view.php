@@ -1,5 +1,11 @@
+<<<<<<< HEAD
+<?php echo Asset::css(['product.css', 'jquery.jqzoom.css', 'customBootstrap.css']); ?>
+<?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js', 'item/view.js']); ?>
+<?php echo Asset::js('item/index.js'); ?>
+=======
 <?php echo Asset::css(['product.css', 'jquery.jqzoom.css', 'customBootstrap.css', 'style.css']); ?>
 <?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js','jquery.pin.js', 'item/view.js']); ?>
+>>>>>>> eb548056ac3f42d426acc97f7ae72efb94753118
 <?php $this->title = '(第' . $item->phase->phase_id .'期)' . $item->title; ?>
 <div class="wrapper w">
     <!--商品信息开始-->
@@ -70,14 +76,14 @@
             <form action="<?php echo Uri::create('/cart/add'); ?>" method="post">
                 <div class="btn-menu">
                     <span>购买数量：</span>
-                    <a class="add">-</a>
+                    <a class="add btn-jian">-</a>
                     <input type="text" value="1" name="qty">
-                    <a class="add">+</a>
+                    <a class="add btn-jia">+</a>
                     <span>人次</span>
                     <span>获得几率：<s class="red">0.00%</s> </span>
                 </div>
                 <div class="btn-group">
-                    <button type="submit" class="btn btn-red">立即乐拍</button>
+                    <button type="submit" class="btn btn-red">立1即乐拍</button>
                     <button class="btn btn-default">加入购物车</button>
                     <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>
                 </div>

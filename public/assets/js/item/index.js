@@ -6,6 +6,7 @@ $(function() {
         $(".add").click(function (){
              var num  = 0;
             if($(this).html() =="+" || $(this).val() =="+" ){
+                //alert(dayu);
                   if(isScope(getLastValue($(this)) , 1 , dayu) ==false){
                        return alert("Oh, can not be greater than "+dayu);
                    }
@@ -36,13 +37,13 @@ $(function() {
 function isScope(obj,Compare,num){
     //xiaoyu
     if(Compare == 0){
-         if(obj.val() <= num  ){
+          if(parseInt(obj.val()) <= parseInt(num ) ){
             return false;
          }
     }
     //dayu
      if(Compare == 1){
-         if(obj.val() >= num  ){
+         if(parseInt(obj.val()) >= parseInt(num ) ){
             return false;
          }
     }
