@@ -34,4 +34,21 @@ class Controller_Orders extends Controller_Center
         $this->template->layout = View::forge('orders/search', $data);
     }
 
+    // 产品详情拉取参与者
+    public function action_joined() {
+
+        $orderModel = new Model_Order();
+
+        $total = $orderModel->countByPhaseId(Input::get('phaseId'));
+
+        $page = new \Helper\Page();
+        $config = $page->setAjaxConfig('joined', $total);
+        Pagination::forge('mypagination', $config);
+
+        $orders = $orderModel->joined(Input::get());
+
+        return json_encode(['orders' => $orders, 'page' => Pagination::instance('mypagination')->render()]);
+
+    }
+
 }

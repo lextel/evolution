@@ -5,6 +5,23 @@
     <title><?php echo $title?></title>
     <?php echo Asset::css(['common.css', 'header.css']); ?>
     <?php echo Asset::js(['jquery.min.js', 'common.js']); ?>
+    <script type="text/javascript">
+         $(function(){
+            function getTotalBuy(){
+                $.get("/totalbuycount?callback="+ Math.floor(Math.random()*10000000), function(data){
+                    if (data.code==0){
+                        $("#totalbuy").html(data.num);
+                    }                                    
+                });
+            }
+            
+            function timer(){
+                getTotalBuy();                
+            }
+            
+            setInterval(timer,3000);
+         });
+    </script>
 </head>
 <body>
     <!--头部开始-->
@@ -26,18 +43,18 @@
         </div>
     </div>
     <div class="logo-box">
-        <div class="logo"><a href="/">logo</a></div>
+        <div class="logo"><a href="<?php echo Uri::base(); ?>">logo</a></div>
          <div class="right-box">
                 <div class="search">
-                    <input type="text" value=""/>
-                    <a href="" class="search-btn">
+                    <input type="text" value="" name="title" placeholder="输入“苹果手机”试试"/>
+                    <a href="javascript:void(0);" class="search-btn" id="doSearch">
                         <span class="icon icon-search"></span>
                     </a>
                 </div>
                 <div class="shopping-box">
-                    <div class="shopping-cart"><a href="">购物车</a></div>
+                    <div class="shopping-cart"><a href="<?php echo Uri::create('cart/list'); ?>">购物车</a></div>
                     <div class="all">
-                        <a href="">当前乐拍人数<b>100000</b></a>
+                        <a href="<?php echo Uri::create('l'); ?>">当前乐拍人数<b id="totalbuy">100000</b></a>
                     </div>
                 </div>
          </div>
@@ -48,7 +65,7 @@
             <li><a href="<?php echo Uri::create('/m'); ?>">所有商品</a></li>
             <li><a href="<?php echo Uri::create('/w'); ?>">最新揭晓</a></li>
             <li><?php echo Html::anchor('p', '晒单分享'); ?></li>
-            <li><a href="">新手指南</a></li>
+            <li><a href="<?php echo Uri::create('/h/new'); ?>">新手指南</a></li>
         </ul>
     </div>
     <!--头部结束-->
@@ -60,10 +77,10 @@
         <div class="help-bg">
             <div class="footer-help w">
                 <dl>
-                    <dt><a href="">帮助中心</a></dt>
-                    <dd><a href="">新手指南</a></dd>
-                    <dd><a href="">乐拍保障</a></dd>
-                    <dd><a href="">商品配送</a></dd>
+                    <dt><a href="<?php echo Uri::create('/h/center'); ?>">帮助中心</a></dt>
+                    <dd><a href="<?php echo Uri::create('/h/new'); ?>">新手指南</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/safeguard'); ?>">乐拍保障</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/shipping'); ?>">商品配送</a></dd>
                 </dl>
                 <dl>
                     <dt><a href="">关注我们</a></dt>
@@ -85,7 +102,7 @@
         </div>
         <div class="footer w">
             <ul class="bottom-nav">
-                <li><a href="">首页</a></li>
+                <li><a href="<?php echo Uri::base(); ?>">首页</a></li>
                 <li><a href="">关于乐拍</a></li>
                 <li><a href="">隐私声明</a></li>
                 <li><a href="">合作专区</a></li>

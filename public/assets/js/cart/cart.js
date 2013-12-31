@@ -25,6 +25,16 @@ $(function(){
         }
     });
 
+    // 提交订单要求登陆
+    $('#doOrder').click(function(){
+        if(IS_LOGIN) {
+            return true;
+        } else {
+            $('.login2').show();
+            return false;
+        }
+    });
+
     // 支付
     $('#doPay').click(function() {
         // 修改跳转页面
@@ -46,7 +56,4 @@ $(function(){
     $('#complete').click(function(){
         location.href = COMPLETE_URL;
     });
-
-
-
 });

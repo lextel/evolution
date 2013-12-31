@@ -1,4 +1,5 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
+<?php echo Asset::js(['jquery.cookie.js', 'post/postup.js']);?>
 <div class="wrapper w">
     <div class="title">
         <h2>晒单分享<span>（截止目前共 <b class="red"><?php echo $postscount; ?></b> 个幸运者晒单）</span></h2>
@@ -34,8 +35,8 @@
                         </div>
                     </div>
                     <div class="btn-group">
-                        <?php echo Html::anchor('javascript:;', '喜欢<s>('.$item->up.')</s>', array('class'=>'btn btn-link'));?>
-                        <?php echo Html::anchor('javascript:;', '评论<s>('.$item->comment_count.')</s>', array('class'=>'btn btn-link'));?>
+                        <?php echo Html::anchor('javascript:;', '喜欢(<s>'.$item->up.'</s>)', array('class'=>'btn btn-link btn-up', 'id'=>$item->id));?>
+                        <?php echo Html::anchor('/p/'.$item->id, '评论(<s>'.$item->comment_count.'</s>)', array('class'=>'btn btn-link'));?>
                     </div>
                 </div>
             <?php }; ?>
