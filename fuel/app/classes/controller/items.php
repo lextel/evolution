@@ -60,6 +60,35 @@ class Controller_Items extends Controller_Frontend {
         $this->template->layout = $view;
     }
 
+    // 商品搜索
+    public function action_search() {
+        $options = [
+            'title'  => $this->param('title', ''),
+            'sort'    => $this->param('sort'),
+            'page'    => intval($this->param('page')) ? intval($this->param('page')) : 1,
+            ];
+
+        $itemModel = new Model_Item();
+
+        $url        = $itemModel->handleUrl($options) . '/p';
+        $total      = $itemModel->countItem($options, true);
+        $paramCount = $itemModel->countParam($options);
+
+        $page = new \Helper\Page();
+        $config = $page->setConfig($url, $total, $paramCount);
+        $pagination = Pagination::forge('mypagination', $config);
+
+        $items = $itemModel->index($options);
+
+        $view = ViewModel::forge('items/search');
+        $view->set('items', $items);
+        $view->set('title', $this->param('title'));
+        $view->set('total', $total);
+        $view->set('pagination', $pagination);
+        $this->template->title = "搜索商品";
+        $this->template->layout = $view;
+    }
+
     // 商品详情往期回顾
     public function action_phases() {
 

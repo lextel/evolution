@@ -61,6 +61,7 @@ return array(
     'm/c/:cate_id/b/:brand_id' => 'items/index',
     'm/c/:cate_id/p/:page' => 'items/index',
     'm/c/:cate_id' => 'items/index',
+    'm/search/:title' => 'items/search',
 
     'p' => 'posts/index',
     'p/up/(\d+)' => 'posts/up/$1',
