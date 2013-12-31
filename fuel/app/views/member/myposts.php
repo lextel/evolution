@@ -15,7 +15,7 @@
                     <th>编号</th>
                     <th>晒单图片</th>
                     <th>晒单信息</th>
-                    <th>晒单状态/th>
+                    <th>晒单状态</th>
                     <th>操作</th>
                 </tr>
                 </thead>
