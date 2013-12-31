@@ -32,6 +32,7 @@ return array(
 				23 => '045_create_lotteries',
 				24 => '046_create_notices',
 				25 => '047_create_orders',
+				26 => '048_create_posts',
 			),
 		),
 		'module' => 

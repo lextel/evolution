@@ -1,3 +1,66 @@
+<?php 
+echo Asset::css(
+    [
+        'jquery.fileupload.css', 
+        'admin/items/form.css', 
+        ]
+    );
+echo Asset::js(
+        [
+            //'jquery.validate.js', 
+            //'additional-methods.min.js',
+            'jquery.ui.widget.js',
+            'jquery.iframe-transport.js',
+            'jquery.fileupload.js',
+            //'ueditor/ueditor.config.js',
+            //'ueditor/ueditor.all.min.js',
+            //'ueditor/lang/zh-cn/zh-cn.js',
+            //'admin/items/form.js', 
+            ]
+        ); 
+?>
+<script type="text/javascript">
+$(function(){
+    UPLOAD_URL = "<?php echo Uri::create('u/posts/upload'); ?>";
+    IMAGE_URL  = "<?php echo Uri::create('/'); ?>";
+    $(".btn-avatarUpload").click(function(){
+        $(".form-avatarUpload").submit();
+    });
+    //进入提交晒单
+    $(".btn-addpost").click(function(){
+        var id = $(this).attr('id');
+        $("#postid").val(id);
+        $(".show-form").show();
+    });
+    //取消晒单
+    $(".chance").click(function(){
+        var id = $(this).attr('id');
+        $("#postid").val('');
+        $(".show-form").hide();
+    });
+    //删除图片
+    $(".delete").click(function(){
+        console.log(11111);
+    });
+    //上传图片
+    $('#postUpload').fileupload({
+        url: UPLOAD_URL,
+        dataType: 'json',
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+                console.log(file.link);
+                //$('#newavatar').attr('src', IMAGE_URL+file.link);
+                var text = '<dd class="img-box"><img src="/'+file.link+'" alt="" /><input type="hidden" name="images[]" value="'+file.link+'"><a href="javascript:;" class="delete"></a></dd>';
+                //$('#avatar').val(file.link);
+                $(".postimg").append(text);
+            });
+            
+        },
+    }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
+    
+});
+</script>
+
 
 <div class="content-inner">
     <!--晒单开始-->
@@ -22,20 +85,20 @@
                     <?php foreach($noposts as $post) { ?>
                     <tr>
                         
-                        <td>1</td>
+                        <td><?php echo $post->id;?></td>
                         <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""/></a></div></td>
                         <td>
                             <div class="text-title">（第539期）苹果Iphone 5s 16G版 3G手机</div>
                             <div class="number">幸运乐拍码：10000121</div>
                             <div class="datetime">揭晓时间：2013-12-33 10:00:00</div>
                         </td>
-                        <td><a href="" class=" btn btn-default btn-sx">晒单</a></td>
+                        <td><a href="javascript:;" class="btn btn-default btn-sx btn-addpost" id=<?php echo $post->id;?>>晒单</a></td>
                     </tr>
                     <?php } ?>
                     </tbody>
                 </table>
                 <ul class="show-form" style="display:none">
-                    <?php echo Form::open(['action' => 'u/post/add', 'method' => 'post']);?>
+                    <?php echo Form::open(['action' => 'u/posts/add', 'method' => 'post']);?>
                     <li>
                         <label for="">标题</label>
                         <input name="title" type="text"/><span></span>
@@ -48,27 +111,17 @@
                     </li>
                     <li>
                         <label for="" class="body-label">图片</label>
-                        <dl>
-                            <dd class="img-box">
-                                <img src="img/54359.jpg" alt=""/>
-                                <button class="delete"></button>
-                            </dd>
-                            <dd class="img-box">
-                                <img src="img/54359.jpg" alt=""/>
-                                <button class="delete"></button>
-                            </dd>
-                            <dd class="img-box">
-                                <img src="img/54359.jpg" alt=""/>
-                                <button class="delete"></button>
-                            </dd>
+                        <dl class="postimg">
+                         
                         </dl>
-                        <button class="btn btn-default">上传图片</button>
+                        <!--<button class="btn btn-default">上传图片</button>-->
+                        <input id="postUpload" type="file" name="post" multiple class="btn btn-default">
                         <label for="" class="error"></label>
                     </li>
                     <li>
-                        <input id="postid" name="postid" type="hidden" />
+                        <input id="postid" name="phase_id" type="hidden" value="" />
                     </li>
-                    <li><button class="btn btn-red tj">发布</button></li>
+                    <li><button type="text" class="btn btn-red tj">发布</button><a href="javascript:;" class="btn btn-red chance">取消</a></li>
                     <?php echo Form::close();?>
                 </ul>
                 <br />
