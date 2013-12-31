@@ -1,5 +1,5 @@
 <?php echo Asset::css(['product.css', 'jquery.jqzoom.css', 'customBootstrap.css', 'style.css']); ?>
-<?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js', 'item/view.js']); ?>
+<?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js','jquery.pin.js', 'item/view.js']); ?>
 <?php $this->title = '(第' . $item->phase->phase_id .'期)' . $item->title; ?>
 <div class="wrapper w">
     <!--商品信息开始-->
@@ -174,7 +174,8 @@
             </div>
         </div>
     </div>
-    <div class="sub-nav w" id="bigNav">
+	<div class="bd w">
+		<div class="sub-nav w" id="bigNav">
         <ul>
             <li><a href="#desc" data-toggle="tab" class="active">商品详情</a></li>
             <li><a href="#buylog" phaseId="<?php echo $item->phase->id; ?>" data-toggle="tab">所有参与纪录(<b><?php echo $orderCount; ?></b>)</a></li>
@@ -202,10 +203,17 @@
         <!--往期回顾开始-->
         <div  class="look-bak d-n tab-pane" id="phase"></div>
     </div>
+	</div>
+    
 </div>
 <script>
     BUYLOG_URL   = '<?php echo Uri::create('l/joined'); ?>';
     POSTLOG_URL  = '<?php echo Uri::create('l/posts'); ?>';
     PHASELOG_URL = '<?php echo Uri::create('l/phases'); ?>';
+</script>
+<script>
+    $(".sub-nav").pin({
+        containerSelector: ".w"
+    })
 </script>
 

@@ -8,15 +8,18 @@
     <script type="text/javascript">
          $(function(){
             function getTotalBuy(){
-                $.get("totalbuycount?callback=?", function(data){
-                    alert(data);
+                $.get("/totalbuycount?callback="+ Math.floor(Math.random()*10000000), function(data){
+                    if (data.code==0){
+                        $("#totalbuy").html(data.num);
+                    }                                    
                 });
-            };
+            }
+            
             function timer(){
-                getTotalBuy();
-                window.setTimeout(timer(),3);
-            };
-            //timer();
+                getTotalBuy();                
+            }
+            
+            setInterval(timer,3000);
          });
     </script>
 </head>
