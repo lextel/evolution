@@ -55,7 +55,7 @@ class Controller_Posts extends Controller_Frontend{
         $this->template->title = "晒单列表";
         $this->template->layout = $view;
     }
-    
+
     /*
     *晒单详情功能
     */
@@ -81,6 +81,7 @@ class Controller_Posts extends Controller_Frontend{
     public function action_up($pid)
     {
         $response = new Response();
+        $response->set_header('Content-Type', 'application/json');
         $data = ['code'=>-1, 'msg'=>'pid is null'];
         is_null($pid) and $response->body(json_encode($data));
         $post = Model_Post::find($pid);
@@ -110,5 +111,22 @@ class Controller_Posts extends Controller_Frontend{
         $data['code'] = 0;
         $data['list'] = $wins;
         return $response->body(json_encode($data));
+    }
+
+    /**
+     * 详情调用晒单
+     */
+    public function action_posts() {
+
+        $postModel = new Model_Post();
+        $total = $postModel->countByItemId(Input::get('itemId'));
+
+        $page = new \Helper\Page();
+        $config = $page->setAjaxConfig('posts', $total);
+        Pagination::forge('mypagination', $config);
+
+        $posts = $postModel->posts(Input::get());
+
+        return json_encode(['posts' => $posts, 'page' => Pagination::instance('mypagination')->render()]);
     }
 }
