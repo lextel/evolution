@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="">
-      <change type="DELETED" beforePath="F:\www\evolution\public\html\images\01.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\evolution\public\html\images\02.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\evolution\public\html\images\03.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\evolution\public\html\images\04.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\evolution\public\html\images\05.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\evolution\public\html\images\404.png" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\evolution\public\html\images\500.png" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\evolution\public\html\images\bank_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\evolution\public\html\images\header.png" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\evolution\public\html\images\i.png" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\evolution\public\html\images\icon.png" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\evolution\public\html\images\icon_3.png" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\evolution\public\html\img\54359.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\evolution\public\html\img\96515277.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\evolution\public\html\img\portrait.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/images/icon.png" afterPath="$PROJECT_DIR$/public/assets/images/icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/announced-details.html" afterPath="$PROJECT_DIR$/public/html/announced-details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/avatar.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/avatar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/jquery.provincesCity.js" afterPath="$PROJECT_DIR$/public/assets/js/jquery.provincesCity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/product.css" afterPath="$PROJECT_DIR$/public/assets/css/product.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style.css" afterPath="$PROJECT_DIR$/public/assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="" />
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -58,7 +35,7 @@
       <file leaf-file-name="product.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/product.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="713" column="24" selection-start="12909" selection-end="12909" vertical-scroll-proportion="0.45419848" vertical-offset="13190" max-vertical-offset="17670">
+            <state line="713" column="24" selection-start="12885" selection-end="12910" vertical-scroll-proportion="0.45419848" vertical-offset="13190" max-vertical-offset="17670">
               <folding />
             </state>
           </provider>
@@ -373,13 +350,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="312" y="0" width="1200" height="991" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="变化" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24978466" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20930232" sideWeight="0.67021275" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20930232" sideWeight="0.67021275" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31914893" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -534,7 +511,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/product.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="713" column="24" selection-start="12909" selection-end="12909" vertical-scroll-proportion="0.45419848" vertical-offset="13190" max-vertical-offset="17670">
+        <state line="713" column="24" selection-start="12885" selection-end="12910" vertical-scroll-proportion="0.45419848" vertical-offset="13190" max-vertical-offset="17670">
           <folding />
         </state>
       </provider>
