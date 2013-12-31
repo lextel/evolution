@@ -76,6 +76,77 @@ class Model_Item extends \Orm\Model {
     }
 
     /**
+     * 上一期获奖者
+     *
+     * @param $item object 当前期信息
+     *
+     * @return array 上一期信息
+     */
+    public function prevWinner($item) {
+
+        $phaseId = $item->phase->phase_id -1;
+        $where = ['item_id' => $item->id, ['phase_id', '=', $phaseId], ['member_id', '!=', 0]];
+        $orderBy = ['phase_id' => 'desc'];
+
+        return Model_Phase::find('first', ['where' => $where, 'order_by' => $orderBy]);
+    }
+
+    /**
+     * 统计期数
+     *
+     * @param $id integer 商品ID
+     *
+     * @return integer
+     */
+    public function phaseCountByid($id) {
+
+        return Model_Phase::count(['where' => ['item_id' => $id]]);
+    }
+
+    /**
+     * 期数信息
+     *
+     * @param $get array GET数据
+     *
+     * @return array
+     */
+    public function phases($get) {
+
+        if(!isset($get['page']) && !isset($get['itemId'])) return [];
+
+        $offset = ($get['page'] - 1)*\Helper\Page::PAGESIZE;
+
+        $where   = ['item_id' => $get['itemId']];
+        $orderBy = ['id' => 'desc']; 
+
+        $phases = Model_Phase::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::PAGESIZE]);
+
+        $data = [];
+        foreach($phases as $phase) {
+            if($phase->member_id) {
+                $member = Model_Member::find($phase->member_id);
+                $data[] = [
+                        'phase'    => Html::anchor(Uri::create('w/'.$phase->id), "第{$phase->phase_id}期"),
+                        'code'     => $phase->code,
+                        'total'    => $phase->code_count,
+                        'member'   => Html::anchor(Uri::create('u/'.$member->id), $member->nickname),
+                        'opentime' => date('Y-m-d H:i:s', $phase->opentime),
+                    ];
+            } elseif($phase->opentime) {
+                $data[] = [
+                        'phase' => Html::anchor(Uri::create('m/'.$phase->id), "第{$phase->phase_id}期"), 
+                        'opentime' =>date('Y-m-d H:i:s', $phase->opentime)
+                        ];
+            } else {
+                $data[] = ['phase' => Html::anchor(Uri::create('m/'.$phase->id), "第{$phase->phase_id}期")];
+            }
+        }
+
+        return $data;
+
+    }
+
+    /**
      * 后台列表
      *
      * @param $get array GET参数
@@ -396,17 +467,7 @@ class Model_Item extends \Orm\Model {
         return $item;
     }
 
-    /**
-     * 上一期获奖者
-     *
-     * @param $id integer 商品ID
-     *
-     * @return array 上一期信息
-     */
-    public function prevWinner($id) {
 
-        return Model_Item::find('last', ['related' => 'lotteries', 'where' => ['lotteries.item_id' => $id]]);
-    }
 
     /**
      * 添加商品
@@ -533,23 +594,6 @@ class Model_Item extends \Orm\Model {
         }
 
         return $rs;
-    }
-
-    /**
-     * 缩略图
-     *
-     * @param $path string 图片路径
-     * @param $size string 大小 60x60
-     *
-     * @return 返回缩略图路径
-     */
-    public function thumb($path, $size) {
-
-        $image = new Classes\Image();
-        $link = $image->path2url($path);
-        $thumb = $image->resize($link, $size);
-
-        return $thumb;
     }
 
 }

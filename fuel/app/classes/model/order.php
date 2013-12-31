@@ -119,7 +119,7 @@ class Model_Order extends \Orm\Model
         // 生成新一期
         if($total == $count) {
             $item = Model_Item::find($phase->item_id);
-            if($item->status == \Helper\Item::IS_PASS) {
+            if($item->status == \Helper\Item::IS_CHECK) {
                 $phaseModel = new Model_Phase();
                 $phaseModel->add($item);
             }
@@ -198,6 +198,8 @@ class Model_Order extends \Orm\Model
      */
     public function joined($get) {
 
+        if(!isset($get['page']) && !isset($get['phaseId'])) return [];
+
         $offset = ($get['page'] - 1)*\Helper\Page::PAGESIZE;
 
         $where   = ['phase_id' => $get['phaseId']];
@@ -205,9 +207,10 @@ class Model_Order extends \Orm\Model
 
         $orders = Model_Order::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::PAGESIZE]);
 
-        foreach($orders as $key => $order) {
+        $data = [];
+        foreach($orders as  $order) {
             $member = Model_Member::find($order->member_id);
-            $orders[$key] = [
+            $data[] = [
                     'link' => Uri::create('u/'.$member->id),
                     'avatar' => Uri::create($member->avatar),
                     'nickname' => $member->nickname,
@@ -217,6 +220,6 @@ class Model_Order extends \Orm\Model
                 ];
         }
 
-        return $orders;
+        return $data;
     }
 }
