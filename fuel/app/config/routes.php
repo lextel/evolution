@@ -28,6 +28,7 @@ return array(
     'u/passwd/forgot' => 'member/forgotpassword',
 
     'u/posts' => 'member/posts/index',
+    'u/noposts' => 'member/posts/noposts',
     'u/posts/p/(\d+)' => 'member/posts/index/$1',
     'u/posts/view/(\d+)' => 'member/posts/view',
     'u/posts/getadd' => 'member/posts/getadd',

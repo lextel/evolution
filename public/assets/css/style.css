@@ -545,6 +545,10 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     background: #ffffff;
     border-bottom: none;
 }
+
+.navbar-inner ul li a{
+    display:block;
+}
 /*表单*/
 .edit-data{
     padding:10px 20px;

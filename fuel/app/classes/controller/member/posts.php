@@ -21,6 +21,24 @@ class Controller_Member_Posts extends Controller_Center
         $this->template->title = '用户晒单列表';
         $this->template->layout->content = View::forge('member/myposts', $data);
     }
+
+    public function action_noposts($pagenum=1)
+    {
+        $postscount = Model_Lottery::count(['where'=>['member_id'=>$this->current_user->id]]);
+        $page = new \Helper\Page();
+        $config = $page->setCofigPage('u/posts/p', $postscount, 4, 4);
+        $pagination = Pagination::forge('postspage', $config);
+        $data['list'] = Model_Post::find('all', [
+                                                  'where'=>['member_id'=>$this->current_user->id,
+                                                                     'is_delete'=>0],
+                                                  'order_by' =>array('id' => 'desc'),
+                                                  'rows_limit'=>$pagination->per_page,
+                                                  'rows_offset'=>$pagination->offset,]
+                                         );
+        $this->template->title = '用户晒单列表';
+        $this->template->layout->content = View::forge('member/mynoposts', $data);
+    }
+
     public function action_view()
     {
         $data["subnav"] = array('view'=> 'active' );
