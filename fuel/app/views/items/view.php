@@ -72,10 +72,10 @@
                     <input type="text" value="1" name="qty">
                     <a class="add btn-jia">+</a>
                     <span>人次</span>
-                    <span>获得1几率：<s class="red">0.00%</s> </span>
+                    <span>获得几率：<s class="red">0.00%</s> </span>
                 </div>
                 <div class="btn-group">
-                    <button type="submit" class="btn btn-red">立即乐拍</button>
+                    <button type="submit" class="btn btn-red">立1即乐拍</button>
                     <button class="btn btn-default">加入购物车</button>
                     <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>
                 </div>
