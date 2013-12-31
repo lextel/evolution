@@ -1,5 +1,6 @@
 <?php echo Asset::css('product.css'); ?>
 <?php echo Asset::js('item/index.js'); ?>
+<?php echo Asset::js('./commons.js'); ?>
 
 <div class="wrapper w">
     <div class="product-inner w">
@@ -84,7 +85,7 @@
                         </div>
                         <dl class="progress-side">
                             <dd>
-                                <div class="progress"><div class="progress-bar" style="width: <?php echo printf('%.2f', $item->phase->joined/$item->phase->amount*100)?>%"></div></div>
+                                <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->phase->joined/$item->phase->amount*100)?>%"></div></div>
                             </dd>
                             <!--dd>
                                 <span class="fl red"><?php echo $item->phase->joined; ?></span>
@@ -98,13 +99,14 @@
                         <div class="btn-menu">
                             <span>我要乐拍</span>
                             <a class="add btn-jian">-</a>
-                            <input type="text" value="1" name="qty"/>
+                            <input type="text" value="1" name="qty" joined="<?php echo $item->phase->joined; ?>"  remain="<?php echo $item->phase->remain; ?>" amount="<?php echo $item->phase->amount; ?>"/>
                             <a class="add btn-jia">+</a>
                             <span>人次</span>
                         </div>
                         <div class="btn-group">
+
                             <input name="id" value="<?php echo $item->phase->id; ?>" type="hidden">
-                            <button class="btn btn-red" type="Submit" onclick="ck();">立即乐拍</button>
+                            <button class="btn btn-red" type="submit" >立即乐拍</button>
                             <a class="btn btn-default" href="javascript:void(0);">加入购物车</a>
                         </div>
                     </form>
@@ -118,13 +120,14 @@
     <!--今日热门开始-->
         <div class="date-hot w">
             <div class="title"><h4>今日热门</h4></div>
+            <div class="scrollleft">
             <ul>
                 <?php
                     $hotItems = $getHots();
                     foreach($hotItems as $item) :
                 ?>
                 <li>
-                    <div class="img-box"><a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
+                    <div class="img-box">111111<a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
                     <h5><?php echo $item->phase->title; ?></h5>
                     <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->price); ?></b></div>
                     <div class="btn-group">
@@ -138,5 +141,24 @@
                 <?php endforeach; ?>
             </ul>
         </div>
+        </div>
     <!--今日热门结束-->
 </div>
+
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+    
+    $(".scrollleft").imgscroll({
+        speed: 1,    //图片滚动速度
+        amount: 1,    //图片滚动过渡时间
+        width: 1,     //图片滚动步数
+        dir: "left"   // "left" 或 "up" 向左或向上滚动
+    });
+
+});
+
+</script> 
