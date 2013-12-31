@@ -62,3 +62,38 @@ $(function(){
         return false;
     });
 });
+
+/*今日热门图片切换*/
+$(function(){
+    var page=1;
+    var i=5;
+    var content=$(".img-show");
+    var content_list=$(".img-show ul");;
+    var v_width=content.width();
+    var len=content_list.length;
+    var page_cont=Math.ceil(len/i);
+    $(".next").click(function(){
+        if(!content_list.is(":animated")){
+            if(page==page_cont){
+                content_list.animate({left:'0px'},'show');
+                page=1;
+            }
+            else{
+                content_list.animate({left:'-='+v_width},'show');
+                page++;
+            }
+        }
+    });
+    $(".prev").click(function(){
+        if(!content_list.is(":animated")){
+            if(page==1){
+                content_list.animate({left:'-='+v_width*(page_cont-1)},'show');
+                page=1;
+            }
+            else{
+                content_list.animate({left:'+='+v_width},'show');
+                page--;
+            }
+        }
+    });
+});
