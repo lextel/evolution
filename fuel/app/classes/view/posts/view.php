@@ -13,24 +13,24 @@ class View_Posts_View extends Viewmodel {
            $user = Model_Member::find($mid);
            return $user;
         };
-        //
-        $this->getNewPosts = function(){
+       //
+       $this->getNewPosts = function(){
             $posts = Model_Post::find('all',[
                                                   'where' => ['is_delete'=>0],
                                                   'order_by' =>['id'=>'desc'],
                                                   'rows_limit'=>5,
                                                   ]);
-            return $posts;
-        };
-        //
-        $this->getLastWins = function($item_id){
+           return $posts;
+       };
+       //
+       $this->getLastWins = function($item_id){
             $wins = Model_Lottery::find('all',[
                                                   'where' => ['item_id'=>$item_id],
                                                   'order_by' =>['id'=>'desc'],
                                                   'rows_limit'=>5,
                                                   ]);
-            return $wins;
-        };
+           return $wins;
+       };
     }
     public function set_view(){
         $this->_view = View::forge('posts/view');
