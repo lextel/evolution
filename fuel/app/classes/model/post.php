@@ -92,6 +92,8 @@ class Model_Post extends \Orm\Model
      */
     public function posts($get) {
 
+        if(!isset($get['page']) && !isset($get['itemId'])) return [];
+
         $offset = ($get['page'] - 1)*\Helper\Page::PAGESIZE;
 
         $where   = ['item_id' => $get['itemId'], 'status' => self::IS_PASS, 'is_delete' => self::NOT_DELETE];

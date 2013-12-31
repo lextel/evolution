@@ -304,8 +304,9 @@
     line-height: 100px;
 }
 .date-hot ul li h5{
-    width: 160px;
+    width: 127px;
     overflow: hidden;
+    margin: 5px 0;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
@@ -521,6 +522,7 @@
     border: 1px solid #EEEEEE;
 }
 .new-buyer{
+    margin-bottom: 20px;
     overflow: hidden;
 }
 .new-buyer-header{
@@ -600,7 +602,7 @@
 }
 
 .sub-nav {
-    margin-top: 20px;
+    overflow: hidden;
     background: #ffffff;
 }
 
