@@ -2,238 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/app/logs/2013/12/27.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/app/logs/2013/12/30.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/app/logs/2013/12/31.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/images/icon_2.png" afterPath="$PROJECT_DIR$/public/assets/images/icon_2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/member/jquery-ui.css" afterPath="$PROJECT_DIR$/public/assets/css/member/jquery-ui.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/jquery-ui.js" afterPath="$PROJECT_DIR$/public/assets/js/jquery-ui.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/prettify.css" afterPath="$PROJECT_DIR$/public/assets/css/prettify.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/share-details.html" afterPath="$PROJECT_DIR$/public/html/share-details.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/0/3/03a5796d1e8d4a418593ca6d9cb7f680.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/1/6/16e7b23cc8c7424393150f4976de51a7.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/2/1/2114edbcad5fbb2acac3babba12fe432.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/2/e/2e34f952fbafb427468330244abfe46e.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/3/e/3e7bd249aa95cca108ae384f7630958a.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/4/1/4164e075cbbca7e900cc939f5b12256a.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/5/6/5676e839c8a3c3591cd64304e5f79dc0.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/5/f/5f17fc42c9821856dd2f869b11f82bbe.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/6/1/61a046a21dcc4ef85e88de3e0f479f6c.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/6/3/63257596424565f537c9b44e68655402.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/6/a/6a0e81132e922a034534298b897346b8.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/8/4/84e1dd68e695c54568b39c6722b36db6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/8/a/8ae8f0f1d99f07e559b6050e4a055ee4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/9/8/980a89e615068d813474a226fef3f747.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/a/7/a78775caf09679f281a2e75470b89d40.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/e/a/ea91487d56b3f42e7d945952d9205156.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/e/c/ec42a00fb9978a7c7391d6023a9c5101.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/post/f/1/f12b3b814ebe7217697d79873988ec38.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/classes/view/member/index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/classes/view/member/member.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/views/member/mynoposts.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/comment.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/comment.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/common.js" afterPath="$PROJECT_DIR$/public/assets/js/common.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/item/index.js" afterPath="$PROJECT_DIR$/public/assets/js/item/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/view/wins/index.php" afterPath="$PROJECT_DIR$/fuel/app/classes/view/wins/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/items/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/items/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/wins/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/wins/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/moneylog/index_buy.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/moneylog/index_buy.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/moneylog/index_recharge.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/moneylog/index_recharge.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/member.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/member.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/memberlayout.php" afterPath="$PROJECT_DIR$/fuel/app/views/memberlayout.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/config/development/migrations.php" afterPath="$PROJECT_DIR$/fuel/app/config/development/migrations.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/myposts.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/myposts.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/model/phase.php" afterPath="$PROJECT_DIR$/fuel/app/classes/model/phase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/model/post.php" afterPath="$PROJECT_DIR$/fuel/app/classes/model/post.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/posts.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/posts.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/member/posts.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/member/posts.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/post/postup.js" afterPath="$PROJECT_DIR$/public/assets/js/post/postup.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/product.css" afterPath="$PROJECT_DIR$/public/assets/css/product.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/config/routes.php" afterPath="$PROJECT_DIR$/fuel/app/config/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/items/search.php" afterPath="$PROJECT_DIR$/fuel/app/views/items/search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style.css" afterPath="$PROJECT_DIR$/public/assets/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/admin/template.php" afterPath="$PROJECT_DIR$/fuel/app/views/admin/template.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/item/view.js" afterPath="$PROJECT_DIR$/public/assets/js/item/view.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/view/posts/view.php" afterPath="$PROJECT_DIR$/fuel/app/classes/view/posts/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/view/wins/view.php" afterPath="$PROJECT_DIR$/fuel/app/classes/view/wins/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/items/view.php" afterPath="$PROJECT_DIR$/fuel/app/views/items/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/wins/view.php" afterPath="$PROJECT_DIR$/fuel/app/views/wins/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/wins.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/wins.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\bootstrap.php" afterPath="$PROJECT_DIR$/public/html/app/bootstrap.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\cache\.gitkeep" afterPath="$PROJECT_DIR$/public/html/app/cache/.gitkeep" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\classes\cate.php" afterPath="$PROJECT_DIR$/public/html/app/classes/classes/cate.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\classes\image.php" afterPath="$PROJECT_DIR$/public/html/app/classes/classes/image.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\classes\upload.php" afterPath="$PROJECT_DIR$/public/html/app/classes/classes/upload.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\.gitkeep" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/.gitkeep" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\admin.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/admin.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\admin\cates.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/admin/cates.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\admin\items.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/admin/items.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\admin\logs.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/admin/logs.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\admin\members.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/admin/members.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\admin\notices.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/admin/notices.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\admin\posts.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/admin/posts.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\admin\project\entry.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/admin/project/entry.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\admin\users.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/admin/users.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\base.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/base.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\baseend.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/baseend.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\cart.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/cart.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\center.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/center.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\comment.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/comment.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\error.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/error.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\friends.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/friends.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\frontend.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/frontend.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\home.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/home.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\image.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/image.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\index.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\items.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/items.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\member.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/member.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\member\address.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/member/address.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\member\comments.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/member/comments.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\member\lottery.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/member/lottery.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\member\moneylog.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/member/moneylog.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\member\orders.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/member/orders.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\member\posts.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/member/posts.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\orders.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/orders.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\posts.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/posts.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\welcome.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/welcome.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\controller\wins.php" afterPath="$PROJECT_DIR$/public/html/app/classes/controller/wins.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\helper\.dir" afterPath="$PROJECT_DIR$/public/html/app/classes/helper/.dir" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\helper\breadcrumb.php" afterPath="$PROJECT_DIR$/public/html/app/classes/helper/breadcrumb.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\helper\item.php" afterPath="$PROJECT_DIR$/public/html/app/classes/helper/item.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\helper\member.php" afterPath="$PROJECT_DIR$/public/html/app/classes/helper/member.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\helper\page.php" afterPath="$PROJECT_DIR$/public/html/app/classes/helper/page.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\helper\timer.php" afterPath="$PROJECT_DIR$/public/html/app/classes/helper/timer.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\.gitkeep" afterPath="$PROJECT_DIR$/public/html/app/classes/model/.gitkeep" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\cate.php" afterPath="$PROJECT_DIR$/public/html/app/classes/model/cate.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\comment.php" afterPath="$PROJECT_DIR$/public/html/app/classes/model/comment.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\friend.php" afterPath="$PROJECT_DIR$/public/html/app/classes/model/friend.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\item.php" afterPath="$PROJECT_DIR$/public/html/app/classes/model/item.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\log.php" afterPath="$PROJECT_DIR$/public/html/app/classes/model/log.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\lottery.php" afterPath="$PROJECT_DIR$/public/html/app/classes/model/lottery.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\member.php" afterPath="$PROJECT_DIR$/public/html/app/classes/model/member.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\member\address.php" afterPath="$PROJECT_DIR$/public/html/app/classes/model/member/address.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\member\info.php" afterPath="$PROJECT_DIR$/public/html/app/classes/model/member/info.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\member\moneylog.php" afterPath="$PROJECT_DIR$/public/html/app/classes/model/member/moneylog.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\notice.php" afterPath="$PROJECT_DIR$/public/html/app/classes/model/notice.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\order.php" afterPath="$PROJECT_DIR$/public/html/app/classes/model/order.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\phase.php" afterPath="$PROJECT_DIR$/public/html/app/classes/model/phase.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\post.php" afterPath="$PROJECT_DIR$/public/html/app/classes/model/post.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\project\entry.php" afterPath="$PROJECT_DIR$/public/html/app/classes/model/project/entry.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\model\user.php" afterPath="$PROJECT_DIR$/public/html/app/classes/model/user.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\admin\cates\listbrand.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/admin/cates/listbrand.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\admin\items\list.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/admin/items/list.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\admin\notices\index.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/admin/notices/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\admin\notices\view.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/admin/notices/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\cart\list.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/cart/list.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\cart\pay.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/cart/pay.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\cart\result.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/cart/result.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\friends\my.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/friends/my.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\index.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\items\index.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/items/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\items\search.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/items/search.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\items\view.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/items/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\orders\index.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/orders/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\orders\my.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/orders/my.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\orders\search.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/orders/search.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\posts\index.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/posts/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\posts\view.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/posts/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\welcome\404.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/welcome/404.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\welcome\hello.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/welcome/hello.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\wins\index.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/wins/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\classes\view\wins\view.php" afterPath="$PROJECT_DIR$/public/html/app/classes/view/wins/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\admin.php" afterPath="$PROJECT_DIR$/public/html/app/config/admin.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\auth.php" afterPath="$PROJECT_DIR$/public/html/app/config/auth.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\cart.php" afterPath="$PROJECT_DIR$/public/html/app/config/cart.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\cate.php" afterPath="$PROJECT_DIR$/public/html/app/config/cate.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\common.php" afterPath="$PROJECT_DIR$/public/html/app/config/common.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\config.php" afterPath="$PROJECT_DIR$/public/html/app/config/config.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\crypt.php" afterPath="$PROJECT_DIR$/public/html/app/config/crypt.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\db.php" afterPath="$PROJECT_DIR$/public/html/app/config/db.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\development\db.php" afterPath="$PROJECT_DIR$/public/html/app/config/development/db.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\development\migrations.php" afterPath="$PROJECT_DIR$/public/html/app/config/development/migrations.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\memberauth.php" afterPath="$PROJECT_DIR$/public/html/app/config/memberauth.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\pagination.php" afterPath="$PROJECT_DIR$/public/html/app/config/pagination.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\production\db.php" afterPath="$PROJECT_DIR$/public/html/app/config/production/db.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\routes.php" afterPath="$PROJECT_DIR$/public/html/app/config/routes.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\simpleauth.php" afterPath="$PROJECT_DIR$/public/html/app/config/simpleauth.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\sort.php" afterPath="$PROJECT_DIR$/public/html/app/config/sort.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\staging\db.php" afterPath="$PROJECT_DIR$/public/html/app/config/staging/db.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\test\db.php" afterPath="$PROJECT_DIR$/public/html/app/config/test/db.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\config\upload.php" afterPath="$PROJECT_DIR$/public/html/app/config/upload.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\lang\en\.gitkeep" afterPath="$PROJECT_DIR$/public/html/app/lang/en/.gitkeep" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\logs\.gitkeep" afterPath="$PROJECT_DIR$/public/html/app/logs/.gitkeep" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\migrations\001_create_users.php" afterPath="$PROJECT_DIR$/public/html/app/migrations/001_create_users.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\migrations\005_create_members.php" afterPath="$PROJECT_DIR$/public/html/app/migrations/005_create_members.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\migrations\009_create_member_infos.php" afterPath="$PROJECT_DIR$/public/html/app/migrations/009_create_member_infos.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\migrations\013_create_comments.php" afterPath="$PROJECT_DIR$/public/html/app/migrations/013_create_comments.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\migrations\027_create_cates.php" afterPath="$PROJECT_DIR$/public/html/app/migrations/027_create_cates.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\migrations\031_create_logs.php" afterPath="$PROJECT_DIR$/public/html/app/migrations/031_create_logs.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\migrations\032_create_member_moneylogs.php" afterPath="$PROJECT_DIR$/public/html/app/migrations/032_create_member_moneylogs.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\migrations\034_create_member_addresses.php" afterPath="$PROJECT_DIR$/public/html/app/migrations/034_create_member_addresses.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\migrations\041_create_phases.php" afterPath="$PROJECT_DIR$/public/html/app/migrations/041_create_phases.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\migrations\042_create_items.php" afterPath="$PROJECT_DIR$/public/html/app/migrations/042_create_items.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\migrations\044_create_posts.php" afterPath="$PROJECT_DIR$/public/html/app/migrations/044_create_posts.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\migrations\045_create_lotteries.php" afterPath="$PROJECT_DIR$/public/html/app/migrations/045_create_lotteries.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\migrations\046_create_notices.php" afterPath="$PROJECT_DIR$/public/html/app/migrations/046_create_notices.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\migrations\047_create_orders.php" afterPath="$PROJECT_DIR$/public/html/app/migrations/047_create_orders.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\modules\.gitkeep" afterPath="$PROJECT_DIR$/public/html/app/modules/.gitkeep" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\qqwry.dat" afterPath="$PROJECT_DIR$/public/html/app/qqwry.dat" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\tasks\robots.php" afterPath="$PROJECT_DIR$/public/html/app/tasks/robots.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\tests\controller\.gitkeep" afterPath="$PROJECT_DIR$/public/html/app/tests/controller/.gitkeep" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\tests\model\.gitkeep" afterPath="$PROJECT_DIR$/public/html/app/tests/model/.gitkeep" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\tests\view\.gitkeep" afterPath="$PROJECT_DIR$/public/html/app/tests/view/.gitkeep" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\tmp\.gitkeep" afterPath="$PROJECT_DIR$/public/html/app/tmp/.gitkeep" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\vendor\.gitkeep" afterPath="$PROJECT_DIR$/public/html/app/vendor/.gitkeep" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\.gitkeep" afterPath="$PROJECT_DIR$/public/html/app/views/.gitkeep" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\cates\listbrand.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/cates/listbrand.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\cates\listcate.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/cates/listcate.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\dashboard.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/dashboard.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\items\_form.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/items/_form.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\items\create.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/items/create.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\items\edit.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/items/edit.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\items\index.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/items/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\items\list.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/items/list.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\items\view.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/items/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\login.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/login.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\logs\_form.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/logs/_form.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\logs\create.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/logs/create.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\logs\edit.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/logs/edit.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\logs\index.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/logs/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\logs\view.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/logs/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\members\_form.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/members/_form.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\members\create.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/members/create.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\members\edit.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/members/edit.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\members\index.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/members/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\members\view.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/members/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\notices\_form.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/notices/_form.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\notices\create.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/notices/create.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\notices\edit.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/notices/edit.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\notices\index.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/notices/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\notices\view.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/notices/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\posts\_form.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/posts/_form.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\posts\create.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/posts/create.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\posts\edit.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/posts/edit.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\posts\index.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/posts/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\posts\view.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/posts/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\project\entry\_form.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/project/entry/_form.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\project\entry\create.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/project/entry/create.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\project\entry\edit.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/project/entry/edit.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\project\entry\index.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/project/entry/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\project\entry\view.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/project/entry/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\template.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/template.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\users\_form.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/users/_form.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\users\create.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/users/create.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\users\edit.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/users/edit.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\users\index.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/users/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\admin\users\view.php" afterPath="$PROJECT_DIR$/public/html/app/views/admin/users/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\cart\list.php" afterPath="$PROJECT_DIR$/public/html/app/views/cart/list.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\cart\pay.php" afterPath="$PROJECT_DIR$/public/html/app/views/cart/pay.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\cart\result.php" afterPath="$PROJECT_DIR$/public/html/app/views/cart/result.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\comment\_form.php" afterPath="$PROJECT_DIR$/public/html/app/views/comment/_form.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\comment\create.php" afterPath="$PROJECT_DIR$/public/html/app/views/comment/create.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\comment\edit.php" afterPath="$PROJECT_DIR$/public/html/app/views/comment/edit.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\comment\index.php" afterPath="$PROJECT_DIR$/public/html/app/views/comment/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\comment\view.php" afterPath="$PROJECT_DIR$/public/html/app/views/comment/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\error\404.php" afterPath="$PROJECT_DIR$/public/html/app/views/error/404.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\error\500.php" afterPath="$PROJECT_DIR$/public/html/app/views/error/500.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\friends\my.php" afterPath="$PROJECT_DIR$/public/html/app/views/friends/my.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\index\home.php" afterPath="$PROJECT_DIR$/public/html/app/views/index/home.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\index\home_orders.php" afterPath="$PROJECT_DIR$/public/html/app/views/index/home_orders.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\index\home_posts.php" afterPath="$PROJECT_DIR$/public/html/app/views/index/home_posts.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\index\home_wins.php" afterPath="$PROJECT_DIR$/public/html/app/views/index/home_wins.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\index\homelayout.php" afterPath="$PROJECT_DIR$/public/html/app/views/index/homelayout.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\index\index.php" afterPath="$PROJECT_DIR$/public/html/app/views/index/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\items\index.php" afterPath="$PROJECT_DIR$/public/html/app/views/items/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\items\search.php" afterPath="$PROJECT_DIR$/public/html/app/views/items/search.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\items\view.php" afterPath="$PROJECT_DIR$/public/html/app/views/items/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\address.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/address.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\address\add.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/address/add.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\address\edit.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/address/edit.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\address\view.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/address/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\avatar.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/avatar.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\forgot.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/forgot.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\index.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\money.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/money.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\moneylog\index_buy.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/moneylog/index_buy.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\moneylog\index_recharge.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/moneylog/index_recharge.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\myaddress.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/myaddress.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\mylottery.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/mylottery.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\mymoneylog.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/mymoneylog.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\mymsg.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/mymsg.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\myorders.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/myorders.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\myposts.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/myposts.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\passwd.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/passwd.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\posts\add.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/posts/add.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\posts\edit.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/posts/edit.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\posts\view.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/posts/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\profile.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/profile.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\signin.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/signin.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\signup.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/signup.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\member\view.php" afterPath="$PROJECT_DIR$/public/html/app/views/member/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\memberlayout.php" afterPath="$PROJECT_DIR$/public/html/app/views/memberlayout.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\orders\index.php" afterPath="$PROJECT_DIR$/public/html/app/views/orders/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\orders\my.php" afterPath="$PROJECT_DIR$/public/html/app/views/orders/my.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\orders\search.php" afterPath="$PROJECT_DIR$/public/html/app/views/orders/search.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\posts\index.php" afterPath="$PROJECT_DIR$/public/html/app/views/posts/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\posts\view.php" afterPath="$PROJECT_DIR$/public/html/app/views/posts/view.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\template.php" afterPath="$PROJECT_DIR$/public/html/app/views/template.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\welcome\404.php" afterPath="$PROJECT_DIR$/public/html/app/views/welcome/404.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\welcome\hello.php" afterPath="$PROJECT_DIR$/public/html/app/views/welcome/hello.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\welcome\index.php" afterPath="$PROJECT_DIR$/public/html/app/views/welcome/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\wins\index.php" afterPath="$PROJECT_DIR$/public/html/app/views/wins/index.php" />
-      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\views\wins\view.php" afterPath="$PROJECT_DIR$/public/html/app/views/wins/view.php" />
+      <change type="MOVED" beforePath="F:\www\evolution\fuel\app\migrations\044_create_posts.php" afterPath="$PROJECT_DIR$/fuel/app/migrations/048_create_posts.php" />
     </list>
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -259,25 +79,34 @@
       <file leaf-file-name="product.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/product.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="678" column="22" selection-start="12243" selection-end="12266" vertical-scroll-proportion="-15.04" vertical-offset="12506" max-vertical-offset="17670">
+            <state line="629" column="16" selection-start="11365" selection-end="11365" vertical-scroll-proportion="-12.76" vertical-offset="11632" max-vertical-offset="17708">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="share-details.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/html/share-details.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="54" selection-start="606" selection-end="668" vertical-scroll-proportion="-9.5" vertical-offset="0" max-vertical-offset="3287">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/wins/view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="44" selection-start="196" selection-end="196" vertical-scroll-proportion="0.071428575" vertical-offset="0" max-vertical-offset="2755">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="view.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/html/app/views/posts/view.php">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/items/view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="34" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2831">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="share-details.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/html/share-details.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="54" selection-start="606" selection-end="668" vertical-scroll-proportion="0.33971903" vertical-offset="0" max-vertical-offset="3287">
+            <state line="1" column="80" selection-start="167" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4275">
               <folding />
             </state>
           </provider>
@@ -286,7 +115,7 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="611" column="16" selection-start="11337" selection-end="11357" vertical-scroll-proportion="0.0" vertical-offset="10925" max-vertical-offset="17556">
+            <state line="615" column="16" selection-start="11382" selection-end="11402" vertical-scroll-proportion="0.0" vertical-offset="11001" max-vertical-offset="17632">
               <folding />
             </state>
           </provider>
@@ -310,8 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/html/js/jquery.pin.js" />
-        <option value="$PROJECT_DIR$/public/assets/js/common.js" />
         <option value="$PROJECT_DIR$/public/html/js/common.js" />
         <option value="$PROJECT_DIR$/public/html/product-list.html" />
         <option value="$PROJECT_DIR$/public/html/product-details.html" />
@@ -319,13 +146,15 @@
         <option value="$PROJECT_DIR$/fuel/app/views/member/avatar.php" />
         <option value="$PROJECT_DIR$/public/assets/js/jquery.provincesCity.js" />
         <option value="$PROJECT_DIR$/public/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/public/assets/css/product.css" />
         <option value="$PROJECT_DIR$/public/assets/css/prettify.css" />
         <option value="$PROJECT_DIR$/public/assets/js/jquery-ui.js" />
         <option value="$PROJECT_DIR$/public/assets/css/member/jquery-ui.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/moneylog/index_recharge.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/posts/view.php" />
         <option value="$PROJECT_DIR$/public/html/share-details.html" />
+        <option value="$PROJECT_DIR$/fuel/app/views/items/view.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/product.css" />
+        <option value="$PROJECT_DIR$/fuel/app/views/wins/view.php" />
       </list>
     </option>
   </component>
@@ -428,7 +257,91 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="fuel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fuel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fuel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fuel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="items" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -598,7 +511,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="611" column="16" selection-start="11337" selection-end="11357" vertical-scroll-proportion="0.0" vertical-offset="10925" max-vertical-offset="17556">
+        <state line="615" column="16" selection-start="11382" selection-end="11402" vertical-scroll-proportion="0.0" vertical-offset="11001" max-vertical-offset="17632">
           <folding />
         </state>
       </provider>
@@ -629,13 +542,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/app/views/member/mymoneylog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="274" selection-end="274" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="627">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/jquery-ui.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7919" column="0" selection-start="233660" selection-end="233660" vertical-scroll-proportion="-3.0970247" vertical-offset="152855" max-vertical-offset="285171">
@@ -657,44 +563,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/app/config/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="44" selection-start="1708" selection-end="1716" vertical-scroll-proportion="0.7262639" vertical-offset="247" max-vertical-offset="1786">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/app/views/member/avatar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="16" selection-start="1367" selection-end="1367" vertical-scroll-proportion="1.1245376" vertical-offset="0" max-vertical-offset="1729">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/app/views/member/moneylog/index_recharge.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="5" selection-start="296" selection-end="296" vertical-scroll-proportion="-0.11713933" vertical-offset="342" max-vertical-offset="1406">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/product.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="678" column="22" selection-start="12243" selection-end="12266" vertical-scroll-proportion="-15.04" vertical-offset="12506" max-vertical-offset="17670">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/app/views/posts/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="34" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2831">
+        <state line="629" column="16" selection-start="11365" selection-end="11365" vertical-scroll-proportion="-12.76" vertical-offset="11632" max-vertical-offset="17708">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/html/share-details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="54" selection-start="606" selection-end="668" vertical-scroll-proportion="0.33971903" vertical-offset="0" max-vertical-offset="3287">
+        <state line="14" column="54" selection-start="606" selection-end="668" vertical-scroll-proportion="-9.5" vertical-offset="0" max-vertical-offset="3287">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/items/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="80" selection-start="167" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4275">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/wins/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="44" selection-start="196" selection-end="196" vertical-scroll-proportion="0.071428575" vertical-offset="0" max-vertical-offset="2755">
           <folding />
         </state>
       </provider>

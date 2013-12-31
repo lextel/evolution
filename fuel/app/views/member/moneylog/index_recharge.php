@@ -17,16 +17,24 @@
 
 <div class="content-inner">
     <!--晒单开始-->
-    <?php echo Html::anchor('u/moneylog', '用户充值记录'); ?>|
-    <?php echo Html::anchor('u/moneylog/b/1', '用户消费记录'); ?>
+    
     <div class="account-box">
-        <h4>帐户明细</h4>
         <div class="remind ">
+<<<<<<< HEAD
             <span class="fl">你的帐户余额为：<b>￥<?php echo $current_user->points;?></b></span>
             <?php echo Html::anchor('u/recharge', '充值', ['class'=>' fl btn-pay']);?>
+=======
+            <span class="balance">你的帐户余额为：<b>￥<?php echo $current_user->points;?></b></span>
+            <?php echo Html::anchor('u/recharge', '充值', ['class'=>'btn-pay']);?>
+        </div>
+        <div class="toggles">
+                <?php echo Html::anchor('u/moneylog', '充值记录', ['class'=>'first-child']); ?>
+                <?php echo Html::anchor('u/moneylog/b/1', '消费记录', ['class'=>'last-child active']); ?>
+>>>>>>> a645ca58c807d490767a8615c1e1199051514100
         </div>
         <div class="select-box">
             <label for="">全部商品</label>
+
         <span class="time-choose">选择时间段：
             <input  id="datepicker" type="text"/>
 
@@ -56,6 +64,7 @@
         <?php endforeach; ?>
         </tbody>
     </table>
+    <br />
     <?php echo Pagination::instance('ulogpage')->render(); ?>
     <?php else: ?>
     <p>没有日志</p>
