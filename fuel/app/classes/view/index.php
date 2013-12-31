@@ -28,7 +28,7 @@ class View_Index extends Viewmodel {
        };
        //获得人气推荐1
        $this->topHotItems = function() {
-           $items = Model_Phase::find('all', ['where'=>['status'=>1],
+           $items = Model_Phase::find('all', ['where'=>['status'=>1, 'opentime' => 0],
                      'order_by'=>['hots'=>'desc'],
                      'rows_limit'=>3
                      ]);
@@ -36,7 +36,7 @@ class View_Index extends Viewmodel {
        };
        //获得人气推荐2
        $this->hotItems = function() {
-           $items = Model_Phase::find('all', ['where'=>['status'=>1],
+           $items = Model_Phase::find('all', ['where'=>['status'=>1, 'opentime' => 0],
                      'order_by'=>['hots'=>'desc'],
                      'rows_limit'=>4,
                      'rows_offset'=>3,

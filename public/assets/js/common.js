@@ -62,3 +62,87 @@ $(function(){
         return false;
     });
 });
+
+/*今日热门图片切换*/
+$(function(){
+    var page=1;
+    var i=5;
+    var content=$(".img-show");
+    var content_list=$(".img-show ul");;
+    var v_width=content.width();
+    var len=content_list.length;
+    var page_cont=Math.ceil(len/i);
+    $(".next").click(function(){
+        if(!content_list.is(":animated")){
+            if(page==page_cont){
+                content_list.animate({left:'0px'},'show');
+                page=1;
+            }
+            else{
+                content_list.animate({left:'-='+v_width},'show');
+                page++;
+            }
+        }
+    });
+    $(".prev").click(function(){
+        if(!content_list.is(":animated")){
+            if(page==1){
+                content_list.animate({left:'-='+v_width*(page_cont-1)},'show');
+                page=1;
+            }
+            else{
+                content_list.animate({left:'+='+v_width},'show');
+                page--;
+            }
+        }
+    });
+
+
+
+    var xiaoyu = 1;
+    var dayu = $(".btn-menu  >input").attr("amount");;
+
+
+        $(".add").click(function (){
+             var num  = 0;
+            if($(this).html() =="+" || $(this).val() =="+" ){
+                //alert(dayu);
+                  if(isScope(getLastValue($(this)) , 1 , dayu) ==false){
+                       return alert("Oh, can not be greater than "+dayu);
+                   }
+                    num = getLastValue($(this)).val();
+                    getLastValue($(this)).val(parseInt(num)+1);
+            }
+
+            if($(this).html() =="-" || $(this).val() =="-" ){
+                    if(isScope(getNextValue($(this)) , 0, xiaoyu) ==false){
+                        return alert("Oh, can not be less than "+xiaoyu);
+                    }
+                    num = getNextValue($(this) ).val();
+                    getNextValue($(this)).val(parseInt(num -1));
+            }
+         });
+
+
+        $(".btn-menu  >input").change(function (){
+            isNum($(this));
+            //alert($(this).val());
+        });
+
+
+
+
+
+
+
+});
+
+$(function(){
+    // 搜索
+    $('#doSearch').click(function(){
+        var val = $(this).prev().val();
+        if(val != '') {
+            location.href = BASE_URL + '/m/search/' + val;
+        }
+    });
+});

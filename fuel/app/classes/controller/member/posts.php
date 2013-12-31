@@ -64,6 +64,11 @@ class Controller_Member_Posts extends Controller_Center
         if ($val->run())
         {
             $images = Input::post('images');
+            if ($images.count() < 1)
+            {
+
+            }
+            $topimage = $images[0];
             $post = Model_Post::forge([
                 'title' => Input::post('title'),
                 'phase_id' => Input::post('phase_id'),
@@ -72,7 +77,7 @@ class Controller_Member_Posts extends Controller_Center
                 'lottery_id' => '',
                 'item_id' => '',
                 'member_id' => $this->current_user->id,
-                'topimage' => 0,
+                'topimage' => $topimage,
                 'type_id' => 0,
                 'is_delete'=>0,
                 'status'=>0,
@@ -85,9 +90,6 @@ class Controller_Member_Posts extends Controller_Center
             {
                 Session::set_flash('success', '');
                 Response::redirect('/u/posts');
-            }
-            else{
-                $res and Response::redirect('/u/noposts');
             }
         }
         Session::set_flash('error', '');

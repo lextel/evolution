@@ -1,3 +1,13 @@
+<?php echo Asset::js('jquery.provincesCity.js',"utf-8"); ?>
+<?php echo Asset::js('provincesdata.js'); ?>
+
+<script>
+	//调用插件
+	$(function(){
+		$("#datas").ProvinceCity();
+	});
+  </script>
+
 <br />
 <div class="set-wrap">
         <div class="navbar-inner">
@@ -42,15 +52,8 @@
             <li>添加新地址</li>
             <li>
                 <label>所在地区：</label>
-                <select name="">
-                    <option  value="">省</option >
-                </select>
-                <select name="">
-                    <option  value="">市</option >
-                </select>
-                <select name="">
-                    <option  value="">区</option >
-                </select>
+                <div id="datas"></div>
+                
                 <span for="" class=""></span>
             </li>
             <li>

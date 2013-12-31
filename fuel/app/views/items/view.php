@@ -1,5 +1,5 @@
-<?php echo Asset::css(['product.css', 'jquery.jqzoom.css', 'customBootstrap.css']); ?>
-<?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js', 'item/view.js']); ?>
+<?php echo Asset::css(['product.css', 'jquery.jqzoom.css', 'customBootstrap.css', 'style.css']); ?>
+<?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js','jquery.pin.js', 'item/view.js']); ?>
 <?php $this->title = '(第' . $item->phase->phase_id .'期)' . $item->title; ?>
 <div class="wrapper w">
     <!--商品信息开始-->
@@ -32,15 +32,18 @@
                 </ul>
             </div>
             <!--幻灯片结束-->
-            <?php if($prevWinner):?>
+            <?php 
+                if($prevWinner):
+                $winner = $getMember($prevWinner->member_id);
+            ?>
             <!--获奖者开始-->
             <div class="previous-box">
-                <div class="img-box fl"><a href=""><img src="img/54359.jpg" alt=""></a></div>
+                <div class="img-box fl"><a href="<?php Uri::create('u/'.$winner->id); ?>"><img src="<?php echo Uri::create($winner->avatar); ?>" alt=""></a></div>
                 <div class="info-side fl">
-                    <div class="winner">获得者<a href=""><b>王大锤</b></a></div>
-                    <span class="announce-time">揭晓时间：<b>2012-12-30</b></span>
-                    <span class="buy-time">乐拍时间：<b>2012-12-30</b></span>
-                    <span class="buy-number">幸运码：<b class="red">1000000</b></span>
+                    <div class="winner">获得者<a href="<?php Uri::create('u/'.$winner->id); ?>"><b><?php echo $winner->nickname; ?></b></a></div>
+                    <span class="announce-time">揭晓时间：<b><?php echo date('Y-m-d H:i:s', $prevWinner->opentime); ?></b></span>
+                    <span class="buy-time">乐拍时间：<b><?php echo date('Y-m-d H:i:s', $prevWinner->order_created_at); ?></b></span>
+                    <span class="buy-number">幸运码：<b class="red"><?php echo $prevWinner->code; ?></b></span>
                 </div>
             </div>
             <!--获奖者结束-->
@@ -67,11 +70,11 @@
             <form action="<?php echo Uri::create('/cart/add'); ?>" method="post">
                 <div class="btn-menu">
                     <span>购买数量：</span>
-                    <a class="add">-</a>
+                    <a class="add btn-jian">-</a>
                     <input type="text" value="1" name="qty">
-                    <a class="add">+</a>
+                    <a class="add btn-jia">+</a>
                     <span>人次</span>
-                    <span>获得几率：<s class="red">0.00%</s> </span>
+                    <span>获得x几率：<s class="red">0.00%</s> </span>
                 </div>
                 <div class="btn-group">
                     <button type="submit" class="btn btn-red">立即乐拍</button>
@@ -120,6 +123,7 @@
                         <table>
                             <tbody>
                                 <?php
+                                    if(!is_null($current_user)) :
                                     if($myOrders):
                                         foreach($myOrders as $myOrder):
                                     ?>
@@ -134,30 +138,49 @@
                                     else:
                                     echo '<tr><td>暂时没有乐拍记录.</td></tr>';
                                     endif;
+                                    else:
                                 ?>
+                                <form action="<?php echo Uri::create('signin'); ?>" method="post">
+                                    <ul class="edit-data" style="display: block;">
+                                        <li>
+                                            <label>帐号：</label>
+                                            <input type="text" name="username">
+                                        </li>
+                                        <li>
+                                            <label>密码：</label>
+                                            <input type="password" name="password">
+                                        </li>
+                                        <li>
+                                            <button type="submit" class="btn btn-red">登录</button>
+                                            <a href="<?php echo Uri::create('signup'); ?>">注册</a>
+                                        </li>
+                                    </ul>
+                                </form>
+                                <?php endif; ?>
                             </tbody>
                         </table>
                     </div>
                     <div class="tab-pane" id="help">
-                        如何乐拍
-                        如何乐拍
-                        如何乐拍
-                        如何乐拍
-                        如何乐拍
-                        如何乐拍
-                        如何乐拍
-                        如何乐拍
+                        <p>1元云购是指只需1元就有机会买到想要的商品。即每件商品被平分成若干“等份”出售，每份1元，
+                         当一件商品所有“等份”售出后，根据云购规则产生一名幸运者，该幸运者即可获得此商品。
+                        </p>
+                        <p>
+                        1元云购以“快乐云购，惊喜无限”为宗旨，力求打造一个100%公平公正、100%正品保障、
+                        寄娱乐与购物一体化的新型购物网站。
+                        </p>
+                        <a href="<?php echo Uri::create('h/new'); ?>" class="link">查看更多</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="sub-nav w" id="bigNav">
+	<div class="bd w">
+		<div class="sub-nav w" id="bigNav">
         <ul>
             <li><a href="#desc" data-toggle="tab" class="active">商品详情</a></li>
             <li><a href="#buylog" phaseId="<?php echo $item->phase->id; ?>" data-toggle="tab">所有参与纪录(<b><?php echo $orderCount; ?></b>)</a></li>
             <li><a href="#posts" itemId="<?php echo $item->id; ?>" data-toggle="tab">晒单(<b><?php echo $postCount; ?></b>)</a></li>
-            <li><a href="#phase" data-toggle="tab">往期回顾(<b><?php echo $item->phase->phase_id; ?></b>)</a></li>
+            <li><a href="#phase" itemId="<?php echo $item->id; ?>" data-toggle="tab">往期回顾(<b><?php echo $phaseCount; ?></b>)</a></li>
         </ul>
     </div>
     <!--商品信息结束-->
@@ -178,56 +201,19 @@
         </div>
         <!--晒单结束-->
         <!--往期回顾开始-->
-        <div  class="look-bak d-n tab-pane" id="phase">
-            <table>
-                <thead>
-                <tr>
-                    <th>期数</th>
-                    <th>幸运获奖者</th>
-                    <th>幸运乐拍码</th>
-                    <th>购买数量</th>
-                    <th>揭晓时间</th>
-                <tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>第516期</td>
-                        <td>正在进行中...</td>
-                        <td>我是买家名字</td>
-                        <td>10</td>
-                        <td>2013-12-30 10:22:33</td>
-                    <tr>
-                    <tr>
-                        <td>第516期</td>
-                        <td>10002103</td>
-                        <td>我是买家名字</td>
-                        <td>10</td>
-                        <td>2013-12-30 10:22:33</td>
-                    <tr>
-                    <tr>
-                        <td>第516期</td>
-                        <td>10001582</td>
-                        <td>我是买家名字</td>
-                        <td>10</td>
-                        <td>2013-12-30 10:22:33</td>
-                    <tr>
-                </tbody>
-            </table>
-            <!--分页-->
-            <div class="pagination fr">
-                <span><a href="" class="previous-inactive">上一页&lt;</a></span>
-                <span><a href="" class="active">1</a></span>
-                <span><a href="">2</a></span>
-                <span><a href="">3</a></span>
-                <span><a href="">4</a></span>
-                <span><a href="" class="next">下一页&gt;</a></span>
-            </div>
-            <!--结束-->
-        </div>
+        <div  class="look-bak d-n tab-pane" id="phase"></div>
     </div>
+	</div>
+    
 </div>
 <script>
-    BUYLOG_URL = '<?php echo Uri::create('l/joined'); ?>';
-    POSTLOG_URL = '<?php echo Uri::create('l/posts'); ?>';
+    BUYLOG_URL   = '<?php echo Uri::create('l/joined'); ?>';
+    POSTLOG_URL  = '<?php echo Uri::create('l/posts'); ?>';
+    PHASELOG_URL = '<?php echo Uri::create('l/phases'); ?>';
+</script>
+<script>
+    $(".sub-nav").pin({
+        containerSelector: ".w"
+    })
 </script>
 
