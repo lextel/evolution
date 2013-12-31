@@ -58,12 +58,7 @@ class Model_Post extends \Orm\Model
         $val = Validation::forge($factory);
         $val->add_field('title', 'Title', 'required|max_length[255]');
         $val->add_field('desc', 'Desc', 'required');
-        $val->add_field('status', 'Status', 'required|valid_string[numeric]');
-        $val->add_field('item_id', 'Item Id', 'required|valid_string[numeric]');
-        $val->add_field('member_id', 'Member Id', 'required|valid_string[numeric]');
-        $val->add_field('type_id', 'Type Id', 'required|valid_string[numeric]');
         $val->add_field('phase_id', 'Phase Id', 'required|valid_string[numeric]');
-        $val->add_field('topimage', 'Topimage', 'required');
         $val->add_field('images', 'Images', 'required');
         return $val;
     }
@@ -95,7 +90,7 @@ class Model_Post extends \Orm\Model
         $offset = ($get['page'] - 1)*\Helper\Page::PAGESIZE;
 
         $where   = ['item_id' => $get['itemId'], 'status' => self::IS_PASS, 'is_delete' => self::NOT_DELETE];
-        $orderBy = ['id' => 'desc']; 
+        $orderBy = ['id' => 'desc'];
 
         $posts = Model_Post::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::PAGESIZE]);
 
