@@ -3,25 +3,16 @@
 <?php echo Asset::js('jquery.bxslider.min.js'); ?>
 
 <script>
-$(document).ready(function(){
+$(function(){
   $('.bxslider').bxSlider();
 });
 </script>
     <!--banner开始-->
     <div class="banner">
-<<<<<<< HEAD
-        <ul class="bxslider" >
-            <li><a href="" target="_blank"><img src="assets/images/01.jpg" alt="" /></a></li>
-            <li><a href="" target="_blank"><img src="assets/images/02.jpg" alt="" /></a></li>
-            <li><a href="" target="_blank"><img src="assets/images/03.jpg" alt="" /></a></li>
-            <li><a href="" target="_blank"><img src="assets/images/04.jpg" alt="" /></a></li>
-            <li><a href="" target="_blank"><img src="assets/images/05.jpg" alt="" /></a></li>
-=======
-        <ul class="rslides f426x240">
+        <ul class="rslides f426x240 bxslider">
             <?php foreach($flashs() as $flash) { ?>
-            <li><?php echo Html::anchor('', '<img src="'.$flash.'" alt="" />', ['target'=>'_blank']);?></li>
+            <li><?php echo Html::anchor('', Html::img($flash), ['target'=>'_blank']);?></li>
             <?php } ?>
->>>>>>> 28b5c9b8e5647e6e70db37771193bf00021cd19f
         </ul>
     </div>
     <!--banner结束-->
@@ -67,7 +58,7 @@ $(document).ready(function(){
                         </div>
                         <dl class="progress-side">
                             <dd>
-                                <div class="progress"><div class="progress-bar"></div></div>
+                                <div class="progress"><div class="progress-bar" style="width:<?php echo $phase->joined/$phase->amount * 100;?>%"></div></div>
                             </dd>
                             <dd>
                                 <span class="fl red"><?php echo $phase->joined;?></span>
@@ -91,12 +82,9 @@ $(document).ready(function(){
             <div class="notice">
                 <div class="title"><h4>乐拍公告 <span class="icon icon-horn"></span></h4></div>
                 <ul>
-                    <li><a href="">关于春节放假通知！通知如下：元月1号到30号为放假时间</a></li>
-                    <li><a href="">关于春节放假通知！</a></li>
-                    <li><a href="">关于春节放假通知！</a></li>
-                    <li><a href="">关于春节放假通知！</a></li>
-                    <li><a href="">关于春节放假通知！</a></li>
-                    <li><a href="">关于春节放假通知！</a></li>
+                    <?php foreach($notices() as $notice) { ?>
+                    <li><?php echo Html::anchor('/notice/'.$notice->id, $notice->title); ?></li>
+                    <?php } ?>
                 </ul>
             </div>
             <!--大家正在乐拍-->
@@ -114,7 +102,7 @@ $(document).ready(function(){
                         </div>
 
                     </li>
-               <?php } ?> 
+               <?php } ?>
                 </ul>
             </div>
         </div>
@@ -134,7 +122,7 @@ $(document).ready(function(){
                 </div>
                 <dl class="progress-side">
                     <dd>
-                        <div class="progress"><div class="progress-bar"></div></div>
+                        <div class="progress"><div class="progress-bar" style="width:<?php echo $phase->joined/$phase->amount * 100;?>%"></div></div>
                     </dd>
                     <dd>
                         <span class="fl red"><?php echo $phase->joined;?></span>
@@ -156,12 +144,12 @@ $(document).ready(function(){
            <h4>晒单分享</h4>
            <?php echo Html::anchor('p', '更多>>', ['class'=>'more']);?>
         </div>
-        
+
         <div class="bask-side">
             <?php if($topPost) { ?>
             <div class="bask fl">
                 <div class="img-box fl">
-                    
+
                     <?php echo Html::anchor('p/'.$topPost->id, Html::img($topPost->topimage));?>
                 </div>
                 <div class="bask-info fr">
@@ -185,7 +173,7 @@ $(document).ready(function(){
                         </div>
                         <h5><?php echo Html::anchor('m/'.$post->phase_id, $getItemInfo($post->item_id)->title);?></h5>
                         <div class="winner">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $getMemberInfo($post->member_id)->nickname, ['class'=>'bule']);?></b></div>
-                        <p>揭晓时间：<?php  echo date('Y-m-d H:i:s', $getPhaseInfo($post->phase_id)->opentime);?></p>
+                        <p>揭晓时间：<?php  echo date('Y-m-d H:i', $getPhaseInfo($post->phase_id)->opentime);?></p>
                     </li>
                     <?php } ?>
                 </ul>

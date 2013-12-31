@@ -33,7 +33,12 @@ class Model_Comment extends Model
         $val->add_field('status', 'Status', 'required|valid_string[numeric]');
         $val->add_field('pid', 'Pid', 'required|valid_string[numeric]');
         $val->add_field('is_deleted', 'Is Deleted', 'required|valid_string[numeric]');
-
+        return $val;
+    }
+    public static function validateComment($factory)
+    {
+        $val = Validation::forge($factory);
+        $val->add_field('text', 'Text', 'required');
         return $val;
     }
 

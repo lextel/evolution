@@ -12,7 +12,7 @@ class View_Index extends Viewmodel {
        };
        //获得最新公告
        $this->notices = function() {
-           $notices = Model_Notices::find('all',[
+           $notices = Model_Notice::find('all',[
                        'order_by'=>['id'=>'desc'],
                        'rows_limit'=>6,
                        ]);

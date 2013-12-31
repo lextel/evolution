@@ -5,7 +5,7 @@
                 <span class="icon"></span>
                 <p>恭喜你支付成功！请等待系统为你揭晓结果</p>
                 <p>你可以 <a href="<?php echo Uri::create('u/orders'); ?>">查看云购记录</a>或<a href="<?php echo Uri::base(); ?>">继续购物</a> </p>
-                <p>总共成功云购1件商品，信息如下</p>
+                <p>总共成功云购<em><?php echo count($orders); ?></em>件商品，信息如下</p>
             </div>
             <table>
                 <thead>
@@ -18,14 +18,30 @@
                 </thead>
                 <tbody>
                     <?php
-                        foreach($items as $item):
-                        $info = $getInfo($item->get_id());
+                        foreach($orders as $item):
+                        $info = $getInfo($item->phase_id);
                     ?>
                     <tr>
-                        <td>2013-12-33 10:00:00</td>
-                        <td>(第<?php $info->phase->phase_id; ?>期)<?php echo $info->phase->title; ?></td>
-                        <td><?php echo $item->get_qty(); ?></td>
-                        <td>100021</td>
+                        <td>
+                            <?php 
+                                $ordered_at = $item->ordered_at;
+                                $at = explode('.', $ordered_at);
+                                echo date('Y-m-d H:i:s.', $at[0]);
+                                echo $at[1];
+                            ?>
+                        </td>
+                        <td>(第<?php echo $info->phase->phase_id; ?>期)<?php echo $info->phase->title; ?></td>
+                        <td><?php echo $item->code_count; ?></td>
+                        <td>
+                            <?php 
+                                $codes =  unserialize($item->codes); 
+                                $separator = '';
+                                foreach($codes as $code):
+                                   echo $separator . $code;
+                                   $separator = '<br />';
+                                endforeach;
+                            ?>
+                        </td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

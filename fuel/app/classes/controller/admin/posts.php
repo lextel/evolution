@@ -31,7 +31,7 @@ class Controller_Admin_Posts extends Controller_Admin{
                     'desc' => Input::post('desc'),
                     'status' => Input::post('status'),
                     'item_id' => Input::post('item_id'),
-                    'user_id' => Input::post('user_id'),
+                    'member_id' => Input::post('member_id'),
                     'type_id' => Input::post('type_id'),
                     'phase_id' => Input::post('phase_id'),
                     'topimage' => Input::post('topimage'),
@@ -72,7 +72,7 @@ class Controller_Admin_Posts extends Controller_Admin{
             $post->desc = Input::post('desc');
             $post->status = Input::post('status');
             $post->item_id = Input::post('item_id');
-            $post->user_id = Input::post('user_id');
+            $post->user_id = Input::post('member_id');
             $post->type_id = Input::post('type_id');
             $post->phase_id = Input::post('phase_id');
             $post->topimage = Input::post('topimage');
@@ -98,7 +98,7 @@ class Controller_Admin_Posts extends Controller_Admin{
                 $post->desc = $val->validated('desc');
                 $post->status = $val->validated('status');
                 $post->item_id = $val->validated('item_id');
-                $post->user_id = $val->validated('user_id');
+                $post->user_id = $val->validated('member_id');
                 $post->type_id = $val->validated('type_id');
                 $post->phase_id = $val->validated('phase_id');
 

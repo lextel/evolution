@@ -14,5 +14,17 @@ class View_Items_view extends Viewmodel {
 
             return json_encode($rel);
         };
+
+        $this->getMember = function($memberId) {
+
+            return Model_Member::find($memberId);
+        };
+
+        $this->friendlyDate = function($timestamp) {
+
+            $timer = new \Helper\Timer();
+
+            return $timer->friendlyDate($timestamp);
+        };
     }
 }

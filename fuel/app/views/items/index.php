@@ -70,7 +70,6 @@
             <span>排序</span>
             <?php echo $sort(); ?>
         </div>
-
         <div class="product-list">
             <ul class="product-box">
                 <?php foreach($items as $item): ?>

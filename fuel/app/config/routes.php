@@ -2,11 +2,9 @@
 return array(
     '_root_'  => 'index/index',  // The default route
     '_404_'   => 'error/404',    // The main 404 route
-    '_500_'   => 'error/500',    // The main 404 route
+    '_500_'   => 'error/500',    // The main 500 route
 
-    //'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),
-
-     'totalbuycount' => 'index/totalCount',
+    'totalbuycount' => 'index/totalCount',
 
     'signin' => 'center/signin',
     'signup' => 'center/signup',
@@ -23,6 +21,7 @@ return array(
     'u/address/delete/(\d+)' => 'member/address/delete/$1',
     'u/getavatar' => 'member/getavatar',
     'u/avatar' => 'member/avatar',
+    'u/avatar/upload' => 'member/avatarUpload',
     'u/getprofile' => 'member/getprofile',
     'u/profile' => 'member/profile',
     'u/passwd' => 'member/changepassword',
@@ -36,8 +35,8 @@ return array(
     'u/posts/edit/(\d+)' => 'member/posts/edit/$1',
     'u/posts/delete/(\d+)' => 'member/posts/delete/$1',
 
-    'u/orders' => 'orders/my',
-    'u/orders/p/(\d+)' => 'orders/my/$1',
+    'u/orders' => 'member/orders/my',
+    'u/orders/p/(\d+)' => 'member/orders/my/$1',
     'u/wins' => 'member/lottery/index',
     'u/win/p/\d+' => 'member/lottery/index/$1',
     'u/recharge' => 'member/recharge',
@@ -76,6 +75,10 @@ return array(
     'w' => 'wins/index',
     'w/p/(\d+)' => 'wins/index/$1',
     'w/(\d+)' => 'wins/view/$1',
+
+    'l' => 'orders/index',
+    'l/joined' => 'orders/joined',
+    'l/posts' => 'posts/posts',
 
     'image/:size/:link' => 'image/index',
 

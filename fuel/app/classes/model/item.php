@@ -369,6 +369,9 @@ class Model_Item extends \Orm\Model {
         $itemModel = new Model_Item();
         $item = $itemModel->itemInfo($phase);
 
+        $phase->hots = $phase->hots+1;
+        $phase->save();
+
         return $item;
     }
 
