@@ -136,3 +136,13 @@ $(function(){
 
 
 });
+
+$(function(){
+    // 搜索
+    $('#doSearch').click(function(){
+        var val = $(this).prev().val();
+        if(val != '') {
+            location.href = BASE_URL + '/m/search/' + val;
+        }
+    });
+});
