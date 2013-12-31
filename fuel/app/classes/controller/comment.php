@@ -3,38 +3,44 @@ class Controller_Comment extends Controller_Rest{
     /*
     *获得晒单的评论列表
     */
-    public function action_index($pid=null, $page=1)
+    public $format = 'json';
+    public function action_index($pid=null, $pagenum=1)
     {
         $this->response->set_header('Content-Type','application/json');
         $data = ['code'=>-1, 'msg'=>'pid is null'];
-        is_null($pid) and $this->response(json_encode($data));
+        is_null($pid) and $this->response($data);
         $count = Model_Comment::count(['where'=>['pid'=>$pid]]);
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('/comment/'.$pid.'/p', $count, 4, 4);
+        $config = $page->setAjaxConfig('cpage', $count, $pagenum);
         $pagination = Pagination::forge('commentpage', $config);
-        
+
         $response = new Response();
         $comments = Model_Comment::find('all', [
                                 'where'=>['pid'=>$pid],
                                 'order_by' =>['id'=>'desc'],
                                 'rows_limit'=>$pagination->per_page,
-                                'rows_offset'=>$pagination->offset,]);     
+                                'rows_offset'=>$pagination->offset,]);
         if ($comments)
-        {      
+        {
             foreach($comments as $c)
             {
-                $data['list'][] = [
+                $member = Model_Member::find($c->member_id);
+                $data['list'][] = ["member"=>[
                     'id'=>$c->id,
-                    'member_id'=>$c->member_id,
+                    'userid'=>$c->member_id,
+                    'avatar'=>$member->avatar,
+                    'nickname'=>$member->nickname,
                     'text'=>$c->text,
-                    'created_at'=>$c->created_at];
+                    'date'=>$c->created_at]
+                    ];
             }
-            $data['code'] = 0;           
+            $data['page'] =Pagination::instance('commentpage')->render();
+            $data['code'] = 0;
             $data['msg'] = 'ok';
-            return $this->response(json_encode($data));
+            return $this->response($data);
         }
         $data['code'] = -1;
         $data['msg'] = 'pid is valid';
-        return $this->response(json_encode($data));
+        return $this->response($data);
     }
 }

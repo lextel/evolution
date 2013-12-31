@@ -77,7 +77,45 @@ class Model_Post extends \Orm\Model
      */
     public function countByItemId($itemId) {
 
-        return Model_Post::count(['where' => ['status' => self::IS_PASS, 'is_delete' => self::NOT_DELETE]]);
+        $where = ['item_id' => $itemId, 'status' => self::IS_PASS, 'is_delete' => self::NOT_DELETE];
+
+        return Model_Post::count(['where' => $where]);
+    }
+
+
+    /**
+     * 商品详情晒单列表
+     *
+     * @param $get array get参数
+     *
+     * @return array
+     */
+    public function posts($get) {
+
+        $offset = ($get['page'] - 1)*\Helper\Page::PAGESIZE;
+
+        $where   = ['item_id' => $get['itemId'], 'status' => self::IS_PASS, 'is_delete' => self::NOT_DELETE];
+        $orderBy = ['id' => 'desc']; 
+
+        $posts = Model_Post::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::PAGESIZE]);
+
+        foreach($posts as $key => $post) {
+            $member = Model_Member::find($post->member_id);
+            $posts[$key] = [
+                    'title' => $post->title,
+                    'desc'  => $post->desc,
+                    'images' => unserialize($post->images),
+                    'up' => $post->up,
+                    'count' => $post->comment_count,
+                    'link' => Uri::create('u/'.$member->id),
+                    'avatar' => Uri::create($member->avatar),
+                    'nickname' => $member->nickname,
+                    'created_at' => date('Y-m-d H:i:s', $post->created_at),
+                ];
+        }
+
+        return $posts;
+
     }
 
 }

@@ -35,8 +35,8 @@ return array(
     'u/posts/edit/(\d+)' => 'member/posts/edit/$1',
     'u/posts/delete/(\d+)' => 'member/posts/delete/$1',
 
-    'u/orders' => 'orders/my',
-    'u/orders/p/(\d+)' => 'orders/my/$1',
+    'u/orders' => 'member/orders/my',
+    'u/orders/p/(\d+)' => 'member/orders/my/$1',
     'u/wins' => 'member/lottery/index',
     'u/win/p/\d+' => 'member/lottery/index/$1',
     'u/recharge' => 'member/recharge',
@@ -78,6 +78,7 @@ return array(
 
     'l' => 'orders/index',
     'l/joined' => 'orders/joined',
+    'l/posts' => 'posts/posts',
 
     'image/:size/:link' => 'image/index',
 

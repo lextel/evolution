@@ -3,7 +3,7 @@
 <?php echo Asset::js('jquery.bxslider.min.js'); ?>
 
 <script>
-$(document).ready(function(){
+$(function(){
   $('.bxslider').bxSlider();
 });
 </script>
@@ -58,7 +58,7 @@ $(document).ready(function(){
                         </div>
                         <dl class="progress-side">
                             <dd>
-                                <div class="progress"><div class="progress-bar"></div></div>
+                                <div class="progress"><div class="progress-bar" style="width:<?php echo $phase->joined/$phase->amount * 100;?>%"></div></div>
                             </dd>
                             <dd>
                                 <span class="fl red"><?php echo $phase->joined;?></span>
@@ -122,7 +122,7 @@ $(document).ready(function(){
                 </div>
                 <dl class="progress-side">
                     <dd>
-                        <div class="progress"><div class="progress-bar"></div></div>
+                        <div class="progress"><div class="progress-bar" style="width:<?php echo $phase->joined/$phase->amount * 100;?>%"></div></div>
                     </dd>
                     <dd>
                         <span class="fl red"><?php echo $phase->joined;?></span>
@@ -173,7 +173,7 @@ $(document).ready(function(){
                         </div>
                         <h5><?php echo Html::anchor('m/'.$post->phase_id, $getItemInfo($post->item_id)->title);?></h5>
                         <div class="winner">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $getMemberInfo($post->member_id)->nickname, ['class'=>'bule']);?></b></div>
-                        <p>揭晓时间：<?php  echo date('Y-m-d H:i:s', $getPhaseInfo($post->phase_id)->opentime);?></p>
+                        <p>揭晓时间：<?php  echo date('Y-m-d H:i', $getPhaseInfo($post->phase_id)->opentime);?></p>
                     </li>
                     <?php } ?>
                 </ul>
