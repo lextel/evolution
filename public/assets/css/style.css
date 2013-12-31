@@ -86,15 +86,19 @@
  }
 .register-form ul li input{
     border: 1px solid #EEEEEE;
-    text-indent: 25px;
+    text-indent: 10px;
     height: 26px;
     line-height: 26px;
     width: 230px;
     display: inline-block;
     margin: 0 20px;
 }
-.register-form ul li .btn{
+.register-form ul li input#form_submit{
+    padding: 0;
+    width: 130px;
+    text-align: center;
     margin-left: 180px;
+
 }
 .register-help{
     width: 640px;
@@ -545,6 +549,10 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     background: #ffffff;
     border-bottom: none;
 }
+
+.navbar-inner ul li a{
+    display:block;
+}
 /*表单*/
 .edit-data{
     padding:10px 20px;
@@ -601,7 +609,13 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     margin: 0 10px;
     font-size: 14px;
 }
-
+.edit-data li #datas{
+    display: inline-block;
+}
+.edit-data li #datas s{
+    margin: 0 10px;
+    font-size: 14px;
+}
 .edit-data li .upload-photo{
     border: 1px solid #f1f1f1;
     width:300px ;
@@ -615,7 +629,18 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     vertical-align: middle;
 }
 .edit-data li .btn{
+    margin-left: 123px;
+}
+.edit-data li .file-img{
+    width: 159px;
+    height: 41px;
     margin-left: 120px;
+    overflow: hidden;
+    background: url("../images/icon_2.png") no-repeat 0 -118px;
+}
+.edit-data li .file-img input{
+    cursor: pointer;
+    opacity: 0;
 }
 /*晒单分享*/
 .share-list{

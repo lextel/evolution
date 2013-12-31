@@ -10,11 +10,6 @@ $(function(){
         });
     }
 
-    $(".btn-jia").click(function (){
-        alert(1);
-        //$(this).val();
-     });
-
     // 参与者拉取
     $('a[href="#buylog"]').click(function() {
         joined(1);

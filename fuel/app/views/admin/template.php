@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <title><?php echo $title; ?></title>
-    <?php echo Asset::css('bootstrap.css'); ?>
+    <?php echo Asset::css('bootstrap.min.css'); ?>
     <style>
         body { margin: 50px; }
     </style>
     <?php echo Asset::js(array(
         'jquery.min.js',
-        'bootstrap.js'
+        'bootstrap.min.js'
     )); ?>
     <script>
         $(function(){ $('.topbar').dropdown(); });
@@ -51,7 +51,7 @@
                                 }
                             }
                         }
-                    
+
                     ?>
                     <!--
                     <?php

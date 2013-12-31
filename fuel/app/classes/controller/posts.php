@@ -5,15 +5,15 @@ class Controller_Posts extends Controller_Frontend{
     */
     public function action_index($pagenum=1)
     {
-        $postscount = Model_Post::count(['where'=>['is_delete'=>0]]);
+        $postscount = Model_Post::count(['where'=>['is_delete'=>0, 'status'=>1]]);
         $page = new \Helper\Page();
         $config = $page->setCofigPage('/p/p', $postscount, 4, 3);
         $pagination = Pagination::forge('postspage', $config);
-        $data['posts'] = Model_Post::find('all', array(
-                                                  'where' => array('is_delete'=>0),
-                                                  'order_by' =>array('id' => 'desc'),
+        $data['posts'] = Model_Post::find('all', [
+                                                  'where' => ['is_delete'=>0, 'status'=>1],
+                                                  'order_by' =>['id' => 'desc'],
                                                   'rows_limit'=>$pagination->per_page,
-                                                  'rows_offset'=>$pagination->offset,)
+                                                  'rows_offset'=>$pagination->offset,]
                                          );
         $data['postscount'] = $postscount;
         $view = ViewModel::forge('posts/index', 'view');
@@ -32,7 +32,7 @@ class Controller_Posts extends Controller_Frontend{
         $type = array('sortup'=>'up',
                  'sortcomment'=>'comment_count',
                 );
-        $postscount = Model_Post::count(['where'=>['is_delete'=>0]]);
+        $postscount = Model_Post::count(['where'=>['is_delete'=>0, 'status'=>1]]);
         if (!in_array($sort, array_keys($type)))
         {
             $sortType = 'id';
@@ -42,11 +42,11 @@ class Controller_Posts extends Controller_Frontend{
         $page = new \Helper\Page();
         $config = $page->setCofigPage('/p/s/'.$sort.'/p', $postscount, 4, 5);
         $pagination = Pagination::forge('postspage', $config);
-        $data['posts'] = Model_Post::find('all', array(
-                                                  'where' => array('is_delete'=>0),
-                                                  'order_by' =>array($sortType=>'desc'),
+        $data['posts'] = Model_Post::find('all', [
+                                                  'where' => ['is_delete'=>0, 'status'=>1],
+                                                  'order_by' =>[$sortType=>'desc'],
                                                   'rows_limit'=>$pagination->per_page,
-                                                  'rows_offset'=>$pagination->offset,)
+                                                  'rows_offset'=>$pagination->offset,]
                                          );
         $data['postscount'] = $postscount;
         $view = ViewModel::forge('posts/index', 'view');
@@ -62,14 +62,14 @@ class Controller_Posts extends Controller_Frontend{
     public function action_view($id = null)
     {
         is_null($id) and Response::redirect('p');
-        if ( ! $data['post'] = Model_Post::find($id, ['where'=>['is_delete'=>0]]))
+        if ( ! $data['post'] = Model_Post::find($id, ['where'=>['is_delete'=>0, 'status'=>'1']]))
         {
             Session::set_flash('error', '未发现该晒单'.$id);
             Response::redirect('p');
         }
         $view = ViewModel::forge('posts/view', 'view');
-        $view->set('post', $data['post'] );
-        $this->template->title = "晒单详情页";
+        $view->set('post', $data['post'] , false);
+        $this->template->title = $data['post']->title."_晒单";
         $this->template->layout = $view;
     }
 

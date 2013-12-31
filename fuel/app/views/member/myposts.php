@@ -3,9 +3,8 @@
     <!--晒单开始-->
     <div class="show-box">
         <div class="toggles">
-            <a href="javascript:void(0)" class="first-child active">已晒单</a>
-            <a href="javascript:void(0)" class="last-child">未晒单</a>
-
+            <?php echo Html::anchor('u/posts', '已晒单', ['class'=>'first-child active']); ?>
+            <?php echo Html::anchor('u/noposts', '未晒单', ['class'=>'last-child']); ?>
         </div>
 
         <div class="show-c">
@@ -16,7 +15,7 @@
                     <th>编号</th>
                     <th>晒单图片</th>
                     <th>晒单信息</th>
-                    <th>晒单状态/th>
+                    <th>晒单状态</th>
                     <th>操作</th>
                 </tr>
                 </thead>
