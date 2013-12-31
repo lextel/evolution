@@ -37,15 +37,16 @@ class Controller_Items extends Controller_Frontend {
         $itemModel = new Model_Item();
         $item = $itemModel->view($id);
 
-        //$prevWinner = $itemModel->prevWinner($item->id);
-        $prevWinner = [];
+        $prevWinner = $itemModel->prevWinner($item);
 
         $orderModel = new Model_Order();
         $orderCount = $orderModel->countByPhaseId($id);
         $newOrders  = $orderModel->newOrders($id);
-        $myOrders   = $orderModel->myOrder($this->current_user->id, $id);
+
+        $myOrders   = $this->auth->check() ? $orderModel->myOrder($this->current_user->id, $id) : [];
         $postModel  = new Model_Post();
         $postCount  = $postModel->countByItemId($item->id);
+        $phaseCount = $itemModel->phaseCountByid($item->id);
 
         $view = ViewModel::forge('items/view');
         $view->set('item', $item, false);
@@ -53,15 +54,25 @@ class Controller_Items extends Controller_Frontend {
         $view->set('myOrders', $myOrders);
         $view->set('orderCount', $orderCount);
         $view->set('postCount', $postCount);
+        $view->set('phaseCount', $phaseCount);
         $view->set('prevWinner', $prevWinner);
         $this->template->title = '(第'.$item->phase->phase_id.'期)' . $item->phase->title;
         $this->template->layout = $view;
     }
 
     // 商品详情往期回顾
-    public function action_phases($id = null) {
+    public function action_phases() {
 
+        $itemModel = new Model_Item();
+        $total = $itemModel->phaseCountByid(Input::get('itemId', 0));
 
+        $page = new \Helper\Page();
+        $config = $page->setAjaxConfig('phases', $total);
+        Pagination::forge('mypagination', $config);
+
+        $phases = $itemModel->phases(Input::get());
+
+        return json_encode(['phases' => $phases, 'page' => Pagination::instance('mypagination')->render()]);
     }
 
 }

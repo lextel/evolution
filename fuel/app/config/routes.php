@@ -79,6 +79,7 @@ return array(
     'l' => 'orders/index',
     'l/joined' => 'orders/joined',
     'l/posts' => 'posts/posts',
+    'l/phases' => 'items/phases',
 
     'image/:size/:link' => 'image/index',
 
