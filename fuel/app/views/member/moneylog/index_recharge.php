@@ -1,3 +1,19 @@
+<?php echo Asset::css('member/jquery-ui.css'); ?>
+<?php echo Asset::js('jquery-ui.js'); ?>
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      showWeek: true,
+      firstDay: 1
+    });
+
+        $( "#datepicker1" ).datepicker({
+      showWeek: true,
+      firstDay: 1
+    });
+  });
+  </script>
+
 
 <div class="content-inner">
     <!--晒单开始-->
@@ -12,14 +28,9 @@
         <div class="select-box">
             <label for="">全部商品</label>
         <span class="time-choose">选择时间段：
-            <select name="" >
-                <option value="">1</option>
-                <option value="">2</option>
-            </select>
-            <select name="">
-                <option value="">1</option>
-                <option value="">2</option>
-            </select>
+            <input  id="datepicker" type="text"/>
+
+            <input  id="datepicker1" type="text"/>
             <button>搜索</button>
         </span>
     </div>
