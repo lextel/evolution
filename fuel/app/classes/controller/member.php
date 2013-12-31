@@ -4,9 +4,11 @@ class Controller_Member extends Controller_Center{
     public function action_index()
     {
         $data['members'] = Model_Member::find('all');
+        $view = ViewModel::forge('member/index', 'view');
         $this->template->title = "用户中心";
         //$this->template->layout = View::forge('memberlayout');
-        $this->template->layout->content = View::forge('member/index', $data);
+        $view->set('data', $data);
+        $this->template->layout->content = $view;
     }
 
     public function action_view($id = null)

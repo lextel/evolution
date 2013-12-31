@@ -69,7 +69,7 @@ class Controller_Posts extends Controller_Frontend{
         }
         $view = ViewModel::forge('posts/view', 'view');
         $view->set('post', $data['post'] );
-        $this->template->title = "晒单详情页";
+        $this->template->title = $data['post']->title."_晒单";
         $this->template->layout = $view;
     }
 
