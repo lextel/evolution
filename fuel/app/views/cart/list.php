@@ -26,6 +26,7 @@
                         <tbody>
                         <?php
                             $subTotal = 0;
+                            if(!empty($items)) :
                             foreach($items as $item) :
                                 $info = $getInfo($item->get_id());
                                 $subTotal += $item->get_qty();
@@ -47,16 +48,25 @@
                             <td><s class="red">￥<?php echo sprintf('%.2f', $info->price); ?></s></td>
                             <td>
                                 <div class="btn-menu">
-                                    <button class="">-</button>
+                                    <a class="add">-</a >
                                     <input type="text" value="<?php echo $item->get_qty(); ?>" name="qty">
-                                    <button class="">+</button>
+                                    <a  class="add">+</a >
                                     <span>人次</span>
                                 </div>
                             </td>
                             <td><s class="red">￥<?php echo sprintf('%.2f', $item->get_qty()); ?></s></td>
                             <td><button class="btn btn-default btn-sx" action="delete">删除</button></td>
                         </tr>
-                        <?php endforeach; ?>
+                        <?php 
+                            endforeach;
+                            else:
+                                if(!is_null($current_user)):
+                                echo "<tr><td colspan='7' style='line-height: 50px'>暂时没有商品 <a href='".Uri::base()."'>去购买</a></td></tr>";
+                                else:
+                                echo "<tr><td colspan='7' style='line-height: 50px'>您还没有登陆，请先<a href='".Uri::create('signin')."'>登陆</a></td></tr>";
+                                endif;
+                            endif;
+                        ?>
                         </tbody>
                     </table>
                     <div class="cart-footer">

@@ -14,11 +14,9 @@
                     }                                    
                 });
             }
-            
             function timer(){
                 getTotalBuy();                
             }
-            
             setInterval(timer,3000);
          });
     </script>
@@ -52,9 +50,29 @@
                     </a>
                 </div>
                 <div class="shopping-box">
-                    <div class="shopping-cart"><a href="<?php echo Uri::create('cart/list'); ?>">购物车</a></div>
+                    <div class="shopping-cart">
+                        <a href="javascript:void(0);">购物车</a>
+                          <ul class="dropdown-list" style="display:none">
+                            <li>
+                                <div class="img-box img-sm fl">
+                                    <a href=""><img src="img/54395.jpg" alt=""></a>
+                                </div>
+                                <div class="info-side fr">
+                                    <div class="title">
+                                        <a href="">TP-LINK TP mini 大眼睛 客厅电视机顶盒 </a>
+                                    </div>
+                                    <div class="price tl">￥1.00X <b class="y">1</b></div>
+                                    <button class="btn-link btn-sx">删除</button>
+                                </div>
+                            </li>
+                            <div class="btn-group tr">
+                                <a href="" class="btn-red btn btn-sx">查看购物车</a>
+                            </div>
+                        </ul>
+                    </div>
                     <div class="all">
-                        <a href="<?php echo Uri::create('l'); ?>">当前乐拍人数<b id="totalbuy">100000</b></a>
+                        <!--a href="<?php echo Uri::create('l'); ?>">当前乐拍人数<b id="totalbuy">100000</b></a-->
+                        当前乐拍人数<b id="totalbuy">00000000</b>
                     </div>
                 </div>
          </div>
@@ -113,5 +131,8 @@
         </div>
     </div>
     <!--底部结束-->
+    <script>
+        BASE_URL = '<?php echo Uri::base(); ?>';
+    </script>
 </body>
 </html>
