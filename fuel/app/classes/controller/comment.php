@@ -3,6 +3,7 @@ class Controller_Comment extends Controller_Rest{
     /*
     *获得晒单的评论列表
     */
+    public $page_size = 4;
     public $format = 'json';
     public function action_index($pid=null, $pagenum=1)
     {
@@ -12,14 +13,14 @@ class Controller_Comment extends Controller_Rest{
         $count = Model_Comment::count(['where'=>['pid'=>$pid]]);
         $page = new \Helper\Page();
         $config = $page->setAjaxConfig('cpage', $count, $pagenum);
-        $pagination = Pagination::forge('commentpage', $config);
+        Pagination::forge('commentpage', $config);
 
         $response = new Response();
         $comments = Model_Comment::find('all', [
                                 'where'=>['pid'=>$pid],
                                 'order_by' =>['id'=>'desc'],
-                                'rows_limit'=>$pagination->per_page,
-                                'rows_offset'=>$pagination->offset,]);
+                                'rows_limit'=>$this->page_size*intval($pagenum),
+                                'rows_offset'=>$this->page_size,]);
         if ($comments)
         {
             foreach($comments as $c)

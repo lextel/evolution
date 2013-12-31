@@ -70,22 +70,22 @@
             <form action="<?php echo Uri::create('/cart/add'); ?>" method="post">
                 <div class="btn-menu">
                     <span>购买数量：</span>
-                    <a class="add btn-jian">-</a>
-                    <input type="text" value="1" name="qty">
-                    <a class="add btn-jia">+</a>
+                    <a class="add btn-jian" href="javascript:void(0);">-</a>
+                    <input type="text" value="1" name="qty" amount="<?php echo $item->phase->amount; ?>" remain="<?php echo $item->phase->remain; ?>">
+                    <a class="add btn-jia" href="javascript:void(0);">+</a>
                     <span>人次</span>
-                    <span>获得x几率：<s class="red">0.00%</s> </span>
+                    <span>获得几率：<s class="red" id="percent"><?php echo sprintf('%.2f', 1/$item->phase->amount*100); ?>%</s> </span>
                 </div>
                 <div class="btn-group">
-                    <button type="submit" class="btn btn-red">立即乐拍</button>
-                    <button class="btn btn-default">加入购物车</button>
                     <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>
+                    <button type="submit" class="btn btn-red">立即乐拍</button>
+                    <a class="btn btn-default" href="javascrpt:void(0);">加入购物车</a>
                 </div>
             </form>
             <ul class="security-list">
-                <li><a href="" class="01">100%公平公正</a></li>
-                <li><a href="" class="02">100%正品保证</a></li>
-                <li><a href="" class="03">全国免费配送</a></li>
+                <li><a href="javascript:void(0);" class="01">100%公平公正</a></li>
+                <li><a href="javascript:void(0);" class="02">100%正品保证</a></li>
+                <li><a href="javascript:void(0);" class="03">全国免费配送</a></li>
             </ul>
             <div class="new-buyer">
                 <div class="new-buyer-header">

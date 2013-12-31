@@ -1,16 +1,15 @@
 <?php echo Asset::css('product.css'); ?>
-<?php echo Asset::js('commons.js'); ?>
 <div class="wrapper w">
 <!--产品列表开始-->
 <div class="content">
     <div class="top-navbar w">
         <ul>
-            <li><a href="">手机</a></li>
-            <li><a href="">数码</a></li>
-            <li><a href="">相机</a></li>
-            <li><a href="">平板电视</a></li>
-            <li><a href="">钟表首饰</a></li>
-            <li><a href="">其他商品</a></li>
+            <?php 
+                $cates = $getCates();
+                foreach($cates as $cate): 
+            ?>
+            <li><a href="<?php echo Uri::create('m/c/'.$cate->id.'#list'); ?>"><?php echo $cate->name; ?></a></li>
+            <?php endforeach; ?>
         </ul>
     </div>
     <div class="select-result w">
@@ -46,9 +45,9 @@
                 </dl>
                 <div class="btn-menu">
                     <span>我要乐拍</span>
-                    <a class="add btn-jian">-</a>
-                    <input type="text" value="1" name="qty" joined="<?php echo $item->phase->joined; ?>"  remain="<?php echo $item->phase->remain; ?>" amount="<?php echo $item->phase->amount; ?>"/>
-                    <a class="add btn-jia">+</a>
+                    <a class="add btn-jian" href="javascript:void(0);">-</a>
+                    <input type="text" value="1" name="qty" remain="<?php echo $item->phase->remain; ?>"/>
+                    <a class="add btn-jia" href="javascript:void(0);">+</a>
                     <span>人次</span>
                 </div>
                 <div class="btn-group">
@@ -79,7 +78,7 @@
             foreach($hotItems as $item) :
         ?>
         <li>
-            <div class="img-box">111111<a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
+            <div class="img-box"><a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
             <h5><?php echo $item->phase->title; ?></h5>
             <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->price); ?></b></div>
             <div class="btn-group">
