@@ -42,6 +42,16 @@ class View_Wins_Index extends Viewmodel {
            $member = Model_Member::find_by_id($member_id);
            return $member;
        }; 
+
+
+       // 友好时间
+       $this->friendlyDate = function($timestamp) {
+
+           $timer = new \Helper\Timer();
+
+           return $timer->friendlyDate($timestamp);
+       };
+
    }
 
    public function set_view(){
