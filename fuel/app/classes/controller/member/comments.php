@@ -26,6 +26,9 @@ class Controller_Member_Comments extends Controller_Center
             ));
             if ($comment and $comment->save())
             {
+                $post = Model_Post::find($pid);
+                $post->comment_count +=1;
+                $post->save();
                 $data['code'] = 0;
                 $data['msg'] = 'ok';
                 $data['member']['date'] = 'ganggang';
