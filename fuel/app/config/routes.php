@@ -28,9 +28,12 @@ return array(
     'u/passwd/forgot' => 'member/forgotpassword',
 
     'u/posts' => 'member/posts/index',
+    'u/noposts' => 'member/posts/noposts',
     'u/posts/p/(\d+)' => 'member/posts/index/$1',
+     'u/noposts/p/(\d+)' => 'member/posts/noposts/$1',
     'u/posts/view/(\d+)' => 'member/posts/view',
     'u/posts/getadd' => 'member/posts/getadd',
+    'u/posts/upload' => 'member/posts/upload',
     'u/posts/add' => 'member/posts/add',
     'u/posts/edit/(\d+)' => 'member/posts/edit/$1',
     'u/posts/delete/(\d+)' => 'member/posts/delete/$1',

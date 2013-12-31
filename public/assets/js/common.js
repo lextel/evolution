@@ -96,45 +96,6 @@ $(function(){
             }
         }
     });
-
-
-
-    var xiaoyu = 1;
-    var dayu = $(".btn-menu  >input").attr("amount");;
-
-
-        $(".add").click(function (){
-             var num  = 0;
-            if($(this).html() =="+" || $(this).val() =="+" ){
-                //alert(dayu);
-                  if(isScope(getLastValue($(this)) , 1 , dayu) ==false){
-                       return alert("Oh, can not be greater than "+dayu);
-                   }
-                    num = getLastValue($(this)).val();
-                    getLastValue($(this)).val(parseInt(num)+1);
-            }
-
-            if($(this).html() =="-" || $(this).val() =="-" ){
-                    if(isScope(getNextValue($(this)) , 0, xiaoyu) ==false){
-                        return alert("Oh, can not be less than "+xiaoyu);
-                    }
-                    num = getNextValue($(this) ).val();
-                    getNextValue($(this)).val(parseInt(num -1));
-            }
-         });
-
-
-        $(".btn-menu  >input").change(function (){
-            isNum($(this));
-            //alert($(this).val());
-        });
-
-
-
-
-
-
-
 });
 
 $(function(){
@@ -142,7 +103,81 @@ $(function(){
     $('#doSearch').click(function(){
         var val = $(this).prev().val();
         if(val != '') {
-            location.href = BASE_URL + '/m/search/' + val;
+            location.href = BASE_URL + 'm/search/' + val;
+        }
+    });
+
+    // 数量输入框选中
+    $('input[name="qty"]').hover(function(){
+        $(this).select();
+    });
+
+    // 数量被直接修改
+    $('input[name="qty"]').keyup(function(){
+        var val = $(this).val();
+
+        var reNum = /^\d*$/;
+        if(!reNum.test(val) || val == '') {
+            val = 1;
+        }
+
+        val = parseInt(val);
+        if(val < 1) {
+            alert('数量不能小于1。');
+            val = 1;
+            $(this).select();
+        }
+
+        var remain = $(this).attr('remain');
+        if(val > parseInt(remain)) {
+            alert('数量不能大于剩余人次');
+            val = remain;
+            $(this).select();
+        }
+
+        countPercent(val, $(this));
+
+        $(this).val(val);
+    });
+
+    
+
+    // 数量增加
+    $('.btn-jia').click(function(){
+        var $this = $(this);
+        var input = $this.prev();
+        var max = input.attr('remain');
+        var val = parseInt(input.val());
+        if(val + 1 > parseInt(max)) {
+            alert('购买数量不能大于剩余数量');
+        } else {
+            val = val + 1;
+            countPercent(val, input);
+            input.val(val);
+        }
+    });
+
+    // 数量减少
+    $('.btn-jian').click(function(){
+        var $this = $(this);
+        var input = $this.next();
+        var min = 1;
+        var val = parseInt(input.val());
+
+        if(val -1 < parseInt(min)) {
+            alert('购买数量不能小于1');
+        } else {
+            val = val - 1;
+            countPercent(val, input);
+            input.val(val);
         }
     });
 });
+
+function countPercent(val, input) {
+    if($('#percent').length > 0) {
+        var total = input.attr('amount');
+        var percent =val/parseInt(total)*100;
+        $('#percent').html(percent.toFixed(2) + '%');
+    }
+}
