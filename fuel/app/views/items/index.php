@@ -1,7 +1,5 @@
 <?php echo Asset::css('product.css'); ?>
 <?php echo Asset::js('item/index.js'); ?>
-<?php echo Asset::js('./commons.js'); ?>
-
 <div class="wrapper w">
     <div class="product-inner w">
         <ul class="left-sidebar fl">
@@ -103,10 +101,9 @@
                             <span>人次</span>
                         </div>
                         <div class="btn-group">
-
                             <input name="id" value="<?php echo $item->phase->id; ?>" type="hidden">
                             <button class="btn btn-red" type="submit" >立即乐拍</button>
-                            <a class="btn btn-default" href="javascript:void(0);">加入购物车</a>
+                            <a class="btn btn-default doCart" href="javascript:void(0);">加入购物车</a>
                         </div>
                     </form>
                 </li>
@@ -151,12 +148,14 @@
 
 $(document).ready(function(){
     
+    /*
     $(".scrollleft").imgscroll({
         speed: 1,    //图片滚动速度
         amount: 1,    //图片滚动过渡时间
         width: 1,     //图片滚动步数
         dir: "left"   // "left" 或 "up" 向左或向上滚动
     });
+    */
 
 });
 
