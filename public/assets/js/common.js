@@ -103,13 +103,9 @@ $(function(){
     $('#doSearch').click(function(){
         var val = $(this).prev().val();
         if(val != '') {
-            location.href = BASE_URL + '/m/search/' + val;
+            location.href = BASE_URL + 'm/search/' + val;
         }
     });
-
-    /**
-     * 修改商品数量
-     */
 
     // 数量输入框选中
     $('input[name="qty"]').hover(function(){

@@ -83,9 +83,9 @@
                 </div>
             </form>
             <ul class="security-list">
-                <li><a href="" class="01">100%公平公正</a></li>
-                <li><a href="" class="02">100%正品保证</a></li>
-                <li><a href="" class="03">全国免费配送</a></li>
+                <li><a href="javascript:void(0);" class="01">100%公平公正</a></li>
+                <li><a href="javascript:void(0);" class="02">100%正品保证</a></li>
+                <li><a href="javascript:void(0);" class="03">全国免费配送</a></li>
             </ul>
             <div class="new-buyer">
                 <div class="new-buyer-header">

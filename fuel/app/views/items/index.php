@@ -123,7 +123,7 @@
                     foreach($hotItems as $item) :
                 ?>
                 <li>
-                    <div class="img-box">111111<a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
+                    <div class="img-box"><a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
                     <h5><?php echo $item->phase->title; ?></h5>
                     <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->price); ?></b></div>
                     <div class="btn-group">

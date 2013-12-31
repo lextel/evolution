@@ -118,4 +118,39 @@ class Model_Phase extends \Orm\Model
 
         return $codes;
     }
+
+    /**
+     * 最新揭晓统计
+     */
+    public function countWins() {
+
+        return Model_Phase::count(['where' => [['opentime', '>', 0]]]);
+    }
+
+    /**
+     * 获取揭晓列表
+     *
+     * @param $offset integer 偏移
+     * @param $limit  integer 限制
+     *
+     * @return array
+     */
+    public function getWins($offset, $limit) {
+
+        $where = [['opentime', '>', 0]];
+
+        return Model_Phase::find('all', ['where' => $where, 'offset' => $offset, 'limit' => $limit]);
+    }
+
+    /**
+     * 获取揭晓详情
+     *
+     * @param $id integer 期数ID
+     *
+     * @return array
+     */
+    public function win($id) {
+
+        return Model_Phase::find($id);
+    }
 }
