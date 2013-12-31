@@ -47,9 +47,9 @@
                             <td><s class="red">￥<?php echo sprintf('%.2f', $info->price); ?></s></td>
                             <td>
                                 <div class="btn-menu">
-                                    <button class="">-</button>
+                                    <a class="add">-</a >
                                     <input type="text" value="<?php echo $item->get_qty(); ?>" name="qty">
-                                    <button class="">+</button>
+                                    <a  class="add">+</a >
                                     <span>人次</span>
                                 </div>
                             </td>
