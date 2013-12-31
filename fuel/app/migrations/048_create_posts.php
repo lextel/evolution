@@ -10,20 +10,20 @@ class Create_posts
             'id' => array('constraint' => 11, 'type' => 'int', 'auto_increment' => true, 'unsigned' => true),
             'title' => array('constraint' => 255, 'type' => 'varchar'),
             'desc' => array('type' => 'text'),
-            'status' => array('constraint' => 11, 'type' => 'int', 'default' => '0'),
+            'status' => array('constraint' => 11, 'type' => 'int', 'null' => true, 'default' => '0'),
             'item_id' => array('constraint' => 11, 'type' => 'int'),
             'member_id' => array('constraint' => 11, 'type' => 'int'),
-            'type_id' => array('constraint' => 11, 'type' => 'int'),
+            'type_id' => array('constraint' => 11, 'type' => 'int', 'null' => true, 'default' => '0'),
             'phase_id' => array('constraint' => 11, 'type' => 'int'),
             'lottery_id' => array('constraint' => 11, 'type' => 'int'),
             'topimage' => array('constraint' => 255, 'type' => 'varchar'),
             'images' => array('constraint' => 255, 'type' => 'varchar'),
-            'up' => array('constraint' => 11, 'type' => 'int', 'default' => '0'),
-            'comment_count' => array('constraint' => 11, 'type' => 'int', 'default' => '0'),
-            'comment_top' => array('constraint' => 11, 'type' => 'int', 'default' => '0'),
+            'up' => array('constraint' => 11, 'type' => 'int', 'null' => true, 'default' => '0'),
+            'comment_count' => array('constraint' => 11, 'type' => 'int', 'null' => true, 'default' => '0'),
+            'comment_top' => array('constraint' => 11, 'type' => 'int', 'null' => true, 'default' => '0'),
             'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
             'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
-            'is_delete' => array('constraint' => 11, 'type' => 'int', 'default' => '0')
+            'is_delete' => array('constraint' => 11, 'type' => 'int', 'null' => true, 'default' => '0')
         ), array('id'));
     }
 

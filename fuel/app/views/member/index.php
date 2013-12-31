@@ -71,11 +71,8 @@
     <div class="notice fr f2">
         <div class="title"><h4>乐拍公告 <span class="icon icon-horn"></span></h4></div>
         <ul>
-            <li><a href="">关于春节放假通知！通知如下：元月1号到30号为放假时间</a></li>
-            <li><a href="">关于春节放假通知！</a></li>
-            <li><a href="">关于春节放假通知！</a></li>
-            <li><a href="">关于春节放假通知！</a></li>
-            <li><a href="">关于春节放假通知！</a></li>
-            <li><a href="">关于春节放假通知！</a></li>
+            <?php foreach($getNotices() as $notice) { ?>
+            <li><?php echo Html::anchor('/notice/'.$notice->id, $notice->title);?></li>
+            <?php } ?>
         </ul>
     </div>
