@@ -96,4 +96,43 @@ $(function(){
             }
         }
     });
+
+
+
+    var xiaoyu = 1;
+    var dayu = $(".btn-menu  >input").attr("amount");;
+
+
+        $(".add").click(function (){
+             var num  = 0;
+            if($(this).html() =="+" || $(this).val() =="+" ){
+                //alert(dayu);
+                  if(isScope(getLastValue($(this)) , 1 , dayu) ==false){
+                       return alert("Oh, can not be greater than "+dayu);
+                   }
+                    num = getLastValue($(this)).val();
+                    getLastValue($(this)).val(parseInt(num)+1);
+            }
+
+            if($(this).html() =="-" || $(this).val() =="-" ){
+                    if(isScope(getNextValue($(this)) , 0, xiaoyu) ==false){
+                        return alert("Oh, can not be less than "+xiaoyu);
+                    }
+                    num = getNextValue($(this) ).val();
+                    getNextValue($(this)).val(parseInt(num -1));
+            }
+         });
+
+
+        $(".btn-menu  >input").change(function (){
+            isNum($(this));
+            //alert($(this).val());
+        });
+
+
+
+
+
+
+
 });
