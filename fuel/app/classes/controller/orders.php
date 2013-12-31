@@ -1,7 +1,6 @@
 <?php
 
-class Controller_Orders extends Controller_Center
-{
+class Controller_Orders extends Controller_Frontend {
     //public $template = 'memberlayout';
 
     public function action_index()
@@ -38,7 +37,6 @@ class Controller_Orders extends Controller_Center
     public function action_joined() {
 
         $orderModel = new Model_Order();
-
         $total = $orderModel->countByPhaseId(Input::get('phaseId'));
 
         $page = new \Helper\Page();
@@ -48,7 +46,6 @@ class Controller_Orders extends Controller_Center
         $orders = $orderModel->joined(Input::get());
 
         return json_encode(['orders' => $orders, 'page' => Pagination::instance('mypagination')->render()]);
-
     }
 
 }
