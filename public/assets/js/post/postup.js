@@ -55,7 +55,11 @@ $(function(){
          text += '<span class="datetime">'+member.date+'</span></div><div class="comment-text">'+member.text+'</div>'
          $('.comment-list dt').after(text);     
      }
-     
+     //评论数 + 1 效果
+     function comment_countup(){
+         var count =  $(".btn-comment").find("s").html();
+         $(".btn-comment").find("s").html(parseInt(count) + 1);
+     }
      //添加评论
      $(".btn-comment").click(function(){        
          var postid = $(".postid").attr("id");
@@ -64,6 +68,7 @@ $(function(){
          $.post(url ,{text:text},function(data){
              if (data.code==0){
                  comment(data.member);
+                 comment_countup();
              }
          });
      });
@@ -77,8 +82,8 @@ $(function(){
                          comment(li.member);
                        });
                        var page = data.page;
-                       page = page.replace(/\/c\/p\/(\d+)/g, "javascript:gotoPage($1);");
-                       page = page.replace(/#/g, "javascript:;");
+                       //page = page.replace(/\/c\/p\/(\d+)/g, "javascript:gotoPage($1);");
+                       //page = page.replace(/#/g, "javascript:;");
                        $('.comment').remove();
                        $('.comment-list').append(page);
                        $('.pagination').addClass('comment');
@@ -89,9 +94,10 @@ $(function(){
      function getTopCommentList(){
          
      }
-     function gotoPage(id){
-         alert(id);
-     }
+     
      getCommentList(1);
      
 });
+function cpage(id){
+         alert(id);
+}

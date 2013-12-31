@@ -57,16 +57,22 @@ class Page {
      *
      * @return array 配置数组
      */
-    public function setAjaxConfig($fun, $total) {
-
+    public function setAjaxConfig($fun, $total, $pagenum=null) {
+        if (!$pagenum){
+            $prepage = "\"-1\"";
+            $nextpage = "\"+1\"";
+        }else{
+            $prepage = intval($pagenum) -1;
+            $nextpage = intval($pagenum) + 1;
+        }
         return [
              'wrapper'=>'<div class="pagination fr">{pagination}</div>',
              'total_items' => $total,
              'per_page'       => self::PAGESIZE,
              'regular-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}({page})'>{page}</a>\n",
              'active-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}({page})'>{page}</a>\n",
-             'next-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}(\"+1\")' rel='next'>{page}</a>\n",
-             'previous-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}(\"-1\")' rel='prev'>{page}</a>\n",
+             'next-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}({$nextpage})' rel='next'>{page}</a>\n",
+             'previous-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}({$prepage})' rel='prev'>{page}</a>\n",
              'previous-inactive-link' => '<上一页',
              'next-inactive-link' => '下一页>',
              'previous-marker'=> "<上一页",

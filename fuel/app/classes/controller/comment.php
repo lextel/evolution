@@ -4,14 +4,14 @@ class Controller_Comment extends Controller_Rest{
     *获得晒单的评论列表
     */
     public $format = 'json';
-    public function action_index($pid=null, $page=1)
+    public function action_index($pid=null, $pagenum=1)
     {
         $this->response->set_header('Content-Type','application/json');
         $data = ['code'=>-1, 'msg'=>'pid is null'];
         is_null($pid) and $this->response($data);
         $count = Model_Comment::count(['where'=>['pid'=>$pid]]);
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('/c/p', $count, 4, 3);
+        $config = $page->setAjaxConfig('cpage', $count, $pagenum);
         $pagination = Pagination::forge('commentpage', $config);
 
         $response = new Response();

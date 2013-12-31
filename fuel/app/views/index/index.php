@@ -173,7 +173,7 @@ $(function(){
                         </div>
                         <h5><?php echo Html::anchor('m/'.$post->phase_id, $getItemInfo($post->item_id)->title);?></h5>
                         <div class="winner">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $getMemberInfo($post->member_id)->nickname, ['class'=>'bule']);?></b></div>
-                        <p>揭晓时间：<?php  echo date('Y-m-d H:i:s', $getPhaseInfo($post->phase_id)->opentime);?></p>
+                        <p>揭晓时间：<?php  echo date('Y-m-d H:i', $getPhaseInfo($post->phase_id)->opentime);?></p>
                     </li>
                     <?php } ?>
                 </ul>
