@@ -23,7 +23,7 @@
         <h4>帐户明细</h4>
         <div class="remind ">
             <span class="fl">你的帐户余额为：<b>￥<?php echo $current_user->points;?></b></span>
-            <?php echo Html::anchor('u/recharge', '充值', ['class'=>'btn fl btn-sx']);?>
+            <?php echo Html::anchor('u/recharge', '充值', ['class'=>' fl btn-pay']);?>
         </div>
         <div class="select-box">
             <label for="">全部商品</label>
