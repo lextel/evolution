@@ -75,6 +75,8 @@ class Model_Ad extends \Orm\Model
         $rs = [];
         if($success) {
             $rs =  $upload->getFiles();
+
+            Model_Log::add('上传广告图片 ' . $rs['link']);
         }
 
         return $rs;
@@ -105,6 +107,7 @@ class Model_Ad extends \Orm\Model
 
         $result = false;
         if ($ad && $ad->save()) {
+            Model_Log::add('添加广告 #' . $ad->id);
             $result = true;
         }
 
@@ -134,6 +137,7 @@ class Model_Ad extends \Orm\Model
         $ad->status   = $post['status'];
 
         if ($ad->save()) {
+            Model_Log::add('编辑广告 #' . $ad->id);
             $result = true;
         }
 
@@ -154,6 +158,7 @@ class Model_Ad extends \Orm\Model
             $ad->is_delete = 1;
             $ad->save();
 
+            Model_Log::add('删除广告 #' . $ad->id);
             $result = true;
         }
 
