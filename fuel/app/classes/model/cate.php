@@ -175,6 +175,7 @@ class Model_Cate extends \Orm\Model
         $result = false;
         if($cate && $cate->save()) {
             $result = true;
+            Model_Log::add('添加分类 #' . $cate->id);
         }
 
         return $result;
@@ -199,6 +200,7 @@ class Model_Cate extends \Orm\Model
         $result = false;
         if($brand && $brand->save()) {
             $result = true;
+            Model_Log::add('添加品牌 #' . $brand->id);
         }
 
         return $result;
