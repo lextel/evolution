@@ -41,7 +41,6 @@ return [
             'childs' => [
                 ['name' => '添加图片', 'href' => Uri::create('/admin/ads/create')],
                 ['name' => '广告列表', 'href' => Uri::create('/admin/ads')],
-                ['name' => '友情连接', 'href' => Uri::create('/admin/links')],
             ]
         ],
         [

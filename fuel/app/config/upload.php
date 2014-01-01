@@ -9,6 +9,11 @@ return [
         'randomize' => true,
         'ext_whitelist' => ['jpg', 'jpeg'],
     ],
+    'ad' => [
+        'path' => DOCROOT.'upload'.DS.'ad',
+        'randomize' => true,
+        'ext_whitelist' => ['jpg', 'jpeg'],
+    ],
     'avatar' => [
         'path' => DOCROOT.'upload'.DS.'avatar',
         'randomize' => true,
