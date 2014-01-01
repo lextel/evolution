@@ -47,7 +47,7 @@ class Controller_Admin_Users extends Controller_Admin{
             try {
                 $user_id = $this->auth->create_user($username, $password, $email, $group);
                 Session::set_flash('success', e('添加成功 #'.$user_id.'.'));
-
+                Model_Log::add('添加管理员 #' . $user_id);
                 Response::redirect('admin/users');
             } catch (Exception $e) {
                 Log::error($e);
@@ -86,19 +86,24 @@ class Controller_Admin_Users extends Controller_Admin{
         $user = Model_User::find($id);
         $val = Model_User::validate('edit');
 
-        if ($val->run()) {
-            $user->group = Input::post('group');
-            if ($this->auth->update_user(array('group'=>$user->group), $user->username)) {
-                Session::set_flash('success', e('更新成功 #' . $id));
-                Response::redirect('admin/users');
-            } else {
-                Session::set_flash('error', e('更新失败 #' . $id));
-            }
-        } else {
-            Session::set_flash('error', $val->error());
+        $post = Input::post();
+        if(!empty($post['password'])) {
+            $post['password'] = $this->auth->hash_password($post['password']);
         }
 
-        Response::redirect('admin/user/edit/' .$id);
+        unset($post['submit']);
+
+        $userModel = new Model_User();
+
+        if ($userModel->edit($id, $post)) {
+            Session::set_flash('success', e('更新成功 #' . $id));
+            Response::redirect('admin/users');
+        } else {
+            Session::set_flash('error', e('更新失败 #' . $id));
+        }
+
+
+        Response::redirect('admin/users/edit/' .$id);
 
     }
 
@@ -107,6 +112,7 @@ class Controller_Admin_Users extends Controller_Admin{
 
         if ($user = Model_User::find($id)) {
             $this->auth->delete_user($user->username);
+            Model_Log::add('删除管理员 #' . $id);
             Session::set_flash('success', e('删除成功 #'.$id));
         } else {
             Session::set_flash('error', e('删除失败 #'.$id));
