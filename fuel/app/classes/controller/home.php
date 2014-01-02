@@ -29,7 +29,7 @@ class Controller_Home extends Controller_Frontend {
                             'order_by'=>['id'=>'desc'],
                             'rows_limit'=>3,
                             ]);
-        $view = View::forge('index/home');
+        $view = ViewModel::forge('home/index');
         $view->set(['member'=>$member,
                 'orders'=>$orders,
                 'posts'=>$posts,
@@ -43,11 +43,11 @@ class Controller_Home extends Controller_Frontend {
     /*
     *TA的主页的乐购记录
     */
-    public function action_orders($member_id){
+    public function action_orders($member_id, $pagenum=1){
         $member = Model_Member::find($member_id);
         $count = Model_Order::count(['where'=>['member_id'=>$member_id]]);
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('u/order/p', $count, 2, 4);
+        $config = $page->setCofigPage('/u/'.$member_id.'/orders/p', $count, 2, 5);
         $pagination = Pagination::forge('horders', $config);
         $orders = Model_Order::find('all',
                         ['where'=>['member_id'=>$member_id],
@@ -65,11 +65,11 @@ class Controller_Home extends Controller_Frontend {
     /*
     *TA的主页的获奖记录
     */
-    public function action_wins($member_id){
+    public function action_wins($member_id, $pagenum = 1){
        $member = Model_Member::find($member_id);
        $count = Model_Lottery::count(['where'=>['member_id'=>$member_id]]);
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('/u/'.$member_id.'/win/p', $count, 2, 5);
+        $config = $page->setCofigPage('/u/'.$member_id.'/wins/p', $count, 2, 5);
         $pagination = Pagination::forge('hwins', $config);
         $wins = Model_Lottery::find('all', [
                                                   'where'=>['member_id'=>$member_id],
@@ -88,7 +88,7 @@ class Controller_Home extends Controller_Frontend {
     /*
     *TA的主页的晒单记录
     */
-    public function action_posts($member_id, $page=1){
+    public function action_posts($member_id, $pagenum=1){
         $member = Model_Member::find($member_id);
         $postscount = Model_Post::count(['where'=>['member_id'=>$member_id]]);
         $page = new \Helper\Page();

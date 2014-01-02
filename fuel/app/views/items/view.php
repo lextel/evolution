@@ -32,7 +32,7 @@
                 </ul>
             </div>
             <!--幻灯片结束-->
-            <?php 
+            <?php
                 if($prevWinner):
                 $winner = $getMember($prevWinner->member_id);
             ?>
@@ -80,7 +80,7 @@
                 <div class="btn-group">
                     <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>
                     <button type="submit" class="btn btn-red">立即乐拍</button>
-                    <a class="btn btn-default" href="javascrpt:void(0);">加入购物车</a>
+                    <a class="btn btn-default" href="javascript:void(0);">加入购物车</a>
                 </div>
             </form>
             <ul class="security-list">
@@ -205,7 +205,7 @@
         <div  class="look-bak d-n tab-pane" id="phase"></div>
     </div>
 	</div>
-    
+
 </div>
 <script>
     BUYLOG_URL   = '<?php echo Uri::create('l/joined'); ?>';
