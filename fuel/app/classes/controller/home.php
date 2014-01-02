@@ -50,7 +50,7 @@ class Controller_Home extends Controller_Frontend {
         $config = $page->setCofigPage('u/order/p', $count, 4, 4);
         $pagination = Pagination::forge('horders', $config);
         $wins = Model_Order::find('all',
-                        ['where'=>['member_id'=>$member_id]],
+                        ['where'=>['member_id'=>$member_id],
                         'rows_limit'=>$pagination->per_page,
                         'rows_offset'=>$pagination->offset,]
                         );
