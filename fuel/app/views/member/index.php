@@ -16,7 +16,7 @@
         <ul class="buy-menu">
             <li>在今天<b>12:24</b>乐拍了 </li>
             <li class="right-box">
-                <div class="img-box fl">
+                <div class="img-box img-md fl">
                     <a href=""><img src="img/54359.jpg" alt=""/></a>
                 </div>
                 <div class="buy-record fl">
@@ -34,7 +34,7 @@
         <ul class="buy-menu">
             <li>在今天<b>12:24</b>乐拍了 </li>
             <li class="right-box">
-                <div class="img-box fl">
+                <div class="img-box img-md fl">
                     <a href=""><img src="img/54359.jpg" alt=""/></a>
                 </div>
                 <div class="buy-record fl">
@@ -52,7 +52,7 @@
         <ul class="buy-menu">
             <li>在今天<b>12:24</b>乐拍了 </li>
             <li class="right-box">
-                <div class="img-box fl">
+                <div class="img-box img-md fl">
                     <a href=""><img src="img/54359.jpg" alt=""/></a>
                 </div>
                 <div class="buy-record fl">

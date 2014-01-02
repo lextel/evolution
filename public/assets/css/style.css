@@ -261,7 +261,7 @@
 .center-main {
     width: 575px;
     overflow: hidden;
-    margin-left: 10px;
+    margin: 10px 0 0 10px;
     border: 1px solid #EEEEEE;
 }
 .center-main .center-info{
@@ -285,16 +285,17 @@
     border-radius: 3px;
     margin-left: 20px;
 }
+
 .buy-menu {
     padding:0 15px;
     overflow: hidden;
 }
-.buy-menu dt{
-    height:30px;
+.buy-menu li{
+    min-height:30px;
     line-height: 30px;
     overflow: hidden;
 }
-.buy-menu dd{
+.buy-menu li.right-box{
     overflow: hidden;
     margin-bottom: 10px;
     padding-bottom: 10px;
