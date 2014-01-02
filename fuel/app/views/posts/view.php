@@ -22,8 +22,8 @@
                <div class="head-img fl">
                    <?php echo Html::anchor('m/'.$post->item_id, Html::img($getItem($post->item_id)->image));?>
                </div>
-               
-	           
+
+
                <div class="info fl">
                    <span class="text-title blue">
                        (第<?php echo $post->phase_id; ?>期)<?php echo Html::anchor('/m/'.$post->item_id, $getItem($post->item_id)->title); ?>|
@@ -85,9 +85,9 @@
                     </div>
                     <dl class="images-list">
                        <a href="<?php echo Uri::create('p/'.$npost->id)?>">
-                        <dd><img src="img/96515277.jpg" alt=""/></dd>
-                        <dd><img src="img/96515277.jpg" alt=""/></dd>
-                        <dd><img src="img/96515277.jpg" alt=""/></dd>
+                       <?php foreach(unserialize($npost->images) as $img1) { ?>
+                        <dd><?php echo Html::img($img1); ?></dd>
+                        <?php } ?>
                        </a>
                     </dl>
                 </div>
@@ -123,7 +123,7 @@
                 </div>
                 <!--
                 <button class="btn btn-link blue">回复</button>
-                
+
                 <div class="comment-box d-n">
                     <textarea name="" cols="30" rows="4"></textarea>
                     <div class="comment-footer">
@@ -141,7 +141,7 @@
                 -->
             </div>
         </dd>
-        
+
     </dl>
 </div>
 <!--弹出登录框-->
