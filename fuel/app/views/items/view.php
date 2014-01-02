@@ -213,7 +213,7 @@
 </script>
 <script>
     $(".sub-nav").pin({
-        containerSelector: ".w"
+        containerSelector: ".bd"
     })
 </script>
 
