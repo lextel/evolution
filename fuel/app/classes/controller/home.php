@@ -49,13 +49,13 @@ class Controller_Home extends Controller_Frontend {
         $page = new \Helper\Page();
         $config = $page->setCofigPage('u/order/p', $count, 4, 4);
         $pagination = Pagination::forge('horders', $config);
-        $wins = Model_Order::find('all',
+        $orders = Model_Order::find('all',
                         ['where'=>['member_id'=>$member_id],
                         'rows_limit'=>$pagination->per_page,
                         'rows_offset'=>$pagination->offset,]
                         );
-        $view = View::forge('index/home_orders');
-        $view->set('wins', $wins);
+        $view = ViewModel::forge('home/orders');
+        $view->set('orders', $orders);
         $view->set('member', $member);
         $this->template->title = 'TA的个人主页';
         $this->template->layout->member = $member;
