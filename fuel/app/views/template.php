@@ -11,13 +11,14 @@
                 $.get("/totalbuycount?callback="+ Math.floor(Math.random()*10000000), function(data){
                     if (data.code==0){
                         $("#totalbuy").html(data.num);
-                    }                                    
+                    }
                 });
             }
             function timer(){
-                getTotalBuy();                
+                getTotalBuy();
             }
             setInterval(timer,3000);
+            getTotalBuy();
          });
     </script>
 </head>
