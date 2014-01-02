@@ -84,6 +84,7 @@ return array(
     'w' => 'wins/index',
     'w/p/(\d+)' => 'wins/index/$1',
     'w/(\d+)' => 'wins/view/$1',
+    'w/result' => 'wins/result',
 
     'l' => 'orders/index',
     'l/joined' => 'orders/joined',

@@ -27,6 +27,8 @@ class Create_phases
             'status' => array('constraint' => 11, 'type' => 'int'),
             'is_delete' => array('constraint' => 1, 'type' => 'int'),
             'opentime' => array('constraint' => 11, 'type' => 'int'),
+            'total' => ['constraint' => 20, 'type' => 'varchar'],
+            'results' => ['type' => 'text'],
             'item_created_at' => array('constraint' => 11, 'type' => 'int'),
             'order_created_at' => ['constraint' => 11, 'type' => 'int'],
             'status' => array('constraint' => 11, 'type' => 'int'),
