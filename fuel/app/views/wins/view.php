@@ -46,9 +46,9 @@
 		<div class="sub-nav w" id="bigNav">
         <ul>
             <li><a href="#result" class="active" data-toggle="tab">计算结果</a></li>
-            <li><a href="#buylog" data-toggle="tab">所有参与纪录(<b><?php echo $orderCount; ?></b>)</a></li>
-            <li><a href="#posts" data-toggle="tab">晒单(<b><?php echo $postCount; ?></b>)</a></li>
-            <li><a href="#phase" data-toggle="tab">往期回顾(<b><?php echo $phaseCount; ?></b>)</a></li>
+            <li><a href="#buylog" phaseId="<?php echo $win->id; ?>"  data-toggle="tab">所有参与纪录(<b><?php echo $orderCount; ?></b>)</a></li>
+            <li><a href="#posts" itemId="<?php echo $itemInfo->id; ?>" data-toggle="tab">晒单(<b><?php echo $postCount; ?></b>)</a></li>
+            <li><a href="#phase" itemId="<?php echo $itemInfo->id; ?>" data-toggle="tab">往期回顾(<b><?php echo $phaseCount; ?></b>)</a></li>
         </ul>
         </div>
 		<div class="content tab-content">
@@ -132,6 +132,11 @@
         <!--参与者记录结束-->
 	</div>
 </div>
+<script>
+    BUYLOG_URL   = '<?php echo Uri::create('l/joined'); ?>';
+    POSTLOG_URL  = '<?php echo Uri::create('l/posts'); ?>';
+    PHASELOG_URL = '<?php echo Uri::create('l/phases'); ?>';
+</script>
 <script>
     $(".sub-nav").pin({
         containerSelector: ".bd"

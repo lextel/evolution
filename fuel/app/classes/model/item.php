@@ -581,7 +581,7 @@ class Model_Item extends \Orm\Model {
         $rs = [];
         if($success) {
             $rs =  $upload->getFiles();
-            Model_Log::add('上传商品图片 ' . $rs['link']);
+            Model_Log::add('上传商品图片 ' . $rs[0]['name']);
         }
 
         return $rs;
@@ -602,7 +602,7 @@ class Model_Item extends \Orm\Model {
         $rs = [];
         if($success) {
             $rs = $upload->getFiles();
-            Model_Log::add('上传商品描述图片 ' . $rs['link']);
+            Model_Log::add('上传商品描述图片 ' . $rs[0]['name']);
         }
 
         return $rs;
