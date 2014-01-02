@@ -1,17 +1,18 @@
 <?php echo Asset::css(['product.css', 'style.css', 'customBootstrap.css']);?>
-<?php echo Asset::js(['bootstrap.min.js']);?>
+<?php echo Asset::js(['bootstrap.min.js' ,'jquery.pin.js']);?>
     <?php 
         $itemInfo = $getItem($win->item_id);
         $memberInfo = $getUser($win->member_id);
     ?>
     <div class="panel w">
+
         <div class="title">
             <h2>
                 <b>(第<?php echo $win->phase_id; ?>期)</b>
                 <?php echo $win->title; ?>
             </h2>
         </div>
-        <div class="img-box fl">
+        <div class="img-side fl">
             <img src="<?php echo Uri::create('image/400x400/'.$itemInfo->image); ?>" alt="">
         </div>
         <div class="state-column fr">
@@ -41,15 +42,16 @@
             </div>
         </div>
     </div>
-    <div class="sub-nav w" id="bigNav">
+    <div class="bd w">
+		<div class="sub-nav w" id="bigNav">
         <ul>
             <li><a href="#result" class="active" data-toggle="tab">计算结果</a></li>
             <li><a href="#buylog" data-toggle="tab">所有参与纪录(<b><?php echo $orderCount; ?></b>)</a></li>
             <li><a href="#posts" data-toggle="tab">晒单(<b><?php echo $postCount; ?></b>)</a></li>
             <li><a href="#phase" data-toggle="tab">往期回顾(<b><?php echo $phaseCount; ?></b>)</a></li>
         </ul>
-    </div>
-    <div class="content tab-content">
+        </div>
+		<div class="content tab-content">
         <!--计算结果开始-->
         <div class="tab-pane active" id="result">
             <div class="calculation-box">
@@ -128,4 +130,10 @@
         <div  class="look-bak d-n tab-pane" id="phase"></div>
 
         <!--参与者记录结束-->
-    </div>
+	</div>
+</div>
+<script>
+    $(".sub-nav").pin({
+        containerSelector: ".bd"
+    })
+</script>
