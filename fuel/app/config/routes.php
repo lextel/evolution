@@ -90,6 +90,8 @@ return array(
     'l/posts' => 'posts/posts',
     'l/phases' => 'items/phases',
 
+     'notice(/\d+)?' => 'notice/index/$1',
+
     'image/:size/:link' => 'image/index',
 
 );
