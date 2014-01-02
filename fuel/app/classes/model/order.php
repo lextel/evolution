@@ -6,6 +6,7 @@ class Model_Order extends \Orm\Model
         'id',
         'phase_id',
         'member_id',
+        'title',
         'codes',
         'code_count',
         'ip',
@@ -55,9 +56,11 @@ class Model_Order extends \Orm\Model
             $phaseId = $cart->get_id();
             $fetchCodes = $this->buy($phaseId, $cart->get_qty());
 
+            $phase = Model_Phase::find($phaseId);
             $memberHelper = new \Helper\Member();
             $ip = $memberHelper->getIp();
             $data = [
+                'title'      => $phase->title,
                 'phase_id'   => $phaseId,
                 'member_id'  => $memberId,
                 'codes'      => serialize($fetchCodes),

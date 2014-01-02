@@ -10,6 +10,7 @@ class Create_orders
             'id' => array('constraint' => 11, 'type' => 'int', 'auto_increment' => true, 'unsigned' => true),
             'phase_id' => array('constraint' => 11, 'type' => 'int'),
             'member_id' => array('constraint' => 11, 'type' => 'int'),
+            'title' => ['constraint' => 255, 'type' => 'varchar'],
             'codes' => array('type' => 'text'),
             'code_count' => array('constraint' => 11, 'type' => 'int'),
             'ip' => ['constraint' => 15, 'type' => 'varchar'],
