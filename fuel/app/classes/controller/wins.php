@@ -52,4 +52,38 @@ class Controller_Wins extends Controller_Frontend{
         $this->template->title = "晒单详情页";
         $this->template->layout = $view;
     }
+
+    // 获取揭晓结果
+    public function action_result() {
+        $id = intval(Input::get('id'));
+        if(empty($id)) return json_encode(['status' => 'fail']);
+
+        $phaseModel = new Model_Phase();
+        $win = $phaseModel->win($id);
+        if(empty($win)) return json_encode(['status' => 'fail']);
+
+        $itemModel = new Model_Item();
+        $item = $itemModel->itemInfo($win);
+
+        $data['status'] = 'success';
+        $data['a'] = $win->code_count;
+        if($win->code_count) {
+            $data['data'] = [
+                    'member_id' => 0,
+                    'avatar'    => 'http://www.llt.com/upload/avatar/a/4/a4650a71ecd305c022dfcde10c5bc927.jpg',
+                    'nickname'  => 'xxx',
+                    'image'     => $item->image,
+                    'title'     => '(第'.$win->phase_id.'期)'.$win->title,
+                    'link'      => Uri::create('w/'.$win->phase_id),
+                    'userlink'  => '',
+                    'code'      => $win->code,
+                    'price'     => sprintf('%.2f', $item->price),
+                    'area'      => '未知',
+                    'count'     => $win->code_count,
+                    'opentime'  => date('Y-m-d H:i:s', $win->opentime),
+                ];
+        }
+
+        return json_encode($data);
+    }
 }
