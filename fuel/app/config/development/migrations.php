@@ -34,6 +34,7 @@ return array(
 				25 => '047_create_orders',
 				26 => '048_create_posts',
 				27 => '049_create_ads',
+				28 => '050_create_member_sms',
 			),
 		),
 		'module' => 
