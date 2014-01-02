@@ -174,6 +174,14 @@ $(function(){
     });
 });
 
+/**
+ * 计算中奖记录
+ *
+ * @param val   数量
+ * @param input 数量输入框对象
+ *
+ * @return void
+ */
 function countPercent(val, input) {
     if($('#percent').length > 0) {
         var total = input.attr('amount');
@@ -181,3 +189,4 @@ function countPercent(val, input) {
         $('#percent').html(percent.toFixed(2) + '%');
     }
 }
+
