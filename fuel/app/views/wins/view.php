@@ -17,8 +17,9 @@
         </div>
         <div class="state-column fr">
             <div class="state-heading">
-                <span class="fl">本商品已开出 <b class="blue">40</b>期，第<b class="blue">40</b>期正在进行中...</span>
-                <a href="" class="details fr">查看详情</a>
+                <span class="fl">本商品已开出 <b class="blue"><?php echo $openCount($itemInfo->id); ?></b>期<?php $activePhase = $activePhase($itemInfo->id); if($activePhase):?>，第<b class="blue"><?php echo $activePhase->phase_id; ?></b>期正在进行中...</span>
+                <a href="<?php echo Uri::create('m/'.$activePhase->id); ?>" class="details fr">查看详情</a>
+                <?php endif;?>
             </div>
             <div class="price">价值:<b><?php echo sprintf('%.2f', $itemInfo->price );?></b></div>
             <div class="result-box">
@@ -46,9 +47,9 @@
 		<div class="sub-nav w" id="bigNav">
         <ul>
             <li><a href="#result" class="active" data-toggle="tab">计算结果</a></li>
-            <li><a href="#buylog" data-toggle="tab">所有参与纪录(<b><?php echo $orderCount; ?></b>)</a></li>
-            <li><a href="#posts" data-toggle="tab">晒单(<b><?php echo $postCount; ?></b>)</a></li>
-            <li><a href="#phase" data-toggle="tab">往期回顾(<b><?php echo $phaseCount; ?></b>)</a></li>
+            <li><a href="#buylog" phaseId="<?php echo $win->id; ?>"  data-toggle="tab">所有参与纪录(<b><?php echo $orderCount; ?></b>)</a></li>
+            <li><a href="#posts" itemId="<?php echo $itemInfo->id; ?>" data-toggle="tab">晒单(<b><?php echo $postCount; ?></b>)</a></li>
+            <li><a href="#phase" itemId="<?php echo $itemInfo->id; ?>" data-toggle="tab">往期回顾(<b><?php echo $phaseCount; ?></b>)</a></li>
         </ul>
         </div>
 		<div class="content tab-content">
@@ -132,6 +133,11 @@
         <!--参与者记录结束-->
 	</div>
 </div>
+<script>
+    BUYLOG_URL   = '<?php echo Uri::create('l/joined'); ?>';
+    POSTLOG_URL  = '<?php echo Uri::create('l/posts'); ?>';
+    PHASELOG_URL = '<?php echo Uri::create('l/phases'); ?>';
+</script>
 <script>
     $(".sub-nav").pin({
         containerSelector: ".bd"

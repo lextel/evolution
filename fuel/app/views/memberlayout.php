@@ -24,7 +24,7 @@
                 </ul>
                 <span class="icon-arrow"></span>
             </li>
-            <li><?php echo Html::anchor('javascript:;', '消息管理');?></li>
+            <li><?php echo Html::anchor('u/message', '消息管理');?></li>
             <li><?php echo Html::anchor('u/getprofile', '个人设置');?></li>
         </ul>
     </div>
