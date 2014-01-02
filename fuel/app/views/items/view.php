@@ -58,14 +58,14 @@
                 <dd>
                     <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->phase->joined/$item->phase->amount*100); ?>%"></div></div>
                 </dd>
-                <dd>
+                <!--dd>
                     <span class="fl red"><?php echo $item->phase->joined; ?></span>
                     <span class="fr blue"><?php echo $item->phase->remain; ?></span>
                 </dd>
                 <dd>
                     <span class="fl">已参与人次</span>
                     <span class="fr">剩余人次</span>
-                </dd>
+                </dd-->
             </dl>
             <form action="<?php echo Uri::create('/cart/add'); ?>" method="post">
                 <div class="btn-menu">
@@ -74,6 +74,7 @@
                     <input type="text" value="1" name="qty" amount="<?php echo $item->phase->amount; ?>" remain="<?php echo $item->phase->remain; ?>">
                     <a class="add btn-jia" href="javascript:void(0);">+</a>
                     <span>人次</span>
+                    <span>剩余<?php echo $item->phase->remain; ?>人次</span>
                     <span>获得几率：<s class="red" id="percent"><?php echo sprintf('%.2f', 1/$item->phase->amount*100); ?>%</s> </span>
                 </div>
                 <div class="btn-group">
