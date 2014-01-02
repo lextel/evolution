@@ -31,4 +31,42 @@ class Model_Log extends \Orm\Model
 		return $val;
 	}
 
+	/**
+	 * 日志列表
+	 *
+	 * @param $offset integer 偏移
+	 * @param $limit  integer 数目
+	 *
+	 * @return array
+	 */
+	public function index($offset, $limit) {
+
+		return Model_Log::find('all', ['offset' => $offset, 'limit' => $limit, 'order_by' => ['id' => 'desc']]);
+	}
+
+
+	/**
+	 * 写管理日志
+	 *
+	 * @param $desc string 详情
+	 *
+	 * @return viod
+	 */
+	public static function add($desc) {
+
+		$auth = Auth::instance('Simpleauth');
+        $userId =  $auth->get('id');
+
+        $member = new \Helper\Member();
+		$data = [
+			'user_id' => $userId,
+			'desc'    => $desc,
+			'ip'      => $member->getIp(),
+		];
+
+		$log = new Model_Log($data);
+		if(!$log || $log->save()) {
+			Log::error('Write Log:' . "UserId[{$userId}]" .$desc);
+		}
+	}
 }

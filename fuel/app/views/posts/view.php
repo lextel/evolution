@@ -34,8 +34,11 @@
            </li>
        </ul>
        <div class="content">
-       <?php echo $post->desc; ?>
-       <?php echo $post->images; ?>
+       <p><?php echo $post->desc; ?>
+       </p>
+       <?php foreach(unserialize($post->images) as $img) { ?>
+           <?php echo Html::img($img); ?>
+       <?php } ?>
        </div>
        <div class="btn-group">
            <?php echo Html::anchor('javascript:;', '喜欢(<s>'.$post->up.'</s>)', array('class'=>'btn btn-link btn-up', 'id'=>$post->id));?>
@@ -81,7 +84,7 @@
                         <?php echo Html::anchor('p/'.$npost->id, mb_substr($npost->desc, 0, 100,'utf-8')); ?>
                     </div>
                     <dl class="images-list">
-                       <a href="">
+                       <a href="<?php echo Uri::create('p/'.$npost->id)?>">
                         <dd><img src="img/96515277.jpg" alt=""/></dd>
                         <dd><img src="img/96515277.jpg" alt=""/></dd>
                         <dd><img src="img/96515277.jpg" alt=""/></dd>

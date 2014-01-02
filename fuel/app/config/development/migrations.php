@@ -33,6 +33,7 @@ return array(
 				24 => '046_create_notices',
 				25 => '047_create_orders',
 				26 => '048_create_posts',
+				27 => '049_create_ads',
 			),
 		),
 		'module' => 

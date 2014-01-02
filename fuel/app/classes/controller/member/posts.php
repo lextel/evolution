@@ -64,18 +64,21 @@ class Controller_Member_Posts extends Controller_Center
         if ($val->run())
         {
             $images = Input::post('images');
-            if ($images.count() < 1)
+            if (count($images) < 1)
             {
-
+                Response::redirect('/u/noposts');
             }
             $topimage = $images[0];
+            $phase_id = Input::post('phase_id');
+            $phase = Model_Phase::find($phase_id);
+            is_null($phase) and Response::redirect('/u/noposts');
             $post = Model_Post::forge([
                 'title' => Input::post('title'),
-                'phase_id' => Input::post('phase_id'),
+                'phase_id' =>$phase_id,
                 'desc' => Input::post('desc'),
                 'images'=>serialize($images),
                 'lottery_id' => '',
-                'item_id' => '',
+                'item_id' => $phase->item_id,
                 'member_id' => $this->current_user->id,
                 'topimage' => $topimage,
                 'type_id' => 0,

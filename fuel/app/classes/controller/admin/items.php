@@ -150,7 +150,7 @@ class Controller_Admin_Items extends Controller_Admin {
             $rs = $itemModel->edit($id, Input::post());
             if($rs) {
                 Session::set_flash('success', e('更新成功 #' . $id));
-                Response::redirect('admin/items');
+                Response::redirect('admin/items/list/active');
             } else {
                 Session::set_flash('error', e('更新失败 #' . $id));
             }
@@ -174,7 +174,7 @@ class Controller_Admin_Items extends Controller_Admin {
             Session::set_flash('error', e('删除失败 #'.$id));
         }
 
-        Response::redirect('admin/items');
+        Response::redirect('admin/items/list/active');
     }
 
     // 上传商品图片

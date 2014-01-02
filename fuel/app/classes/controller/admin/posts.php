@@ -1,11 +1,39 @@
 <?php
 class Controller_Admin_Posts extends Controller_Admin{
-
+    //晒单管理页面访问
     public function action_index()
     {
-        $data['posts'] = Model_Post::find('all');
-        $this->template->title = "Posts";
-        $this->template->content = View::forge('admin/posts/index', $data);
+        $active = Input::param('active');
+        $type = [
+                //审核列表
+                '0'=>['status'=>0, 'is_delete'=>0],
+                //审核OK列表
+                '1'=>['status'=>1, 'is_delete'=>0],
+                //审核不通过列表
+                '2'=>['status'=>2, 'is_delete'=>0],
+                //已经删除列表
+                '3'=>['is_delete'=>1]];
+        if (is_null($active)){
+            $etype = $type['0'];
+        }else{
+            $etype = $type[$active];
+            is_null($etype) and $etype = $type['0'];
+        }
+        $count = Model_Post::count(['where'=>$etype]);
+        $page = new \Helper\Page();
+        $url = Uri::create('/admin/posts');
+        $config = $page->setConfig($url, $count, 'page');
+        $pagination = Pagination::forge('postspage', $config);
+        $posts = Model_Post::find('all', [
+                                                  'where' =>$etype,
+                                                  'order_by' =>array('id' => 'desc'),
+                                                  'rows_limit'=>$pagination->per_page,
+                                                  'rows_offset'=>$pagination->offset,]
+                                         );
+        $view = ViewModel::forge('admin/posts/index', 'view');
+        $view->set('posts', $posts);
+        $this->template->title = "晒单管理列表";
+        $this->template->content = $view;
 
     }
 
@@ -13,7 +41,7 @@ class Controller_Admin_Posts extends Controller_Admin{
     {
         $data['post'] = Model_Post::find($id);
 
-        $this->template->title = "Post";
+        $this->template->title = "晒单列表";
         $this->template->content = View::forge('admin/posts/view', $data);
 
     }

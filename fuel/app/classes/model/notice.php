@@ -80,6 +80,7 @@ class Model_Notice extends \Orm\Model
 
         $result = false;
         if($notice && $notice->save()) {
+            Model_Log::add('添加公告 #' . $notice->id);
             $result = true;
         }
 
@@ -103,6 +104,8 @@ class Model_Notice extends \Orm\Model
         $notice->desc    = $post['desc'];
         $notice->is_top  = $post['is_top'];
 
+        Model_Log::add('编辑公告 #' . $notice->id);
+
         return $notice->save();
     }
 
@@ -117,6 +120,8 @@ class Model_Notice extends \Orm\Model
 
         $notice = Model_Notice::find($id);
         $notice->is_delete = 1;
+
+        Model_Log::add('删除公告 #' . $notice->id);
 
         return $notice->save();
     }
