@@ -820,6 +820,13 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 .comment-footer .expression{
    margin-left: 15px;
 }
+.comment-footer span{
+    color: #999;
+}
+.comment-footer span s{
+    font-weight: bold;
+    margin: 0 5px;
+}
 .comment-list{
     overflow: hidden;
     margin-top: 15px;

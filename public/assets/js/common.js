@@ -49,13 +49,14 @@ $(function(){
         getPosTop = screenheight/2 - 150;
         $(".login2").css({"left":getPosLeft,"top":getPosTop+mytop});
     });
-    $("#popup").click(function(){
+    $("#popup").click(open_login);
+    function open_login(){
         $(".login2").fadeIn("fast");
         $("body").append("<div id='greybackground'></div>");
         var documentheight = $(document).height();
         $("#greybackground").css({"opacity":"0.5","height":documentheight});
         return false;
-    });
+    }
     $("#close").click(function() {
         $(".login2").hide();
         $("#greybackground").remove();
@@ -174,6 +175,14 @@ $(function(){
     });
 });
 
+/**
+ * 计算中奖记录
+ *
+ * @param val   数量
+ * @param input 数量输入框对象
+ *
+ * @return void
+ */
 function countPercent(val, input) {
     if($('#percent').length > 0) {
         var total = input.attr('amount');
@@ -181,6 +190,7 @@ function countPercent(val, input) {
         $('#percent').html(percent.toFixed(2) + '%');
     }
 }
+
 /**
  * 购物车下拉效果
  */
@@ -192,3 +202,42 @@ $(function(){
             $(this).find(".dropdown-list").css({"display":"none"})
         });
 });
+/**
+ * 评论交互效果
+ */
+$(function(){
+    var text=$(".comment-box>textarea");
+    //最大输入字数
+    var word=$(".comment-footer>span>s");
+    var max_num=200;
+    var scr_num=0;
+    var abc_num=0;
+    var ie = jQuery.support.htmlSerialize;
+
+    text.focus(function(){
+        if(ie){
+            text[0].oninput = changeNum;
+        }else{
+            text[0].onpropertychange  = changeNum;
+        }
+        function changeNum(){
+            scr_num= $(this).val().replace(/\w/g,"").length;
+            abc_num=$(this).val().length-scr_num;
+            var total=scr_num+abc_num;
+            var word_num=max_num-total
+            word.text(word_num);
+            if(total>=max_num){
+                word.css({color:"red"});
+            }
+            if(total<=0){
+                $(this).next("div").children(".btn-comment").attr('disabled', 'disabled')
+                $(this).next("div").children(".btn-comment").css({background:"#fff",color:"#333"})
+            }
+            else{
+                $(this).next("div").children(".btn-comment").removeAttr("disabled");
+                $(this).next("div").children(".btn-comment").css({background:"#D9534F",color:"#fff"})
+            }
+        }
+    })
+});
+

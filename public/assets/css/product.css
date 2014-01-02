@@ -399,6 +399,7 @@
     text-indent: 10px;
 }
 .unveiled ul {
+    margin-right: -10px;
     overflow: hidden;
     margin-top: 30px;
 }
@@ -820,6 +821,20 @@
     font-size: 16px;
     border-radius: 4px;
 }
+.counting{
+    display: none;
+    overflow: hidden;
+    background: #f60;
+    margin-top: 10px;
+}
+.counting h2{
+    width: 183px;
+    height: 45px;
+    line-height: 45px;
+    color: #FFFFFF;
+    font-size: 18px;
+    text-align: center;
+}
 /*右边内容*/
 .latest-wrap .right-box{
     width:280px;
@@ -878,11 +893,11 @@
     width: 68%;
     overflow: hidden;
 }
-.sort-list ul li.active{
+.sort-list ul li div.longItem{
     background: #EEEEEE;
     padding-bottom: 10px;
 }
-.sort-list ul li.active .img-box{
+.sort-list ul li div.longItem .img-box{
     width: 220px;
     height:220px;
     line-height: 200px;

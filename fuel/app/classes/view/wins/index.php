@@ -20,10 +20,18 @@ class View_Wins_Index extends Viewmodel {
        
        //获得人气推荐
        $this->hotItems = function() {
-           $items = Model_Phase::find('all', ['where'=>['status'=>1],
+
+           $phases = Model_Phase::find('all', ['where'=>['status'=>1, 'is_delete' => 0, 'opentime' => 0],
                      'order_by'=>['hots'=>'desc'],
                      'rows_limit'=>4
                      ]);
+
+           $itemModel = new Model_Item();
+           $items = [];
+           foreach($phases as $phase) {
+               $items[] = $itemModel->itemInfo($phase);
+           }
+
            return $items;
        };
        
