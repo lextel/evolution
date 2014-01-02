@@ -175,6 +175,14 @@ $(function(){
     });
 });
 
+/**
+ * 计算中奖记录
+ *
+ * @param val   数量
+ * @param input 数量输入框对象
+ *
+ * @return void
+ */
 function countPercent(val, input) {
     if($('#percent').length > 0) {
         var total = input.attr('amount');
@@ -182,6 +190,7 @@ function countPercent(val, input) {
         $('#percent').html(percent.toFixed(2) + '%');
     }
 }
+
 /**
  * 购物车下拉效果
  */
@@ -192,6 +201,7 @@ $(function(){
     $(".shopping-cart").mouseout(function(){
             $(this).find(".dropdown-list").css({"display":"none"})
         });
+<<<<<<< HEAD
 });
 /**
  * 评论交互效果
@@ -231,3 +241,6 @@ $(function(){
         }
     })
 });
+=======
+});
+>>>>>>> 32f3f62f0edc7c357319e4be727110109374264f
