@@ -8,7 +8,7 @@
         </ul>
         <!--乐拍记录-->
         <div class="home-c">
-            <?php if($orders):?>
+            <?php if($orders) { ?>
             <ul>
                 <?php foreach($orders as $item) { ?>
                 <li>
@@ -38,6 +38,8 @@
             </ul>
             <br />
             <?php echo Pagination::instance('horders')->render();?>     
-            <?php endif;?>
+            <?php } else { ?>
+            <p> 该用户暂时没任何的订单记录</p>
+            <?php } ?>
         </div>
 </div>
