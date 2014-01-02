@@ -144,7 +144,7 @@ class Model_Phase extends \Orm\Model
 
         $where = [['opentime', '>', 0]];
 
-        return Model_Phase::find('all', ['where' => $where, 'offset' => $offset, 'limit' => $limit]);
+        return Model_Phase::find('all', ['where' => $where, 'offset' => $offset, 'limit' => $limit, 'order_by' => ['opentime' => 'desc']]);
     }
 
     /**

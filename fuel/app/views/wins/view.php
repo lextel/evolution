@@ -72,45 +72,30 @@
                         </tr>
                         </thead>
                         <tbody>
+                            <?php 
+                                $results = unserialize($win->results);
+                                foreach($results as $result):
+                                    $memberInfo = $getUser($result['member_id']);
+                                    $phaseInfo = $getPhase($result['phase_id']);
+                                    $times = explode('.', $result['ordered_at']);
+                            ?>
                             <tr>
-                                <td><s>2013-12-20</s>10:46:49.687</td>
-                                <td><a href="">最后一次</a></td>
-                                <td>1</td>
-                                <td><a href="">（第633期）<b>苹果（Apple）iPhone 5S 16G版 3G手机</b> </a></td>
+                                <td><s><?php echo date('Y-m-d', $times[0]);?></s><?php echo date('H:i:s', $times[0]); ?>.<?php echo $times[1]; ?></td>
+                                <td><a href="<?php echo Uri::create('u/'.$memberInfo->id); ?>"><?php echo $memberInfo->nickname;?></a></td>
+                                <td><?php echo $result['count']; ?></td>
+                                <td><a href="<?php echo Uri::create('m/'.$phaseInfo->id); ?>">（第<?php echo $phaseInfo->phase_id; ?>期）<b><?php echo $phaseInfo->title; ?></b> </a></td>
                             </tr>
-                            <tr>
-                                <td><s>2013-12-20</s>10:46:49.687</td>
-                                <td><a href="">最后一次</a></td>
-                                <td>1</td>
-                                <td><a href="">（第633期）<b>苹果（Apple）iPhone 5S 16G版 3G手机</b> </a></td>
-                            </tr>
-                            <tr>
-                                <td colspan="4">
-                                    <h4>截止该商品最后购买时间【2013-12-20 10:46:36.578】最后100条全站购买时间记录</h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><s>2013-12-20</s>10:46:49.687</td>
-                                <td><a href="">最后一次</a></td>
-                                <td>1</td>
-                                <td><a href="">（第633期）<b>苹果（Apple）iPhone 5S 16G版 3G手机</b> </a></td>
-                            </tr>
-                            <tr>
-                                <td><s>2013-12-20</s>10:46:49.687</td>
-                                <td><a href="">最后一次</a></td>
-                                <td>1</td>
-                                <td><a href="">（第633期）<b>苹果（Apple）iPhone 5S 16G版 3G手机</b> </a></td>
-                            </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
                 <div class="calculation-results">
                     <h3 class="fl">计算结果</h3>
                     <ul class="fl">
-                        <li>求和：10445775630(上面100条云购记录时间取值相加之和)</li>
-                        <li>取余：10445775630(100条时间记录之和) % 72(本商品总需参与人次) = 6(余数)</li>
-                        <li>结果：6(余数) + 10000001 = 10000007</li>
-                        <li><span>最终结果：<s>10000007</s></span></li>
+                        <li>求和：<?php echo $win->total; ?>(上面<?php echo count($results); ?>条云购记录时间取值相加之和)</li>
+                        <li>取余：<?php echo $win->total; ?>(<?php echo count($results); ?>条时间记录之和) % <?php echo $win->amount; ?>(本商品总需参与人次) = <?php echo $win->total%$win->amount; ?>(余数)</li>
+                        <li>结果：<?php echo $win->total%$win->amount; ?>(余数) + 10000001 = <?php echo $win->code; ?></li>
+                        <li><span>最终结果：<s><?php echo $win->code; ?></s></span></li>
                     </ul>
                 </div>
             </div>
