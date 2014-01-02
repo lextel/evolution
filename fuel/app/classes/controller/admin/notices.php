@@ -4,8 +4,8 @@ class Controller_Admin_Notices extends Controller_Admin{
     public function action_index() {
 
         $breads = [
-            ['name' => '公告管理', 'href' => 'javascript:void(0);'], 
-            ['name' => '公告列表', 'href'=> 'javascript:void(0);']
+            ['name' => '公告管理'], 
+            ['name' => '公告列表']
         ];
 
         $noticeModel = new Model_Notice();
