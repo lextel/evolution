@@ -16,15 +16,17 @@ class Controller_Cart extends Controller_Frontend {
     // 快捷购物车信息获取
     public function action_info() {
 
-        $items = Cart::items();
+        $carts = Cart::items();
         $data = [];
         $itemModel = new Model_Item();
-        foreach($items as $item) {
-            $phase = Model::find($item->get_id());
+        foreach($carts as $cart) {
+            $phase = Model_Phase::find($cart->get_id());
             $item = $itemModel->itemInfo($phase);
-            $data[$item->get_id()] = [
+            $data[] = [
                     'image' => $item->image,
                     'title' => $item->title,
+                    'qty'   => $cart->get_qty(),
+                    'id'    => $cart->get_id(),
                 ];
         }
 

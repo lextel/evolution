@@ -191,7 +191,7 @@ $(function(){
 });
 
 /**
- * 计算中奖记录
+ * 计算中奖几率
  *
  * @param val   数量
  * @param input 数量输入框对象
@@ -210,12 +210,37 @@ function countPercent(val, input) {
  * 购物车下拉效果
  */
 $(function(){
-    $(".shopping-cart").mouseover(function(){
-          $(this).find(".dropdown-list").css({"display":"block"})
+    $(".shopping-cart").hover(function(){
+        var $this = $(this);
+        // 拉取购物车信息
+        $.ajax({
+            url: BASE_URL + 'cart/info',
+            type: 'get',
+            dataType: 'json',
+            beforeSend: function() {
+                $this.find('.dropdown-list').html('<li>加载中...</li>');
+            },
+            success: function(data) {
+            
+                var html = '';
+                if(data.length > 0) {
+                    for(var i in data) {
+                        html += '<li><div class="img-box img-sm fl">';
+                        html += '<a href="'+BASE_URL + 'm/' + data[i].id +'"><img src="'+BASE_URL + data[i].image+'" alt=""></a>';
+                        html += '</div><div class="info-side fr"><div class="title">';
+                        html += '<a href="'+BASE_URL + 'm/' + data[i].id +'">'+data[i].title+'</a>';
+                        html += '</div><div class="price tl">￥1.00X <b class="y">'+data[i].qty+'</b></div>';
+                        html += '<a href="javascript:void(0);" class="btn btn-link btn-sx">删除</a></div></li>';
+                    }
+                    html += '<div class="btn-group tr"><a href="'+BASE_URL + 'cart/list' + '" class="btn-red btn btn-sx">查看购物车</a></div>';
+                    $this.find('.dropdown-list').html(html);
+                }
+            }
         });
-    $(".shopping-cart").mouseout(function(){
-            $(this).find(".dropdown-list").css({"display":"none"})
-        });
+        $(this).find(".dropdown-list").css({"display":"block"})
+    }, function(){
+        $(this).find(".dropdown-list").css({"display":"none"})
+    });
 });
 
 // 初始化ajax分页
