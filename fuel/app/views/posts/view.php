@@ -104,7 +104,7 @@
         <div class="comment-footer">
             <div class="expression fl"><span class="icon icon-expression"></span>表情</div>
             <button class="fr btn btn-default btn-comment">发表评论</button>
-            <span class="fr"><s>0</s>/200字</span>
+            <span class="fr">还可以输入<s>0</s>字</span>
         </div>
     </div>
     <dl class="comment-list">
@@ -143,4 +143,32 @@
         </dd>
         
     </dl>
+</div>
+<!--弹出登录框-->
+<div class="login2">
+    <form action="">
+        <div class="login2-head">
+          <h4>用户登录</h4>
+           <button class="close" id="close"></button>
+        </div>
+        <label for="" class="error"></label>
+        <ul class="login2-body">
+            <li>
+                <input type="text" value="用户名"/>
+                <span class="icon-user"></span>
+            </li>
+            <li>
+                <input type="text" value="密码"/>
+                <span class="icon-password"></span>
+
+            </li>
+            <li>
+                <a href="" class="fr">忘记密码？</a>
+            </li>
+            <li>
+                <button class=" btn btn-red">登录</button>
+            </li>
+            <li>还没有帐号？<a href="" class="register">马上注册</a> </li>
+        </ul>
+    </form>
 </div>
