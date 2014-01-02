@@ -22,6 +22,22 @@ class View_Wins_View extends Viewmodel {
 
            return $timer->friendlyDate($timestamp);
        };
+
+       // 已开奖期数数量
+       $this->openCount = function($itemId) {
+           
+           return Model_Phase::count(['where' => ['item_id' => $itemId, ['code_count', '!=', 0 ]]]);
+       };
+
+       // 获取进行中的期数
+       $this->activePhase = function($itemId) {
+
+           $where = ['item_id' => $itemId, 'opentime' => 0, 'status' => 1, 'is_delete' => 0];
+           $phase = Model_Phase::find('first', ['where' => $where, 'order_by' => ['phase_id' => 'desc']]);
+
+           return $phase;
+       };
+
     }
 
     public function set_view(){
