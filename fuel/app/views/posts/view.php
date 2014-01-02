@@ -1,5 +1,5 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
-<?php echo Asset::js(['jquery.cookie.js', 'post/postup.js']);?>
+<?php echo Asset::js(['jquery.cookie.js','common.js', 'post/postup.js']);?>
 <div class="share-details w">
    <div class="left-content">
        <div class="content-title">

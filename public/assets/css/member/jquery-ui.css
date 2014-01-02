@@ -6,12 +6,31 @@
 
 /* Layout helpers
 ----------------------------------*/
-#datepicker{ border: 1px solid;}
-#datepicker1{ border: 1px solid;}
+#datepicker,#datepicker1{
+    width: 120px;
+    height: 28px;
+    border: 1px solid #EEEEEE;
+    margin-right: 10px;
+    text-indent: 10px;
+    background: url("") no-repeat;
+}
+#datepicker{
+    background-position: 0 -50px;
+}
+#datepicker1{
+    background-position: 0 -50px;
+}
 .ui-helper-hidden {
 	display: none;
 }
-
+.time-choose button{
+    width: 60px;
+    height: 30px;
+    border-radius: 3px;
+    background: #D9534F;
+    color: #FFFFFF;
+    cursor: pointer;
+}
 .ui-helper-hidden-accessible {
 	border: 0;
 	clip: rect(0 0 0 0);
