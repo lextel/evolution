@@ -8,25 +8,32 @@
         <div class="form-group">
             <?php echo Form::label('账号', 'username', array('class'=>'control-label col-sm-1')); ?>
             <div class="col-sm-4">
-            <?php echo Form::input('username', Input::post('username', isset($user) ? $user->username : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'后台登陆账号')); ?>
+                <?php if(isset($user)) : ?>
+                <p class="form-control-static"><?php echo isset($user) ? $user->username : '';?></p>
+                <?php else: ?>
+                <?php echo Form::input('username', Input::post('username', isset($user) ? $user->username : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'后台登陆账号')); ?>
+                <?php endif; ?>
             </div>
         </div>
         <div class="form-group">
             <?php echo Form::label('密码', 'password', array('class'=>'control-label col-sm-1')); ?>
             <div class="col-sm-4">
-            <?php echo Form::input('password', Input::post('password', isset($user) ? $user->password : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'登陆密码')); ?>
+            <?php echo Form::password('password', '', array('class' => 'form-control', 'placeholder'=>'登录密码')); ?>
+            <?php if(isset($user)) : ?>
+            <span class="help-block">不修改请留空</span>
+            <?php endif; ?>
             </div>
         </div>
         <div class="form-group">
             <?php echo Form::label('邮箱', 'email', array('class'=>'control-label col-sm-1')); ?>
             <div class="col-sm-4">
-            <?php echo Form::input('email', Input::post('email', isset($user) ? $user->email : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'邮箱')); ?>
+            <?php echo Form::input('email', Input::post('email', isset($user) ? $user->email : ''), array('class' => 'form-control', 'placeholder'=>'邮箱')); ?>
             </div>
         </div>
         <div class="form-group">
             <?php echo Form::label('权限', 'group', array('class'=>'control-label col-sm-1')); ?>
             <div class="col-sm-2">
-                <?php echo Form::select('group', isset($user) ? $user->group : 'none', array(100=>'管理员', 50=>'组长', 1=>'编辑'), array('class' => 'col-md-4 form-control')); ?>
+                <?php echo Form::select('group', isset($user) ? $user->group : 'none', array(100=>'管理员', 50=>'组长', 1=>'编辑'), array('class' => 'form-control')); ?>
             </div>
         </div>
         <div class="form-group">

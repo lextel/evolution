@@ -128,6 +128,7 @@ class Controller_Admin_Cates extends Controller_Admin{
             $cate->name = Input::post('name');
 
             if ($cate->save()) {
+                Model_Log::add('修改分类/品牌 #' . $id);
                 $result = ['status' => 'success'];
             }
         }
@@ -141,6 +142,7 @@ class Controller_Admin_Cates extends Controller_Admin{
         if ($cate = Model_Cate::find($id)) {
             $cate->is_delete = 1;
             $cate->save();
+            Model_Log::add('删除分类/品牌 #' . $id);
             Session::set_flash('success', e('删除成功 #'.$id));
         } else {
             Session::set_flash('error', e('删除失败 #'.$id));

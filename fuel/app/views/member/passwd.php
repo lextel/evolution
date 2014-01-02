@@ -1,3 +1,6 @@
+<?php echo Asset::css(['member/validfrom demo.css','member/validfrom style.css']); ?>
+<?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
+
 <br />
 <script type="text/javascript">
 $(function(){
@@ -28,7 +31,7 @@ $(function(){
             </li>
             <li>
                 <label>原密码：</label>
-                <input name="oldpassword" type="password" class="form-control" placeholder="原密码"/>
+                <input name="oldpassword" type="password" class="form-control" placeholder="原密码" datatype="s6-18"/>
                 <span for="" class=""></span>
             </li>
             <li>
@@ -47,3 +50,13 @@ $(function(){
             <?php echo Form::close(); ?>
         </ul>
 </div>
+
+<script type="text/javascript">
+$(function(){
+    //$(".registerform").Validform();  //就这一行代码！;
+        
+    $(".form-password").Validform({
+        tiptype:2
+    });
+})
+</script>

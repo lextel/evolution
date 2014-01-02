@@ -193,6 +193,8 @@ class Model_Item extends \Orm\Model {
         $item->reason = $post['reason'];
         $rs = $item->save();
 
+        Model_Log::add('审核商品 #' . $item->id . $item->status == 1 ? '通过' : '不通过');
+
         DB::update('phases')->value('status', $post['status'])
                             ->where('item_id', $id)
                             ->execute();
@@ -213,6 +215,8 @@ class Model_Item extends \Orm\Model {
         $item->status = \Helper\Item::IS_CHECK;
         $rs = $item->save();
 
+        Model_Log::add('商品审核通过 #' . $item->id);
+
         DB::update('phases')->value('status', \Helper\Item::IS_CHECK)
                             ->where('item_id', $item->id)
                             ->execute();
@@ -232,6 +236,8 @@ class Model_Item extends \Orm\Model {
         $item = Model_Item::find($id);
         $item->status = \Helper\Item::NOT_PASS;
         $rs = $item->save();
+
+        Model_Log::add('商品审核不通过 #' . $item->id);
 
         DB::update('phases')->value('status', \Helper\Item::NOT_PASS)
                             ->where('item_id', $item->id)
@@ -498,6 +504,7 @@ class Model_Item extends \Orm\Model {
         if ($item && $item->save()) {
             $phaseModel = new Model_Phase();
             $phaseModel->add($item);
+            Model_Log::add('添加商品 #' . $item->id);
             $result = true;
         }
 
@@ -527,6 +534,7 @@ class Model_Item extends \Orm\Model {
         $item->images   = serialize($post['images']);
 
         if ($item->save()) {
+            Model_Log::add('编辑商品 #' . $item->id);
             $result = true;
         }
 
@@ -546,6 +554,8 @@ class Model_Item extends \Orm\Model {
         if ($item = Model_Item::find($id)) {
             $item->is_delete = \Helper\Item::IS_DELETE;
             $item->save();
+
+            Model_Log::add('删除商品 #' . $item->id);
 
             DB::update('phases')->value('is_delete', \Helper\Item::IS_DELETE)
                                 ->where('item_id', $item->id)
@@ -571,6 +581,7 @@ class Model_Item extends \Orm\Model {
         $rs = [];
         if($success) {
             $rs =  $upload->getFiles();
+            Model_Log::add('上传商品图片 ' . $rs['link']);
         }
 
         return $rs;
@@ -591,6 +602,7 @@ class Model_Item extends \Orm\Model {
         $rs = [];
         if($success) {
             $rs = $upload->getFiles();
+            Model_Log::add('上传商品描述图片 ' . $rs['link']);
         }
 
         return $rs;
