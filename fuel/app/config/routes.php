@@ -14,7 +14,7 @@ return array(
     'u/(\d+)/orders' => 'home/orders/$1',
     'u/(\d+)/orders/(\d+)' => 'home/orders/$1/$2',
     'u/(\d+)/wins' => 'home/wins/$1',
-    'u/(\d+)/wins/(\d+)' => 'home/wins/$1/$2',
+    'u/(\d+)/wins/p/(\d+)' => 'home/wins/$1/$2',
     'u/(\d+)/posts' => 'home/posts/$1',
     'u/(\d+)/posts/p/(\d+)' => 'home/posts/$1/$2',
     'u' => 'member/index',

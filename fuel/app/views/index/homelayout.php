@@ -11,8 +11,9 @@
             </div>
         </div>
         <br />
-        
+          <div class="home-wrap fr">
         <?php echo $content; ?>
+        </div>
 </div>
-            
-            
+
+
