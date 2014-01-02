@@ -1,6 +1,6 @@
 <?php
 
-class Controller_Cart extends Controller_Frontend{
+class Controller_Cart extends Controller_Frontend {
 
     // 我的购物车
     public function action_list() {
@@ -11,6 +11,24 @@ class Controller_Cart extends Controller_Frontend{
         $view->set('items', $items);
         $this->template->title = "我的购物车";
         $this->template->layout = $view;
+    }
+
+    // 快捷购物车信息获取
+    public function action_info() {
+
+        $items = Cart::items();
+        $data = [];
+        $itemModel = new Model_Item();
+        foreach($items as $item) {
+            $phase = Model::find($item->get_id());
+            $item = $itemModel->itemInfo($phase);
+            $data[$item->get_id()] = [
+                    'image' => $item->image,
+                    'title' => $item->title,
+                ];
+        }
+
+        return json_encode($data);
     }
 
     // 添加到购物车
@@ -27,12 +45,16 @@ class Controller_Cart extends Controller_Frontend{
     // 支付页面
     public function action_pay() {
 
-        $items = Cart::items();
-        $view = ViewModel::forge('cart/pay');
+        if($this->auth->check()) {
+            $items = Cart::items();
+            $view = ViewModel::forge('cart/pay');
 
-        $view->set('items', $items);
-        $this->template->title = "订单支付";
-        $this->template->layout = $view;
+            $view->set('items', $items);
+            $this->template->title = "订单支付";
+            $this->template->layout = $view;
+        } else {
+            Response::redirect('cart/list');
+        }
     }
 
     // 删除商品

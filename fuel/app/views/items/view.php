@@ -51,7 +51,7 @@
         </div>
         <div class="product-column fr">
             <div class="state-heading">
-                <span>本商品已有 <b class="blue">20</b>位幸运者晒单，<b class="blue">40</b>评论</span>
+                <span>本商品已有 <b class="blue"><?php echo $postsCount($item->id); ?></b>位幸运者晒单，<b class="blue"><?php echo $commentCount($item->id); ?></b>评论</span>
             </div>
             <div class="price">价值:<b><?php echo sprintf('%.2f', $item->price); ?></b></div>
             <dl class="progress-side">
