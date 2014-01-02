@@ -1,35 +1,30 @@
-<h2>Listing Logs</h2>
-<br>
+<?php if($breadcrumb): ?>
+<ol class="breadcrumb">
+    <?php echo $breadcrumb; ?>
+</ol>
+<?php endif; ?>
 <?php if ($logs): ?>
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>User id</th>
-			<th>Desc</th>
-			<th>Ip</th>
-			<th></th>
+			<th>管理员</th>
+			<th>描述</th>
+			<th>IP</th>
+			<th>操作时间</th>
 		</tr>
 	</thead>
 	<tbody>
-<?php foreach ($logs as $item): ?>		<tr>
-
-			<td><?php echo $item->user_id; ?></td>
+	<?php foreach ($logs as $item): ?>
+		<tr>
+			<td><?php echo $getUsername($item->user_id); ?></td>
 			<td><?php echo $item->desc; ?></td>
 			<td><?php echo $item->ip; ?></td>
-			<td>
-				<?php echo Html::anchor('admin/logs/view/'.$item->id, 'View'); ?> |
-				<?php echo Html::anchor('admin/logs/edit/'.$item->id, 'Edit'); ?> |
-				<?php echo Html::anchor('admin/logs/delete/'.$item->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?>
-
-			</td>
+			<td><?php echo date('Y-m-d H:i:s', $item->created_at); ?></td>
 		</tr>
-<?php endforeach; ?>	</tbody>
+	<?php endforeach; ?>
+	</tbody>
 </table>
-
 <?php else: ?>
-<p>No Logs.</p>
-
-<?php endif; ?><p>
-	<?php echo Html::anchor('admin/logs/create', 'Add new Log', array('class' => 'btn btn-success')); ?>
-
-</p>
+<p>没有日志</p>
+<?php endif; ?>
+<?php echo Pagination::instance('mypagination')->render();?>

@@ -21,9 +21,10 @@ class Image {
      * @return string url路径
      */
     public function path2url($path, $getFull = false) {
+
+        $root = str_replace(DS, '/', DOCROOT);
         
-        $link = str_replace(DOCROOT, '', $path);
-        $link = str_replace(DS, '/', $link);
+        $link = str_replace($root, '', $path);
 
         return $getFull ? Uri::base() . $link : $link;
     }
@@ -82,6 +83,8 @@ class Image {
      */
     public function resizePath($path, $size) {
 
+        $path = str_replace(DS, '/', $path);
+
         preg_match('/upload\/(\w+)\//', $path, $match);
 
         $path = str_replace($match[1], $match[1].'/'.$size, $path);
@@ -92,6 +95,5 @@ class Image {
         }
 
         return $path;
-
     }
 }

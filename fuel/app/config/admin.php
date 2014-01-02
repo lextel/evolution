@@ -12,17 +12,12 @@ return [
             ],
         ],
         [
-            'name' => '公告邮件',
-            'href' => 'javascript:void(0);',
-            'class' => 'dropdown',
-            'childs' => [
-                ['name' => '公告列表', 'href' => Uri::create('/admin/notices')],
-                ['name' => '邮件列表', 'href' => Uri::create('/admin/emails')],
-            ]
+            'name' => '公告管理',
+            'href' => Uri::create('/admin/notices'),
         ],
         [
             'name' => '管理日志',
-            'href' => Uri::create('/admin/logs/admin'),
+            'href' => Uri::create('/admin/logs'),
         ],
         [
             'name' => '用户管理',
@@ -41,7 +36,6 @@ return [
             'childs' => [
                 ['name' => '添加图片', 'href' => Uri::create('/admin/ads/create')],
                 ['name' => '广告列表', 'href' => Uri::create('/admin/ads')],
-                ['name' => '友情连接', 'href' => Uri::create('/admin/links')],
             ]
         ],
         [

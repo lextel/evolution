@@ -17,7 +17,7 @@ class Create_posts
             'phase_id' => array('constraint' => 11, 'type' => 'int'),
             'lottery_id' => array('constraint' => 11, 'type' => 'int'),
             'topimage' => array('constraint' => 255, 'type' => 'varchar'),
-            'images' => array('constraint' => 255, 'type' => 'varchar'),
+            'images' => array('type' => 'text'),
             'up' => array('constraint' => 11, 'type' => 'int', 'null' => true, 'default' => '0'),
             'comment_count' => array('constraint' => 11, 'type' => 'int', 'null' => true, 'default' => '0'),
             'comment_top' => array('constraint' => 11, 'type' => 'int', 'null' => true, 'default' => '0'),
