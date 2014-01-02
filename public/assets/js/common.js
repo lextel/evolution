@@ -201,7 +201,6 @@ $(function(){
     $(".shopping-cart").mouseout(function(){
             $(this).find(".dropdown-list").css({"display":"none"})
         });
-<<<<<<< HEAD
 });
 /**
  * 评论交互效果
@@ -241,6 +240,4 @@ $(function(){
         }
     })
 });
-=======
-});
->>>>>>> 32f3f62f0edc7c357319e4be727110109374264f
+
