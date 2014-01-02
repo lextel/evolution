@@ -26,6 +26,8 @@ return array(
     'u/profile' => 'member/profile',
     'u/passwd' => 'member/changepassword',
     'u/passwd/forgot' => 'member/forgotpassword',
+    'u/message' => 'member/sms/index',
+    'u/message/p/(\d+)' => 'member/sms/index/$1',
 
     'u/posts' => 'member/posts/index',
     'u/noposts' => 'member/posts/noposts',

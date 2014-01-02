@@ -23,7 +23,7 @@ class Controller_Index extends Controller_Frontend {
     public function action_totalCount(){
         $response = new Response();
         $response->set_header('Content-Type', 'application/json');
-        $count = Model_Order::count();
+        $count = Model_Order::totalCountBuy();
         $data['code'] =  0;
         $data['num'] = $count;
         return $response->body(json_encode($data));
