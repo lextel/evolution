@@ -20,7 +20,10 @@
                             <div class="price">价值：<b><?php echo $getItemInfo($getPhaseInfo($oitem->phase_id)->item_id)->price;?>.00</b></div>
                             <dl class="progress-side">
                                 <dd>
-                                    <div class="progress"><div class="progress-bar" style="width:<?php echo $getPhaseInfo($oitem->phase_id)->joined/$getPhaseInfo($oitem->phase_id)->amount * 100;?>%"></div></div>
+                                    <div class="progress">
+                                    <div class="progress-bar" style="width:<?php echo $getPhaseInfo($oitem->phase_id)->joined/$getPhaseInfo($oitem->phase_id)->amount * 100;?>%">
+                                    </div>
+                                    </div>
                                 </dd>
                             </dl>
                             <?php echo Html::anchor('m/'.$oitem->phase_id, '<button class="buy">去乐拍</button>');?>

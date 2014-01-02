@@ -73,7 +73,7 @@
                     </div>
                     <div class="all">
                         <!--a href="<?php echo Uri::create('l'); ?>">当前乐拍人数<b id="totalbuy">100000</b></a-->
-                        当前乐拍人数<b id="totalbuy">00000000</b>
+                        当前乐拍人数<b id="totalbuy"><?php echo $count;?></b>
                     </div>
                 </div>
          </div>
