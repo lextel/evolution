@@ -3,28 +3,31 @@ class Controller_Member extends Controller_Center{
 
     public function action_index()
     {
-        $data['members'] = Model_Member::find('all');
+        $member_id = $this->current_user->id;
+        $orders = Model_Order::find('all', [
+                            'where'=>['member_id'=>$member_id],
+                            'order_by'=>['id'=>'desc'],
+                            'rows_limit'=>3,
+                            ]);
+        $posts = Model_Post::find('all', [
+                            'where'=>['member_id'=>$member_id],
+                            'order_by'=>['id'=>'desc'],
+                            'rows_limit'=>3,
+                            ]);
+        $wins = Model_Lottery::find('all', [
+                            'where'=>['member_id'=>$member_id],
+                            'order_by'=>['id'=>'desc'],
+                            'rows_limit'=>3,
+                            ]);
         $view = ViewModel::forge('member/index', 'view');
+        $view->set([
+                'orders'=>$orders,
+                'posts'=>$posts,
+                'wins'=>$wins,
+                ]);
         $this->template->title = "用户中心";
-        //$this->template->layout = View::forge('memberlayout');
-        $view->set('data', $data);
         $this->template->layout->content = $view;
     }
-
-    public function action_view($id = null)
-    {
-        is_null($id) and Response::redirect('member');
-
-        if ( ! $data['member'] = Model_Member::find($id))
-        {
-            Session::set_flash('error', 'Could not find member #'.$id);
-            Response::redirect('member');
-        }
-
-        $this->template->title = "Member";
-        $this->template->content = View::forge('member/view', $data);
-    }
-
 
     /*
     *获得用户头像数据
