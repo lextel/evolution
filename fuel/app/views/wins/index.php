@@ -47,10 +47,10 @@
             <?php
             else:
             ?>
-            <li id="win<?php echo $win->phase_id; ?>">
+            <li id="win<?php echo $win->id; ?>">
                 <div class="item-body">
                     <div class="img-box img-md fl">
-                        <a href="<?php echo Uri::create('m/'.$win->id); ?>"><img src="<?php echo $itemInfo->image; ?>" alt=""/></a>
+                        <a href="<?php echo Uri::create('m/'.$win->id); ?>"><img src="<?php echo Uri::create($itemInfo->image); ?>" alt=""/></a>
                     </div>
                     <div class="info-side fr">
                         <div class="p-info">
@@ -59,7 +59,10 @@
                             </h5>
                             <div class="price">价值：<b>￥<?php echo sprintf('%.2f', $itemInfo->price); ?></b>元</div>
                         </div>
-                        <dl class="countdown" endtime="<?php echo date('M d, Y H:i:s', $win->opentime);?>" parentId="win<?php echo $win->phase_id;?>"></dl>
+                        <dl class="countdown" style="min-height: 29px" endtime="<?php echo date('M d, Y H:i:s', $win->opentime);?>" phaseId="<?php echo $win->id;?>"></dl>
+                        <div class="counting">
+                            <h2>正在计算...</h2>
+                        </div>
                     </div>
                 </div>
                 <div class="item-footer">
@@ -145,3 +148,6 @@
         <!--人气排行内容结束-->
     </div>
 </div>
+<script>
+    RESULT_URL = '<?php echo Uri::create('w/result'); ?>';
+</script>
