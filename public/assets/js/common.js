@@ -181,3 +181,14 @@ function countPercent(val, input) {
         $('#percent').html(percent.toFixed(2) + '%');
     }
 }
+/**
+ * 购物车下拉效果
+ */
+$(function(){
+    $(".shopping-cart").mouseover(function(){
+          $(this).find(".dropdown-list").css({"display":"block"})
+        });
+    $(".shopping-cart").mouseout(function(){
+            $(this).find(".dropdown-list").css({"display":"none"})
+        });
+});
