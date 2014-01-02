@@ -399,6 +399,7 @@
     text-indent: 10px;
 }
 .unveiled ul {
+    margin-right: -10px;
     overflow: hidden;
     margin-top: 30px;
 }
@@ -819,6 +820,20 @@
     padding: 5px;
     font-size: 16px;
     border-radius: 4px;
+}
+.counting{
+    display: none;
+    overflow: hidden;
+    background: #f60;
+    margin-top: 10px;
+}
+.counting h2{
+    width: 183px;
+    height: 45px;
+    line-height: 45px;
+    color: #FFFFFF;
+    font-size: 18px;
+    text-align: center;
 }
 /*右边内容*/
 .latest-wrap .right-box{
