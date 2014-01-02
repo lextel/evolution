@@ -876,11 +876,11 @@
     width: 68%;
     overflow: hidden;
 }
-.sort-list ul li.active{
+.sort-list ul li div.longItem{
     background: #EEEEEE;
     padding-bottom: 10px;
 }
-.sort-list ul li.active .img-box{
+.sort-list ul li div.longItem .img-box{
     width: 220px;
     height:220px;
     line-height: 200px;
