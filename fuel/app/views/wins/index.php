@@ -118,17 +118,21 @@
                         </div>
                     </div>
                     <div class="longItem" style="display: <?php echo $i == 1 ? 'block' : 'none'; ?>">
-                        <div class="title-box">
-                            <h4><a href=""><?php echo $hot->title; ?></a></h4>
-                            <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $hot->price); ?></b></span>
-                        </div>
-                        <div class="img-box">
-                            <a href=""><img src="<?php echo Uri::create($hot->image); ?>" alt=""></a>
-                        </div>
-                        <div class="remain tc">剩余次数: <b class="red"><?php echo $hot->phase->remain; ?></b></div>
-                        <div class="btn-group">
-                            <div class="btn btn-red">立即购买</div>
-                        </div>
+                        <form  action="<?php echo Uri::create('cart/add'); ?>" method="post">
+                            <div class="title-box">
+                                <h4><a href=""><?php echo $hot->title; ?></a></h4>
+                                <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $hot->price); ?></b></span>
+                            </div>
+                            <div class="img-box">
+                                <a href=""><img src="<?php echo Uri::create($hot->image); ?>" alt=""></a>
+                            </div>
+                            <div class="remain tc">剩余次数: <b class="red"><?php echo $hot->phase->remain; ?></b></div>
+                            <div class="btn-group">
+                                <input name="qty" value="1" type="hidden"/>
+                                <input name="id" value="<?php echo $hot->phase->id; ?>" type="hidden">
+                                <button type="submit" class="btn btn-red">立即购买</button>
+                            </div>
+                        </form>
                     </div>
                     <div class="top <?php echo $i < 4 ? 'one' : '';?>"><?php echo $i; ?></div>
                 </li>
