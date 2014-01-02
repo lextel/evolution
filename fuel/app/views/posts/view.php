@@ -42,7 +42,7 @@
        </div>
        <div class="btn-group">
            <?php echo Html::anchor('javascript:;', '喜欢(<s>'.$post->up.'</s>)', array('class'=>'btn btn-link btn-up', 'id'=>$post->id));?>
-           <?php echo Html::anchor('javascript:;', '评论(<s>'.$post->comment_count.'</s>)', array('class'=>'btn btn-link btn-comment'));?>
+           <?php echo Html::anchor('javascript:;', '评论(<s>'.$post->comment_count.'</s>)', array('class'=>'btn btn-link'));?>
        </div>
    </div>
     <div class="content-right fr">
@@ -104,13 +104,13 @@
         <div class="comment-footer">
             <div class="expression fl"><span class="icon icon-expression"></span>表情</div>
             <button class="fr btn btn-default btn-comment">发表评论</button>
-            <span class="fr">还可以输入<s>0</s>字</span>
+            <span class="fr btn-commentcount">还可以输入<s>200</s>字</span>
         </div>
     </div>
     <dl class="comment-list">
         <dt><h4>全部评论</h4></dt>
         <dd>
-            <div class="head-img fl">
+            <!--<div class="head-img fl">
                 <a href=""><img src="img/96515277.jpg" alt=""/></a>
             </div>
             <div class="info-side">
@@ -120,7 +120,7 @@
                 </div>
                 <div class="comment-text">
                     我也想中一个！
-                </div>
+                </div>-->
                 <!--
                 <button class="btn btn-link blue">回复</button>
 
@@ -138,8 +138,8 @@
                         <span class="fr"><s>0</s>/200字</span>
                     </div>
                 </div>
-                -->
-            </div>
+
+            </div>-->
         </dd>
 
     </dl>
