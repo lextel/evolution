@@ -1,4 +1,4 @@
-<?php echo Asset::css(['member/validfrom demo.css','member/validfrom style.css']); ?>
+<?php echo Asset::css(['member/validfrom demo.css','member/validfrom_style.css']); ?>
 <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
 
 <br />
@@ -7,6 +7,7 @@ $(function(){
     $(".btn-password").click(function(){
         $(".form-password").submit();
     });
+    $(".demoform").Validform();
 });
 </script>
 <div class="set-wrap">
@@ -19,7 +20,7 @@ $(function(){
             </ul>
         </div>
         <!--修改密码-->
-        <ul class="edit-data">
+        <ul class="edit-data demoform">
             <?php echo Form::open(['action' => 'u/passwd', 'method' => 'post', 'class'=>'form-password']); ?>
             <li>
             <?php if (Session::get_flash('success')): ?>
@@ -31,18 +32,18 @@ $(function(){
             </li>
             <li>
                 <label>原密码：</label>
-                <input name="oldpassword" type="password" class="form-control" placeholder="原密码" datatype="s6-18"/>
-                <span for="" class=""></span>
+                <input type="password" value="" name="userpassword" class="inputxt Validform_error" datatype="*6-20" nullmsg="请填写密码！">
+                <span class="Validform_checktip Validform_wrong">请填写原密码！</span>
             </li>
             <li>
                 <label>新密码：</label>
-                <input name="newpassword" type="password" class="form-control" placeholder="新密码"/>
-                <span for="" class=""></span>
+                <input type="password" value="" name="userpassword" class="inputxt Validform_error" datatype="*6-20" nullmsg="请填写密码！">
+                <span class="Validform_checktip">请输入新密码！</span>
             </li>
             <li>
                 <label>确认新密码：</label>
-                <input name="newpassword2" type="password" class="form-control" placeholder="确认新密码"/>
-                <span for="" class=""></span>
+                <input type="password" value="" name="userpassword2" class="inputxt" datatype="*6-20" recheck="userpassword" nullmsg="请确认密码！">
+                <span class="Validform_checktip Validform_wrong">请确认密码！</span>
             </li>
             <li>
                 <a href="javascript:void(0);" class="btn btn-red btn-password">保存</a>
