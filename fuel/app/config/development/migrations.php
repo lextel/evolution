@@ -1,10 +1,10 @@
 <?php
 return array(
-	'version' => 
+	'version' =>
 	array(
-		'app' => 
+		'app' =>
 		array(
-			'default' => 
+			'default' =>
 			array(
 				0 => '001_create_users',
 				1 => '002_create_items',
@@ -37,12 +37,12 @@ return array(
 				28 => '050_create_member_sms',
 			),
 		),
-		'module' => 
+		'module' =>
 		array(
 		),
-		'package' => 
+		'package' =>
 		array(
-			'auth' => 
+			'auth' =>
 			array(
 				0 => '001_auth_create_usertables',
 				1 => '002_auth_create_grouptables',
