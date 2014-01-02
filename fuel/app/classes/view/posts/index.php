@@ -8,6 +8,11 @@ class View_Posts_Index extends Viewmodel {
            $user = Model_Member::find($mid);
            return $user;
        };
+        //获得商品标题
+       $this->getItem = function($itemid) {
+           $item = Model_Item::find($itemid);
+           return $item;
+       };
    }
 
    public function set_view(){

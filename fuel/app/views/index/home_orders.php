@@ -1,26 +1,27 @@
 
-<div class="main fr">
-        <ul class="subNav">
+<div class="navbar-inner">
+        <ul>
             <li><?php echo Html::anchor('u/'.$member->id, '主页');?></li>
-            <li><?php echo Html::anchor('u/'.$member->id.'/orders', '乐拍记录');?></li>
+            <li><?php echo Html::anchor('u/'.$member->id.'/orders', '乐拍记录', ['class'=>'active']);?></li>
             <li><?php echo Html::anchor('u/'.$member->id.'/wins', '获得的商品');?></li>
             <li><?php echo Html::anchor('u/'.$member->id.'/posts', '晒单');?></li>
         </ul>
         <!--乐拍记录-->
+        <br />
         <div class="home-c">
             <?php if($orders) { ?>
-            <ul>
+            <dl>
                 <?php foreach($orders as $item) { ?>
-                <li>
+                <dd>
                     <div class="img-box">
                         <?php echo Html::anchor('m/'.$item->phase_id, Html::img($getItemInfo($getPhaseInfo($item->phase_id)->item_id)->image));?>
                     </div>
                     <div class="title-box">
                         <h4><?php echo Html::anchor('m/'.$item->phase_id, $getPhaseInfo($item->phase_id)->title);?></h4>
-                        <span class="price">价值 <b><?php echo $getItemInfo($getPhaseInfo($item->phase_id)->item_id)->price;?></b></span>
+                        <span class="price">价值 <b><?php echo $getItemInfo($getPhaseInfo($item->phase_id)->item_id)->price;?>.00</b></span>
                     </div>
 
-                </li>
+                </dd>
                 <!--<li>
                     <div class="img-box">
                         <a href=""><img src="img/54359.jpg" alt=""/></a>
@@ -35,7 +36,7 @@
                 </li>  --> 
                 <?php } ?>
                
-            </ul>
+            </dl>
             <br />
             <?php echo Pagination::instance('horders')->render();?>     
             <?php } else { ?>

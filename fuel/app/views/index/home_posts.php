@@ -1,9 +1,9 @@
-<div class="main fr">
-        <ul class="subNav">
+<div class="navbar-inner">
+        <ul>
             <li><?php echo Html::anchor('u/'.$member->id, '主页');?></li>
             <li><?php echo Html::anchor('u/'.$member->id.'/orders', '乐拍记录');?></li>
             <li><?php echo Html::anchor('u/'.$member->id.'/wins', '获得的商品');?></li>
-            <li><?php echo Html::anchor('u/'.$member->id.'/posts', '晒单');?></li>
+            <li><?php echo Html::anchor('u/'.$member->id.'/posts', '晒单', ['class'=>'active']);?></li>
         </ul>
         <!--晒单-->
         <div class="home-c">
