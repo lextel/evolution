@@ -791,7 +791,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     margin-right: 8px;
     text-align: center;
 }
-.news li .images-list dd a img{
+.news li .images-list dd img{
     max-width: 100%;
     height: auto;
     vertical-align: middle;
