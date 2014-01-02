@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * Created by ui-1 on 13-12-23.
  */
@@ -394,3 +395,41 @@ function handlePhases(data) {
     }
 }
 
+/**
+ * 评论交互效果
+ */
+$(function(){
+    var text=$(".comment-box>textarea");
+    //最大输入字数
+    var word=$(".comment-footer>span>s");
+    var max_num=200;
+    var scr_num=0;
+    var abc_num=0;
+    var ie = jQuery.support.htmlSerialize;
+
+    text.focus(function(){
+        if(ie){
+            text[0].oninput = changeNum;
+        }else{
+            text[0].onpropertychange  = changeNum;
+        }
+        function changeNum(){
+            scr_num= $(this).val().replace(/\w/g,"").length;
+            abc_num=$(this).val().length-scr_num;
+            var total=scr_num+abc_num;
+            var word_num=max_num-total
+            word.text(word_num);
+            if(total>=max_num){
+                word.css({color:"red"});
+            }
+            if(total<=0){
+                $(this).next("div").children(".btn-comment").attr('disabled', 'disabled')
+                $(this).next("div").children(".btn-comment").css({background:"#fff",color:"#333"})
+            }
+            else{
+                $(this).next("div").children(".btn-comment").removeAttr("disabled");
+                $(this).next("div").children(".btn-comment").css({background:"#D9534F",color:"#fff"})
+            }
+        }
+    })
+});
