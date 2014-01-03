@@ -6,6 +6,9 @@
     <?php echo Asset::css('common.css');?>
     <?php echo Asset::css('style.css');?>
     <?php echo Asset::js('jquery.min.js');?>
+    <?php echo Asset::css('member/validfrom_style.css'); ?>
+    <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
+
 </head>
 <body>
     <div class="register w">
@@ -21,22 +24,22 @@
                 <?php echo Html::anchor('signin', '登录', array('class' => ''));?>
             </div>
         </div>
-        <?php echo Form::open(array("class"=>"register-form")); ?>
+        <?php echo Form::open(array("class"=>"register-form demoform")); ?>
             <ul>
                 <li>
                    <?php echo Form::label('用户邮箱'); ?>
-                   <?php echo Form::input('username', '', array('type'=>"text", 'placeholder'=>'用户邮箱')); ?>
-                   <?php echo Form::label('', '', array('class'=>'error')); ?>
+                   <?php echo Form::input('username', '', array('type'=>"text",'datatype'=>'e','name'=>'username','errorms'=>'邮箱帐号格式不正确','nullmsg'=>'请输入邮箱帐号')); ?>
+                   <span class="Validform_checktip"></span>
                 </li>
                 <li>
                    <?php echo Form::label('输入密码'); ?>
-                   <?php echo Form::input('password', '', array('type'=>"password", 'placeholder'=>'输入密码')); ?>
-                   <?php echo Form::label('', '', array('class'=>'error')); ?>
+                   <?php echo Form::input('password', '', array('type'=>"password",array('class' => 'inputxt Validform_error', 'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'请输入6-18位密码','nullmsg'=>'请输入6-18位密码')); ?>
+                   <span class="Validform_checktip"></span>
                 </li>
                 <li>
                    <?php echo Form::label('确认密码'); ?>
-                   <?php echo Form::input('password', '', array('type'=>"password", 'placeholder'=>'确认密码')); ?>
-                   <?php echo Form::label('', '', array('class'=>'error')); ?>
+                   <input type="password" value="" name="userpassword2" class="inputxt" datatype="*6-20" recheck="userpassword">
+                   <span class="Validform_checktip"></span>
                 </li>
                 <li><!--<a href="" class="btn btn-default fl">同意协议并注册</a>-->
                    <?php echo Form::submit('submit', '同意协议并注册', array('class' => 'btn btn-default fl')); ?>
@@ -47,5 +50,13 @@
             欢迎你访问并使用
         </div>
     </div>
+
+<script type="text/javascript">
+$(function(){
+	$(".demoform").Validform({
+	tiptype:4,
+	});
+});
+</script>
 </body>
 </html>
