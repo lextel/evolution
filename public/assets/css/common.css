@@ -540,11 +540,6 @@ h4{
     text-align: center;
     position: relative;
 }
-
-.shopping-box .shopping-cart a{
-    color: #ffffff;
-    font-size: 14px;
-}
 .shopping-cart .dropdown-list{
     position: absolute;
     top: 25px;
