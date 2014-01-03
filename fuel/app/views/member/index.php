@@ -9,7 +9,7 @@
                 <div class="signature"> 个性签名:<?php echo $current_user->bio;?></div>
             </li>
             <li>
-                <div class="price fl">帐户余额： <b>￥<?php echo $current_user->points;?></b> </div>
+                <div class="price fl">帐户余额： <b>￥<?php echo $current_user->points;?>.00</b> </div>
                 <?php echo Html::anchor('/u/getrecharge', '<button class="edit fl">充值</button>');?>
             </li>
         </ul>
