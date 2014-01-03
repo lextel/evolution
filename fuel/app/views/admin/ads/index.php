@@ -26,7 +26,7 @@
                 <tr>
                     <td><?php echo $item->title; ?></td>
                     
-                    <td><img style="width:196px; height:70px" src="<?php echo Uri::create($item->link); ?>"/></td>
+                    <td><a href="<?php echo $item->link; ?>" target="_blank"><img style="width:196px; height:70px" src="<?php echo Uri::create($item->image); ?>"/></a></td>
                     <td><?php echo $item->sort; ?></td>
                     <td><?php echo $item->status == 1 ? '启用' : '不启用';?></td>
                     <td><?php echo date('Y-m-d', $item->start_at);?>/<?php echo date('Y-m-d', $item->end_at);?></td>
@@ -60,8 +60,7 @@
         	<?php foreach ($itemAds as $item): ?>
                 <tr>
                     <td><?php echo $item->title; ?></td>
-                    
-                    <td><img style="width:196px; height:70px" src="<?php echo Uri::create($item->link); ?>"/></td>
+                    <td><a href="<?php echo $item->link; ?>" target="_blank"><img style="width:196px; height:70px" src="<?php echo Uri::create($item->image); ?>"/></a></td>
                     <td><?php echo $item->sort; ?></td>
                     <td><?php echo $item->status == 1 ? '启用' : '不启用';?></td>
                     <td><?php echo date('Y-m-d', $item->start_at);?>/<?php echo date('Y-m-d', $item->end_at);?></td>

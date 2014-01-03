@@ -72,7 +72,7 @@
                     <div class="cart-footer">
                         <label class="fl"><input type="checkbox" action="selectAll"/>全选</label>
                         <button class="btn btn-default btn-sx fl" action="batchDelete">批量删除</button>
-                        <div class="price fr">总金额：<s class="red">￥<?php echo sprintf('%.2f', $subTotal); ?></s></div>
+                        <div class="price fr">总金额：<s class="red" id="total">￥<?php echo sprintf('%.2f', $subTotal); ?></s></div>
                     </div>
                 </div>
             </form>
