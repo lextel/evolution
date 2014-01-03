@@ -17,6 +17,7 @@
         <ul class="buy-menu">
             <li>在<b><?php echo \Helper\Timer::friendlyDate($item->ordered_at);?></b>乐拍了 </li>
             <li class="right-box">
+
                 <div class="img-box fl">
                     <?php echo Html::anchor('/m/'.$item->phase_id, Html::img($getItemInfo($getPhaseInfo($item->phase_id)->item_id)->image));?>
                 </div>
@@ -30,6 +31,7 @@
                             </div></div>
                         </dd>
                     </dl>
+
                     <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="buy">去乐拍</button>');?>
                 </div>
             </li>

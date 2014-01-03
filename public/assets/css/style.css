@@ -5,31 +5,33 @@
 .logo-wrapper{
     width: 100%;
     overflow: hidden;
+    background: #F1F1F1;
+    margin: 0 auto 30px;
+    height: 100px;
 }
 .logo-wrapper .logo{
-    margin: 40px auto 10px;
     width: 980px;
 }
 .left-side{
     width: 500px;
-    height: 350px;
+    height: 310px;
     background: #cccccc;
 }
 .login-form{
     width: 300px;
-    height: 350px;
+    height: 310px;
     border: 1px solid #EEEEEE;
 }
 .login-form .loginBar{
     overflow: hidden;
-     margin:10px 20px 20px ;
+     margin:20px ;
  }
 .login-form .title{
     background: #EEEEEE;
 }
 .login-form .loginBar li{
     overflow: hidden;
-    margin-bottom: 10px;
+    margin-bottom:5px;
 }
 .login-form .loginBar li input{
     height: 35px;
@@ -40,19 +42,27 @@
 .login-form .loginBar li label{
     height: 35px;
 }
-.login-form .loginBar li .login,.login-form .register-box .registered {
-    height: 30px;
-    border: 1px solid #EEEEEE;
-    width: 145px;
-    line-height: 30px;
-    text-align: center;
-    margin-left: 52px;
+.login-form .loginBar li span{
+    display: inline-block;
+    line-height: 24px;
+}
+.login-form .loginBar li .login{
+    border: 1px solid #D92612;
     cursor: pointer;
+    background: #D9534F;
+    border-radius: 3px;
+    padding: 8px 20px;
+    color: #FFFFFF;
+    margin-right: 20px;
   }
 .register-box{
     overflow: hidden;
     padding: 20px;
     border-top: 1px solid #EEE;
+}
+.register-box .signup{
+    font-size: 14px;
+    color: #47AFFF;
 }
 .register-box .registered{
     margin-top: 20px;
@@ -261,7 +271,7 @@
 .center-main {
     width: 575px;
     overflow: hidden;
-    margin-left: 10px;
+    margin: 10px 0 0 10px;
     border: 1px solid #EEEEEE;
 }
 .center-main .center-info{
@@ -285,16 +295,17 @@
     border-radius: 3px;
     margin-left: 20px;
 }
+
 .buy-menu {
     padding:0 15px;
     overflow: hidden;
 }
-.buy-menu dt{
-    height:30px;
+.buy-menu li{
+    min-height:30px;
     line-height: 30px;
     overflow: hidden;
 }
-.buy-menu dd{
+.buy-menu li.right-box{
     overflow: hidden;
     margin-bottom: 10px;
     padding-bottom: 10px;
@@ -313,8 +324,8 @@
     background:  #D96D66;
     border-radius: 50%;
     position: absolute;
-    top: -10px;
-    right: -10px;
+    top: 0px;
+    right: 0px;
 }
 .right-box .price{
     padding: 5px 0;
@@ -519,6 +530,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     height: 30px;
     border: 1px solid #EEEEEE;
     margin: 0 8px;
+    text-indent:1em;
 }
 /*个人设置*/
 .set-wrap{
@@ -560,6 +572,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 }
 .edit-data li{
     margin-bottom: 15px;
+    position: relative;
 }
 .edit-data li label{
     display: inline-block;
@@ -584,14 +597,9 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     padding: 5px 0;
     height: 17px;
     vertical-align: middle;
-    background:url("../images/icon_3.png") no-repeat -19px 0 ;
 }
 .edit-data li span.align{
     vertical-align: top;
-}
-.edit-data li span.error{
-    display: inline-block;
-    background:url("../images/icon_3.png") no-repeat -56px 0 ;
 }
 .edit-data li textarea{
     border: 1px solid #f1f1f1;
@@ -629,6 +637,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     vertical-align: middle;
 }
 .edit-data li .btn{
+    width: 80px;
     margin-left: 123px;
 }
 .edit-data li .file-img{
@@ -790,7 +799,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     margin-right: 8px;
     text-align: center;
 }
-.news li .images-list dd a img{
+.news li .images-list dd img{
     max-width: 100%;
     height: auto;
     vertical-align: middle;

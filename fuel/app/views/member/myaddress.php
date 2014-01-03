@@ -1,5 +1,6 @@
 <?php echo Asset::js('jquery.provincesCity.js',"utf-8"); ?>
-<?php echo Asset::js('provincesdata.js'); ?>
+<?php echo Asset::css(['member/validfrom_style.css']); ?>
+<?php echo Asset::js(['provincesdata.js','Validform_v5.3.2_min.js']); ?>
 
 <script>
 	//调用插件
@@ -19,7 +20,7 @@
             </ul>
         </div>
         <!--修改地址-->
-        <ul class="edit-data">
+        <ul class="edit-data registerform">
             <li>
                 <table>
                     <thead>
@@ -53,31 +54,41 @@
             <li>
                 <label>所在地区：</label>
                 <div id="datas"></div>
-                
                 <span for="" class=""></span>
             </li>
             <li>
                 <label class="align">街道地址：</label>
-                <textarea name=""  cols="50" rows="3"></textarea>
-                <span for="" class="error align"></span>
+                <textarea name=""  cols="50" rows="3"  name="postalcode" datatype="*"  sucmsg="验证通过！" errormsg="请输入街道地址！" ></textarea>
+                <span class="Validform_checktip align"></span>
             </li>
             <li>
                 <label>邮政编码：</label>
-                <input type="text"/>
-                <span for="" class="error"></span>
+                <input type="text" value="" name="postalcode" datatype="p"  sucmsg="验证通过！" errormsg="请输入邮政编码！"  />
+                <span class="Validform_checktip"></span>
             </li>
             <li>
                 <label>收货人：</label>
-                <input type="text"/>
-                <span for="" class="error"></span>
+                <input type="text" value="" name="name" datatype="*2-6"  sucmsg="验证通过！" errormsg="请输入2到6个中文字符！！"  />
+                <span class="Validform_checktip"></span>
             </li>
             <li>
                 <label>联系电话：</label>
-                <input type="text"/>
-                <span for="" class="error"></span>
+                <input type="text" value="" name="Phone " datatype="m"  sucmsg="验证通过！" errormsg="请输入收货人手机号码！"  />
+                <span class="Validform_checktip"></span>
             </li>
             <li>
-                <a href="javascript:void(0);" class="btn btn-red">保存</a>
+                <input class="btn btn-red btn-password" type="submit" value="保存"/>
             </li>
         </ul>
 </div>
+<script type="text/javascript">
+
+$(function(){
+	$(".registerform").Validform({
+		tiptype:3,
+		label:".label",
+		showAllError:true,
+		ajaxPost:true
+	});
+})
+</script>

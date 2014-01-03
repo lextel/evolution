@@ -13,6 +13,7 @@ class Create_member_moneylogs
 			'total' => array('constraint' => 11, 'type' => 'int'),
 			'sum' => array('constraint' => 11, 'type' => 'int'),
 			'type' => array('constraint' => 11, 'type' => 'int'),
+			'source' => array('constraint' => 255, 'type' => 'text'),
 			'member_id' => array('constraint' => 11, 'type' => 'int'),
 			'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 			'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),

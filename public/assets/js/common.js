@@ -192,7 +192,14 @@ $(function(){
     });
 
 });
-
+/**
+ * 选择充值方式
+ */
+$(function(){
+    $('.else input').focus(function(){
+       $(this).closest("dl").children("dd").find("input:radio").attr({checked:false});
+    });
+});
 /**
  * 计算中奖几率
  *
