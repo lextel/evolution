@@ -50,7 +50,6 @@
             欢迎你访问并使用
         </div>
     </div>
-
 <script type="text/javascript">
 $(function(){
 	$(".demoform").Validform({
