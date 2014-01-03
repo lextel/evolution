@@ -17,7 +17,7 @@ $(function(){
         </div>
         <!--修改资料-->
         <ul class="edit-data">
-            <?php echo Form::open(['action' => 'u/profile', 'method' => 'post', 'class'=>'form-profile']); ?>
+            <?php echo Form::open(['action' => 'u/profile', 'method' => 'post', 'class'=>'form-profile demoform']); ?>
             <li>
             <?php if (Session::get_flash('success')): ?>
                  <?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
@@ -28,27 +28,34 @@ $(function(){
             </li>
             <li>
                 <label>邮箱：</label>
-                <?php echo Form::input('email', Input::post('email', $member->email), array('class' => 'form-control', 'placeholder'=>'邮箱', 'readonly'));?>
+                <?php echo Form::input('username', '', array('type'=>"text",'name'=>'username','datatype'=>'e','errorms'=>'请输入邮箱帐号')); ?>
+                <span class="Validform_checktip"></span>
             </li>
             <li>
                 <label>昵称：</label>
-                <?php echo Form::input('nickname', Input::post('nickname', $member->nickname), array('class' => 'form-control', 'placeholder'=>'昵称'));?>
-                <span for="" class="error"></span>
+                <?php echo Form::input('nickname', Input::post('nickname', $member->nickname), array('class' => 'form-control','name'=>'username','datatype'=>'*2-8','errorms'=>'请输入昵称 2~8个字'));?>
+                <span class="Validform_checktip"></span>
             </li>
             <li>
                 <label>手机号码：</label>
-                <?php echo Form::input('mobile', Input::post('mobile', $member->mobile), array('class' => 'form-control', 'placeholder'=>'手机号码'));?>
-                <span for="" class="error"></span>
+                <?php echo Form::input('mobile', Input::post('mobile', $member->mobile), array('class' => 'form-control','name'=>'','datatype'=>'m','errorms'=>'请输入手机号码'));?>
+                <span class="Validform_checktip"></span>
             </li>
             <li>
                 <label class="align">个性签名：</label>
-                <?php echo Form::textarea('bio', Input::post('bio', $member->bio), array('class' => 'form-control', 'placeholder'=>'个性签名'));?>
-                <span for="" class="error align"></span>
+                <?php echo Form::textarea('bio', Input::post('bio', $member->bio), array('class' => 'form-control','rows'=>'3'));?>
+                <span class="Validform_checktip"></span>
             </li>
             <li>
-                <a href="javascript:void(0);" class="btn btn-red btn-profile">保存</a>
+                <input class="btn btn-red btn-password" type="submit" value="提交">
             </li>
             <?php echo Form::close(); ?>
         </ul>
 </div>
-
+<script>
+$(function(){
+	$(".demoform").Validform({
+	tiptype:4,
+	});
+});
+</script>

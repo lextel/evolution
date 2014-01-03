@@ -48,9 +48,9 @@
                             <td><s class="red">￥<?php echo sprintf('%.2f', $info->price); ?></s></td>
                             <td>
                                 <div class="btn-menu">
-                                    <a class="add">-</a >
-                                    <input type="text" value="<?php echo $item->get_qty(); ?>" name="qty">
-                                    <a  class="add">+</a >
+                                    <a class="add btn-jian" href="javascript:void(0);">-</a>
+                                    <input type="text" value="<?php echo $item->get_qty(); ?>" name="qty" rowId="<?php echo $item->get_rowid(); ?>" remain="<?php echo $info->phase->remain?>">
+                                    <a class="add btn-jia" href="javascript:void(0);">+</a>
                                     <span>人次</span>
                                 </div>
                             </td>

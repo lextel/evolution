@@ -136,6 +136,7 @@ $(function(){
         }
 
         countPercent(val, $(this));
+        updateCart(val, $(this), val);
 
         $(this).val(val);
     });
@@ -151,9 +152,10 @@ $(function(){
         if(val + 1 > parseInt(max)) {
             alert('购买数量不能大于剩余数量');
         } else {
-            val = val + 1;
-            countPercent(val, input);
-            input.val(val);
+            var qty = val + 1;
+            countPercent(qty, input);
+            updateCart(qty, input, val);
+            input.val(qty);
         }
     });
 
@@ -167,9 +169,10 @@ $(function(){
         if(val -1 < parseInt(min)) {
             alert('购买数量不能小于1');
         } else {
-            val = val - 1;
-            countPercent(val, input);
-            input.val(val);
+            var qty = val - 1;
+            countPercent(qty, input);
+            updateCart(qty, input, val);
+            input.val(qty);
         }
     });
 
@@ -214,6 +217,34 @@ function countPercent(val, input) {
 }
 
 /**
+ * 更新购物车
+ *
+ * @param qty        数量
+ * @param input      数量输入框对象
+ * @param beforeQty  改变前的数量
+ *
+ * @return void
+ */
+function updateCart(qty, input, beforeQty) {
+    if($('.cart-list').length > 0) {
+        var id = input.attr('rowId');
+        $.ajax({
+            url: BASE_URL + 'cart/modify',
+            data: {id:id, qty:qty},
+            type: 'post',
+            dataType: 'json',
+            success: function(data) {
+                if(data.status == 'success') {
+                    input.val(qty);
+                } else {
+                    input.val(beforeQty);
+                }
+            }
+        });
+    }
+}
+
+/**
  * 购物车下拉效果
  */
 $(function(){
@@ -235,7 +266,7 @@ $(function(){
                         html += '</div><div class="info-side fr"><div class="title">';
                         html += '<a href="'+BASE_URL + 'm/' + data[i].id +'">'+data[i].title+'</a>';
                         html += '</div><div class="price tl">￥1.00 x <b class="y">'+data[i].qty+'</b></div>';
-                        html += '<a href="javascript:void(0);" class="btn btn-link btn-sx cartRemove" cartId="'+data[i].id+'">删除</a></div></li>';
+                        html += '<a href="javascript:void(0);" class="btn btn-link btn-sx cartRemove" rowId="'+data[i].rowId+'">删除</a></div></li>';
                     }
                     html += '<div class="btn-group tr"><a href="'+BASE_URL + 'cart/list' + '" class="btn-red btn btn-sx">查看购物车</a></div>';
                 } else {
@@ -252,7 +283,7 @@ $(function(){
     // 购物车删除
     $(document).on('click', '.cartRemove', function() {
         var $this = $(this);
-        var id = $this.attr('cartId');
+        var id = $this.attr('rowId');
         $.ajax({
             url: BASE_URL + 'cart/del',
             data: {id:id},
@@ -271,6 +302,7 @@ $(function(){
 
     // 添加购物车效果
     $('.doCart').click(function () {
+            alert(2);
         var cart = $('.shopping-cart');
         var imgtodrag = $(this).parent().prev().prev().prev().find("a").eq(0);
         if (imgtodrag) {
@@ -282,26 +314,27 @@ $(function(){
             .css({
                 'opacity': '0.7',
                 'position': 'absolute',
-                'height': '150px',
-                'width': '150px',
+                'height': '200px',
+                'width': '200px',
                 'z-index': '100'
             })
             .appendTo($('body'))
             .animate({
-                'top': cart.offset().top + 5,
-                'left': cart.offset().left + 20,
-                'width': 25,
+                'top': cart.offset().top,
+                'left': cart.offset().left,
+                'width': 130,
                 'height': 25
             }, 1000);
             imgclone.animate({
-                'width': 0,
-                'height': 0
+                'opacity': '0',
+                'width': 130,
+                'height': 25 
             }, function () {
                 $(this).detach()
             });
         }
 
-        // 添加购物车
+        // 提交到后台
         var id = $(this).attr('phaseId');
         var qty = $(this).parent().prev().find('input').val();
         $.ajax({
