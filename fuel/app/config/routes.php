@@ -47,6 +47,7 @@ return array(
     'u/orders/p/(\d+)' => 'member/orders/my/$1',
     'u/wins' => 'member/lottery/index',
     'u/win/p/\d+' => 'member/lottery/index/$1',
+    'u/getrecharge' => 'member/getrecharge',
     'u/recharge' => 'member/recharge',
     'u/moneylog' => 'member/moneylog/rechargeIndex',
     'u/moneylog/p/(\d+)' => 'member/moneylog/rechargeIndex/$1',
@@ -90,6 +91,8 @@ return array(
     'l/joined' => 'orders/joined',
     'l/posts' => 'posts/posts',
     'l/phases' => 'items/phases',
+
+     'notice(/\d+)?' => 'notice/index/$1',
 
     'image/:size/:link' => 'image/index',
 

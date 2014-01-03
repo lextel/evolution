@@ -101,7 +101,7 @@ $(function(){
                 <div class="title"><h4>乐拍公告 <span class="icon icon-horn"></span></h4></div>
                 <ul>
                     <?php foreach($notices() as $notice) { ?>
-                    <li><?php echo Html::anchor('/notice/'.$notice->id, $notice->title); ?></li>
+                    <li><?php echo Html::anchor('/notice', $notice->title); ?></li>
                     <?php } ?>
                 </ul>
             </div>

@@ -1,4 +1,18 @@
+<?php echo Asset::css('member/jquery-ui.css'); ?>
+<?php echo Asset::js('jquery-ui.js'); ?>
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      showWeek: true,
+      firstDay: 1
+    });
 
+        $( "#datepicker1" ).datepicker({
+      showWeek: true,
+      firstDay: 1
+    });
+  });
+  </script>
     <div class="content-inner">
         <!--获得的商品开始-->
         <div class="acquire-box">
@@ -6,19 +20,14 @@
             <div class="select-box">
                 <label for="">全部商品</label>
             <span class="time-choose">选择时间段：
-                <select name="" >
-                    <option value="">1</option>
-                    <option value="">2</option>
-                </select>
-                <select name="">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                </select>
+                 <input  id="datepicker" type="text" placeholder="输入起始时间" />
+                 <input  id="datepicker1" type="text" placeholder="输入结束时间" />
+                 <button>搜索</button>
             </span>
             </div>
             <div class="select">
                 <label for="" class="select-title">商品名称</label>
-                <input type="text" value="输入商品名字关键字"/>
+                <input type="text" value="" placeholder="输入商品名字关键字" />
                 <button>搜索</button>
             </div>
             <div class="acquire">
@@ -43,11 +52,11 @@
                     <?php foreach($list as $win) { ?>
                     <tr>
                         <td>1</td>
-                        <td><div class="img-box"><a href=""><img src="<?php echo $win->item_id; ?>" alt=""/></a></div></td>
-                        <td>（第539期）苹果Iphone 5s 16G版 3G手机</td>
-                        <td>已经揭晓啦</td>
-                        <td>1人次</td>
-                        <td><?php echo $win->code; ?><a href="">查看</a></td>
+                        <td><div class="img-box"><?php echo Html::anchor("w/".$win->id, Html::img($getItem($win)->image)); ?></div></td>
+                        <td>（第<?php echo $win->phase_id;?>期）<?php echo $win->title;?></td>
+                        <td>已经揭晓</td>
+                        <td><?php echo $win->code_count;?>人次</td>
+                        <td><?php echo $win->code; ?><!--<a href="">查看</a>--></td>
                         <td><?php echo Html::anchor('w/'.$win->id, '查看详情'); ?></td>
                     </tr>
                     <?php }?>
