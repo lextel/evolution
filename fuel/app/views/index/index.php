@@ -11,7 +11,8 @@ $(function(){
                 interval          :   2000,
                 mousestop   :   true,
             });
-});
+
+
 </script>
     <!--banner开始-->
     <div class="banner">
@@ -134,6 +135,8 @@ $(function(){
     </div>
     <!--人气推荐开始-->
     <div class="recommended w">
+    
+    
         <ul>
             <?php foreach($hotItems() as $phase) { ?>
             <li class="sidebar">
@@ -161,7 +164,10 @@ $(function(){
             </li>
             <?php } ?>
         </ul>
+   
+    
     </div>
+
     <!--晒单分享开始-->
     <div class="bask-wrapper w">
         <div class="title">

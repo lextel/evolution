@@ -1,5 +1,5 @@
 <?php echo Asset::css('product.css'); ?>
-<?php echo Asset::js('item/index.js'); ?>
+<?php echo Asset::js(['Xslider.js', 'item/index.js']); ?>
 <div class="wrapper w">
     <div class="product-inner w">
         <ul class="left-sidebar fl">
@@ -116,47 +116,44 @@
     <!--今日热门开始-->
         <div class="date-hot w">
             <div class="title"><h4>今日热门</h4></div>
-            <div class="scrollleft">
-            <ul>
-                <?php
-                    $hotItems = $getHots();
-                    foreach($hotItems as $item) :
-                ?>
-                <li>
-                    <div class="img-box"><a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
-                    <h5><?php echo $item->phase->title; ?></h5>
-                    <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->price); ?></b></div>
-                    <div class="btn-group">
-                        <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
-                            <input name="id" value="<?php echo $item->phase->id; ?>" type="hidden">
-                            <input name="qty" value="1" type="hidden">
-                            <button class="btn btn-red" type="submit">立即乐拍</button>
-                        </form>
-                    </div>
-                </li>
-                <?php endforeach; ?>
-            </ul>
+            <div class="scrollleft" >
+                <div class="scrollcontainer">
+                    <ul>
+                        <?php
+                            $hotItems = $getHots();
+                            foreach($hotItems as $item) :
+                        ?>
+                        <li>
+                            <div class="img-box"><a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
+                            <h5><?php echo $item->phase->title; ?></h5>
+                            <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->price); ?></b></div>
+                            <div class="btn-group">
+                                <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
+                                    <input name="id" value="<?php echo $item->phase->id; ?>" type="hidden">
+                                    <input name="qty" value="1" type="hidden">
+                                    <button class="btn btn-red" type="submit">立即乐拍</button>
+                                </form>
+                            </div>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+            </div>
+                <a class="abtn aleft" href="#left">左移</a>
+                <a class="abtn aright" href="#right">右移</a>
         </div>
         </div>
     <!--今日热门结束-->
 </div>
 
-
-
-
 <script type="text/javascript">
-
-$(document).ready(function(){
+$(function(){
     
-    /*
-    $(".scrollleft").imgscroll({
-        speed: 1,    //图片滚动速度
-        amount: 1,    //图片滚动过渡时间
-        width: 1,     //图片滚动步数
-        dir: "left"   // "left" 或 "up" 向左或向上滚动
+    //二、左右切换：最后一个显示在最右侧;
+    $(".scrollleft").Xslider({
+        unitdisplayed:5,
+        numtoMove:1
     });
-    */
-
-});
-
-</script> 
+    
+    $("a").focus(function(){this.blur();});
+})
+</script>
