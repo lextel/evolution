@@ -43,8 +43,31 @@ $(function(){
         updateTotal();
     });
 
+    // 余额支付
+    PAYALL = false;
+    pay = 0;
+    $('#balance').click(function() {
+        var total = $('#total').attr('total');
+        var money = $('#money').attr('money');
+        if (this.checked) {//全选
+            if(parseInt(money) > parseInt(total)) {
+                pay = total;
+                PAYALL = true;
+            } else {
+                pay = money;
+            }
+
+            $(this).parent().after('<span>余额支付<b class="y">' + parseInt(pay).toFixed(2) + '</b>元</span>');
+        } else {
+            $(this).parent().next().remove();
+        }
+
+    });
+
     // 支付
     $('#doPay').click(function() {
+
+
         // 修改跳转页面
         var url = $(this).attr('url');
         url = url + '?bank=autoPay';

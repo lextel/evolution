@@ -14,6 +14,7 @@ class Create_ads
 			'sort' => array('constraint' => 3, 'type' => 'int'),
 			'start_at' => array('constraint' => 11, 'type' => 'int'),
 			'end_at' => array('constraint' => 11, 'type' => 'int'),
+			'image' => array('constraint' => 255, 'type' => 'varchar'),
 			'link' => array('constraint' => 255, 'type' => 'varchar'),
 			'status' => array('constraint' => 1, 'type' => 'int'),
 			'is_delete' => array('constraint' => 1, 'type' => 'int'),

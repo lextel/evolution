@@ -2,13 +2,28 @@
 
 class View_Items_index extends Viewmodel {
 
+    /**
+     * @def 展示区域所有商品列表展示
+     */
+    const IS_LIST = 2;
+
+    /**
+     * @def 正常状态
+     */
+    const NORMAL  = 1;
+
+    /**
+     * @def 不删除
+     */
+    const NOT_DELETE = 0;
+
     public function view() {
 
         // 分类类别
         $this->getCates = function($limit = 6) {
 
             return Model_Cate::query()->where('parent_id', 0)
-                                      ->where('is_delete', 0)
+                                      ->where('is_delete', self::NOT_DELETE)
                                       ->limit($limit)->get();
         };
 
@@ -17,11 +32,24 @@ class View_Items_index extends Viewmodel {
             $brands = [];
             foreach($cates as $cate) {
                 $brands[$cate->id] = Model_Cate::query()->where('parent_id', $cate->id)
-                                                        ->where('is_delete', 0)
+                                                        ->where('is_delete', self::NOT_DELETE)
                                                         ->get();
             }
 
             return $brands;
+        };
+
+        // 分类广告图片
+        $this->getAds = function() {
+
+            $time = time();
+            $where = [
+                'zone'      => self::IS_LIST, 
+                'status'    => self::NORMAL, 
+                'is_delete' => self::NOT_DELETE,
+               ];
+
+            return Model_Ad::find('all', ['where' => $where, 'limit' => 6]);
         };
 
         // 即将揭晓
@@ -39,7 +67,6 @@ class View_Items_index extends Viewmodel {
 
             return $itemModel->itemInfo($phase);
         };
-
 
         // 排序处理
         $this->sort = function() {
