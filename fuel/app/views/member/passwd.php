@@ -3,9 +3,9 @@
 <br />
 <script type="text/javascript">
 $(function(){
-    $(".btn-password").click(function(){
-        $(".form-password").submit();
-    });
+    //$(".btn-password").click(function(){
+     //   $(".form-password").submit();
+   // });
 });
 </script>
 <div class="set-wrap">
@@ -35,7 +35,7 @@ $(function(){
             </li>
             <li>
                 <label>新密码：</label>
-                <input type="password" value="" name="userpassword" class="inputxt" datatype="*6-20">
+                <input type="password" value="" name="newpassword" class="inputxt" datatype="*6-20">
                 <span class="Validform_checktip"></span>
                 <div class="passwordStrength" style="display:none;">
                     <b>密码强度：</b>
@@ -46,11 +46,11 @@ $(function(){
             </li>
             <li>
                 <label>确认密码：</label>
-               <input type="password" value="" name="userpassword2" class="inputxt" datatype="*6-20" recheck="userpassword">
+               <input type="password" value="" name="newpassword2" class="inputxt" datatype="*6-20" recheck="newpassword">
                 <span class="Validform_checktip"></span>
             </li>
             <li>
-                <input class="btn btn-red btn-password" type="submit" value="提交"/>
+                 <input class="btn btn-red btn-password" type="submit" value="提交"/>
             </li>
         </ul>
          <?php echo Form::close(); ?>
@@ -60,13 +60,13 @@ $(function(){
 $(function(){
 	//$(".registerform").Validform();  //就这一行代码！;
 	var demo=$(".registerform").Validform({
-		tiptype:3,
+		tiptype:4,
 		label:".label",
 		showAllError:true,
 		datatype:{
 			"zh1-6":/^[\u4E00-\u9FA5\uf900-\ufa2d]{1,6}$/
 		},
-		ajaxPost:true
+		ajaxPost:false,
 	});
 	demo.addRule([{
 		ele:".inputxt:eq(0)",
@@ -79,7 +79,7 @@ $(function(){
 	{
 		ele:".inputxt:eq(2)",
 		datatype:"*6-20",
-		recheck:"userpassword"
+		recheck:"newpassword"
 	},
 	{
 		ele:"select",

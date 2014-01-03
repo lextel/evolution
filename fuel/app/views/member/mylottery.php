@@ -16,7 +16,7 @@
     <div class="content-inner">
         <!--获得的商品开始-->
         <div class="acquire-box">
-            <div class="remind ">乐拍提醒：你总共乐购获得商品（<b><?php echo $count;?></b>)件</div>
+            <div class="remind ">乐拍提醒：你总共乐购获得商品（<?php echo $wincount;?>)件</div>
             <div class="select-box">
                 <label for="">全部商品</label>
             <span class="time-choose">选择时间段：

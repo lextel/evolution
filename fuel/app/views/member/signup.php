@@ -33,12 +33,12 @@
                 </li>
                 <li>
                    <?php echo Form::label('输入密码'); ?>
-                   <?php echo Form::input('password', '', array('type'=>"password",array('class' => 'inputxt Validform_error', 'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'请输入6-18位密码','nullmsg'=>'请输入6-18位密码')); ?>
+                   <?php echo Form::input('password', '', array('type'=>"password",'class' => 'inputxt Validform_error', 'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'请输入6-18位密码','nullmsg'=>'请输入6-18位密码')); ?>
                    <span class="Validform_checktip"></span>
                 </li>
                 <li>
                    <?php echo Form::label('确认密码'); ?>
-                   <input type="password" value="" name="userpassword2" class="inputxt" datatype="*6-20" recheck="userpassword">
+                   <input type="password" value="" name="userpassword2" class="inputxt" datatype="*6-20" recheck="password">
                    <span class="Validform_checktip"></span>
                 </li>
                 <li><!--<a href="" class="btn btn-default fl">同意协议并注册</a>-->
