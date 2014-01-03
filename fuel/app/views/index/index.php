@@ -1,10 +1,16 @@
-<?php echo Asset::css('jquery.bxslider.css'); ?>
-<?php echo Asset::css('focus.css'); ?>
-<?php echo Asset::js(['jquery.bxslider.min.js', 'index.js']); ?>
+<?php echo Asset::css(['jquery.bxslider.css','focus.css','style.css']); ?>
+<?php echo Asset::js(['jquery.bxslider.min.js', 'index.js','jquery.totemticker.min.js']); ?>
 
 <script>
 $(function(){
   $('.bxslider').bxSlider();
+
+  $('.vertical-ticker').totemticker({
+                row_height  :   '90px',
+                speed            :    500,        /* Speed of transition animation in milliseconds */
+                interval          :   2000,
+                mousestop   :   true,
+            });
 });
 </script>
     <!--banner开始-->
@@ -108,7 +114,7 @@ $(function(){
             <!--大家正在乐拍-->
             <div class="buying-box">
                 <div class="title"><h4>大家正在乐拍</h4></div>
-                <ul>
+                <ul class="vertical-ticker">
                     <?php foreach($orders() as $order) {?>
                     <li>
                         <div class="head-img fl">
