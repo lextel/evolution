@@ -20,10 +20,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php if(empty($list)) {
+                <?php if(empty($posts)) {
                         echo '<tr><td colspan="5" style="text-align:center">亲，您还没有晒单哦！</td></tr>';
                   }?>
-                <?php foreach($list as $post) { ?>
+                <?php foreach($posts as $post) { ?>
                 <tr>
                     <td><?php echo $post->id;?></td>
                     <td><div class="img-box"><?php echo Html::anchor('u/posts/view/'.$post->id, Html::img($post->topimage)); ?></div></td>
@@ -31,7 +31,7 @@
                         <div class="text-title"><?php $post->title;?></div>
                         <div class="text-content"><?php echo mb_substr($post->desc, 0, 42,'utf-8'); ?></div>
                     </td>
-                    <td><?php echo $post->status; ?></td>
+                    <td><?php echo $getType($post->status); ?></td>
                     <td>
                         <?php echo Html::anchor('u/posts/view/'.$post->id, '查看详情'); ?> |
                         <?php echo Html::anchor('u/posts/edit/'.$post->id, '编辑'); ?> |
