@@ -136,6 +136,7 @@ $(function(){
         }
 
         countPercent(val, $(this));
+        updateCart(val, $(this), val);
 
         $(this).val(val);
     });
@@ -151,9 +152,10 @@ $(function(){
         if(val + 1 > parseInt(max)) {
             alert('购买数量不能大于剩余数量');
         } else {
-            val = val + 1;
-            countPercent(val, input);
-            input.val(val);
+            var qty = val + 1;
+            countPercent(qty, input);
+            updateCart(qty, input, val);
+            input.val(qty);
         }
     });
 
@@ -167,9 +169,10 @@ $(function(){
         if(val -1 < parseInt(min)) {
             alert('购买数量不能小于1');
         } else {
-            val = val - 1;
-            countPercent(val, input);
-            input.val(val);
+            var qty = val - 1;
+            countPercent(qty, input);
+            updateCart(qty, input, val);
+            input.val(qty);
         }
     });
 
@@ -203,6 +206,34 @@ function countPercent(val, input) {
         var total = input.attr('amount');
         var percent =val/parseInt(total)*100;
         $('#percent').html(percent.toFixed(2) + '%');
+    }
+}
+
+/**
+ * 更新购物车
+ *
+ * @param qty        数量
+ * @param input      数量输入框对象
+ * @param beforeQty  改变前的数量
+ *
+ * @return void
+ */
+function updateCart(qty, input, beforeQty) {
+    if($('.cart-list').length > 0) {
+        var id = input.attr('rowId');
+        $.ajax({
+            url: BASE_URL + 'cart/modify',
+            data: {id:id, qty:qty},
+            type: 'post',
+            dataType: 'json',
+            success: function(data) {
+                if(data.status == 'success') {
+                    input.val(qty);
+                } else {
+                    input.val(beforeQty);
+                }
+            }
+        });
     }
 }
 
@@ -294,7 +325,7 @@ $(function(){
             });
         }
 
-        // 添加购物车
+        // 提交到后台
         var id = $(this).attr('phaseId');
         var qty = $(this).parent().prev().find('input').val();
         $.ajax({
