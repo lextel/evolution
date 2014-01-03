@@ -16,15 +16,17 @@ class Controller_Cart extends Controller_Frontend {
     // 快捷购物车信息获取
     public function action_info() {
 
-        $items = Cart::items();
+        $carts = Cart::items();
         $data = [];
         $itemModel = new Model_Item();
-        foreach($items as $item) {
-            $phase = Model::find($item->get_id());
+        foreach($carts as $cart) {
+            $phase = Model_Phase::find($cart->get_id());
             $item = $itemModel->itemInfo($phase);
-            $data[$item->get_id()] = [
+            $data[] = [
                     'image' => $item->image,
                     'title' => $item->title,
+                    'qty'   => $cart->get_qty(),
+                    'id'    => $cart->get_id(),
                 ];
         }
 
@@ -70,6 +72,34 @@ class Controller_Cart extends Controller_Frontend {
         }
 
         Response::redirect('cart/list');
+    }
+
+    // 快捷添加购物车效果
+    public function action_new() {
+
+        $result = Cart::add([
+            'id'    => Input::post('id'),
+            'qty'   => Input::post('qty'),
+        ]);
+
+        return json_encode(['status' => $result ? 'success' : 'fail']);
+    }
+
+    // 快捷购物车删除商品
+    public function action_del() {
+
+        $id = Input::post('id');
+
+        $items = Cart::items();
+        $result = false;
+        foreach($items as $item) {
+            if($item->get_id() == $id) {
+                $item->delete();
+                $result = true;
+            }
+        }
+
+        return json_encode(['status' => $result ? 'success' : 'fail']);
     }
 
     // 跳转支付

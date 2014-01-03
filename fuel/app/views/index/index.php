@@ -1,6 +1,6 @@
 <?php echo Asset::css('jquery.bxslider.css'); ?>
 <?php echo Asset::css('focus.css'); ?>
-<?php echo Asset::js('jquery.bxslider.min.js'); ?>
+<?php echo Asset::js(['jquery.bxslider.min.js', 'index.js']); ?>
 
 <script>
 $(function(){
@@ -28,15 +28,33 @@ $(function(){
                 </div>
                 <div class="sidebar">
                     <ul>
-                        <?php foreach($newWins() as $win) { ?>
+                        <?php
+                            foreach($newWins() as $win) { 
+
+                                if($win->code_count == 0) {
+                        ?>
                         <li>
                             <div class="img-box">
                                 <?php echo Html::anchor('w/'.$win->id, Html::img($getItemInfo($win->item_id)->image));?>
                             </div>
-                            <h5><?php echo Html::anchor('m/'.$win->phase_id, $getPhaseInfo($win->phase_id)->title);?></h5>
+                            <h5><?php echo Html::anchor('m/'.$win->id, $getPhaseInfo($win->id)->title);?></h5>
+                                <div id="win<?php echo $win->id; ?>" class="winner countdown" endtime="<?php echo date('M d, Y H:i:s', $win->opentime);?>" phaseId="<?php echo $win->id; ?>"></div>
+                                <div style="display: none">计算中...</div>
+                            </li>
+                        <?php
+                                } else {
+                        ?>
+                        <li>
+                            <div class="img-box">
+                                <?php echo Html::anchor('w/'.$win->id, Html::img($getItemInfo($win->item_id)->image));?>
+                            </div>
+                            <h5><?php echo Html::anchor('m/'.$win->phase_id, $getPhaseInfo($win->id)->title);?></h5>
                             <div class="winner">获得者: <b><?php echo Html::anchor('u/'.$win->member_id, $getMemberInfo($win->member_id)->nickname, ['class'=>'bule']);?></b></div>
                         </li>
-                        <?php } ?>
+                        <?php 
+                                }
+                            } 
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -83,7 +101,7 @@ $(function(){
                 <div class="title"><h4>乐拍公告 <span class="icon icon-horn"></span></h4></div>
                 <ul>
                     <?php foreach($notices() as $notice) { ?>
-                    <li><?php echo Html::anchor('/notice/'.$notice->id, $notice->title); ?></li>
+                    <li><?php echo Html::anchor('/notice', $notice->title); ?></li>
                     <?php } ?>
                 </ul>
             </div>
@@ -182,4 +200,7 @@ $(function(){
         </div>
     </div>
     <!--晒单分享结束-->
+    <script>
+        RESULT_URL = '<?php echo Uri::create('w/result'); ?>';
+    </script>
 

@@ -9,7 +9,7 @@ namespace Helper;
 
 class Page {
 
-    const PAGESIZE = 4;
+    const PAGESIZE = 8;
 
     /**
      * 设置分页配置
@@ -43,8 +43,10 @@ class Page {
     public function setCofigPage($url, $totle, $per_page=4, $uri_segment = 3){
         $res = $this -> setConfig($url, $totle, $uri_segment);
         $newconfig = [
-                     'previous'=>'<span>{link}</span>',
+                     'previous'=>'<span class="previous-inactive">{link}</span>',
                      'per_page' =>$per_page,
+                     'previous-inactive' => "<span class=\"previous-inactive\">\n\t{link}\n</span>\n",
+                     'next' => '<span class="previous-inactive">{link}</span>',
                      ];
        return array_merge($res, $newconfig);
     }
