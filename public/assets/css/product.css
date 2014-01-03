@@ -330,7 +330,7 @@
     position: absolute;
     top: 5px;
     right: -30px;
-    width:80px;
+    width:115px;
     text-align: center;
     height: 30px;
     line-height: 30px;
@@ -944,8 +944,9 @@
     color: #f60;
     margin: 0 5px;
 }
-
-
+.latest-wrap{
+    margin-top:20px;
+}
 
 
 
