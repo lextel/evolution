@@ -29,7 +29,7 @@ $(function(){
             <?php endif; ?>
             </li>
             <li>
-                <label>原密码：</label>
+                <label>旧密码：</label>
                 <input type="password" value="" name="oldpassword" class="inputxt" datatype="*6-20">
                 <span class="Validform_checktip"></span>
             </li>
@@ -45,7 +45,7 @@ $(function(){
                 </div>
             </li>
             <li>
-                <label>确认新密码：</label>
+                <label>确认密码：</label>
                <input type="password" value="" name="userpassword2" class="inputxt" datatype="*6-20" recheck="userpassword">
                 <span class="Validform_checktip"></span>
             </li>
