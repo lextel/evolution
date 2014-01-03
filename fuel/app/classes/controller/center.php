@@ -47,6 +47,9 @@ class Controller_Center extends Controller_Frontend
                     {
                         $current_user = Model_Member::find_by_username($this->auth->get_screen_name());
                     }
+                    if (!$current_user->nickname){
+                        Response::redirect('/u/getnickname');
+                    }
                     Session::set_flash('success', e('Welcome denglu, '.$current_user->username));
                     Response::redirect('/u');
                 }
@@ -90,12 +93,14 @@ class Controller_Center extends Controller_Frontend
                 $password = Input::post('password');
                 try{
                     $user = $this->auth->create_user($username, $password, $username);
-
                     if ($this->auth->check() or $user)
                     {
                         $current_user = Model_Member::find_by_username($this->auth->get_screen_name());
+                        $current_user -> avatar = \Config::get('default_headico');
+                        //$current_user -> nickname = $username;
+                        $current_user -> save();
                         Session::set_flash('success', e('Welcome singnup, '.$current_user->username));
-                        Response::redirect('/u');
+                        Response::redirect('/u/getnickname');
                     }
                     else
                     {
@@ -104,7 +109,6 @@ class Controller_Center extends Controller_Frontend
                 }catch (Exception $e){
                     $this->template->set_global('signup_error', 'Fail');
                 }
-
             }
         }
         return Response::forge(View::forge('member/signup', array('val' => $val), false));

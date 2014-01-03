@@ -21,7 +21,7 @@
     <div class="account-box">
         <div class="remind ">
             <span class="balance">你的帐户余额为：<b>￥<?php echo $current_user->points;?></b></span>
-            <?php echo Html::anchor('u/recharge', '充值', ['class'=>'btn-pay']);?>
+            <?php echo Html::anchor('u/getrecharge', '充值', ['class'=>'btn-pay']);?>
         </div>
         <div class="toggles">
                 <?php echo Html::anchor('u/moneylog', '充值记录', ['class'=>'first-child']); ?>
