@@ -1,5 +1,19 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
+<?php echo Asset::js('jquery.totemticker.min.js'); ?>
+
+<script type="text/javascript">
+        $(function(){
+            $('.vertical-ticker').totemticker({
+                row_height  :   '110px',
+                speed            :    500,        /* Speed of transition animation in milliseconds */
+                interval          :   2000,
+                mousestop   :   true,
+            });
+        });
+    </script>
+
 <?php echo Asset::js(['wins/index.js']); ?>
+
 <div class="latest-wrap w">
    <!--左边内容开始-->
     <div class="left-content">
@@ -85,8 +99,10 @@
         <!--大家正在乐拍内容开始-->
         <div class="buying-box">
             <div class="title"><h4>大家正在乐拍</h4></div>
-            <ul>
+            <div class="wrapper">
+            <ul class="vertical-ticker">
                 <?php foreach($orders() as $order) {?>
+
                     <li>
                         <div class="head-img fl">
                             <?php echo Html::anchor('m/'.$order->phase_id, '<img src="http://www.llt.com/'.$getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image.'" alt="" />');?>
@@ -99,6 +115,7 @@
                     </li>
                <?php } ?>
             </ul>
+            </div>
         </div>
         <!--大家正在乐拍内容结束-->
         <!--人气排行内容开始-->
@@ -148,6 +165,7 @@
         <!--人气排行内容结束-->
     </div>
 </div>
+
 <script>
     RESULT_URL = '<?php echo Uri::create('w/result'); ?>';
 </script>
