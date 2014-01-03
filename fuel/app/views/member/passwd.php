@@ -1,13 +1,11 @@
-<?php echo Asset::css(['member/validfrom demo.css','member/validfrom_style.css']); ?>
+<?php echo Asset::css(['member/validfrom_style.css']); ?>
 <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
-
 <br />
 <script type="text/javascript">
 $(function(){
     $(".btn-password").click(function(){
         $(".form-password").submit();
     });
-    $(".demoform").Validform();
 });
 </script>
 <div class="set-wrap">
@@ -20,8 +18,8 @@ $(function(){
             </ul>
         </div>
         <!--修改密码-->
-        <ul class="edit-data demoform">
-            <?php echo Form::open(['action' => 'u/passwd', 'method' => 'post', 'class'=>'form-password']); ?>
+        <?php echo Form::open(['action' => 'u/passwd', 'method' => 'post', 'class'=>'form-password registerform']); ?>
+        <ul class="edit-data">
             <li>
             <?php if (Session::get_flash('success')): ?>
                  <?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
@@ -32,32 +30,69 @@ $(function(){
             </li>
             <li>
                 <label>原密码：</label>
-                <input type="password" value="" name="userpassword" class="inputxt Validform_error" datatype="*6-20" nullmsg="请填写密码！">
-                <span class="Validform_checktip Validform_wrong">请填写原密码！</span>
+                <input type="password" value="" name="oldpassword" class="inputxt" datatype="*6-20">
+                <span class="Validform_checktip"></span>
             </li>
             <li>
                 <label>新密码：</label>
-                <input type="password" value="" name="userpassword" class="inputxt Validform_error" datatype="*6-20" nullmsg="请填写密码！">
-                <span class="Validform_checktip">请输入新密码！</span>
+                <input type="password" value="" name="userpassword" class="inputxt" datatype="*6-20">
+                <span class="Validform_checktip"></span>
+                <div class="passwordStrength" style="display:none;">
+                    <b>密码强度：</b>
+                    <span class="bgStrength">弱</span>
+                    <span>中</span>
+                    <span class="last">强</span>
+                </div>
             </li>
             <li>
                 <label>确认新密码：</label>
-                <input type="password" value="" name="userpassword2" class="inputxt" datatype="*6-20" recheck="userpassword" nullmsg="请确认密码！">
-                <span class="Validform_checktip Validform_wrong">请确认密码！</span>
+               <input type="password" value="" name="userpassword2" class="inputxt" datatype="*6-20" recheck="userpassword">
+                <span class="Validform_checktip"></span>
             </li>
             <li>
-                <a href="javascript:void(0);" class="btn btn-red btn-password">保存</a>
+                <input class="btn btn-red btn-password" type="submit" value="提交"/>
             </li>
-            <?php echo Form::close(); ?>
         </ul>
+         <?php echo Form::close(); ?>
 </div>
-
 <script type="text/javascript">
+
 $(function(){
-    //$(".registerform").Validform();  //就这一行代码！;
-        
-    $(".form-password").Validform({
-        tiptype:2
-    });
+	//$(".registerform").Validform();  //就这一行代码！;
+	var demo=$(".registerform").Validform({
+		tiptype:3,
+		label:".label",
+		showAllError:true,
+		datatype:{
+			"zh1-6":/^[\u4E00-\u9FA5\uf900-\ufa2d]{1,6}$/
+		},
+		ajaxPost:true
+	});
+	demo.addRule([{
+		ele:".inputxt:eq(0)",
+		datatype:"*6-20"
+	},
+	{
+		ele:".inputxt:eq(1)",
+		datatype:"*6-20"
+	},
+	{
+		ele:".inputxt:eq(2)",
+		datatype:"*6-20",
+		recheck:"userpassword"
+	},
+	{
+		ele:"select",
+		datatype:"*"
+	},
+	{
+		ele:":radio:first",
+		datatype:"*"
+	},
+	{
+		ele:":checkbox:first",
+		datatype:"*"
+	}]);
+
 })
 </script>
