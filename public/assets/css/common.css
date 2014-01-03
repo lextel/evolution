@@ -863,7 +863,7 @@ h4{
     line-height: 24px;
 }
 .wrapper{
-	height:337px;
+    overflow: hidden;
 	margin:0 auto;
 }
 .vertical-ticker{
