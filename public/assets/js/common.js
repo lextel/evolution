@@ -189,9 +189,16 @@ $(function(){
     });
 
 });
-
 /**
- * 计算中奖记录
+ * 选择充值方式
+ */
+$(function(){
+    $('.else input').focus(function(){
+       $(this).closest("dl").children("dd").find("input:radio").attr({checked:false});
+    });
+});
+/**
+ * 计算中奖几率
  *
  * @param val   数量
  * @param input 数量输入框对象
@@ -210,12 +217,105 @@ function countPercent(val, input) {
  * 购物车下拉效果
  */
 $(function(){
-    $(".shopping-cart").mouseover(function(){
-          $(this).find(".dropdown-list").css({"display":"block"})
+    $(".shopping-cart").hover(function(){
+        var $this = $(this);
+        $.ajax({
+            url: BASE_URL + 'cart/info',
+            type: 'get',
+            dataType: 'json',
+            beforeSend: function() {
+                $this.find('.dropdown-list').html('<li>加载中...</li>');
+            },
+            success: function(data) {
+                var html = '';
+                if(data.length > 0) {
+                    for(var i in data) {
+                        html += '<li><div class="img-box img-sm fl">';
+                        html += '<a href="'+BASE_URL + 'm/' + data[i].id +'"><img src="'+BASE_URL + data[i].image+'" alt=""></a>';
+                        html += '</div><div class="info-side fr"><div class="title">';
+                        html += '<a href="'+BASE_URL + 'm/' + data[i].id +'">'+data[i].title+'</a>';
+                        html += '</div><div class="price tl">￥1.00 x <b class="y">'+data[i].qty+'</b></div>';
+                        html += '<a href="javascript:void(0);" class="btn btn-link btn-sx cartRemove" cartId="'+data[i].id+'">删除</a></div></li>';
+                    }
+                    html += '<div class="btn-group tr"><a href="'+BASE_URL + 'cart/list' + '" class="btn-red btn btn-sx">查看购物车</a></div>';
+                } else {
+                    html = '<li>购物车是空的</li>';
+                }
+                $this.find('.dropdown-list').html(html);
+            }
         });
-    $(".shopping-cart").mouseout(function(){
-            $(this).find(".dropdown-list").css({"display":"none"})
+        $(this).find(".dropdown-list").css({"display":"block"})
+    }, function(){
+        $(this).find(".dropdown-list").css({"display":"none"})
+    });
+
+    // 购物车删除
+    $(document).on('click', '.cartRemove', function() {
+        var $this = $(this);
+        var id = $this.attr('cartId');
+        $.ajax({
+            url: BASE_URL + 'cart/del',
+            data: {id:id},
+            type: 'post',
+            dataType: 'json',
+            success: function(data) {
+                if(data.status == 'success') {
+                    $this.parent().parent().remove();
+                    if($('.dropdown-list').find('li').length == 0) {
+                        $('.dropdown-list').html('<li>购物车是空的</li>');
+                    }
+                }
+            }
         });
+    });
+
+    // 添加购物车效果
+    $('.doCart').click(function () {
+        var cart = $('.shopping-cart');
+        var imgtodrag = $(this).parent().prev().prev().prev().find("a").eq(0);
+        if (imgtodrag) {
+            var imgclone = imgtodrag.clone()
+                .offset({
+                top: imgtodrag.offset().top,
+                left: imgtodrag.offset().left
+            })
+            .css({
+                'opacity': '0.7',
+                'position': 'absolute',
+                'height': '150px',
+                'width': '150px',
+                'z-index': '100'
+            })
+            .appendTo($('body'))
+            .animate({
+                'top': cart.offset().top + 5,
+                'left': cart.offset().left + 20,
+                'width': 25,
+                'height': 25
+            }, 1000);
+            imgclone.animate({
+                'width': 0,
+                'height': 0
+            }, function () {
+                $(this).detach()
+            });
+        }
+
+        // 添加购物车
+        var id = $(this).attr('phaseId');
+        var qty = $(this).parent().prev().find('input').val();
+        $.ajax({
+            url: BASE_URL + 'cart/new',
+            data: {id:id, qty:qty},
+            type: 'post',
+            dataType: 'json',
+            success: function(data) {
+                if(data.status == 'success') {
+                    // 统计购物车数量
+                }
+            }
+        });
+    });
 });
 
 // 初始化ajax分页

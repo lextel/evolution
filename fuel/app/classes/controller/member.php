@@ -3,28 +3,31 @@ class Controller_Member extends Controller_Center{
 
     public function action_index()
     {
-        $data['members'] = Model_Member::find('all');
+        $member_id = $this->current_user->id;
+        $orders = Model_Order::find('all', [
+                            'where'=>['member_id'=>$member_id],
+                            'order_by'=>['id'=>'desc'],
+                            'rows_limit'=>3,
+                            ]);
+        $posts = Model_Post::find('all', [
+                            'where'=>['member_id'=>$member_id],
+                            'order_by'=>['id'=>'desc'],
+                            'rows_limit'=>3,
+                            ]);
+        $wins = Model_Lottery::find('all', [
+                            'where'=>['member_id'=>$member_id],
+                            'order_by'=>['id'=>'desc'],
+                            'rows_limit'=>3,
+                            ]);
         $view = ViewModel::forge('member/index', 'view');
+        $view->set([
+                'orders'=>$orders,
+                'posts'=>$posts,
+                'wins'=>$wins,
+                ]);
         $this->template->title = "用户中心";
-        //$this->template->layout = View::forge('memberlayout');
-        $view->set('data', $data);
         $this->template->layout->content = $view;
     }
-
-    public function action_view($id = null)
-    {
-        is_null($id) and Response::redirect('member');
-
-        if ( ! $data['member'] = Model_Member::find($id))
-        {
-            Session::set_flash('error', 'Could not find member #'.$id);
-            Response::redirect('member');
-        }
-
-        $this->template->title = "Member";
-        $this->template->content = View::forge('member/view', $data);
-    }
-
 
     /*
     *获得用户头像数据
@@ -147,20 +150,42 @@ class Controller_Member extends Controller_Center{
         $this->template->layout->content = View::forge('member/passwd', array('val' => $val), false);
     }
     /*
-    *
+    *打开充值页面
     */
-    public function action_recharge()
+    public function action_getrecharge()
     {
-        $this->template->title = '用户修改密码页面';
+        $this->template->title = '用户充值页面';
         $this->template->layout->content = View::forge('member/money');
     }
 
      /*
-    *
+    *增加余额功能,根据签名充值
     */
-    public function action_money()
+    public function action_recharge()
     {
-
+       !Input::method() == 'POST' and Response::redirect('/u/getrecharge');
+       $val = Validation::forge();
+       $val->add('money', '')
+                ->add_rule('required');
+       $val->add('source', '')
+                ->add_rule('required');
+       if (!$val->run()){
+            Session::set_flash('error', e('充值失败'));
+            Response::redirect('/u/getrecharge'); 
+       }
+       $money = Input::post('money');
+       $source = Input::post('source');
+       $sign = Input::post('sign');
+       $res = Model_Member::addMoney($this->current_user->id, $money);
+       if ($res){
+           //增加充值记录
+           Model_Member_Moneylog::recharge_log($this->current_user->id, $money, $source);
+           Session::set_flash('success', e('充值成功'));
+           Response::redirect('/u') ;
+       }else{
+           Session::set_flash('error', e('充值失败'));
+           Response::redirect('/u/getrecharge') ;
+       }
     }
 
     /*

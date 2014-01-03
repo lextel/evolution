@@ -17,14 +17,16 @@ class Controller_Member_Orders extends Controller_Center
         $page = new \Helper\Page();
         $config = $page->setCofigPage('u/orders/p', $count, 4, 4);
         $pagination = Pagination::forge('uorderpage', $config);
-        $data['orders'] = Model_Order::find('all', [
+        $orders = Model_Order::find('all', [
                                               'where'=>['member_id'=>$this->current_user->id],
                                               'order_by' =>array('id' => 'desc'),
                                               'rows_limit'=>$pagination->per_page,
                                               'rows_offset'=>$pagination->offset,]
                                              );
+        $view = ViewModel::forge('orders/my');
+        $view->set('orders', $orders);
         $this->template->title = '购买记录';
-        $this->template->layout->content = View::forge('member/myorders', $data);
+        $this->template->layout->content =$view;
     }
 
     public function action_search()
