@@ -19,7 +19,7 @@
             <li class="dropdown">
                 <a href="javascript:void(null)">帐户管理</a>
                 <ul class="dropdown-menu">
-                    <li><?php echo Html::anchor('u/recharge', '充值');?></li>
+                    <li><?php echo Html::anchor('u/getrecharge', '充值');?></li>
                     <li><?php echo Html::anchor('u/moneylog', '账户明细');?></li>
                 </ul>
                 <span class="icon-arrow"></span>
