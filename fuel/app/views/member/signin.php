@@ -2,10 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>登录</title>
+    <title>用户登录</title>
     <?php echo Asset::css('common.css');?> 
     <?php echo Asset::css('style.css');?>   
     <?php echo Asset::js('jquery.min.js');?>
+    <?php echo Asset::css('member/validfrom_style.css'); ?>
+    <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
 </head>
 <body>
 <div class="logo-wrapper">
@@ -14,28 +16,30 @@
     </div>
 </div>
 <!--中间内容开始-->
-<div class="content w">
+<div class=" w">
     <div class="left-side fl">
         广告图
     </div>
     <div class="login-form fr">
-        <form action="/signin" method="post">
+        <form action="/signin" method="post" class="demoform">
             <div class="title">
                 <h4>乐拍用户登录</h4>
             </div>
             <ul class="loginBar">
                 <li>
-                   <?php echo Form::input('username', '', array('type'=>"text", 'placeholder'=>'输入邮箱')); ?>
+                   <?php echo Form::input('username', '', array('type'=>"text",'name'=>'username','datatype'=>'e','errorms'=>'请输入邮箱帐号','placeholder'=>'输入邮箱帐号')); ?>
                 </li>
-                <li><label class="error"></label></li>
-                <li><?php echo Form::input('password', '', array('type'=>"password", 'placeholder'=>'输入密码')); ?></li>
-                <li><?php echo Html::anchor('', '忘记密码?', array('class' => 'fr'));?></li>
-                <li><button class="login">登录</button></li>
+                <li><span class="Validform_checktip"></span></li>
+                <li><?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'输入密码','name'=>'userpassword','datatype'=>'*6-15','errormsg'=>'密码范围在6~15位之间！' )); ?></li>
+                <li><span class="Validform_checktip"></span></li>
+                <li>
+                    <button class="login">登录</button>
+                    <?php echo Html::anchor('', '忘记密码?', array('class' => ''));?>
+                </li>
             </ul>
         </form>
         <div class="register-box">
-            <p>还不是乐拍用户？马上注册</p>
-            <?php echo Html::anchor('signup', '<button class="registered">快速注册</button>', array('class' => 'signup'));?>
+            还不是乐拍用户？<?php echo Html::anchor('signup', '快速注册', array('class' => 'signup'));?>
         </div>
     </div>
 </div>
@@ -81,5 +85,13 @@
     </div>
 </div>
 <!--底部结束-->
+<script type="text/javascript">
+
+$(function(){
+	$(".demoform").Validform({
+	tiptype:4,
+	});
+});
+</script>
 </body>
 </html>

@@ -1,0 +1,298 @@
+[33mcommit 01c774aa4c759273a9628c2096097fbdad0e82c1[m
+Author: weibaoyuan <wbyuan1989@163.com>
+Date:   Thu Jan 2 15:53:15 2014 +0800
+
+    修改用户中心css
+
+[33mcommit f52c5af1f6c171970b888ffb1ad0b78e82c724d3[m
+Author: weibaoyuan <wbyuan1989@163.com>
+Date:   Thu Jan 2 15:09:38 2014 +0800
+
+    最新揭晓增加正在计算
+
+[33mcommit 9820b61cf91cbe23178a7b455c55aeb61092c5fc[m
+Merge: adb710f 32f3f62
+Author: weibaoyuan <wbyuan1989@163.com>
+Date:   Thu Jan 2 14:56:40 2014 +0800
+
+    增加评论验证效果
+
+[33mcommit adb710f2a182cf39091ff39c179c5d075aacdd07[m
+Author: weibaoyuan <wbyuan1989@163.com>
+Date:   Thu Jan 2 14:55:18 2014 +0800
+
+    增加评论验证效果
+
+[33mcommit 32f3f62f0edc7c357319e4be727110109374264f[m
+Merge: c36c904 572960e
+Author: weelion <weelion@qq.com>
+Date:   Thu Jan 2 13:19:17 2014 +0800
+
+    merge
+
+[33mcommit c36c904b9fd54f30518f1344f0a78253a8788a1f[m
+Author: weelion <weelion@qq.com>
+Date:   Thu Jan 2 13:11:55 2014 +0800
+
+    倒计时 & 揭晓人气交互
+
+[33mcommit 572960e23c0a5544b0afd4489fd5172bd4763814[m
+Merge: 72093a9 dc80cab
+Author: lan <lan@lan.(none)>
+Date:   Thu Jan 2 10:56:51 2014 +0800
+
+    Merge branch 'master' of https://github.com/lextel/evolution
+
+[33mcommit dc80cab24c08ce0bae7170680dcb0c1ac4aa4499[m
+Merge: 9b074c0 25ec47e
+Author: weibaoyuan <wbyuan1989@163.com>
+Date:   Thu Jan 2 10:19:26 2014 +0800
+
+    Merge branch 'master' of https://github.com/lextel/evolution
+
+[33mcommit 9b074c01721f852e97f8d0ba3447a04b3c2b9327[m
+Author: weibaoyuan <wbyuan1989@163.com>
+Date:   Thu Jan 2 10:18:59 2014 +0800
+
+    首页购物车下拉菜单交互效果
+
+[33mcommit 72093a9b0ccd9ef58c3b7e770d58532af58adec9[m
+Merge: 4d04404 25ec47e
+Author: lan <lan@lan.(none)>
+Date:   Thu Jan 2 10:17:21 2014 +0800
+
+    Merge branch 'master' of https://github.com/lextel/evolution
+
+[33mcommit 4d04404bf355bccbf2edf9807ecb3cac00fa87f1[m
+Author: lan <lan@lan.(none)>
+Date:   Thu Jan 2 10:16:54 2014 +0800
+
+    增加用户后台的晒单列表
+
+[33mcommit 25ec47eb129ec9b39e9e11f4a9c4825355393211[m
+Author: weelion <weelion@qq.com>
+Date:   Thu Jan 2 01:40:08 2014 +0800
+
+    管理员管理
+
+[33mcommit 494059d3e1b9b348d0413bc462cb9d1c8fe48248[m
+Author: weelion <weelion@qq.com>
+Date:   Thu Jan 2 00:00:13 2014 +0800
+
+    管理日志收集 &&　日志管理
+
+[33mcommit fda356e510ac6a2f3f8320f2df818ff8101c2723[m
+Author: weelion <weelion@qq.com>
+Date:   Wed Jan 1 19:26:30 2014 +0800
+
+    后台广告管理
+
+[33mcommit 076ab72f7d058e1ca32920e0d8d706564383f45d[m
+Merge: 83b6688 f51c7a6
+Author: xieping <chenzhouxp@sina.com>
+Date:   Tue Dec 31 19:50:10 2013 +0800
+
+    Merge branch 'master' of https://github.com/lextel/evolution
+
+[33mcommit 83b6688b8601d50b4be397fd8824afafe53fec26[m
+Author: xieping <chenzhouxp@sina.com>
+Date:   Tue Dec 31 19:49:49 2013 +0800
+
+    验证效果
+
+[33mcommit 9d5fed42b4ea89436005e171d9d59daf7aa188bb[m
+Merge: c22211d a645ca5
+Author: weibaoyuan <wbyuan1989@163.com>
+Date:   Tue Dec 31 19:46:42 2013 +0800
+
+    产品详情交互修改
+
+[33mcommit f51c7a62ddd08eb4c3bca33272607d77a696d1ad[m
+Merge: cd5b2ba a645ca5
+Author: lan <lan@lan.(none)>
+Date:   Tue Dec 31 18:51:23 2013 +0800
+
+    Merge branch 'master' of https://github.com/lextel/evolution
+
+[33mcommit cd5b2ba162714f4c00b0923c3b4b7c585b37adaa[m
+Author: lan <lan@lan.(none)>
+Date:   Tue Dec 31 18:47:26 2013 +0800
+
+    用户中心晒单修改合并
+
+[33mcommit c22211db071571cf4fa74f66208cc18c9801381f[m
+Author: weibaoyuan <wbyuan1989@163.com>
+Date:   Tue Dec 31 18:29:10 2013 +0800
+
+    merge
+
+[33mcommit a645ca58c807d490767a8615c1e1199051514100[m
+Author: weelion <weelion@qq.com>
+Date:   Tue Dec 31 18:13:59 2013 +0800
+
+    揭晓
+
+[33mcommit 6aeee84d30216a56b7d5f499a42d152291b44992[m
+Merge: 6dd2820 1728280
+Author: weelion <weelion@qq.com>
+Date:   Tue Dec 31 16:35:53 2013 +0800
+
+    Merge branch 'master' of https://github.com/lextel/evolution
+
+[33mcommit 6dd282046ccc35b2a6ada3fdf59a4a249d061a9d[m
+Author: weelion <weelion@qq.com>
+Date:   Tue Dec 31 16:35:30 2013 +0800
+
+    商品数量修改
+
+[33mcommit 172828047c0eda2701fc183ed4d54075f142cd2e[m
+Author: lan <lan@lan.(none)>
+Date:   Tue Dec 31 16:14:18 2013 +0800
+
+    用户中心晒单修改合并
+
+[33mcommit 2e6548ad8c54b570b79ad52e18143c864d030266[m
+Merge: 165985a d329bc8
+Author: lan <lan@lan.(none)>
+Date:   Tue Dec 31 16:12:05 2013 +0800
+
+    Merge branch 'master' of https://github.com/lextel/evolution
+
+[33mcommit d329bc8e6ad5799cf04aa17f920d8d05912a4327[m
+Author: weibaoyuan <wbyuan1989@163.com>
+Date:   Tue Dec 31 16:07:04 2013 +0800
+
+    地址交互css修改
+
+[33mcommit 165985ad54811cae7534a8ff766d9b7e802f9acd[m
+Merge: 2c6b539 4a4fa75
+Author: lan <lan@lan.(none)>
+Date:   Tue Dec 31 16:07:01 2013 +0800
+
+    用户明细修改合并
+
+[33mcommit 3df07387c1338f8190741ccc3fbb1e653f6aa89c[m
+Merge: 7400747 4a4fa75
+Author: weibaoyuan <wbyuan1989@163.com>
+Date:   Tue Dec 31 16:06:22 2013 +0800
+
+    Merge branch 'master' of https://github.com/lextel/evolution
+
+[33mcommit 2c6b539986fac18d0dcfba6b458e1b46a4dbe185[m
+Author: lan <lan@lan.(none)>
+Date:   Tue Dec 31 16:02:23 2013 +0800
+
+    晒单添加操作
+
+[33mcommit 740074724aaedd47b3c3c1c22277609d5ac76e4b[m
+Author: weibaoyuan <wbyuan1989@163.com>
+Date:   Tue Dec 31 16:02:10 2013 +0800
+
+    地址交互CSS修改
+
+[33mcommit 4a4fa75d040faaeae9e480defe8d7a8d4022902c[m
+Merge: eba2160 2f005f3
+Author: xieping <chenzhouxp@sina.com>
+Date:   Tue Dec 31 15:26:30 2013 +0800
+
+    Merge branch 'master' of https://github.com/lextel/evolution
+
+[33mcommit eba21601f09be7b7ecffc1bd49134b204d794289[m
+Author: xieping <chenzhouxp@sina.com>
+Date:   Tue Dec 31 15:26:14 2013 +0800
+
+    “整理js”
+
+[33mcommit 2f005f3ed02f6921971cf2019ce4159d68da2afc[m
+Merge: 873569d e8e6a08
+Author: weelion <weelion@qq.com>
+Date:   Tue Dec 31 15:10:46 2013 +0800
+
+    Merge branch 'master' of https://github.com/lextel/evolution
+
+[33mcommit 873569ddf5b8fd7800855d5668e3765a94da0203[m
+Author: weelion <weelion@qq.com>
+Date:   Tue Dec 31 15:10:02 2013 +0800
+
+    商品搜素
+
+[33mcommit e8e6a08f2db74c30de2cba13bcce971103ac10bb[m
+Merge: 080bbe6 eb54805
+Author: xieping <chenzhouxp@sina.com>
+Date:   Tue Dec 31 14:52:59 2013 +0800
+
+    地区交互效果
+
+[33mcommit 080bbe647e0bc8b0ccdc4cff62b5d2cef53b3e66[m
+Author: xieping <chenzhouxp@sina.com>
+Date:   Tue Dec 31 14:48:12 2013 +0800
+
+    修改交互效果
+
+[33mcommit 67fca62767704ddfc7bda33824cf1ec5e4fbeb7f[m
+Author: lan <lan@lan.(none)>
+Date:   Tue Dec 31 14:35:31 2013 +0800
+
+    用户后台晒单修改
+
+[33mcommit 614d04bbe99947aa80b6ace264c7111af6a62e87[m
+Author: xieping <chenzhouxp@sina.com>
+Date:   Tue Dec 31 14:30:22 2013 +0800
+
+    交互效果修改
+
+[33mcommit eb548056ac3f42d426acc97f7ae72efb94753118[m
+Merge: 044175c 94054fc
+Author: weelion <weelion@qq.com>
+Date:   Tue Dec 31 13:34:57 2013 +0800
+
+    merge
+
+[33mcommit 044175cce02585a8be95899ce70b78c258996586[m
+Author: weelion <weelion@qq.com>
+Date:   Tue Dec 31 13:29:47 2013 +0800
+
+    product all
+
+[33mcommit 94054fc7e1fb4e8140c8a7aa3be731fc259be446[m
+Merge: ca8da43 0281d15
+Author: weibaoyuan <wbyuan1989@163.com>
+Date:   Tue Dec 31 13:18:24 2013 +0800
+
+    商品详细菜单交互
+
+[33mcommit ca8da438a6840103e9e1194c28a144310e735a14[m
+Author: weibaoyuan <wbyuan1989@163.com>
+Date:   Tue Dec 31 11:39:19 2013 +0800
+
+    商品详情菜单交互
+
+[33mcommit 0281d15e68a24b0fc4616b443d3947d998196aac[m
+Merge: df47159 2c80013
+Author: xieping <chenzhouxp@sina.com>
+Date:   Tue Dec 31 11:26:19 2013 +0800
+
+    Merge branch 'master' of https://github.com/lextel/evolution
+
+[33mcommit df47159b1a9e6161e9f0671a547af759953ffc8b[m
+Author: xieping <chenzhouxp@sina.com>
+Date:   Tue Dec 31 11:22:03 2013 +0800
+
+    交互效果
+
+[33mcommit 2c8001359e2f0e57285cfe712a69666bc70b0d4b[m
+Author: lan <lan@lan.(none)>
+Date:   Tue Dec 31 11:16:40 2013 +0800
+
+    评论翻页修改
+
+[33mcommit 421095e48cb855ee3c51c01fdbe22eb967dd260f[m
+Author: weibaoyuan <wbyuan1989@163.com>
+Date:   Tue Dec 31 11:05:08 2013 +0800
+
+    恢复更改
+
+[33mcommit 7094ece4f25a3c8ee326b43ff338b3642deb48c9[m
+Merge: 857b083 ae251aa
+Author: lan <lan@lan.(none)>
+Date:   Mon Dec 30 20
