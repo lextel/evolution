@@ -86,11 +86,10 @@
                     <dd><a href="<?php echo Uri::create('/h/shipping'); ?>">商品配送</a></dd>
                 </dl>
                 <dl>
-                    <dt><a href="">关注我们</a></dt>
+                    <dt>关注我们</dt>
                     <dd><a href="">新浪微博</a></dd>
                     <dd><a href="">官方微信</a></dd>
-                    <dd><a href="">官方QQ群：10000000</a></dd>
-                    <dd><a href="">官方QQ群:100000000</a></dd>
+                    <dd>官方QQ群：10000000</dd>
                 </dl>
                 <dl>
                     <dt>联系我们</dt>
