@@ -26,6 +26,7 @@ class Controller_Center extends Controller_Frontend
         // Already logged in
         $this->auth->check() and Response::redirect('/u');
         $val = Validation::forge();
+        $this->template->set_global('error', '');
         if (Input::method() == 'POST')
         {
             $val->add('username', 'Email or Username')
@@ -47,13 +48,18 @@ class Controller_Center extends Controller_Frontend
                     {
                         $current_user = Model_Member::find_by_username($this->auth->get_screen_name());
                     }
-                    Session::set_flash('success', e('Welcome denglu, '.$current_user->username));
+                    if (!$current_user->nickname){
+                        Response::redirect('/u/getnickname');
+                    }
+                    Session::set_flash('success', e('欢迎登陆, '.$current_user->username));
                     Response::redirect('/u');
                 }
                 else
                 {
-                    $this->template->set_global('login_error', 'Fail');
+                    $this->template->set_global('error', '用户登陆失败');
                 }
+            }else{
+                $this->template->set_global('error', '用户名和密码格式不正确');
             }
         }
         return Response::forge(View::forge('member/signin', array('val' => $val), false));
@@ -76,6 +82,7 @@ class Controller_Center extends Controller_Frontend
 
         $this->auth->check() and Response::redirect('/u');
         $val = Validation::forge();
+        $this->template->set_global('signup_error', '');
         if (Input::method() == 'POST')
         {
             $val->add('username', 'Email or Username')
@@ -90,21 +97,23 @@ class Controller_Center extends Controller_Frontend
                 $password = Input::post('password');
                 try{
                     $user = $this->auth->create_user($username, $password, $username);
-
                     if ($this->auth->check() or $user)
                     {
                         $current_user = Model_Member::find_by_username($this->auth->get_screen_name());
+                        $current_user -> avatar = \Config::get('default_headico');
+                        $current_user -> save();
                         Session::set_flash('success', e('Welcome singnup, '.$current_user->username));
-                        Response::redirect('/u');
+                        Response::redirect('/u/getnickname');
                     }
                     else
                     {
-                        $this->template->set_global('signup_error', 'Fail');
+                        $this->template->set_global('signup_error', '已经存在用户名了');
                     }
                 }catch (Exception $e){
-                    $this->template->set_global('signup_error', 'Fail');
+                    $this->template->set_global('signup_error', '已经存在用户名了');
                 }
-
+            }else{
+                $this->template->set_global('signup_error', '用户名格式不对');
             }
         }
         return Response::forge(View::forge('member/signup', array('val' => $val), false));

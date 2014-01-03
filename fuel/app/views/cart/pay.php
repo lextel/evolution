@@ -14,7 +14,7 @@
                 <table>
                     <thead>
                     <tr>
-                        <th></th>
+                        <th style="display:none"></th>
                         <th>商品名称</th>
                         <th>价值</th>
                         <th>单价</th>
@@ -31,7 +31,7 @@
                             $subTotal += $item->get_qty();
                     ?>
                     <tr>
-                        <td><input type="checkbox" name="ids[]" value="<?php echo $item->get_id(); ?>"/></td>
+                        <td style="display:none"><input type="checkbox" name="ids[]" value="<?php echo $item->get_id(); ?>"/></td>
                         <td>
                             <div class="img-box fl"><a href="<?php echo Uri::create('/m/'.$item->get_id()); ?>"><img src="<?php echo Uri::create('/image/80x80/' . $info->image); ?>" alt=""></a>
                             </div>
@@ -54,15 +54,17 @@
             </form>
             <div class="cart-footer">
                 <a class="btn btn-default btn-sx fl" href="<?php echo Uri::create('cart/list'); ?>">返回修改订单</a>
-                <div class="price fr">总金额：<s class="red">￥<?php echo sprintf('%.2f', $subTotal); ?></s></div>
+                <div class="price fr">总金额：<s class="red" id="total" total="<?php echo $subTotal; ?>">￥<?php echo sprintf('%.2f', $subTotal); ?></s></div>
             </div>
         </div>
             <div class="balance-box w">
                 <?php
                     $memberInfo = $userInfo();
                 ?>
-                <input type="checkbox" name="userBalance">
-                <span>使用帐户余额支付，帐户余额：<b class="y"><?php echo sprintf('%.2f', $memberInfo->points); ?></b>元 </span>
+                <label>
+                    <input type="checkbox" name="balance" id="balance">
+                    <span>使用帐户余额支付，帐户余额：<b class="y" id="money" money="<?php echo $memberInfo->points; ?>"><?php echo sprintf('%.2f', $memberInfo->points); ?></b>元 </span>
+                </label>
             </div>
     </div>
     <!--选择支付方式开始-->

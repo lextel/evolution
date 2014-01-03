@@ -331,4 +331,5 @@ return array(
                 6=>'审核',
                 7=>'其他')
        ),
+       'default_headico' => 'upload/avatar/header.png',
 );
