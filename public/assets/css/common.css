@@ -862,4 +862,22 @@ h4{
     height: 24px;
     line-height: 24px;
 }
+.wrapper{
+	height:337px;
+	margin:0 auto;
+}
+.vertical-ticker{
+	overflow:hidden;
+    height:337px;
+	margin:0; padding:0;
+	-webkit-box-shadow:0 1px 3px rgba(0,0,0, .4);
+}
 
+.vertical-ticker li{
+		padding:15px 10px;
+		display:block;
+		border-bottom:1px solid #ddd;
+		text-align:center;
+		font-weight:bold;
+		font-family: Helvetica Neue, times, serif;
+}

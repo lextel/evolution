@@ -3,6 +3,10 @@ use Orm\Model;
 
 class Model_Member_Moneylog extends Model
 {
+    /*
+    * type = 0 is recharge
+    * type = 1 is buy
+    */
     protected static $_properties = array(
         'id',
         'phase_id',
@@ -10,6 +14,7 @@ class Model_Member_Moneylog extends Model
         'total',
         'sum',
         'type',
+        'source',
         'member_id',
         'created_at',
         'updated_at',
@@ -38,18 +43,43 @@ class Model_Member_Moneylog extends Model
 
         return $val;
     }
-    
+
     /*
     * 增加用户充值记录
     */
-    public static function recharge_log($member_id, $sum)
+    public static function recharge_log($member_id, $sum, $source)
     {
+        $recharge = Model_Member_Moneylog::forge([
+            'member_id'=>$member_id,
+            'phase_id'=>0,
+            'item_id'=>0,
+            'sum'=>$sum,
+            'type'=>0,
+            'source'=>$source,
+            'total'=>0,
+            ]);
+        if($recharge->save()){
+            return true;
+        }
+        return false;
     }
     /*
     * 增加用户消费记录
     */
     public static function buy_log($member_id, $sum, $item_id, $phase_id, $total)
     {
+        $buy = Model_Member_Moneylog::forge([
+            'member_id'=>$member_id,
+            'sum'=>$sum,
+            'type'=>1,
+            'item_id'=>$item_id,
+            'phase_id'=>$phase_id,
+            'total'=>$total,
+            ]);
+        if($buy->save()){
+            return true;
+        }
+        return false;
     }
 
 }
