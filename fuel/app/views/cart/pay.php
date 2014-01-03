@@ -3,11 +3,11 @@
 <div class="wrapper w">
     <div class="cart-content">
         <ol class="pay-prompt">
-            <li><a href=""><span>1</span>确认提交订单>></a></li>
-            <li><a href=""><span>2</span>网银支付>></a></li>
-            <li><a href=""><span>3</span>等待揭晓>></a></li>
-            <li><a href=""><span>4</span>揭晓获奖者>></a></li>
-            <li><a href=""><span>5</span>晒单分享>></a></li>
+            <li><a href="javascript:void(0);"><span>1</span>确认提交订单>></a></li>
+            <li class="active"><a href="javascript:void(0);"><span>2</span>网银支付>></a></li>
+            <li><a href="javascript:void(0);"><span>3</span>等待揭晓>></a></li>
+            <li><a href="javascript:void(0);"><span>4</span>揭晓获奖者>></a></li>
+            <li><a href="javascript:void(0);"><span>5</span>晒单分享>></a></li>
         </ol>
         <div class="cart-list">
             <form id="cartForm" action="<?php echo Uri::create('cart/remove'); ?>" method="post">
@@ -57,6 +57,13 @@
                 <div class="price fr">总金额：<s class="red">￥<?php echo sprintf('%.2f', $subTotal); ?></s></div>
             </div>
         </div>
+            <div class="balance-box w">
+                <?php
+                    $memberInfo = $userInfo();
+                ?>
+                <input type="checkbox" name="userBalance">
+                <span>使用帐户余额支付，帐户余额：<b class="y"><?php echo sprintf('%.2f', $memberInfo->points); ?></b>元 </span>
+            </div>
     </div>
     <!--选择支付方式开始-->
     <div class="pay-way">
