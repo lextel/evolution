@@ -10,7 +10,7 @@
             </li>
             <li>
                 <div class="price fl">帐户余额： <b>￥<?php echo $current_user->points;?></b> </div>
-                <?php echo Html::anchor('/u/recharge', '<button class="edit fl">充值</button>');?>
+                <?php echo Html::anchor('/u/getrecharge', '<button class="edit fl">充值</button>');?>
             </li>
         </ul>
         <?php foreach($orders as $item) { ?>
@@ -37,7 +37,7 @@
             </li>
         </ul>
         <?php } ?>
-        
+
     </div>
     <div class="notice fr f2">
         <div class="title"><h4>乐拍公告 <span class="icon icon-horn"></span></h4></div>

@@ -163,7 +163,12 @@ class Controller_Member extends Controller_Center{
     */
     public function action_recharge()
     {
-       !Input::method() == 'POST' and Response::redirect('/u/getrecharge');
+       $response = new Response();
+       $response->set_header('Content-Type', 'application/json');
+       $data = ['code'=>-1, 'msg'=>''];
+       if (!Input::method() == 'POST') {
+           return $response->body(json_encode($data));
+       }
        $val = Validation::forge();
        $val->add('money', '')
                 ->add_rule('required');
@@ -171,7 +176,7 @@ class Controller_Member extends Controller_Center{
                 ->add_rule('required');
        if (!$val->run()){
             Session::set_flash('error', e('充值失败'));
-            Response::redirect('/u/getrecharge'); 
+            return $response->body(json_encode($data));
        }
        $money = Input::post('money');
        $source = Input::post('source');
@@ -181,10 +186,11 @@ class Controller_Member extends Controller_Center{
            //增加充值记录
            Model_Member_Moneylog::recharge_log($this->current_user->id, $money, $source);
            Session::set_flash('success', e('充值成功'));
-           Response::redirect('/u') ;
+           $data['code'] = 0;
+           return $response->body(json_encode($data));
        }else{
            Session::set_flash('error', e('充值失败'));
-           Response::redirect('/u/getrecharge') ;
+           return $response->body(json_encode($data));
        }
     }
 
