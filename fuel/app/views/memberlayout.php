@@ -1,4 +1,6 @@
 <?php echo Asset::css(['common.css', 'style.css']); ?>
+<?php echo Asset::css('member/validfrom_style.css'); ?>
+<?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
 <div class="wrapper w">
     <!--获得的商品开始-->
     <div class="left-sidebar fl">
