@@ -28,6 +28,8 @@ class Model_Phase extends \Orm\Model
             'code',
             'codes',
             'code_count',
+            'total',
+            'results',
             'is_delete',
             'opentime',
             'status',
@@ -87,6 +89,8 @@ class Model_Phase extends \Orm\Model
                 'code_count'       => 0,
                 'is_delete'        => $item->is_delete,
                 'opentime'         => 0,
+                'total'            => 0,
+                'results'          => '',
                 'status'           => $item->status,
                 'order_created_at' => 0,
                 'item_created_at'  => $item->created_at,
@@ -140,7 +144,7 @@ class Model_Phase extends \Orm\Model
 
         $where = [['opentime', '>', 0]];
 
-        return Model_Phase::find('all', ['where' => $where, 'offset' => $offset, 'limit' => $limit]);
+        return Model_Phase::find('all', ['where' => $where, 'offset' => $offset, 'limit' => $limit, 'order_by' => ['opentime' => 'desc']]);
     }
 
     /**

@@ -12,7 +12,7 @@ return array(
 
     'u/(\d+)' => 'home/index/$1',
     'u/(\d+)/orders' => 'home/orders/$1',
-    'u/(\d+)/orders/(\d+)' => 'home/orders/$1/$2',
+    'u/(\d+)/orders/p/(\d+)' => 'home/orders/$1/$2',
     'u/(\d+)/wins' => 'home/wins/$1',
     'u/(\d+)/wins/p/(\d+)' => 'home/wins/$1/$2',
     'u/(\d+)/posts' => 'home/posts/$1',
@@ -84,11 +84,14 @@ return array(
     'w' => 'wins/index',
     'w/p/(\d+)' => 'wins/index/$1',
     'w/(\d+)' => 'wins/view/$1',
+    'w/result' => 'wins/result',
 
     'l' => 'orders/index',
     'l/joined' => 'orders/joined',
     'l/posts' => 'posts/posts',
     'l/phases' => 'items/phases',
+
+     'notice(/\d+)?' => 'notice/index/$1',
 
     'image/:size/:link' => 'image/index',
 

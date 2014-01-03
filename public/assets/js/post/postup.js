@@ -24,7 +24,7 @@ function comment(member){
     text += '<div class="head-img fl"><a href="/u/'+member.userid+'"><img src="/'+member.avatar+'" alt=""/></a></div>'
     text += '<div class="info-side"><div class="info-side-head"><span class="name blue"><a href="/u/'+member.userid+'">'+member.nickname+'</a></span>'
     text += '<span class="datetime">'+member.date+'</span></div><div class="comment-text">'+member.text+'</div>'
-    $('.comment-list').append(text);
+    $('.comment-list').prepend(text);
 }
 //评论数 + 1 效果
 function comment_countup(){
@@ -92,6 +92,8 @@ $(function(){
              if (data.code==0){
                  comment(data.member);
                  comment_countup();
+                 $("#comment").val('');
+                 $(".btn-commentcount").find("s").html(200);
              }
          });
      });

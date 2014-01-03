@@ -15,6 +15,11 @@ class View_Wins_View extends Viewmodel {
            return $user;
        };
 
+       // 获取期数信息
+       $this->getPhase = function($phaseId) {
+           return Model_Phase::find($phaseId);
+       };
+
        // 友好时间
        $this->friendlyDate = function($timestamp) {
 

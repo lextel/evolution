@@ -1,3 +1,18 @@
+<?php echo Asset::css('member/jquery-ui.css'); ?>
+<?php echo Asset::js('jquery-ui.js'); ?>
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      showWeek: true,
+      firstDay: 1
+    });
+
+        $( "#datepicker1" ).datepicker({
+      showWeek: true,
+      firstDay: 1
+    });
+  });
+  </script>
 <br />
 <div class="content-inner">
         <!--乐拍记录开始-->
@@ -10,19 +25,15 @@
             <div class="select-box">
                 <label for="">全部商品</label>
             <span class="time-choose">选择时间段：
-                <select name="" >
-                    <option value="">1</option>
-                    <option value="">2</option>
-                </select>
-                <select name="">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                </select>
+                 <input  id="datepicker" type="text" placeholder="输入起始时间"/>
+
+                 <input  id="datepicker1" type="text" placeholder="输入结束时间" />
+                 <button>搜索</button>
             </span>
             </div>
             <div class="select">
                 <label for="" class="select-title">商品名称</label>
-                <input type="text" value="输入商品名字关键字"/>
+                <input type="text" value="" placeholder="输入商品名字关键字" />
                 <button>搜索</button>
             </div>
             <div class="record">
@@ -44,19 +55,25 @@
                     }
                     ?>
                     <?php foreach($orders as $order) { ?>
+                    
                     <tr>
                         <td><?php echo $order->id; ?></td>
-                        <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""/></a></div></td>
+                        <td><div class="img-box"><?php echo Html::anchor('/m/', Html::img($getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image));?></div></td>
                         <td>
-                            <div class="text-title">（第539期）苹果Iphone 5s 16G版 3G手机</div>
-                            <div class="winner">获得者：狼行千里</div>
-                            <div class="number">幸运乐拍码：10000121</div>
-                            <div class="datetime">揭晓时间：2013-12-33 10:00:00</div>
+                            <div class="text-title">（第<?php echo $getPhaseInfo($order->phase_id)->phase_id;?>期）<?php echo $getPhaseInfo($order->phase_id)->title;?></div>
+                            
+                            <?php if ($getPhaseInfo($order->phase_id)->member_id !=0) {?>
+                            <div class="winner">获得者：<?php echo $getUser($getPhaseInfo($order->phase_id)->member_id)->nickname;?></div>
+                            <div class="number">幸运乐拍码：<?php echo $getPhaseInfo($order->phase_id)->code;?></div>
+                            <div class="datetime">揭晓时间：<?php echo Date("Y-m-d H:i:s", $getPhaseInfo($order->phase_id)->opentime);?></div>
+                            <?php }else{ ?>
+                            
+                            <?php } ?>
                         </td>
-                        <td>未揭晓</td>
-                        <td>1人次</td>
+                        <td><?php echo ($getPhaseInfo($order->phase_id)->member_id !=0) ? "已经揭晓": "未揭晓";?></td>
+                        <td><?php echo $order->code_count;?>人次</td>
                         <td><a href="">查看</a></td>
-                        <td><a href="">查看详情</a></td>
+                        <td><?php echo Html::anchor("/m/".$order->phase_id, "查看详情");?></td>
                     </tr>
                     <?php } ?>
                     </tbody>
