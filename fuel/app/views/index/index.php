@@ -1,10 +1,15 @@
-<?php echo Asset::css('jquery.bxslider.css'); ?>
-<?php echo Asset::css('focus.css'); ?>
-<?php echo Asset::js(['jquery.bxslider.min.js', 'index.js']); ?>
+<?php echo Asset::css(['jquery.bxslider.css','focus.css','style.css']); ?>
+<?php echo Asset::js(['jquery.bxslider.min.js', 'index.js','jquery.totemticker.min.js']); ?>
 
 <script>
 $(function(){
   $('.bxslider').bxSlider();
+  $('.vertical-ticker').totemticker({
+                row_height  :   '90px',
+                speed            :    500,        /* Speed of transition animation in milliseconds */
+                interval          :   2000,
+                mousestop   :   true,
+   });
 });
 </script>
     <!--banner开始-->
@@ -108,14 +113,14 @@ $(function(){
             <!--大家正在乐拍-->
             <div class="buying-box">
                 <div class="title"><h4>大家正在乐拍</h4></div>
-                <ul>
+                <ul class="vertical-ticker">
                     <?php foreach($orders() as $order) {?>
                     <li>
                         <div class="head-img fl">
                             <?php echo Html::anchor('m/'.$order->phase_id, '<img src="http://www.llt.com/'.$getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image.'" alt="" />');?>
                         </div>
                         <div class="info-side">
-                            <div class="winner"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'bule']);?> 刚刚乐拍了</div>
+                            <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'bule']);?> 刚刚乐拍了</div>
                             <h4><?php echo Html::anchor('m/'.$order->phase_id, $getPhaseInfo($order->phase_id)->title);?></h4>
                         </div>
 

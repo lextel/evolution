@@ -28,6 +28,49 @@ class Controller_Member extends Controller_Center{
         $this->template->title = "用户中心";
         $this->template->layout->content = $view;
     }
+    
+    /*
+    *获得注册用户修改页面
+    */
+    public function action_getnickname()
+    {
+        //$member = Model_Member::find_by_username($this->current_user->username);
+        //$data['member'] = $member;
+        $this->template->title = '添加用户昵称';
+        $this->template->layout = View::forge('member/nickname');
+    }
+    
+    /*
+    *增加用户名
+    */
+    public function action_addnickname()
+    {
+        !Input::method() == 'POST' and Response::redirect('/u/getnickname');
+        $val = Model_Member::validateNickname('create');
+        if ($val->run())
+        {
+            $member = Model_Member::find($this->current_user->id);
+            
+            if (!Model_Member::checkNickname(Input::post('nickname')))
+            {
+                Session::set_flash('error', '用户昵称已经存在了');
+                Response::redirect('/u/getnickname');
+            }
+ 
+            $member->nickname = Input::post('nickname');
+            if ($member and $member->save())
+            {
+                Session::set_flash('success', '更新个人设置OK');
+                Response::redirect('/u');
+            }
+            else{
+                $res and Response::redirect('/u/getnickname');
+            }
+        }
+        Session::set_flash('error', '昵称格式不正确');
+        Response::redirect('/u/getnickname');
+        
+    }
 
     /*
     *获得用户头像数据
@@ -163,7 +206,12 @@ class Controller_Member extends Controller_Center{
     */
     public function action_recharge()
     {
-       !Input::method() == 'POST' and Response::redirect('/u/getrecharge');
+       $response = new Response();
+       $response->set_header('Content-Type', 'application/json');
+       $data = ['code'=>-1, 'msg'=>''];
+       if (!Input::method() == 'POST') {
+           return $response->body(json_encode($data));
+       }
        $val = Validation::forge();
        $val->add('money', '')
                 ->add_rule('required');
@@ -171,7 +219,7 @@ class Controller_Member extends Controller_Center{
                 ->add_rule('required');
        if (!$val->run()){
             Session::set_flash('error', e('充值失败'));
-            Response::redirect('/u/getrecharge'); 
+            return $response->body(json_encode($data));
        }
        $money = Input::post('money');
        $source = Input::post('source');
@@ -181,10 +229,11 @@ class Controller_Member extends Controller_Center{
            //增加充值记录
            Model_Member_Moneylog::recharge_log($this->current_user->id, $money, $source);
            Session::set_flash('success', e('充值成功'));
-           Response::redirect('/u') ;
+           $data['code'] = 0;
+           return $response->body(json_encode($data));
        }else{
            Session::set_flash('error', e('充值失败'));
-           Response::redirect('/u/getrecharge') ;
+           return $response->body(json_encode($data));
        }
     }
 

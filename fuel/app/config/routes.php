@@ -17,7 +17,10 @@ return array(
     'u/(\d+)/wins/p/(\d+)' => 'home/wins/$1/$2',
     'u/(\d+)/posts' => 'home/posts/$1',
     'u/(\d+)/posts/p/(\d+)' => 'home/posts/$1/$2',
+
     'u' => 'member/index',
+    'u/getnickname' => 'member/getnickname' ,
+    'u/nickname' => 'member/addnickname' ,
     'u/address' => 'member/address/index',
     'u/address/(\d+)' => 'member/address/view',
     'u/address/add' => 'member/address/add',

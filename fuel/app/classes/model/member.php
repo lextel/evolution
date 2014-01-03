@@ -62,6 +62,13 @@ class Model_Member extends \Orm\Model
         return $val;
     }
 
+    public static function validateNickname($factory)
+    {
+        $val = Validation::forge($factory);
+        $val->add_field('nickname', '', 'required');
+        return $val;
+    }
+
     /*
     *add money points
     */

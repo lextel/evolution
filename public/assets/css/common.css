@@ -46,6 +46,15 @@ textarea:focus,input:focus{
     color: #FF8A3A;
     padding: 0px 5px;
 }
+.username a{
+    width: 80px;
+    display: inline-block;
+    color: #437eff;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 .y {
     color: #FF8A3A;
 }
@@ -231,7 +240,6 @@ table tbody tr td{
     text-align: center;
     position: relative;
     overflow: hidden;
-    border: 1px solid #EEEEEE;
 }
 .img-md{
     width: 120px;
@@ -868,8 +876,8 @@ h4{
 }
 .vertical-ticker{
 	overflow:hidden;
-    height:337px;
 	margin:0; padding:0;
+    height: 366px;
 	-webkit-box-shadow:0 1px 3px rgba(0,0,0, .4);
 }
 
@@ -877,7 +885,4 @@ h4{
 		padding:15px 10px;
 		display:block;
 		border-bottom:1px solid #ddd;
-		text-align:center;
-		font-weight:bold;
-		font-family: Helvetica Neue, times, serif;
 }
