@@ -10,6 +10,7 @@ class Model_Ad extends \Orm\Model
         'sort',
         'start_at',
         'end_at',
+        'image',
         'link',
         'status',
         'is_delete',
@@ -36,7 +37,8 @@ class Model_Ad extends \Orm\Model
         $val = Validation::forge($factory);
         $val->add_field('title', '标题', 'required|max_length[255]');
         $val->add_field('zone', '区域', 'required');
-        $val->add_field('link', '图片', 'required');
+        $val->add_field('image', '图片', 'required');
+        $val->add_field('link', '超链接', 'required');
         $val->add_field('start_at', '开始时间', 'required');
         $val->add_field('end_at', '结束时间', 'required');
         $val->add_field('status', '启用状态', 'required');
@@ -98,6 +100,7 @@ class Model_Ad extends \Orm\Model
               'sort'      => $post['sort'],
               'start_at'  => strtotime($post['start_at']),
               'end_at'    => strtotime($post['end_at']),
+              'image'     => $post['image'],
               'link'      => $post['link'],
               'status'    => $post['status'],
               'is_delete' => 0,
@@ -133,6 +136,7 @@ class Model_Ad extends \Orm\Model
         $ad->sort     = $post['sort'];
         $ad->start_at = strtotime($post['start_at']);
         $ad->end_at   = strtotime($post['end_at']);
+        $ad->image    = $post['image'];
         $ad->link     = $post['link'];
         $ad->status   = $post['status'];
 

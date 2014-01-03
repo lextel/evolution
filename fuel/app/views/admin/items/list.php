@@ -31,7 +31,8 @@ echo Asset::js(['admin/items/list.js']);
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>标题</th>
+            <th>图片</th>
+            <th width="60%">标题</th>
             <th>价格</th>
             <th>发布时间</th>
             <th>审核状态</th>
@@ -41,6 +42,7 @@ echo Asset::js(['admin/items/list.js']);
     <tbody>
         <?php foreach ($items as $item): ?>
           <tr>
+            <td><img src="<?php echo Uri::create('image/80x80/' . $item->image); ?>" style="width: 40px; height: 40px"/></td>
             <td><?php echo '(第'.$item->phase->phase_id.'期)'.$item->title; ?></td>
             <td><?php echo '￥' . sprintf('%.2f', $item->price); ?></td>
             <td><?php echo date('Y-m-d H:i', $item->created_at); ?></td>
