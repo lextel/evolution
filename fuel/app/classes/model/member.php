@@ -61,6 +61,22 @@ class Model_Member extends \Orm\Model
         $val->add_field('avatar', '', 'required');
         return $val;
     }
+
+    /*
+    *add money points
+    */
+    public static function addMoney($member_id, $sum)
+    {
+        $member = Model_Member::find($member_id);
+       if(!$member){
+           return false;
+       }
+       $member-> points += intval($sum);
+       if ($member->save()){
+        return true;
+       }
+       return false;
+    }
     /*
     *检测用户昵称
     */

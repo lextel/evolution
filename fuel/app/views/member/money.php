@@ -1,3 +1,17 @@
+<script type="text/javascript">
+$(function() {
+   $(".buy").click(function(){
+       var money = $('#money').val();
+       $.post( '/u/recharge',
+           {money:money, source:'网银'}, 
+           function(data) {
+           },
+           'html' 
+       );
+   });
+})
+</script>
+
 <div class="content-inner">
         <!--充值开始-->
         <div class="prepaid-box">
@@ -5,24 +19,24 @@
                 <dt>请选择充值金额</dt>
                 <dd>
                     <label for="">
-                        <input type="radio" name="money"/>
+                        <input type="radio" name="money" id="money" value="10" />
                         <span>10元</span>
                     </label>
                 </dd>
                 <dd>
                     <label for="">
-                        <input type="radio" name="money"/>
+                        <input type="radio" name="money" id="money" value="50"/>
                         <span>50元</span>
                     </label>
                 </dd>
                 <dd>
                     <label for="">
-                        <input type="radio" name="money"/>
+                        <input type="radio" name="money" id="money" value="100"/>
                         <span>100元</span>
                     </label>
                 </dd>
                 <dd>
-                    <span class="else">其他金额<input type="text" />元</span>
+                    <span class="else">其他金额<input type="text" name="money" id="money" value="" />元</span>
                 </dd>
             </dl>
             <!--选择支付方式开始-->
