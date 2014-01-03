@@ -27,6 +27,7 @@ class Controller_Cart extends Controller_Frontend {
                     'title' => $item->title,
                     'qty'   => $cart->get_qty(),
                     'id'    => $cart->get_id(),
+                    'rowId' => $cart->get_rowid(),
                 ];
         }
 
@@ -89,9 +90,9 @@ class Controller_Cart extends Controller_Frontend {
     public function action_del() {
 
         $id = Input::post('id');
-        $result = Cart::remove($id);
+        Cart::remove($id);
 
-        return json_encode(['status' => $result ? 'success' : 'fail']);
+        return json_encode(['status' => 'success']);
     }
 
     // 更新数量
