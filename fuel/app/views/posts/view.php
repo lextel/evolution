@@ -22,8 +22,8 @@
                <div class="head-img fl">
                    <?php echo Html::anchor('m/'.$post->item_id, Html::img($getItem($post->item_id)->image));?>
                </div>
-               
-	           
+
+
                <div class="info fl">
                    <span class="text-title blue">
                        (第<?php echo $post->phase_id; ?>期)<?php echo Html::anchor('/m/'.$post->item_id, $getItem($post->item_id)->title); ?>|
@@ -42,7 +42,7 @@
        </div>
        <div class="btn-group">
            <?php echo Html::anchor('javascript:;', '喜欢(<s>'.$post->up.'</s>)', array('class'=>'btn btn-link btn-up', 'id'=>$post->id));?>
-           <?php echo Html::anchor('javascript:;', '评论(<s>'.$post->comment_count.'</s>)', array('class'=>'btn btn-link btn-comment'));?>
+           <?php echo Html::anchor('javascript:;', '评论(<s>'.$post->comment_count.'</s>)', array('class'=>'btn btn-link'));?>
        </div>
    </div>
     <div class="content-right fr">
@@ -85,9 +85,9 @@
                     </div>
                     <dl class="images-list">
                        <a href="<?php echo Uri::create('p/'.$npost->id)?>">
-                        <dd><img src="img/96515277.jpg" alt=""/></dd>
-                        <dd><img src="img/96515277.jpg" alt=""/></dd>
-                        <dd><img src="img/96515277.jpg" alt=""/></dd>
+                       <?php foreach(unserialize($npost->images) as $img1) { ?>
+                        <dd><?php echo Html::img($img1); ?></dd>
+                        <?php } ?>
                        </a>
                     </dl>
                 </div>
@@ -104,13 +104,13 @@
         <div class="comment-footer">
             <div class="expression fl"><span class="icon icon-expression"></span>表情</div>
             <button class="fr btn btn-default btn-comment">发表评论</button>
-            <span class="fr"><s>0</s>/200字</span>
+            <span class="fr btn-commentcount">还可以输入<s>200</s>字</span>
         </div>
     </div>
     <dl class="comment-list">
         <dt><h4>全部评论</h4></dt>
         <dd>
-            <div class="head-img fl">
+            <!--<div class="head-img fl">
                 <a href=""><img src="img/96515277.jpg" alt=""/></a>
             </div>
             <div class="info-side">
@@ -120,10 +120,10 @@
                 </div>
                 <div class="comment-text">
                     我也想中一个！
-                </div>
+                </div>-->
                 <!--
                 <button class="btn btn-link blue">回复</button>
-                
+
                 <div class="comment-box d-n">
                     <textarea name="" cols="30" rows="4"></textarea>
                     <div class="comment-footer">
@@ -138,9 +138,37 @@
                         <span class="fr"><s>0</s>/200字</span>
                     </div>
                 </div>
-                -->
-            </div>
+
+            </div>-->
         </dd>
-        
+
     </dl>
+</div>
+<!--弹出登录框-->
+<div class="login2">
+    <form action="">
+        <div class="login2-head">
+          <h4>用户登录</h4>
+           <button class="close" id="close"></button>
+        </div>
+        <label for="" class="error"></label>
+        <ul class="login2-body">
+            <li>
+                <input type="text" value="用户名"/>
+                <span class="icon-user"></span>
+            </li>
+            <li>
+                <input type="text" value="密码"/>
+                <span class="icon-password"></span>
+
+            </li>
+            <li>
+                <a href="" class="fr">忘记密码？</a>
+            </li>
+            <li>
+                <button class=" btn btn-red">登录</button>
+            </li>
+            <li>还没有帐号？<a href="" class="register">马上注册</a> </li>
+        </ul>
+    </form>
 </div>

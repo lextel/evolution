@@ -48,8 +48,42 @@ class Controller_Wins extends Controller_Frontend{
         $view->set('orderCount', $orderCount);
         $view->set('postCount', $postCount);
         $view->set('phaseCount', $phaseCount);
-        $view->set('win', $win );
+        $view->set('win', $win , false);
         $this->template->title = "晒单详情页";
         $this->template->layout = $view;
+    }
+
+    // 获取揭晓结果
+    public function action_result() {
+        $id = intval(Input::get('id'));
+        if(empty($id)) return json_encode(['status' => 'fail']);
+
+        $phaseModel = new Model_Phase();
+        $win = $phaseModel->win($id);
+        if(empty($win)) return json_encode(['status' => 'fail']);
+
+        $itemModel = new Model_Item();
+        $item = $itemModel->itemInfo($win);
+
+        $data['status'] = 'success';
+        if($win->code_count) {
+            $member = Model_Member::find($win->member_id);
+                $data['data'] = [
+                        'member_id' => $member->id,
+                        'avatar'    => Uri::create($member->avatar),
+                        'nickname'  => $member->nickname,
+                        'image'     => $item->image,
+                        'title'     => '(第'.$win->phase_id.'期)'.$win->title,
+                        'link'      => Uri::create('w/'.$win->phase_id),
+                        'userlink'  => Uri::create('u/'.$member->id),
+                        'code'      => $win->code,
+                        'price'     => sprintf('%.2f', $item->price),
+                        'area'      => '未知',
+                        'count'     => $win->code_count,
+                        'opentime'  => date('Y-m-d H:i:s', $win->opentime),
+                    ];
+        }
+
+        return json_encode($data);
     }
 }

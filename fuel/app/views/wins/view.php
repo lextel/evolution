@@ -17,8 +17,9 @@
         </div>
         <div class="state-column fr">
             <div class="state-heading">
-                <span class="fl">本商品已开出 <b class="blue">40</b>期，第<b class="blue">40</b>期正在进行中...</span>
-                <a href="" class="details fr">查看详情</a>
+                <span class="fl">本商品已开出 <b class="blue"><?php echo $openCount($itemInfo->id); ?></b>期<?php $activePhase = $activePhase($itemInfo->id); if($activePhase):?>，第<b class="blue"><?php echo $activePhase->phase_id; ?></b>期正在进行中...</span>
+                <a href="<?php echo Uri::create('m/'.$activePhase->id); ?>" class="details fr">查看详情</a>
+                <?php endif;?>
             </div>
             <div class="price">价值:<b><?php echo sprintf('%.2f', $itemInfo->price );?></b></div>
             <div class="result-box">
@@ -46,9 +47,9 @@
 		<div class="sub-nav w" id="bigNav">
         <ul>
             <li><a href="#result" class="active" data-toggle="tab">计算结果</a></li>
-            <li><a href="#buylog" data-toggle="tab">所有参与纪录(<b><?php echo $orderCount; ?></b>)</a></li>
-            <li><a href="#posts" data-toggle="tab">晒单(<b><?php echo $postCount; ?></b>)</a></li>
-            <li><a href="#phase" data-toggle="tab">往期回顾(<b><?php echo $phaseCount; ?></b>)</a></li>
+            <li><a href="#buylog" phaseId="<?php echo $win->id; ?>"  data-toggle="tab">所有参与纪录(<b><?php echo $orderCount; ?></b>)</a></li>
+            <li><a href="#posts" itemId="<?php echo $itemInfo->id; ?>" data-toggle="tab">晒单(<b><?php echo $postCount; ?></b>)</a></li>
+            <li><a href="#phase" itemId="<?php echo $itemInfo->id; ?>" data-toggle="tab">往期回顾(<b><?php echo $phaseCount; ?></b>)</a></li>
         </ul>
         </div>
 		<div class="content tab-content">
@@ -71,45 +72,30 @@
                         </tr>
                         </thead>
                         <tbody>
+                            <?php 
+                                $results = unserialize($win->results);
+                                foreach($results as $result):
+                                    $memberInfo = $getUser($result['member_id']);
+                                    $phaseInfo = $getPhase($result['phase_id']);
+                                    $times = explode('.', $result['ordered_at']);
+                            ?>
                             <tr>
-                                <td><s>2013-12-20</s>10:46:49.687</td>
-                                <td><a href="">最后一次</a></td>
-                                <td>1</td>
-                                <td><a href="">（第633期）<b>苹果（Apple）iPhone 5S 16G版 3G手机</b> </a></td>
+                                <td><s><?php echo date('Y-m-d', $times[0]);?></s><?php echo date('H:i:s', $times[0]); ?>.<?php echo $times[1]; ?></td>
+                                <td><a href="<?php echo Uri::create('u/'.$memberInfo->id); ?>"><?php echo $memberInfo->nickname;?></a></td>
+                                <td><?php echo $result['count']; ?></td>
+                                <td><a href="<?php echo Uri::create('m/'.$phaseInfo->id); ?>">（第<?php echo $phaseInfo->phase_id; ?>期）<b><?php echo $phaseInfo->title; ?></b> </a></td>
                             </tr>
-                            <tr>
-                                <td><s>2013-12-20</s>10:46:49.687</td>
-                                <td><a href="">最后一次</a></td>
-                                <td>1</td>
-                                <td><a href="">（第633期）<b>苹果（Apple）iPhone 5S 16G版 3G手机</b> </a></td>
-                            </tr>
-                            <tr>
-                                <td colspan="4">
-                                    <h4>截止该商品最后购买时间【2013-12-20 10:46:36.578】最后100条全站购买时间记录</h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><s>2013-12-20</s>10:46:49.687</td>
-                                <td><a href="">最后一次</a></td>
-                                <td>1</td>
-                                <td><a href="">（第633期）<b>苹果（Apple）iPhone 5S 16G版 3G手机</b> </a></td>
-                            </tr>
-                            <tr>
-                                <td><s>2013-12-20</s>10:46:49.687</td>
-                                <td><a href="">最后一次</a></td>
-                                <td>1</td>
-                                <td><a href="">（第633期）<b>苹果（Apple）iPhone 5S 16G版 3G手机</b> </a></td>
-                            </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
                 <div class="calculation-results">
                     <h3 class="fl">计算结果</h3>
                     <ul class="fl">
-                        <li>求和：10445775630(上面100条云购记录时间取值相加之和)</li>
-                        <li>取余：10445775630(100条时间记录之和) % 72(本商品总需参与人次) = 6(余数)</li>
-                        <li>结果：6(余数) + 10000001 = 10000007</li>
-                        <li><span>最终结果：<s>10000007</s></span></li>
+                        <li>求和：<?php echo $win->total; ?>(上面<?php echo count($results); ?>条云购记录时间取值相加之和)</li>
+                        <li>取余：<?php echo $win->total; ?>(<?php echo count($results); ?>条时间记录之和) % <?php echo $win->amount; ?>(本商品总需参与人次) = <?php echo $win->total%$win->amount; ?>(余数)</li>
+                        <li>结果：<?php echo $win->total%$win->amount; ?>(余数) + 10000001 = <?php echo $win->code; ?></li>
+                        <li><span>最终结果：<s><?php echo $win->code; ?></s></span></li>
                     </ul>
                 </div>
             </div>
@@ -132,6 +118,11 @@
         <!--参与者记录结束-->
 	</div>
 </div>
+<script>
+    BUYLOG_URL   = '<?php echo Uri::create('l/joined'); ?>';
+    POSTLOG_URL  = '<?php echo Uri::create('l/posts'); ?>';
+    PHASELOG_URL = '<?php echo Uri::create('l/phases'); ?>';
+</script>
 <script>
     $(".sub-nav").pin({
         containerSelector: ".bd"

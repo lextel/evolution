@@ -873,6 +873,7 @@ h4{
 }
 .vertical-ticker{
 	overflow:hidden;
+    height:337px;
 	margin:0; padding:0;
 	-webkit-box-shadow:0 1px 3px rgba(0,0,0, .4);
 }

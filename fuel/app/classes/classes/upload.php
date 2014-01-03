@@ -107,7 +107,7 @@ class Upload {
     protected function errors() {
 
         foreach(SysUpload::get_errors() as $file) {
-            Log::error('Upload:' . $file['errors']);
+            Log::error('Upload:' . $file['errors'][0]['message']);
         }
     }
 
