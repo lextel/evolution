@@ -11,14 +11,17 @@
 		    var province = $("#datas select").eq(0).val();
 		    var city = $("#datas select").eq(1).val();
 		    var county = $("#datas select").eq(2).val();
-		    var address = $("input[name='address']").val();
+		    var address = $("textarea[name='address']").val();
 		    var postcode = $("input[name='postcode']").val();
 		    var name = $("input[name='name']").val();
 		    var phone = $("input[name='phone']").val();
-		    
+		    console.log(phone);
 		    $.post('/u/address/add', 
 		          {province:province, city:city, county:county, address:address, postcode:postcode, name:name, phone:phone},
-		          
+		          function( data ){
+		            alert('111111');
+		          },
+		          'json'
 		    );
 		});
 	});
@@ -73,7 +76,7 @@
             </li>
             <li>
                 <label class="align">街道地址：</label>
-                <textarea name="address"  cols="50" rows="3"  name="postalcode" datatype="*"  sucmsg="验证通过！" errormsg="请输入街道地址！" ></textarea>
+                <textarea name="address"  cols="50" rows="3" datatype="*"  sucmsg="验证通过！" errormsg="请输入街道地址！" ></textarea>
                 <span class="Validform_checktip align"></span>
             </li>
             <li>
@@ -88,7 +91,7 @@
             </li>
             <li>
                 <label>联系电话：</label>
-                <input type="text" value="" name="phone " datatype="m"  sucmsg="验证通过！" errormsg="请输入收货人手机号码！"  />
+                <input type="text" value="" name="phone" datatype="m"  sucmsg="验证通过！" errormsg="请输入收货人手机号码！"  />
                 <span class="Validform_checktip"></span>
             </li>
             <li>

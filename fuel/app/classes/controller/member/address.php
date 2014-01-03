@@ -29,9 +29,22 @@ class Controller_Member_Address extends Controller_Center{
     */
     public function action_add()
     {
-        $data = [];
-        $this->template->title = '用户修改收获地址';
-        $this->template->content = View::forge('member/address/add', $data);
+        //!Input::method() == 'POST'
+        $address[] = Input::post('province');
+        $address[] = Input::post('city');
+        $address[] = Input::post('county');
+        $address[] = Input::post('address');
+        $myaddress = Model_Member_Address::forge([
+            'member_id' => $this->current_user->id,
+            'address' => serialize($address),
+            'postcode' => Input::post('postcode'),
+            'mobile' => Input::post('phone'),
+            'name' =>  Input::post('name'),
+            'rate' => 0,
+            'is_delete' => 0]
+            );
+        $myaddress -> save();
+        Response::redirect('/u/address');
     }
 
     /*
@@ -39,7 +52,7 @@ class Controller_Member_Address extends Controller_Center{
     */
     public function action_edit($id)
     {
-        !Input::method() == 'POST' and Response::redirect('/u/getaddress');
+        !Input::method() == 'POST' and Response::redirect('/u/address');
         $val = Model_Member_Address::validate('edit');
         if ($val->run())
         {
@@ -56,7 +69,7 @@ class Controller_Member_Address extends Controller_Center{
             }
         }
         $this->template->set_global('error', '修改地址失败，请核对输入');
-        Response::redirect('/u/getaddress');
+        Response::redirect('/u/address');
     }
     /*
     *删除用户快递地址

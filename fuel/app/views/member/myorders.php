@@ -58,7 +58,7 @@
                     
                     <tr>
                         <td><?php echo $order->id; ?></td>
-                        <td><div class="img-box"><?php echo Html::anchor('/m/', Html::img($getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image));?></div></td>
+                        <td><div class="img-box"><?php echo Html::anchor('/m/'.$order->phase_id, Html::img($getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image));?></div></td>
                         <td>
                             <div class="text-title">（第<?php echo $getPhaseInfo($order->phase_id)->phase_id;?>期）<?php echo $getPhaseInfo($order->phase_id)->title;?></div>
                             
