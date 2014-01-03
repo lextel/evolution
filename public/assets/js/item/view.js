@@ -23,26 +23,27 @@ $(function(){
         if (imgtodrag) {
             var imgclone = imgtodrag.clone()
                 .offset({
-                top: imgtodrag.offset().top,
+                top: imgtodrag.offset().top - 195,
                 left: imgtodrag.offset().left
             })
             .css({
                 'opacity': '0.7',
                 'position': 'absolute',
-                'height': '150px',
-                'width': '150px',
+                'height': '400px',
+                'width': '340px',
                 'z-index': '100'
             })
             .appendTo($('body'))
             .animate({
-                'top': cart.offset().top + 5,
-                'left': cart.offset().left + 20,
-                'width': 25,
+                'top': cart.offset().top,
+                'left': cart.offset().left,
+                'width': 130,
                 'height': 25
             }, 1000);
             imgclone.animate({
-                'width': 0,
-                'height': 0
+                'opacity': '0',
+                'width': 130,
+                'height': 25 
             }, function () {
                 $(this).detach()
             });

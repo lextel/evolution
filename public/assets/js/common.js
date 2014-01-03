@@ -266,7 +266,7 @@ $(function(){
                         html += '</div><div class="info-side fr"><div class="title">';
                         html += '<a href="'+BASE_URL + 'm/' + data[i].id +'">'+data[i].title+'</a>';
                         html += '</div><div class="price tl">￥1.00 x <b class="y">'+data[i].qty+'</b></div>';
-                        html += '<a href="javascript:void(0);" class="btn btn-link btn-sx cartRemove" cartId="'+data[i].id+'">删除</a></div></li>';
+                        html += '<a href="javascript:void(0);" class="btn btn-link btn-sx cartRemove" rowId="'+data[i].rowId+'">删除</a></div></li>';
                     }
                     html += '<div class="btn-group tr"><a href="'+BASE_URL + 'cart/list' + '" class="btn-red btn btn-sx">查看购物车</a></div>';
                 } else {
@@ -283,7 +283,7 @@ $(function(){
     // 购物车删除
     $(document).on('click', '.cartRemove', function() {
         var $this = $(this);
-        var id = $this.attr('cartId');
+        var id = $this.attr('rowId');
         $.ajax({
             url: BASE_URL + 'cart/del',
             data: {id:id},
@@ -302,6 +302,7 @@ $(function(){
 
     // 添加购物车效果
     $('.doCart').click(function () {
+            alert(2);
         var cart = $('.shopping-cart');
         var imgtodrag = $(this).parent().prev().prev().prev().find("a").eq(0);
         if (imgtodrag) {
@@ -313,20 +314,21 @@ $(function(){
             .css({
                 'opacity': '0.7',
                 'position': 'absolute',
-                'height': '150px',
-                'width': '150px',
+                'height': '200px',
+                'width': '200px',
                 'z-index': '100'
             })
             .appendTo($('body'))
             .animate({
-                'top': cart.offset().top + 5,
-                'left': cart.offset().left + 20,
-                'width': 25,
+                'top': cart.offset().top,
+                'left': cart.offset().left,
+                'width': 130,
                 'height': 25
             }, 1000);
             imgclone.animate({
-                'width': 0,
-                'height': 0
+                'opacity': '0',
+                'width': 130,
+                'height': 25 
             }, function () {
                 $(this).detach()
             });
