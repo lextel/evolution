@@ -18,7 +18,7 @@ $(function() {
         dataType: 'json',
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
-                $('#files').html($('<p style="margin:5px; float: left" />').html('<img src="'+IMAGE_URL+file.link+'" alt="'+file.name+'"/><d class="close">&times;</d><input type="hidden" name="link" value="'+file.link+'">'));
+                $('#files').html($('<p style="margin:5px; float: left" />').html('<img src="'+IMAGE_URL+file.link+'" alt="'+file.name+'"/><d class="close">&times;</d><input type="hidden" name="image" value="'+file.link+'">'));
             });
         },
     }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');

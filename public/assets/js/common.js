@@ -302,13 +302,12 @@ $(function(){
 
     // 添加购物车效果
     $('.doCart').click(function () {
-            alert(2);
         var cart = $('.shopping-cart');
         var imgtodrag = $(this).parent().prev().prev().prev().find("a").eq(0);
         if (imgtodrag) {
             var imgclone = imgtodrag.clone()
                 .offset({
-                top: imgtodrag.offset().top,
+                top: imgtodrag.offset().top-90,
                 left: imgtodrag.offset().left
             })
             .css({
@@ -349,6 +348,7 @@ $(function(){
             }
         });
     });
+
 });
 
 // 初始化ajax分页
