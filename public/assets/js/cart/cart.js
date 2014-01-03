@@ -35,6 +35,14 @@ $(function(){
         }
     });
 
+    // 总额 小计
+    $('.add').click(function() {
+        updateTotal();
+    });
+    $('input[name="qty"]').keyup(function() {
+        updateTotal();
+    });
+
     // 支付
     $('#doPay').click(function() {
         // 修改跳转页面
@@ -57,3 +65,12 @@ $(function(){
         location.href = COMPLETE_URL;
     });
 });
+
+function updateTotal() {
+    var total = 0;
+    $('input[name="qty"]').each(function(){
+        total = total + parseInt($(this).val());
+    });
+
+    $('#total').html('￥' + total.toFixed(2));
+}
