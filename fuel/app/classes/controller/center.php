@@ -97,7 +97,7 @@ class Controller_Center extends Controller_Frontend
                     {
                         $current_user = Model_Member::find_by_username($this->auth->get_screen_name());
                         $current_user -> avatar = \Config::get('default_headico');
-                        $current_user -> nickname = $username;
+                        //$current_user -> nickname = $username;
                         $current_user -> save();
                         Session::set_flash('success', e('Welcome singnup, '.$current_user->username));
                         Response::redirect('/u/getnickname');
