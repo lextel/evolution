@@ -4,39 +4,48 @@ class Controller_Member_Posts extends Controller_Center
 {
     //public $template = 'memberlayout';
 
-
+    /*
+    *已经晒单的列表
+    */
     public function action_index($pagenum=1)
     {
         $postscount = Model_Post::count(['where'=>['member_id'=>$this->current_user->id]]);
         $page = new \Helper\Page();
         $config = $page->setCofigPage('u/posts/p', $postscount, 4, 4);
         $pagination = Pagination::forge('postspage', $config);
-        $data['list'] = Model_Post::find('all', [
+        $posts = Model_Post::find('all', [
                                                   'where'=>['member_id'=>$this->current_user->id,
                                                                      'is_delete'=>0],
                                                   'order_by' =>array('id' => 'desc'),
                                                   'rows_limit'=>$pagination->per_page,
                                                   'rows_offset'=>$pagination->offset,]
                                          );
+        $view = ViewModel::forge('posts/myposts');
+        $view->set('posts', $posts);
         $this->template->title = '用户晒单列表';
-        $this->template->layout->content = View::forge('member/myposts', $data);
+        $this->template->layout->content = $view;
     }
-
+    
+    /*
+    *未晒单的列表
+    */
     public function action_noposts($pagenum=1)
     {
-        $postscount = Model_Lottery::count(['where'=>['member_id'=>$this->current_user->id, 'post_id'=>0]]);
+        $postscount = Model_Phase::count(['where'=>['member_id'=>$this->current_user->id, 'post_id'=>0]]);
         $page = new \Helper\Page();
         $config = $page->setCofigPage('u/noposts/p', $postscount, 4, 4);
         $pagination = Pagination::forge('postspage', $config);
-        $data['noposts'] = Model_Lottery::find('all', [
+        $noposts = Model_Phase::find('all', [
                                                   'where'=>['member_id'=>$this->current_user->id,
                                                                      'post_id'=>0],
                                                   'order_by' =>array('id' => 'desc'),
                                                   'rows_limit'=>$pagination->per_page,
                                                   'rows_offset'=>$pagination->offset,]
                                          );
-        $this->template->title = '用户晒单列表';
-        $this->template->layout->content = View::forge('member/mynoposts', $data);
+        $view = ViewModel::forge('posts/noposts');
+        $view->set('noposts', $noposts);
+        $this->template->title = '用户未晒单列表';
+        $this->template->layout->content = $view;
     }
 
     public function action_view()
@@ -46,6 +55,9 @@ class Controller_Member_Posts extends Controller_Center
         $this->template->content = View::forge('member/posts/view', $data);
     }
 
+    /*
+    *晒单上传图片
+    */    
     public function action_upload()
     {
         $upload  = new Classes\Upload('post');
@@ -57,6 +69,9 @@ class Controller_Member_Posts extends Controller_Center
         return json_encode(['files' => $rs]);
     }
 
+    /*
+    *晒单添加
+    */    
     public function action_add()
     {
         !Input::method() == 'POST' and Response::redirect('/u/noposts');
@@ -88,14 +103,15 @@ class Controller_Member_Posts extends Controller_Center
                 'comment_count'=>0,
                 'comment_top'=>'',
             ]);
-
-            if ($post and $post->save())
+            if ($post->save())
             {
-                Session::set_flash('success', '');
+                $phase->post_id = $post->id;
+                $phase->save();
+                Session::set_flash('success', '添加晒单成功');
                 Response::redirect('/u/posts');
             }
         }
-        Session::set_flash('error', '');
+        Session::set_flash('error', '添加晒单失败');
         Response::redirect('/u/noposts');
     }
 
