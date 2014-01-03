@@ -150,20 +150,42 @@ class Controller_Member extends Controller_Center{
         $this->template->layout->content = View::forge('member/passwd', array('val' => $val), false);
     }
     /*
-    *
+    *打开充值页面
     */
-    public function action_recharge()
+    public function action_getrecharge()
     {
-        $this->template->title = '用户修改密码页面';
+        $this->template->title = '用户充值页面';
         $this->template->layout->content = View::forge('member/money');
     }
 
      /*
-    *
+    *增加余额功能,根据签名充值
     */
-    public function action_money()
+    public function action_recharge()
     {
-
+       !Input::method() == 'POST' and Response::redirect('/u/getrecharge');
+       $val = Validation::forge();
+       $val->add('money', '')
+                ->add_rule('required');
+       $val->add('source', '')
+                ->add_rule('required');
+       if (!$val->run()){
+            Session::set_flash('error', e('充值失败'));
+            Response::redirect('/u/getrecharge'); 
+       }
+       $money = Input::post('money');
+       $source = Input::post('source');
+       $sign = Input::post('sign');
+       $res = Model_Member::addMoney($this->current_user->id, $money);
+       if ($res){
+           //增加充值记录
+           Model_Member_Moneylog::recharge_log($this->current_user->id, $money, $source);
+           Session::set_flash('success', e('充值成功'));
+           Response::redirect('/u') ;
+       }else{
+           Session::set_flash('error', e('充值失败'));
+           Response::redirect('/u/getrecharge') ;
+       }
     }
 
     /*
