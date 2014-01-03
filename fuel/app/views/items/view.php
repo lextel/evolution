@@ -82,6 +82,11 @@
                     <button type="submit" class="btn btn-red">立即乐拍</button>
                     <a class="btn btn-default" href="javascript:void(0);">加入购物车</a>
                 </div>
+                <!--已卖完-->
+                <div class="sell-out">
+                     <h2>啊哦！！ 被抢光啦！！ </h2>
+                </div>
+                 <!--已卖完结束-->
             </form>
             <ul class="security-list">
                 <li><a href="javascript:void(0);" class="01">100%公平公正</a></li>
