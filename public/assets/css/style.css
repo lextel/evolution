@@ -86,6 +86,7 @@
 }
 .register-form ul li{
     margin-bottom: 15px;
+    line-height: 26px;
 }
  .register-form ul li label{
      text-align: right;
@@ -101,7 +102,7 @@
     line-height: 26px;
     width: 230px;
     display: inline-block;
-    margin: 0 20px;
+    margin: 0 10px;
 }
 .register-form ul li input#form_submit{
     padding: 0;
@@ -116,6 +117,14 @@
     margin: 20px 0 20px 100px;
     border: 1px solid #EEEEEE;
     padding: 10px;
+}
+.addnickname{
+    margin: 30px auto;
+}
+.register-wrap{
+    width: 600px;
+    height: 300px;
+    margin: 30px auto;
 }
 /*个人主页*/
 .home-wrap{
@@ -637,6 +646,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     vertical-align: middle;
 }
 .edit-data li .btn{
+    text-align: center;
     width: 80px;
     margin-left: 123px;
 }
