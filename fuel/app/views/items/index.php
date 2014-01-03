@@ -7,7 +7,7 @@
             <?php
                 $cates = $getCates();
                 foreach ($cates as $cate) :
-                    echo "<li><a href='". Uri::create('/m/c/'. $cate->id) ."'>{$cate->name}</a></li>";
+                    echo "<li class='cateNav'><a href='". Uri::create('/m/c/'. $cate->id) ."'>{$cate->name}</a></li>";
                 endforeach;
             ?>
         </ul>
@@ -31,7 +31,17 @@
             endforeach; 
             ?>
             <div class="img-box fl">
-                <a href=""><img src="" alt=""/></a>
+                <?php 
+                    $ads = $getAds();
+                    $i = 0;
+                    foreach($ads as $ad):
+                    $style = $i == 0 ? '' : 'display:none';
+                ?>
+                <a style="<?php echo $style; ?>" href="<?php echo $ad->link ?>"><img src="<?php echo Uri::create($ad->image); ?>" alt="<?php echo $ad->title; ?>"/></a>
+                <?php
+                    $i++;
+                    endforeach;
+                ?>
             </div>
         </div>
         <?php 

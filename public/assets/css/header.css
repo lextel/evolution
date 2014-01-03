@@ -14,7 +14,7 @@
 }
 .announced-news ul li{
     float: left;
-    margin-left:20px;
+    margin-left:16px;
     width: 152px;
 }
 .announced-news ul li h5{
@@ -45,7 +45,7 @@
 }
 .recommended ul li{
     float: left;
-    width: 228px;
+    width: 222px;
     overflow: hidden;
     padding-bottom: 10px;
     margin-right: 10px;
@@ -60,9 +60,10 @@
      padding:5px 10px;
  }
  .title-box h4{
-    width: 220px;
-    white-space:nowrap ;
-    text-overflow:ellipsis ;
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:clip  ;
 }
 .recommended ul li .img-box{
     width: 200px;
@@ -79,6 +80,7 @@
 /*公告*/
 .notice{
     overflow: hidden;
+    min-height: 259px;
 }
 .notice .title,.buying-box .title{
     background: #eeeeee;
@@ -109,12 +111,12 @@
     width: 258px;
 }
 .buying-box ul li{
-    height: 80px;
-    margin:10px 10px 0 10px;
-    border-bottom: 1px dashed #eeeeee;
+    height: 51px;
+    margin:11px 10px -1px 10px;
+    border-bottom: 1px dashed #eee;
 }
 .buying-box ul li .info-side{
-    width: 156px;
+    width: 145px;
     float: left;
     margin-left: 10px;
 }

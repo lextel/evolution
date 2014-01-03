@@ -27,7 +27,7 @@ echo Asset::js(
 	<fieldset>
 		<div class="form-group">
           <?php echo Form::label('标题:', 'title', array('class'=>'control-label col-sm-1')); ?>
-          <div class="col-sm-8">
+          <div class="col-sm-6">
           <?php echo Form::input('title', Input::post('title', isset($ad) ? $ad->title : ''), array('class' => 'form-control', 'placeholder'=>'广告标题')); ?>
           </div>
           <span class="help-block">不超过255个字</span>
@@ -65,15 +65,21 @@ echo Asset::js(
         	</div>
             <span class="help-block">支持格式：jpg 大小为：幻灯片980px*350px,所有商品450px*350px</span>
             <div id="files" class="files">
-            	<input type="hidden" name="link" value="upload/item/7/2/72a8f67eb30f49e678c1da7043c88da2.jpg">
               <?php 
                 if(isset($item)) {
-                    echo '<p><img style="width: 60px; height: 60px; margin:5px; float: left" src="/'.$item->link.'"><d class="close"></d><input type="hidden" name="link" value="'.$item->link.'"></p>';
+                    echo '<p><img style="width: 60px; height: 60px; margin:5px; float: left" src="/'.$item->link.'"><d class="close"></d><input type="hidden" name="image" value="'.$item->link.'"></p>';
                 }
               ?>
-            </div>
+              </div>
 
         </div>
+        <div class="form-group">
+            <?php echo Form::label('链接:', 'link', array('class'=>'control-label col-sm-1')); ?>
+            <div class="col-sm-6">
+            <?php echo Form::input('link', Input::post('link', isset($ad) ? $ad->link: ''), array('class' => 'form-control', 'placeholder'=>'广告超链接')); ?>
+            </div>
+        </div>
+
         <div class="form-group">
             <?php echo Form::label('是否启用:', 'status', array('class'=>'control-label col-sm-1')); ?>
             <div class="col-sm-2">

@@ -10,7 +10,7 @@ desktop.ini
 .tmpoj
 fuel/app/logs/*/*/*
 fuel/app/cache/*/*
-public/html/.idea/*
+*.idea/*
 .idea.*~
 .gitignore
 # Compiled source #
@@ -54,7 +54,7 @@ Thumbs.db
 
 # editor
 ######################
-*.swp
+*.swo
 
 # upload
 ######################
