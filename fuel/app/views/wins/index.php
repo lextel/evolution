@@ -5,12 +5,14 @@
         $(function(){
             $('.vertical-ticker').totemticker({
                 row_height  :   '110px',
-                speed            :   800,        /* Speed of transition animation in milliseconds */
+                speed            :    500,        /* Speed of transition animation in milliseconds */
                 interval          :   2000,
                 mousestop   :   true,
             });
         });
     </script>
+
+<?php echo Asset::js(['wins/index.js']); ?>
 
 <div class="latest-wrap w">
    <!--左边内容开始-->
@@ -59,10 +61,10 @@
             <?php
             else:
             ?>
-            <li>
+            <li id="win<?php echo $win->id; ?>">
                 <div class="item-body">
                     <div class="img-box img-md fl">
-                        <a href="<?php echo Uri::create('m/'.$win->id); ?>"><img src="<?php echo $itemInfo->image; ?>" alt=""/></a>
+                        <a href="<?php echo Uri::create('m/'.$win->id); ?>"><img src="<?php echo Uri::create($itemInfo->image); ?>" alt=""/></a>
                     </div>
                     <div class="info-side fr">
                         <div class="p-info">
@@ -71,14 +73,10 @@
                             </h5>
                             <div class="price">价值：<b>￥<?php echo sprintf('%.2f', $itemInfo->price); ?></b>元</div>
                         </div>
-                        <dl class="countdown">
-                            <dt>倒计时</dt>
-                            <dd>01</dd>
-                            <dt>:</dt>
-                            <dd>08</dd>
-                            <dt>:</dt>
-                            <dd>37</dd>
-                        </dl>
+                        <dl class="countdown" style="min-height: 29px" endtime="<?php echo date('M d, Y H:i:s', $win->opentime);?>" phaseId="<?php echo $win->id;?>"></dl>
+                        <div class="counting">
+                            <h2>正在计算...</h2>
+                        </div>
                     </div>
                 </div>
                 <div class="item-footer">
@@ -124,53 +122,50 @@
         <div class="sort-list">
             <div class="title"><h4>人气排行</h4></div>
             <ul>
+                <?php
+                    $hots = $hotItems();
+                    $i = 1;
+                    foreach($hots as $hot):
+                ?>
                 <li>
-                    <div class="img-box fl">
-                        <a href=""><img src="img/54359.jpg" alt=""></a>
+                    <div class="shortItem" style="display: <?php echo $i == 1 ? 'none' : 'block'; ?>">
+                        <div class="img-box fl">
+                            <a href=""><img src="<?php echo Uri::create($hot->image); ?>" alt=""></a>
+                        </div>
+                        <div class="info-side fr">
+                            <h4><a href=""><?php echo $hot->title; ?></a></h4>
+                            <div class="remain">剩余次数: <b class="red"><?php echo $hot->phase->remain; ?></b></div>
+                        </div>
                     </div>
-                    <div class="info-side fr">
-                        <h4><a href="">苹果智能手机32G苹果智能手机32G苹果智能手机</a></h4>
-                        <div class="remain">剩余次数: <b class="red">0</b></div>
+                    <div class="longItem" style="display: <?php echo $i == 1 ? 'block' : 'none'; ?>">
+                        <form  action="<?php echo Uri::create('cart/add'); ?>" method="post">
+                            <div class="title-box">
+                                <h4><a href=""><?php echo $hot->title; ?></a></h4>
+                                <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $hot->price); ?></b></span>
+                            </div>
+                            <div class="img-box">
+                                <a href=""><img src="<?php echo Uri::create($hot->image); ?>" alt=""></a>
+                            </div>
+                            <div class="remain tc">剩余次数: <b class="red"><?php echo $hot->phase->remain; ?></b></div>
+                            <div class="btn-group">
+                                <input name="qty" value="1" type="hidden"/>
+                                <input name="id" value="<?php echo $hot->phase->id; ?>" type="hidden">
+                                <button type="submit" class="btn btn-red">立即购买</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="top one">1</div>
+                    <div class="top <?php echo $i < 4 ? 'one' : '';?>"><?php echo $i; ?></div>
                 </li>
-                <li class="active">
-                    <div class="title-box">
-                        <h4><a href="">小米3智能手机(16G)</a></h4>
-                        <span class="price">价值 <b>￥1999.00</b></span>
-                    </div>
-                    <div class="img-box">
-                        <a href=""><img src="img/54359.jpg" alt=""></a>
-                    </div>
-                    <div class="remain tc">剩余次数: <b class="red">0</b></div>
-                    <div class="btn-group">
-                        <div class="btn btn-red">立即购买</div>
-                    </div>
-                    <div class="top one">1</div>
-                </li>
-                <li>
-                    <div class="img-box fl">
-                        <a href=""><img src="img/54359.jpg" alt=""></a>
-                    </div>
-                    <div class="info-side fr">
-                        <h4><a href="">苹果智能手机32G苹果智能手机32G苹果智能手机</a></h4>
-                        <div class="remain">剩余次数: <b class="red">0</b></div>
-                    </div>
-                    <div class="top one">3</div>
-                </li>
-                <li>
-                    <div class="img-box fl">
-                        <a href=""><img src="img/54359.jpg" alt=""></a>
-                    </div>
-                    <div class="info-side fr">
-                        <h4><a href="">苹果智能手机32G苹果智能手机32G苹果智能手机</a></h4>
-                        <div class="remain">剩余次数: <b class="red">0</b></div>
-                    </div>
-                    <div class="top">4</div>
-                </li>
+                <?php
+                    $i++;
+                    endforeach;
+                ?>
             </ul>
         </div>
         <!--人气排行内容结束-->
     </div>
 </div>
 
+<script>
+    RESULT_URL = '<?php echo Uri::create('w/result'); ?>';
+</script>

@@ -20,10 +20,9 @@ class View_Index extends Viewmodel {
        };
        //获得最新揭晓
        $this->newWins = function() {
-           $wins = Model_Lottery::find('all',[
-                        'order_by'=>['id'=>'desc'],
-                       'rows_limit'=>4,
-                       ]);
+           $phaseModel = new Model_Phase();
+           $wins = $phaseModel->getWins(0, 4);
+
            return $wins;
        };
        //获得人气推荐1
@@ -72,7 +71,8 @@ class View_Index extends Viewmodel {
        };
        //获得期数信息
        $this->getPhaseInfo = function($phase_id) {
-           $phase = Model_Phase::find_by_id($phase_id);
+           $phase = Model_Phase::find($phase_id);
+
            return $phase;
        };
        //获得用户信息

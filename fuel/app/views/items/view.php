@@ -32,7 +32,7 @@
                 </ul>
             </div>
             <!--幻灯片结束-->
-            <?php 
+            <?php
                 if($prevWinner):
                 $winner = $getMember($prevWinner->member_id);
             ?>
@@ -51,21 +51,21 @@
         </div>
         <div class="product-column fr">
             <div class="state-heading">
-                <span>本商品已有 <b class="blue">20</b>位幸运者晒单，<b class="blue">40</b>评论</span>
+                <span>本商品已有 <b class="blue"><?php echo $postsCount($item->id); ?></b>位幸运者晒单，<b class="blue"><?php echo $commentCount($item->id); ?></b>评论</span>
             </div>
             <div class="price">价值:<b><?php echo sprintf('%.2f', $item->price); ?></b></div>
             <dl class="progress-side">
                 <dd>
                     <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->phase->joined/$item->phase->amount*100); ?>%"></div></div>
                 </dd>
-                <dd>
+                <!--dd>
                     <span class="fl red"><?php echo $item->phase->joined; ?></span>
                     <span class="fr blue"><?php echo $item->phase->remain; ?></span>
                 </dd>
                 <dd>
                     <span class="fl">已参与人次</span>
                     <span class="fr">剩余人次</span>
-                </dd>
+                </dd-->
             </dl>
             <form action="<?php echo Uri::create('/cart/add'); ?>" method="post">
                 <div class="btn-menu">
@@ -74,12 +74,13 @@
                     <input type="text" value="1" name="qty" amount="<?php echo $item->phase->amount; ?>" remain="<?php echo $item->phase->remain; ?>">
                     <a class="add btn-jia" href="javascript:void(0);">+</a>
                     <span>人次</span>
+                    <span>剩余<?php echo $item->phase->remain; ?>人次</span>
                     <span>获得几率：<s class="red" id="percent"><?php echo sprintf('%.2f', 1/$item->phase->amount*100); ?>%</s> </span>
                 </div>
                 <div class="btn-group">
                     <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>
                     <button type="submit" class="btn btn-red">立即乐拍</button>
-                    <a class="btn btn-default" href="javascrpt:void(0);">加入购物车</a>
+                    <a class="btn btn-default" href="javascript:void(0);">加入购物车</a>
                 </div>
             </form>
             <ul class="security-list">
@@ -204,7 +205,7 @@
         <div  class="look-bak d-n tab-pane" id="phase"></div>
     </div>
 	</div>
-    
+
 </div>
 <script>
     BUYLOG_URL   = '<?php echo Uri::create('l/joined'); ?>';

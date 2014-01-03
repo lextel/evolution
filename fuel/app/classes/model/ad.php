@@ -76,7 +76,7 @@ class Model_Ad extends \Orm\Model
         if($success) {
             $rs =  $upload->getFiles();
 
-            Model_Log::add('上传广告图片 ' . $rs['link']);
+            Model_Log::add('上传广告图片 ' . $rs[0]['name']);
         }
 
         return $rs;

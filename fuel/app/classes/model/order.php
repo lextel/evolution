@@ -6,6 +6,7 @@ class Model_Order extends \Orm\Model
         'id',
         'phase_id',
         'member_id',
+        'title',
         'codes',
         'code_count',
         'ip',
@@ -55,9 +56,11 @@ class Model_Order extends \Orm\Model
             $phaseId = $cart->get_id();
             $fetchCodes = $this->buy($phaseId, $cart->get_qty());
 
+            $phase = Model_Phase::find($phaseId);
             $memberHelper = new \Helper\Member();
             $ip = $memberHelper->getIp();
             $data = [
+                'title'      => $phase->title,
                 'phase_id'   => $phaseId,
                 'member_id'  => $memberId,
                 'codes'      => serialize($fetchCodes),
@@ -203,7 +206,7 @@ class Model_Order extends \Orm\Model
         $offset = ($get['page'] - 1)*\Helper\Page::PAGESIZE;
 
         $where   = ['phase_id' => $get['phaseId']];
-        $orderBy = ['id' => 'desc']; 
+        $orderBy = ['id' => 'desc'];
 
         $orders = Model_Order::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::PAGESIZE]);
 
@@ -221,5 +224,18 @@ class Model_Order extends \Orm\Model
         }
 
         return $data;
+    }
+
+    /*
+    *
+    */
+    public static function totalCountBuy()
+    {
+        $result = DB::select(DB::expr(' SUM(code_count) as count'))->from('orders')->execute()->as_array();
+        if ($result)
+        {
+            return  str_pad($result[0]['count'],8,"0",STR_PAD_LEFT);;
+        }
+        return '000000000';
     }
 }

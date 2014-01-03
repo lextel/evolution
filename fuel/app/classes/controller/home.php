@@ -29,7 +29,7 @@ class Controller_Home extends Controller_Frontend {
                             'order_by'=>['id'=>'desc'],
                             'rows_limit'=>3,
                             ]);
-        $view = View::forge('index/home');
+        $view = ViewModel::forge('home/index');
         $view->set(['member'=>$member,
                 'orders'=>$orders,
                 'posts'=>$posts,
@@ -43,11 +43,19 @@ class Controller_Home extends Controller_Frontend {
     /*
     *TA的主页的乐购记录
     */
-    public function action_orders($member_id){
+    public function action_orders($member_id, $pagenum=1){
         $member = Model_Member::find($member_id);
-        $wins = Model_Lottery::find_by_member_id($member_id);
-        $view = View::forge('index/home_orders');
-        $view->set('wins', $wins);
+        $count = Model_Order::count(['where'=>['member_id'=>$member_id]]);
+        $page = new \Helper\Page();
+        $config = $page->setCofigPage('/u/'.$member_id.'/orders/p', $count, 2, 5);
+        $pagination = Pagination::forge('horders', $config);
+        $orders = Model_Order::find('all',
+                        ['where'=>['member_id'=>$member_id],
+                        'rows_limit'=>$pagination->per_page,
+                        'rows_offset'=>$pagination->offset,]
+                        );
+        $view = ViewModel::forge('home/orders');
+        $view->set('orders', $orders);
         $view->set('member', $member);
         $this->template->title = 'TA的个人主页';
         $this->template->layout->member = $member;
@@ -57,13 +65,22 @@ class Controller_Home extends Controller_Frontend {
     /*
     *TA的主页的获奖记录
     */
-    public function action_wins($member_id){
-        $member = Model_Member::find($member_id);
-        $wins = Model_Lottery::find_by_member_id($member_id);
-        $view = View::forge('index/home_wins');
+    public function action_wins($member_id, $pagenum = 1){
+       $member = Model_Member::find($member_id);
+       $count = Model_Lottery::count(['where'=>['member_id'=>$member_id]]);
+        $page = new \Helper\Page();
+        $config = $page->setCofigPage('/u/'.$member_id.'/wins/p', $count, 2, 5);
+        $pagination = Pagination::forge('hwins', $config);
+        $wins = Model_Lottery::find('all', [
+                                                  'where'=>['member_id'=>$member_id],
+                                                  'order_by' =>array('id' => 'desc'),
+                                                  'rows_limit'=>$pagination->per_page,
+                                                  'rows_offset'=>$pagination->offset,]
+                                         );
+        $this->template->title = "用户获得商品";
+        $view = ViewModel::forge('home/wins');
         $view->set('wins', $wins);
         $view->set('member', $member);
-        $this->template->title = 'TA的个人主页';
         $this->template->layout->member = $member;
         $this->template->layout->content= $view;
     }
@@ -71,13 +88,23 @@ class Controller_Home extends Controller_Frontend {
     /*
     *TA的主页的晒单记录
     */
-    public function action_posts($member_id){
+    public function action_posts($member_id, $pagenum=1){
         $member = Model_Member::find($member_id);
-        $wins = Model_Lottery::find_by_member_id($member_id);
+        $postscount = Model_Post::count(['where'=>['member_id'=>$member_id]]);
+        $page = new \Helper\Page();
+        $config = $page->setCofigPage('/u/'.$member_id.'/posts/p', $postscount, 2, 5);
+        $pagination = Pagination::forge('hposts', $config);
+        $posts = Model_Post::find('all', [
+                                                  'where'=>['member_id'=>$member_id,
+                                                                     'is_delete'=>0],
+                                                  'order_by' =>array('id' => 'desc'),
+                                                  'rows_limit'=>$pagination->per_page,
+                                                  'rows_offset'=>$pagination->offset,]
+                                         );
+        $this->template->title = "用户获得商品";
         $view = View::forge('index/home_posts');
-        $view->set('wins', $wins);
+        $view->set('posts', $posts);
         $view->set('member', $member);
-        $this->template->title = 'TA的个人主页';
         $this->template->layout->member = $member;
         $this->template->layout->content= $view;
     }
