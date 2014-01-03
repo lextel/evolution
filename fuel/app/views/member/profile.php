@@ -28,7 +28,7 @@ $(function(){
             </li>
             <li>
                 <label>邮箱：</label>
-                <?php echo Form::input('username', '', array('type'=>"text",'name'=>'username','datatype'=>'e','errorms'=>'请输入邮箱帐号')); ?>
+                <?php echo Form::input('username', Input::post('username', $member->email), array('type'=>"text",'name'=>'username','datatype'=>'e','errorms'=>'请输入邮箱帐号', 'readonly')); ?>
                 <span class="Validform_checktip"></span>
             </li>
             <li>
