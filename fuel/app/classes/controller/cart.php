@@ -89,14 +89,22 @@ class Controller_Cart extends Controller_Frontend {
     public function action_del() {
 
         $id = Input::post('id');
+        $result = Cart::remove($id);
 
-        $items = Cart::items();
+        return json_encode(['status' => $result ? 'success' : 'fail']);
+    }
+
+    // 更新数量
+    public function action_modify() {
+
+        $id = Input::post('id');
+        $qty = Input::post('qty');
+
+        $cart = Cart::item($id);
+
         $result = false;
-        foreach($items as $item) {
-            if($item->get_id() == $id) {
-                $item->delete();
-                $result = true;
-            }
+        if(!empty($cart)) {
+            $result = $cart->update('qty', $qty);
         }
 
         return json_encode(['status' => $result ? 'success' : 'fail']);
