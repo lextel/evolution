@@ -110,17 +110,6 @@
     <dl class="comment-list">
         <dt><h4>全部评论</h4></dt>
         <dd>
-            <!--<div class="head-img fl">
-                <a href=""><img src="img/96515277.jpg" alt=""/></a>
-            </div>
-            <div class="info-side">
-                <div class="info-side-head">
-                    <span class="name blue">幸运获奖者</span>
-                    <span class="datetime">55分钟前</span>
-                </div>
-                <div class="comment-text">
-                    我也想中一个！
-                </div>-->
                 <!--
                 <button class="btn btn-link blue">回复</button>
 
@@ -146,7 +135,7 @@
 </div>
 <!--弹出登录框-->
 <div class="login2">
-    <form action="">
+    <form action="/signin" method="POST">
         <div class="login2-head">
           <h4>用户登录</h4>
            <button class="close" id="close"></button>
@@ -154,13 +143,12 @@
         <label for="" class="error"></label>
         <ul class="login2-body">
             <li>
-                <input type="text" value="用户名"/>
+                <input name="username" type="text" value="用户名"/>
                 <span class="icon-user"></span>
             </li>
             <li>
-                <input type="text" value="密码"/>
+                <input name="password"  type="text" value="密码"/>
                 <span class="icon-password"></span>
-
             </li>
             <li>
                 <a href="" class="fr">忘记密码？</a>
