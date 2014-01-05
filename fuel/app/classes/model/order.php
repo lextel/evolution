@@ -144,8 +144,10 @@ class Model_Order extends \Orm\Model
 
             // 写开奖命令
             $filename = date('Y_m_d_H_i_s_', $time) . $phaseId . '.cron';
+            $sec = date('s', $time);
             $dir = APPPATH . 'tmp' . DS . 'crontabs' . DS;
-            file_put_contents($dir.$filename, 'cd '. DOCROOT . ' && php oil refine result ' .$phaseId);
+            $root = realpath(DOCROOT . '../');
+            file_put_contents($dir.$filename, 'sleep '.$sec.' && cd '. $root . ' && php oil refine result ' . $phaseId . "\n");
         }
 
         return $fetchCodes;
