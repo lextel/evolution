@@ -16,7 +16,6 @@
 .blue{
 	color:#0057b0!important;
 }
-b{font-weight:normal; display:inline-block; margin:0 8px; color:#f27f02;}
 /* for margin & padding | width & height =================== */
 .mb10{
 	margin-bottom:10px;
@@ -298,7 +297,6 @@ b{font-weight:normal; display:inline-block; margin:0 8px; color:#f27f02;}
 	color:#999;
     text-indent: 20px;
     display: inline-block;
-    line-height: 25px;
     text-indent: 2em;
 }
 .Validform_right{

@@ -148,8 +148,8 @@
                         <?php endforeach; ?>
                     </ul>
             </div>
-                <a class="abtn aleft" href="#left">左移</a>
-                <a class="abtn aright" href="#right">右移</a>
+                <a class="abtn aleft" href="#left"></a>
+                <a class="abtn aright" href="#right"></a>
         </div>
         </div>
     <!--今日热门结束-->
