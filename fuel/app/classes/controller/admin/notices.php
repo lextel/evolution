@@ -11,7 +11,9 @@ class Controller_Admin_Notices extends Controller_Admin{
         $noticeModel = new Model_Notice();
         $total = $noticeModel->countNotice(Input::get());
         $page = new \Helper\Page();
-        $url = Uri::create('admin/notices', ['user_id' => Input::get('user_id'), 'title' => Input::get('title')], ['user_id' => ':user_id', 'title' => ':title']);
+        $url = Uri::create('admin/notices', 
+                ['user_id' => Input::get('user_id'), 'title' => Input::get('title')], 
+                ['user_id' => ':user_id', 'title' => ':title']);
 
         $config = $page->setConfig($url, $total, 'page');
         $pagination = Pagination::forge('mypagination', $config);
