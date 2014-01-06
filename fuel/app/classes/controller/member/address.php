@@ -8,20 +8,37 @@ class Controller_Member_Address extends Controller_Center{
     public function action_index()
     {
         $address = Model_Member_Address::find_by('member_id', $this->current_user->id);
-        $data['list'] = $address;
+        $view = ViewModel::forge('member/address', 'view');
+        $view->set('list', $address, false);
         $this->template->title = '用户修改收获地址';
-        $this->template->layout->content = View::forge('member/myaddress', $data);
+        $this->template->layout->content = $view;
     }
 
     /*
-    *获得当前快递地址
+    *获得当前快递地址return json
     */
     public function action_view($id=null)
     {
-        $address = Model_Member_Address::find($id);
-        $data['address'] = $address;
-        $this->template->title = '用户修改收获地址';
-        $this->template->content = View::forge('member/address', $data);
+        if (is_null($id))
+        {
+            Response::redirect('/u/address');
+        }
+        $response = new Response();
+        $response->set_header('Content-Type', 'application/json');
+        $data = ['code'=>-1, 'msg'=>'address_id is valid'];
+        $address = Model_Member_Address::find($id,
+                                                       [
+                                                       'select' => ['id', 'postcode', 'address', 'name', 'mobile'],
+                                                       'where' => ['member_id'=>$this->current_user->id]
+                                                       ]);
+        if ($address)
+        {
+            $data['code'] = 0;
+            $data['msg'] = 'OK';
+            $data['address'] = $address->to_array();
+            $data['address']['address'] = unserialize( $data['address']['address']);
+         }
+        return $response->body(json_encode($data));
     }
 
     /*
@@ -29,7 +46,10 @@ class Controller_Member_Address extends Controller_Center{
     */
     public function action_add()
     {
-        //!Input::method() == 'POST'
+        if (!Input::method() == 'POST')
+        {
+            Response::redirect('/u/address');
+        }
         $address[] = Input::post('province');
         $address[] = Input::post('city');
         $address[] = Input::post('county');
