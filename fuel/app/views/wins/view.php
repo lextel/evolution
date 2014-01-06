@@ -5,7 +5,6 @@
         $memberInfo = $getUser($win->member_id);
     ?>
     <div class="panel w">
-
         <div class="title">
             <h2>
                 <b>(第<?php echo $win->phase_id; ?>期)</b>

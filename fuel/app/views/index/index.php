@@ -9,14 +9,8 @@ $(function(){
                 speed            :    500,        /* Speed of transition animation in milliseconds */
                 interval          :   2000,
                 mousestop   :   true,
-<<<<<<< HEAD
-            });
-
-
-=======
    });
 });
->>>>>>> 05e034c9d9ed057a51e13dc44659b15a8055fe26
 </script>
     <!--banner开始-->
     <div class="banner">
@@ -138,9 +132,7 @@ $(function(){
         <!--右边结束-->
     </div>
     <!--人气推荐开始-->
-    <div class="recommended w">
-    
-    
+    <div class="recommended second w">
         <ul>
             <?php foreach($hotItems() as $phase) { ?>
             <li class="sidebar">
@@ -168,8 +160,6 @@ $(function(){
             </li>
             <?php } ?>
         </ul>
-   
-    
     </div>
 
     <!--晒单分享开始-->
