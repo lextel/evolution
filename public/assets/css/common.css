@@ -192,7 +192,7 @@ table tbody tr td{
     width: 19px;
     height: 19px;
     vertical-align: middle;
-    background-position: 0px -78px;
+    background-position: -47px -44px;
 }
 .icon-phone{
      width: 22px;
@@ -204,7 +204,7 @@ table tbody tr td{
     width: 19px;
     height:23px;
     vertical-align: middle;
-    background-position:0px -105px;
+    background-position:-89px -40px;
 }
 .icon-like{
     width: 18px;
@@ -220,6 +220,7 @@ table tbody tr td{
 }
 .icon-love{
     width: 18px;
+    height: 18px;
     height: 18px;
     vertical-align: middle;
     background-position:0 -196px;

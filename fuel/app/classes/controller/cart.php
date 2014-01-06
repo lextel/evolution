@@ -19,12 +19,15 @@ class Controller_Cart extends Controller_Frontend {
         $carts = Cart::items();
         $data = [];
         $itemModel = new Model_Item();
+        Config::load('common');
         foreach($carts as $cart) {
             $phase = Model_Phase::find($cart->get_id());
             $item = $itemModel->itemInfo($phase);
             $data[] = [
                     'image' => $item->image,
                     'title' => $item->title,
+                    'unit'  => Config::get('unit'),
+                    'point'  => Config::get('point'),
                     'qty'   => $cart->get_qty(),
                     'id'    => $cart->get_id(),
                     'rowId' => $cart->get_rowid(),
@@ -122,15 +125,28 @@ class Controller_Cart extends Controller_Frontend {
     // 完成支付处理
     public function action_complete() {
 
-        // TODO 检查银行结果支付失败跳转首页
-        if(false) {
+        $this->current_user->points;
+        $items = Cart::items();
+        $quantity = 0;
+        foreach($items as $item) {
+            $quantity =+ $item->get_qty();
+        }
+        
+        $config = Config::load('common');
+        $total = $quantity * $config['point'];
+
+        if($this->current_user->points < $total) {
             Response::redirect('/');
         }
 
-        $items = Cart::items();
         $orderModel = new Model_Order();
         $memberId = $this->current_user->id;
         $orderIds = $orderModel->add($memberId, $items);
+
+        // 产生空订单
+        if(count($orderIds) == 1) {
+            Response::redirect('/');
+        }
 
         Response::redirect('cart/result/?orderIds='. implode(',',$orderIds));
     }
