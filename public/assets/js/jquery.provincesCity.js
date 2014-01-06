@@ -21,35 +21,45 @@ $.fn.ProvinceCity = function(province, city1){
 	var $sel3 = _self.find("select").eq(2);
 	
 	
-	var index1 = -1;
-	var index2 = -1;
+	var indexp1 = -1;
+	var indexp2 = -1;
+	var index1 = "" ;
+	var index2 = "" ;
 	//默认省级下拉
 	if(_self.data("province")){
 		$sel1.append("<option value='"+_self.data("province")[1]+"'>"+_self.data("province")[0]+"</option>");
 	}
 	$.each( GP , function(index,data){
 	    if (data == province){
-	       index1 = index;
+	       indexp1 = index;
+	       index1 = index + 1;
 	    }
 		$sel1.append("<option value='"+data+"'>"+data+"</option>");
 	});
 	//默认的1级城市下拉
-	if(_self.data("city1")){
+	if(_self.data("city1") && (indexp1 == -1)){
 		$sel2.append("<option value='"+_self.data("city1")[1]+"'>"+_self.data("city1")[0]+"</option>");
 	}
-	$.each( GT[index1] , function(index,data){
-	    if (data == province){
-	       index1 = index;
-	    }
-		$sel1.append("<option value='"+data+"'>"+data+"</option>");
-	});
+	if (indexp1 != -1){
+	    $.each( GT[indexp1] , function(index,data){
+	        if (data == city1){
+	           indexp2 = index;
+	           index2 = index;
+	        }
+		    $sel2.append("<option value='"+data+"'>"+data+"</option>");
+	    });
+	}
 	//默认的2级城市下拉
 	if(_self.data("city2")){
 		$sel3.append("<option value='"+_self.data("city2")[1]+"'>"+_self.data("city2")[0]+"</option>");
 	}
-	
+	if (indexp2 != -1){
+	    $.each( GC[indexp1][indexp2] , function(index,data){	    
+		   $sel3.append("<option value='"+data+"'>"+data+"</option>");
+	    });
+	}
 	//省级联动 控制
-	var index1 = "" ;
+	
 	$sel1.click(function(){
 		//清空其它2个下拉框
 		$sel2[0].options.length=0;
@@ -72,13 +82,16 @@ $.fn.ProvinceCity = function(province, city1){
 		}
 	}).change();
 	//1级城市联动 控制
-	var index2 = "" ;
-	$sel2.change(function(){
+	
+	$sel2.click(function(){
 		$sel3[0].options.length=0;
+		
 		index2 = this.selectedIndex;
+		console.log(index2);
+        console.log(index1);
 		$.each( GC[index1-1][index2] , function(index,data){
 			$sel3.append("<option value='"+data+"'>"+data+"</option>");
 		})
-	});
+	}).change();
 	return _self;
 };

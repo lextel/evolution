@@ -1,12 +1,8 @@
 <?php
-
-class View_Admin_Posts_Index extends Viewmodel {
-    public $status = [
-        0=>'未审核',
-        1=>'审核通过',
-        2=>'审核通不过',
-        3=>'已经删除',
-        ];
+/*
+*用户后台admin 晒单详情的ViewModel
+*/
+class View_Admin_Posts_View extends Viewmodel {
 
     public function view() {
        //获得用户信息（用户名和标题）
@@ -33,7 +29,7 @@ class View_Admin_Posts_Index extends Viewmodel {
     }
 
    public function set_view(){
-       $this->_view = View::forge('admin/posts/index');
+       $this->_view = View::forge('admin/posts/view');
    }
 }
 

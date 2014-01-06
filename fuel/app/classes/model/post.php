@@ -39,6 +39,7 @@ class Model_Post extends \Orm\Model
         'comment_count',
         'comment_top',
         'is_delete',
+        'reason',
     );
 
 

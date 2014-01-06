@@ -23,7 +23,8 @@ class Create_posts
             'comment_top' => array('constraint' => 11, 'type' => 'int', 'null' => true, 'default' => '0'),
             'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
             'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
-            'is_delete' => array('constraint' => 11, 'type' => 'int', 'null' => true, 'default' => '0')
+            'is_delete' => array('constraint' => 11, 'type' => 'int', 'null' => true, 'default' => '0'),
+            'reason' => array('constraint' => 255, 'type' => 'varchar', 'null' => true, 'default' => '')
         ), array('id'));
     }
 
