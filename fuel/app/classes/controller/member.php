@@ -222,12 +222,16 @@ class Controller_Member extends Controller_Center{
             return $response->body(json_encode($data));
        }
        $money = Input::post('money');
+       
+       // 转换成积分
+       Config::load('common');
+       $point = Input::post('money') * Config::get('point');
        $source = Input::post('source');
        $sign = Input::post('sign');
-       $res = Model_Member::addMoney($this->current_user->id, $money);
+       $res = Model_Member::addMoney($this->current_user->id, $point);
        if ($res){
            //增加充值记录
-           Model_Member_Moneylog::recharge_log($this->current_user->id, $money, $source);
+           Model_Member_Moneylog::recharge_log($this->current_user->id, $point, $source);
            Session::set_flash('success', e('充值成功'));
            $data['code'] = 0;
            return $response->body(json_encode($data));

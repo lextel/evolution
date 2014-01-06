@@ -36,64 +36,55 @@ $(function(){
     });
 
     // 总额 小计
-    $('.add').click(function() {
+    $('.btn-jian, .btn-jia').click(function() {
+
+        if($(this).hasClass('btn-jian')) {
+            var obj = $(this).next();
+        } else {
+            var obj = $(this).prev();
+        }
+
+        updateSubtotal(obj);
         updateTotal();
     });
     $('input[name="qty"]').keyup(function() {
+        updateSubtotal($(this));
         updateTotal();
     });
 
-    // 余额支付
-    PAYALL = false;
-    pay = 0;
-    $('#balance').click(function() {
-        var total = $('#total').attr('total');
-        var money = $('#money').attr('money');
-        if (this.checked) {//全选
-            if(parseInt(money) > parseInt(total)) {
-                pay = total;
-                PAYALL = true;
-            } else {
-                pay = money;
-            }
+    // 购买 
+    $('#doBuy').click(function() {
 
-            $(this).parent().after('<span>余额支付<b class="y">' + parseInt(pay).toFixed(2) + '</b>元</span>');
-        } else {
-            $(this).parent().next().remove();
+        var money = $('#money').attr('money');
+        var total = $('#total').attr('total');
+        if(parseInt(money) < parseInt(total)) {
+            $('#payModal').modal('show');
+            return false;
         }
 
-    });
-
-    // 支付
-    $('#doPay').click(function() {
-
-
-        // 修改跳转页面
-        var url = $(this).attr('url');
-        url = url + '?bank=autoPay';
-        window.open(url, '_blank');
-
-        // 显示弹出窗口
-        $('#payModal').modal('show');
-    });
-
-    // 支付弹出跳转
-    // 遇到问题
-    $('#problem').click(function(){
-        $('#payModal').modal('hide');
-    });
-
-    // 支付成功
-    $('#complete').click(function(){
-        location.href = COMPLETE_URL;
+        return true;
     });
 });
 
+/**
+ * 更新总金额
+ */
 function updateTotal() {
     var total = 0;
-    $('input[name="qty"]').each(function(){
+    $('.qty').each(function(){
         total = total + parseInt($(this).val());
     });
 
-    $('#total').html('￥' + total.toFixed(2));
+    $('#total').html(total*POINT + UNIT);
+}
+
+/**
+ * 更新小计
+ */
+function updateSubtotal(obj) {
+    var val = obj.val();
+    var target = obj.parent().parent().next().find('s');
+
+    var subtotal = parseInt(val) * parseInt(POINT);
+    target.html(subtotal + UNIT);
 }

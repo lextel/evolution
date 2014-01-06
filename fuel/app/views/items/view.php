@@ -49,11 +49,16 @@
             <!--获奖者结束-->
             <?php endif; ?>
         </div>
+        <?php
+            Config::load('common');
+            $unit = Config::get('unit');
+        ?>
         <div class="product-column fr">
             <div class="state-heading">
                 <span>本商品已有 <b class="blue"><?php echo $postsCount($item->id); ?></b>位幸运者晒单，<b class="blue"><?php echo $commentCount($item->id); ?></b>评论</span>
             </div>
-            <div class="price">价值:<b><?php echo sprintf('%.2f', $item->price); ?></b></div>
+            <div class="price">价值:<b>￥<?php echo sprintf('%.2f', $item->price); ?></b></div>
+            <div class="price">总积分:<b><?php echo $item->phase->cost; ?><?php echo $unit; ?></b></div>
             <?php if(!empty($item->phase->remain)): ?>
             <dl class="progress-side">
                 <dd>
