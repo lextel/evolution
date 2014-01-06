@@ -11,7 +11,7 @@
                     <?php foreach($orders as $oitem) { ?>
                     <dd><b><?php echo \Helper\Timer::friendlyDate($oitem->created_at);?></b>乐拍了 </dd>
                     <dd class="right-box">
-                        <div class="img-box fl">
+                        <div class="img-box img-md fl">
                             <?php echo Html::anchor('m/'.$oitem->phase_id, Html::img($getItemInfo($getPhaseInfo($oitem->phase_id)->item_id)->image));?>
                         </div>
                         <div class="buy-record fl">
@@ -36,7 +36,7 @@
                     <?php foreach($wins as $witem) { ?>
                     <dd>在<?php echo \Helper\Timer::friendlyDate($witem->created_at);?>获得了 </dd>
                     <dd class="right-box">
-                        <div class="img-box fl">
+                        <div class="img-box img-md fl">
                             <?php echo Html::anchor('m/'.$witem->phase_id, Html::img($getItemInfo($witem->item_id)->image));?>
                             <div class="icon-jx">
                                 已揭晓
@@ -56,7 +56,7 @@
                     <?php foreach($posts as $pitem) { ?>
                     <dd>在<?php echo \Helper\Timer::friendlyDate($pitem->created_at);?>晒单了 </dd>
                     <dd class="right-box">
-                        <div class="img-box fl">
+                        <div class="img-box img-md fl">
                             <?php echo Html::anchor('/p/'.$pitem->id, $pitem->title);?>
                         </div>
                              <?php echo Html::anchor('/p/'.$pitem->id, "详情>>");?>

@@ -329,7 +329,7 @@
 .date-hot ul li .price{
     position: absolute;
     top: 5px;
-    right: -30px;
+    right: 5px;
     width:115px;
     text-align: center;
     height: 30px;
@@ -973,33 +973,29 @@
 	left:0px;
 	top:0px;
 }
-
-.scrollleft a:link,.scrollleft a:visited{color:#333; text-decoration:none;}
-.scrollleft a:hover{color:#000;}
 .scrollleft a.abtn{
 	position:absolute;
-	top:4px;
-	display:block;
-	height:132px;
-	width:6px;
+    top: 62px;
+    display: block;
+    width: 24px;
+    height: 38px;
 	overflow:hidden;
-	text-indent:-20000px;
-	background:url(../images/arrow3.gif) 0px center no-repeat;
+	background:#D9534F url(../images/icon_3.png) no-repeat;
 }
 .scrollleft a.aleft{
-	left:0px;
+    background-position: 4px -28px;
 }
 .scrollleft a.agrayleft{
 	cursor:default;
-	background-position:-12px center;
+    background: #F1F1F1 url(../images/icon_3.png) 4px -28px;
 }
 .scrollleft a.aright{
-	right:7px;
-	background-position:-6px center;
+	right:0px;
+    background-position: -27px -28px;
 }
 .scrollleft a.agrayright{
 	cursor:default;
-	background-position:-18px center;
+    background: #F1F1F1 url(../images/icon_3.png)  -27px -28px;
 }
 
 
