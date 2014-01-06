@@ -46,6 +46,7 @@ class Model_Member_Moneylog extends Model
 
     /*
     * 增加用户充值记录
+    * member_id 为用户ID, sum为充值数量, source 来源
     */
     public static function recharge_log($member_id, $sum, $source)
     {
@@ -65,6 +66,7 @@ class Model_Member_Moneylog extends Model
     }
     /*
     * 增加用户消费记录
+    * member_id 为用户ID,sum为用户消费额，item_id为商品ID，phase_id为期数ID，TOTAL为一次购买的数量
     */
     public static function buy_log($member_id, $sum, $item_id, $phase_id, $total)
     {

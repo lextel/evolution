@@ -50,7 +50,7 @@
         <tbody>
         <?php foreach ($list as $item): ?>
              <tr>
-                <td><?php echo '('.$item->phase_id.')'.$item->item_id; ?></td>
+                <td><?php echo '('.$item->phase_id.')'.$item->pahse_id; ?></td>
                 <td><?php echo $item->total.'人次'; ?></td>
                 <td><?php echo Date::forge($item->created_at)->format("%Y-%m-%d %H:%M:%S"); ?></td>
                 <td><?php echo $item->sum; ?></td>

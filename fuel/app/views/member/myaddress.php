@@ -3,28 +3,37 @@
 <?php echo Asset::js(['provincesdata.js','Validform_v5.3.2_min.js']); ?>
 
 <script>
-	//调用插件
-	$(function(){
-		$("#datas").ProvinceCity();
-		
-		$(".btn-address").click(function(){
-		    var province = $("#datas select").eq(0).val();
-		    var city = $("#datas select").eq(1).val();
-		    var county = $("#datas select").eq(2).val();
-		    var address = $("textarea[name='address']").val();
-		    var postcode = $("input[name='postcode']").val();
-		    var name = $("input[name='name']").val();
-		    var phone = $("input[name='phone']").val();
-		    console.log(phone);
-		    $.post('/u/address/add', 
-		          {province:province, city:city, county:county, address:address, postcode:postcode, name:name, phone:phone},
-		          function( data ){
-		            alert('111111');
-		          },
-		          'json'
-		    );
-		});
-	});
+    //调用插件
+    $(function(){
+        $("#datas").ProvinceCity();
+        
+        
+        $(".btn-address").click(function(){
+            var province = $("#datas select").eq(0).val();
+            var city = $("#datas select").eq(1).val();
+            var county = $("#datas select").eq(2).val();
+            var address = $("textarea[name='address']").val();
+            var postcode = $("input[name='postcode']").val();
+            var name = $("input[name='name']").val();
+            var phone = $("input[name='phone']").val();
+            console.log(phone);
+            $.post('/u/address/add',
+                  {province:province, city:city, county:county, address:address, postcode:postcode, name:name, phone:phone},
+                  function( data ){
+                     window.location.href = "/u/address";
+                  },
+                  'html'
+            );
+        });
+        
+        $(".btn-addAddress").click(function(){
+            $(".address").show();
+        })
+    });
+    function modifyAddress(id){
+          $.get(''); 
+        
+    }
   </script>
 
 <br />
@@ -57,18 +66,19 @@
                     }?>
                     <?php foreach($list as $address) { ?>
                         <tr>
-                            <td><?php echo $address->address; ?></td>
+                            <td><?php echo $getAddress($address->address); ?></td>
                             <td><?php echo $address->postcode; ?></td>
                             <td><?php echo $address->name; ?></td>
                             <td><?php echo $address->mobile; ?></td>
                             <td><?php echo $address->rate; ?></td>
-                            <td><?php echo Html::anchor('u/address/edit/'.$address->id, '修改'); ?></td>
+                            <td><?php echo Html::anchor('javascript:;', '修改', ['onclick'=>'modifyAddress('.$address->id.')']); ?></td>
                         </tr>
                     <?php } ?>
                     </tbody>
                 </table>
             </li>
-            <li>添加新地址</li>
+            <button class="btn btn-addAddress">添加新地址</button>
+            <ol class="address" style="display:none">
             <li>
                 <label>所在地区：</label>
                 <div id="datas"></div>
@@ -96,17 +106,19 @@
             </li>
             <li>
                 <input class="btn btn-red btn-address" type="submit" value="保存"/>
+                <input class="btn btn-red btn-address" type="submit" value="取消"/>
             </li>
+            </ol>
         </ul>
 </div>
 <script type="text/javascript">
 
 $(function(){
-	$(".registerform").Validform({
-		tiptype:3,
-		label:".label",
-		showAllError:true,
-		ajaxPost:true
-	});
+    $(".registerform").Validform({
+        tiptype:3,
+        label:".label",
+        showAllError:true,
+        ajaxPost:true
+    });
 })
 </script>

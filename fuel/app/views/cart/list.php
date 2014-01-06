@@ -16,7 +16,7 @@
                         <tr>
                             <th></th>
                             <th>商品名称</th>
-                            <th>价值</th>
+                            <th>总积分</th>
                             <th>单价</th>
                             <th>购买数量</th>
                             <th>小计</th>
@@ -27,6 +27,7 @@
                         <?php
                             $subTotal = 0;
                             if(!empty($items)) :
+                            $config = Config::load('common');
                             foreach($items as $item) :
                                 $info = $getInfo($item->get_id());
                                 $subTotal += $item->get_qty();
@@ -44,17 +45,17 @@
                                     <div class="remain">剩余<b class="red"><?php echo $info->phase->remain; ?></b>人次</div>
                                 </div>
                             </td>
-                            <td><s class="red">￥<?php echo sprintf('%.2f', $info->price); ?></s></td>
-                            <td><s class="red">￥<?php echo sprintf('%.2f', $info->price); ?></s></td>
+                            <td><s class="red"><?php echo $info->phase->cost.Config::get('unit'); ?></s></td>
+                            <td><s class="red"><?php echo Config::get('point').Config::get('unit'); ?></s></td>
                             <td>
                                 <div class="btn-menu">
                                     <a class="add btn-jian" href="javascript:void(0);">-</a>
-                                    <input type="text" value="<?php echo $item->get_qty(); ?>" name="qty" rowId="<?php echo $item->get_rowid(); ?>" remain="<?php echo $info->phase->remain?>">
+                                    <input type="text" value="<?php echo $item->get_qty(); ?>" class="qty" name="qty" rowId="<?php echo $item->get_rowid(); ?>" remain="<?php echo $info->phase->remain?>">
                                     <a class="add btn-jia" href="javascript:void(0);">+</a>
                                     <span>人次</span>
                                 </div>
                             </td>
-                            <td><s class="red">￥<?php echo sprintf('%.2f', $item->get_qty()); ?></s></td>
+                            <td><s class="red"><?php echo $item->get_qty() * Config::get('point') . Config::get('unit'); ?></s></td>
                             <td><button class="btn btn-default btn-sx" action="delete">删除</button></td>
                         </tr>
                         <?php 
@@ -72,7 +73,7 @@
                     <div class="cart-footer">
                         <label class="fl"><input type="checkbox" action="selectAll"/>全选</label>
                         <button class="btn btn-default btn-sx fl" action="batchDelete">批量删除</button>
-                        <div class="price fr">总金额：<s class="red" id="total">￥<?php echo sprintf('%.2f', $subTotal); ?></s></div>
+                        <div class="price fr">总积分：<s class="red" id="total"><?php echo $subTotal * $config['point']. $config['unit']; ?></s></div>
                     </div>
                 </div>
             </form>
