@@ -18,7 +18,7 @@ $(function(){
             <li><a href=""></a></li>
         </ul>
     </div>
-    <div class="content">
+    <div class="register-wrap">
         <h2><span class="icon-prompt"></span>恭喜你成为乐拍会员，现在输入昵称开始乐拍吧</h2>
         <form action="/u/nickname" method="POST" class="addnickname">
         <ul class="edit-data">
@@ -28,7 +28,7 @@ $(function(){
                 <span for="" class=""></span>
             </li>
             <li>
-                <a href="javascript:void(0);" class="btn btn-red btn-nickname">确定并连接到首页</a>
+                <a href="javascript:void(0);" class="btn btn-red btn-nickname">确定</a>
             </li>
         </ul>
         </form>
