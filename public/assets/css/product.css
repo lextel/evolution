@@ -312,7 +312,7 @@
 .date-hot ul li{
     float: left;
     width: 120px;
-    margin-left: 50px;
+    padding: 0 25px;
     position: relative;
 }
 .date-hot ul li .img-box{
@@ -947,13 +947,60 @@
     color: #f60;
     margin: 0 5px;
 }
+
 .latest-wrap{
     margin-top:20px;
 }
 
+.scrollleft {
+	padding:4px 0;
+	margin:10px auto;
+	position:relative;
+}
+
+.scrollleft .scrollcontainer{
+	width:850px;
+	height:200px;
+	overflow:hidden;
+	position:relative;
+	margin:0 auto;
+}
 
 
+.scrollleft .scrollcontainer ul{
+	width:20000px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
 
+.scrollleft a:link,.scrollleft a:visited{color:#333; text-decoration:none;}
+.scrollleft a:hover{color:#000;}
+.scrollleft a.abtn{
+	position:absolute;
+	top:4px;
+	display:block;
+	height:132px;
+	width:6px;
+	overflow:hidden;
+	text-indent:-20000px;
+	background:url(../images/arrow3.gif) 0px center no-repeat;
+}
+.scrollleft a.aleft{
+	left:0px;
+}
+.scrollleft a.agrayleft{
+	cursor:default;
+	background-position:-12px center;
+}
+.scrollleft a.aright{
+	right:7px;
+	background-position:-6px center;
+}
+.scrollleft a.agrayright{
+	cursor:default;
+	background-position:-18px center;
+}
 
 
 
