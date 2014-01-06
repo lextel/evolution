@@ -51,14 +51,17 @@ class Model_Order extends \Orm\Model
 
         $quantity   = 0;
         $orderIds = [0];
+
+        Config::load('common');
+        $memberHelper = new \Helper\Member();
+        $ip = $memberHelper->getIp();
+
         foreach($carts as $cart) {
 
             $phaseId = $cart->get_id();
             $fetchCodes = $this->buy($phaseId, $cart->get_qty());
 
             $phase = Model_Phase::find($phaseId);
-            $memberHelper = new \Helper\Member();
-            $ip = $memberHelper->getIp();
             $data = [
                 'title'      => $phase->title,
                 'phase_id'   => $phaseId,
@@ -77,11 +80,16 @@ class Model_Order extends \Orm\Model
                 $quantity += count($fetchCodes);
                 $orderIds[] = $orderModel->id;
             }
+
+            // 写消费日志
+            $perPoint = $cart->get_qty() * Config::get('point');
+            //Model_Member_Moneylog::buy_log($memberId, $perPoint, $phaseId, $cart->get_qty());
         }
 
         // 更新用户积分
+        $point = $quantity * Config::get('point');
         $member = Model_Member::find($memberId);
-        $member->points = $member->points - $quantity;
+        $member->points = $member->points - $point;
         $member->save();
 
         return $orderIds;
@@ -113,8 +121,15 @@ class Model_Order extends \Orm\Model
         $phase->remain = $phase->remain - $count;
         $phase->joined = $phase->joined + $count;
         if($phase->remain == 0) {
-            $config = Config::load('common');
-            $phase->opentime = time() + ($config['open'] * 60);
+            Config::load('common');
+
+            // 如果是4:00 - 4:10之间延长一倍
+            if(date('H') == 4 && date('i') < 10) {
+                $time = time() + Config::get('open') * 2 * 60;
+            } else {
+                $time = time() + Config::get('open') * 60;
+            }
+            $phase->opentime = $time;
         }
 
         $phase->save();
@@ -126,6 +141,11 @@ class Model_Order extends \Orm\Model
                 $phaseModel = new Model_Phase();
                 $phaseModel->add($item);
             }
+
+            // 写开奖命令
+            $filename = date('Y_m_d_H_i_s_', $time) . $phaseId . '.cron';
+            $dir = APPPATH . 'tmp' . DS . 'crontabs' . DS;
+            file_put_contents($dir.$filename, 'cd '. DOCROOT . ' && php oil refine result ' .$phaseId);
         }
 
         return $fetchCodes;

@@ -265,7 +265,7 @@ $(function(){
                         html += '<a href="'+BASE_URL + 'm/' + data[i].id +'"><img src="'+BASE_URL + data[i].image+'" alt=""></a>';
                         html += '</div><div class="info-side fr"><div class="title">';
                         html += '<a href="'+BASE_URL + 'm/' + data[i].id +'">'+data[i].title+'</a>';
-                        html += '</div><div class="price tl">￥1.00 x <b class="y">'+data[i].qty+'</b></div>';
+                        html += '</div><div class="price tl">'+data[i].point+ data[i].unit +' x <b class="y">'+data[i].qty+'</b></div>';
                         html += '<a href="javascript:void(0);" class="btn btn-link btn-sx cartRemove" rowId="'+data[i].rowId+'">删除</a></div></li>';
                     }
                     html += '<div class="btn-group tr"><a href="'+BASE_URL + 'cart/list' + '" class="btn-red btn btn-sx">查看购物车</a></div>';
