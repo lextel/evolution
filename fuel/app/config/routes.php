@@ -22,7 +22,7 @@ return array(
     'u/getnickname' => 'member/getnickname' ,
     'u/nickname' => 'member/addnickname' ,
     'u/address' => 'member/address/index',
-    'u/address/(\d+)' => 'member/address/view',
+    'u/address/(\d+)' => 'member/address/view/$1',
     'u/address/add' => 'member/address/add',
     'u/address/delete/(\d+)' => 'member/address/delete/$1',
     'u/getavatar' => 'member/getavatar',

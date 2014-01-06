@@ -123,9 +123,7 @@
         <!--右边结束-->
     </div>
     <!--人气推荐开始-->
-    <div class="recommended w">
-    
-    
+    <div class="recommended second w">
         <ul>
             <?php foreach($hotItems() as $phase) { ?>
             <li class="sidebar">
@@ -153,8 +151,6 @@
             </li>
             <?php } ?>
         </ul>
-   
-    
     </div>
 
     <!--晒单分享开始-->

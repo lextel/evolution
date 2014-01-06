@@ -5,7 +5,7 @@
  * @example  $("#test").ProvinceCity();
  * @params   暂无
  */
-$.fn.ProvinceCity = function(){
+$.fn.ProvinceCity = function(province, city1){
 	var _self = this;
 	//定义3个默认值
 	_self.data("province",["请选择", "请选择"]);
@@ -19,24 +19,38 @@ $.fn.ProvinceCity = function(){
 	var $sel1 = _self.find("select").eq(0);
 	var $sel2 = _self.find("select").eq(1);
 	var $sel3 = _self.find("select").eq(2);
+	
+	
+	var index1 = -1;
+	var index2 = -1;
 	//默认省级下拉
 	if(_self.data("province")){
 		$sel1.append("<option value='"+_self.data("province")[1]+"'>"+_self.data("province")[0]+"</option>");
 	}
 	$.each( GP , function(index,data){
+	    if (data == province){
+	       index1 = index;
+	    }
 		$sel1.append("<option value='"+data+"'>"+data+"</option>");
 	});
 	//默认的1级城市下拉
 	if(_self.data("city1")){
 		$sel2.append("<option value='"+_self.data("city1")[1]+"'>"+_self.data("city1")[0]+"</option>");
 	}
+	$.each( GT[index1] , function(index,data){
+	    if (data == province){
+	       index1 = index;
+	    }
+		$sel1.append("<option value='"+data+"'>"+data+"</option>");
+	});
 	//默认的2级城市下拉
 	if(_self.data("city2")){
 		$sel3.append("<option value='"+_self.data("city2")[1]+"'>"+_self.data("city2")[0]+"</option>");
 	}
+	
 	//省级联动 控制
 	var index1 = "" ;
-	$sel1.change(function(){
+	$sel1.click(function(){
 		//清空其它2个下拉框
 		$sel2[0].options.length=0;
 		$sel3[0].options.length=0;
