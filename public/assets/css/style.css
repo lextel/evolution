@@ -184,14 +184,18 @@
 .home-wrap .home-c{
     overflow: hidden;
 }
-.home-wrap .home-c ul li{
+.home-wrap .home-c dl{
+    overflow: hidden;
+    margin-top: 15px;
+}
+.home-wrap .home-c dl dd{
     width: 218px;
     padding: 10px;
     border: 1px solid #EEEEEE;
     float: left;
     margin:0 0 15px 15px;
 }
-.home-wrap .home-c ul li .img-box{
+.home-wrap .home-c dl dd .img-box{
     width: 218px;
     height: 200px;
     text-align: center;
@@ -323,6 +327,16 @@
 .buy-menu .right-box{
     width: 420px;
     position: relative;
+}
+.home-wrap .buy-menu .right-box{
+    width: 600px;
+    overflow: hidden;
+    margin:15px 0 15px 60px;
+    border: 1px solid #EEEEEE;
+    padding: 10px;
+}
+.home-wrap .buy-menu .right-box .buy-record{
+    width: 60%;
 }
 .icon-jx{
     width:40px ;
@@ -655,7 +669,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     height: 41px;
     margin-left: 120px;
     overflow: hidden;
-    background: url("../images/icon_2.png") no-repeat 0 -118px;
+    background: url("../images/icon.png") no-repeat 0 -318px;
 }
 .edit-data li .file-img input{
     cursor: pointer;
