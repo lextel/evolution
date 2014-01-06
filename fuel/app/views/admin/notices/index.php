@@ -1,24 +1,24 @@
-<?php if($breadcrumb): ?>
-<ol class="breadcrumb">
-    <?php echo $breadcrumb; ?>
-</ol>
-<?php endif; ?>
 <form class="form-inline" role="form" action="" method="get">
   <div class="form-group">
     <select class="form-control" name="user_id" id="form_user_id">
         <option value=''>发布人</option>
         <?php 
             foreach($users as $user):
-                echo '<option value="'.$user->id.'">'.$user->username.'</option>';
+                $select = '';
+                if(Input::get('user_id') == $user->id):
+                    $select = 'selected="seelcted"';
+                endif;
+                echo '<option value="'.$user->id.'" '.$select.'>'.$user->username.'</option>';
             endforeach;
         ?>
     </select>
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" name="title" placeholder="公告标题">
+    <input type="text" class="form-control" name="title" value="<?php echo Input::get('title'); ?>" placeholder="公告标题">
   </div>
   <button type="submit" class="btn btn-default">搜索</button>
-  <?php echo Html::anchor('admin/notices/create', '发布公告', array('class' => 'btn btn-success  col-md-offset-7')); ?>
+  <a href="<?php echo Uri::create('admin/notices'); ?>" class="btn btn-default">重置</a>
+  <?php echo Html::anchor('admin/notices/create', '发布公告', array('class' => 'btn btn-success  col-md-offset-6')); ?>
 </form>
 <?php if ($notices): ?>
 <table class="table table-striped">

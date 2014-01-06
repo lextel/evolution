@@ -49,7 +49,7 @@ class View_Items_index extends Viewmodel {
                 'is_delete' => self::NOT_DELETE,
                ];
 
-            return Model_Ad::find('all', ['where' => $where, 'limit' => 6]);
+            return Model_Ad::find('all', ['where' => $where, 'order_by' => ['sort' => 'asc'], 'limit' => 6]);
         };
 
         // 即将揭晓

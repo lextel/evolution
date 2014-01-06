@@ -73,6 +73,6 @@ $(function(){
                 render(min, sec, msec, obj);
             }
 
-        }, 1000);
+        }, 40);
     });
 });
