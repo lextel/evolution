@@ -936,3 +936,14 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     color: #4CAFFF;
     font-size: 13px;
 }
+
+.buyListdiv{
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.buyList li{
+        line-height:29px;
+
+}
+
