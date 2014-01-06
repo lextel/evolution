@@ -94,6 +94,7 @@ class Controller_Admin extends Controller_Baseend
      */
     public function action_index()
     {
+        $this->template->set_global('breadcrumb', []);
         $this->template->title = 'Dashboard';
         $this->template->content = View::forge('admin/dashboard');
     }

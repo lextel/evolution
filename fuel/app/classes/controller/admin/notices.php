@@ -11,7 +11,8 @@ class Controller_Admin_Notices extends Controller_Admin{
         $noticeModel = new Model_Notice();
         $total = $noticeModel->countNotice(Input::get());
         $page = new \Helper\Page();
-        $url = Uri::create('/admin/notices/index/' . Uri::build_query_string(Input::get()));
+        $url = Uri::create('admin/notices', ['user_id' => Input::get('user_id'), 'title' => Input::get('title')], ['user_id' => ':user_id', 'title' => ':title']);
+
         $config = $page->setConfig($url, $total, 'page');
         $pagination = Pagination::forge('mypagination', $config);
 
@@ -24,9 +25,9 @@ class Controller_Admin_Notices extends Controller_Admin{
         $view = ViewModel::forge('admin/notices/index');
         $view->set('notices', $noticeModel->index($get));
         $breadcrumb = new Helper\Breadcrumb();
-        $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $view->set('pagination', $pagination);
         $view->set('users', $users);
+        $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $this->template->title = "公告列表";
         $this->template->content = $view;
 
@@ -35,9 +36,9 @@ class Controller_Admin_Notices extends Controller_Admin{
     public function action_view($id = null) {
 
         $breads = [
-            ['name' => '公告管理', 'href' => 'javascript:void(0);'], 
+            ['name' => '公告管理'], 
             ['name' => '公告列表', 'href'=> Uri::create('admin/notices')],
-            ['name' => '公告详情', 'href'=> 'javascript:void(0);']
+            ['name' => '公告详情']
         ];
 
         $notice = Model_Notice::find($id);
@@ -45,8 +46,8 @@ class Controller_Admin_Notices extends Controller_Admin{
         $view = ViewModel::forge('admin/notices/view');
 
         $breadcrumb = new Helper\Breadcrumb();
-        $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $view->set('notice', $notice, false);
+        $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $this->template->title = "公告详情";
         $this->template->content = $view;
 
@@ -73,30 +74,32 @@ class Controller_Admin_Notices extends Controller_Admin{
     // 保存公告
     public function action_add() {
 
-        if (Input::method() == 'POST') {
-            $val = Model_Notice::validate('create');
+        $val = Model_Notice::validate('create');
 
-            if ($val->run()) {
+        if ($val->run()) {
 
-                $noticeModel = new Model_Notice();
-                if($noticeModel->add($this->current_user->id, Input::post())) {
-                    Session::set_flash('success', e('公告添加成功'));
-                    Response::redirect('admin/notices');
-                } else {
-                    Session::set_flash('error', e('操作失败'));
-                }
+            $noticeModel = new Model_Notice();
+            if($noticeModel->add($this->current_user->id, Input::post())) {
+                Session::set_flash('success', e('公告添加成功'));
+                Response::redirect('admin/notices');
             } else {
-                Session::set_flash('error', $val->error());
+                Session::set_flash('error', e('操作失败'));
             }
+        } else {
+            $val->set_message('required', ':label 为必填项.');
+            $val->set_message('max_length', ':label 不能超过:param:1个字.');
+            Session::set_flash('error', $val->show_errors());
         }
+
+        Response::redirect('admin/notices/create');
     }
 
     public function action_edit($id = null) {
 
         $breads = [
-            ['name' => '公告管理', 'href' => 'javascript:void(0);'],
+            ['name' => '公告管理'],
             ['name' => '公告列表', 'href' => Uri::create('admin/notices')],
-            ['name' => '编辑公告', 'href'=> 'javascript:void(0);']
+            ['name' => '编辑公告']
            ];
 
         $notice = Model_Notice::find($id);
@@ -124,6 +127,8 @@ class Controller_Admin_Notices extends Controller_Admin{
                 Session::set_flash('error', e('编辑失败 #' . $id));
             }
         } else  {
+            $val->set_message('required', ':label 为必填项.');
+            $val->set_message('max_length', ':label 不能超过:param:1个字.');
             Session::set_flash('error', $val->error());
         }
 

@@ -1,15 +1,10 @@
-<?php if($breadcrumb): ?>
-<ol class="breadcrumb">
-    <?php echo $breadcrumb; ?>
-</ol>
-<?php endif; ?>
 <?php if ($members): ?>
 <table class="table table-striped">
     <thead>
         <tr>
             <th>#ID</th>
             <th>昵称</th>
-            <td>余额</td>
+            <td>积分</td>
             <th>邮箱</th>
             <th>注册时间</th>
             <th>登陆时间</th>

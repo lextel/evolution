@@ -1,8 +1,3 @@
-<?php if($breadcrumb): ?>
-<ol class="breadcrumb">
-    <?php echo $breadcrumb; ?>
-</ol>
-<?php endif; ?>
 <ul class="nav nav-tabs">
   <li class="active"><a href="#index" data-toggle="tab">首页幻灯片</a></li>
   <li><a href="#items" data-toggle="tab">所有商品页</a></li>

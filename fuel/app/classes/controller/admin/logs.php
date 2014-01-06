@@ -1,10 +1,10 @@
 <?php
 class Controller_Admin_Logs extends Controller_Admin{
 
-	public function action_index()
-	{
+    public function action_index()
+    {
 
-		$breads = [
+        $breads = [
             ['name' => '管理日志'], 
         ];
 
@@ -18,14 +18,14 @@ class Controller_Admin_Logs extends Controller_Admin{
         $view = ViewModel::forge('admin/logs/index');
 
         $logModel = new Model_Log();
-		$logs = $logModel->index($pagination->offset, $pagination->per_page);
-		$view->set('logs', $logs);
+        $logs = $logModel->index($pagination->offset, $pagination->per_page);
+        $view->set('logs', $logs);
 
-		$breadcrumb = new Helper\Breadcrumb();
-        $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $breadcrumb = new Helper\Breadcrumb();
+        $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
 
-		$this->template->title = "管理日志";
-		$this->template->content = $view;
-	}
+        $this->template->title = "管理日志";
+        $this->template->content = $view;
+    }
 
 }

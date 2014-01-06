@@ -48,13 +48,16 @@ class Model_Order extends \Orm\Model
 
         $timer = new \Helper\Timer();
 
-
         $quantity   = 0;
         $orderIds = [0];
 
         Config::load('common');
         $memberHelper = new \Helper\Member();
         $ip = $memberHelper->getIp();
+
+        $ip2area = new \Classes\Ip2area(APPPATH . 'qqwry.dat');
+        $location = $ip2area->getlocation($ip);
+        $location['area'] = iconv('GB2312','UTF-8//IGNORE', $location['area']);
 
         foreach($carts as $cart) {
 
@@ -69,7 +72,7 @@ class Model_Order extends \Orm\Model
                 'codes'      => serialize($fetchCodes),
                 'code_count' => count($fetchCodes),
                 'ip'         => $ip,
-                'area'       => '',
+                'area'       => $location['area'],
                 'ordered_at' => $timer->millitime(),
                 ];
 
@@ -83,7 +86,7 @@ class Model_Order extends \Orm\Model
 
             // 写消费日志
             $perPoint = $cart->get_qty() * Config::get('point');
-            //Model_Member_Moneylog::buy_log($memberId, $perPoint, $phaseId, $cart->get_qty());
+            Model_Member_Moneylog::buy_log($memberId, $perPoint, $phaseId, $cart->get_qty());
         }
 
         // 更新用户积分

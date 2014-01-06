@@ -30,8 +30,13 @@ class Controller_Admin_Posts extends Controller_Admin{
                                                   'rows_limit'=>$pagination->per_page,
                                                   'rows_offset'=>$pagination->offset,]
                                          );
+
+        $breads = [['name' => '晒单管理']];
+
+        $breadcrumb = new Helper\Breadcrumb();
         $view = ViewModel::forge('admin/posts/index', 'view');
         $view->set('posts', $posts);
+        $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $this->template->title = "晒单管理列表";
         $this->template->content = $view;
 
