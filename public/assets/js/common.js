@@ -567,7 +567,7 @@ $(function(){
 });
 
 $(function(){
-          $('.bxslider').bxSlider();
+          //$('.bxslider').bxSlider();
 });
 
 
