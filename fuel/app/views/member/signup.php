@@ -24,6 +24,9 @@
                 <?php echo Html::anchor('signin', '登录', array('class' => ''));?>
             </div>
         </div>
+        <?php if($signup_error) { ?>
+            <span><?php echo $signup_error; ?></span>
+        <?php } ?>
         <?php echo Form::open(array("class"=>"register-form demoform")); ?>
             <ul>
                 <li>

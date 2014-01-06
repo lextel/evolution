@@ -82,17 +82,17 @@ $(function(){
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($noposts as $post) { ?>
+                    <?php foreach($noposts as $phase) { ?>
                     <tr>
                         
-                        <td><?php echo $post->id;?></td>
-                        <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""/></a></div></td>
+                        <td><?php echo $phase->id;?></td>
+                        <td><div class="img-box"><?php echo Html::anchor('/w/'.$phase->id, Html::img($getItem($phase->item_id)->image));?></div></td>
                         <td>
-                            <div class="text-title">（第539期）苹果Iphone 5s 16G版 3G手机</div>
-                            <div class="number">幸运乐拍码：10000121</div>
-                            <div class="datetime">揭晓时间：2013-12-33 10:00:00</div>
+                            <div class="text-title">（第<?php echo $phase->phase_id;?>期）<?php echo $phase->title;?></div>
+                            <div class="number">幸运乐拍码：<?php echo $phase->code;?></div>
+                            <div class="datetime">揭晓时间：<?php echo Date("Y-m-d H:i:s", $phase->opentime);?></div>
                         </td>
-                        <td><a href="javascript:;" class="btn btn-default btn-sx btn-addpost" id=<?php echo $post->id;?>>晒单</a></td>
+                        <td><a href="javascript:;" class="btn btn-default btn-sx btn-addpost" id=<?php echo $phase->id;?>>晒单</a></td>
                     </tr>
                     <?php } ?>
                     </tbody>
