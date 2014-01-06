@@ -917,6 +917,9 @@
     line-height: 200px;
     margin: 0 auto;
 }
+.sort-list ul li div.longItem .remain{
+    text-align: center;
+}
 /*商品搜索*/
 .top-navbar{
     overflow: hidden;
