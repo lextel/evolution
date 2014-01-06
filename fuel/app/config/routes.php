@@ -52,8 +52,8 @@ return array(
 
     'u/orders' => 'member/orders/my',
     'u/orders/p/(\d+)' => 'member/orders/my/$1',
-    'u/wins' => 'member/lottery/index',
-    'u/win/p/\d+' => 'member/lottery/index/$1',
+    'u/wins' => 'member/wins/index',
+    'u/win/p/\d+' => 'member/wins/index/$1',
     'u/getrecharge' => 'member/getrecharge',
     'u/recharge' => 'member/recharge',
     'u/moneylog' => 'member/moneylog/rechargeIndex',
