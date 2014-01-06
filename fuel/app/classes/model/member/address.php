@@ -31,7 +31,13 @@ class Model_Member_Address extends \Orm\Model
     public static function validate($factory)
     {
         $val = Validation::forge($factory);
-        $val->add_field('address', '', 'required|min_length[3]|max_length[255]');
+        $val->add_field('province', '', 'required');
+        $val->add_field('city', '', 'required');
+        $val->add_field('county', '', 'required');
+        $val->add_field('address', '', 'required');
+        $val->add_field('postcode', '', 'required');
+        $val->add_field('name', '', 'required');
+        $val->add_field('phone', '', 'required');
         return $val;
     }
 

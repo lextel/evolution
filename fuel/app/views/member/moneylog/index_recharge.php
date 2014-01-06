@@ -20,7 +20,7 @@
 
     <div class="account-box">
         <div class="remind ">
-            <span class="balance">你的帐户余额为：<b>￥<?php echo $current_user->points;?></b></span>
+            <span class="balance">你的帐户余额为：<b>￥<?php echo $current_user->points;?>.00</b></span>
             <?php echo Html::anchor('u/getrecharge', '充值', ['class'=>'btn-pay']);?>
         </div>
         <div class="toggles">

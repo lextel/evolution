@@ -1,18 +1,5 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
-<?php echo Asset::js('jquery.totemticker.min.js'); ?>
-
-<script type="text/javascript">
-        $(function(){
-            $('.vertical-ticker').totemticker({
-                row_height  :   '110px',
-                speed            :    500,        /* Speed of transition animation in milliseconds */
-                interval          :   2000,
-                mousestop   :   true,
-            });
-        });
-    </script>
-
-<?php echo Asset::js(['wins/index.js']); ?>
+<?php echo Asset::js(['wins/index.js','index.js','jquery.bxslider.min.js']); ?>
 
 <div class="latest-wrap w">
    <!--左边内容开始-->
@@ -98,9 +85,9 @@
     <div class="right-box fr">
         <!--大家正在乐拍内容开始-->
         <div class="buying-box">
-            <div class="title"><h4>大家正在乐拍</h4></div>
-            <div class="wrapper">
-            <ul class="vertical-ticker">
+            <div class="title"><h4>大家正在乐拍111</h4></div>
+            <div class="buyListdiv" >
+                <ul class="buyList">
                 <?php foreach($orders() as $order) {?>
 
                     <li>

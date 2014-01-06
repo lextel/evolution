@@ -1,79 +1,6 @@
 <?php echo Asset::js('jquery.provincesCity.js',"utf-8"); ?>
 <?php echo Asset::css(['member/validfrom_style.css']); ?>
-<?php echo Asset::js(['provincesdata.js','Validform_v5.3.2_min.js']); ?>
-
-<script>
-    //调用插件
-    $(function(){
-        //$("#datas").ProvinceCity();
-        
-        
-        $(".btn-address").click(function(){
-            var province = $("#datas select").eq(0).val();
-            var city = $("#datas select").eq(1).val();
-            var county = $("#datas select").eq(2).val();
-            var address = $("textarea[name='address']").val();
-            var postcode = $("input[name='postcode']").val();
-            var name = $("input[name='name']").val();
-            var phone = $("input[name='phone']").val();
-            if ((province != '请选择' || province != '') && (city != '请选择' || city != '') && (county != '请选择' || county != '')){
-            
-                  if (address !='' && postcode !='' && name !='' && phone !=''){
-                     $.post('/u/address/add',
-                     {province:province, city:city, county:county, address:address, postcode:postcode, name:name, phone:phone},
-                     function( data ){
-                       window.location.href = "/u/address";
-                     },
-                     'html'
-                     );
-                  }
-            }
-        });
-        
-        $(".btn-addAddress").click(function(){
-            $(".address").show(); 
-            $("#datas").ProvinceCity('', '');           
-        });
-        
-        $(".btn-addressChance").click(function(){
-            $(".address").hide();
-            $("#datas select").eq(0).val('请选择');
-            $("#datas select").eq(1).val('请选择');
-            $("#datas select").eq(2).val('请选择');
-            $("textarea[name='address']").val('');
-            $("input[name='postcode']").val('');
-            $("input[name='name']").val('');
-            $("input[name='phone']").val('');
-        });
-        
-        $(".registerform").Validform({
-           tiptype:3,
-           label:".label",
-           showAllError:true,
-           ajaxPost:true
-       });
-        
-    });
-    function modifyAddress(id){
-          $.get('/u/address/'+id, function(data){
-             if (data.code == 0){
-                 var address = data.address;
-                 $(".address").show();
-                 $("#datas").html('');
-                 $("#datas").ProvinceCity(address.address[0], address.address[1]);
-                 //console.log($("#datas select").eq(1));
-                 $("#datas select").eq(0).val(address.address[0]);
-                 $("#datas select").eq(1).val(address.address[1]);
-                 $("#datas select").eq(2).val(address.address[2]);
-                 $("textarea[name='address']").val(address.address[3]);
-                 $("input[name='postcode']").val(address.postcode);
-                 $("input[name='name']").val(address.name);
-                 $("input[name='phone']").val(address.mobile);
-             }
-          }); 
-        
-    }
-  </script>
+<?php echo Asset::js(['provincesdata.js','Validform_v5.3.2_min.js', 'address/index.js']); ?>
 
 <br />
 <div class="set-wrap">
@@ -95,7 +22,6 @@
                         <th>邮编</th>
                         <th>收货人</th>
                         <th>电话</th>
-                        <th>状态</th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -109,8 +35,9 @@
                             <td><?php echo $address->postcode; ?></td>
                             <td><?php echo $address->name; ?></td>
                             <td><?php echo $address->mobile; ?></td>
-                            <td><?php echo $address->rate; ?></td>
-                            <td><?php echo Html::anchor('javascript:;', '修改', ['onclick'=>'modifyAddress('.$address->id.')']); ?></td>
+                            <td><?php echo Html::anchor('javascript:;', $address->rate == 100 ? '默认地址': '设为默认地址', 
+                                      ['class'=>'setFlag', 'data'=>$address->id, 'rate'=>$address->rate]); ?>
+                            <?php echo Html::anchor('javascript:;', '修改', ['onclick'=>'modifyAddress('.$address->id.')']); ?></td>
                         </tr>
                     <?php } ?>
                     </tbody>
@@ -145,6 +72,7 @@
                 <span class="Validform_checktip"></span>
             </li>
             <li>
+                <input name="addressid" id="addressid" type="hidden" val=""/>
                 <input class="btn btn-red btn-address" type="submit" value="保存"/>
                 <input class="btn btn-red btn-addressChance" type="submit" value="取消"/>
             </li>
