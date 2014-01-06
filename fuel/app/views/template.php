@@ -106,10 +106,10 @@
         <div class="footer w">
             <ul class="bottom-nav">
                 <li><a href="<?php echo Uri::base(); ?>">首页</a></li>
-                <li><a href="">关于乐拍</a></li>
-                <li><a href="">隐私声明</a></li>
-                <li><a href="">合作专区</a></li>
-                <li><a href="">联系我们</a></li>
+                <li><a href="javascript:void(0);">关于乐拍</a></li>
+                <li><a href="javascript:void(0);">隐私声明</a></li>
+                <li><a href="javascript:void(0);">合作专区</a></li>
+                <li><a href="javascript:void(0);">联系我们</a></li>
             </ul>
             <P>版权所有</P>
             <span>乐拍，快乐抢拍你的人生！</span>
@@ -117,7 +117,14 @@
     </div>
     <!--底部结束-->
     <script>
+        <?php 
+            Config::load('common');
+            $point = Config::get('point');
+            $unit  = Config::get('unit');
+        ?>
         BASE_URL = '<?php echo Uri::base(); ?>';
+        POINT    = '<?php echo $point; ?>';
+        UNIT     = '<?php echo $unit; ?>';
     </script>
 </body>
 </html>
