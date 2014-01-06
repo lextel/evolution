@@ -51,22 +51,24 @@ class Controller_Admin_Posts extends Controller_Admin{
     public function action_edit($id = null)
     {
         $post = Model_Post::find($id);
-        $val = Validate::forge();
-        $val->add('status', 'requ');
+        $val = Validation::forge();
+        $val->add_field('status', '', 'required');
         if ($val->run())
-        {
-            $post->title = Input::post('status');
-            $post->desc = Input::post('reason');
-            
-            if ($post->save())
+        {           
+            if (Input::post('status') == 1)
             {
-                Session::set_flash('success', e('审核通过' . $id));
-
-                Response::redirect('admin/posts');
-            }
-
+                $post->status = 1;
+                if($post->save())           
+                {
+                    Session::set_flash('success', e('审核通过' . $id));
+                    Response::redirect('admin/posts');
+                }
+            }         
             else
             {
+                $post->status = 2;
+                $post->reason = Input::post('reason');      
+                $post->save();
                 Session::set_flash('error', e('审核不通过' . $id));
             }
         }
