@@ -10,7 +10,6 @@ class Model_Member_Moneylog extends Model
     protected static $_properties = array(
         'id',
         'phase_id',
-        'item_id',
         'total',
         'sum',
         'type',
@@ -35,12 +34,10 @@ class Model_Member_Moneylog extends Model
     {
         $val = Validation::forge($factory);
         $val->add_field('phase_id', 'Phase Id', 'required|valid_string[numeric]');
-        $val->add_field('item_id', 'Item Id', 'required|valid_string[numeric]');
         $val->add_field('total', 'Total', 'required|valid_string[numeric]');
         $val->add_field('sum', 'Sum', 'required|valid_string[numeric]');
         $val->add_field('type', 'Type', 'required|valid_string[numeric]');
         $val->add_field('member_id', 'Member Id', 'required|valid_string[numeric]');
-
         return $val;
     }
 
@@ -53,7 +50,6 @@ class Model_Member_Moneylog extends Model
         $recharge = Model_Member_Moneylog::forge([
             'member_id'=>$member_id,
             'phase_id'=>0,
-            'item_id'=>0,
             'sum'=>$sum,
             'type'=>0,
             'source'=>$source,
@@ -68,13 +64,12 @@ class Model_Member_Moneylog extends Model
     * 增加用户消费记录
     * member_id 为用户ID,sum为用户消费额，item_id为商品ID，phase_id为期数ID，TOTAL为一次购买的数量
     */
-    public static function buy_log($member_id, $sum, $item_id, $phase_id, $total)
+    public static function buy_log($member_id, $sum, $phase_id, $total)
     {
         $buy = Model_Member_Moneylog::forge([
             'member_id'=>$member_id,
             'sum'=>$sum,
             'type'=>1,
-            'item_id'=>$item_id,
             'phase_id'=>$phase_id,
             'total'=>$total,
             ]);
