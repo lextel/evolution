@@ -59,7 +59,7 @@
                     <div class="img-box">
                         <a href="<?php echo Uri::create('/m/'.$topItem->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/' . $topItem->image); ?>" alt=""></a>
                         <div class="sheng-yi">
-                            剩余 <b class="red"><?php echo $topItem->phase->remain ?></b>人本次商品就揭晓了！
+                            剩余 <b><?php echo $topItem->phase->remain ?></b>人次！
                         </div>
                     </div>
                     <input name="id" value="<?php echo $topItem->phase->id;?>" type="hidden"/>

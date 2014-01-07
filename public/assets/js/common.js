@@ -275,8 +275,11 @@ $(function(){
                 $this.find('.dropdown-list').html(html);
             }
         });
+        $(this).addClass("shp-c-h");
         $(this).find(".dropdown-list").css({"display":"block"})
+
     }, function(){
+        $(this).removeClass("shp-c-h");
         $(this).find(".dropdown-list").css({"display":"none"})
     });
 

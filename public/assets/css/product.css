@@ -19,10 +19,11 @@
 
 .state-heading {
     border: 1px solid #EEEEEE;
-    padding: 10px 10px;
+    padding: 8px 10px;
     overflow: hidden;
     line-height: 23px;
     margin-bottom: 10px;
+    background:url("../images/bg.png") no-repeat -2px -181px;
 }
 
 .details {
@@ -32,7 +33,8 @@
     border: 1px solid #EEEEEE;
     text-align: center;
     border-radius: 3px;
-    background: #f7f7f7;
+    background: #AF2812;
+    color: #FFFFFF;
 }
 
 .result-box {
@@ -41,6 +43,8 @@
     padding: 0 10px 10px 10px;
     margin-top: 10px;
     margin-bottom: 20px;
+    background: #FFFFFF;
+    position: relative;
 }
 
 .result-box .H {
@@ -60,13 +64,13 @@
 }
 
 .result-box .right-box h2 {
-    height: 50px;
-    line-height: 50px;
+    height: 70px;
+    line-height:70px;
     font-size: 40px;
     text-indent: 10px;
+    color: #AF2812;
     border: 1px solid #EEEEEE;
     margin: 10px 0;
-    background: #f7f7f7;
 }
 
 .right-box .result-info {
@@ -207,15 +211,23 @@
     text-align: center;
     border-bottom: 1px solid #EEEEEE;
     margin-bottom: -1px;
+    background: url("../images/bg.png") no-repeat -10px -541px;
+}
+.product-inner .left-sidebar li a{
+    padding: 5px;
+    display: block;
+    text-align: right;
+    font-size: 14px;
 }
 .product-inner .sidebar{
    overflow: hidden;
-    border: none;
+   border: none;
 }
 .product-inner .sidebar dl{
     height: 317px;
     width: 145px;
     padding: 10px;
+    background: #FFFFFF;
     border: 1px solid #EEEEEE;
 }
 .product-inner .sidebar dl dt{
@@ -232,16 +244,19 @@
     margin-left: 15px;
 }
 .product-hot{
+    background: #FFFFFF;
     width: 265px;
     height: 337px;
-    border: 1px solid #EEEEEE;
-
+    border: 2px solid #f8b551;
+}
+.product-hot b{
+    font-size: 16px;
 }
 .product-hot .buy{
     margin-top: 20px;
 }
 .product-hot .title-box{
-    background: none;
+    background: url("../images/bg.png") repeat-x -9px -366px;
 }
 .product-hot .img-box{
     height: 216px;
@@ -251,12 +266,14 @@
 }
 
 .sheng-yi{
-    height: 28px;
-    line-height: 28px;
+    height: 34px;
+    line-height: 34px;
     text-align: center;
-    background: #DBDBDB;
+    background:url("../images/bg.png") no-repeat -287px -365px;
     position: absolute;
-    width:100%;
+    width:119px;
+    color: #FFFFFF;
+    font-weight: bold;
     top: 0px;
     left: 0;
 }
@@ -266,6 +283,7 @@
     padding: 5px 10px;
     background: #f7f7f7;
     margin-bottom: 20px;
+    background: #FFFFFF;
 }
 .list_sort a{
     margin: 0 5px;
@@ -273,17 +291,19 @@
 .product-list {
     overflow: hidden;
     margin-top: 10px;
-    margin-right: -10px;
+    background: #FFFFFF;
 }
 .product-box{
     overflow: hidden;
+    padding: 10px;
+    margin-right: -10px;
 }
 .product-box .price{
     text-align: right;
 }
 .product-list .product-box li{
     float: left;
-    width: 235px;
+    width: 230px;
     overflow: hidden;
     padding-bottom: 10px;
     margin:0 10px 10px 0;
@@ -298,16 +318,23 @@
 .product-list .product-box li .progress-side{
     margin: 0 10px;
 }
+.doCart{
+    background: #ffd79c;
+    color: #af2812;
+}
 /*今日热门*/
 .date-hot {
     width: 978px;
     border: 1px solid #EEEEEE;
+    margin-top: 20px;
+    background: #FFFFFF;
 }
 .date-hot .title{
 }
 .date-hot ul {
     overflow: hidden;
     padding: 10px 15px 10px 0px;
+
 }
 .date-hot ul li{
     float: left;
@@ -316,8 +343,9 @@
     position: relative;
 }
 .date-hot ul li .img-box{
-    height: 100px;
-    line-height: 100px;
+    width:120px;
+    height: 120px;
+    border: 1px solid #EEEEEE;
 }
 .date-hot ul li h5{
     width: 127px;
@@ -328,19 +356,21 @@
 }
 .date-hot ul li .price{
     position: absolute;
-    top: 5px;
-    right: 5px;
-    width:115px;
+    right: 22px;
+    bottom: 68px;
+    width: 100px;
+    color: #FFFFFF;
     text-align: center;
-    height: 30px;
-    line-height: 30px;
-    background: #DDDDDD;
+    height: 24px;
+    line-height: 24px;
+    background: black;
+    opacity: 0.6;
 }
 /*购物车列表*/
 .pay-prompt{
     overflow: hidden;
     border: 1px solid #EEEEEE;
-    background: #f1f1f1;
+    background: #FFFFFF;
 }
 .pay-prompt li{
     width: 120px;
@@ -349,7 +379,22 @@
     text-align: center;
     float: left;
 }
+.pay-prompt li a{
+    font-size: 14px;
+}
+.pay-prompt li a span{
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #AF2812;
+    color: #AF2812;
+    border-radius: 50%;
+    margin: 5px;
+}
 .cart-list{
+    background: #FFFFFF;
     overflow: hidden;
     margin: 20px 0;
 }
@@ -393,6 +438,7 @@
     margin-top: 40px;
 }
 .unveiled h4{
+    background: #FFFFFF;
     height: 38px;
     background: #f1f1f1;
     line-height: 38px;
@@ -401,27 +447,39 @@
 .unveiled ul {
     margin-right: -10px;
     overflow: hidden;
-    margin-top: 30px;
+    margin-top: 10px;
+    background: #FFFFFF;
+    padding: 10px;
 }
 .unveiled ul li .title{
     width: auto;
     height: 34px;
     padding: 8px;
-    background: #EEEEEE;
+    background: url("../images/bg.png") repeat-x -9px -366px
+}
+.unveiled ul li .title h5{
+    width: 235px;
+    overflow: hidden;
+    white-space: normal;
+    height: 22px;
+    line-height: 22px;
+    font-size: 14px;
 }
 .unveiled ul li .title .price{
     text-align: right;
 }
 .unveiled ul li{
     float: left;
-    width: 235px;
+    width: 230px;
     overflow: hidden;
     padding-bottom: 10px;
     margin: 0 10px 10px 0;
-    border: 1px solid #EEE;
+    border: 1px solid #F8B551;
 }
 .unveiled ul li .img-box{
-   margin:10px;
+    width: 200px;
+    padding-top: 40px;
+    height: 200px;
     position: relative;
 }
 .pay-panel{
@@ -508,9 +566,10 @@
 .product-column {
     width: 558px;
     overflow: hidden;
+    background: #FFFFFF;
 }
 .product-column .price{
-    margin: 10px auto;
+    margin: 10px;
 }
 .product-column .progress-side{
     width: 80%;
@@ -535,8 +594,10 @@
     margin:0 10px;
     text-align: center;
     line-height: 33px;
-    background: #f1f1f1;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #af2812;
+}
+.security-list li a{
+    color: #af2812;
 }
 .sell-out{
     height: 60px;
@@ -552,7 +613,10 @@
     line-height: 60px;
 }
 .new-buyer{
+    height: 222px;
     overflow: hidden;
+    border: 1px solid #DDDDDD;
+    border-right: none;
 }
 .new-buyer-header{
     overflow: hidden;
@@ -564,8 +628,8 @@
     float: left;
     line-height: 33px;
     background: #f1f1f1;
-    margin-right: -1px;
-    border: 1px solid #DDDDDD;
+    border-bottom:1px solid #DDDDDD;
+    border-right:1px solid #DDDDDD;
 }
 .new-buyer .new-buyer-header ul li a{
     display: block;
@@ -573,15 +637,18 @@
     height: 100%;
 }
 .new-buyer .new-buyer-header ul li.active{
-    background: #D9534F;
+    width: 184px;
+    background: #FFFFFF;
+    border-bottom: none;
 }
 .new-buyer .new-buyer-header ul li.active a{
-    color: #FFFFFF;
+    color: #333333;
 }
 .new-buyer  .new-buyer-body{
+    border-right: 1px solid #EEEEEE;
     overflow: hidden;
-    border: 1px solid #DDDDDD;
     padding: 10px;
+    height: 166px;
 }
 .new-buyer  .new-buyer-body div.active{
     display: block;
@@ -638,7 +705,6 @@
     border: 1px solid #EEEEEE;
     border-top: 0;
 }
-
 .sub-nav {
     overflow: hidden;
     background: #ffffff;
@@ -670,6 +736,9 @@
     background: #ffffff;
     margin-bottom: -1px;
     border-top:3px solid #D9534F;
+}
+.bd{
+    background: #FFFFFF;
 }
 /*商品详情--晒单*/
 .product-bask{
@@ -749,19 +818,21 @@
 /*最新揭晓*/
 .latest-wrap .left-content{
     float: left;
-    width:71%;
+    width:74%;
     overflow: hidden;
+    background: #FFFFFF;
 }
 .left-content .item-group{
     overflow: hidden;
     min-height: 600px;
+    padding-left: 15px;
 }
 .left-content .item-group li{
     float: left;
     width: 335px;
     height: 184px;
     border: 1px solid #EEEEEE;
-    margin: 0 10px 10px 0;
+    margin: 0 15px 15px 0;
 }
 .item-group li .item-head{
     line-height: 24px;
@@ -851,7 +922,7 @@
 }
 /*右边内容*/
 .latest-wrap .right-box{
-    width:280px;
+    width:230px;
     overflow: hidden;
 }
 .latest-wrap .right-box .buying-box{
@@ -868,6 +939,7 @@
 .sort-list{
     margin-top: 20px;
     overflow: hidden;
+    background: #FFFFFF;
 }
 .sort-list title{
     padding: 5px;
@@ -953,8 +1025,8 @@
 }
 
 .scrollleft {
-	padding:4px 0;
-	margin:10px auto;
+    padding-bottom: 10px;
+    overflow: hidden;
 	position:relative;
 }
 
