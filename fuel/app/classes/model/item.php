@@ -40,11 +40,11 @@ class Model_Item extends \Orm\Model {
     public static function validate($factory)    {
         $val = Validation::forge($factory);
         $val->add_field('title', '标题', 'required|max_length[255]');
+        $val->add_field('cate_id', '分类', 'required|valid_string[numeric]');
+        $val->add_field('brand_id', '品牌', 'required|valid_string[numeric]');
         $val->add_field('images', '图片', 'required');
         $val->add_field('desc', '描述', 'required');
         $val->add_field('price', '价格', 'required|valid_string[numeric]');
-        $val->add_field('cate_id', '分类', 'required|valid_string[numeric]');
-        $val->add_field('brand_id', '品牌', 'required|valid_string[numeric]');
 
         return $val;
     }
