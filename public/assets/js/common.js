@@ -98,12 +98,22 @@ $(function(){
     });
 });
 
+function doSearch(){
+    var val = $('#txtSearch').val();
+    if(val != '') {
+        location.href = BASE_URL + 'm/search/' + val;
+    }
+}
+
 $(function(){
     // 搜索
     $('#doSearch').click(function(){
-        var val = $(this).prev().val();
-        if(val != '') {
-            location.href = BASE_URL + 'm/search/' + val;
+        doSearch();
+    });
+
+    $("#txtSearch").keyup(function(){
+        if(event.keyCode == 13) {
+            doSearch();
         }
     });
 

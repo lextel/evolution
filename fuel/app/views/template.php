@@ -27,7 +27,7 @@
     <div class="top-nav">
         <div class="top-menu">
             <span class="online">
-                <a href="">在线客服<span class="icon icon-qq"></span></a>
+                <a href="javascript:void(0);">在线客服<span class="icon icon-qq"></span></a>
             </span>
             <span class="login-bar">
             <?php if (!isset($current_user)):?>
@@ -45,7 +45,7 @@
         <div class="logo"><a href="<?php echo Uri::base(); ?>"><img src="assets/images/logo.png" alt="乐乐淘首页"/></a></div>
          <div class="right-box">
                 <div class="search">
-                    <input type="text" value="" name="title" placeholder="输入“苹果手机”试试"/>
+                    <input id="txtSearch" type="text" value="" name="title" placeholder="输入“苹果手机”试试"/>
                     <a href="javascript:void(0);" class="search-btn" id="doSearch">
                         <span class="icon icon-search"></span>
                     </a>

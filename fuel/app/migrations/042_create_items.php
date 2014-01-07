@@ -15,6 +15,8 @@ class Create_items
             'price' => array('constraint' => 11, 'type' => 'int'),
             'cate_id' => array('constraint' => 11, 'type' => 'int'),
             'brand_id' => array('constraint' => 11, 'type' => 'int'),
+            'sort' => ['constraint' => 11, 'type' => 'int', 'default' => 0],
+            'phase' => ['constraint' => 11, 'type' => 'int', 'default' => 0, 'comment' => '运行期数，0为不限制'],
             'status' => array('constraint' => 11, 'type' => 'int'),
             'reason' => array('constraint' => 255, 'type' => 'varchar'),
             'is_delete' => array('constraint' => 1, 'type' => 'int'),
