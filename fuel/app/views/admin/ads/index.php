@@ -4,6 +4,7 @@
 </ul>
 <div class="tab-content">
     <div id="index" class="tab-pane active">
+    <div class="panel panel-default" style="border-top: 0">
         <?php if ($indexAds): ?>
         <table class="table table-striped">
             <thead>
@@ -35,10 +36,12 @@
             </tbody>
         </table>
         <?php else: ?>
-        <p style="text-align: center; margin: 10px">没有广告</p>
+        <p style="text-align: center; padding: 40px">没有广告</p>
         <?php endif; ?>
+        </div>
     </div>
     <div id="items" class="tab-pane">
+    <div class="panel panel-default" style="border-top: 0">
         <?php if ($itemAds): ?>
         <table class="table table-striped">
             <thead>
@@ -69,8 +72,8 @@
             </tbody>
         </table>
         <?php else: ?>
-        <p style="text-align: center; margin: 10px">没有广告</p>
+        <p style="text-align: center; padding: 40px">没有广告</p>
         <?php endif; ?>
+        </div>
     </div>
 </div>
-

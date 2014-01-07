@@ -1,33 +1,33 @@
 <div class="panel panel-default" style="padding: 10px 0">
-<form class="navbar-form navbar-left" role="search" action="" method="get">
-    <div class="col-sm-3">
-        <div class="input-group">
-          <span class="input-group-addon">发布人</span>
-          <select class="form-control" name="user_id" id="form_user_id">
-              <option value=''>--请选择--</option>
-              <?php 
-                  foreach($users as $user):
-                      $select = '';
-                      if(Input::get('user_id') == $user->id):
-                          $select = 'selected="seelcted"';
-                      endif;
-                      echo '<option value="'.$user->id.'" '.$select.'>'.$user->username.'</option>';
-                  endforeach;
-              ?>
-          </select>
+    <form class="navbar-form navbar-left" role="search" action="" method="get">
+        <div class="col-sm-3">
+            <div class="input-group">
+              <span class="input-group-addon">发布人</span>
+              <select class="form-control" name="user_id" id="form_user_id">
+                  <option value=''>--请选择--</option>
+                  <?php 
+                      foreach($users as $user):
+                          $select = '';
+                          if(Input::get('user_id') == $user->id):
+                              $select = 'selected="seelcted"';
+                          endif;
+                          echo '<option value="'.$user->id.'" '.$select.'>'.$user->username.'</option>';
+                      endforeach;
+                  ?>
+              </select>
+            </div>
         </div>
-    </div>
-    <div class="col-sm-5">
-        <div class="input-group">
-          <span class="input-group-addon">标题</span>
-          <input type="text" class="form-control" name="title" value="<?php echo Input::get('title'); ?>" placeholder="公告标题">
+        <div class="col-sm-5">
+            <div class="input-group">
+              <span class="input-group-addon">标题</span>
+              <input type="text" class="form-control" name="title" value="<?php echo Input::get('title'); ?>" placeholder="公告标题">
+            </div>
         </div>
-    </div>
-    <button type="submit" class="btn btn-primary">搜索</button>
-    <a href="<?php echo Uri::create('admin/notices'); ?>" class="btn btn-default">重置</a>
-    <?php echo Html::anchor('admin/notices/create', '发布新公告', array('class' => 'btn btn-success  col-md-offset-1')); ?>
-</form>
-<div class="clearfix"></div>
+        <button type="submit" class="btn btn-primary">搜索</button>
+        <a href="<?php echo Uri::create('admin/notices'); ?>" class="btn btn-default">重置</a>
+        <?php echo Html::anchor('admin/notices/create', '发布新公告', array('class' => 'btn btn-success pull-right')); ?>
+    </form>
+    <div class="clearfix"></div>
 </div>
 <div class="panel panel-default">
 <?php if ($notices): ?>
@@ -61,7 +61,7 @@
         </tbody>
 </table>
 <?php else: ?>
-<p style="text-align:center; padding: 40px;">没有任何公告.</p>
+<p style="text-align:center; padding: 40px;">没有任何公告。</p>
 <?php endif; ?>
 </div>
 <?php echo Pagination::instance('mypagination')->render();?>
