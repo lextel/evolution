@@ -8,7 +8,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>名称</th>
+                    <th width="40%">名称</th>
                     <th>图片</th>
                     <th>排序</th>
                     <th>状态</th>
@@ -43,7 +43,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>名称</th>
+                    <th width="40%">名称</th>
                     <th>图片</th>
                     <th>排序</th>
                     <th>状态</th>
@@ -55,7 +55,7 @@
         	<?php foreach ($itemAds as $item): ?>
                 <tr>
                     <td><?php echo $item->title; ?></td>
-                    <td><a href="<?php echo $item->link; ?>" target="_blank"><img style="width:196px; height:70px" src="<?php echo Uri::create($item->image); ?>"/></a></td>
+                    <td><a href="<?php echo $item->link; ?>" target="_blank"><img style="width:90px; height:50px" src="<?php echo Uri::create($item->image); ?>"/></a></td>
                     <td><?php echo $item->sort; ?></td>
                     <td><?php echo $item->status == 1 ? '启用' : '不启用';?></td>
                     <td><?php echo date('Y-m-d', $item->start_at);?>/<?php echo date('Y-m-d', $item->end_at);?></td>
