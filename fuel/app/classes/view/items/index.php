@@ -86,10 +86,10 @@ class View_Items_index extends Viewmodel {
                 $url = $itemModel->handleUrl($options);
                 $param = isset($val['alias']) ? $val['alias'] : $val['field'];
                 if($sort[0] == $param && isset($sort[1])) {
-                    $order = $sort[1] == 'desc' ? 'asc' : 'desc';
+                    $order = $sort[1] == 'asc' ? 'desc' : 'asc';
                     $orderBy = $param . '_' . $order;
                 } else {
-                    $orderBy = $param . '_desc';
+                    $orderBy = $param . '_asc';
                 }
                 $list .= '<a href="'.$url . '/s/'. $orderBy .'#list" class="btn btn-default btn-sx">'.$val['name'].'</a>';
             }
