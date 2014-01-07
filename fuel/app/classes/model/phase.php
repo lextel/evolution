@@ -20,6 +20,7 @@ class Model_Phase extends \Orm\Model
             'order_id',
             'member_id',
             'title',
+            'image',
             'cost',
             'remain',
             'amount',
@@ -28,6 +29,8 @@ class Model_Phase extends \Orm\Model
             'code',
             'codes',
             'code_count',
+            'sort',
+            'status',
             'total',
             'results',
             'is_delete',
@@ -66,9 +69,9 @@ class Model_Phase extends \Orm\Model
 
         if($item && empty($phase)) {
 
-            $config = Config::load('common');
+            Config::load('common');
             $count = Model_Phase::count(['where' => ['item_id' => $item->id]]);
-            $cost = $item->price * $config['point'];
+            $cost = $item->price * Config::get('point');
             $codes = $this->_createCodes($item->price);
             $data = [
                 'item_id'          => $item->id,
@@ -78,6 +81,7 @@ class Model_Phase extends \Orm\Model
                 'post_id'          => 0,
                 'order_id'         => 0,
                 'member_id'        => 0,
+                'image'            => $item->image,
                 'title'            => $item->title,
                 'cost'             => $cost,
                 'remain'           => $item->price,
@@ -87,6 +91,7 @@ class Model_Phase extends \Orm\Model
                 'code'             => '',
                 'codes'            => serialize($codes),
                 'code_count'       => 0,
+                'sort'             => $item->sort,
                 'is_delete'        => $item->is_delete,
                 'opentime'         => 0,
                 'total'            => 0,

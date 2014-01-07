@@ -45,6 +45,20 @@ echo Asset::js(
             </div>
         </div>
         <div class="form-group">
+            <?php echo Form::label('排序:', 'sort', array('class'=>'control-label col-sm-1')); ?>
+            <div class="col-sm-2">
+                <?php echo Form::input('sort', Input::post('sort', isset($item) ? $item->sort : '0'), array('class' => 'form-control', 'placeholder'=>'排序')); ?>
+            </div>
+            <span class="help-block">数字，值越大排越前</span>
+        </div>
+        <div class="form-group">
+            <?php echo Form::label('期数:', 'phase', array('class'=>'control-label col-sm-1')); ?>
+            <div class="col-sm-2">
+                <?php echo Form::input('phase', Input::post('phase', isset($item) ? $item->phase : '0'), array('class' => 'form-control', 'placeholder'=>'开放期数')); ?>
+            </div>
+            <span class="help-block">数字，本商品运行多少期，为0时不限制期数</span>
+        </div>
+        <div class="form-group">
             <?php echo Form::label('价值:', 'price', array('class'=>'control-label col-sm-1')); ?>
             <div class="col-sm-2">
             <?php echo Form::input('price', Input::post('price', isset($item) ? $item->price : ''), array('class' => 'form-control', 'placeholder'=>'商品价值')); ?>

@@ -15,15 +15,17 @@ class Create_phases
             'post_id' => ['constraint' => 11, 'type' => 'int'],
             'order_id' => ['constraint' => 11, 'type' => 'int'],
             'member_id' => ['constraint' => 11, 'type' => 'int'],
-            'title' => array('constraint' => 255, 'type' => 'varchar'),
+            'title' => array('constraint' => 255, 'type' => 'varchar'),       // 商品标题
+            'image' => ['constraint' => 255, 'type' => 'varchar'],            // 商品首图
             'cost' => array('constraint' => 11, 'type' => 'int'),
             'remain' => array('constraint' => 11, 'type' => 'int'),
             'amount' => array('constraint' => 11, 'type' => 'int'),
             'joined' => array('constraint' => 11, 'type' => 'int'),
             'hots' => array('constraint' => 11, 'type' => 'int'),
             'code' => array('constraint' => 12, 'type' => 'varchar'),
-            'codes' => array('type' => 'text'),
+            'codes' => array('type' => 'mediumtext'),                         // 本期幸运码 // TODO 需要优化
             'code_count' => ['constraint' => 11, 'type' => 'int'],
+            'sort' => array('constraint' => 11, 'type' => 'int'),             // 排序
             'status' => array('constraint' => 11, 'type' => 'int'),
             'is_delete' => array('constraint' => 1, 'type' => 'int'),
             'opentime' => array('constraint' => 11, 'type' => 'int'),
@@ -36,6 +38,13 @@ class Create_phases
             'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 
         ), array('id'));
+        \DBUtil::create_index('phases', 'item_id');
+        \DBUtil::create_index('phases', 'cate_id');
+        \DBUtil::create_index('phases', 'brand_id');
+        \DBUtil::create_index('phases', 'cost');
+        \DBUtil::create_index('phases', 'remain');
+        \DBUtil::create_index('phases', 'hots');
+        \DBUtil::create_index('phases', 'opentime');
     }
 
     public function down()
