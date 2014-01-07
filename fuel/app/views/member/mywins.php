@@ -1,61 +1,17 @@
 <?php echo Asset::css('member/jquery-ui.css'); ?>
-<?php echo Asset::js('jquery-ui.js'); ?>
-<script>
-  $(function() {
-    $( "#datepicker" ).datepicker({
-      showWeek: true,
-      firstDay: 1
-    });
-    $( "#datepicker1" ).datepicker({
-      showWeek: true,
-      firstDay: 1
-    });
-    
-    
-    function getDateSearch(url){
-        action = url;
-        form = $("<form></form>")
-        form.attr('action',action)
-        form.attr('method','get')
-        input1 = $("#datepicker").val();
-        input2 = $("#datepicker1").val();
-        if (input1 && input2){
-           form.append("<input type='hidden' name='date1' value="+input1+">");
-           form.append("<input type='hidden' name='date2' value="+input2+">");
-           form.submit()
-        }
-    }
-    $(".wins-date-search").click(function (){
-        var url = '/u/wins';
-        getDateSearch(url);
-    });
-    
-    $(".wins-search").click(function (){
-        action = "/u/wins";
-        form = $("<form></form>")
-        form.attr('action',action)
-        form.attr('method','get')
-        input1 = $("#word").val();
-        form.append("<input type='hidden' name='word' value="+input1+">");
-        form.submit()
-    });
-    
-  });
-  </script>
+<?php echo Asset::js(['jquery-ui.js', 'member/index.js']); ?>
+
     <div class="content-inner">
         <!--获得的商品开始-->
         <div class="acquire-box">
             <div class="remind ">乐拍提醒：你总共乐购获得商品（<?php echo $wincount;?>)件</div>
             <div class="select-box">
             <label for="">全部商品</label>
-            <span class="time-choose">选择时间段：
-                 
+            <span class="time-choose">选择时间段：                 
                  <input  id="datepicker" type="text" placeholder="输入起始时间" />
                  <input  id="datepicker1" type="text" placeholder="输入结束时间" />
                  <button class="wins-date-search">搜索</button>
-
-            </span>
-            
+            </span>          
             </div>
             <div class="select">
                 <label for="" class="select-title">商品名称</label>
@@ -95,7 +51,7 @@
                     </tbody>
                 </table>
                 <br />
-                <?php echo Pagination::instance('ulottery')->render(); ?>
+                <?php echo Pagination::instance('uwins')->render(); ?>
             </div>
         </div>
         <!--获得的商结束-->
