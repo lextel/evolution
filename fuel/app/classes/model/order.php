@@ -140,7 +140,7 @@ class Model_Order extends \Orm\Model
         // 生成新一期
         if($total == $count) {
             $item = Model_Item::find($phase->item_id);
-            if($item->status == \Helper\Item::IS_CHECK) {
+            if($item->status == \Helper\Item::IS_CHECK && $item->phase < $phase->phase_id + 1) {
                 $phaseModel = new Model_Phase();
                 $phaseModel->add($item);
             }
