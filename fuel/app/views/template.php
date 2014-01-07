@@ -42,7 +42,7 @@
         </div>
     </div>
     <div class="logo-box">
-        <div class="logo"><a href="<?php echo Uri::base(); ?>"><img src="assets/images/logo.png" alt="乐乐淘首页"/></a></div>
+        <div class="logo"><a href="<?php echo Uri::base(); ?>"><img src="<?php echo Uri::create('assets/images/logo.png');?>" alt="乐乐淘首页"/></a></div>
          <div class="right-box">
                 <div class="search">
                     <input id="txtSearch" type="text" value="" name="title" placeholder="输入“苹果手机”试试"/>
