@@ -39,7 +39,7 @@ class Controller_Items extends Controller_Frontend {
         $item = $itemModel->view($id);
 
         // 如果还没揭晓
-        if($item->phase->opentime != 0 && $item->phase->opentime <= time()) {
+        if($item->phase->code_count != 0) {
             Response::redirect('w/'.$id);
         }
 

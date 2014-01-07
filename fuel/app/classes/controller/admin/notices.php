@@ -5,7 +5,7 @@ class Controller_Admin_Notices extends Controller_Admin{
 
         $breads = [
             ['name' => '公告管理'], 
-            ['name' => '公告列表']
+            ['name' => '公告列表', 'href' => Uri::create('admin/notices')]
         ];
 
         $noticeModel = new Model_Notice();
