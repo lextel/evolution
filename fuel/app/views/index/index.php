@@ -1,5 +1,5 @@
 <?php echo Asset::css(['jquery.bxslider.css','focus.css','style.css']); ?>
-<?php echo Asset::js(['jquery.bxslider.min.js', 'index.js','jquery.totemticker.min.js']); ?>
+<?php echo Asset::js(['jquery.bxslider.min.js', 'index.js','jquery.totemticker.min.js']);?>
 
 <script>
 $(function(){
@@ -69,9 +69,9 @@ $(function(){
                     <h4>人气推荐</h4>
                     <?php echo Html::anchor('m', '更多>>', ['class'=>'more']);?>
                 </div>
-                <ul style="width:720px">
+                <ul>
                     <?php foreach($topHotItems() as $phase) { ?>
-                    <li class="sidebar">
+                    <li>
                         <div class="title-box">
                             <h4><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h4>
                             <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?></b></span>
@@ -132,7 +132,7 @@ $(function(){
         <!--右边结束-->
     </div>
     <!--人气推荐开始-->
-    <div class="recommended second w">
+    <div class="second w">
         <ul>
             <?php foreach($hotItems() as $phase) { ?>
             <li class="sidebar">
@@ -197,7 +197,7 @@ $(function(){
                         </div>
                         <h5><?php echo Html::anchor('m/'.$post->phase_id, $getItemInfo($post->item_id)->title);?></h5>
                         <div class="winner">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $getMemberInfo($post->member_id)->nickname, ['class'=>'bule']);?></b></div>
-                        <p>揭晓时间：<?php  echo date('Y-m-d H:i', $getPhaseInfo($post->phase_id)->opentime);?></p>
+                        <p>揭晓时间：<?php  echo date('Y-m-d', $getPhaseInfo($post->phase_id)->opentime);?></p>
                     </li>
                     <?php } ?>
                 </ul>

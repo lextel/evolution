@@ -734,7 +734,6 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 }
 .left-content{
     overflow: hidden;
-    width: 695px;
     float: left;
 }
 .content-title{
