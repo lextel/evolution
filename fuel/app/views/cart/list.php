@@ -26,8 +26,8 @@
                         <tbody>
                         <?php
                             $subTotal = 0;
+                            Config::load('common');
                             if(!empty($items)) :
-                            $config = Config::load('common');
                             foreach($items as $item) :
                                 $info = $getInfo($item->get_id());
                                 $subTotal += $item->get_qty();
@@ -73,7 +73,7 @@
                     <div class="cart-footer">
                         <label class="fl"><input type="checkbox" action="selectAll"/>全选</label>
                         <button class="btn btn-default btn-sx fl" action="batchDelete">批量删除</button>
-                        <div class="price fr">总积分：<s class="red" id="total"><?php echo $subTotal * $config['point']. $config['unit']; ?></s></div>
+                        <div class="price fr">总积分：<s class="red" id="total"><?php echo $subTotal * Config::get('point') . Config::get('unit'); ?></s></div>
                     </div>
                 </div>
             </form>

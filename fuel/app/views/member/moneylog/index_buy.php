@@ -1,18 +1,5 @@
 <?php echo Asset::css('member/jquery-ui.css'); ?>
-<?php echo Asset::js('jquery-ui.js'); ?>
-<script>
-  $(function() {
-    $( "#datepicker" ).datepicker({
-      showWeek: true,
-      firstDay: 1
-    });
-
-        $( "#datepicker1" ).datepicker({
-      showWeek: true,
-      firstDay: 1
-    });
-  });
-</script>
+<?php echo Asset::js(['jquery-ui.js', 'member/index.js']); ?>
 
 <div class="content-inner">
     <!--晒单开始-->
@@ -33,7 +20,7 @@
             <input  id="datepicker" type="text"/>
 
             <input  id="datepicker1" type="text"/>
-            <button>搜索</button>
+            <button class="buylog-date-search">搜索</button>
         </span>
         </div>
 
@@ -50,7 +37,7 @@
         <tbody>
         <?php foreach ($list as $item): ?>
              <tr>
-                <td><?php echo '('.$item->phase_id.')'.$item->pahse_id; ?></td>
+                <td><?php echo '第('.$item->phase_id.')期'.$item->pahse_id; ?></td>
                 <td><?php echo $item->total.'人次'; ?></td>
                 <td><?php echo Date::forge($item->created_at)->format("%Y-%m-%d %H:%M:%S"); ?></td>
                 <td><?php echo $item->sum; ?></td>

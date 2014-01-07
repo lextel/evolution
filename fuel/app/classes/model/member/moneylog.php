@@ -72,6 +72,7 @@ class Model_Member_Moneylog extends Model
             'type'=>1,
             'phase_id'=>$phase_id,
             'total'=>$total,
+            'source' => '',
             ]);
         if($buy->save()){
             return true;

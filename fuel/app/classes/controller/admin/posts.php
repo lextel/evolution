@@ -30,8 +30,13 @@ class Controller_Admin_Posts extends Controller_Admin{
                                                   'rows_limit'=>$pagination->per_page,
                                                   'rows_offset'=>$pagination->offset,]
                                          );
+
+        $breads = [['name' => '晒单管理']];
+
+        $breadcrumb = new Helper\Breadcrumb();
         $view = ViewModel::forge('admin/posts/index', 'view');
         $view->set('posts', $posts);
+        $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $this->template->title = "晒单管理列表";
         $this->template->content = $view;
 
@@ -39,105 +44,40 @@ class Controller_Admin_Posts extends Controller_Admin{
 
     public function action_view($id = null)
     {
-        $data['post'] = Model_Post::find($id);
-
-        $this->template->title = "晒单列表";
-        $this->template->content = View::forge('admin/posts/view', $data);
-
-    }
-    // wille del
-    public function action_create()
-    {
-        if (Input::method() == 'POST')
-        {
-            $val = Model_Post::validate('create');
-
-            if ($val->run())
-            {
-                $post = Model_Post::forge(array(
-                    'title' => Input::post('title'),
-                    'desc' => Input::post('desc'),
-                    'status' => Input::post('status'),
-                    'item_id' => Input::post('item_id'),
-                    'member_id' => Input::post('member_id'),
-                    'type_id' => Input::post('type_id'),
-                    'phase_id' => Input::post('phase_id'),
-                    'topimage' => Input::post('topimage'),
-                    'images' => Input::post('images'),
-                ));
-
-                if ($post and $post->save())
-                {
-                    Session::set_flash('success', e('Added post #'.$post->id.'.'));
-
-                    Response::redirect('admin/posts');
-                }
-
-                else
-                {
-                    Session::set_flash('error', e('Could not save post.'));
-                }
-            }
-            else
-            {
-                Session::set_flash('error', $val->error());
-            }
-        }
-
-        $this->template->title = "Posts";
-        $this->template->content = View::forge('admin/posts/create');
+        $post = Model_Post::find($id);
+        $view = ViewModel::forge('admin/posts/view', 'view');
+        $view->set('post', $post, false);
+        $view->set('url', '/admin/posts/edit/'.$id);
+        $this->template->title = "晒单管理详情";
+        $this->template->content = $view;
 
     }
 
     public function action_edit($id = null)
     {
         $post = Model_Post::find($id);
-        $val = Model_Post::validate('edit');
-
+        $val = Validation::forge();
+        $val->add_field('status', '', 'required');
         if ($val->run())
-        {
-            $post->title = Input::post('title');
-            $post->desc = Input::post('desc');
-            $post->status = Input::post('status');
-            $post->item_id = Input::post('item_id');
-            $post->user_id = Input::post('member_id');
-            $post->type_id = Input::post('type_id');
-            $post->phase_id = Input::post('phase_id');
-            $post->topimage = Input::post('topimage');
-            $post->images = Input::post('images');
-            if ($post->save())
+        {           
+            if (Input::post('status') == 1)
             {
-                Session::set_flash('success', e('Updated post #' . $id));
-
-                Response::redirect('admin/posts');
-            }
-
+                $post->status = 1;
+                if($post->save())           
+                {
+                    Session::set_flash('success', e('审核通过' . $id));
+                    Response::redirect('admin/posts');
+                }
+            }         
             else
             {
-                Session::set_flash('error', e('Could not update post #' . $id));
+                $post->status = 2;
+                $post->reason = Input::post('reason');      
+                $post->save();
+                Session::set_flash('error', e('审核不通过' . $id));
             }
         }
-
-        else
-        {
-            if (Input::method() == 'POST')
-            {
-                $post->title = $val->validated('title');
-                $post->desc = $val->validated('desc');
-                $post->status = $val->validated('status');
-                $post->item_id = $val->validated('item_id');
-                $post->user_id = $val->validated('member_id');
-                $post->type_id = $val->validated('type_id');
-                $post->phase_id = $val->validated('phase_id');
-
-                Session::set_flash('error', $val->error());
-            }
-
-            $this->template->set_global('post', $post, false);
-        }
-
-        $this->template->title = "Posts";
-        $this->template->content = View::forge('admin/posts/edit');
+        Response::redirect('admin/posts/view/'.$id);
 
     }
 
@@ -146,7 +86,6 @@ class Controller_Admin_Posts extends Controller_Admin{
         if ($post = Model_Post::find($id))
         {
             $post->delete();
-
             Session::set_flash('success', e('Deleted post #'.$id));
         }
 

@@ -18,14 +18,9 @@ echo Asset::js(
             ]
         ); 
 ?>
-<?php if($breadcrumb): ?>
-<ol class="breadcrumb">
-    <?php echo $breadcrumb; ?>
-</ol>
-<?php endif; ?>
 <?php echo Form::open(array("class"=>"form-horizontal", 'action' => $url)); ?>
-	<fieldset>
-		<div class="form-group">
+    <fieldset>
+        <div class="form-group">
           <?php echo Form::label('标题:', 'title', array('class'=>'control-label col-sm-1')); ?>
           <div class="col-sm-6">
           <?php echo Form::input('title', Input::post('title', isset($ad) ? $ad->title : ''), array('class' => 'form-control', 'placeholder'=>'广告标题')); ?>
@@ -56,22 +51,24 @@ echo Asset::js(
         </div>
         <div class="form-group">
             <?php echo Form::label('图片:', 'image', array('class'=>'control-label col-sm-1')); ?>
-            <div class="col-sm-5">
-	            <span class="btn btn-success fileinput-button">
-	                  <i class="glyphicon glyphicon-plus"></i>
-	                  <span>选择图片...</span>
-	                  <input id="fileupload" type="file" name="files[]" multiple>
-	            </span>
-        	</div>
+            <div class="col-sm-2">
+                <span class="btn btn-success fileinput-button">
+                      <i class="glyphicon glyphicon-plus"></i>
+                      <span>选择图片...</span>
+                      <input id="fileupload" type="file" name="files[]" multiple>
+                </span>
+            </div>
             <span class="help-block">支持格式：jpg 大小为：幻灯片980px*350px,所有商品450px*350px</span>
-            <div id="files" class="files">
-              <?php 
-                if(isset($item)) {
-                    echo '<p><img style="width: 60px; height: 60px; margin:5px; float: left" src="/'.$item->link.'"><d class="close"></d><input type="hidden" name="image" value="'.$item->link.'"></p>';
-                }
-              ?>
-              </div>
-
+            <div class="control-label col-sm-1"></div>
+            <div class="col-sm-5">
+                <div id="files" class="files">
+                  <?php 
+                    if(isset($ad)) {
+                        echo '<p><img style="margin:5px; float: left" src="'.Uri::create($ad->image).'"><d class="close"></d><input type="hidden" name="image" value="'.$ad->image.'"></p>';
+                    }
+                  ?>
+               </div>
+           </div>
         </div>
         <div class="form-group">
             <?php echo Form::label('链接:', 'link', array('class'=>'control-label col-sm-1')); ?>
@@ -86,16 +83,16 @@ echo Asset::js(
             <?php echo Form::select('status', Input::post('status', isset($ad) ? $ad->status : ''), [1=>'启用', 0=>'不启用'], ['class' => 'form-control']); ?>
             </div>
         </div>
-		<div class="form-group">
-			<label class='control-label col-sm-1'>&nbsp;</label>
-			<div class="col-sm-2">
-			<input type="hidden" name="type" value="1">
-			<?php echo Form::submit('submit', '保存', array('class' => 'btn btn-primary')); ?>
-			</div>
-		</div>
-	</fieldset>
-<?php echo Form::close(); ?>
-<script type="text/javascript">
-    UPLOAD_URL = '<?php echo Uri::create('admin/ads/upload'); ?>';
-    IMAGE_URL  = '<?php echo Uri::create('/'); ?>';
-</script>
+        <div class="form-group">
+            <label class='control-label col-sm-1'>&nbsp;</label>
+            <div class="col-sm-2">
+            <input type="hidden" name="type" value="1">
+            <?php echo Form::submit('submit', '保存', array('class' => 'btn btn-primary')); ?>
+            </div>
+        </div>
+    </fieldset>
+    <?php echo Form::close(); ?>
+    <script type="text/javascript">
+        UPLOAD_URL = '<?php echo Uri::create('admin/ads/upload'); ?>';
+        IMAGE_URL  = '<?php echo Uri::create('/'); ?>';
+    </script>

@@ -45,6 +45,73 @@ class Model_Member extends \Orm\Model
         $val->add_field('profile_fields', 'Profile Fields', 'required');
         return $val;
     }
+    
+    /**
+     * 会员列表
+     *
+     * @param $options array 筛选条件
+     *
+     * @return array 会员数据
+     */
+    public function index($options) {
+
+        $condition = [];
+        $condition['where'] = $this->handleWhere($options);
+
+        if(isset($options['offset']) && isset($options['limit'])) {
+
+            $condition['offset'] = $options['offset'];
+            $condition['limit']  = $options['limit'];
+        }
+
+        $condition['order_by'] = ['id' => 'desc'];
+
+        return Model_Member::find('all', $condition);
+    }
+
+    /**
+     * 统计会员
+     *
+     * @param $options array 筛选条件
+     *
+     * @return integer 数量
+     */
+    public function countMember($options) {
+
+        $where = $this->handleWhere($options);
+
+        return Model_Member::count(['where' => $where]);
+    }
+
+    /**
+     * 处理where条件
+     *
+     * @param $options array 筛选条件
+     *
+     * @return array where数组
+     */
+    public function handleWhere($options) {
+
+        $where = [];
+        if(isset($options['member_id']) && $options['member_id'] !== '') {
+            $where += ['id' => $options['member_id']];
+        }
+
+        if(isset($options['nickname']) && !empty($options['nickname'])) {
+            $where += [['nickname', 'LIKE', '%'.$options['nickname']. '%']];
+        }
+
+        if(isset($options['email']) && !empty($options['email'])) {
+            $where += [['email', 'LIKE', '%'.$options['email']. '%']];
+        }
+
+        // $where += ['is_delete' => 0];
+
+        return $where;
+    }
+
+
+
 
     public static function validateProfile($factory)
     {

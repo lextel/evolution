@@ -1,11 +1,6 @@
 <?php
 echo Asset::js(['admin/items/list.js']);
 ?>
-<?php if($breadcrumb): ?>
-<ol class="breadcrumb">
-    <?php echo $breadcrumb; ?>
-</ol>
-<?php endif; ?>
 <form class="form-inline" role="form" action="" method="get">
   <div class="form-group">
     <select class="form-control" name="cate_id" id="form_cate_id">
@@ -32,7 +27,7 @@ echo Asset::js(['admin/items/list.js']);
     <thead>
         <tr>
             <th>图片</th>
-            <th width="60%">标题</th>
+            <th width="50%">标题</th>
             <th>价格</th>
             <th>发布时间</th>
             <th>审核状态</th>

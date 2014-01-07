@@ -16,14 +16,17 @@ class Controller_Admin_Ads extends Controller_Admin{
         $view->set('indexAds', $indexAds);
         $view->set('itemAds', $itemAds);
         $breadcrumb = new Helper\Breadcrumb();
-        $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $this->template->title = "广告列表";
         $this->template->content = $view;
 
     }
 
 
+    // 添加广告页面
     public function action_create() {
+
+         Session::keep_flash('error');
 
         $breads = [
                 ['name' => '广告列表', 'href'=> Uri::create('admin/ads')], 
@@ -48,6 +51,7 @@ class Controller_Admin_Ads extends Controller_Admin{
         return json_encode(['files' => $files]);
     }
 
+    // 保存广告
     public function action_add() {
 
         $val = Model_Ad::validate('create');
@@ -61,14 +65,17 @@ class Controller_Admin_Ads extends Controller_Admin{
               Session::set_flash('error', e('保存失败.'));
             }
         } else {
-            Session::set_flash('error', $val->error());
+            $val->set_message('required', ':label 为必填项.');
+            $val->set_message('max_length', ':label 不能超过:param:1个字.');
+            Session::set_flash('error', $val->show_errors());
         }
 
         Response::redirect('admin/ads/create');
-
     }
 
+    // 编辑广告
     public function action_edit($id = null) {
+
         $breads = [
                 ['name' => '广告列表', 'href'=> Uri::create('admin/ads')], 
                 ['name' => '编辑广告'],
@@ -79,7 +86,6 @@ class Controller_Admin_Ads extends Controller_Admin{
         $breadcrumb = new Helper\Breadcrumb();
         $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
 
-
         $this->template->set_global('ad', $ad, false);
         $this->template->set_global('url', Uri::create('admin/ads/update/' . $ad->id));
         $this->template->title = "编辑广告 > 广告列表";
@@ -87,14 +93,13 @@ class Controller_Admin_Ads extends Controller_Admin{
 
     }
 
-    // 广告编辑
+    // 更新编辑
     public function action_update($id = null) {
 
         $ad = Model_Ad::find($id);
         $val  = Model_Ad::validate('edit');
 
         if($val->run()) {
-
             $adModel = new Model_Ad();
             $rs = $adModel->edit($id, Input::post());
             if($rs) {
@@ -105,9 +110,9 @@ class Controller_Admin_Ads extends Controller_Admin{
             }
 
         } else {
-            if (Input::method() == 'POST') {
-                Session::set_flash('error', $val->error());
-            }
+            $val->set_message('required', ':label 为必填项.');
+            $val->set_message('max_length', ':label 不能超过:param:1个字.');
+            Session::set_flash('error', $val->show_errors());
         }
 
         Response::redirect('admin/ads/edit/'.$id);
@@ -118,9 +123,9 @@ class Controller_Admin_Ads extends Controller_Admin{
 
         $adModel = new Model_Ad();
         if ($adModel->remove($id)) {
-            Session::set_flash('success', e('删除成功 #'.$id));
+            Session::set_flash('success', e('删除成功 #' . $id));
         } else {
-            Session::set_flash('error', e('删除失败 #'.$id));
+            Session::set_flash('error', e('删除失败 #' . $id));
         }
 
         Response::redirect('admin/ads');

@@ -34,8 +34,14 @@ class Controller_Items extends Controller_Frontend {
     // 商品详情
     public function action_view($id = null) {
 
+
         $itemModel = new Model_Item();
         $item = $itemModel->view($id);
+
+        // 如果还没揭晓
+        if($item->phase->code_count != 0) {
+            Response::redirect('w/'.$id);
+        }
 
         $prevWinner = $itemModel->prevWinner($item);
 

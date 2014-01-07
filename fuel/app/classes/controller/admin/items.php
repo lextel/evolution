@@ -42,15 +42,15 @@ class Controller_Admin_Items extends Controller_Admin {
         $cateModel = new Model_Cate();
         $cates = $cateModel->cates();
 
-        $breads = [['name' => '商品管理', 'href' => 'javascript:void(0);'], ['name' => $name, 'href'=> 'javascript:void(0);']];
+        $breads = [['name' => '商品管理'], ['name' => $name]];
 
         $view = ViewModel::forge('admin/items/list');
-        $breadcrumb = new Helper\Breadcrumb();
-        $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $view->set('cates', $cates, false);
         $view->set('items', $items, false);
         $view->set('type', $type, false);
         $view->set('pagination', $pagination);
+        $breadcrumb = new Helper\Breadcrumb();
+        $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $this->template->title = "{$name} > 商品管理";
         $this->template->content = $view;
     }
@@ -68,8 +68,8 @@ class Controller_Admin_Items extends Controller_Admin {
         $view->set('item', $item, false);
         $view->set('phase', $phase);
         $breadcrumb = new Helper\Breadcrumb();
-        $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $view->set('url', Uri::create('admin/items/check/'. $id));
+        $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $this->template->title = "商品详情";
         $this->template->content = $view;
     }
@@ -110,7 +110,9 @@ class Controller_Admin_Items extends Controller_Admin {
               Session::set_flash('error', e('保存失败.'));
             }
         } else {
-            Session::set_flash('error', $val->error());
+            $val->set_message('required', ':label 为必填项.');
+            $val->set_message('max_length', ':label 不能超过:param:1个字.');
+            Session::set_flash('error', $val->show_errors());
         }
 
         Response::redirect('admin/items/create');
@@ -156,9 +158,9 @@ class Controller_Admin_Items extends Controller_Admin {
             }
 
         } else {
-            if (Input::method() == 'POST') {
-                Session::set_flash('error', $val->error());
-            }
+            $val->set_message('required', ':label 为必填项.');
+            $val->set_message('max_length', ':label 不能超过:param:1个字.');
+            Session::set_flash('error', $val->show_errors());
         }
 
         Response::redirect('admin/items/edit/'.$id);

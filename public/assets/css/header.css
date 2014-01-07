@@ -145,6 +145,9 @@
     overflow: hidden;
     width: 230px;
     background: #FFFFFF;
+    border: 1px solid #eeeeee;
+    margin-top: 20px;
+    height: 292px;
 }
 .buying-box ul{
     width: 230px;
