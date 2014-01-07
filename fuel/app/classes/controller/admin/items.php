@@ -78,14 +78,14 @@ class Controller_Admin_Items extends Controller_Admin {
     public function action_create() {
 
         $breads = [
-                ['name' => '商品列表', 'href'=> Uri::create('admin/items/list/active')], 
-                ['name' => '添加商品'],
+                ['name' => '商品列表', 'href' => Uri::create('admin/items/list/active')], 
+                ['name' => '添加商品', 'href' => Uri::create('admin/items/create')],
             ];
 
         $cateModel = new Model_Cate();
         $cates = $cateModel->cates();
-        $cates = ['0' => '--请选择分类--'] + $cates;
-        $brands = ['0' => '--请选择品牌--'];
+        $cates = ['' => '--请选择分类--'] + $cates;
+        $brands = ['' => '--请选择品牌--'];
 
         $breadcrumb = new Helper\Breadcrumb();
         $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
@@ -112,6 +112,7 @@ class Controller_Admin_Items extends Controller_Admin {
         } else {
             $val->set_message('required', ':label 为必填项.');
             $val->set_message('max_length', ':label 不能超过:param:1个字.');
+            $val->set_message('valid_string', ':label 必须为:param:1.');
             Session::set_flash('error', $val->show_errors());
         }
 

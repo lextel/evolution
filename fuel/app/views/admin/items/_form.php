@@ -55,23 +55,36 @@ echo Asset::js(
           <?php 
             echo Form::label('图片:', 'title', array('class'=>'control-label col-sm-1')); 
           ?>
-          <div class="col-sm-5">
+          <div class="col-sm-11">
               <span class="btn btn-success fileinput-button">
                   <i class="glyphicon glyphicon-plus"></i>
                   <span>选择图片...</span>
                   <input id="fileupload" type="file" name="files[]" multiple>
               </span>
-              <span class="help-block">不超过5张图片</span>
-            <div id="files" class="files">
-              <?php 
-                if(isset($item)) {
-                    $images = unserialize($item->images);
-                    foreach($images as $image) {
-                        echo '<p><img style="width: 60px; height: 60px; margin:5px; float: left" src="/'.$image.'"><d class="close"></d><input type="hidden" name="images[]" value="'.$image.'"></p>';
-                    }
-                }
-              ?>
-            </div>
+              <span class="help-block">正方形，不超过5张图片，点击图片可设置首图(默认第一张为首图)</span>
+              <div id="files" class="row">
+                    <?php 
+                      $index = 0;
+                      if(isset($item)) {
+                          $images = unserialize($item->images);
+                          foreach($images as $idx => $image) {
+                              $top = '';
+                              if($item->image == $image) {
+                                  $index = $idx;
+                                  $top = ' top';
+                              }
+                              echo '<a href="javascript:void(0);" index="'.$idx.'">';
+                              echo '<div class="col-xs-1 item-img-list'.$top.'">';
+                              echo '<img src="'.Uri::create('image/80x80/'.$image).'">';
+                              echo '<d class="close">&times;</d>';
+                              echo '<input type="hidden" name="images[]" value="'.$image.'">';
+                              echo '</div>';
+                              echo '</a>';
+                          }
+                      }
+                    ?>
+              </div>
+              <input type="hidden" value="<?php echo $index;?>" id="index" name="index">
           </div>
         </div>
         <div class="form-group">
