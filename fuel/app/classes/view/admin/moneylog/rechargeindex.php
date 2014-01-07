@@ -2,7 +2,7 @@
 /*
 *用户后台admin 账户明细的ViewModel
 */
-class View_Admin_Moneylog_Buyindex extends Viewmodel {   
+class View_Admin_Moneylog_Rechargeindex extends Viewmodel {   
     public function view() {
        //获得用户信息（用户名和标题）
        $this->getuser = function($mid) {
@@ -46,7 +46,7 @@ class View_Admin_Moneylog_Buyindex extends Viewmodel {
     }
 
    public function set_view(){
-       $this->_view = View::forge('admin/moneylog/buyindex');
+       $this->_view = View::forge('admin/moneylog/rechargeindex');
    }
 }
 
