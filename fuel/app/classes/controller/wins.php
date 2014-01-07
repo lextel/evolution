@@ -7,7 +7,8 @@ class Controller_Wins extends Controller_Frontend{
         $phaseModel = new Model_Phase();
         $count = $phaseModel->countWins();
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('/w/p', $count, 4, 3);
+
+        $config = $page->setCofigPage('/w/p', $count, 12, 3);
 
         $view = ViewModel::forge('wins/index');
         $pagination = Pagination::forge('winspage', $config);
@@ -22,7 +23,7 @@ class Controller_Wins extends Controller_Frontend{
         $this->template->title = "最新揭晓";
         $this->template->layout = $view;
     }
-    
+
 
     // 揭晓详情
     public function action_view($id = null) {
@@ -34,6 +35,11 @@ class Controller_Wins extends Controller_Frontend{
         if ( empty($win) ) {
             Session::set_flash('error', '没有找到该揭晓详情'.$id);
             Response::redirect('w');
+        }
+
+        // 如果还没揭晓
+        if($win->code_count == 0) {
+            Response::redirect('m/'.$id);
         }
 
         $orderModel = new Model_Order();

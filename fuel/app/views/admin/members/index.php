@@ -1,15 +1,25 @@
-<?php if($breadcrumb): ?>
-<ol class="breadcrumb">
-    <?php echo $breadcrumb; ?>
-</ol>
-<?php endif; ?>
+<form class="form-inline" role="form" action="" method="get">
+  <div class="form-group">
+    <input type="text" class="form-control" name="member_id" value="<?php echo Input::get('member_id'); ?>" placeholder="会员ID">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" name="email" value="<?php echo Input::get('email'); ?>" placeholder="会员邮箱">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" name="nickname" value="<?php echo Input::get('nickname'); ?>" placeholder="会员昵称">
+  </div>
+  <button type="submit" class="btn btn-default">搜索</button>
+  <a href="<?php echo Uri::create('admin/members'); ?>" class="btn btn-default">重置</a>
+  <?php echo Html::anchor('admin/members/create', '添加会员', array('class' => 'btn btn-success col-md-offset-3')); ?>
+</form>
+
 <?php if ($members): ?>
 <table class="table table-striped">
     <thead>
         <tr>
             <th>#ID</th>
             <th>昵称</th>
-            <td>余额</td>
+            <td>积分</td>
             <th>邮箱</th>
             <th>注册时间</th>
             <th>登陆时间</th>
@@ -35,8 +45,6 @@
         </tbody>
 </table>
 <?php else: ?>
-<p>No Members.</p>
+<p>没有会员</p>
 <?php endif; ?>
-<p>
-    <?php echo Html::anchor('admin/members/create', '添加会员', array('class' => 'btn btn-success')); ?>
-</p>
+<?php echo Pagination::instance('mypagination')->render();?>

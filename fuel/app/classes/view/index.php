@@ -4,11 +4,13 @@ class View_Index extends Viewmodel {
 
     public function view() {
        //获得幻灯片播放
-       $this->flashs = function() {
-           //$flash = Model_Flash::find('all');
-           //return $flash;
-           $flashs = ['assets/images/01.jpg', 'assets/images/02.jpg', 'assets/images/03.jpg', 'assets/images/04.jpg', 'assets/images/05.jpg'];
-           return $flashs;
+       $this->ads = function() {
+
+           $time = time();
+           $where = ['zone' => 1, 'status' => 1, 'is_delete' => 0, ['start_at', '<=', $time], ['end_at', '>=', $time]];
+           $ads = Model_Ad::find('all', ['where' => $where, 'order_by' => ['sort' => 'desc']]);
+
+           return $ads;
        };
        //获得最新公告
        $this->notices = function() {

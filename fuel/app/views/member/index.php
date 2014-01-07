@@ -2,7 +2,7 @@
     <div class="center-main fl">
         <ul class="center-info">
             <li>
-                <div class="winner fl"><a href="/u"><?php echo $current_user->username;?></a></div>
+                <div class="winner fl"><a href="/u"><?php echo $current_user->nickname;?></a></div>
                 <button class="edit fl">编辑</button>
             </li>
             <li>

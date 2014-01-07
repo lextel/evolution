@@ -5,7 +5,7 @@ class Controller_Admin_Cates extends Controller_Admin{
     public function action_cate() {
 
         $breads = [
-                ['name' => '系统管理', 'href'=> 'javascript:void(0);'], 
+                ['name' => '系统管理'], 
                 ['name' => '分类列表'],
             ];
 
@@ -21,8 +21,6 @@ class Controller_Admin_Cates extends Controller_Admin{
 
         $view = View::forge('admin/cates/listcate');
 
-        $breadcrumb = new Helper\Breadcrumb();
-        $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
 
         $options = [
             'offset'=> $pagination->offset,
@@ -30,6 +28,8 @@ class Controller_Admin_Cates extends Controller_Admin{
             ];
         $view->set('cates', $cateModel->getCates($options));
         $view->set('pagination', $pagination);
+        $breadcrumb = new Helper\Breadcrumb();
+        $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $this->template->title = $breadcrumb->title($breads);
         $this->template->content = $view;
     }
@@ -38,7 +38,7 @@ class Controller_Admin_Cates extends Controller_Admin{
     public function action_brand() {
 
         $breads = [
-                ['name' => '系统管理', 'href'=> 'javascript:void(0);'], 
+                ['name' => '系统管理'], 
                 ['name' => '品牌列表'],
             ];
 
@@ -65,6 +65,7 @@ class Controller_Admin_Cates extends Controller_Admin{
         $view->set('cates', $cateModel->cates());
         $view->set('brands', $cateModel->getBrands($options));
         $view->set('pagination', $pagination);
+        $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $this->template->title = $breadcrumb->title($breads);
         $this->template->content = $view;
     }

@@ -5,7 +5,7 @@ class View_Wins_My extends Viewmodel {
     public function view() {
        //获得商品
        $this->getItem = function($win) {
-           
+
            $item = Model_Item::find($win->item_id);
            return $item;
        };
@@ -25,7 +25,7 @@ class View_Wins_My extends Viewmodel {
     }
 
     public function set_view(){
-        $this->_view = View::forge('member/mylottery');
+        $this->_view = View::forge('member/mywins');
    }
 
 }

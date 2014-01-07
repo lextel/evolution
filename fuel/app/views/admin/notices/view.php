@@ -1,8 +1,3 @@
-<?php if($breadcrumb): ?>
-<ol class="breadcrumb">
-    <?php echo $breadcrumb; ?>
-</ol>
-<?php endif; ?>
 <?php echo Form::open(["class"=>"form-horizontal"]); ?>
     <fieldset>
         <div class="form-group">

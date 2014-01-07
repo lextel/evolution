@@ -1,34 +1,22 @@
 <?php echo Asset::css('member/jquery-ui.css'); ?>
-<?php echo Asset::js('jquery-ui.js'); ?>
-<script>
-  $(function() {
-    $( "#datepicker" ).datepicker({
-      showWeek: true,
-      firstDay: 1
-    });
+<?php echo Asset::js(['jquery-ui.js', 'member/index.js']); ?>
 
-        $( "#datepicker1" ).datepicker({
-      showWeek: true,
-      firstDay: 1
-    });
-  });
-  </script>
     <div class="content-inner">
         <!--获得的商品开始-->
         <div class="acquire-box">
             <div class="remind ">乐拍提醒：你总共乐购获得商品（<?php echo $wincount;?>)件</div>
             <div class="select-box">
-                <label for="">全部商品</label>
-            <span class="time-choose">选择时间段：
+            <label for="">全部商品</label>
+            <span class="time-choose">选择时间段：                 
                  <input  id="datepicker" type="text" placeholder="输入起始时间" />
                  <input  id="datepicker1" type="text" placeholder="输入结束时间" />
-                 <button>搜索</button>
-            </span>
+                 <button class="wins-date-search">搜索</button>
+            </span>          
             </div>
             <div class="select">
                 <label for="" class="select-title">商品名称</label>
-                <input type="text" value="" placeholder="输入商品名字关键字" />
-                <button>搜索</button>
+                <input type="text" id="word" value="" placeholder="输入商品名字关键字" />
+                <button class="wins-search">搜索</button>
             </div>
             <div class="acquire">
                 <table>
@@ -39,7 +27,7 @@
                         <th>商品名称</th>
                         <th>乐拍状态</th>
                         <th>购买数量</th>
-                        <th>乐拍码</th>
+                        <th>幸运乐拍码</th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -63,7 +51,7 @@
                     </tbody>
                 </table>
                 <br />
-                <?php echo Pagination::instance('ulottery')->render(); ?>
+                <?php echo Pagination::instance('uwins')->render(); ?>
             </div>
         </div>
         <!--获得的商结束-->

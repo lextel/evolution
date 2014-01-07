@@ -82,6 +82,9 @@ $(function(){
                     </tr>
                     </thead>
                     <tbody>
+                    <?php if(empty($noposts)) {
+                        echo '<tr><td colspan="5" style="text-align:center">亲，您没有未晒单的哦！</td></tr>';
+                    }?>
                     <?php foreach($noposts as $phase) { ?>
                     <tr>
                         
@@ -96,7 +99,9 @@ $(function(){
                     </tr>
                     <?php } ?>
                     </tbody>
+                     
                 </table>
+                
                 <ul class="show-form" style="display:none">
                     <?php echo Form::open(['action' => 'u/posts/add', 'method' => 'post']);?>
                     <li>

@@ -1,22 +1,10 @@
 <?php echo Asset::css(['jquery.bxslider.css','focus.css','style.css']); ?>
 <?php echo Asset::js(['jquery.bxslider.min.js', 'index.js','jquery.totemticker.min.js']);?>
-
-<script>
-$(function(){
-  $('.bxslider').bxSlider();
-  $('.vertical-ticker').totemticker({
-                row_height  :   '90px',
-                speed            :    500,        /* Speed of transition animation in milliseconds */
-                interval          :   2000,
-                mousestop   :   true,
-   });
-});
-</script>
     <!--banner开始-->
     <div class="banner">
         <ul class="rslides f426x240 bxslider">
-            <?php foreach($flashs() as $flash) { ?>
-            <li><?php echo Html::anchor('', Html::img($flash), ['target'=>'_blank']);?></li>
+            <?php foreach($ads() as $ad) { ?>
+            <li><?php echo Html::anchor($ad->link, Html::img($ad->image), ['target'=>'_blank', 'title' => $ad->title]);?></li>
             <?php } ?>
         </ul>
     </div>
@@ -110,10 +98,11 @@ $(function(){
                     <?php } ?>
                 </ul>
             </div>
-            <!--大家正在乐拍-->
-            <div class="buying-box">
+            <!--大家正在乐拍 -->
+            <div class="buying-box" >
                 <div class="title"><h4>大家正在乐拍</h4></div>
-                <ul class="vertical-ticker">
+                <div class="buyListdiv" >
+                <ul class="buyList">
                     <?php foreach($orders() as $order) {?>
                     <li>
                         <div class="head-img fl">
@@ -127,6 +116,7 @@ $(function(){
                     </li>
                <?php } ?>
                 </ul>
+                </div>
             </div>
         </div>
         <!--右边结束-->

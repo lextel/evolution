@@ -70,7 +70,7 @@
                             
                             <?php } ?>
                         </td>
-                        <td><?php echo ($getPhaseInfo($order->phase_id)->member_id !=0) ? "已经揭晓": "未揭晓";?></td>
+                        <td><?php echo ($getPhaseInfo($order->phase_id)->member_id !=0) ? "已经揭晓": "进行中";?></td>
                         <td><?php echo $order->code_count;?>人次</td>
                         <td><a href="">查看</a></td>
                         <td><?php echo Html::anchor("/m/".$order->phase_id, "查看详情");?></td>
