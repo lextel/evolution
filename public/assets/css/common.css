@@ -284,6 +284,7 @@ table tbody tr td{
 .img-box{
     text-align: center;
     position: relative;
+    overflow: hidden;
 }
 .icon-new{
     width: 54px;
