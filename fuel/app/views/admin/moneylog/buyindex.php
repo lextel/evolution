@@ -1,3 +1,5 @@
+
+
 <?php if ($logs): ?>
 <table class="table table-striped">
     <thead>
@@ -18,11 +20,11 @@
     <?php foreach ($logs as $item): ?>
         <tr>
             <td><?php echo $item->id; ?></td>
-            <td class="col-sm-1"><?php echo $item->member_id; ?></td>
             <td><?php echo $item->member_id; ?></td>
+            <td><?php echo $getuser($item->member_id); ?></td>
             <td><?php echo $item->phase_id; ?></td>
             <td class="col-sm-3"><?php echo $title($item); ?></td>
-            <td><?php echo $item->phase_id; ?></td>            
+            <td><?php echo $getStatus($item); ?></td>            
             <td class="col-sm-1"><?php echo date('Y-m-d H:i:s', $item->created_at); ?></td>
             <td class="col-sm-1"><?php echo $item->total; ?></td>
             <td class="col-sm-1"><?php echo $item->sum; ?></td>
