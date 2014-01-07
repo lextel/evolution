@@ -47,6 +47,7 @@ return array(
     'u/posts/getadd' => 'member/posts/getadd',
     'u/posts/upload' => 'member/posts/upload',
     'u/posts/add' => 'member/posts/add',
+    'u/posts/getedit/(\d+)' => 'member/posts/getedit/$1',
     'u/posts/edit/(\d+)' => 'member/posts/edit/$1',
     'u/posts/delete/(\d+)' => 'member/posts/delete/$1',
 
