@@ -1,11 +1,6 @@
 <?php
     echo Asset::js(['jquery.validate.js', 'admin/cates/listCate.js']);
 ?>
-<?php if($breadcrumb): ?>
-<ol class="breadcrumb">
-    <?php echo $breadcrumb; ?>
-</ol>
-<?php endif; ?>
 <form class="form-horizontal" role="form" id="addBrand" method="post" action="<?php echo Uri::create('admin/cates/createBrand'); ?>">
   <div class="form-group">
     <label for="name" class="col-sm-2 control-label">添加商品品牌</label>

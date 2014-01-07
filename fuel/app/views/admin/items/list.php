@@ -1,11 +1,6 @@
 <?php
 echo Asset::js(['admin/items/list.js']);
 ?>
-<?php if($breadcrumb): ?>
-<ol class="breadcrumb">
-    <?php echo $breadcrumb; ?>
-</ol>
-<?php endif; ?>
 <form class="form-inline" role="form" action="" method="get">
   <div class="form-group">
     <select class="form-control" name="cate_id" id="form_cate_id">

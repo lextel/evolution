@@ -11,9 +11,9 @@ class Controller_Admin_Users extends Controller_Admin{
 
         $view = View::forge('admin/users/index');
         $breadcrumb = new Helper\Breadcrumb();
-        $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $users = Model_User::find('all');
         $view->set('users', $users);
+        $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $this->template->title = "管理员列表 > 用户管理";
         $this->template->content = $view;
     }
@@ -39,6 +39,9 @@ class Controller_Admin_Users extends Controller_Admin{
     public function action_add() {
 
         $val = Model_User::validate('create');
+
+        $val->add('password', '密码')->add_rule('required')->add_rule('min_length', 6)->add_rule('max_length', 20);
+
         if ($val->run()) {
             $username = Input::post('username');
             $password = Input::post('password');
@@ -54,7 +57,10 @@ class Controller_Admin_Users extends Controller_Admin{
                 Session::set_flash('error', e('添加失败'));
             }
         } else {
-            Session::set_flash('error', $val->error());
+            $val->set_message('required', ':label 为必填项.');
+            $val->set_message('min_length', ':label 不能少于:param:1个字符.');
+            $val->set_message('max_length', ':label 不能超过:param:1个字符.');
+            Session::set_flash('error', $val->show_errors());
         }
 
         Response::redirect('admin/users/create');
@@ -85,21 +91,29 @@ class Controller_Admin_Users extends Controller_Admin{
 
         $user = Model_User::find($id);
         $val = Model_User::validate('edit');
+        $val->add('password', '密码')->add_rule('min_length', 6)->add_rule('max_length', 20);
 
-        $post = Input::post();
-        if(!empty($post['password'])) {
-            $post['password'] = $this->auth->hash_password($post['password']);
-        }
+        if ($val->run()) {
+            $post = Input::post();
+            if(!empty($post['password'])) {
+                $post['password'] = $this->auth->hash_password($post['password']);
+            }
 
-        unset($post['submit']);
+            unset($post['submit']);
 
-        $userModel = new Model_User();
+            $userModel = new Model_User();
 
-        if ($userModel->edit($id, $post)) {
-            Session::set_flash('success', e('更新成功 #' . $id));
-            Response::redirect('admin/users');
+            if ($userModel->edit($id, $post)) {
+                Session::set_flash('success', e('更新成功 #' . $id));
+                Response::redirect('admin/users');
+            } else {
+                Session::set_flash('error', e('更新失败 #' . $id));
+            }
         } else {
-            Session::set_flash('error', e('更新失败 #' . $id));
+            $val->set_message('required', ':label 为必填项.');
+            $val->set_message('min_length', ':label 不能少于:param:1个字符.');
+            $val->set_message('max_length', ':label 不能超过:param:1个字符.');
+            Session::set_flash('error', $val->show_errors());
         }
 
 

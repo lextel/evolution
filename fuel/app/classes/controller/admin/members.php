@@ -8,12 +8,25 @@ class Controller_Admin_Members extends Controller_Admin{
                 ['name' => '会员列表'],
             ];
 
+        $memberModel = new Model_Member();
+        $total = $memberModel->countMember(Input::get());
+        $page = new \Helper\Page();
+        $url = Uri::create('admin/members', 
+                ['member_id' => Input::get('member_id'), 'nickname' => Input::get('nickname'), 'email' => Input::get('email')], 
+                ['user_id' => ':user_id', 'nickname' => ':nickname', 'email' => ':email']);
+
+        $config = $page->setConfig($url, $total, 'page');
+        $pagination = Pagination::forge('mypagination', $config);
+
+        $get = Input::get();
+        $get['offset'] = $pagination->offset;
+        $get['limit'] = $pagination->per_page;
+
         $view = View::forge('admin/members/index');
         $breadcrumb = new Helper\Breadcrumb();
-        $view->set('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
 
-        $members = Model_Member::find('all');
-        $view->set('members', $members);
+        $view->set('members', $memberModel->index($get));
         $this->template->title = "会员列表 > 用户管理";
         $this->template->content = $view;
 
@@ -21,10 +34,20 @@ class Controller_Admin_Members extends Controller_Admin{
 
     public function action_view($id = null)
     {
-        $data['member'] = Model_Member::find($id);
+        $breads = [
+                ['name' => '用户管理'], 
+                ['name' => '会员列表' , 'href' => Uri::create('admin/members')],
+                ['name' => '查看用户'], 
+            ];
 
+        $member = Model_Member::find($id);
+
+        $view = View::forge('admin/members/view');
+        $breadcrumb = new Helper\Breadcrumb();
+        $view->set('member', $member);
+        $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $this->template->title = "Member";
-        $this->template->content = View::forge('admin/members/view', $data);
+        $this->template->content = $view;
 
     }
 

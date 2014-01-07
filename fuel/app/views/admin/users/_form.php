@@ -1,8 +1,3 @@
-<?php if($breadcrumb): ?>
-<ol class="breadcrumb">
-    <?php echo $breadcrumb; ?>
-</ol>
-<?php endif; ?>
 <?php echo Form::open(array("class"=>"form-horizontal", 'action' => $url)); ?>
     <fieldset>
         <div class="form-group">
@@ -10,6 +5,7 @@
             <div class="col-sm-4">
                 <?php if(isset($user)) : ?>
                 <p class="form-control-static"><?php echo isset($user) ? $user->username : '';?></p>
+                <?php echo Form::input('username', Input::post('username', isset($user) ? $user->username : ''), array('type' => 'hidden')); ?>
                 <?php else: ?>
                 <?php echo Form::input('username', Input::post('username', isset($user) ? $user->username : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'后台登陆账号')); ?>
                 <?php endif; ?>
