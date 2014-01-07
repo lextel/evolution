@@ -38,7 +38,7 @@ class Controller_Wins extends Controller_Frontend{
         }
 
         // 如果还没揭晓
-        if($win->opentime == 0 || $win->opentime > time()) {
+        if($win->code_count == 0) {
             Response::redirect('m/'.$id);
         }
 

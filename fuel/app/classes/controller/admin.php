@@ -94,7 +94,7 @@ class Controller_Admin extends Controller_Baseend
      */
     public function action_index()
     {
-        $this->template->title = 'Dashboard';
+        $this->template->title = '管理首页';
         $this->template->content = View::forge('admin/dashboard');
     }
 
