@@ -19,8 +19,8 @@ class Controller_Member_Wins extends Controller_Center{
         }
         if (!is_null($date1) and !is_null($date2))
         {
-           $where += [['opentime', '>=', strtotime($date1)]];
-           $where += [['opentime', '<=', strtotime($date2)]];
+           $where += [['opentime', '>=', strtotime($date1)], 
+                'and'=>['opentime', '<=', strtotime($date2)+3600*24]];
         }      
         $list = Model_Phase::find('all', [
                                                   'where'=>$where,

@@ -2,7 +2,7 @@
 
 class Controller_Member_Orders extends Controller_Center
 {
-    //public $template = 'memberlayout';
+   
 
     public function action_index()
     {
@@ -13,12 +13,26 @@ class Controller_Member_Orders extends Controller_Center
 
     public function action_my($page=1)
     {
-        $count = Model_Order::count(['where'=>['member_id'=>$this->current_user->id]]);
+        $where = ['member_id'=>$this->current_user->id];
+        $word = Input::get('word', null);
+        $date1 = Input::get('date1', null);
+        $date2 = Input::get('date2', null);
+        if (!is_null($word))
+        {
+           $where += [['title', 'like', '%'.$word.'%']];
+        }
+        if (!is_null($date1) and !is_null($date2))
+        {
+           $where += [['created_at', '>=', strtotime($date1)], 
+                'and'=>['created_at', '<=', strtotime($date2)+3600*24]];
+        }      
+        $count = Model_Order::count(['where'=>$where]);
         $page = new \Helper\Page();
         $config = $page->setCofigPage('u/orders/p', $count, 4, 4);
         $pagination = Pagination::forge('uorderpage', $config);
+        
         $orders = Model_Order::find('all', [
-                                              'where'=>['member_id'=>$this->current_user->id],
+                                              'where'=>$where,
                                               'order_by' =>array('id' => 'desc'),
                                               'rows_limit'=>$pagination->per_page,
                                               'rows_offset'=>$pagination->offset,]
