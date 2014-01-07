@@ -29,11 +29,11 @@
                     <td><div class="img-box"><?php echo Html::anchor('u/posts/view/'.$post->id, Html::img($post->topimage)); ?></div></td>
                     <td>
                         <div class="text-title"><?php $post->title;?></div>
-                        <div class="text-content"><?php echo mb_substr($post->desc, 0, 42,'utf-8'); ?></div>
+                        <div class="text-content"><?php echo mb_substr($post->desc, 0, 32,'utf-8'); ?></div>
                     </td>
                     <td><?php echo $getType($post->status); ?></td>
                     <td>
-                        <?php echo Html::anchor('u/posts/view/'.$post->id, '查看详情'); ?> |
+                        <?php echo Html::anchor('u/p/'.$post->id, '查看'); ?> |
                         <?php echo Html::anchor('u/posts/edit/'.$post->id, '编辑'); ?> |
                         <?php echo Html::anchor('u/posts/delete/'.$post->id, '删除', array('onclick' => "return confirm('你确定需要删除该晒单吗?')") ); ?>
                     </td>
