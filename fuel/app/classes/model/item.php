@@ -13,6 +13,8 @@ class Model_Item extends \Orm\Model {
         'price',
         'cate_id',
         'brand_id',
+        'sort',
+        'phase',
         'status',
         'reason',
         'is_delete',
@@ -484,16 +486,18 @@ class Model_Item extends \Orm\Model {
      */
     public function add($post) {
 
-        $image = $post['images'][0];
+        $image = $post['images'][$post['index']];
         $data = [
               'title'     => $post['title'],
               'desc'      => $post['desc'],
               'price'     => $post['price'],
               'cate_id'   => $post['cate_id'],
               'brand_id'  => $post['brand_id'],
+              'phase'     => $post['phase'],
               'image'     => $image,
               'images'    => serialize($post['images']),
               'status'    => \Helper\Item::NOT_CHECK,
+              'sort'      => $post['sort'],
               'reason'    => '',
               'is_delete' => \Helper\Item::NOT_DELETE,
             ];
@@ -521,7 +525,7 @@ class Model_Item extends \Orm\Model {
      */
     public function edit($id, $post) {
 
-        $image = $post['images'][0];
+        $image = $post['images'][$post['index']];
         $item = Model_Item::find($id);
 
         $result = false;
