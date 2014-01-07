@@ -42,7 +42,7 @@
         </div>
     </div>
     <div class="logo-box">
-        <div class="logo"><a href="<?php echo Uri::base(); ?>">logo</a></div>
+        <div class="logo"><a href="<?php echo Uri::base(); ?>"><img src="assets/images/logo.png" alt="乐乐淘首页"/></a></div>
          <div class="right-box">
                 <div class="search">
                     <input id="txtSearch" type="text" value="" name="title" placeholder="输入“苹果手机”试试"/>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="shopping-box">
                     <div class="shopping-cart">
-                        <a href="javascript:void(0);">购物车</a>
+                        <a href="javascript:void(0);" class="car-t"><i class="icon icon-car"></i>购物车</a>
                           <ul class="dropdown-list" style="display:none"></ul>
                     </div>
                     <div class="all">
@@ -95,7 +95,7 @@
                     <dt>联系我们</dt>
                     <dd><h2 class="red"><span class="icon icon-phone"></span>4008123123</h2></dd>
                     <dd>仅收市话费，周一至周日8.00-18.00</dd>
-                    <dd><button class="kf">24小时在线客服</button></dd>
+                    <dd><span class="kf"><i class="icon icon-online"></i>24小时在线客服</span></dd>
                 </dl>
                 <dl>
                     <dt><a href="">二维码</a></dt>
@@ -112,6 +112,11 @@
             </ul>
             <P>版权所有</P>
             <span>乐拍，快乐抢拍你的人生！</span>
+             <ul class="safety">
+                <li class="safety-01"></li>
+                <li class="safety-02"></li>
+                <li class="safety-03"></li>
+              </ul>
         </div>
     </div>
     <!--底部结束-->

@@ -1,4 +1,4 @@
-<?php echo Asset::css(['product.css', 'style.css', 'customBootstrap.css']);?>
+<?php echo Asset::css(['product.css', 'style.css', 'customBootstrap.css','common.css']);?>
 <?php echo Asset::js(['bootstrap.min.js' ,'jquery.pin.js']);?>
     <?php 
         $itemInfo = $getItem($win->item_id);
@@ -38,6 +38,8 @@
                         <div class="win-number">
                         </div>
                     </div>
+                    <span class="icon-01"></span>
+                    <span class="icon-02"></span>
                 </div>
             </div>
         </div>
@@ -82,7 +84,11 @@
                                 <td><s><?php echo date('Y-m-d', $times[0]);?></s><?php echo date('H:i:s', $times[0]); ?>.<?php echo $times[1]; ?></td>
                                 <td><a href="<?php echo Uri::create('u/'.$memberInfo->id); ?>"><?php echo $memberInfo->nickname;?></a></td>
                                 <td><?php echo $result['count']; ?></td>
-                                <td><a href="<?php echo Uri::create('m/'.$phaseInfo->id); ?>">（第<?php echo $phaseInfo->phase_id; ?>期）<b><?php echo $phaseInfo->title; ?></b> </a></td>
+                                <td>
+                                    <div class="inner-title">
+                                        <a href="<?php echo Uri::create('m/'.$phaseInfo->id); ?>">（第<?php echo $phaseInfo->phase_id; ?>期）<b><?php echo $phaseInfo->title; ?></b></a>
+                                    </div>
+                                </td>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>

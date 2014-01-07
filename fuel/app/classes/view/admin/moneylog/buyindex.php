@@ -2,13 +2,7 @@
 /*
 *用户后台admin 晒单详情的ViewModel
 */
-class View_Admin_Posts_View extends Viewmodel {
-    public $status = [
-        0=>'未审核',
-        1=>'审核通过',
-        2=>'审核通不过',
-        3=>'已经删除',
-        ];
+class View_Admin_Moneylog_Buyindex extends Viewmodel {   
     public function view() {
        //获得用户信息（用户名和标题）
        $this->getUser = function($mid) {
@@ -16,12 +10,16 @@ class View_Admin_Posts_View extends Viewmodel {
            return $user;
        };
        //获得商品的标题
-       $this->getPhase = function($item) {
+       $this->title = function($item) {
            $phase_id = $item->phase_id;
            $phase = Model_Phase::find($phase_id);
-           return $phase;
+           $title = '';
+           if ($phase){
+              $title = $phase->title;
+           }
+           return $title;
        };
-       //获得商品的标题
+       //获得商品的状态
        $this->getStatus = function($item) {
            if ($item->is_delete == 1){
                $text = '已经删除';
@@ -34,7 +32,7 @@ class View_Admin_Posts_View extends Viewmodel {
     }
 
    public function set_view(){
-       $this->_view = View::forge('admin/posts/view');
+       $this->_view = View::forge('admin/moneylog/buyindex');
    }
 }
 

@@ -56,8 +56,8 @@ return [
             'href' => 'javascript:void(0);',
             'class' => 'dropdown',
             'childs' => [
-                ['name' => '用户消费', 'href' => Uri::create('/admin/')],
-                ['name' => '用户充值', 'href' => Uri::create('/admin/items')],
+                ['name' => '用户消费', 'href' => Uri::create('/admin/moneylog/buy')],
+                ['name' => '用户充值', 'href' => Uri::create('/admin/moneylog/recharge')],
             ]
         ],
     ]

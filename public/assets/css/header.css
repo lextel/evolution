@@ -1,21 +1,26 @@
-
-/*左边开始*/
-.left-content{
-    width: 710px;
-    float: left;
+.car-t{
+    color: #FFFFFF;
 }
+/*左边开始*/
 /*最新揭晓开始*/
 .announced-news{
-
+    overflow: hidden;
+    margin-bottom: 10px;
+    background: #FFFFFF;
 }
 .announced-news ul{
     overflow: hidden;
-    padding: 20px 20px 20px 0px ;
+    border: 1px solid #eeeeee;
+    margin: 10px;
+    padding: 10px;
 }
 .announced-news ul li{
     float: left;
-    margin-left:16px;
     width: 152px;
+    margin: 0 10px;
+}
+.announced-news ul li.announcing{
+    border: 2px solid #e60012;
 }
 .announced-news ul li h5{
     width: 150px;
@@ -28,10 +33,29 @@
     height: 130px;
     line-height: 130px;
 }
+.news-count{
+    overflow: hidden;
+    padding: 5px;
+    background:#e60012 ;
+    color: #ffe400;
+    font-size: 14px;
+    font-weight: bold;
+}
+.news-count span{
+    vertical-align: middle;
+    display: inline-block;
+}
 /*人气推荐开始*/
 .recommended{
     overflow: hidden;
-    margin-top: 20px;
+    background: #FFFFFF;
+    padding: 10px;
+}
+.recommended ul{
+    margin-right: -10px;
+    overflow: hidden;
+    background: #FFFFFF;
+    padding: 10 0px;
 }
 .recommended .price{
     text-align: right;
@@ -45,32 +69,41 @@
 }
 .recommended ul li{
     float: left;
-    width: 222px;
+    width: 230px;
     overflow: hidden;
     padding-bottom: 10px;
     margin-right: 10px;
+    border: 1px solid #EEEEEE;
 }
 .recommended ul li.m{
     margin: 0;
 }
 .second ul{
     overflow: hidden;
-    margin-right: -10px;
+    background: #FFFFFF;
+    margin:0 -10px 10px 0;
+    padding:10px 0;
 }
 .second ul li{
-    width: 235px;
+    float: left;
+    width: 230px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    border: 1px solid #EEEEEE;
+}
+.second .progress-side{
+    padding: 0 15px;
+}
+.second .img-box{
+    width: 230px;
+    height: 230px;
 }
 .title-box{
      height: 40px;
      background: #eeeeee;
      padding:5px 10px;
  }
- .title-box h4{
-    width: 200px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow:clip  ;
-}
 .recommended ul li .img-box{
     width: 200px;
     height: 200px;
@@ -80,26 +113,27 @@
 /*左边结束*/
 /*右边开始*/
 .right-content{
-    width: 258px;
+    width: 230px;
     float: right;
 }
 /*公告*/
 .notice{
     overflow: hidden;
-    min-height: 259px;
+    min-height: 230px;
+    background: #FFFFFF;
+    margin-bottom: 10px;
 }
 .notice .title,.buying-box .title{
-    background: #eeeeee;
+    background:url("../images/bg.png") repeat-x -276px -2px;
 }
 .notice ul{
-    border: 1px solid #eeeeee;
     overflow: hidden;
     padding: 10px;
     list-style-type: square;
 }
 .notice ul li{
-    height: 21px;
-    line-height: 21px;
+    height: 22px;
+    line-height: 22px;
     padding:5px;
     width: 230px;
     overflow: hidden;
@@ -109,42 +143,47 @@
 /*正在乐拍*/
 .buying-box{
     overflow: hidden;
+    width: 230px;
+    background: #FFFFFF;
     border: 1px solid #eeeeee;
-    width: 255px;
     margin-top: 20px;
     height: 292px;
 }
 .buying-box ul{
-    width: 258px;
+    width: 230px;
 }
 .buying-box ul li{
-    height: 51px;
-    margin:11px 10px -1px 10px;
-    border-bottom: 1px dashed #eee;
+    height: 65px;
+    border-bottom: 1px dashed #d2d2d2;
+    margin-bottom: 10px;
 }
 .buying-box ul li .info-side{
     width: 145px;
     float: left;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 /*右边结束*/
 /*晒单分享*/
+.bask-wrapper{
+    background: #FFFFFF;
+}
 .bask-side{
     overflow: hidden;
+    padding: 0 10px 10px;
 }
 .bask-side .bask{
-    width: 50%;
     padding: 10px;
     border: 1px solid #eeeeee;
 }
 .bask .img-box{
-    width: 130px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
     line-height: 140px;
+    margin-right: 15px;
 }
 .bask .bask-info{
-    width: 320px;
-    height: 150px;
+    width: 305px;
+    height: 164px;
     background: #edf1f4;
     border-radius: 4px;
     padding: 10px;
@@ -178,15 +217,13 @@
 }
 .bask-side .bask-list{
     float: right;
-    width: 425px;
-    border: 1px solid #eeeeee;
+    width: 390px;
     padding: 10px 0px 10px 10px;
  }
 .bask-side .bask-list ul li{
     float: left;
     width:160px;
     margin-right: 10px;
-    padding: 0 20px;
 }
 .bask-side .bask-list ul li .img-box{
     height: 120px;
