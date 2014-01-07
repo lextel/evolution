@@ -53,25 +53,6 @@
                         }
 
                     ?>
-                    <!--
-                    <?php
-                        $files = new GlobIterator(APPPATH.'classes/controller/admin/*.php');
-                        $navs = Config::get('navs.admin');
-                        foreach($files as $file)
-                        {
-                            $section_segment = $file->getBasename('.php');
-                            $section_title = Inflector::humanize($section_segment);
-                            if(isset($navs[$section_title])) {
-                                $section_title = $navs[$section_title];
-                            }
-                            ?>
-                            <li class="<?php echo Uri::segment(2) == $section_segment ? 'active' : '' ?>">
-                                <?php echo Html::anchor('admin/'.$section_segment, $section_title) ?>
-                            </li>
-                            <?php
-                        }
-                    ?>
-                    -->
                 </ul>
                 <ul class="nav navbar-nav pull-right">
                     <li class="dropdown">
@@ -85,8 +66,12 @@
         </div>
     </div>
     <?php endif; ?>
-
     <div class="container">
+        <?php if($breadcrumb): ?>
+        <ol class="breadcrumb">
+            <?php echo $breadcrumb; ?>
+        </ol>
+        <?php endif; ?>
         <div class="row">
             <div class="col-md-12">
                 <?php if (Session::get_flash('success')): ?>
@@ -98,7 +83,7 @@
                 </div>
                 <?php endif; ?>
                 <?php if (Session::get_flash('error')): ?>
-                <div class="alert alert-error alert-dismissable">
+                <div class="alert alert-danger alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     <p>
                     <?php echo implode('</p><p>', (array) Session::get_flash('error')); ?>

@@ -36,9 +36,9 @@ class Model_User extends \Orm\Model
     public static function validate($factory)
     {
         $val = Validation::forge($factory);
-        $val->add_field('username', 'username', 'required|max_length[255]');
-        $val->add_field('group', 'group', 'required|valid_string[numeric]');
-        $val->add_field('email', 'email', 'required');
+        $val->add_field('username', '账号', 'required|max_length[255]');
+        $val->add_field('group', '权限', 'required|valid_string[numeric]');
+        $val->add_field('email', '邮箱', 'required');
         return $val;
     }
 

@@ -1,8 +1,3 @@
-<?php if($breadcrumb): ?>
-<ol class="breadcrumb">
-    <?php echo $breadcrumb; ?>
-</ol>
-<?php endif; ?>
 <?php if ($users): ?>
 <table class="table table-striped">
     <thead>
