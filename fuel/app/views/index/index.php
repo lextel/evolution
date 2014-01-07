@@ -4,8 +4,8 @@
     <!--banner开始-->
     <div class="banner">
         <ul class="rslides f426x240 bxslider">
-            <?php foreach($flashs() as $flash) { ?>
-            <li><?php echo Html::anchor('', Html::img($flash), ['target'=>'_blank']);?></li>
+            <?php foreach($ads() as $ad) { ?>
+            <li><?php echo Html::anchor($ad->link, Html::img($ad->image), ['target'=>'_blank', 'title' => $ad->title]);?></li>
             <?php } ?>
         </ul>
     </div>

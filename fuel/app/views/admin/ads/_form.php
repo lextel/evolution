@@ -51,7 +51,7 @@ echo Asset::js(
         </div>
         <div class="form-group">
             <?php echo Form::label('图片:', 'image', array('class'=>'control-label col-sm-1')); ?>
-            <div class="col-sm-5">
+            <div class="col-sm-2">
                 <span class="btn btn-success fileinput-button">
                       <i class="glyphicon glyphicon-plus"></i>
                       <span>选择图片...</span>
@@ -59,12 +59,15 @@ echo Asset::js(
                 </span>
             </div>
             <span class="help-block">支持格式：jpg 大小为：幻灯片980px*350px,所有商品450px*350px</span>
-            <div id="files" class="files">
-              <?php 
-                if(isset($ad)) {
-                    echo '<p><img style="width: 60px; height: 60px; margin:5px; float: left" src="'.Uri::create($ad->image).'"><d class="close"></d><input type="hidden" name="image" value="'.$ad->image.'"></p>';
-                }
-              ?>
+            <div class="control-label col-sm-1"></div>
+            <div class="col-sm-5">
+                <div id="files" class="files">
+                  <?php 
+                    if(isset($ad)) {
+                        echo '<p><img style="margin:5px; float: left" src="'.Uri::create($ad->image).'"><d class="close"></d><input type="hidden" name="image" value="'.$ad->image.'"></p>';
+                    }
+                  ?>
+               </div>
            </div>
         </div>
         <div class="form-group">
