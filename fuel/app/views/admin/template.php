@@ -51,7 +51,6 @@
                                 }
                             }
                         }
-
                     ?>
                 </ul>
                 <ul class="nav navbar-nav pull-right">
@@ -104,5 +103,8 @@
             </p>
         </footer>
     </div>
+    <script>
+        BASE_URL = '<?php echo Uri::base(); ?>';
+    </script>
 </body>
 </html>

@@ -521,7 +521,7 @@ class Model_Item extends \Orm\Model {
      */
     public function edit($id, $post) {
 
-        $image = $post['images'][0];
+        $image = $post['images'][$post['index']];
         $item = Model_Item::find($id);
 
         $result = false;
