@@ -11,14 +11,16 @@ class Controller_Member_Moneylog extends Controller_Center{
         $where = ['member_id'=>$this->current_user->id,'type'=>0];
         $date1 = Input::get('date1', null);
         $date2 = Input::get('date2', null);
+        $url = 'u/moneylog/p';
         if (!is_null($date1) and !is_null($date2))
         {
            $where += [['created_at', '>=', strtotime($date1)], 
                 'and'=>['created_at', '<=', strtotime($date2)+3600*24]];
+           $url = Uri::update_query_string(['date1' => $date1, 'date2' => $date2], $url);
         }
         $count = Model_Member_Moneylog::count(['where'=>$where]);
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('u/moneylog/p', $count, 4, 4);
+        $config = $page->setCofigPage($url, $count, 4, 4);
         $pagination = Pagination::forge('ulogpage', $config);
         $data['list'] = Model_Member_Moneylog::find('all', [
                                               'where'=>$where,
@@ -37,14 +39,16 @@ class Controller_Member_Moneylog extends Controller_Center{
         $where = ['member_id'=>$this->current_user->id,'type'=>1];
         $date1 = Input::get('date1', null);
         $date2 = Input::get('date2', null);
+        $url = 'u/moneylog/b';
         if (!is_null($date1) and !is_null($date2))
         {
            $where += [['created_at', '>=', strtotime($date1)], 
                 'and'=>['created_at', '<=', strtotime($date2)+3600*24]];
+           $url = Uri::update_query_string(['date1' => $date1, 'date2' => $date2], $url);
         }
         $count = Model_Member_Moneylog::count(['where'=>$where]);
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('u/moneylog/b', $count, 4, 4);
+        $config = $page->setCofigPage($url, $count, 4, 4);
         $pagination = Pagination::forge('ulogpage', $config);
         $data['list'] = Model_Member_Moneylog::find('all', [
                                               'where'=>$where,

@@ -17,18 +17,22 @@ class Controller_Member_Orders extends Controller_Center
         $word = Input::get('word', null);
         $date1 = Input::get('date1', null);
         $date2 = Input::get('date2', null);
+        $url = 'u/orders/p';
         if (!is_null($word))
         {
            $where += [['title', 'like', '%'.$word.'%']];
+           $url = Uri::update_query_string(['word' => $word], $url);
         }
         if (!is_null($date1) and !is_null($date2))
         {
            $where += [['created_at', '>=', strtotime($date1)], 
                 'and'=>['created_at', '<=', strtotime($date2)+3600*24]];
+           $url = Uri::update_query_string(['date1' => $date1, 'date2' => $date2], $url);
         }      
         $count = Model_Order::count(['where'=>$where]);
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('u/orders/p', $count, 4, 4);
+        
+        $config = $page->setCofigPage($url, $count, 4, 4);
         $pagination = Pagination::forge('uorderpage', $config);
         
         $orders = Model_Order::find('all', [
