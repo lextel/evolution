@@ -110,7 +110,9 @@ class Controller_Admin_Items extends Controller_Admin {
               Session::set_flash('error', e('保存失败.'));
             }
         } else {
-            Session::set_flash('error', $val->error());
+            $val->set_message('required', ':label 为必填项.');
+            $val->set_message('max_length', ':label 不能超过:param:1个字.');
+            Session::set_flash('error', $val->show_errors());
         }
 
         Response::redirect('admin/items/create');
@@ -156,9 +158,9 @@ class Controller_Admin_Items extends Controller_Admin {
             }
 
         } else {
-            if (Input::method() == 'POST') {
-                Session::set_flash('error', $val->error());
-            }
+            $val->set_message('required', ':label 为必填项.');
+            $val->set_message('max_length', ':label 不能超过:param:1个字.');
+            Session::set_flash('error', $val->show_errors());
         }
 
         Response::redirect('admin/items/edit/'.$id);

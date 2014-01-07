@@ -27,7 +27,7 @@ echo Asset::js(['admin/items/list.js']);
     <thead>
         <tr>
             <th>图片</th>
-            <th width="60%">标题</th>
+            <th width="50%">标题</th>
             <th>价格</th>
             <th>发布时间</th>
             <th>审核状态</th>

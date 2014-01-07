@@ -67,7 +67,7 @@
     </div>
     <?php endif; ?>
     <div class="container">
-        <?php if($breadcrumb): ?>
+        <?php if(isset($breadcrumb)): ?>
         <ol class="breadcrumb">
             <?php echo $breadcrumb; ?>
         </ol>
