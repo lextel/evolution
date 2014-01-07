@@ -42,6 +42,9 @@ class Controller_Admin_Posts extends Controller_Admin{
 
     }
 
+    /*
+    * 查看晒单的内容详情
+    */
     public function action_view($id = null)
     {
         $post = Model_Post::find($id);
@@ -52,7 +55,10 @@ class Controller_Admin_Posts extends Controller_Admin{
         $this->template->content = $view;
 
     }
-
+    
+    /*
+    * 审核
+    */
     public function action_edit($id = null)
     {
         $post = Model_Post::find($id);

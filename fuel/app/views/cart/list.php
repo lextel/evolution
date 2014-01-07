@@ -3,11 +3,11 @@
     <div class="wrapper w">
         <div class="cart-content">
             <ol class="pay-prompt">
-                <li><a href=""><span>1</span>确认提交订单>></a></li>
-                <li><a href=""><span>2</span>网银支付>></a></li>
-                <li><a href=""><span>3</span>等待揭晓>></a></li>
-                <li><a href=""><span>4</span>揭晓获奖者>></a></li>
-                <li><a href=""><span>5</span>晒单分享>></a></li>
+                <li><a href=""><span>1</span>确认提交订单></a></li>
+                <li><a href=""><span>2</span>网银支付></a></li>
+                <li><a href=""><span>3</span>等待揭晓></a></li>
+                <li><a href=""><span>4</span>揭晓获奖者></a></li>
+                <li><a href=""><span>5</span>晒单分享></a></li>
             </ol>
             <form action="<?php echo Uri::create('cart/remove'); ?>" method="post" id="cartForm">
                 <div class="cart-list">
@@ -78,8 +78,8 @@
                 </div>
             </form>
             <div class="btn-group tr">
-                <a href="<?php echo Uri::base(); ?>" class="btn btn-default">< 返回首页</a>
-                <a href="<?php echo Uri::create('cart/pay'); ?>" class="btn btn-default" id="doOrder">提交订单</a>
+                <a href="<?php echo Uri::base(); ?>" class="btn btn-default doCart">< 返回首页</a>
+                <a href="<?php echo Uri::create('cart/pay'); ?>" class="btn btn-red" id="doOrder">提交订单</a>
             </div>
         </div>
         <!--弹出登录框-->
@@ -127,7 +127,7 @@
                         <div class="img-box">
                             <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/' . $remain->image); ?>" alt=""></a>
                             <div class="sheng-yi">
-                                剩余 <b class="red"><?php echo $remain->phase->remain; ?></b>人次本商品就揭晓了！
+                                剩余 <b class="red"><?php echo $remain->phase->remain; ?></b>人次！
                             </div>
                         </div>
                         <div class="btn-group">
