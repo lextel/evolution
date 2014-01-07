@@ -261,10 +261,10 @@
     position: absolute;
     top: 4px;
     right: 15px;
-    background: url("../images/icon_3.png") no-repeat -184px 0;
+    background: url("../images/icon-02.png") no-repeat -184px 0;
 }
 .icon-arrow-down{
-    background: url("../images/icon_3.png") no-repeat -212px 0;
+    background: url("../images/icon-02.png") no-repeat -212px 0;
 }
 .left-nav li a{
     display: block;
@@ -286,6 +286,8 @@
     overflow: hidden;
     margin: 10px 0 0 10px;
     border: 1px solid #EEEEEE;
+    background: #FFFFFF;
+    min-height: 400px;
 }
 .center-main .center-info{
     overflow: hidden;
@@ -359,6 +361,7 @@
     overflow: hidden;
     padding:10px 20px 20px;
     border: 1px solid #EEEEEE;
+    background: #FFFFFF;
 }
 /*获得的商品*/
 .acquire-box,.record-box,show-box,.message-box{
