@@ -311,8 +311,8 @@
 }
 .product-list .product-box li .img-box{
     width: 215px;
-    height: 200px;
-    line-height: 175px;
+    height: 215px;
+    overflow: hidden;
     margin: 10px;
 }
 .product-list .product-box li .progress-side{

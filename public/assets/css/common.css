@@ -1,17 +1,14 @@
-﻿* {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-    border: 0;
-}
+﻿* {margin: 0;padding: 0;list-style: none;text-decoration: none; border: 0;}
 body{
     font:12px/1.231 "微软雅黑","宋体",Helvetica,Arial,sans-serif;
     color: #333;
-    background: #f5f7fa;
+    background: #F1F1F1;
 }
-.bule{
-    color:#0137FF
+.b{
+    color:#379BE9;
+}
+.r{
+    color: #c10101;
 }
 a{
     color: #333333;
@@ -41,30 +38,38 @@ textarea:focus,input:focus{
 .d-n{
     display: none;
 }
+/*内容*/
+.content{
+    overflow: hidden;
+    float: left;
+    width: 70%;
+    background: #FFFFFF;
+}
 .price{
     display: block;
     font-size: 12px;
 }
 .price b{
-    color: #FF8A3A;
+    color: #f60;
     padding: 0px 5px;
 }
 .username a{
-    width: 80px;
     display: inline-block;
-    color: #437eff;
+    width: 80px;
+    color:#379BE9;
     font-weight: bold;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.content{
-    position: relative;
-    overflow: hidden;
+.number,.ip,.winner,.price,.datetime,.username{
+    line-height: 22px;
+    color: #999;
 }
-.m{
-    margin: 0px;
+.number b{
+    color: #f60;
 }
+/*按钮*/
 .btn-menu {
     margin: 0 10px 10px;
     text-align: center;
@@ -79,7 +84,7 @@ textarea:focus,input:focus{
 }
 
 .btn-menu input{
-    width: 86px;
+    width: 80px;
     border: 1px solid #f1f1f1;
     height: 20px;
     display: inline-block;
@@ -109,12 +114,12 @@ textarea:focus,input:focus{
 }
 .btn-link{
     border: none;
-    background:#ffffff;
+    background:none;
     cursor: pointer;
     display: inline-block;
 }
 .btn-group .btn-link{
-    padding:8px 10px;
+    padding:5px 10px;
 }
 .btn-red{
     padding: 8px 15px;
@@ -133,11 +138,32 @@ textarea:focus,input:focus{
 .btn-block{
     display: block;
 }
+.content-md{
+    line-height: 18px;
+    padding: 5px;
+    height: 58px;
+    text-indent: 2em;
+    overflow: hidden;
+}
  h5{
      font-size: 12px;
      line-height: 22px;
      font-weight: normal;
  }
+ .sns-bar{
+     overflow: hidden;
+     margin: 5px 0;
+ }
+.sns-bar .sns-love{
+    display: inline-block;
+    text-indent: 8px;
+    background: url("../images/icon-02.png") no-repeat -0px -175px;
+}
+.sns-bar .sns-comment{
+    display: inline-block;
+    text-indent: 8px;
+    background: url("../images/icon-02.png") no-repeat -90px -174px;
+}
 .buy{
     width: 135px;
     height: 30px;
@@ -281,11 +307,6 @@ table tbody tr td{
     right: 40px;
     background: url("../images/bg.png") no-repeat -96px -260px;
 }
-.img-box{
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
 .icon-new{
     width: 54px;
     height: 55px;
@@ -296,58 +317,52 @@ table tbody tr td{
     display: inline-block;
     background: url("../images/bg.png") no-repeat -9px -457px;
 }
+/*图片*/
+.img-box{
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    display: table-cell;
+}
+.img-lg{
+    width: 230px;
+    height: 230px;
+}
 .img-md{
     width: 120px;
-    height: 100px;
-    line-height: 100px;
+    height: 120px;
 }
 .img-sm{
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     line-height: 50px;
 }
-.img-box a img{
+.img-box img{
     max-width: 100%;
     vertical-align: middle;
     height: auto;
 }
 .head-img{
     text-align: center;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
     overflow: hidden;
+    display: table-cell;
     border-radius: 5px;
+    border: 1px solid #F7F7F7;
 }
-.head-img a img{
+.head-img img{
     max-width: 100%;
     vertical-align: middle;
     height: auto;
 }
-.head-img .name {
-    line-height: 22px;
-    margin: 5px;
-    width: 70px;
-    display: block;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.head-img-sm{
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    border-radius:2px;
-}
-.head-img-sm img{
-    max-width: 100%;
-    vertical-align: middle;
-    height: auto;
-}
-.sidebar{
 
+.sidebar{
     overflow: hidden;
 }
 .info-side{
+    width: 65%;
     overflow: hidden;
 }
 .info-side h4{
@@ -361,23 +376,11 @@ table tbody tr td{
 }
 .info span{
     display: block;
-    margin-bottom: 5px;
 }
-.text-title{
-    font-weight: bold;
-}
-.datetime{
-    color: #666;
-}
-.name{
-    font-weight: bold;
-    line-height: 22px;
-    width: 100px;
-    white-space:nowrap;
-    text-overflow: ellipsis;
-}
-.ip{
-    line-height: 22px;
+.text-md{
+    width: 220px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .title{
     padding: 10px;
@@ -414,17 +417,10 @@ h4{
     font-size: 14px;
 }
 
-.title .more{
+.more{
     display: block;
     float: right;
-    color: #0137ff;
-}
-.title .more:hover{
-    color: #3562c3;
-}
-.red{ color: #D9534F}
-.blue{
-    color: #588cff;
+    color: #379BE9;
 }
 .fl{
     float: left;
@@ -434,13 +430,7 @@ h4{
     float: right;
     display: block;
 }
-.number,.ip,.winner,.price,.datetime{
-    line-height: 20px;
-}
-.number b,.price p{
-    color: #f60;
-    margin: 0 5px;
-}
+
 /*进度条*/
 .progress-side dd{
     width: 100%;
@@ -487,6 +477,7 @@ h4{
 .toggles a:hover{
     background:#fc5240;
 }
+
 /*分页*/
 .pagination{
     overflow: hidden;
@@ -674,7 +665,8 @@ h4{
 .navbar{
     width: 100%;
     background:#af2812 ;
-    height: 35px;
+    height: 40px;
+    margin-bottom: 20px;
 }
 .navbar ul{
     width: 980px;
@@ -682,8 +674,8 @@ h4{
     overflow: hidden;
 }
 .navbar ul li{
-    height: 35px;
-    line-height: 35px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
     float: left;
     width: 196px;
@@ -780,6 +772,90 @@ h4{
     width: 120px;
     height: 45px;
 }
+.weiXin{
+    width: 120px;
+    position: fixed;
+    z-index: 888;
+    background: #FFFFFF;
+    padding: 5px;
+}
+.weiXin-img{
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    position: relative;
+}
+.weiXin p{
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+    color: #999999;
+}
+.icon-close{
+    width: 21px;
+    height: 21px;
+    display:inline-block;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    background: url("../images/icon-02.png") no-repeat -117px -0px;
+}
+.short-cut{
+    overflow: hidden;
+    border: 1px solid #e4e4e4;
+    border-bottom: none;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 100px;
+    background: #FFFFFF;
+    display: none;
+}
+.short-cut a{
+    display: block;
+    width: 58px;
+    height: 58px;
+    border-bottom: 1px solid #e4e4e4;
+    background: url("../images/shortCut.png") no-repeat;
+}
+.short-cut a.item-cart{
+    position: relative;
+    background-position: 0 0;
+}
+.short-cut a.item-cart:hover{
+    background-position: -58px 0;
+}
+.short-cut a.item-cart s{
+    display: inline-block;
+    width:18px;
+    height:18px;
+    line-height: 18px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #D96D66;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.short-cut a.item-qq{
+    background-position: -0px -59px;
+}
+.short-cut a.item-qq:hover{
+    background-position: -58px -59px;
+}
+.short-cut a.item-love{
+    background-position: -0px -118px;
+}
+.short-cut a.item-love:hover{
+    background-position: -58px -118px;
+}
+.short-cut a.item-gotTop{
+    background-position: -0px -177px;
+}
+.short-cut a.item-gotTop:hover{
+    background-position: -58px -177px;
+}
 /*底部结束*/
 /*弹出登录*/
 .login2,.prompt{
@@ -801,7 +877,7 @@ h4{
     width: 24px;
     height: 24px;
     cursor: pointer;
-    background: url("../images/icon_3.png") no-repeat -137px 0;
+    background: url("../images/icon-02.png") no-repeat -137px 0;
     position: absolute;
     top: 0;
     right: 0;

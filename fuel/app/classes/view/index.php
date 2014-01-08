@@ -62,7 +62,7 @@ class View_Index extends Viewmodel {
        $this->orders = function() {
            $posts = Model_Order::find('all', [
                      'order_by'=>['id'=>'desc'],
-                     'rows_limit'=>4
+                     'rows_limit'=>8
                      ]);
            return $posts;
        };
