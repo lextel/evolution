@@ -26,14 +26,14 @@
                 <div class="right-box fl">
                     <h2><?php echo $win->code; ?></h2>
                     <div class="result-info">
-                         <div class="img-box fl">
+                         <div class="head-img fl">
                               <a href="<?php echo Uri::create('u/'.$memberInfo->id); ?>"><img src="<?php echo Uri::create($memberInfo->avatar); ?>" alt=""></a>
                          </div>
                          <div class="info-side fl">
-                              <div class="winner">获得者<a href="<?php echo Uri::create('u/'.$memberInfo->id); ?>"><b><?php echo $memberInfo->nickname; ?></b></a></div>
-                              <span class="announce-time">揭晓时间：<b><?php echo $friendlyDate($win->opentime);?></b></span>
-                              <span class="buy-time">乐拍时间：<b><?php echo $friendlyDate($win->order_created_at);?></b></span>
-                              <span class="buy-number">乐购数量：<b class="red"><?php echo $win->code_count; ?></b>人次</span>
+                              <div class="username">获得者：<a href="<?php echo Uri::create('u/'.$memberInfo->id); ?>"><b><?php echo $memberInfo->nickname; ?></b></a></div>
+                              <span class="datetime">揭晓时间：<b><?php echo $friendlyDate($win->opentime);?></b></span>
+                              <span class="datetime">乐拍时间：<b><?php echo $friendlyDate($win->order_created_at);?></b></span>
+                              <span class="number">乐购数量：<b class="red"><?php echo $win->code_count; ?></b>人次</span>
                          </div>
                         <div class="win-number">
                         </div>
@@ -53,7 +53,7 @@
             <li><a href="#phase" itemId="<?php echo $itemInfo->id; ?>" data-toggle="tab">往期回顾(<b><?php echo $phaseCount; ?></b>)</a></li>
         </ul>
         </div>
-		<div class="content tab-content">
+		<div class="tab-content">
         <!--计算结果开始-->
         <div class="tab-pane active" id="result">
             <div class="calculation-box">

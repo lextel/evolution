@@ -78,25 +78,6 @@
     padding: 10px;
     overflow: hidden;
 }
-
-.right-box .result-info .img-box {
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
-    margin-bottom: 10px;
-}
-
-.right-box .result-info .info-side {
-    width: 60%;
-    height: 70px;
-    margin-left: 10px;
-}
-
-.right-box .result-info .info-side span {
-    display: block;
-    margin-bottom: 5px;
-}
-
 .win-number {
     width: 426px;
     height: 100px;
@@ -240,6 +221,12 @@
     height: 337px;
     border: 1px solid #EEEEEE;
     margin-left: 15px;
+    text-align: center;
+}
+.sub_banner img{
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
 }
 .product-hot{
     background: #FFFFFF;
@@ -395,10 +382,6 @@
     white-space: nowrap;
     text-overflow:ellipsis;
     padding:0;
-}
-.remain{
-    line-height: 24px;
-    text-align: left;
 }
 .cart-list .cart-footer{
     border: 1px solid #EEEEEE;
@@ -643,11 +626,6 @@
     vertical-align:middle;
     text-align: center;
 }
-.new-buyer  .new-buyer-body table tr td .img-box{
-    width:30px;
-    height: 30px;
-    line-height:30px;
-}
 .new-buyer  .new-buyer-body  p{
     line-height: 24px;
     color: #666666;
@@ -661,8 +639,8 @@
 .previous-box{
     overflow: hidden;
     padding: 10px;
-    border: 1px solid #EEEEEE;
-    background:#EEEEEE;
+    border: 1px solid #dddddd;
+    background:#FFFFFF;
 }
 .previous-box .img-box{
     width: 70px;
@@ -905,17 +883,6 @@
     width:230px;
     overflow: hidden;
 }
-.latest-wrap .right-box .buying-box{
-    width:278px;
-    overflow: hidden;
-    margin: 0;
-}
-.latest-wrap .right-box .buying-box ul{
-    width: 100%;
-}
-.info-side h4{
-    font-size: 12px;
-}
 .sort-list{
     margin-top: 20px;
     overflow: hidden;
@@ -949,16 +916,6 @@
     color: #ffffff;
     background: #f60;
 }
-.sort-list ul li .img-box{
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
-    margin-right: 10px;
-}
-.sort-list ul li .info-side{
-    width: 68%;
-    overflow: hidden;
-}
 .sort-list ul li div.longItem{
     background: #EEEEEE;
     padding-bottom: 10px;
@@ -968,9 +925,6 @@
     height:220px;
     line-height: 200px;
     margin: 0 auto;
-}
-.sort-list ul li div.longItem .remain{
-    text-align: center;
 }
 /*商品搜索*/
 .top-navbar{
@@ -999,11 +953,6 @@
     color: #f60;
     margin: 0 5px;
 }
-
-.latest-wrap{
-    margin-top:20px;
-}
-
 .scrollleft {
     padding-bottom: 10px;
     overflow: hidden;
