@@ -40,16 +40,26 @@ class View_Wins_Index extends Viewmodel {
            $item = Model_Item::find_by_id($item_id);
            return $item;
        };
+
        //获得期数信息
        $this->getPhaseInfo = function($phase_id) {
            $phase = Model_Phase::find_by_id($phase_id);
            return $phase;
        };
+
        //获得用户信息
        $this->getMemberInfo = function($member_id) {
            $member = Model_Member::find_by_id($member_id);
            return $member;
        }; 
+
+       // 来自
+       $this->getFrom = function($orderId){
+
+           $order = Model_Order::find($orderId);
+
+           return $order->area;
+       };
 
 
        // 友好时间
