@@ -94,7 +94,7 @@ return array(
      * default_timezone        optional, if you want to change the server's default timezone
      */
     // 'server_gmt_offset'  => 0,
-    // 'default_timezone'   => null,
+    'default_timezone'   => 'Asia/Hong_Kong',
 
     /**
      * Logging Threshold.  Can be set to any of the following:
@@ -106,7 +106,7 @@ return array(
      * Fuel::L_INFO
      * Fuel::L_ALL
      */
-    'log_threshold'    => Fuel::L_ALL,
+    'log_threshold'    => Fuel::L_ERROR,
     // 'log_path'         => APPPATH.'logs/',
     // 'log_date_format'  => 'Y-m-d H:i:s',
 
