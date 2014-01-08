@@ -11,6 +11,9 @@ $(function(){
         ignore: [],
         submitHandler: function(form) {
             form.submit();
+        },
+        errorPlacement: function(error, element) {
+            alert(error.html());
         }
     });
 
@@ -22,12 +25,16 @@ $(function(){
         },
         messages: {
             parent_id: "请输入分类名称",
-            name: "请输入分类名称",
+            name: "请输入品牌名称",
         },
         ignore: [],
         submitHandler: function(form) {
             form.submit();
+        },
+        errorPlacement: function(error, element) {
+            alert(error.html());
         }
+
     });
 
 

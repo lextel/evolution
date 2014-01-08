@@ -21,7 +21,7 @@ class View_Posts_View extends Viewmodel {
        //
        $this->getNewPosts = function(){
             $posts = Model_Post::find('all',[
-                                                  'where' => ['is_delete'=>0],
+                                                  'where' => ['is_delete'=>0, 'status'=>1],
                                                   'order_by' =>['id'=>'desc'],
                                                   'rows_limit'=>5,
                                                   ]);

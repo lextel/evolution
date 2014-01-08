@@ -71,7 +71,7 @@
                     <li>
                         <div class="title-box">
                             <h4><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h4>
-                            <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?></b></span>
+                            <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?>.00</b></span>
                         </div>
                         <div class="img-box img-lg">
                             <?php echo Html::anchor('m/'.$phase->id, Html::img($getItemInfo($phase->item_id)->image));?>
@@ -124,7 +124,7 @@
             <li class="sidebar">
                 <div class="title-box">
                     <h4><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h4>
-                    <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?></b></span>
+                    <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?>.00</b></span>
                 </div>
                 <div class="img-box img-lg"
                     <?php echo Html::anchor('m/'.$phase->id, Html::img($getItemInfo($phase->item_id)->image));?>
