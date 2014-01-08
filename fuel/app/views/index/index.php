@@ -17,7 +17,6 @@
                     <h4>最新揭晓</h4>
                     <?php echo Html::anchor('w', '更多>>', ['class'=>'more']);?>
                 </div>
-                <div class="sidebar">
                     <ul>
                         <?php
                             foreach($newWins() as $win) { 
@@ -39,7 +38,7 @@
                             <div class="img-box img-md">
                                 <?php echo Html::anchor('w/'.$win->id, Html::img($getItemInfo($win->item_id)->image));?>
                             </div>
-                            <h5><?php echo Html::anchor('m/'.$win->phase_id, $getPhaseInfo($win->id)->title);?></h5>
+                            <h4 class="title-mx"><?php echo Html::anchor('m/'.$win->phase_id, $getPhaseInfo($win->id)->title);?></h4>
                             <div class="username">获得者: <b><?php echo Html::anchor('u/'.$win->member_id, $getMemberInfo($win->member_id)->nickname, ['class'=>'bule']);?></b></div>
                         </li>
                         <?php 
@@ -47,7 +46,6 @@
                             } 
                         ?>
                     </ul>
-                </div>
             </div>
 		<!--公告-->
         <div class="notice fr">
@@ -121,7 +119,7 @@
     <div class="second w">
         <ul>
             <?php foreach($hotItems() as $phase) { ?>
-            <li class="sidebar">
+            <li>
                 <div class="title-box">
                     <h4><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h4>
                     <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?>.00</b></span>
