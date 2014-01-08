@@ -39,7 +39,7 @@ $(function(){
             <td><?php echo $getUser($item->member_id)->nickname; ?></td>
             <td>第<?php echo $getPhase($item)->phase_id; ?>期 <?php echo mb_substr($getPhase($item)->title, 0, 16,'utf-8'); ?>...</td>
             <td>
-                <?php if (Input::param('active')=='0') { ?>
+                <?php if (Input::param('active')=='0' or Input::param('active')==null ) { ?>
                 <?php echo Html::anchor('admin/posts/view/'.$item->id, '审核'); ?>
                 <?php }elseif(Input::param('active')=='1') { ?>
                 <?php echo Html::anchor('p/'.$item->id, '浏览页面', ['target'=>'_blank']); ?>
