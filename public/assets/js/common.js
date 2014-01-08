@@ -577,6 +577,7 @@ $(function(){
 
 
 $(function(){
+        // 向下滚动
         var _BuyList=$(".buyList");
         var Trundle = function () {
             _BuyList.prepend(_BuyList.find("li:last")).css('marginTop', '-75px');
@@ -589,16 +590,15 @@ $(function(){
         },function () {
             setTrundle = setInterval(Trundle, 3000);
         });
-});
 
-
-$(function(){
-    
-    //二、左右切换：最后一个显示在最右侧;
-    $(".scrollleft").Xslider({
-        unitdisplayed:5,
-        numtoMove:1
-    });
-    
-    $("a").focus(function(){this.blur();});
+    //左右滚动
+    if($(".scrollleft").length > 0){
+        //二、左右切换：最后一个显示在最右侧;
+        $(".scrollleft").Xslider({
+            unitdisplayed:5,
+            numtoMove:1
+        });
+        
+        $("a").focus(function(){this.blur();});
+    }
 })
