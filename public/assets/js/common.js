@@ -590,3 +590,15 @@ $(function(){
             setTrundle = setInterval(Trundle, 3000);
         });
 });
+
+
+$(function(){
+    
+    //二、左右切换：最后一个显示在最右侧;
+    $(".scrollleft").Xslider({
+        unitdisplayed:5,
+        numtoMove:1
+    });
+    
+    $("a").focus(function(){this.blur();});
+})
