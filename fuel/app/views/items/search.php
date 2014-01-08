@@ -32,7 +32,7 @@
                 </div>
                 <dl class="progress-side">
                     <dd>
-                        <div class="progress"><div class="progress-bar"></div></div>
+                        <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->phase->joined/$item->phase->amount*100)?>%"></div></div>
                     </dd>
                     <dd>
                         <span class="fl red"><?php echo $item->phase->joined; ?></span>
