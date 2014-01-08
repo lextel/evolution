@@ -21,6 +21,10 @@ a{
 p{
     line-height: 22px;
 }
+h4{
+    font-size: 14px;
+    font-weight: bold;
+}
 textarea{
     width: 100%;
     overflow:auto;
@@ -42,8 +46,22 @@ textarea:focus,input:focus{
 .content{
     overflow: hidden;
     float: left;
-    width: 70%;
+    width: 72%;
     background: #FFFFFF;
+    border: 1px solid #dddddd;
+}
+.content-md{
+    line-height: 18px;
+    padding: 5px;
+    height: 52px;
+    text-indent: 2em;
+    overflow: hidden;
+}
+.sidebar{
+    overflow: hidden;
+    width: 230px;
+    background: #FFFFFF;
+    padding: 0 10px;
 }
 .price{
     display: block;
@@ -57,13 +75,14 @@ textarea:focus,input:focus{
     display: inline-block;
     max-width: 80px;
     color:#379BE9;
+    height: 16px;
     font-weight: bold;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 .number,.ip,.price,.datetime,.username,.remain{
-    line-height: 22px;
+    line-height:18px;
     color: #999;
 }
 .number b,.remain b{
@@ -138,12 +157,15 @@ textarea:focus,input:focus{
 .btn-block{
     display: block;
 }
-.content-md{
-    line-height: 18px;
-    padding: 5px;
-    height: 58px;
-    text-indent: 2em;
-    overflow: hidden;
+.underway{
+    border-radius: 3px;
+    color: #FFFFFF;
+    width: 120px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background: #AF2812;
+    display: block;
 }
  .sns-bar{
      overflow: hidden;
@@ -319,11 +341,6 @@ table tbody tr td{
     overflow: hidden;
     margin-bottom: 10px;
 }
-.img-box a{
-    width: 100%;
-    height: 100%;
-    display: table-cell;
-}
 .img-lg{
     width: 230px;
     height: 230px;
@@ -350,7 +367,7 @@ table tbody tr td{
     overflow: hidden;
     display: table-cell;
     border-radius: 5px;
-    border: 1px solid #F7F7F7;
+    border: 1px solid #dddddd;
 }
 .head-sm{
     width: 24px;
@@ -361,10 +378,6 @@ table tbody tr td{
     max-width: 100%;
     vertical-align: middle;
     height: auto;
-}
-
-.sidebar{
-    overflow: hidden;
 }
 .info-side{
     width: 65%;
@@ -397,6 +410,16 @@ table tbody tr td{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+.title-md{
+    width: 120px;
+    padding: 5px 15px;
+    background: #AF2812;
+    margin: 10px 0;
+    overflow: hidden;
+}
+.title-md h4{
+    color: #FFFFFF;
 }
 .title h4{
     float: left;

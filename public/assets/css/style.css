@@ -719,38 +719,28 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     line-height: 30px;
     font-size: 18px;
 }
-.pane-head li{
-    width: 327px;
+.pane-hd{
+    overflow: hidden;
+}
+.pane-hd li{
+    width: 332px;
     float: left;
-    border-right: 1px solid #EEEEEE;
-    margin-right: -2px;
+    height: 82px;
+    border: 1px solid #EEEEEE;
+    border-right: none;
+    margin-right: -1px;
     padding: 10px;
 }
-.left-content .content{
+.pane-bd{
     overflow: hidden;
-    border: 1px solid #EEEEEE;
-    margin-top: -1px;
-    padding: 20px;
-}
-.content-right{
-    width: 250px;
-    overflow: hidden;
-    border: 1px solid #EEEEEE;
     padding: 10px;
 }
-.content-right .title{
-    height: 34px;
+.pane-bd p{
+    text-indent: 2em;
+    font-size: 14px;
     margin-bottom: 10px;
-    padding: 10px 0;
 }
-.content-right .title h4{
-    height: 32px;
-    width: 130px;
-    border: 1px solid #EEEEEE;
-    line-height: 32px;
-    text-align: center;
-    margin-right: -10px;
-}
+
 .before{
     overflow: hidden;
 }
@@ -758,7 +748,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     overflow: hidden;
     margin-bottom: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px dashed #ddd;
 }
 .before li .head-img{
     width: 60px;
@@ -768,41 +758,32 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 }
 .news{
     overflow: hidden;
+    margin-bottom: -11px;
 }
-.new-text{
-    height:65px;
-    overflow: hidden;
-    line-height: 18px;
-}
-.news li .images-list dd{
+ .images-list dd{
+    float: left;
     width: 60px;
     height: 60px;
-    float: left;
     line-height: 60px;
-    margin-right: 8px;
+    margin-right: 5px;
     text-align: center;
 }
-.news li .images-list dd img{
+ .images-list dd img{
     max-width: 100%;
     height: auto;
     vertical-align: middle;
 }
-
 /*评论*/
 .comment-panel{
     overflow: hidden;
     margin-top: 20px;
-}
-.comment-box{
-    width:692px;
-    border: 1px solid #EEEEEE;
 }
 .comment-footer{
     overflow: hidden;
     height: 34px;
     padding: 5px;
     line-height: 40px;
-    background: #f1f1f1;
+    border: 1px solid #dddddd;
 }
 
 .comment-footer .btn{
@@ -812,11 +793,11 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 .comment-footer .expression{
    margin-left: 15px;
 }
-.comment-footer span{
-    color: #999;
+.comment-count{
+    color: #666;
 }
-.comment-footer span s{
-    font-weight: bold;
+.comment-count b{
+    color: #D9534F;
     margin: 0 5px;
 }
 .comment-list{
@@ -826,7 +807,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 }
 .comment-list dt{
     height:36px;
-    border-bottom:1px solid #EEEEEE;
+    border-bottom:1px solid #ddd;
     margin-bottom: 15px;
 }
 .comment-list dt h4{
@@ -837,21 +818,25 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 }
 .comment-list dd{
     overflow: hidden;
-    margin-bottom: 15px;
-    border-bottom:1px solid #EEEEEE;
-    padding-bottom: 15px;
+    margin-bottom: 10px;
+    border-bottom:1px dashed #ddd;
+    padding-bottom: 10px;
 }
-.comment-list dd .head-img{
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    margin-right: 15px;
+.comment-list .info-side{
+    width: 90%;
 }
-.info-side-head{
-    margin-bottom: 5px;
+.comment-box {
+    width: 700px;
+    overflow: hidden;
 }
-.comment-list dd .comment-box{
-    width: 614px;
+.comment-box textarea{
+   width: 698px;
+}
+.comment-text{
+    font-size: 14px;
+    line-height: 22px;
+    height: 44px;
+    overflow: hidden;
 }
 /*帮助中心*/
 .help-center{
