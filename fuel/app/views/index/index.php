@@ -100,7 +100,7 @@
             </div>
             <!--大家正在乐拍 -->
             <div class="buying-box" >
-                <div class="title"><h4>大家正在乐拍</h4></div>
+                <div class="title"><h4>大家正在乐拍2</h4></div>
                 <div class="buyListdiv" >
                 <ul class="buyList">
                     <?php foreach($orders() as $order) {?>
