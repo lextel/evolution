@@ -25,7 +25,7 @@
                            <?php echo Html::anchor('u/'.$item->member_id, Html::img($getUser($item->member_id)->avatar));?>
                       </div>
                       <div class="info-side fl">
-                            <div class="username"><?php echo Html::anchor('u/'.$item->member_id, $getUser($item->member_id)->username);?></div>
+                            <div class="username"><?php echo Html::anchor('u/'.$item->member_id, $getUser($item->member_id)->nickname);?></div>
                             <div class="datetime"><?php echo \Helper\Timer::friendlyDate($item->created_at); ?></div>
                       </div>
                  </div>

@@ -27,7 +27,14 @@
                 <?php foreach($posts as $post) { ?>
                 <tr>
                     <td><?php echo $post->id;?></td>
-                    <td><div class="img-box"><?php echo Html::anchor('u/posts/view/'.$post->id, Html::img($post->topimage)); ?></div></td>
+                    
+                    <td><div class="img-box">
+                    <?php if ($post->status == 1) { ?>
+                    <?php echo Html::anchor('u/p'.$post->id, Html::img($post->topimage)); ?>
+                    <?php } else { ?>
+                    <?php echo Html::img($post->topimage); ?>
+                    <?php }?>
+                    </div></td>
                     <td>
                         <div class="text-title"><?php $post->title;?></div>
                         <div class="text-content"><?php echo mb_substr($post->desc, 0, 32,'utf-8'); ?></div>

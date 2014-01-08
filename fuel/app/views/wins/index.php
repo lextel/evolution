@@ -1,5 +1,5 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
-<?php echo Asset::js(['wins/index.js','index.js','jquery.bxslider.min.js']); ?>
+<?php echo Asset::js(['wins/index.js','jquery.bxslider.min.js']); ?>
 
 <div class="latest-wrap w">
    <!--左边内容开始-->

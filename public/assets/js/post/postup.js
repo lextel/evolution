@@ -4,7 +4,7 @@ function getCommentList(page){
          return false;
      }
      
-     $.get(page+"?callback="+Math.floor(Math.random()*100000000), function(data){
+     $.get(page+"?callback="+new Date().getTime(), function(data){
             if (data.code==0){
                $('.comment-list').html('');
                $('.comment-list').append('<dt><h4>全部评论</h4></dt>');
@@ -36,7 +36,10 @@ function comment_countup(){
 
 //JS AJAX调用
 function getDataUp(postid, v){
-     $.get("/p/up/"+postid+"?callback=" + Math.floor(Math.random()*100000000), function(data){ v(data);});
+
+     $.get("/p/up/"+postid+"?callback=" + new Date().getTime(), function(data){
+                v(data);
+                });
 }
 
 //列表页喜欢列表
@@ -59,7 +62,7 @@ function cpage(id){
 }
 $(function(){    
      //点击刷新喜欢
-     $('.btn-up').click(function(){
+     $('.sns-love').click(function(){
         var postid =  this.id;
         var up =  $(this).find("s").html();
         var w = $(this);
@@ -125,7 +128,9 @@ $(function(){
      upcookie();
      
      var postid = $(".postid").attr("id");
-     getCommentList('/comment/'+postid+'/p/1');
+     if (postid!=undefined){
+         getCommentList('/comment/'+postid+'/p/1');
+     }
 
 });
 
