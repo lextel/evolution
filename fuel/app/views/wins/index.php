@@ -91,7 +91,7 @@
                 <?php foreach($orders() as $order) {?>
 
                     <li>
-                        <div class="head-img fl">
+                        <div class="img-box img-sm fl">
                             <?php echo Html::anchor('m/'.$order->phase_id, '<img src="http://www.llt.com/'.$getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image.'" alt="" />');?>
                         </div>
                         <div class="info-side">
@@ -116,11 +116,12 @@
                 ?>
                 <li>
                     <div class="shortItem" style="display: <?php echo $i == 1 ? 'none' : 'block'; ?>">
-                        <div class="img-box fl">
+                        <div class="img-box img-sm fl">
                             <a href=""><img src="<?php echo Uri::create($hot->image); ?>" alt=""></a>
+                            <div class="top <?php echo $i < 4 ? 'one' : '';?>"><?php echo $i; ?></div>
                         </div>
                         <div class="info-side fr">
-                            <h4><a href=""><?php echo $hot->title; ?></a></h4>
+                            <div class="title-sm"><a href=""><?php echo $hot->title; ?></a></div>
                             <div class="remain">剩余次数: <b class="red"><?php echo $hot->phase->remain; ?></b></div>
                         </div>
                     </div>
@@ -131,6 +132,7 @@
                                 <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $hot->price); ?></b></span>
                             </div>
                             <div class="img-box">
+                                <div class="top <?php echo $i < 4 ? 'one' : '';?>"><?php echo $i; ?></div>
                                 <a href=""><img src="<?php echo Uri::create($hot->image); ?>" alt=""></a>
                             </div>
                             <div class="remain tc">剩余次数: <b class="red"><?php echo $hot->phase->remain; ?></b></div>
@@ -141,7 +143,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="top <?php echo $i < 4 ? 'one' : '';?>"><?php echo $i; ?></div>
+
                 </li>
                 <?php
                     $i++;

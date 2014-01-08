@@ -883,6 +883,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     border: 1px solid #EEEEEE;
     padding:0 20px 15px;
     margin: 10px 0;
+    background: #FFFFFF;
 }
 .help-main h2{
     font-size: 14px;

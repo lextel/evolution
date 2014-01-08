@@ -101,7 +101,7 @@
                 <ul class="buyList">
                     <?php foreach($orders() as $order) {?>
                     <li>
-                        <div class="img-box img-md fl">
+                        <div class="img-box img-sm fl">
                             <?php echo Html::anchor('m/'.$order->phase_id, '<img src="http://www.llt.com/'.$getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image.'" alt="" />');?>
                         </div>
                         <div class="info-side">

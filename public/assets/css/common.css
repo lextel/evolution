@@ -55,18 +55,18 @@ textarea:focus,input:focus{
 }
 .username a{
     display: inline-block;
-    width: 80px;
+    max-width: 80px;
     color:#379BE9;
     font-weight: bold;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.number,.ip,.winner,.price,.datetime,.username{
+.number,.ip,.price,.datetime,.username,.remain{
     line-height: 22px;
     color: #999;
 }
-.number b{
+.number b,.remain b{
     color: #f60;
 }
 /*按钮*/
@@ -145,11 +145,6 @@ textarea:focus,input:focus{
     text-indent: 2em;
     overflow: hidden;
 }
- h5{
-     font-size: 12px;
-     line-height: 22px;
-     font-weight: normal;
- }
  .sns-bar{
      overflow: hidden;
      margin: 5px 0;
@@ -322,8 +317,12 @@ table tbody tr td{
     text-align: center;
     position: relative;
     overflow: hidden;
-    display: table-cell;
     margin-bottom: 10px;
+}
+.img-box a{
+    width: 100%;
+    height: 100%;
+    display: table-cell;
 }
 .img-lg{
     width: 230px;
@@ -353,7 +352,12 @@ table tbody tr td{
     border-radius: 5px;
     border: 1px solid #F7F7F7;
 }
-.head-img img{
+.head-sm{
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+}
+.head-img img,.head-sm img{
     max-width: 100%;
     vertical-align: middle;
     height: auto;
@@ -375,7 +379,7 @@ table tbody tr td{
     width: 60%;
     overflow: hidden;
 }
-.info span{
+.info-side span{
     display: block;
 }
 .text-md{
@@ -389,6 +393,7 @@ table tbody tr td{
 }
 .title-sm{
     width: 180px;
+    line-height: 22px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -397,10 +402,6 @@ table tbody tr td{
     float: left;
     text-indent: 15px;
     font-size: 16px;
-}
-.title h2{
-    font-size: 18px;
-    line-height: 30px;
 }
 .title-box{
     min-height: 40px;
@@ -413,11 +414,6 @@ table tbody tr td{
     white-space:nowrap ;
     text-overflow:ellipsis ;
 }
-h4{
-    line-height: 22px;
-    font-size: 14px;
-}
-
 .more{
     display: block;
     float: right;
@@ -527,11 +523,6 @@ h4{
 }
 .pagination span.next-inactive{
     width:60px;
-}
-
-.winner b{
-    color: #437eff;
-    padding: 0 5px;
 }
 /*头部开始*/
 .top-nav{
