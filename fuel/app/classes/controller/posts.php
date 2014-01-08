@@ -97,6 +97,7 @@ class Controller_Posts extends Controller_Frontend{
         $data['msg'] = 'postid is valid';
         return $response->body(json_encode($data));
     }
+
     /*
     * 获得往期中奖记录列表翻页选择
     */
