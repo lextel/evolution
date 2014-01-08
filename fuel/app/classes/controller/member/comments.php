@@ -31,7 +31,7 @@ class Controller_Member_Comments extends Controller_Center
                 $post->save();
                 $data['code'] = 0;
                 $data['msg'] = 'ok';
-                $data['member']['date'] = 'ganggang';
+                $data['member']['date'] = \Helper\Timer::friendlyDate($comment->created_at);
                 $data['member']['text'] = Input::post('text');
                 $member = Model_Member::find($this->current_user->id);
                 $data['member']['userid'] = $member->id;
