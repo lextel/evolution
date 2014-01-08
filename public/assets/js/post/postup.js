@@ -1,17 +1,18 @@
 //拉取评论列表
 function getCommentList(page){
-     var postid = $(".postid").attr("id");
-     $.get("/comment/"+postid+"/p/"+page+"?callback="+Math.floor(Math.random()*100000000), function(data){
+     if (page == "#"){
+         return false;
+     }
+     
+     $.get(page+"?callback="+Math.floor(Math.random()*100000000), function(data){
             if (data.code==0){
                $('.comment-list').html('');
+               $('.comment-list').append('<dt><h4>全部评论</h4></dt>');
                $.each(data.list, function(index, li) {
-                 console.log(li.member);
-                 comment(li.member);
+                 var text = comment(li.member);
+                 $('.comment-list').append(text);
                });
-               var page = data.page;
-               //page = page.replace(/\/c\/p\/(\d+)/g, "javascript:gotoPage($1);");
-               //page = page.replace(/#/g, "javascript:;");
-               
+               var page = data.page;             
                $('.comment-list').append(page);
                $('.pagination').addClass('comment');
             }
@@ -22,9 +23,9 @@ function getCommentList(page){
 function comment(member){
     var text = '<dd>'
     text += '<div class="head-img fl"><a href="/u/'+member.userid+'"><img src="/'+member.avatar+'" alt=""/></a></div>'
-    text += '<div class="info-side"><div class="info-side-head"><span class="name blue"><a href="/u/'+member.userid+'">'+member.nickname+'</a></span>'
+    text += '<div class="info-side"><div class="info-side-head"><span class="name blue"><a href="/u/'+member.userid+'">'+member.nickname+'</a></span>&nbsp;&nbsp;'
     text += '<span class="datetime">'+member.date+'</span></div><div class="comment-text">'+member.text+'</div>'
-    $('.comment-list').prepend(text);
+    return text;
 }
 //评论数 + 1 效果
 function comment_countup(){
@@ -65,7 +66,7 @@ $(function(){
         var w = $(this);
         var c = $.cookie('postup');
         if (c == null || c == "") {
-            c = ","
+            c = ",";
         }
         if (c.indexOf("," + postid + ",") >= 0) {
             w.html("已喜欢(<s>"+up+"</s>)");
@@ -85,16 +86,35 @@ $(function(){
 
      //添加评论
      $(".btn-comment").click(function(){
-         if(IS_LOGIN) {  
+         var c = $.cookie('userlogin');
+         var ccomment = $.cookie('comment');
+         if(c==true) {  
+            if (ccomment == null || ccomment == ""){
+               ccomment = ",";
+            }
             var postid = $(".postid").attr("id");
+            if (ccomment.indexOf("," + postid + ",") >= 0) {
+                alert("你今天已经评论过了");
+                return false;
+            }
             var url = "/comment/"+postid+"/add";
             var text = $("#comment").val();
             $.post(url ,{text:text},function(data){
              if (data.code==0){
-                 comment(data.member);
+                 var text = comment(data.member);
+                 $('.comment-list dt').after(text);
                  comment_countup();
                  $("#comment").val('');
                  $(".btn-commentcount").find("s").html(200);
+                 ccomment += postid + ",";
+                 $.cookie('comment', ccomment, {
+                                  expires:1,
+                                  path:"/"
+                 });
+
+                 if ($(".comment-list dd").length > 4){
+                    getCommentList('/comment/'+postid+'/p/1');
+                 }
              }
            });
            return true;
@@ -104,7 +124,9 @@ $(function(){
         }
      });
      upcookie();
-     getCommentList(1);
+     
+     var postid = $(".postid").attr("id");
+     getCommentList('/comment/'+postid+'/p/1');
 
 });
 

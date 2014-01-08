@@ -3,7 +3,7 @@ class Controller_Comment extends Controller_Rest{
     /*
     *获得晒单的评论列表
     */
-    public $page_size = 4;
+    public $page_size = 0;
     public $format = 'json';
     public function action_index($pid=null, $pagenum=1)
     {
@@ -12,15 +12,15 @@ class Controller_Comment extends Controller_Rest{
         is_null($pid) and $this->response($data);
         $count = Model_Comment::count(['where'=>['pid'=>$pid]]);
         $page = new \Helper\Page();
-        $config = $page->setAjaxConfig('cpage', $count, $pagenum);
-        Pagination::forge('commentpage', $config);
-
+        $config = $page->setCommentPage('/comment/'.$pid.'/p', 'cpage',$count, 4, 4);
+        $pagination = Pagination::forge('commentpage', $config);
         $response = new Response();
         $comments = Model_Comment::find('all', [
                                 'where'=>['pid'=>$pid],
                                 'order_by' =>['id'=>'desc'],
-                                'rows_limit'=>$this->page_size*intval($pagenum),
-                                'rows_offset'=>$this->page_size,]);
+                                'rows_limit'=>$pagination->per_page,
+                                'rows_offset'=>$pagination->offset,
+                                ]);
         if ($comments)
         {
             foreach($comments as $c)
@@ -32,7 +32,7 @@ class Controller_Comment extends Controller_Rest{
                     'avatar'=>$member->avatar,
                     'nickname'=>$member->nickname,
                     'text'=>$c->text,
-                    'date'=>$c->created_at]
+                    'date'=>\Helper\Timer::friendlyDate($c->created_at)]
                     ];
             }
             $data['page'] =Pagination::instance('commentpage')->render();
