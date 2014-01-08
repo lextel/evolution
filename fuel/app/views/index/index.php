@@ -65,7 +65,7 @@
                             <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?></b></span>
                         </div>
                         <div class="img-box">
-                            <?php echo Html::anchor('m/'.$phase->id, '<img src="http://www.llt.com/'.$getItemInfo($phase->item_id)->image.'" alt="" />');?>
+                            <?php echo Html::anchor('m/'.$phase->id, Html::img($getItemInfo($phase->item_id)->image));?>
                         </div>
                         <dl class="progress-side">
                             <dd>
@@ -106,7 +106,7 @@
                     <?php foreach($orders() as $order) {?>
                     <li>
                         <div class="head-img fl">
-                            <?php echo Html::anchor('m/'.$order->phase_id, '<img src="http://www.llt.com/'.$getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image.'" alt="" />');?>
+                            <?php echo Html::anchor('m/'.$order->phase_id, Html::img($getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image));?>
                         </div>
                         <div class="info-side">
                             <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'bule']);?> 刚刚乐拍了</div>
@@ -131,7 +131,7 @@
                     <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?></b></span>
                 </div>
                 <div class="img-box">
-                    <?php echo Html::anchor('m/'.$phase->id, '<img src="http://www.llt.com/'.$getItemInfo($phase->item_id)->image.'" alt="" />');?>
+                    <?php echo Html::anchor('m/'.$phase->id, Html::img($getItemInfo($phase->item_id)->image));?>
                 </div>
                 <dl class="progress-side">
                     <dd>

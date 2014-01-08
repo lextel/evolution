@@ -51,6 +51,21 @@ class Page {
        return array_merge($res, $newconfig);
     }
 
+    public function setCommentPage($url, $fun,$totle, $per_page=4, $uri_segment = 3){
+        $res = $this -> setConfig($url, $totle, $uri_segment);
+        $newconfig = [
+                     'previous'=>'<span class="previous-inactive">{link}</span>',
+                     'per_page' =>$per_page,
+                     'previous-inactive' => "<span class=\"previous-inactive\">\n\t{link}\n</span>\n",
+                     'next' => '<span class="previous-inactive">{link}</span>',
+                     'regular-link' => "\t\t<a href='javascript:;' onclick='{$fun}(\"{uri}\")'>{page}</a>\n",
+                     'active-link' => "\t\t<a href='javascript:;' onclick='{$fun}(\"{uri}\")'>{page}</a>\n",
+                     'next-link' => "\t\t<a href='javascript:;' rel='next' onclick='{$fun}(\"{uri}\")'>{page}</a>\n",
+                     'previous-link' => "\t\t<a href='javascript:;' rel='prev' onclick='{$fun}(\"{uri}\")'>{page}</a>\n",
+                     ];
+       return array_merge($res, $newconfig);
+    }
+
     /**
      * ajax翻页配置
      *
