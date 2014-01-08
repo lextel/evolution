@@ -835,7 +835,9 @@
 .user-info{
     overflow: hidden;
     width: 60%;
-    margin-left: 10px;
+}
+.user-info .username a{
+    width: 60px;
 }
 .p-info{
     overflow: hidden;

@@ -30,10 +30,6 @@
     text-overflow: ellipsis;
 }
 
-.announced-news ul li .img-box{
-    height: 130px;
-    line-height: 130px;
-}
 .news-count{
     overflow: hidden;
     padding: 5px;

@@ -25,7 +25,7 @@
                                 if($win->code_count == 0) {
                         ?>
                         <li>
-                            <div class="img-box">
+                            <div class="img-box img-md">
                                 <?php echo Html::anchor('w/'.$win->id, Html::img($getItemInfo($win->item_id)->image));?>
                             </div>
                             <h5><?php echo Html::anchor('m/'.$win->id, $getPhaseInfo($win->id)->title);?></h5>
@@ -36,11 +36,11 @@
                                 } else {
                         ?>
                         <li>
-                            <div class="img-box">
+                            <div class="img-box img-md">
                                 <?php echo Html::anchor('w/'.$win->id, Html::img($getItemInfo($win->item_id)->image));?>
                             </div>
                             <h5><?php echo Html::anchor('m/'.$win->phase_id, $getPhaseInfo($win->id)->title);?></h5>
-                            <div class="winner">获得者: <b><?php echo Html::anchor('u/'.$win->member_id, $getMemberInfo($win->member_id)->nickname, ['class'=>'bule']);?></b></div>
+                            <div class="username">获得者: <b><?php echo Html::anchor('u/'.$win->member_id, $getMemberInfo($win->member_id)->nickname, ['class'=>'bule']);?></b></div>
                         </li>
                         <?php 
                                 }

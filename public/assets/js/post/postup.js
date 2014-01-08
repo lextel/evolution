@@ -23,8 +23,9 @@ function getCommentList(page){
 function comment(member){
     var text = '<dd>'
     text += '<div class="head-img fl"><a href="/u/'+member.userid+'"><img src="/'+member.avatar+'" alt=""/></a></div>'
-    text += '<div class="info-side"><div class="info-side-head"><span class="name blue"><a href="/u/'+member.userid+'">'+member.nickname+'</a></span>&nbsp;&nbsp;'
-    text += '<span class="datetime">'+member.date+'</span></div><div class="comment-text">'+member.text+'</div>'
+    text += '<div class="info-side"><span class="username"><a href="/u/'+member.userid+'">'+member.nickname+'</a>' +
+     '&nbsp;&nbsp;<s class="datetime">'+member.date+'</s></span>'
+    text += '<div class="comment-text">'+member.text+'</div>'
     return text;
 }
 //评论数 + 1 效果
@@ -35,9 +36,7 @@ function comment_countup(){
 
 //JS AJAX调用
 function getDataUp(postid, v){
-     $.get("/p/up/"+postid+"?callback=" + Math.floor(Math.random()*100000000), function(data){
-                v(data);
-                });
+     $.get("/p/up/"+postid+"?callback=" + Math.floor(Math.random()*100000000), function(data){ v(data);});
 }
 
 //列表页喜欢列表

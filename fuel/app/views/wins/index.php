@@ -25,9 +25,9 @@
                             <a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><img src="<?php echo Uri::create($memberInfo->avatar); ?>"/></a>
                         </div>
                         <div class="user-info fl">
-                            <div class="winner">获奖者：<b><a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><?php echo $memberInfo->nickname; ?></a></b></div>
+                            <div class="username">获奖者：<a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><?php echo $memberInfo->nickname; ?></a></div>
                             <div class="ip">来自：未知</div>
-                            <div class="number">乐拍:<b><?php echo $win->code_count; ?></b>人次</div>
+                            <div class="number">当前乐拍：<b><?php echo $win->code_count; ?></b>人次</div>
                         </div>
                         <div class="p-info">
                             <h5 class="title-sm">
