@@ -21,17 +21,20 @@
                     <?php echo Html::anchor('/m/'.$item->phase_id, Html::img($getItemInfo($getPhaseInfo($item->phase_id)->item_id)->image));?>
                 </div>
                 <div class="buy-record fl">
-                    <h4>(第<?php echo 1;?>期)<?php echo Html::anchor('/m/'.$item->phase_id, $getItemInfo($getPhaseInfo($item->phase_id)->item_id)->title);?></h4>
+                    <h4>(第<?php echo $getPhaseInfo($item->phase_id)->phase_id;?>期)<?php echo Html::anchor('/m/'.$item->phase_id, $getItemInfo($getPhaseInfo($item->phase_id)->item_id)->title);?></h4>
                     <div class="price">价值：<b><?php echo $getPhaseInfo($item->phase_id)->amount;?>.00</b></div>
                     <dl class="progress-side">
                         <dd>
                             <div class="progress">
-                            <div class="progress-bar" style="width:<?php echo $getPhaseInfo($item->phase_id)->joined/$getPhaseInfo($item->phase_id)->amount * 100;?>%">
+                            <div class="progress-bar" style="width:<?php echo $getProgress($item->phase_id);?>%">
                             </div></div>
                         </dd>
                     </dl>
-
+                    <?php if ($getProgress($item->phase_id) != 100) { ?>
                     <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="buy">去乐拍</button>');?>
+                    <?php }else{ ?>
+                    <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="buy">去揭晓</button>');?>
+                    <?php } ?>
                 </div>
             </li>
         </ul>

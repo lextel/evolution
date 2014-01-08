@@ -1,7 +1,7 @@
 
         <div class="navbar-inner">
             <ul>
-                <li><?php echo Html::anchor('u/'.$member->id, '主页');?></li>
+                <li class="active"><?php echo Html::anchor('u/'.$member->id, '主页');?></li>
                 <li><?php echo Html::anchor('u/'.$member->id.'/orders', '乐拍记录');?></li>
                 <li><?php echo Html::anchor('u/'.$member->id.'/wins', '获得的商品');?></li>
                 <li><?php echo Html::anchor('u/'.$member->id.'/posts', '晒单');?></li>
@@ -12,21 +12,25 @@
                     <dd><b><?php echo \Helper\Timer::friendlyDate($oitem->created_at);?></b>乐拍了 </dd>
                     <dd class="right-box">
                         <div class="img-box img-md fl">
-                            <?php echo Html::anchor('m/'.$oitem->phase_id, Html::img($getItemInfo($getPhaseInfo($oitem->phase_id)->item_id)->image));?>
+                            <?php echo Html::anchor('m/'.$oitem->phase_id, Html::img($getPhaseInfo($oitem->phase_id)->image));?>
                         </div>
                         <div class="buy-record fl">
-                            <h4>(第<?php echo $getPhaseInfo($oitem->phase_id)->phase_id; ?>期)<?php Html::anchor('m/'.$oitem->phase_id, 
-                                                                      $getItemInfo($getPhaseInfo($oitem->phase_id)->item_id)->title);?></h4>
-                            <div class="price">价值：<b><?php echo $getItemInfo($getPhaseInfo($oitem->phase_id)->item_id)->price;?>.00</b></div>
+                            <h4>(第<?php echo $getPhaseInfo($oitem->phase_id)->phase_id; ?>期) <?php echo Html::anchor('m/'.$oitem->phase_id, 
+                                                                      $getPhaseInfo($oitem->phase_id)->title);?></h4>
+                            <div class="price">价值：<b><?php echo $getPhaseInfo($oitem->phase_id)->amount;?>.00</b></div>
                             <dl class="progress-side">
                                 <dd>
                                     <div class="progress">
-                                    <div class="progress-bar" style="width:<?php echo $getPhaseInfo($oitem->phase_id)->joined/$getPhaseInfo($oitem->phase_id)->amount * 100;?>%">
+                                    <div class="progress-bar" style="width:<?php echo $getProgress($oitem->phase_id);?>%">
                                     </div>
                                     </div>
                                 </dd>
                             </dl>
-                            <?php echo Html::anchor('m/'.$oitem->phase_id, '<button class="buy">去乐拍</button>');?>
+                            <?php if ($getProgress($oitem->phase_id) != 100) { ?>
+                                <?php echo Html::anchor('m/'.$oitem->phase_id, '<button class="buy">去乐拍</button>');?>
+                            <?php }else{ ?>
+                                <?php echo Html::anchor('w/'.$oitem->phase_id, '<button class="buy">去揭晓</button>');?>
+                            <?php } ?>
                         </div>
                     </dd>
                     <?php } ?>
