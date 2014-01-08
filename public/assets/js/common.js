@@ -488,8 +488,8 @@ function handleJoined(data) {
             html += '<tr>' +
                     '    <td>'+
                     '        <span class="head-sm fl"><a href="'+data.orders[i].link+'"><img src="'+data.orders[i].avatar+'" alt=""/></a></span>'+
-                    '        <span class="username fl">'+data.orders[i].nickname+'</span>'+
-                    '        <span class="ip fl">（IP:'+data.orders[i].ip+'）</span>'+
+                    '        <span class="username fl"><a href="'+data.orders[i].link+'">'+data.orders[i].nickname+'</a></span>'+
+                    '        <span class="ip fl">来自：'+data.orders[i].area+'（IP:'+data.orders[i].ip+'）</span>'+
                     '    </td>'+
                     '    <td>'+data.orders[i].count+'</td>'+
                     '    <td>'+data.orders[i].created_at+'</td>'+
