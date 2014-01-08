@@ -85,7 +85,7 @@
     <div class="right-box fr">
         <!--大家正在乐拍内容开始-->
         <div class="buying-box">
-            <div class="title"><h4>大家正在乐拍111</h4></div>
+            <div class="title"><h4>大家正在乐拍</h4></div>
             <div class="buyListdiv" >
                 <ul class="buyList">
                 <?php foreach($orders() as $order) {?>
