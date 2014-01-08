@@ -24,7 +24,7 @@ class Controller_Home extends Controller_Frontend {
                             'order_by'=>['id'=>'desc'],
                             'rows_limit'=>3,
                             ]);
-        $wins = Model_Lottery::find('all', [
+        $wins = Model_Phase::find('all', [
                             'where'=>['member_id'=>$member_id],
                             'order_by'=>['id'=>'desc'],
                             'rows_limit'=>3,
@@ -47,7 +47,7 @@ class Controller_Home extends Controller_Frontend {
         $member = Model_Member::find($member_id);
         $count = Model_Order::count(['where'=>['member_id'=>$member_id]]);
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('/u/'.$member_id.'/orders/p', $count, 2, 5);
+        $config = $page->setCofigPage('/u/'.$member_id.'/orders/p', $count, 12, 5);
         $pagination = Pagination::forge('horders', $config);
         $orders = Model_Order::find('all',
                         ['where'=>['member_id'=>$member_id],
@@ -67,11 +67,11 @@ class Controller_Home extends Controller_Frontend {
     */
     public function action_wins($member_id, $pagenum = 1){
        $member = Model_Member::find($member_id);
-       $count = Model_Lottery::count(['where'=>['member_id'=>$member_id]]);
+       $count = Model_Phase::count(['where'=>['member_id'=>$member_id]]);
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('/u/'.$member_id.'/wins/p', $count, 2, 5);
+        $config = $page->setCofigPage('/u/'.$member_id.'/wins/p', $count, 12, 5);
         $pagination = Pagination::forge('hwins', $config);
-        $wins = Model_Lottery::find('all', [
+        $wins = Model_Phase::find('all', [
                                                   'where'=>['member_id'=>$member_id],
                                                   'order_by' =>array('id' => 'desc'),
                                                   'rows_limit'=>$pagination->per_page,

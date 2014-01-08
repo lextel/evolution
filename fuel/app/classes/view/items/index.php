@@ -60,7 +60,7 @@ class View_Items_index extends Viewmodel {
                 'is_delete' => \Helper\Item::NOT_DELETE, 
                 'status'    => \Helper\Item::IS_CHECK
                 ];
-            $orderBy = ['remain' => 'desc'];
+            $orderBy = ['remain' => 'asc'];
 
             $phase = Model_Phase::find('first', ['where' => $where, 'order_by' => $orderBy]);
             $itemModel = new Model_Item();

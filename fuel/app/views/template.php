@@ -8,7 +8,7 @@
     <script type="text/javascript">
          $(function(){
             function getTotalBuy(){
-                $.get("/totalbuycount?callback="+ Math.floor(Math.random()*10000000), function(data){
+                $.get("/totalbuycount?callback="+ new Date().getTime(), function(data){
                     if (data.code==0){
                         $("#totalbuy").html(data.num);
                     }
@@ -135,7 +135,7 @@
         <a  href="javascript:void(null)" class="item-gotTop"></a>
     </div>
     <script>
-        <?php 
+        <?php
             Config::load('common');
             $point = Config::get('point');
             $unit  = Config::get('unit');

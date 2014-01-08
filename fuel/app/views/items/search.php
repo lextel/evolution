@@ -1,4 +1,5 @@
 <?php echo Asset::css('product.css'); ?>
+<?php echo Asset::js(['Xslider.js', 'item/index.js']); ?>
 <div class="wrapper w">
 <!--产品列表开始-->
 <div class="content">
@@ -32,7 +33,7 @@
                 </div>
                 <dl class="progress-side">
                     <dd>
-                        <div class="progress"><div class="progress-bar"></div></div>
+                        <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->phase->joined/$item->phase->amount*100)?>%"></div></div>
                     </dd>
                     <dd>
                         <span class="fl red"><?php echo $item->phase->joined; ?></span>
@@ -72,6 +73,7 @@
 <div class="date-hot w">
     <div class="title"><h4>今日热门</h4></div>
     <div class="scrollleft">
+    <div class="scrollcontainer">
     <ul>
         <?php
             $hotItems = $getHots();
@@ -91,7 +93,9 @@
         </li>
         <?php endforeach; ?>
     </ul>
+    </div>
+     <a class="abtn aleft" href="#left"></a>
+                <a class="abtn aright" href="#right"></a>
 </div>
 <!--今日热门结束-->
 </div>
-
