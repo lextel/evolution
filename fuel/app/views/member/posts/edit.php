@@ -37,7 +37,7 @@ $(function(){
         $(".show-form").hide();
     });
     //删除图片
-    $(".delete").click(function(){
+    $("body").on('click', '.delete', function(){
         $(this).parent().remove();
     });
     //上传图片

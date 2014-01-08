@@ -64,6 +64,15 @@ class Model_Post extends \Orm\Model
         return $val;
     }
 
+    public static function editValidate($factory)
+    {
+        $val = Validation::forge($factory);
+        $val->add_field('title', 'Title', 'required|max_length[255]');
+        $val->add_field('desc', 'Desc', 'required');
+        $val->add_field('images', 'Images', 'required');
+        return $val;
+    }
+
     /**
      * 统计商品的晒单数目
      *

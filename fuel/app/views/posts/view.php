@@ -24,7 +24,7 @@
                </div>
                <div class="info fl">
                    <span class="username">
-                       (第<?php echo $post->phase_id; ?>期)<?php echo Html::anchor('/m/'.$post->item_id, $getItem($post->item_id)->title); ?>|
+                       (第<?php echo $getPhase($post->phase_id)->phase_id; ?>期)<?php echo Html::anchor('/m/'.$post->item_id, $getItem($post->item_id)->title); ?>|
                    </span>
                    <span class="price">价值<b>￥<?php echo $getItem($post->item_id)->price;?>.00</b></span>
                    <?php if ($getLastPhase($post->item_id)) { ?>
@@ -41,7 +41,7 @@
        <?php } ?>
        </div>
        <div class="btn-group">
-           <?php echo Html::anchor('javascript:;', '喜欢(<s>'.$post->up.'</s>)', array('class'=>'btn btn-link btn-up', 'id'=>$post->id));?>
+           <?php echo Html::anchor('javascript:;', '喜欢(<s>'.$post->up.'</s>)', array('class'=>'btn btn-link btn-up sns-love', 'id'=>$post->id));?>
            <span>评论(<s><?php echo $post->comment_count;?></s>)</span>
 
        </div>
