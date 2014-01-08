@@ -1,20 +1,20 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
 <?php echo Asset::js(['jquery.cookie.js','common.js', 'post/postup.js']);?>
-<div class="share-details w">
-   <div class="left-content">
-       <div class="content-title">
-           <h3><?php echo $post->title; ?></h3>
+<div class="w">
+   <div class="content">
+       <div class="title-bar">
+           <h2><?php echo $post->title; ?></h2>
            <div class="datetime">晒单时间：<?php echo date('Y-m-d H:i:s', $post->created_at); ?></div>
        </div>
-       <ul class="content-nav">
+       <ul class="pane-head">
            <li>
                <div class="head-img fl">
                    <?php echo Html::anchor('u/'.$post->member_id, Html::img($getUser($post->member_id)->avatar));?>
                </div>
                <div class="info fl">
-                   <span class="text-title blue">幸运获奖者：<?php echo Html::anchor('u/'.$post->member_id, $getUser($post->member_id)->username, ['class'=>'blue']);?></span>
-                   <span>共乐拍：<b>1</b> 人次</span>
-                   <span>幸运乐拍码：<b>1000000</b></span>
+                   <span class="username">幸运获奖者：<?php echo Html::anchor('u/'.$post->member_id, $getUser($post->member_id)->username, ['class'=>'blue']);?></span>
+                   <span class="number">共乐拍：<b>1</b> 人次</span>
+                   <span class="number">幸运乐拍码：<b>1000000</b></span>
                    <span class="datetime">揭晓时间：<s>2013-11-22 22:10:10</s></span>
                </div>
            </li>
@@ -22,10 +22,8 @@
                <div class="head-img fl">
                    <?php echo Html::anchor('m/'.$post->item_id, Html::img($getItem($post->item_id)->image));?>
                </div>
-
-
                <div class="info fl">
-                   <span class="text-title blue">
+                   <span class="username">
                        (第<?php echo $post->phase_id; ?>期)<?php echo Html::anchor('/m/'.$post->item_id, $getItem($post->item_id)->title); ?>|
                    </span>
                    <span class="price">价值<b>￥<?php echo $getItem($post->item_id)->price;?></b></span>
@@ -33,7 +31,7 @@
                </div>
            </li>
        </ul>
-       <div class="content">
+       <div class="pane-bd">
        <p><?php echo $post->desc; ?>
        </p>
        <?php foreach(unserialize($post->images) as $img) { ?>

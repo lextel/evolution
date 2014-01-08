@@ -2,7 +2,7 @@
 <?php echo Asset::js(['jquery.cookie.js', 'post/postup.js']);?>
 <div class="wrapper w">
     <div class="title">
-        <h2>晒单分享<span>（截止目前共 <b class="red"><?php echo $postscount; ?></b> 个幸运者晒单）</span></h2>
+        <h2>晒单分享<small>（截止目前共 <b class="r"><?php echo $postscount; ?></b> 个幸运者晒单）</small></h2>
     </div>
     <div class="list_sort">
         <span>排序</span>
@@ -10,37 +10,35 @@
         <?php echo Html::anchor('/p/s/sortup', '人气晒单', array('class' => 'btn btn-default btn-sx'));?>
         <?php echo Html::anchor('/p/s/sortcomment', '评论最多', array('class' => 'btn btn-default btn-sx'));?>
     </div>
-    <div class="content w">
+    <div class="w">
         <ul class="share-list">
         <?php if ($posts): ?>
         <?php foreach ([0,1,2,3] as $li){?>
-        <li>
+        <li class="product-item">
         <?php foreach ($posts as $v=>$item){ ?>
             <?php if (array_search($v, array_keys($posts)) % 4 == $li){?>
-                <div class="product-item">
-                    <div class="img-box">
-                        <?php echo Html::anchor('/p/'.$item->id, Html::img($getItem($item->item_id)->image));?>
-                    </div>
-                    <div class="info-side">
-                        <div class="head-img fl">
-                            <?php echo Html::anchor('u/'.$item->member_id, Html::img($getUser($item->member_id)->avatar));?>
-                        </div>
-                        <div class="info fl">
-                            <span class="name"><?php echo Html::anchor('u/'.$item->member_id, $getUser($item->member_id)->username, ['class'=>'blue']);?></span>
-                            <span class="datetime"><?php echo \Helper\Timer::friendlyDate($item->created_at); ?></span>
-                            <span class="text-title blue"><?php echo Html::anchor('/p/'.$item->id, $item->title);?></span>
-                        </div>
-                        <div class="text-content">
+                 <div class="img-box">
+                     <?php echo Html::anchor('/p/'.$item->id, Html::img($getItem($item->item_id)->image));?>
+                 </div>
+                 <div class="item-head">
+                      <div class="head-img fl">
+                           <?php echo Html::anchor('u/'.$item->member_id, Html::img($getUser($item->member_id)->avatar));?>
+                      </div>
+                      <div class="info-side fl">
+                            <div class="username"><?php echo Html::anchor('u/'.$item->member_id, $getUser($item->member_id)->username);?></div>
+                            <div class="datetime"><?php echo \Helper\Timer::friendlyDate($item->created_at); ?></div>
+                      </div>
+                 </div>
+                 <div class="item-footer">
+                       <div class="content-md">
                             <?php echo mb_substr($item->desc, 0, 42,'utf-8'); ?>
-                        </div>
-                    </div>
-                    <div class="btn-group">
-                        <?php echo Html::anchor('javascript:;', '喜欢(<s>'.$item->up.'</s>)', array('class'=>'btn btn-link btn-up', 'id'=>$item->id));?>
-                        <?php echo Html::anchor('/p/'.$item->id, '评论(<s>'.$item->comment_count.'</s>)', array('class'=>'btn btn-link'));?>
-                    </div>
-                </div>
+                       </div>
+                       <div class="btn-group sns-bar">
+                            <?php echo Html::anchor('javascript:;', '喜欢(<s>'.$item->up.'</s>)', array('class'=>'btn-link sns-love', 'id'=>$item->id));?>
+                            <?php echo Html::anchor('/p/'.$item->id, '评论(<s>'.$item->comment_count.'</s>)', array('class'=>'btn-link sns-comment'));?>
+                       </div>
+                 </div>
             <?php }; ?>
-
         <?php }; ?>
         </li>
         <?php }; ?>

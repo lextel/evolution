@@ -130,14 +130,14 @@
 .home-wrap{
     border: 1px solid #EEEEEE;
     width: 780px;
-}
-.number,.datetime{
-    margin-bottom: 5px;
+    background: #FFFFFF;
 }
 .left-sidebar{
     width: 160px;
     overflow: hidden;
     padding: 10px;
+    background: #FFFFFF;
+    margin-top: 15px;
 }
 .left-sidebar .img-box{
     height: 160px;
@@ -152,7 +152,6 @@
     background: #ffffff;
     padding: 5px;
     line-height: 18px;
-    margin-top: 10px;
 }
 .main{
     width: 780px;
@@ -565,6 +564,8 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     border: 1px solid #EEEEEE;
     border-top:none;
     float: right;
+    background: #FFFFFF;
+    min-height: 400px;
 }
 .navbar-inner{
     overflow: hidden;
@@ -685,89 +686,45 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 }
 .share-list li{
     float: left;
-    margin-right: 10px;
+    margin:0 10px 10px 0;
+    background: #FFFFFF;
+    overflow: hidden;
 }
-
 .product-item{
     width: 215px;
-    padding: 10px;
     overflow: hidden;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #e0e0e0;
+}
+.product-item .item-head{
+    overflow: hidden;
+    padding: 0 10px;
     margin-bottom: 10px;
 }
-.product-item .img-box{
-    width: 215px;
-    height: 165px;
-    line-height: 165px;
-    margin-bottom: 5px;
-}
-.product-item .head-img{
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    margin-right: 10px;
-    border-radius: 3px;
-}
-.love-box .btn-link{
-    position: relative;
-}
-.love-box .love{
-    position: absolute;
-    top: 0px;
-    left: 10px;
-    z-index: 999;
-    width: 60px;
-    opacity: 0;
-    height: 18px;
-    display: none;
-    border: 1px solid #df5646;
-    color:#df5646 ;
-}
-
-.text-content{
-    clear: both;
-    line-height: 20px;
-    height: 58px;
-    text-indent: 2em;
+.product-item .item-footer{
+    padding:10px 10px 0;
     overflow: hidden;
+    background: #F1F1F1;
 }
-/*分享详情*/
-.share-details{
-
+.share-list .content-md{
+    border: 1px dashed #4c4c4c;
 }
-.left-content{
-    overflow: hidden;
-    float: left;
-}
-.content-title{
+/*分享详细内容*/
+.title-bar{
     text-align: center;
     overflow: hidden;
-    padding: 20px 0;
-    border: 1px solid #EEEEEE;
-    margin-bottom: -1px;
+    padding: 10px 0;
 }
-.content-title h3{
+.title-bar h2{
     height: 30px;
     line-height: 30px;
     font-size: 18px;
 }
-.content-nav{
-    overflow: hidden;
-    border: 1px solid #EEEEEE;
-    border-right: none;
-}
-.content-nav li{
+.pane-head li{
     width: 327px;
     float: left;
     border-right: 1px solid #EEEEEE;
     margin-right: -2px;
     padding: 10px;
-}
-.content-nav li  .head-img{
-    width:100px;
-    height: 80px;
-    line-height: 80px;
-    margin-right: 15px;
 }
 .left-content .content{
     overflow: hidden;
