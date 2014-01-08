@@ -12,6 +12,11 @@ class View_Home_Index extends Viewmodel {
            $info = Model_Phase::find($phaseid);
            return $info;
        };
+    $this->getProgress = function($phaseid){
+          $info =  Model_Phase::find($phaseid);
+          $res = $info->joined/$info->amount * 100;
+          return $res;
+    };
    }
    public function set_view(){
         $this->_view = View::forge('index/home');
