@@ -19,14 +19,14 @@
             <?php if (array_search($v, array_keys($posts)) % 4 == $li){?>
                 <div class="product-item">
                     <div class="img-box">
-                        <?php echo Html::anchor('/p/'.$item->id, Html::img($getItem($item->item_id)->image));?>
+                        <?php echo Html::anchor('/p/'.$item->id, Html::img($item->topimage));?>
                     </div>
                     <div class="info-side">
                         <div class="head-img fl">
                             <?php echo Html::anchor('u/'.$item->member_id, Html::img($getUser($item->member_id)->avatar));?>
                         </div>
                         <div class="info fl">
-                            <span class="name"><?php echo Html::anchor('u/'.$item->member_id, $getUser($item->member_id)->username, ['class'=>'blue']);?></span>
+                            <span class="name"><?php echo Html::anchor('u/'.$item->member_id, $getUser($item->member_id)->nickname, ['class'=>'blue']);?></span>
                             <span class="datetime"><?php echo \Helper\Timer::friendlyDate($item->created_at); ?></span>
                             <span class="text-title blue"><?php echo Html::anchor('/p/'.$item->id, $item->title);?></span>
                         </div>

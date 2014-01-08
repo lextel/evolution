@@ -126,16 +126,14 @@ class Controller_Member_Posts extends Controller_Center
         $val = Model_Post::validate('edit');
         if ($val->run())
         {
+            $post = Model_Post::find($id , ['where'=>['member_id'=>$this->current_user->id]]);
+            !$post and Response::redirect('/u/posts');
             $images = Input::post('images');
             if (count($images) < 1)
             {
                 Response::redirect('/u/posts');
             }
-            $topimage = $images[0];
-            $phase_id = Input::post('phase_id');
-            $phase = Model_Phase::find($phase_id);
-            is_null($phase) and Response::redirect('/u/noposts');
-            $post = Model_Post::find($id , ['where'=>['member_id'=>$this->current_user->id]]);
+            $topimage = $images[0];            
             $post->title = Input::post('title');
             $post->desc = Input::post('desc');
             $post->topimage = $topimage;

@@ -46,7 +46,6 @@ $(function(){
         dataType: 'json',
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
-                console.log(file.link);
                 var text = '<dd class="img-box"><img src="/'+file.link+'" alt="" /><input type="hidden" name="images[]" value="'+file.link+'"><a href="javascript:;" class="delete"></a></dd>';
                 $(".postimg").append(text);
             });
@@ -89,7 +88,7 @@ $(function(){
                     </li>             
                     <li>
                         <button class="btn btn-red tj">发布</button>
-                        <a href="" class="btn">返回</a>
+                        <a href="/u/posts" class="btn">返回</a>
                     </li>
                 </ul>
                 <?php echo Form::close();?>
