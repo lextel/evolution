@@ -50,8 +50,8 @@
             <td class="text-center"><?php echo !empty($item->last_login) ? date('Y-m-d H:i:s', $item->last_login) : ''; ?></td>
             <th class="text-center"><?php echo $item->is_delete ? '已删除' : ($item->is_disable ? '已冻结' : '正常'); ?></th>
             <td class="text-center">
-                <?php echo Html::anchor('admin/members/disable/'.$item->id, '冻结', array('onclick' => "return confirm('亲，您确定要冻结么?')")); ?> |
-                <?php echo Html::anchor('admin/members/delete/'.$item->id, '删除', array('onclick' => "return confirm('亲，您确定要删除么?')")); ?>
+                <?php echo Html::anchor('admin/members/enable/'.$item->id, '解冻', array('onclick' => "return confirm('亲，您确定要解冻么?')")); ?>
+                <?php echo '';//Html::anchor('admin/members/delete/'.$item->id, '删除', array('onclick' => "return confirm('亲，您确定要删除么?')")); ?>
             </td>
         </tr>
         <?php endforeach; ?>

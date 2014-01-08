@@ -26,7 +26,7 @@ return [
             'childs' => [
                 ['name' => '管理员列表', 'href' => Uri::create('/admin/users')],
                 ['name' => '会员列表', 'href' => Uri::create('/admin/members')],
-                ['name' => '会员黑名单', 'href' => Uri::create('/admin/mambers/black')],
+                ['name' => '冻结会员', 'href' => Uri::create('/admin/members/black')],
             ]
         ],
         [
