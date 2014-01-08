@@ -78,6 +78,30 @@ class Model_Post extends \Orm\Model
         return Model_Post::count(['where' => $where]);
     }
 
+    /**
+     * 获取指定字段
+     *
+     * @param $posts  晒单数据
+     * @param $fields 指定fields
+     *
+     * @return array
+     */
+    public function getIdsBy($posts, $fields = ['id']) {
+
+        $data = [];
+        foreach($fields as $field) {
+            $data[$field] = [];
+        }
+
+        foreach($posts as $post) {
+            foreach($fields as $key => $field) {
+                $data[$key][] = $post->$field;
+            }
+        }
+
+        return $data;
+    }
+
 
     /**
      * 商品详情晒单列表
@@ -97,22 +121,28 @@ class Model_Post extends \Orm\Model
 
         $posts = Model_Post::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::PAGESIZE]);
 
-        foreach($posts as $key => $post) {
-            $member = Model_Member::find($post->member_id);
-            $posts[$key] = [
+        list($memberIds, $phaseIds) = $this->getIdsBy($posts, ['member_id', 'phase_id']);
+        $memberInfo = Model_Member::byIds($memberIds, ['avatar', 'nickname']);
+        $phaseInfo  = Model_Phase::byIds($phaseIds);
+
+        $data = [];
+        foreach($posts as $post) {
+            $data[] = [
+                    'id'    => $post->id,
                     'title' => $post->title,
                     'desc'  => $post->desc,
                     'images' => unserialize($post->images),
+                    'phase'  => $phaseInfo[$post->phase_id]->phase_id,
                     'up' => $post->up,
                     'count' => $post->comment_count,
-                    'link' => Uri::create('u/'.$member->id),
-                    'avatar' => Uri::create($member->avatar),
-                    'nickname' => $member->nickname,
+                    'member_id' => $post->member_id,
+                    'avatar' => Uri::create($memberInfo[$post->member_id]->avatar),
+                    'nickname' => $memberInfo[$post->member_id]->nickname,
                     'created_at' => date('Y-m-d H:i:s', $post->created_at),
                 ];
         }
 
-        return $posts;
+        return $data;
 
     }
 
