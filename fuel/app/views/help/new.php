@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>帮助中心</title>
-    <link rel="stylesheet" href="../assets/css/common.css"/>
-    <link rel="stylesheet" href="../assets/css/style.css"/>
-    <script type="text/javascript" src="../assets/js/jquery-1.10.1.min.js"></script>
-    <script type="text/javascript" src="../assets/js/common.js"></script>
-</head>
-<body>
+<?php echo Asset::css(['style.css']);?>
     <div class="wrapper w">
         <div class="left-sidebar fl">
             <h2 class="title">帮助中心</h2>
@@ -32,7 +22,41 @@
         <div class="help-main fr">
               <h2>了解乐拍</h2>
             <div class="content">
-                <ul class="edit-data">
+                我是文案
+                我是文案
+                我是文案
+                我是文案
+                我是文案<br/>
+                我是文案
+                我是文案
+                我是文案
+                我是文案
+                我是文案<br/>
+                我是文案
+                我是文案
+                我是文案
+                我是文案
+                我是文案<br/>
+                我是文案
+                我是文案
+                我是文案
+                我是文案
+                我是文案
+                我是文案<br/>
+                我是文案
+                我是文案
+                我是文案
+                我是文案<br/>
+                我是文案
+                我是文案
+                我是文案
+                我是文案
+                我是文案
+                我是文案
+                我是文案
+                我是文案
+                我是文案<br/>
+                <!--ul class="edit-data">
                     <li>
                         <label>主题：</label>
                         <select>
@@ -64,9 +88,8 @@
                     <li>
                         <a href="javascript:void(0);" class="btn btn-red">提交信息</a>
                     </li>
-                </ul>
+                </ul-->
             </div>
         </div>
     </div>
-</body>
-</html>
+

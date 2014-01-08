@@ -6,20 +6,6 @@ return array(
 		array(
 			'default' => 
 			array(
-				0 => '001_create_users',
-				1 => '005_create_members',
-				2 => '013_create_comments',
-				3 => '027_create_cates',
-				4 => '031_create_logs',
-				5 => '032_create_member_moneylogs',
-				6 => '034_create_member_addresses',
-				7 => '041_create_phases',
-				8 => '042_create_items',
-				9 => '046_create_notices',
-				10 => '047_create_orders',
-				11 => '048_create_posts',
-				12 => '049_create_ads',
-				13 => '050_create_member_sms',
 			),
 		),
 		'module' => 
