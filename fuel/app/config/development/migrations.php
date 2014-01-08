@@ -1,19 +1,19 @@
 <?php
 return array(
-	'version' =>
+	'version' => 
 	array(
-		'app' =>
+		'app' => 
 		array(
-			'default' =>
+			'default' => 
 			array(
 			),
 		),
-		'module' =>
+		'module' => 
 		array(
 		),
-		'package' =>
+		'package' => 
 		array(
-			'auth' =>
+			'auth' => 
 			array(
 				0 => '001_auth_create_usertables',
 				1 => '002_auth_create_grouptables',
