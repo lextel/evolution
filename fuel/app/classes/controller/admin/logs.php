@@ -9,11 +9,9 @@ class Controller_Admin_Logs extends Controller_Admin{
         ];
 
         $logModel = new Model_Log();
-
         $total = $logModel->countLog(Input::get());
 
         $page = new \Helper\Page();
-
         $url = Uri::create('admin/logs', 
                 ['user_id' => Input::get('user_id'), 'start_at' => Input::get('start_at'), 'end_at' => Input::get('end_at')], 
                 ['user_id' => ':user_id', 'start_at' => ':start_at', 'end_at' => ':end_at']);

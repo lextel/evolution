@@ -9,7 +9,6 @@
               <input type="text" class="form-control" name="name" value="" placeholder="分类名称">
             </div>
         </div>
-
         <button id="addCateSubmit" class="btn btn-primary">添加</button>
     </form>
     <div class="clearfix"></div>

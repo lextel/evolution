@@ -22,7 +22,7 @@ echo Asset::js(
                       foreach($users as $user):
                           $select = '';
                           if(Input::get('user_id') == $user->id):
-                              $select = 'selected="seelcted"';
+                              $select = 'selected="selected"';
                           endif;
                           echo '<option value="'.$user->id.'" '.$select.'>'.$user->username.'</option>';
                       endforeach;
