@@ -35,6 +35,7 @@
             <th class="text-center">邮箱</th>
             <th class="text-center">注册时间</th>
             <th class="text-center">登陆时间</th>
+            <th class="text-center">状态</th>
             <th class="text-center">操作</th>
         </tr>
     </thead>
@@ -47,9 +48,10 @@
             <td class="text-center"><?php echo $item->email; ?></td>
             <td class="text-center"><?php echo !empty($item->created_at) ? date('Y-m-d H:i:s', $item->created_at) : ''; ?></td>
             <td class="text-center"><?php echo !empty($item->last_login) ? date('Y-m-d H:i:s', $item->last_login) : ''; ?></td>
+            <th class="text-center"><?php echo $item->is_delete ? '已删除' : ($item->is_disable ? '已冻结' : '正常'); ?></th>
             <td class="text-center">
-                <?php echo Html::anchor('admin/members/disable/'.$item->id, '禁用'); ?> |
-                <?php echo Html::anchor('admin/members/delete/'.$item->id, '删除', array('onclick' => "return confirm('亲，您确定要删除?')")); ?>
+                <?php echo Html::anchor('admin/members/disable/'.$item->id, '冻结', array('onclick' => "return confirm('亲，您确定要冻结么?')")); ?> |
+                <?php echo Html::anchor('admin/members/delete/'.$item->id, '删除', array('onclick' => "return confirm('亲，您确定要删除么?')")); ?>
             </td>
         </tr>
         <?php endforeach; ?>
