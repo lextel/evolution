@@ -19,6 +19,8 @@ class Create_members
             'email' => array('constraint' => 255, 'type' => 'varchar'),
             'login_hash' => array('constraint' => 255, 'type' => 'varchar'),
             'profile_fields' => array('type' => 'text'),
+            'is_disable' => ['constraint' => 1, 'type' => 'int', 'null' => false, 'default' => 0],
+            'is_delete' => ['constraint' => 1, 'type' => 'int', 'null' => false, 'default' => 0],
             'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
             'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 
