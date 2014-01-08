@@ -14,7 +14,7 @@ class Controller_Member extends Controller_Center{
                             'order_by'=>['id'=>'desc'],
                             'rows_limit'=>3,
                             ]);
-        $wins = Model_Lottery::find('all', [
+        $wins = Model_Phase::find('all', [
                             'where'=>['member_id'=>$member_id],
                             'order_by'=>['id'=>'desc'],
                             'rows_limit'=>3,
@@ -28,7 +28,7 @@ class Controller_Member extends Controller_Center{
         $this->template->title = "用户中心";
         $this->template->layout->content = $view;
     }
-    
+
     /*
     *获得注册用户修改页面
     */
@@ -39,7 +39,7 @@ class Controller_Member extends Controller_Center{
         $this->template->title = '添加用户昵称';
         $this->template->layout = View::forge('member/nickname');
     }
-    
+
     /*
     *增加用户名
     */
@@ -50,13 +50,13 @@ class Controller_Member extends Controller_Center{
         if ($val->run())
         {
             $member = Model_Member::find($this->current_user->id);
-            
+
             if (!Model_Member::checkNickname(Input::post('nickname')))
             {
                 Session::set_flash('error', '用户昵称已经存在了');
                 Response::redirect('/u/getnickname');
             }
- 
+
             $member->nickname = Input::post('nickname');
             if ($member and $member->save())
             {
@@ -69,7 +69,7 @@ class Controller_Member extends Controller_Center{
         }
         Session::set_flash('error', '昵称格式不正确');
         Response::redirect('/u/getnickname');
-        
+
     }
 
     /*
@@ -222,7 +222,7 @@ class Controller_Member extends Controller_Center{
             return $response->body(json_encode($data));
        }
        $money = Input::post('money');
-       
+
        // 转换成积分
        Config::load('common');
        $point = Input::post('money') * Config::get('point');
