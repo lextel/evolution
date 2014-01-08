@@ -25,6 +25,9 @@ h4{
     font-size: 14px;
     font-weight: bold;
 }
+h5{
+    font-size: 12px;
+}
 textarea{
     width: 100%;
     overflow:auto;
@@ -147,6 +150,10 @@ textarea:focus,input:focus{
     color: #ffffff;
     border-radius: 4px;
     cursor: pointer;
+}
+.btn-y{
+    color: #B92C00;
+    background: #FFD79C;
 }
 .btn-sx{
     padding:4px 10px;
@@ -406,6 +413,13 @@ table tbody tr td{
 }
 .title-sm{
     width: 180px;
+    line-height: 22px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.title-mx{
+    width: 120px;
     line-height: 22px;
     overflow: hidden;
     white-space: nowrap;
@@ -684,7 +698,7 @@ table tbody tr td{
 .navbar{
     width: 100%;
     background:#af2812 ;
-    height: 40px;
+    height: 38px;
     margin-bottom: 20px;
 }
 .navbar ul{

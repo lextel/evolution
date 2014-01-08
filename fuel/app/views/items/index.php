@@ -128,7 +128,7 @@
                  <?php $hotItems = $getHots();foreach($hotItems as $item) { ?>
                       <li>
                           <div class="img-box img-md"><a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
-                          <h5><?php echo $item->phase->title; ?></h5>
+                          <h4 class="title-md"><?php echo $item->phase->title; ?></h4>
                           <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->price); ?></b></div>
                           <div class="btn-group">
                                 <form action="<?php echo Uri::create('cart/add'); ?>" method="post">

@@ -23,13 +23,6 @@
 .announced-news ul li.announcing{
     border: 2px solid #e60012;
 }
-.announced-news ul li h5{
-    width: 150px;
-    overflow: hidden;
-    white-space:nowrap ;
-    text-overflow: ellipsis;
-}
-
 .news-count{
     overflow: hidden;
     padding: 5px;
@@ -50,7 +43,7 @@
     background: #FFFFFF;
     margin-bottom: 10px;
 }
-.notice .title,.buying-box .title{
+.sort-list .title,.buying-box .title,.notice  .title{
     background:url("../images/bg.png") repeat-x -276px -2px;
 }
 .notice ul{
