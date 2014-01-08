@@ -1,4 +1,5 @@
 <?php echo Asset::css('product.css'); ?>
+<?php echo Asset::js(['Xslider.js', 'item/index.js']); ?>
 <div class="wrapper w">
 <!--产品列表开始-->
 <div class="content">
@@ -72,6 +73,7 @@
 <div class="date-hot w">
     <div class="title"><h4>今日热门</h4></div>
     <div class="scrollleft">
+    <div class="scrollcontainer">
     <ul>
         <?php
             $hotItems = $getHots();
@@ -91,7 +93,9 @@
         </li>
         <?php endforeach; ?>
     </ul>
+    </div>
+     <a class="abtn aleft" href="#left"></a>
+                <a class="abtn aright" href="#right"></a>
 </div>
 <!--今日热门结束-->
 </div>
-
