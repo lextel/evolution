@@ -99,17 +99,3 @@
 </div>
 <!--今日热门结束-->
 </div>
-
-<script type="text/javascript">
-$(function(){
-    
-    //二、左右切换：最后一个显示在最右侧;
-    $(".scrollleft").Xslider({
-        unitdisplayed:5,
-        numtoMove:1
-    });
-    
-    $("a").focus(function(){this.blur();});
-})
-</script>
-
