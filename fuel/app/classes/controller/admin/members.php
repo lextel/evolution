@@ -5,11 +5,14 @@ class Controller_Admin_Members extends Controller_Admin{
 
         $breads = [
                 ['name' => '用户管理'], 
-                ['name' => '会员列表'],
+                ['name' => '会员列表', 'href'=> Uri::create('admin/members')],
             ];
 
+        $get = Input::get();
+        $get['is_disable'] = 0;
+
         $memberModel = new Model_Member();
-        $total = $memberModel->countMember(Input::get());
+        $total = $memberModel->countMember($get);
         $page = new \Helper\Page();
         $url = Uri::create('admin/members', 
                 ['member_id' => Input::get('member_id'), 'nickname' => Input::get('nickname'), 'email' => Input::get('email')], 
@@ -18,18 +21,49 @@ class Controller_Admin_Members extends Controller_Admin{
         $config = $page->setConfig($url, $total, 'page');
         $pagination = Pagination::forge('mypagination', $config);
 
-        $get = Input::get();
-        $get['offset'] = $pagination->offset;
-        $get['limit'] = $pagination->per_page;
 
         $view = View::forge('admin/members/index');
         $breadcrumb = new Helper\Breadcrumb();
         $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
 
+        $get['offset'] = $pagination->offset;
+        $get['limit'] = $pagination->per_page;
         $view->set('members', $memberModel->index($get));
         $this->template->title = "会员列表 > 用户管理";
         $this->template->content = $view;
 
+    }
+
+    public function action_black() {
+
+        $breads = [
+                ['name' => '用户管理'], 
+                ['name' => '冻结会员', 'href'=> Uri::create('admin/members/black')],
+            ];
+
+        $get = Input::get();
+        $get['is_disable'] = 1;
+
+        $memberModel = new Model_Member();
+        $total = $memberModel->countMember($get);
+        $page = new \Helper\Page();
+        $url = Uri::create('admin/members/black', 
+                ['member_id' => Input::get('member_id'), 'nickname' => Input::get('nickname'), 'email' => Input::get('email')], 
+                ['user_id' => ':user_id', 'nickname' => ':nickname', 'email' => ':email']);
+
+        $config = $page->setConfig($url, $total, 'page');
+        $pagination = Pagination::forge('mypagination', $config);
+
+
+        $view = View::forge('admin/members/black');
+        $breadcrumb = new Helper\Breadcrumb();
+        $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+
+        $get['offset'] = $pagination->offset;
+        $get['limit'] = $pagination->per_page;
+        $view->set('members', $memberModel->index($get));
+        $this->template->title = "冻结会员 > 用户管理";
+        $this->template->content = $view;
     }
 
     public function action_view($id = null)
@@ -51,94 +85,42 @@ class Controller_Admin_Members extends Controller_Admin{
 
     }
 
-    public function action_create()
-    {
-        if (Input::method() == 'POST')
-        {
-            $val = Model_Member::validate('create');
+    // 冻结
+    public function action_disable($id = null) {
 
-            if ($val->run())
-            {
-                $member = Model_Member::forge(array(
-                ));
-
-                if ($member and $member->save())
-                {
-                    Session::set_flash('success', e('Added member #'.$member->id.'.'));
-
-                    Response::redirect('admin/members');
-                }
-
-                else
-                {
-                    Session::set_flash('error', e('Could not save member.'));
-                }
-            }
-            else
-            {
-                Session::set_flash('error', $val->error());
-            }
-        }
-
-        $this->template->title = "Members";
-        $this->template->content = View::forge('admin/members/create');
-
-    }
-
-    public function action_edit($id = null)
-    {
-        $member = Model_Member::find($id);
-        $val = Model_Member::validate('edit');
-
-        if ($val->run())
-        {
-
-            if ($member->save())
-            {
-                Session::set_flash('success', e('Updated member #' . $id));
-
-                Response::redirect('admin/members');
-            }
-
-            else
-            {
-                Session::set_flash('error', e('Could not update member #' . $id));
-            }
-        }
-
-        else
-        {
-            if (Input::method() == 'POST')
-            {
-
-                Session::set_flash('error', $val->error());
-            }
-
-            $this->template->set_global('member', $member, false);
-        }
-
-        $this->template->title = "Members";
-        $this->template->content = View::forge('admin/members/edit');
-
-    }
-
-    public function action_delete($id = null)
-    {
-        if ($member = Model_Member::find($id))
-        {
-            $member->delete();
-
-            Session::set_flash('success', e('Deleted member #'.$id));
-        }
-
-        else
-        {
-            Session::set_flash('error', e('Could not delete member #'.$id));
+        $memberModel = new Model_Member();
+        if ($memberModel->disable($id)) {
+            Session::set_flash('success', e('冻结会员成功 #' . $id));
+        } else {
+            Session::set_flash('error', e('冻结会员失败 #' . $id));
         }
 
         Response::redirect('admin/members');
-
     }
 
+    // 解冻
+    public function action_enable($id = null) {
 
+        $memberModel = new Model_Member();
+        if ($memberModel->enable($id)) {
+            Session::set_flash('success', e('解冻会员成功 #' . $id));
+        } else {
+            Session::set_flash('error', e('解冻会员失败 #' . $id));
+        }
+
+        Response::redirect('admin/members');
+    }
+
+    // 会员删除
+    public function action_delete($id = null) {
+
+        $memberModel = new Model_Member();
+        if ($memberModel->remove($id)) {
+            Session::set_flash('success', e('删除成功 #' . $id));
+        } else {
+            Session::set_flash('error', e('删除失败 #' . $id));
+        }
+
+        Response::redirect('admin/members');
+    }
 }
