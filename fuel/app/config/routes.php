@@ -101,7 +101,12 @@ return array(
     'l/posts' => 'posts/posts',
     'l/phases' => 'items/phases',
 
-     'notice(/\d+)?' => 'notice/index/$1',
+    'h' => 'help/new',
+    'h/new' => 'help/new',
+    'h/safeguard' => 'help/new',
+    'h/shipping' => 'help/new',
+
+    'notice(/\d+)?' => 'notice/index/$1',
 
     'image/:size/:link' => 'image/index',
 
