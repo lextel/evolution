@@ -579,10 +579,6 @@ $(function(){
     })
 });
 
-$(function(){
-          //$('.bxslider').bxSlider();
-});
-
 
 $(function(){
         var _BuyList=$(".buyList");
