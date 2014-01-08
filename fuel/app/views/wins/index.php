@@ -85,14 +85,14 @@
     <div class="right-box fr">
         <!--大家正在乐拍内容开始-->
         <div class="buying-box">
-            <div class="title"><h4>大家正在乐拍111</h4></div>
+            <div class="title"><h4>大家正在乐拍</h4></div>
             <div class="buyListdiv" >
                 <ul class="buyList">
                 <?php foreach($orders() as $order) {?>
 
                     <li>
                         <div class="img-box img-sm fl">
-                            <?php echo Html::anchor('m/'.$order->phase_id, '<img src="http://www.llt.com/'.$getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image.'" alt="" />');?>
+                            <?php echo Html::anchor('m/'.$order->phase_id, Html::img($getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image));?>
                         </div>
                         <div class="info-side">
                             <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'bule']);?> 刚刚乐拍了</div>

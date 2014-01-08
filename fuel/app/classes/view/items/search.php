@@ -21,7 +21,7 @@ class View_Items_Search extends Viewmodel {
                 'status'    => \Helper\Item::IS_CHECK
                 ];
 
-            $phases = Model_Phase::find('all', ['where' => $where, 'order_by' => ['hots' => 'desc'], 'limit' => 5]);
+            $phases = Model_Phase::find('all', ['where' => $where, 'order_by' => ['hots' => 'desc'], 'limit' => 10]);
             $itemModel = new Model_Item();
             $items = [];
             foreach($phases as $phase) {

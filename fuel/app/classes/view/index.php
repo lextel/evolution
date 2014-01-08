@@ -5,11 +5,9 @@ class View_Index extends Viewmodel {
     public function view() {
        //获得幻灯片播放
        $this->ads = function() {
-
            $time = time();
            $where = ['zone' => 1, 'status' => 1, 'is_delete' => 0, ['start_at', '<=', $time], ['end_at', '>=', $time]];
            $ads = Model_Ad::find('all', ['where' => $where, 'order_by' => ['sort' => 'desc']]);
-
            return $ads;
        };
        //获得最新公告

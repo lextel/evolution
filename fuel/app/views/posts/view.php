@@ -113,28 +113,7 @@
     </div>
     <dl class="comment-list">
         <dt><h4>全部评论</h4></dt>
-        <dd>
-                <!--
-                <button class="btn btn-link blue">回复</button>
-
-                <div class="comment-box d-n">
-                    <textarea name="" cols="30" rows="4"></textarea>
-                    <div class="comment-footer">
-                        <div class="head-img fl">
-                            <a href=""><img src="img/96515277.jpg" alt=""/></a>
-                        </div>
-                        <div class="btn-group fl">
-                            <a href="" class="blue">登录</a>
-                        </div>
-                        <div class="expression fl">表情</div>
-                        <button class="fr btn btn-default">发表评论</button>
-                        <span class="fr"><s>0</s>/200字</span>
-                    </div>
-                </div>
-
-            </div>-->
-        </dd>
-
+        
     </dl>
 </div>
 <!--弹出登录框-->
@@ -147,11 +126,11 @@
         <label for="" class="error"></label>
         <ul class="login2-body">
             <li>
-                <input name="username" type="text" value="用户名"/>
+                <input name="username" type="text" value="" placeholder="用户邮箱" />
                 <span class="icon-user"></span>
             </li>
             <li>
-                <input name="password"  type="text" value="密码"/>
+                <input name="password"  type="text" value="" placeholder="用户密码" />
                 <span class="icon-password"></span>
             </li>
             <li>
@@ -160,7 +139,7 @@
             <li>
                 <button class=" btn btn-red">登录</button>
             </li>
-            <li>还没有帐号？<a href="" class="register">马上注册</a> </li>
+            <li>还没有帐号？<a href="/signup" class="register">马上注册</a> </li>
         </ul>
     </form>
 </div>

@@ -74,7 +74,7 @@
                             <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?></b></span>
                         </div>
                         <div class="img-box img-lg">
-                            <?php echo Html::anchor('m/'.$phase->id, '<img src="http://www.llt.com/'.$getItemInfo($phase->item_id)->image.'" alt="" />');?>
+                            <?php echo Html::anchor('m/'.$phase->id, Html::img($getItemInfo($phase->item_id)->image));?>
                         </div>
                         <dl class="progress-side">
                             <dd>
@@ -102,10 +102,10 @@
                     <?php foreach($orders() as $order) {?>
                     <li>
                         <div class="img-box img-sm fl">
-                            <?php echo Html::anchor('m/'.$order->phase_id, '<img src="http://www.llt.com/'.$getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image.'" alt="" />');?>
+                            <?php echo Html::anchor('m/'.$order->phase_id, Html::img($getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image));?>
                         </div>
                         <div class="info-side">
-                            <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'bule']);?> 刚刚乐拍了</div>
+                            <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'b']);?> 刚刚乐拍了</div>
                             <h4><?php echo Html::anchor('m/'.$order->phase_id, $getPhaseInfo($order->phase_id)->title);?></h4>
                         </div>
 
@@ -126,8 +126,8 @@
                     <h4><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h4>
                     <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?></b></span>
                 </div>
-                <div class="img-box img-lg">
-                    <?php echo Html::anchor('m/'.$phase->id, '<img src="http://www.llt.com/'.$getItemInfo($phase->item_id)->image.'" alt="" />');?>
+                <div class="img-box img-lg"
+                    <?php echo Html::anchor('m/'.$phase->id, Html::img($getItemInfo($phase->item_id)->image));?>
                 </div>
                 <dl class="progress-side">
                     <dd>
