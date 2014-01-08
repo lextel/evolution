@@ -7,7 +7,7 @@ class Controller_Posts extends Controller_Frontend{
     {
         $postscount = Model_Post::count(['where'=>['is_delete'=>0, 'status'=>1]]);
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('/p/p', $postscount, 4, 3);
+        $config = $page->setCofigPage('/p/p', $postscount, 16, 3);
         $pagination = Pagination::forge('postspage', $config);
         $data['posts'] = Model_Post::find('all', [
                                                   'where' => ['is_delete'=>0, 'status'=>1],
@@ -61,10 +61,12 @@ class Controller_Posts extends Controller_Frontend{
     */
     public function action_view($id = null)
     {
-        Cookie::set('userlogin', 'false', 60);
+
         if (!is_null($this->current_user)){
-           Cookie::set('userlogin', 'true', 60);
-        }        
+           Cookie::set('userlogin', true);
+        }else{
+           Cookie::set('userlogin', false);
+        }
         is_null($id) and Response::redirect('p');
         if ( ! $data['post'] = Model_Post::find($id, ['where'=>['is_delete'=>0, 'status'=>'1']]))
         {
