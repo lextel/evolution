@@ -14,6 +14,8 @@ class Model_Member extends \Orm\Model
         'email',
         'login_hash',
         'profile_fields',
+        'is_disable',
+        'is_delete',
         'created_at',
         'updated_at',
     );
@@ -70,6 +72,29 @@ class Model_Member extends \Orm\Model
     }
 
     /**
+     * 冻结会员列表
+     *
+     * @param $options array 筛选条件
+     *
+     * @return array 会员数据
+     */
+    public function black($options) {
+
+        $condition = [];
+        $condition['where'] = $this->handleWhere($options);
+
+        if(isset($options['offset']) && isset($options['limit'])) {
+
+            $condition['offset'] = $options['offset'];
+            $condition['limit']  = $options['limit'];
+        }
+
+        $condition['order_by'] = ['id' => 'desc'];
+
+        return Model_Member::find('all', $condition);
+    }
+
+    /**
      * 统计会员
      *
      * @param $options array 筛选条件
@@ -97,6 +122,10 @@ class Model_Member extends \Orm\Model
             $where += ['id' => $options['member_id']];
         }
 
+        if(isset($options['is_disable']) && $options['is_disable'] !== '') {
+            $where += ['is_disable' => $options['is_disable']];
+        }
+
         if(isset($options['nickname']) && !empty($options['nickname'])) {
             $where += [['nickname', 'LIKE', '%'.$options['nickname']. '%']];
         }
@@ -105,13 +134,10 @@ class Model_Member extends \Orm\Model
             $where += [['email', 'LIKE', '%'.$options['email']. '%']];
         }
 
-        // $where += ['is_delete' => 0];
+        $where += ['is_delete' => 0];
 
         return $where;
     }
-
-
-
 
     public static function validateProfile($factory)
     {
@@ -198,5 +224,68 @@ class Model_Member extends \Orm\Model
         }
 
         return $memberInfo;
+    }
+
+    /**
+     * 冻结用户
+     *
+     * @param $id integer 用户ID
+     *
+     * @return boolean 是否成功
+     */
+    public function disable($id) {
+
+        $result = false;
+        if ($member = Model_Member::find($id)) {
+            $member->is_disable = 1;
+            $member->save();
+
+            Model_Log::add('冻结会员 #' . $member->id);
+            $result = true;
+        }
+
+        return $result;
+    }
+
+    /**
+     * 解冻用户
+     *
+     * @param $id integer 用户ID
+     *
+     * @return boolean 是否成功
+     */
+    public function enable($id) {
+
+        $result = false;
+        if ($member = Model_Member::find($id)) {
+            $member->is_disable = 0;
+            $member->save();
+
+            Model_Log::add('解冻会员 #' . $member->id);
+            $result = true;
+        }
+
+        return $result;
+    }
+
+    /**
+     * 删除
+     *
+     * @param $id integer 用户ID
+     *
+     * @return boolean 是否成功
+     */
+    public function remove($id) {
+
+        $result = false;
+        if ($member = Model_Member::find($id)) {
+            $member->is_delete = 1;
+            $member->save();
+
+            Model_Log::add('删除会员 #' . $member->id);
+            $result = true;
+        }
+
+        return $result;
     }
 }

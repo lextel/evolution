@@ -97,6 +97,8 @@ class Controller_Admin_Users extends Controller_Admin{
             $post = Input::post();
             if(!empty($post['password'])) {
                 $post['password'] = $this->auth->hash_password($post['password']);
+            } else {
+                unset($post['password']);
             }
 
             unset($post['submit']);
