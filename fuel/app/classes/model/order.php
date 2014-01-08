@@ -149,6 +149,11 @@ class Model_Order extends \Orm\Model
             $filename = date('Y_m_d_H_i_s_', $time) . $phaseId . '.cron';
             $sec = date('s', $time);
             $dir = APPPATH . 'tmp' . DS . 'crontabs' . DS;
+
+            if(!file_exists($dir)) {
+                mkdir($dir, 0755, true);
+            }
+
             $root = realpath(DOCROOT . '../');
             file_put_contents($dir.$filename, 'sleep '.$sec.' && cd '. $root . ' && php oil refine result ' . $phaseId . "\n");
         }
