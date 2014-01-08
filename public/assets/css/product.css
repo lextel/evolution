@@ -188,56 +188,54 @@
 }
 
 /*产品列表*/
-.product-inner{
-   margin: 15px 0;
-}
-.product-inner .left-sidebar{
-    width: 75px;
+.product-nav{
     overflow: hidden;
-    border: 1px solid #EEEEEE;
 }
-.product-inner .left-sidebar .header{
-    width: 75px;
-    height: 48px;
+.product-nav .header{
+    width:81px;
+    height: 49px;
     line-height: 48px;
     text-align: center;
-    background: #f1f1f1;
-    border-bottom: 1px solid #EEEEEE;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000000;
+    background: url("../images/bg.png") no-repeat -9px -542px;
 }
-.product-inner .left-sidebar li{
-    width: 75px;
-    height: 48px;
-    line-height: 48px;
-    text-align: center;
-    border-bottom: 1px solid #EEEEEE;
-    margin-bottom: -1px;
-    background: url("../images/bg.png") no-repeat -10px -541px;
-}
-.product-inner .left-sidebar li a{
-    padding: 5px;
-    display: block;
+.product-nav li{
+    width: 71px;
+    height: 49px;
+    line-height: 49px;
     text-align: right;
+    padding-right: 10px;
+    background: url("../images/bg.png") no-repeat -9px -542px;
+}
+.product-nav li a{
+    display: block;
     font-size: 14px;
 }
-.product-inner .sidebar{
+.product-nav li.active{
+    background: #FFFFFF;
+    margin-right: -1px;
+}
+.product-nav .sidebar{
    overflow: hidden;
    border: none;
 }
-.product-inner .sidebar dl{
+.sub-menu  dl{
     height: 317px;
     width: 145px;
     padding: 10px;
     background: #FFFFFF;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
 }
-.product-inner .sidebar dl dt{
+.sub-menu  dl dt{
     line-height: 26px;
     font-weight: bold;
 }
-.product-inner .sidebar dl dd{
+.sub-menu  dl dd{
     line-height: 26px;
 }
-.product-inner .sidebar .img-box{
+.sub_banner{
     width: 435px;
     height: 337px;
     border: 1px solid #EEEEEE;
@@ -248,23 +246,19 @@
     width: 265px;
     height: 337px;
     border: 2px solid #f8b551;
+    position: relative;
+    margin-bottom: 10px;
+}
+.product-hot .img-box{
+    display: block;
+    margin:10px auto 10px;
 }
 .product-hot b{
     font-size: 16px;
 }
-.product-hot .buy{
-    margin-top: 20px;
-}
 .product-hot .title-box{
     background: url("../images/bg.png") repeat-x -9px -366px;
 }
-.product-hot .img-box{
-    height: 216px;
-    line-height: 216px;
-    padding: 0 20px;
-    position: relative;
-}
-
 .sheng-yi{
     height: 34px;
     line-height: 34px;
@@ -274,14 +268,13 @@
     width:119px;
     color: #FFFFFF;
     font-weight: bold;
-    top: 0px;
+    top: 42px;
     left: 0;
 }
 .list_sort{
     overflow: hidden;
     border: 1px solid #EEEEEE;
     padding: 5px 10px;
-    background: #f7f7f7;
     margin-bottom: 20px;
     background: #FFFFFF;
 }
@@ -293,15 +286,15 @@
     margin-top: 10px;
     background: #FFFFFF;
 }
-.product-box{
+.product-list{
     overflow: hidden;
     padding: 10px;
     margin-right: -10px;
 }
-.product-box .price{
+.product-list .price{
     text-align: right;
 }
-.product-list .product-box li{
+.product-list li{
     float: left;
     width: 230px;
     overflow: hidden;
@@ -309,15 +302,7 @@
     margin:0 10px 10px 0;
     border: 1px solid #EEEEEE;
 }
-.product-list .product-box li .img-box{
-    width: 215px;
-    height: 215px;
-    overflow: hidden;
-    margin: 10px;
-}
-.product-list .product-box li .progress-side{
-    margin: 0 10px;
-}
+
 .doCart{
     background: #ffd79c;
     color: #af2812;
@@ -341,11 +326,6 @@
     width: 120px;
     padding: 0 25px;
     position: relative;
-}
-.date-hot ul li .img-box{
-    width:120px;
-    height: 120px;
-    border: 1px solid #EEEEEE;
 }
 .date-hot ul li h5{
     width: 127px;
@@ -1052,22 +1032,23 @@
     width: 24px;
     height: 38px;
 	overflow:hidden;
-	background:#D9534F url(../images/icon_3.png) no-repeat;
+    opacity: 0.5;
+	background:#000 url("../images/icon-02.png") no-repeat;
 }
 .scrollleft a.aleft{
-    background-position: 4px -28px;
+    background-position:  6px -53px;
 }
 .scrollleft a.agrayleft{
 	cursor:default;
-    background: #F1F1F1 url(../images/icon_3.png) 4px -28px;
+    background: #F1F1F1 url("../images/icon-02.png") 6px -53px;
 }
 .scrollleft a.aright{
 	right:0px;
-    background-position: -27px -28px;
+    background-position:  -14px -53px;
 }
 .scrollleft a.agrayright{
 	cursor:default;
-    background: #F1F1F1 url(../images/icon_3.png)  -27px -28px;
+    background: #F1F1F1 url("../images/icon-02.png")  -14px -53px;
 }
 
 

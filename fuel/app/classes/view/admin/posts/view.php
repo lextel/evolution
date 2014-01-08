@@ -3,7 +3,12 @@
 *用户后台admin 晒单详情的ViewModel
 */
 class View_Admin_Posts_View extends Viewmodel {
-
+    public $status = [
+        0=>'未审核',
+        1=>'审核通过',
+        2=>'审核通不过',
+        3=>'已经删除',
+        ];
     public function view() {
        //获得用户信息（用户名和标题）
        $this->getUser = function($mid) {

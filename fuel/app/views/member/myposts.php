@@ -1,4 +1,5 @@
 
+
 <div class="content-inner">
     <!--晒单开始-->
     <div class="show-box">
@@ -33,8 +34,10 @@
                     </td>
                     <td><?php echo $getType($post->status); ?></td>
                     <td>
-                        <?php echo Html::anchor('u/p/'.$post->id, '查看'); ?> |
-                        <?php echo Html::anchor('u/posts/edit/'.$post->id, '编辑'); ?> |
+                        <?php if ($post->status == 1) { ?>
+                        <?php echo Html::anchor('p/'.$post->id, '查看'); ?> |
+                        <?php } ?>
+                        <?php echo Html::anchor('u/posts/getedit/'.$post->id, '编辑'); ?> |
                         <?php echo Html::anchor('u/posts/delete/'.$post->id, '删除', array('onclick' => "return confirm('你确定需要删除该晒单吗?')") ); ?>
                     </td>
                 </tr>

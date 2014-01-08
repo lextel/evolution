@@ -1,18 +1,6 @@
 <?php echo Asset::css('member/jquery-ui.css'); ?>
-<?php echo Asset::js('jquery-ui.js'); ?>
-<script>
-  $(function() {
-    $( "#datepicker" ).datepicker({
-      showWeek: true,
-      firstDay: 1
-    });
+<?php echo Asset::js(['jquery-ui.js', 'member/index.js']); ?>
 
-        $( "#datepicker1" ).datepicker({
-      showWeek: true,
-      firstDay: 1
-    });
-  });
-  </script>
 <br />
 <div class="content-inner">
         <!--乐拍记录开始-->
@@ -28,13 +16,13 @@
                  <input  id="datepicker" type="text" placeholder="输入起始时间"/>
 
                  <input  id="datepicker1" type="text" placeholder="输入结束时间" />
-                 <button>搜索</button>
+                 <button class="order-date-search">搜索</button>
             </span>
             </div>
             <div class="select">
                 <label for="" class="select-title">商品名称</label>
-                <input type="text" value="" placeholder="输入商品名字关键字" />
-                <button>搜索</button>
+                <input type="text" value="" id="word" placeholder="输入商品名字关键字" />
+                <button class="order-word-search">搜索</button>
             </div>
             <div class="record">
                 <table>

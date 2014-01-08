@@ -119,8 +119,7 @@
         <!--晒单结束-->
         <!--往期回顾开始-->
         <div  class="look-bak d-n tab-pane" id="phase"></div>
-
-        <!--参与者记录结束-->
+        <!--往期回顾结束-->
 	</div>
 </div>
 <script>

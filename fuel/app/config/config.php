@@ -94,7 +94,7 @@ return array(
      * default_timezone        optional, if you want to change the server's default timezone
      */
     // 'server_gmt_offset'  => 0,
-    // 'default_timezone'   => null,
+    'default_timezone'   => 'Asia/Hong_Kong',
 
     /**
      * Logging Threshold.  Can be set to any of the following:
@@ -106,7 +106,7 @@ return array(
      * Fuel::L_INFO
      * Fuel::L_ALL
      */
-    'log_threshold'    => Fuel::L_ALL,
+    'log_threshold'    => Fuel::L_ERROR,
     // 'log_path'         => APPPATH.'logs/',
     // 'log_date_format'  => 'Y-m-d H:i:s',
 
@@ -187,18 +187,18 @@ return array(
     /**
      * Cookie settings
      */
-    // 'cookie' => array(
+    'cookie' => array(
         // Number of seconds before the cookie expires
-        // 'expiration'  => 0,
+        'expiration'  => 0,
         // Restrict the path that the cookie is available to
-        // 'path'        => '/',
+        'path'        => '/',
         // Restrict the domain that the cookie is available to
-        // 'domain'      => null,
+        'domain'      => null,
         // Only transmit cookies over secure connections
-        // 'secure'      => false,
+        'secure'      => false,
         // Only transmit cookies over HTTP, disabling Javascript access
-        // 'http_only'   => false,
-    // ),
+        'http_only'   => false,
+     ),
 
     /**
      * Validation settings
