@@ -25,7 +25,7 @@ class Controller_Member_Posts extends Controller_Center
         $this->template->title = '用户晒单列表';
         $this->template->layout->content = $view;
     }
-    
+
     /*
     *未晒单的列表
     */
@@ -50,7 +50,7 @@ class Controller_Member_Posts extends Controller_Center
 
     /*
     *晒单上传图片
-    */    
+    */
     public function action_upload()
     {
         $upload  = new Classes\Upload('post');
@@ -64,7 +64,7 @@ class Controller_Member_Posts extends Controller_Center
 
     /*
     *晒单添加
-    */    
+    */
     public function action_add()
     {
         !Input::method() == 'POST' and Response::redirect('/u/noposts');
@@ -112,7 +112,7 @@ class Controller_Member_Posts extends Controller_Center
     {
         is_null($id) and Response::redirect('/u/posts');
         $post = Model_Post::find($id , ['where'=>['member_id'=>$this->current_user->id]]);
-        
+
         !$post and Response::redirect('/u/posts');
         $view = View::forge('member/posts/edit');
         $view->set('post', $post, false);
@@ -123,7 +123,7 @@ class Controller_Member_Posts extends Controller_Center
     public function action_edit($id=null)
     {
         (!Input::method() == 'POST' or is_null($id) ) and Response::redirect('/u/posts');
-        $val = Model_Post::validate('edit');
+        $val = Model_Post::editValidate('edit');
         if ($val->run())
         {
             $post = Model_Post::find($id , ['where'=>['member_id'=>$this->current_user->id]]);
@@ -133,9 +133,10 @@ class Controller_Member_Posts extends Controller_Center
             {
                 Response::redirect('/u/posts');
             }
-            $topimage = $images[0];            
+            $topimage = $images[0];
             $post->title = Input::post('title');
             $post->desc = Input::post('desc');
+            $post->status = 0;
             $post->topimage = $topimage;
             $post->images = serialize($images);
             if ($post->save())
@@ -143,6 +144,7 @@ class Controller_Member_Posts extends Controller_Center
                 Session::set_flash('success', '添加晒单成功');
                 Response::redirect('/u/posts');
             }
+            Response::redirect('/u/posts5');
         }
         Session::set_flash('error', '添加晒单失败');
         Response::redirect('/u/posts');

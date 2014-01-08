@@ -12,10 +12,10 @@
                    <?php echo Html::anchor('u/'.$post->member_id, Html::img($getUser($post->member_id)->avatar));?>
                </div>
                <div class="info fl">
-                   <span class="username">幸运获奖者：<?php echo Html::anchor('u/'.$post->member_id, $getUser($post->member_id)->username, ['class'=>'blue']);?></span>
-                   <span class="number">共乐拍：<b>1</b> 人次</span>
-                   <span class="number">幸运乐拍码：<b>1000000</b></span>
-                   <span class="datetime">揭晓时间：<s>2013-11-22 22:10:10</s></span>
+                   <span class="username">幸运获奖者：<?php echo Html::anchor('u/'.$post->member_id, $getUser($post->member_id)->nickname, ['class'=>'blue']);?></span>
+                   <span class="number">共乐拍：<b><?php echo $getPhase($post->phase_id)->code_count;?></b> 人次</span>
+                   <span class="number">幸运乐拍码：<b><?php echo $getPhase($post->phase_id)->code;?></b></span>
+                   <span class="datetime">揭晓时间：<s><?php echo date('Y-m-d H:i:s', $getPhase($post->phase_id)->opentime);?></s></span>
                </div>
            </li>
            <li>
@@ -24,7 +24,7 @@
                </div>
                <div class="info fl">
                    <span class="username">
-                       (第<?php echo $post->phase_id; ?>期)<?php echo Html::anchor('/m/'.$post->item_id, $getItem($post->item_id)->title); ?>|
+                       (第<?php echo $getPhase($post->phase_id)->phase_id; ?>期)<?php echo Html::anchor('/m/'.$post->item_id, $getItem($post->item_id)->title); ?>|
                    </span>
                    <span class="price">价值<b>￥<?php echo $getItem($post->item_id)->price;?>.00</b></span>
                    <?php if ($getLastPhase($post->item_id)) { ?>
@@ -41,7 +41,7 @@
        <?php } ?>
        </div>
        <div class="btn-group">
-           <?php echo Html::anchor('javascript:;', '喜欢(<s>'.$post->up.'</s>)', array('class'=>'btn btn-link btn-up', 'id'=>$post->id));?>
+           <?php echo Html::anchor('javascript:;', '喜欢(<s>'.$post->up.'</s>)', array('class'=>'btn btn-link btn-up sns-love', 'id'=>$post->id));?>
            <span>评论(<s><?php echo $post->comment_count;?></s>)</span>
 
        </div>
