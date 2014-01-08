@@ -1,5 +1,5 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
-<?php echo Asset::js(['wins/index.js','jquery.bxslider.min.js']); ?>
+<?php echo Asset::js(['wins/index.js']); ?>
 
 <div class="latest-wrap w">
    <!--左边内容开始-->
@@ -14,6 +14,7 @@
                     $itemInfo = $getItemInfo($win->item_id);
                     if($win->member_id):
                     $memberInfo = $getMemberInfo($win->member_id);
+                    $from = $getFrom($win->order_id);
             ?>
             <li>
                 <div class="item-body">
@@ -26,7 +27,7 @@
                         </div>
                         <div class="user-info fl">
                             <div class="winner">获奖者：<b><a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><?php echo $memberInfo->nickname; ?></a></b></div>
-                            <div class="ip">来自：未知</div>
+                            <div class="ip">来自：<?php echo $from;?></div>
                             <div class="number">乐拍:<b><?php echo $win->code_count; ?></b>人次</div>
                         </div>
                         <div class="p-info">
