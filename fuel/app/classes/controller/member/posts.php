@@ -48,13 +48,6 @@ class Controller_Member_Posts extends Controller_Center
         $this->template->layout->content = $view;
     }
 
-    public function action_view()
-    {
-        $data["subnav"] = array('view'=> 'active' );
-        $this->template->title = '用户晒单添加';
-        $this->template->content = View::forge('member/posts/view', $data);
-    }
-
     /*
     *晒单上传图片
     */    
@@ -115,11 +108,44 @@ class Controller_Member_Posts extends Controller_Center
         Response::redirect('/u/noposts');
     }
 
-    public function action_edit()
+    public function action_getedit($id=null)
     {
-        $data["subnav"] = array('edit'=> 'active' );
+        is_null($id) and Response::redirect('/u/posts');
+        $post = Model_Post::find($id , ['where'=>['member_id'=>$this->current_user->id]]);
+        
+        !$post and Response::redirect('/u/posts');
+        $view = View::forge('member/posts/edit');
+        $view->set('post', $post, false);
         $this->template->title = '用户晒单编辑';
-        $this->template->content = View::forge('member/posts/edit', $data);
+        $this->template->layout->content = $view;
+    }
+
+    public function action_edit($id=null)
+    {
+        (!Input::method() == 'POST' or is_null($id) ) and Response::redirect('/u/posts');
+        $val = Model_Post::validate('edit');
+        if ($val->run())
+        {
+            $post = Model_Post::find($id , ['where'=>['member_id'=>$this->current_user->id]]);
+            !$post and Response::redirect('/u/posts');
+            $images = Input::post('images');
+            if (count($images) < 1)
+            {
+                Response::redirect('/u/posts');
+            }
+            $topimage = $images[0];            
+            $post->title = Input::post('title');
+            $post->desc = Input::post('desc');
+            $post->topimage = $topimage;
+            $post->images = serialize($images);
+            if ($post->save())
+            {
+                Session::set_flash('success', '添加晒单成功');
+                Response::redirect('/u/posts');
+            }
+        }
+        Session::set_flash('error', '添加晒单失败');
+        Response::redirect('/u/posts');
     }
 
     public function action_delete($id=null)

@@ -85,19 +85,24 @@ $(function(){
 
      //添加评论
      $(".btn-comment").click(function(){
-         var postid = $(".postid").attr("id");
-         var url = "/comment/"+postid+"/add";
-         var text = $("#comment").val();
-         $.post(url ,{text:text},function(data){
+         if(IS_LOGIN) {  
+            var postid = $(".postid").attr("id");
+            var url = "/comment/"+postid+"/add";
+            var text = $("#comment").val();
+            $.post(url ,{text:text},function(data){
              if (data.code==0){
                  comment(data.member);
                  comment_countup();
                  $("#comment").val('');
                  $(".btn-commentcount").find("s").html(200);
              }
-         });
+           });
+           return true;
+         } else {
+            $('.login2').show();
+            return false;
+        }
      });
-
      upcookie();
      getCommentList(1);
 

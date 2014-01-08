@@ -13,6 +13,8 @@ class Model_Item extends \Orm\Model {
         'price',
         'cate_id',
         'brand_id',
+        'sort',
+        'phase',
         'status',
         'reason',
         'is_delete',
@@ -412,7 +414,7 @@ class Model_Item extends \Orm\Model {
 
         $sort = $options['sort'];
 
-        $orderBy = ['remain' => 'desc'];
+        $orderBy = ['sort' => 'desc'];
         if($sort) {
             Config::load('sort');
             $sorts = Config::get('item');
@@ -484,16 +486,18 @@ class Model_Item extends \Orm\Model {
      */
     public function add($post) {
 
-        $image = $post['images'][0];
+        $image = $post['images'][$post['index']];
         $data = [
               'title'     => $post['title'],
               'desc'      => $post['desc'],
               'price'     => $post['price'],
               'cate_id'   => $post['cate_id'],
               'brand_id'  => $post['brand_id'],
+              'phase'     => $post['phase'],
               'image'     => $image,
               'images'    => serialize($post['images']),
               'status'    => \Helper\Item::NOT_CHECK,
+              'sort'      => $post['sort'],
               'reason'    => '',
               'is_delete' => \Helper\Item::NOT_DELETE,
             ];
@@ -521,8 +525,9 @@ class Model_Item extends \Orm\Model {
      */
     public function edit($id, $post) {
 
-        $image = $post['images'][0];
+        $image = $post['images'][$post['index']];
         $item = Model_Item::find($id);
+        $oldSort = $item->sort;
 
         $result = false;
         $item->title    = $post['title'];
@@ -530,11 +535,21 @@ class Model_Item extends \Orm\Model {
         $item->price    = $post['price'];
         $item->cate_id  = $post['cate_id'];
         $item->brand_id = $post['brand_id'];
+        $item->sort     = $post['sort'];
+        $item->phase    = $post['phase'];
         $item->image    = $image;
         $item->images   = serialize($post['images']);
 
         if ($item->save()) {
             Model_Log::add('编辑商品 #' . $item->id);
+
+            // 更新正在进行的期数的排序
+            if($item->sort != $oldSort) {
+                DB::update('phases')->value('sort', $post['sort'])
+                                    ->where('item_id', $item->id)
+                                    ->execute();
+            }
+
             $result = true;
         }
 

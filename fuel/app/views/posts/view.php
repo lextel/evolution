@@ -20,14 +20,16 @@
            </li>
            <li>
                <div class="head-img fl">
-                   <?php echo Html::anchor('m/'.$post->item_id, Html::img($getItem($post->item_id)->image));?>
+                   <?php echo Html::anchor('m/'.$post->phase_id, Html::img($getItem($post->item_id)->image));?>
                </div>
                <div class="info fl">
                    <span class="username">
                        (第<?php echo $post->phase_id; ?>期)<?php echo Html::anchor('/m/'.$post->item_id, $getItem($post->item_id)->title); ?>|
                    </span>
-                   <span class="price">价值<b>￥<?php echo $getItem($post->item_id)->price;?></b></span>
-                   <a href="" class="btn btn-default btn-sx">第48期进行中...</a>
+                   <span class="price">价值<b>￥<?php echo $getItem($post->item_id)->price;?>.00</b></span>
+                   <?php if ($getLastPhase($post->item_id)) { ?>
+                   <a href="<?php echo Uri::create('/m/'.$getLastPhase($post->item_id)->id);?>" class="btn btn-default btn-sx">第<?php echo $getLastPhase($post->item_id)->phase_id;?>期进行中...</a>
+                   <?php } ?>
                </div>
            </li>
        </ul>
@@ -49,14 +51,16 @@
             <h4 class="fl">往期获得者</h4>
         </div>
         <ul class="before">
-            <?php foreach($getLastWins($post->item_id) as $lwin){?>
+            <?php $lwins = $getLastWins($post->item_id);?>
+            <?php if ($lwins) { ?>
+            <?php foreach($lwins as $lwin){?>
             <li>
                 <div class="head-img fl">
                     <?php echo Html::anchor('u/'.$lwin->member_id, Html::img($getUser($lwin->member_id)->avatar));?>
                 </div>
                 <div class="info-side">
                     <div class="info-side-head">
-                        <span class="name blue"><?php echo Html::anchor('u/'.$lwin->member_id, $getUser($lwin->member_id)->username, ['class'=>'blue']);?></span>
+                        <span class="name blue"><?php echo Html::anchor('u/'.$lwin->member_id, $getUser($lwin->member_id)->nickname, ['class'=>'blue']);?></span>
                         <span class="datetime"><?php echo '获得了第'.$lwin->phase_id.'期';?></span>
                     </div>
                     <?php if($lwin->post_id == 0){?>
@@ -67,6 +71,7 @@
                 </div>
             </li>
             <?php }?>
+            <?php }?>
         </ul>
         <div class="title">
             <h4 class="fl">最新晒单</h4>
@@ -76,7 +81,7 @@
             <li>
                 <div class="info-side">
                     <div class="info-side-head">
-                        <span class="name blue"><?php echo Html::anchor('u/'.$npost->member_id, $getUser($npost->member_id)->username, ['class'=>'blue']);?></span>
+                        <span class="name blue"><?php echo Html::anchor('u/'.$npost->member_id, $getUser($npost->member_id)->nickname, ['class'=>'blue']);?></span>
                         <span class="datetime"><?php echo date('Y-m-d H:i:s', $npost->created_at); ?></span>
                     </div>
                     <div class="new-text">

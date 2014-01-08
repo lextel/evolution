@@ -61,6 +61,10 @@ class Controller_Posts extends Controller_Frontend{
     */
     public function action_view($id = null)
     {
+        Cookie::set('userlogin', 'false', 60);
+        if (!is_null($this->current_user)){
+           Cookie::set('userlogin', 'true', 60);
+        }        
         is_null($id) and Response::redirect('p');
         if ( ! $data['post'] = Model_Post::find($id, ['where'=>['is_delete'=>0, 'status'=>'1']]))
         {
@@ -97,6 +101,7 @@ class Controller_Posts extends Controller_Frontend{
         $data['msg'] = 'postid is valid';
         return $response->body(json_encode($data));
     }
+
     /*
     * 获得往期中奖记录列表翻页选择
     */

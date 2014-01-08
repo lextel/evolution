@@ -1,26 +1,12 @@
 <?php echo Asset::css('member/jquery-ui.css'); ?>
-<?php echo Asset::js('jquery-ui.js'); ?>
-<script>
-  $(function() {
-    $( "#datepicker" ).datepicker({
-      showWeek: true,
-      firstDay: 1
-    });
-
-        $( "#datepicker1" ).datepicker({
-      showWeek: true,
-      firstDay: 1
-    });
-  });
-  </script>
-
+<?php echo Asset::js(['jquery-ui.js', 'member/index.js']); ?>
 
 <div class="content-inner">
     <!--晒单开始-->
 
     <div class="account-box">
         <div class="remind ">
-            <span class="balance">你的帐户余额为：<b>￥<?php echo $current_user->points;?>.00</b></span>
+            <span class="balance">帐户积分：<b><?php echo $current_user->points;?>点</b></span>
             <?php echo Html::anchor('u/getrecharge', '充值', ['class'=>'btn-pay']);?>
         </div>
         <div class="toggles">
@@ -34,7 +20,7 @@
             <input  id="datepicker" type="text"/>
 
             <input  id="datepicker1" type="text"/>
-            <button>搜索</button>
+            <button class="rechargelog-date-search">搜索</button>
         </span>
     </div>
     <?php if ($list): ?>
@@ -52,8 +38,8 @@
              <tr>
                 <td><?php echo $item->id?></td>
                 <td><?php echo Date::forge($item->created_at)->format("%Y-%m-%d %H:%M:%S"); ?></td>
-                <td><?php echo $item->type; ?></td>
-                <td>￥<?php echo round($item->sum, 2); ?></td>
+                <td><?php echo $item->source; ?></td>
+                <td><?php echo round($item->sum, 2); ?></td>
 
             </tr>
         <?php endforeach; ?>

@@ -8,6 +8,11 @@ class View_Posts_View extends Viewmodel {
            $item = Model_Item::find($itemid);
            return $item;
        };
+       //获得商品
+       $this->getPhase = function($phaseid) {
+           $phase = Model_Phase::find($phaseid);
+           return $phase;
+       };
        //
        $this->getUser = function($mid) {
            $user = Model_Member::find($mid);
@@ -23,12 +28,28 @@ class View_Posts_View extends Viewmodel {
            return $posts;
        };
        //
+
+       $this->getLastPhase = function($item_id){
+            $phase = Model_Phase::find('first',[
+                                                  'where' => ['item_id'=>$item_id, 'and'=>['member_id', '=', 0]],
+                                                  'order_by' =>['id'=>'desc'],
+                                                  'rows_limit'=>1,
+                                                  ]);
+            if (!$phase){
+              return$phase = [];
+            }
+           return $phase;
+       };
+
        $this->getLastWins = function($item_id){
-            $wins = Model_Lottery::find('all',[
-                                                  'where' => ['item_id'=>$item_id],
+            $wins = Model_Phase::find('all',[
+                                                  'where' => ['item_id'=>$item_id, 'and'=>['member_id', '!=', 0]],
                                                   'order_by' =>['id'=>'desc'],
                                                   'rows_limit'=>5,
                                                   ]);
+            if (!$wins){
+              return$wins = [];
+            }
            return $wins;
        };
     }

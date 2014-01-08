@@ -7,6 +7,7 @@
     overflow: hidden;
     margin-bottom: 10px;
     background: #FFFFFF;
+    width: 740px;
 }
 .announced-news ul{
     overflow: hidden;
@@ -45,80 +46,10 @@
     vertical-align: middle;
     display: inline-block;
 }
-/*人气推荐开始*/
-.recommended{
-    overflow: hidden;
-    background: #FFFFFF;
-    padding: 10px;
-}
-.recommended ul{
-    margin-right: -10px;
-    overflow: hidden;
-    background: #FFFFFF;
-    padding: 10 0px;
-}
-.recommended .price{
-    text-align: right;
-}
-.recommended .img-box{
-   margin-bottom: 10px;
-    border: none;
-}
-.recommended .progress-side{
-    padding: 0 15px;
-}
-.recommended ul li{
-    float: left;
-    width: 230px;
-    overflow: hidden;
-    padding-bottom: 10px;
-    margin-right: 10px;
-    border: 1px solid #EEEEEE;
-}
-.recommended ul li.m{
-    margin: 0;
-}
-.second ul{
-    overflow: hidden;
-    background: #FFFFFF;
-    margin:0 -10px 10px 0;
-    padding:10px 0;
-}
-.second ul li{
-    float: left;
-    width: 230px;
-    overflow: hidden;
-    padding-bottom: 10px;
-    margin-left: 10px;
-    border: 1px solid #EEEEEE;
-}
-.second .progress-side{
-    padding: 0 15px;
-}
-.second .img-box{
-    width: 230px;
-    height: 230px;
-}
-.title-box{
-     height: 40px;
-     background: #eeeeee;
-     padding:5px 10px;
- }
-.recommended ul li .img-box{
-    width: 200px;
-    height: 200px;
-    line-height: 200px;
-    padding: 0 15px;
-}
-/*左边结束*/
-/*右边开始*/
-.right-content{
-    width: 230px;
-    float: right;
-}
 /*公告*/
 .notice{
     overflow: hidden;
+    width: 230px;
     min-height: 230px;
     background: #FFFFFF;
     margin-bottom: 10px;
@@ -135,19 +66,61 @@
     height: 22px;
     line-height: 22px;
     padding:5px;
-    width: 230px;
+    width: 205px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+/*人气推荐开始*/
+.recommended{
+    overflow: hidden;
+    background: #FFFFFF;
+    padding: 10px;
+    width: 720px;
+}
+.recommended ul{
+    margin-right: -10px;
+    overflow: hidden;
+    background: #FFFFFF;
+    padding: 10 0px;
+}
+.recommended .price{
+    text-align: right;
+}
+.recommended ul li{
+    float: left;
+    width: 230px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    margin-right: 10px;
+    border: 1px solid #EEEEEE;
+}
+.second ul{
+    overflow: hidden;
+    background: #FFFFFF;
+    margin:0 -10px 10px 0;
+    padding:10px 0;
+}
+.second ul li{
+    float: left;
+    width: 230px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    border: 1px solid #EEEEEE;
+}
+.title-box{
+     height: 40px;
+     background: #eeeeee;
+     padding:5px 10px;
+ }
 /*正在乐拍*/
 .buying-box{
     overflow: hidden;
     width: 230px;
     background: #FFFFFF;
     border: 1px solid #eeeeee;
-    margin-top: 10px;
-    height: 415px;
+    height: 410px;
 }
 .buying-box ul{
     width: 230px;

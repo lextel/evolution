@@ -163,8 +163,9 @@ class Model_Member extends \Orm\Model
         }
         return false;
     }
-        /**
-     * 上传商品图片
+
+    /**
+     * 上传用户图片
      *
      * @param $file $_FILES数组
      *
@@ -178,5 +179,24 @@ class Model_Member extends \Orm\Model
             $rs =  $upload->getFiles();
         }
         return $rs;
+    }
+
+    /**
+     * 批量获取用户信息
+     *
+     * @param $ids     array 会员IDs
+     * @param $select  array 获取的字段
+     *
+     * @return array
+     */
+    public static function byIds($ids, $select = []) {
+
+        $members = Model_Member::find('all', ['select' => $select, 'where' => [['id', 'IN', $ids]]]);
+        $memberInfo = [];
+        foreach($members as $member) {
+            $memberInfo[$member->id] = $member;
+        }
+
+        return $memberInfo;
     }
 }

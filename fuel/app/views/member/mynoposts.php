@@ -23,9 +23,6 @@ echo Asset::js(
 $(function(){
     UPLOAD_URL = "<?php echo Uri::create('u/posts/upload'); ?>";
     IMAGE_URL  = "<?php echo Uri::create('/'); ?>";
-    $(".btn-avatarUpload").click(function(){
-        $(".form-avatarUpload").submit();
-    });
     //进入提交晒单
     $(".btn-addpost").click(function(){
         var id = $(this).attr('id');
@@ -49,9 +46,7 @@ $(function(){
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
                 console.log(file.link);
-                //$('#newavatar').attr('src', IMAGE_URL+file.link);
                 var text = '<dd class="img-box"><img src="/'+file.link+'" alt="" /><input type="hidden" name="images[]" value="'+file.link+'"><a href="javascript:;" class="delete"></a></dd>';
-                //$('#avatar').val(file.link);
                 $(".postimg").append(text);
             });
             

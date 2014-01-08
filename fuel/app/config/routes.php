@@ -47,6 +47,7 @@ return array(
     'u/posts/getadd' => 'member/posts/getadd',
     'u/posts/upload' => 'member/posts/upload',
     'u/posts/add' => 'member/posts/add',
+    'u/posts/getedit/(\d+)' => 'member/posts/getedit/$1',
     'u/posts/edit/(\d+)' => 'member/posts/edit/$1',
     'u/posts/delete/(\d+)' => 'member/posts/delete/$1',
 
@@ -100,7 +101,12 @@ return array(
     'l/posts' => 'posts/posts',
     'l/phases' => 'items/phases',
 
-     'notice(/\d+)?' => 'notice/index/$1',
+    'h' => 'help/new',
+    'h/new' => 'help/new',
+    'h/safeguard' => 'help/new',
+    'h/shipping' => 'help/new',
+
+    'notice(/\d+)?' => 'notice/index/$1',
 
     'image/:size/:link' => 'image/index',
 
