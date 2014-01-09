@@ -8,8 +8,8 @@ class View_Items_view extends Viewmodel {
         $this->getZoom = function($link) {
 
             $rel = [
-                'gallery'    => 'gal1',
-                'smallimage' => str_replace(Uri::base(), '/', Uri::create('/image/80x80/' . $link)),
+                'gallery'    => 'zoom',
+                'smallimage' => str_replace(Uri::base(), '/', Uri::create('/image/400x400/' . $link)),
                 'largeimage' => str_replace(Uri::base(), '/', Uri::create('/image/600x600/' . $link)),
             ];
 
