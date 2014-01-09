@@ -18,7 +18,7 @@
         <?php foreach ($posts as $v=>$item){ ?>
             <?php if (array_search($v, array_keys($posts)) % 4 == $li){?>
                  <div class="img-box">
-                     <?php echo Html::anchor('/p/'.$item->id, Html::img($getItem($item->item_id)->image));?>
+                     <?php echo Html::anchor('/p/'.$item->id, Html::img($item->topimage));?>
                  </div>
                  <div class="item-head">
                       <div class="head-img fl">

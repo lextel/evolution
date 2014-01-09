@@ -89,8 +89,10 @@
                     </div>
                     <dl class="images-list">
                        <a href="<?php echo Uri::create('p/'.$npost->id)?>">
-                       <?php foreach(unserialize($npost->images) as $img1) { ?>
+                       <?php foreach(unserialize($npost->images) as $v=>$img1) { ?>
+                        <?php if ($v < 3) { ?>
                         <dd><?php echo Html::img($img1); ?></dd>
+                        <?php } ?>
                         <?php } ?>
                        </a>
                     </dl>
