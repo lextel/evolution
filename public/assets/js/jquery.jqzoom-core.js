@@ -701,7 +701,7 @@
             //zoomWindow default position
             preloadImages: true,
             //image preload
-            preloadText: 'Loading zoom',
+            preloadText: '加载中...',
             title: true,
             lens: true,
             imageOpacity: 0.4,
