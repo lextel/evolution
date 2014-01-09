@@ -39,7 +39,7 @@
                                 <?php echo Html::anchor('w/'.$win->id, Html::img($getItemInfo($win->item_id)->image));?>
                             </div>
                             <h4 class="title-mx"><?php echo Html::anchor('m/'.$win->phase_id, $getPhaseInfo($win->id)->title);?></h4>
-                            <div class="username">获得者: <b><?php echo Html::anchor('u/'.$win->member_id, $getMemberInfo($win->member_id)->nickname, ['class'=>'bule']);?></b></div>
+                            <div class="username">获得者: <?php echo Html::anchor('u/'.$win->member_id, $getMemberInfo($win->member_id)->nickname, ['class'=>'bule']);?></div>
                         </li>
                         <?php 
                                 }
