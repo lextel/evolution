@@ -25,8 +25,18 @@ class Test
      */
     public static function test()
     {
-        touch('test.touch');
-        return 'test';
+       // 写发货表
+        $data = [
+            'member_id' => 1,
+            'phase_id'  => 2,
+            'status'    => 100,
+            'excode'    => '',
+            'exname'    => '',
+            'exdesc'    => '',
+            'admin_id'  => 0,
+            ];
+        $shipping = new \Model_Shipping($data);
+        $shipping->save();
     }
 }
 
