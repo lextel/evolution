@@ -14,7 +14,7 @@
             <!--幻灯片开始-->
             <div class="lantern-slide">
                 <div class="slide-img">
-                    <a href="<?php echo Uri::create('/image/600x600/' .$item->image); ?>" class="jqzoom" rel="gal1">
+                    <a href="<?php echo Uri::create('/image/600x600/' .$item->image); ?>" class="jqzoom" rel="zoom">
                         <img src="<?php echo Uri::create('/image/400x400/' . $item->image); ?>" alt=""/>
                     </a>
                 </div>
@@ -24,7 +24,7 @@
                         foreach($images as $image):
                     ?>
                     <li>
-                        <a class="<?php echo $image == $item->image ? 'zoomThumbActive' : ''; ?>" rel='<?php echo $getZoom($image);?>'>
+                        <a class="<?php echo $image == $item->image ? 'zoomThumbActive' : ''; ?>" rel='<?php echo str_replace('\/', '/', $getZoom($image));?>'>
                             <img src="<?php echo Uri::create('/image/80x80/' . $image); ?>" alt=""/>
                         </a>
                     </li>
@@ -86,7 +86,7 @@
                 <div class="btn-group">
                     <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>
                     <button type="submit" class="btn btn-red">立即乐拍</button>
-                    <a class="btn btn-default doAddCart" href="javascript:void(0);" phaseId="<?php echo $item->phase->id; ?>">加入购物车</a>
+                    <a class="btn btn-y doAddCart" href="javascript:void(0);" phaseId="<?php echo $item->phase->id; ?>">加入购物车</a>
                 </div>
             </form>
             <?php else: ?>

@@ -1,4 +1,4 @@
-﻿* {margin: 0;padding: 0;list-style: none;text-decoration: none; border: 0;}
+﻿*{margin: 0;padding: 0;list-style: none;text-decoration: none; border: 0;}
 body{
     font:12px/1.231 "微软雅黑","宋体",Helvetica,Arial,sans-serif;
     color: #333;
@@ -10,6 +10,9 @@ body{
 .r{
     color: #c10101;
 }
+.o{
+    color: #f60;
+}
 a{
     color: #333333;
 }
@@ -20,6 +23,13 @@ a{
 }
 p{
     line-height: 22px;
+}
+h4{
+    color: #666;
+    font-weight: normal;
+}
+h5{
+    font-size: 12px;
 }
 textarea{
     width: 100%;
@@ -42,8 +52,22 @@ textarea:focus,input:focus{
 .content{
     overflow: hidden;
     float: left;
-    width: 70%;
+    width: 72%;
     background: #FFFFFF;
+    border: 1px solid #dddddd;
+}
+.content-md{
+    line-height: 18px;
+    padding: 5px;
+    height: 52px;
+    text-indent: 2em;
+    overflow: hidden;
+}
+.sidebar{
+    overflow: hidden;
+    width: 230px;
+    background: #FFFFFF;
+    padding: 0 10px;
 }
 .price{
     display: block;
@@ -57,13 +81,14 @@ textarea:focus,input:focus{
     display: inline-block;
     max-width: 80px;
     color:#379BE9;
+    height: 16px;
     font-weight: bold;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 .number,.ip,.price,.datetime,.username,.remain{
-    line-height: 22px;
+    line-height:18px;
     color: #999;
 }
 .number b,.remain b{
@@ -122,28 +147,31 @@ textarea:focus,input:focus{
     padding:5px 10px;
 }
 .btn-red{
-    padding: 8px 15px;
-    margin-right: 10px;
     background: #B92C00;
     color: #ffffff;
-    border-radius: 4px;
-    cursor: pointer;
+}
+.btn-y{
+    color: #B92C00;
+    background: #FFD79C;
 }
 .btn-sx{
     padding:4px 10px;
 }
 .btn-sm{
-    padding:2px;
+    padding:2px 4px;
 }
 .btn-block{
     display: block;
 }
-.content-md{
-    line-height: 18px;
-    padding: 5px;
-    height: 58px;
-    text-indent: 2em;
-    overflow: hidden;
+.underway{
+    border-radius: 3px;
+    color: #FFFFFF;
+    width: 120px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background: #AF2812;
+    display: block;
 }
  .sns-bar{
      overflow: hidden;
@@ -316,13 +344,7 @@ table tbody tr td{
 .img-box{
     text-align: center;
     position: relative;
-    overflow: hidden;
     margin-bottom: 10px;
-}
-.img-box a{
-    width: 100%;
-    height: 100%;
-    display: table-cell;
 }
 .img-lg{
     width: 230px;
@@ -331,6 +353,7 @@ table tbody tr td{
 .img-md{
     width: 120px;
     height: 120px;
+    line-height: 120px;
 }
 .img-sm{
     width: 70px;
@@ -348,23 +371,19 @@ table tbody tr td{
     height: 50px;
     margin-right: 10px;
     overflow: hidden;
-    display: table-cell;
     border-radius: 5px;
-    border: 1px solid #F7F7F7;
+    border: 1px solid #dddddd;
 }
 .head-sm{
     width: 24px;
     height: 24px;
     overflow: hidden;
+    border-radius: 3px;
 }
 .head-img img,.head-sm img{
     max-width: 100%;
     vertical-align: middle;
     height: auto;
-}
-
-.sidebar{
-    overflow: hidden;
 }
 .info-side{
     width: 65%;
@@ -375,11 +394,13 @@ table tbody tr td{
     font-size: 12px;
     line-height: 20px;
 }
+.info-side span{
+    display: block;
+}
 .info{
     width: 60%;
-    overflow: hidden;
 }
-.info-side span{
+.info span{
     display: block;
 }
 .text-md{
@@ -387,9 +408,17 @@ table tbody tr td{
     overflow: hidden;
     white-space: nowrap;
 }
+/*标题*/
 .title{
     padding: 10px;
     overflow: hidden;
+}
+.title-lg{
+    width: 300px;
+    line-height: 22px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .title-sm{
     width: 180px;
@@ -398,9 +427,31 @@ table tbody tr td{
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.title h4{
+.title-mx{
+    width: 120px;
+    line-height: 22px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.title-md{
+    width: 210px;
+    line-height: 22px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.title-red{
+    width: 120px;
+    padding: 5px 15px;
+    background: #AF2812;
+    margin: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.title-md h4{
+    color: #FFFFFF;
+}
+.title h3{
     float: left;
-    text-indent: 15px;
     font-size: 16px;
 }
 .title-box{
@@ -408,11 +459,8 @@ table tbody tr td{
     background: #eeeeee;
     padding:5px 10px;
 }
-.title-box h4{
-    width: 220px;
-    overflow: hidden;
-    white-space:nowrap ;
-    text-overflow:ellipsis ;
+.title-box h3{
+    font-weight: normal;
 }
 .more{
     display: block;
@@ -613,39 +661,31 @@ table tbody tr td{
     position: absolute;
     top: 25px;
     right: 0;
-    width: 334px;
+    width: 300px;
     overflow: hidden;
-    padding: 10px;
+    padding: 10px 10px 0;
     background: #ffffff;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #ddd;
     z-index: 100;
 }
 .shopping-cart .dropdown-list li{
-    padding-bottom: 8px;
-    border-bottom: 1px solid #EEEEEE;
-    margin-bottom: 8px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 5px;
     overflow: hidden;
 }
-.shopping-cart .dropdown-list li .info-side{
-    position: relative;
-    width: 83%;
-}
-.shopping-cart .dropdown-list li .info-side .btn-link{
-    position: absolute;
-    top: 29px;
-    right: 0;
-}
-.shopping-cart .dropdown-list li .info-side .title{
-    overflow: hidden;
-    width: 275px;
-    padding: 5px;
-    height: 22px;
-}
-.shopping-cart .dropdown-list li .info-side .title a{
-   color: #333333;
+.dropdown-list li .info-side{
+    margin-left:10px;
     text-align: left;
 }
-
+.btn-delete{
+    position: absolute;
+    top: 29px;
+    right: 10px;
+}
+.btn-delete:hover{
+    color: #f60;
+}
 .shopping-box  .all{
     height: 25px;
     line-height: 25px;
@@ -661,7 +701,7 @@ table tbody tr td{
 .navbar{
     width: 100%;
     background:#af2812 ;
-    height: 40px;
+    height: 38px;
     margin-bottom: 20px;
 }
 .navbar ul{
@@ -685,7 +725,6 @@ table tbody tr td{
 .footer-wrapper{
     overflow: hidden;
     margin-top: 20px;
-    background: #FFFFFF;
 }
 .help-bg{
     width: 100%;
@@ -694,7 +733,8 @@ table tbody tr td{
 }
 .footer-help {
     overflow: hidden;
-    padding: 20px;
+    padding: 20px 0;
+    background: #FFFFFF;
 }
 .footer-help dl{
     float: left;
@@ -714,6 +754,7 @@ table tbody tr td{
 .footer{
     text-align: center;
     padding-bottom: 20px;
+    background: #FFFFFF;
 }
 .bottom-nav{
     margin: 0 auto;

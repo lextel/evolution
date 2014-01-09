@@ -52,18 +52,17 @@
             ?>
                 <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
                     <div class="title-box">
-                        <h4><a href="<?php echo Uri::create('/m/'.$topItem->phase->id); ?>"><?php echo $topItem->title; ?></a></h4>
+                        <h3 class="title-md"><a href="<?php echo Uri::create('/m/'.$topItem->phase->id); ?>"><?php echo $topItem->title; ?></a></h3>
                         <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $topItem->price); ?></b></span>
                     </div>
                     <div class="img-box img-lg">
                         <a href="<?php echo Uri::create('/m/'.$topItem->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/' . $topItem->image); ?>" alt=""></a>
+                        <div class="sheng-yi">剩余 <b><?php echo $topItem->phase->remain ?></b>人次！</div>
                     </div>
                     <input name="id" value="<?php echo $topItem->phase->id;?>" type="hidden"/>
                     <input name="qty" value="1" type="hidden"/>
                     <button class="buy" type="submit">立即乐拍</button>
-                    <div class="sheng-yi">
-                         剩余 <b><?php echo $topItem->phase->remain ?></b>人次！
-                    </div>
+
                 </form>
             <?php
                 }
@@ -81,7 +80,7 @@
                 <li>
                     <form class="xpxp" id="xpxp" action="<?php echo Uri::create('cart/add'); ?>" method="post">
                         <div class="title-box">
-                            <h4><a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><?php echo $item->title; ?></a></h4>
+                            <h3 class="title-md"><a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><?php echo $item->title; ?></a></h3>
                             <span class="price">价值 <b>￥<?php echo sprintf('%.2f' ,$item->price); ?></b></span>
                         </div>
                         <div class="img-box img-lg">
@@ -121,14 +120,14 @@
 <!--产品列表结束-->
 <!--今日热门开始-->
 <div class="date-hot w">
-    <div class="title"><h4>今日热门</h4></div>
+    <div class="title"><h3>今日热门</h3></div>
     <div class="scrollleft" >
          <div class="scrollcontainer">
              <ul>
                  <?php $hotItems = $getHots();foreach($hotItems as $item) { ?>
                       <li>
                           <div class="img-box img-md"><a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
-                          <h5><?php echo $item->phase->title; ?></h5>
+                          <h4 class="title-mx"><?php echo $item->phase->title; ?></h4>
                           <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->price); ?></b></div>
                           <div class="btn-group">
                                 <form action="<?php echo Uri::create('cart/add'); ?>" method="post">

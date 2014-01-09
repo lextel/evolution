@@ -21,6 +21,7 @@
     width: 300px;
     height: 310px;
     border: 1px solid #EEEEEE;
+    background: #FFFFFF;
 }
 .login-form .loginBar{
     overflow: hidden;
@@ -58,7 +59,7 @@
 .register-box{
     overflow: hidden;
     padding: 20px;
-    border-top: 1px solid #EEE;
+    border-top: 1px solid #dddddd;
 }
 .register-box .signup{
     font-size: 14px;
@@ -69,10 +70,11 @@
 }
 /*注册*/
 .register{
-    border: 1px  solid #EEEEEE;
+    border: 1px  solid #dddddd;
+    background: #FFFFFF;
 }
 .register .title{
-    border: 1px  solid #EEEEEE;
+    border-bottom: 1px  solid #dddddd;
     background: #f1f1f1;
 }
 .register .title ul li{
@@ -137,7 +139,6 @@
     overflow: hidden;
     padding: 10px;
     background: #FFFFFF;
-    margin-top: 15px;
 }
 .left-sidebar .img-box{
     height: 160px;
@@ -281,9 +282,9 @@
     font-size: 12px;
 }
 .center-main {
-    width: 575px;
+    min-width: 540px;
     overflow: hidden;
-    margin: 10px 0 0 10px;
+    margin: 0 10px;
     border: 1px solid #EEEEEE;
     background: #FFFFFF;
     min-height: 400px;
@@ -326,10 +327,10 @@
     margin-left:50px;
 }
 .buy-menu .right-box{
-    width: 420px;
+    width: 440px;
     position: relative;
 }
-.home-wrap .buy-menu .right-box{
+.home-wrap .buy-menu li{
     width: 600px;
     overflow: hidden;
     margin:15px 0 15px 60px;
@@ -358,8 +359,8 @@
     width: 750px;
     float: right;
     overflow: hidden;
-    padding:10px 20px 20px;
-    border: 1px solid #EEEEEE;
+    padding:20px 20px 10px;
+    border: 1px solid #dddddd;
     background: #FFFFFF;
 }
 /*获得的商品*/
@@ -369,10 +370,13 @@
 .record,.already-show{
     overflow: hidden;
 }
+.record table,.already-show table{
+    margin-bottom: 20px;
+}
 .remind{
     height: 28px;
     background: #f1f1f1;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #dddddd;
     line-height: 28px;
     text-indent: 15px;
 }
@@ -397,12 +401,6 @@
     height: 31px;
     border: 1px solid #EEEEEE;
 }
-table tr td .img-box{
-    width: 70px;
-    height:70px;
-    text-align: center;
-    line-height: 70px;
-}
 .select input,.select button{
     height: 31px;
     border: 1px solid #EEEEEE;
@@ -420,9 +418,6 @@ table tr td .img-box{
     text-align: center;
     border-radius: 3px;
     cursor: pointer;
-}
-table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .datetime,table tr td .text-content{
-    text-align: left;
 }
 .show-form,.not-form{
     overflow: hidden;
@@ -691,7 +686,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     overflow: hidden;
 }
 .product-item{
-    width: 215px;
+    width: 235px;
     overflow: hidden;
     border: 1px solid #e0e0e0;
 }
@@ -719,38 +714,28 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     line-height: 30px;
     font-size: 18px;
 }
-.pane-head li{
-    width: 327px;
+.pane-hd{
+    overflow: hidden;
+}
+.pane-hd li{
+    width: 332px;
     float: left;
-    border-right: 1px solid #EEEEEE;
-    margin-right: -2px;
+    height: 82px;
+    border: 1px solid #EEEEEE;
+    border-right: none;
+    margin-right: -1px;
     padding: 10px;
 }
-.left-content .content{
+.pane-bd{
     overflow: hidden;
-    border: 1px solid #EEEEEE;
-    margin-top: -1px;
-    padding: 20px;
-}
-.content-right{
-    width: 250px;
-    overflow: hidden;
-    border: 1px solid #EEEEEE;
     padding: 10px;
 }
-.content-right .title{
-    height: 34px;
+.pane-bd p{
+    text-indent: 2em;
+    font-size: 14px;
     margin-bottom: 10px;
-    padding: 10px 0;
 }
-.content-right .title h4{
-    height: 32px;
-    width: 130px;
-    border: 1px solid #EEEEEE;
-    line-height: 32px;
-    text-align: center;
-    margin-right: -10px;
-}
+
 .before{
     overflow: hidden;
 }
@@ -758,7 +743,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     overflow: hidden;
     margin-bottom: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px dashed #ddd;
 }
 .before li .head-img{
     width: 60px;
@@ -768,41 +753,32 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 }
 .news{
     overflow: hidden;
+    margin-bottom: -11px;
 }
-.new-text{
-    height:65px;
-    overflow: hidden;
-    line-height: 18px;
-}
-.news li .images-list dd{
-    width: 60px;
-    height: 60px;
+ .images-list dd{
     float: left;
+    width: 70px;
+    height: 70px;
     line-height: 60px;
-    margin-right: 8px;
+    margin-right: 5px;
     text-align: center;
 }
-.news li .images-list dd img{
+ .images-list dd img{
     max-width: 100%;
     height: auto;
     vertical-align: middle;
 }
-
 /*评论*/
 .comment-panel{
     overflow: hidden;
     margin-top: 20px;
-}
-.comment-box{
-    width:692px;
-    border: 1px solid #EEEEEE;
 }
 .comment-footer{
     overflow: hidden;
     height: 34px;
     padding: 5px;
     line-height: 40px;
-    background: #f1f1f1;
+    border: 1px solid #dddddd;
 }
 
 .comment-footer .btn{
@@ -812,11 +788,11 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 .comment-footer .expression{
    margin-left: 15px;
 }
-.comment-footer span{
-    color: #999;
+.comment-count{
+    color: #666;
 }
-.comment-footer span s{
-    font-weight: bold;
+.comment-count b{
+    color: #D9534F;
     margin: 0 5px;
 }
 .comment-list{
@@ -826,7 +802,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 }
 .comment-list dt{
     height:36px;
-    border-bottom:1px solid #EEEEEE;
+    border-bottom:1px solid #ddd;
     margin-bottom: 15px;
 }
 .comment-list dt h4{
@@ -837,21 +813,25 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 }
 .comment-list dd{
     overflow: hidden;
-    margin-bottom: 15px;
-    border-bottom:1px solid #EEEEEE;
-    padding-bottom: 15px;
+    margin-bottom: 10px;
+    border-bottom:1px dashed #ddd;
+    padding-bottom: 10px;
 }
-.comment-list dd .head-img{
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    margin-right: 15px;
+.comment-list .info-side{
+    width: 90%;
 }
-.info-side-head{
-    margin-bottom: 5px;
+.comment-box {
+    width: 700px;
+    overflow: hidden;
 }
-.comment-list dd .comment-box{
-    width: 614px;
+.comment-box textarea{
+   width: 698px;
+}
+.comment-text{
+    font-size: 14px;
+    line-height: 22px;
+    height: 44px;
+    overflow: hidden;
 }
 /*帮助中心*/
 .help-center{

@@ -21,7 +21,7 @@
                     <?php echo Html::anchor('/m/'.$item->phase_id, Html::img($getItemInfo($getPhaseInfo($item->phase_id)->item_id)->image));?>
                 </div>
                 <div class="buy-record fl">
-                    <h4>(第<?php echo $getPhaseInfo($item->phase_id)->phase_id;?>期)<?php echo Html::anchor('/m/'.$item->phase_id, $getItemInfo($getPhaseInfo($item->phase_id)->item_id)->title);?></h4>
+                    <h4 class="title-lg">(第<?php echo $getPhaseInfo($item->phase_id)->phase_id;?>期)<?php echo Html::anchor('/m/'.$item->phase_id, $getItemInfo($getPhaseInfo($item->phase_id)->item_id)->title);?></h4>
                     <div class="price">价值：<b><?php echo $getPhaseInfo($item->phase_id)->amount;?>.00</b></div>
                     <dl class="progress-side">
                         <dd>
@@ -41,8 +41,8 @@
         <?php } ?>
 
     </div>
-    <div class="notice fr f2">
-        <div class="title"><h4>乐拍公告 <span class="icon icon-horn"></span></h4></div>
+    <div class="notice fr">
+        <div class="title"><h3>乐拍公告 <span class="icon icon-horn"></span></h3></div>
         <ul>
             <?php foreach($getNotices() as $notice) { ?>
             <li><?php echo Html::anchor('/notice/'.$notice->id, $notice->title);?></li>
