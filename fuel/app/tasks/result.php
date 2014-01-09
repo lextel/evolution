@@ -50,6 +50,30 @@ class Result {
         $phase->order_id = $order->id;
         $phase->save();
 
+        // 写发货表
+        $data = [
+            'member_id' => $order->member_id,
+            'phase_id'  => $phaseId,
+            'status'    => 100,
+            'excode'    => '',
+            'exname'    => '',
+            'exdesc'    => '',
+            'admin_id'  => 0,
+            ];
+        $shipping = new \Model_Shipping($data);
+        $shipping->save();
+
+        // 发送通知
+        $data = [
+            'owner_id'  => $order->member_id,
+            'title'     => sprintf('(第%d期)%s', $phase->phase_id,$phase->title),
+            'type'      => 'win',
+            'user_id'   => 0,
+            'user_name' => '系统',
+            ];
+        $sms = new \Model_Member_Sm($data);
+        $sms->save();
+
         return 'success';
     }
 }
