@@ -157,27 +157,11 @@ class Model_Item extends \Orm\Model {
      */
     public function lists($get) {
 
-        $get['page'] = isset($get['page']) ? $get['page'] : 1;
-
         $where = $this->handleWhere($get, false);
-        $query = Model_Phase::query();
-        if(!empty($where)) {
-            $query->where($where);
-        }
 
-        $query->order_by(['id' => 'desc']);
-        $phases = $query->get();
+        $phases = Model_Phase::find('all', ['where' => $where, 'offset' => $get['offset'], 'limit' => $get['limit'], 'order_by' => ['id' => 'desc']]);
 
-        $limit = \Helper\Page::PAGESIZE;
-        $offset = ($get['page'] - 1) * $limit;
-        $phases = array_slice($phases, $offset, $limit);
-
-        $items = [];
-        foreach($phases as $key => $phase) {
-            $items[] = $this->itemInfo($phase);
-        }
-
-        return $items;
+        return $phases;
     }
 
     /**
