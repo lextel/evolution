@@ -5,7 +5,7 @@
    <!--左边内容开始-->
     <div class="left-content">
         <div class="title">
-            <h4>最新揭晓 <small>(截至目前共揭晓商品 <s class="red"><?php echo $count;?></s>件)</small></h4>
+            <h3>最新揭晓 <small>(截至目前共揭晓商品 <s class="red"><?php echo $count;?></s>件)</small></h3>
         </div>
         <ul class="item-group">
             <?php
@@ -26,9 +26,9 @@
                             <a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><img src="<?php echo Uri::create($memberInfo->avatar); ?>"/></a>
                         </div>
                         <div class="user-info fl">
-                            <div class="winner">获奖者：<b><a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><?php echo $memberInfo->nickname; ?></a></b></div>
-                            <div class="ip">来自：<?php echo $from;?></div>
-                            <div class="number">乐拍:<b><?php echo $win->code_count; ?></b>人次</div>
+                            <div class="username">获奖者：<a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><?php echo $memberInfo->nickname; ?></a></div>
+                            <div class="ip">来自：未知</div>
+                            <div class="number">当前乐拍：<b><?php echo $win->code_count; ?></b>次</div>
                         </div>
                         <div class="p-info">
                             <h5 class="title-sm">
@@ -86,11 +86,10 @@
     <div class="right-box fr">
         <!--大家正在乐拍内容开始-->
         <div class="buying-box">
-            <div class="title"><h4>大家正在乐拍</h4></div>
+            <div class="title"><h3>大家正在乐拍</h3></div>
             <div class="buyListdiv" >
                 <ul class="buyList">
                 <?php foreach($orders() as $order) {?>
-
                     <li>
                         <div class="img-box img-sm fl">
                             <?php echo Html::anchor('m/'.$order->phase_id, Html::img($getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image));?>
@@ -99,7 +98,6 @@
                             <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'bule']);?> 刚刚乐拍了</div>
                             <h4><?php echo Html::anchor('m/'.$order->phase_id, $getPhaseInfo($order->phase_id)->title);?></h4>
                         </div>
-
                     </li>
                <?php } ?>
             </ul>
@@ -108,7 +106,7 @@
         <!--大家正在乐拍内容结束-->
         <!--人气排行内容开始-->
         <div class="sort-list">
-            <div class="title"><h4>人气排行</h4></div>
+            <div class="title"><h3>人气排行</h3></div>
             <ul>
                 <?php
                     $hots = $hotItems();

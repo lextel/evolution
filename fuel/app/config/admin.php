@@ -51,6 +51,7 @@ return [
             ]
         ],
         ['name' => '晒单管理', 'href' => Uri::create('/admin/posts')],
+        ['name' => '物流管理', 'href' => Uri::create('/admin/shipping')],
         [
             'name' => '财务管理',
             'href' => 'javascript:void(0);',

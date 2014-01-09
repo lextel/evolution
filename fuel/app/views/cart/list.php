@@ -35,18 +35,18 @@
                         <tr>
                             <td><input type="checkbox" name="ids[]" value="<?php echo $item->get_id(); ?>"/></td>
                             <td>
-                                <div class="img-box fl">
+                                <div class="img-box img-md">
                                     <a href="<?php echo Uri::create('/m/'. $item->get_id()); ?>"><img src="<?php echo Uri::create('/image/80x80/' . $info->image); ?>" alt=""></a>
                                 </div>
-                                <div class="info-side fl">
-                                    <div class="title">
+                                <div class="info-side">
+                                    <div class="title-lg">
                                          <a href="<?php echo Uri::create('/m/'. $item->get_id()); ?>"><?php echo $info->title; ?></a>
                                     </div>
-                                    <div class="remain">剩余<b class="red"><?php echo $info->phase->remain; ?></b>人次</div>
+                                    <div class="remain">剩余<b class="o"><?php echo $info->phase->remain; ?></b>人次</div>
                                 </div>
                             </td>
-                            <td><s class="red"><?php echo $info->phase->cost.Config::get('unit'); ?></s></td>
-                            <td><s class="red"><?php echo Config::get('point').Config::get('unit'); ?></s></td>
+                            <td><span class="price"><b><?php echo $info->phase->cost.Config::get('unit'); ?></b></span></td>
+                            <td><span class="price"><b><?php echo Config::get('point').Config::get('unit'); ?></b></span></td>
                             <td>
                                 <div class="btn-menu">
                                     <a class="add btn-jian" href="javascript:void(0);">-</a>
@@ -55,8 +55,8 @@
                                     <span>人次</span>
                                 </div>
                             </td>
-                            <td><s class="red"><?php echo $item->get_qty() * Config::get('point') . Config::get('unit'); ?></s></td>
-                            <td><button class="btn btn-default btn-sx" action="delete">删除</button></td>
+                            <td><span class="price"><b><?php echo $item->get_qty() * Config::get('point') . Config::get('unit'); ?></b></span></td>
+                            <td><button class="" action="delete">删除</button></td>
                         </tr>
                         <?php 
                             endforeach;
@@ -72,8 +72,8 @@
                     </table>
                     <div class="cart-footer">
                         <label class="fl"><input type="checkbox" action="selectAll"/>全选</label>
-                        <button class="btn btn-default btn-sx fl" action="batchDelete">批量删除</button>
-                        <div class="price fr">总积分：<s class="red" id="total"><?php echo $subTotal * Config::get('point') . Config::get('unit'); ?></s></div>
+                        <button class="btn btn-sx fl" action="batchDelete">批量删除</button>
+                        <div class="price fr">总积分：<b id="total"><?php echo $subTotal * Config::get('point') . Config::get('unit'); ?></b></div>
                     </div>
                 </div>
             </form>
@@ -124,7 +124,7 @@
                             <h5><?php echo $remain->title; ?></h5>
                             <div class="price">价值<b>￥<?php echo sprintf('%.2f', $remain->price); ?></b></div>
                         </div>
-                        <div class="img-box">
+                        <div class="img-box img-lg">
                             <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/' . $remain->image); ?>" alt=""></a>
                             <div class="sheng-yi">
                                 剩余 <b class="red"><?php echo $remain->phase->remain; ?></b>人次！

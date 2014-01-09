@@ -1,8 +1,9 @@
 $(function(){
 
     // 放大镜
-    if($('.jqzoom').lenght > 0) {
-        $('.jqzoom').jqzoom({
+    if($('.jqzoom').length > 0) {
+
+	    $('.jqzoom').jqzoom({
             zoomType: 'standard',
             lens:true,
             preloadImages: false,
