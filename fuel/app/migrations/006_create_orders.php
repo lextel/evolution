@@ -11,7 +11,7 @@ class Create_orders
             'phase_id' => array('constraint' => 11, 'type' => 'int'),
             'member_id' => array('constraint' => 11, 'type' => 'int'),
             'title' => ['constraint' => 255, 'type' => 'varchar'],
-            'codes' => array('type' => 'text'),
+            'codes' => array('type' => 'mediumtext'),
             'code_count' => array('constraint' => 11, 'type' => 'int'),
             'ip' => ['constraint' => 15, 'type' => 'varchar'],
             'area' => ['constraint' => 20, 'type' => 'varchar'],
