@@ -23,13 +23,13 @@
 
                                 if($win->code_count == 0) {
                         ?>
-                        <li>
+                        <li class="active">
                             <div class="img-box img-md">
                                 <?php echo Html::anchor('w/'.$win->id, Html::img($getItemInfo($win->item_id)->image));?>
                             </div>
-                            <h5><?php echo Html::anchor('m/'.$win->id, $getPhaseInfo($win->id)->title);?></h5>
-                                <div id="win<?php echo $win->id; ?>" class="winner countdown" endtime="<?php echo date('M d, Y H:i:s', $win->opentime);?>" phaseId="<?php echo $win->id; ?>"></div>
-                                <div style="display: none">计算中...</div>
+                            <h4 clsss="title-mx"><?php echo Html::anchor('m/'.$win->id, $getPhaseInfo($win->id)->title);?></h4>
+                            <div id="win<?php echo $win->id; ?>" class="news-count countdown" endtime="<?php echo date('M d, Y H:i:s', $win->opentime);?>" phaseId="<?php echo $win->id; ?>"></div>
+                            <div style="display: none" class="news-count" >计算中...</div>
                             </li>
                         <?php
                                 } else {

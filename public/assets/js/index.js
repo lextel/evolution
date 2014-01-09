@@ -2,13 +2,13 @@ $(function(){
 
     // 倒计时渲染函数
     var render = function(min, sec, msec, obj) {
-        var html = '揭晓倒计时 :' + min + ':' + sec + ':' + msec;
+        var html = '<span class="icon icon-clock"></span><span>倒计时 :' + min + ':' + sec + ':' + msec + '</span>';
         obj.html(html);
     }
 
     // 倒计时渲染结果
     var renderDiv = function(id, data) {
-        html = '获奖者:<b><a class="bule" href="'+data.userlink+'">'+data.nickname+'</a></b>';
+        html = '获奖者:<b><a href="'+data.userlink+'">'+data.nickname+'</a></b>';
         var obj = $('#win' + id).removeClass('countdown');
         obj.next().hide();
         obj.html(html);
