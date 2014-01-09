@@ -162,7 +162,7 @@
                 //binding click event on thumbnails
                 var thumblist = new Array();
                 thumblist = $('a').filter(function () {
-                    var regex = new RegExp("gallery[\\s]*:[\\s]*'" + $.trim(el.rel) + "'", "i");
+                    var regex = new RegExp('"gallery[\\s]*":"'+$.trim(el.rel)+'"', "i");
                     var rel = $(this).attr('rel');
                     if (regex.test(rel)) {
                         return this;
@@ -181,7 +181,7 @@
                         thumb_preload[i].src = thumb_options.largeimage;
                         i++;
                     }
-                    $(this).click(function (e) {
+                    $(this).hover(function (e) {
                         if($(this).hasClass('zoomThumbActive')){
                           return false;
                         }
