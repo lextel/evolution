@@ -1102,9 +1102,9 @@ body .ui-tooltip {
 .ui-icon-circle-plus { background-position: 0 -192px; }
 .ui-icon-circle-minus { background-position: -16px -192px; }
 .ui-icon-circle-close { background-position: -32px -192px; }
-.ui-icon-circle-triangle-e { background:url("../../images/icon_3.png") ;background-position: -48px -192px;}
+.ui-icon-circle-triangle-e { background:url("../../images/icon-02.png") no-repeat -16px -64px;}
 .ui-icon-circle-triangle-s { background-position: -64px -192px; }
-.ui-icon-circle-triangle-w { background:url("../../images/icon_3.png") ;background-position: -80px -192px; }
+.ui-icon-circle-triangle-w { background:url("../../images/icon-02.png") no-repeat -0px -64px; }
 .ui-icon-circle-triangle-n { background-position: -96px -192px; }
 .ui-icon-circle-arrow-e { background-position: -112px -192px; }
 .ui-icon-circle-arrow-s { background-position: -128px -192px; }

@@ -86,7 +86,7 @@
                 <div class="btn-group">
                     <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>
                     <button type="submit" class="btn btn-red">立即乐拍</button>
-                    <a class="btn btn-default doAddCart" href="javascript:void(0);" phaseId="<?php echo $item->phase->id; ?>">加入购物车</a>
+                    <a class="btn btn-y doAddCart" href="javascript:void(0);" phaseId="<?php echo $item->phase->id; ?>">加入购物车</a>
                 </div>
             </form>
             <?php else: ?>

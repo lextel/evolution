@@ -1,5 +1,3 @@
-
-
 <div class="content-inner">
     <!--晒单开始-->
     <div class="show-box">
