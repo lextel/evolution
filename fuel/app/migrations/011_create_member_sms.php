@@ -8,7 +8,7 @@ class Create_member_sms
 	{
 		\DBUtil::create_table('member_sms', array(
 			'id' => array('constraint' => 11, 'type' => 'int', 'auto_increment' => true, 'unsigned' => true),
-			'ower_id' => array('constraint' => 11, 'type' => 'int'),
+			'owner_id' => array('constraint' => 11, 'type' => 'int'),
 			'title' => array('constraint' => 255, 'type' => 'varchar'),
 			'type' => array('constraint' => 255, 'type' => 'varchar'),
 			'user_id' => array('constraint' => 11, 'type' => 'int'),
