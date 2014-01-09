@@ -315,7 +315,8 @@ return array(
             'packages' => array(
                 'auth',
                 'orm',
-                'fuel-cart'
+                'fuel-cart',
+                'email',
             ),
         ),
         'sms' => array(
