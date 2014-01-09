@@ -6,9 +6,10 @@
         <!--乐拍记录开始-->
         <div class="record-box">
             <div class="remind ">乐拍提醒：
-                <span>即将揭晓商品（<b>0</b>）件</span>
-                <span>进行中的商品（<b>0</b>)件</span>
-                <span>揭晓的商品（<b>0</b>）件</span>
+                <?php $ordercount = $countOrder($myorders);?>
+                <span>即将揭晓商品（<b><?php echo $ordercount['winstart']; ?></b>）件</span>
+                <span>进行中的商品（<b><?php echo $ordercount['buy']; ?></b>)件</span>
+                <span>揭晓的商品（<b><?php echo $ordercount['winok']; ?></b>）件</span>
             </div>
             <div class="select-box">
                 <label for="">全部商品</label>

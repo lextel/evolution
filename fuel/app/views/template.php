@@ -120,6 +120,20 @@
         </div>
     </div>
     <!--底部结束-->
+    <!--二维码开始-->
+    <div class="weiXin">
+        <div class="weiXin-img">
+            <button class="icon-close"></button>
+        </div>
+        <p>关注微信更多惊喜<p/>
+    </div>
+    <!--二维码结束-->
+    <div class="short-cut">
+        <a  href="javascript:void(null);" class="item-cart"><s>0</s></a>
+        <a  href="javascript:void(null)" class="item-qq"></a>
+        <a  href="javascript:void(null)" class="item-love"></a>
+        <a  href="javascript:void(null)" class="item-gotTop"></a>
+    </div>
     <script>
         <?php
             Config::load('common');

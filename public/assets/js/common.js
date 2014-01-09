@@ -9,6 +9,38 @@ $(function(){
         $(".product-side>div").eq($(".sub-nav ul li a").index($(this))).removeClass("d-n");
     });
 });
+/**
+ *返回首页
+ */
+$(function(){
+    var w_width=$(window).width();
+    var w_height=$(window).height();
+    $(".weiXin").css({right:(w_width-980)/2-150,top:w_height/2-50});
+    var getRight=(w_width-980)/2-80
+    $(window).scroll(function(){
+          if( $(document).scrollTop()>=200){
+             $(".short-cut").show();
+             $(".short-cut").css({right:getRight});
+          }
+        else{
+              $(".short-cut").hide();
+          }
+     });
+    $(window).resize(function(){
+        var screenWidth = $(window).width();
+        var screenHeight = $(window).height();
+        var getRight=(screenWidth-980)/2-80
+        $(".short-cut").css({right:getRight});
+        $(".weiXin").css({right:(screenWidth-980)/2-150,top:screenHeight/2-50});
+    });
+    $(".weiXin-img button").click(function(){
+        $(this).parents(".weiXin").fadeOut(1000);
+    });
+    /*返回顶部*/
+    $(".item-gotTop").click(function(){
+        $("body,html").animate({scrollTop:0},300)
+    });
+});
 /*用户中心折叠效果*/
 $(function(){
     $(".dropdown>a").click(function(){
@@ -36,7 +68,7 @@ $(function(){
      $(window).resize(function(){
         screenwidth = $(window).width();
         screenheight = $(window).height();
-         mytop = $(document).scrollTop();
+        mytop = $(document).scrollTop();
         getPosLeft = screenwidth/2 - 260;
         getPosTop = screenheight/2 - 150;
         $(".login2").css({"left":getPosLeft,"top":getPosTop+mytop});
@@ -455,9 +487,9 @@ function handleJoined(data) {
         for(var i in data.orders) {
             html += '<tr>' +
                     '    <td>'+
-                    '        <span class="head-img-sm fl"><a href="'+data.orders[i].link+'"><img src="'+data.orders[i].avatar+'" alt=""/></a></span>'+
-                    '        <span class="name fl">'+data.orders[i].nickname+'</span>'+
-                    '        <span class="ip fl">（IP:'+data.orders[i].ip+'）</span>'+
+                    '        <span class="head-sm fl"><a href="'+data.orders[i].link+'"><img src="'+data.orders[i].avatar+'" alt=""/></a></span>'+
+                    '        <span class="username fl"><a href="'+data.orders[i].link+'">'+data.orders[i].nickname+'</a></span>'+
+                    '        <span class="ip fl">来自：'+data.orders[i].area+'（IP:'+data.orders[i].ip+'）</span>'+
                     '    </td>'+
                     '    <td>'+data.orders[i].count+'</td>'+
                     '    <td>'+data.orders[i].created_at+'</td>'+
@@ -483,7 +515,7 @@ function handlePosts(data) {
             }
 
             html += '<li>' +
-                    '<div class="head-img fl">' +
+                    '<div class="head-sm fl">' +
                     '    <a href="'+BASE_URL + 'u/' + data.posts[i].member_id+'"><img src="'+data.posts[i].avatar+'" alt=""></a>'+
                     '    <div class="name"><a href="'+BASE_URL + 'u/' + data.posts[i].member_id+'">'+data.posts[i].nickname+'</a></div>'+
                     '</div>'+

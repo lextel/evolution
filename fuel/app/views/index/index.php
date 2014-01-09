@@ -10,11 +10,9 @@
     </div>
     <!--banner结束-->
     <!--内容开始-->
-    <div class="content w">
-        <!--左边开始-->
-        <div class="left-content">
-            <!--最新揭晓开始-->
-            <div class="announced-news">
+	<div class="w">
+		<!--最新揭晓开始-->
+        <div class="announced-news fl">
                 <div class="title">
                     <h4>最新揭晓</h4>
                     <?php echo Html::anchor('w', '更多>>', ['class'=>'more']);?>
@@ -51,20 +49,31 @@
                     </ul>
                 </div>
             </div>
-            <!--人气推荐开始-->
-            <div class="recommended">
-                <div class="title">
+		<!--公告-->
+        <div class="notice fr">
+                <div class="title"><h4>乐拍公告 <span class="icon icon-horn"></span></h4></div>
+                <ul>
+                    <?php foreach($notices() as $notice) { ?>
+                    <li><?php echo Html::anchor('/notice', $notice->title); ?></li>
+                    <?php } ?>
+                </ul>
+            </div>
+	</div>
+    <div class="w">
+        <!--人气推荐开始-->
+         <div class="recommended fl">
+		    <div class="title">
                     <h4>人气推荐</h4>
                     <?php echo Html::anchor('m', '更多>>', ['class'=>'more']);?>
                 </div>
-                <ul>
+             <ul>
                     <?php foreach($topHotItems() as $phase) { ?>
                     <li>
                         <div class="title-box">
                             <h4><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h4>
-                            <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?></b></span>
+                            <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?>.00</b></span>
                         </div>
-                        <div class="img-box">
+                        <div class="img-box img-lg">
                             <?php echo Html::anchor('m/'.$phase->id, Html::img($getItemInfo($phase->item_id)->image));?>
                         </div>
                         <dl class="progress-side">
@@ -72,8 +81,8 @@
                                 <div class="progress"><div class="progress-bar" style="width:<?php echo $phase->joined/$phase->amount * 100;?>%"></div></div>
                             </dd>
                             <dd>
-                                <span class="fl red"><?php echo $phase->joined;?></span>
-                                <span class="fr blue"><?php echo $phase->remain;?></span>
+                                <span class="fl r"><?php echo $phase->joined;?></span>
+                                <span class="fr b"><?php echo $phase->remain;?></span>
                             </dd>
                             <dd>
                                 <span class="fl">已参与人次</span>
@@ -84,53 +93,40 @@
                     </li>
                     <?php } ?>
                 </ul>
-            </div>
         </div>
-        <!--左边结束-->
-        <!--右边开始-->
-        <div class="right-content">
-            <!--公告-->
-            <div class="notice">
-                <div class="title"><h4>乐拍公告 <span class="icon icon-horn"></span></h4></div>
-                <ul>
-                    <?php foreach($notices() as $notice) { ?>
-                    <li><?php echo Html::anchor('/notice', $notice->title); ?></li>
-                    <?php } ?>
-                </ul>
-            </div>
-            <!--大家正在乐拍 -->
-            <div class="buying-box" >
+        <!--大家正在乐拍 -->
+        <div class="buying-box fr" >
                 <div class="title"><h4>大家正在乐拍</h4></div>
                 <div class="buyListdiv" >
                 <ul class="buyList">
                     <?php foreach($orders() as $order) {?>
                     <li>
-                        <div class="head-img fl">
+                        <div class="img-box img-sm fl">
                             <?php echo Html::anchor('m/'.$order->phase_id, Html::img($getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image));?>
                         </div>
                         <div class="info-side">
-                            <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'bule']);?> 刚刚乐拍了</div>
+                            <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'b']);?> 刚刚乐拍了</div>
                             <h4><?php echo Html::anchor('m/'.$order->phase_id, $getPhaseInfo($order->phase_id)->title);?></h4>
                         </div>
 
                     </li>
                <?php } ?>
+
                 </ul>
                 </div>
             </div>
         </div>
-        <!--右边结束-->
     </div>
-    <!--人气推荐开始-->
+    <!--人气推荐2开始-->
     <div class="second w">
         <ul>
             <?php foreach($hotItems() as $phase) { ?>
             <li class="sidebar">
                 <div class="title-box">
                     <h4><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h4>
-                    <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?></b></span>
+                    <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?>.00</b></span>
                 </div>
-                <div class="img-box">
+                <div class="img-box img-lg"
                     <?php echo Html::anchor('m/'.$phase->id, Html::img($getItemInfo($phase->item_id)->image));?>
                 </div>
                 <dl class="progress-side">
@@ -138,8 +134,8 @@
                         <div class="progress"><div class="progress-bar" style="width:<?php echo $phase->joined/$phase->amount * 100;?>%"></div></div>
                     </dd>
                     <dd>
-                        <span class="fl red"><?php echo $phase->joined;?></span>
-                        <span class="fr blue"><?php echo $phase->remain;?></span>
+                        <span class="fl r"><?php echo $phase->joined;?></span>
+                        <span class="fr b"><?php echo $phase->remain;?></span>
                     </dd>
                     <dd>
                         <span class="fl">已参与人次</span>
@@ -151,7 +147,6 @@
             <?php } ?>
         </ul>
     </div>
-
     <!--晒单分享开始-->
     <div class="bask-wrapper w">
         <div class="title">
@@ -182,7 +177,7 @@
                 <ul>
                     <?php foreach($posts() as $post) { ?>
                     <li>
-                        <div class="img-box">
+                        <div class="img-box img-sm">
                             <?php echo Html::anchor('p/'.$post->id, Html::img($post->topimage));?>
                         </div>
                         <h5><?php echo Html::anchor('m/'.$post->phase_id, $getItemInfo($post->item_id)->title);?></h5>

@@ -1,17 +1,19 @@
 <?php
     echo Asset::js(['jquery.validate.js', 'admin/cates/listCate.js']);
 ?>
-<form class="form-horizontal" role="form" id="addCate" method="post" action="<?php echo Uri::create('admin/cates/createCate'); ?>">
-  <div class="form-group">
-    <label for="name" class="col-sm-2 control-label">添加商品分类</label>
-    <div class="col-sm-8">
-      <input type="text" class="form-control" name="name" id="name" placeholder="分类名称">
-    </div>
-    <div class="col-sm-2">
-      <button id="addCateSubmit" class="btn btn-default">添加</button>
-    </div>
-  </div>
-</form>
+<div class="panel panel-default" style="padding: 10px 0">
+    <form class="navbar-form navbar-left" id="addCate" role="search" method="post" action="<?php echo Uri::create('admin/cates/createCate'); ?>">
+        <div class="col-sm-3">
+            <div class="input-group">
+              <span class="input-group-addon">分类</span>
+              <input type="text" class="form-control" name="name" value="" placeholder="分类名称">
+            </div>
+        </div>
+        <button id="addCateSubmit" class="btn btn-primary">添加</button>
+    </form>
+    <div class="clearfix"></div>
+</div>
+<div class="panel panel-default">
 <?php if ($cates): ?>
 <table class="table table-striped">
     <thead>
@@ -43,8 +45,9 @@
     </tbody>
 </table>
 <?php else: ?>
-<p style="text-align:center">还没有分类.</p>
+<p style="text-align:center; padding: 40px">还没有分类。</p>
 <?php endif; ?>
+</div>
 <?php echo Pagination::instance('mypagination')->render();?>
 <script>
     EDIT_URL = '<?php echo Uri::create('/admin/cates/edit');?>';

@@ -38,12 +38,12 @@
             ?>
             <!--获奖者开始-->
             <div class="previous-box">
-                <div class="img-box fl"><a href="<?php Uri::create('u/'.$winner->id); ?>"><img src="<?php echo Uri::create($winner->avatar); ?>" alt=""></a></div>
+                <div class="head-img fl"><a href="<?php Uri::create('u/'.$winner->id); ?>"><img src="<?php echo Uri::create($winner->avatar); ?>" alt=""></a></div>
                 <div class="info-side fl">
-                    <div class="winner">获得者<a href="<?php Uri::create('u/'.$winner->id); ?>"><b><?php echo $winner->nickname; ?></b></a></div>
-                    <span class="announce-time">揭晓时间：<b><?php echo date('Y-m-d H:i:s', $prevWinner->opentime); ?></b></span>
-                    <span class="buy-time">乐拍时间：<b><?php echo date('Y-m-d H:i:s', $prevWinner->order_created_at); ?></b></span>
-                    <span class="buy-number">幸运码：<b class="red"><?php echo $prevWinner->code; ?></b></span>
+                    <div class="username">获得者<a href="<?php Uri::create('u/'.$winner->id); ?>"><b><?php echo $winner->nickname; ?></b></a></div>
+                    <span class="datetime">揭晓时间：<b><?php echo date('Y-m-d H:i:s', $prevWinner->opentime); ?></b></span>
+                    <span class="datetime">乐拍时间：<b><?php echo date('Y-m-d H:i:s', $prevWinner->order_created_at); ?></b></span>
+                    <span class="number">幸运码：<b class="red"><?php echo $prevWinner->code; ?></b></span>
                 </div>
             </div>
             <!--获奖者结束-->
@@ -119,7 +119,7 @@
                                         $member = $getMember($newOrder->member_id);
                                     ?>
                                     <tr>
-                                        <td><div class="img-box"><a href="<?php echo Uri::create('u/'.$member->id); ?>"><img src="<?php echo Uri::create($member->avatar); ?>" alt=""></a></div></td>
+                                        <td><div class="head-sm"><a href="<?php echo Uri::create('u/'.$member->id); ?>"><img src="<?php echo Uri::create($member->avatar); ?>" alt=""></a></div></td>
                                         <td><?php echo $member->nickname; ?></td>
                                         <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($newOrder->created_at); ?></b></td>
                                         <td>乐拍了<s><?php echo $newOrder->code_count; ?></s>次</td>
@@ -198,7 +198,7 @@
         </ul>
     </div>
     <!--商品信息结束-->
-    <div class="content tab-content">
+    <div class="tab-content">
         <!--商品详情开始-->
         <div class="product-details tab-pane active" id="desc">
             <?php echo $item->desc; ?>
