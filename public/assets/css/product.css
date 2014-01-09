@@ -456,11 +456,9 @@
 /*商品详情*/
 /*幻灯片开始*/
 .panel .img-side {
-    overflow: hidden;
     width: 402px;
 }
 .lantern-slide{
-    overflow: hidden;
     margin-bottom: 15px;
     border: 1px solid #EEEEEE;
 }
@@ -468,7 +466,6 @@
     width:400px ;
     height:400px ;
     text-align: center;
-    overflow: hidden;
 }
 .lantern-slide .slide-img a img{
     max-width: 100%;
