@@ -266,7 +266,7 @@ class Controller_Member extends Controller_Center{
        $email = "398667606@qq.com";
        $send = Model_Member_Email::sendEmail($email);
        if ($send){
-          return json_encode(['email' => $send]);
+          return json_encode(['email' => $email]);
        }
        return json_encode(['email' => 0]);
     }
