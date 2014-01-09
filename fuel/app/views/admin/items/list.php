@@ -57,24 +57,24 @@ echo Asset::js(['admin/items/list.js']);
     <thead>
         <tr>
             <th>图片</th>
-            <th width="50%">标题</th>
+            <th width="45%">标题</th>
             <th>价格</th>
-            <th>发布时间</th>
+            <th>进度</th>
             <th>审核状态</th>
             <th>操作</th>
         </tr>
     </thead>
     <tbody>
+        <?php Config::load('common'); ?>
         <?php foreach ($items as $item): ?>
           <tr>
             <td><img src="<?php echo Uri::create('image/80x80/' . $item->image); ?>" style="width: 40px; height: 40px"/></td>
-            <td><?php echo '(第'.$item->phase->phase_id.'期)'.$item->title; ?></td>
-            <td><?php echo '￥' . sprintf('%.2f', $item->price); ?></td>
-            <td><?php echo date('Y-m-d H:i', $item->created_at); ?></td>
+            <td><?php echo '(第'.$item->phase_id.'期)'.$item->title; ?></td>
+            <td><?php echo '￥' . sprintf('%.2f', $item->cost/Config::get('point')); ?></td>
+            <td><?php echo $item->joined, '/', $item->amount; ?></td>
             <td><?php echo $getStatus($item->status);  ?></td>
             <td>
-            <!--<?php echo Html::anchor('admin/items/edit/'.$item->id, '编辑'); ?> |-->
-            <?php echo $getOperate($type, $item->id, $item->phase->phase_id); ?>
+            <?php echo $getOperate($type, $item->item_id, $item->id); ?>
             </td>
         </tr>
     <?php endforeach; ?>
