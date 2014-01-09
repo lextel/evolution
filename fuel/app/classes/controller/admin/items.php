@@ -223,6 +223,10 @@ class Controller_Admin_Items extends Controller_Admin {
 
     // 快速审核通过
     public function action_isPass($id) {
+        if($this->current_user->group < 50) {
+            Session::set_flash('error', e('你没有权限'));
+            Response::redirect('admin/items/list/uncheck');
+        }
 
         $itemModel = new Model_Item();
         if($itemModel->pass($id)) {
@@ -236,6 +240,10 @@ class Controller_Admin_Items extends Controller_Admin {
 
     // 快速审核不通过
     public function action_notPass($id) {
+        if($this->current_user->group < 50) {
+            Session::set_flash('error', e('你没有权限'));
+            Response::redirect('admin/items/list/uncheck');
+        }
 
         $itemModel = new Model_Item();
         if($itemModel->notPass($id)) {
