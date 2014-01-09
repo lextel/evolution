@@ -55,6 +55,9 @@ class Result {
             'member_id' => $order->member_id,
             'phase_id'  => $phaseId,
             'status'    => 100,
+            'address'   => '',
+            'mobile'    => '',
+            'name'      => '',
             'excode'    => '',
             'exname'    => '',
             'exdesc'    => '',
@@ -66,7 +69,7 @@ class Result {
         // 发送通知
         $data = [
             'owner_id'  => $order->member_id,
-            'title'     => sprintf('(第%d期)%s', $phase->phase_id,$phase->title),
+            'title'     => sprintf('(第%d期)%s', $phase->phase_id, $phase->title),
             'type'      => 'win',
             'user_id'   => 0,
             'user_name' => '系统',
