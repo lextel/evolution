@@ -1,7 +1,5 @@
 <?php echo Asset::css('member/jquery-ui.css'); ?>
 <?php echo Asset::js(['jquery-ui.js', 'member/index.js']); ?>
-
-<br />
 <div class="content-inner">
         <!--乐拍记录开始-->
         <div class="record-box">
@@ -47,12 +45,11 @@
                     
                     <tr>
                         <td><?php echo $order->id; ?></td>
-                        <td><div class="img-box"><?php echo Html::anchor('/m/'.$order->phase_id, Html::img($getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image));?></div></td>
+                        <td><div class="img-box img-sm"><?php echo Html::anchor('/m/'.$order->phase_id, Html::img($getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image));?></div></td>
                         <td>
-                            <div class="text-title">（第<?php echo $getPhaseInfo($order->phase_id)->phase_id;?>期）<?php echo $getPhaseInfo($order->phase_id)->title;?></div>
-                            
+                            <div class="title-lg">（第<?php echo $getPhaseInfo($order->phase_id)->phase_id;?>期）<?php echo $getPhaseInfo($order->phase_id)->title;?></div>
                             <?php if ($getPhaseInfo($order->phase_id)->member_id !=0) {?>
-                            <div class="winner">获得者：<?php echo $getUser($getPhaseInfo($order->phase_id)->member_id)->nickname;?></div>
+                            <div class="username">获得者：<?php echo $getUser($getPhaseInfo($order->phase_id)->member_id)->nickname;?></div>
                             <div class="number">幸运乐拍码：<?php echo $getPhaseInfo($order->phase_id)->code;?></div>
                             <div class="datetime">揭晓时间：<?php echo Date("Y-m-d H:i:s", $getPhaseInfo($order->phase_id)->opentime);?></div>
                             <?php }else{ ?>

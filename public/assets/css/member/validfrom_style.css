@@ -59,14 +59,6 @@
 .ml10 {margin-left: 10px;}
 .mr10 {margin-right: 10px;}
 /* class css ============================ class css ======== */
-.fl{
-	float:left;
-	display:inline;
-}
-.fr{
-	float:right;
-	display:inline;
-}
 .clear{clear:both; height:0; overflow:hidden;}
 .lireset li {
     background: url("images/arrow1.gif") no-repeat left 8px;
