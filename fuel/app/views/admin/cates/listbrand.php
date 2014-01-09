@@ -1,26 +1,31 @@
 <?php
     echo Asset::js(['jquery.validate.js', 'admin/cates/listCate.js']);
 ?>
-<form class="form-horizontal" role="form" id="addBrand" method="post" action="<?php echo Uri::create('admin/cates/createBrand'); ?>">
-  <div class="form-group">
-    <label for="name" class="col-sm-2 control-label">添加商品品牌</label>
-    <div class="col-sm-2">
-        <select class="form-control" name="parent_id">
-            <?php 
-            foreach($cates as $key => $cate) :
-                echo '<option value="'.$key.'">'.$cate.'</option>';
-            endforeach; 
-            ?>
-        </select>
-    </div>
-    <div class="col-sm-3">
-      <input type="text" class="form-control" name="name" id="name" placeholder="品牌名称">
-    </div>
-    <div class="col-sm-2">
-      <button id="addCateSubmit" class="btn btn-default">添加</button>
-    </div>
-  </div>
-</form>
+<div class="panel panel-default" style="padding: 10px 0">
+    <form class="navbar-form navbar-left" id="addCate" role="search" id="addBrand" method="post" action="<?php echo Uri::create('admin/cates/createBrand'); ?>">
+        <div class="col-sm-3">
+            <div class="input-group">
+              <span class="input-group-addon">分类</span>
+              <select class="form-control" name="parent_id">
+                  <?php 
+                  foreach($cates as $key => $cate) :
+                      echo '<option value="'.$key.'">'.$cate.'</option>';
+                  endforeach; 
+                  ?>
+              </select>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="input-group">
+              <span class="input-group-addon">品牌</span>
+              <input type="text" class="form-control" name="name" value="" placeholder="品牌名称">
+            </div>
+        </div>
+        <button id="addCateSubmit" class="btn btn-primary">添加</button>
+    </form>
+    <div class="clearfix"></div>
+</div>
+<div class="panel panel-default">
 <?php if ($brands): ?>
 <table class="table table-striped">
     <thead>
@@ -55,8 +60,9 @@
 </table>
 
 <?php else: ?>
-<p style="text-align:center">还没有品牌.</p>
+<p style="text-align:center;padding: 40px">还没有品牌.</p>
 <?php endif; ?>
+</div>
 <?php echo Pagination::instance('mypagination')->render();?>
 <script>
     EDIT_URL = '<?php echo Uri::create('/admin/cates/edit');?>';
