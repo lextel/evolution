@@ -73,6 +73,8 @@ class Controller_Wins extends Controller_Frontend{
 
         $data['status'] = 'success';
         if($win->code_count) {
+
+           $order = Model_Order::find($win->order_id);
             $member = Model_Member::find($win->member_id);
                 $data['data'] = [
                         'member_id' => $member->id,
@@ -80,11 +82,11 @@ class Controller_Wins extends Controller_Frontend{
                         'nickname'  => $member->nickname,
                         'image'     => $item->image,
                         'title'     => '(第'.$win->phase_id.'期)'.$win->title,
-                        'link'      => Uri::create('w/'.$win->phase_id),
+                        'link'      => Uri::create('w/'.$win->id),
                         'userlink'  => Uri::create('u/'.$member->id),
                         'code'      => $win->code,
                         'price'     => sprintf('%.2f', $item->price),
-                        'area'      => '未知',
+                        'area'      => $order->area,
                         'count'     => $win->code_count,
                         'opentime'  => date('Y-m-d H:i:s', $win->opentime),
                     ];
