@@ -58,14 +58,12 @@
                     <?php echo Html::anchor('u/'.$lwin->member_id, Html::img($getUser($lwin->member_id)->avatar));?>
                 </div>
                 <div class="info-side">
-                    <div class="info-side-head">
-                        <span class="name blue"><?php echo Html::anchor('u/'.$lwin->member_id, $getUser($lwin->member_id)->nickname, ['class'=>'blue']);?></span>
-                        <span class="datetime"><?php echo '获得了第'.$lwin->phase_id.'期';?></span>
-                    </div>
+                        <div class="username"><?php echo Html::anchor('u/'.$lwin->member_id, $getUser($lwin->member_id)->nickname, ['class'=>'blue']);?></div>
+                        <div class="datetime"><?php echo '获得了第'.$lwin->phase_id.'期';?></div>
                     <?php if($lwin->post_id == 0){?>
                         <p>暂未晒单</p>
                     <?php }else{?>
-                        <p><?php echo Html::anchor('p/'.$lwin->post_id, '查看晒单', ['class'=>'blue']);?></p>
+                        <p><?php echo Html::anchor('p/'.$lwin->post_id, '晒单详情', ['class'=>'btn-sm btn-y']);?></p>
                     <?php }?>
                 </div>
             </li>

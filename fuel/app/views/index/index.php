@@ -14,7 +14,7 @@
 		<!--最新揭晓开始-->
         <div class="announced-news fl">
                 <div class="title">
-                    <h4>最新揭晓</h4>
+                    <h3>最新揭晓</h3>
                     <?php echo Html::anchor('w', '更多>>', ['class'=>'more']);?>
                 </div>
                     <ul>
@@ -61,14 +61,14 @@
         <!--人气推荐开始-->
          <div class="recommended fl">
 		    <div class="title">
-                    <h4>人气推荐</h4>
+                    <h3>人气推荐</h3>
                     <?php echo Html::anchor('m', '更多>>', ['class'=>'more']);?>
                 </div>
              <ul>
                     <?php foreach($topHotItems() as $phase) { ?>
                     <li>
                         <div class="title-box">
-                            <h4><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h4>
+                            <h3 class="title-md"><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h3>
                             <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?>.00</b></span>
                         </div>
                         <div class="img-box img-lg">
@@ -121,7 +121,7 @@
             <?php foreach($hotItems() as $phase) { ?>
             <li>
                 <div class="title-box">
-                    <h4><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h4>
+                    <h3 class="title-md"><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h3>
                     <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?>.00</b></span>
                 </div>
                 <div class="img-box img-lg"
@@ -148,20 +148,19 @@
     <!--晒单分享开始-->
     <div class="bask-wrapper w">
         <div class="title">
-           <h4>晒单分享</h4>
+           <h3>晒单分享</h3>
            <?php echo Html::anchor('p', '更多>>', ['class'=>'more']);?>
         </div>
 
         <div class="bask-side">
             <?php if($topPost) { ?>
             <div class="bask fl">
-                <div class="img-box fl">
-
+                <div class="img-box img-md fl">
                     <?php echo Html::anchor('p/'.$topPost->id, Html::img($topPost->topimage));?>
                 </div>
                 <div class="bask-info fr">
                     <div class="title-box">
-                        <h4 class=""><?php echo Html::anchor('m/'.$topPost->phase_id, $getItemInfo($topPost->item_id)->title);?></h4>
+                        <h3 class="title-md"><?php echo Html::anchor('m/'.$topPost->phase_id, $getItemInfo($topPost->item_id)->title);?></h3>
                         <div class="winner">获得者：<b><?php echo Html::anchor('u/'.$topPost->member_id, $getMemberInfo($topPost->member_id)->nickname, ['class'=>'bule']);?></b></div>
                     </div>
                     <div class="bask-content">
@@ -175,12 +174,12 @@
                 <ul>
                     <?php foreach($posts() as $post) { ?>
                     <li>
-                        <div class="img-box img-sm">
+                        <div class="img-box img-md">
                             <?php echo Html::anchor('p/'.$post->id, Html::img($post->topimage));?>
                         </div>
-                        <h5><?php echo Html::anchor('m/'.$post->phase_id, $getItemInfo($post->item_id)->title);?></h5>
-                        <div class="winner">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $getMemberInfo($post->member_id)->nickname, ['class'=>'bule']);?></b></div>
-                        <p>揭晓时间：<?php  echo date('Y-m-d', $getPhaseInfo($post->phase_id)->opentime);?></p>
+                        <h4 class="title-mx"><?php echo Html::anchor('m/'.$post->phase_id, $getItemInfo($post->item_id)->title);?></h4>
+                        <div class="username">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $getMemberInfo($post->member_id)->nickname);?></b></div>
+                        <div class="datetime">揭晓时间：<?php  echo date('Y-m-d', $getPhaseInfo($post->phase_id)->opentime);?></div>
                     </li>
                     <?php } ?>
                 </ul>

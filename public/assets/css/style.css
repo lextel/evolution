@@ -139,7 +139,6 @@
     overflow: hidden;
     padding: 10px;
     background: #FFFFFF;
-    margin-top: 15px;
 }
 .left-sidebar .img-box{
     height: 160px;
@@ -283,9 +282,9 @@
     font-size: 12px;
 }
 .center-main {
-    width: 575px;
+    min-width: 540px;
     overflow: hidden;
-    margin: 10px 0 0 10px;
+    margin: 0 10px;
     border: 1px solid #EEEEEE;
     background: #FFFFFF;
     min-height: 400px;
@@ -328,10 +327,10 @@
     margin-left:50px;
 }
 .buy-menu .right-box{
-    width: 420px;
+    width: 440px;
     position: relative;
 }
-.home-wrap .buy-menu .right-box{
+.home-wrap .buy-menu li{
     width: 600px;
     overflow: hidden;
     margin:15px 0 15px 60px;
@@ -360,8 +359,8 @@
     width: 750px;
     float: right;
     overflow: hidden;
-    padding:10px 20px 20px;
-    border: 1px solid #EEEEEE;
+    padding:20px 20px 10px;
+    border: 1px solid #dddddd;
     background: #FFFFFF;
 }
 /*获得的商品*/
@@ -371,10 +370,13 @@
 .record,.already-show{
     overflow: hidden;
 }
+.record table,.already-show table{
+    margin-bottom: 20px;
+}
 .remind{
     height: 28px;
     background: #f1f1f1;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #dddddd;
     line-height: 28px;
     text-indent: 15px;
 }
@@ -399,12 +401,6 @@
     height: 31px;
     border: 1px solid #EEEEEE;
 }
-table tr td .img-box{
-    width: 70px;
-    height:70px;
-    text-align: center;
-    line-height: 70px;
-}
 .select input,.select button{
     height: 31px;
     border: 1px solid #EEEEEE;
@@ -422,9 +418,6 @@ table tr td .img-box{
     text-align: center;
     border-radius: 3px;
     cursor: pointer;
-}
-table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .datetime,table tr td .text-content{
-    text-align: left;
 }
 .show-form,.not-form{
     overflow: hidden;
@@ -693,7 +686,7 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
     overflow: hidden;
 }
 .product-item{
-    width: 215px;
+    width: 235px;
     overflow: hidden;
     border: 1px solid #e0e0e0;
 }
@@ -764,8 +757,8 @@ table tr td .text-title,table tr td .winner,table tr td .number ,table tr td .da
 }
  .images-list dd{
     float: left;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     line-height: 60px;
     margin-right: 5px;
     text-align: center;
