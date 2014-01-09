@@ -20,4 +20,8 @@ return [
      * @var 揭晓时间 （单位:分钟）
      */
     'open'    => 5,
+
+    'default_headico' => 'upload/avatar/header.png',
+
+    'email_key' => 'zhujianglong~!@l0l0t0_com',
 ];
