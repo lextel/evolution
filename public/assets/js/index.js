@@ -8,7 +8,7 @@ $(function(){
 
     // 倒计时渲染结果
     var renderDiv = function(id, data) {
-        html = '获奖者:<b><a href="'+data.userlink+'">'+data.nickname+'</a></b>';
+        html = '获奖者:<a href="'+data.userlink+'">'+data.nickname+'</a>';
         var obj = $('#win' + id).removeClass('countdown');
         obj.next().hide();
         obj.html(html);
