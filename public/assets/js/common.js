@@ -612,7 +612,7 @@ $(function(){
         // 向下滚动
         var _BuyList=$(".buyList");
         var Trundle = function () {
-            _BuyList.prepend(_BuyList.find("li:last")).css('marginTop', '-75px');
+            _BuyList.prepend(_BuyList.find("li:last")).css('marginTop', '-100px');
             _BuyList.animate({ 'marginTop': '0px' }, 800);
         }
         var setTrundle = setInterval(Trundle, 3000);
