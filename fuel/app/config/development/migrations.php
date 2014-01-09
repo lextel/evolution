@@ -21,6 +21,7 @@ return array(
 				12 => '015_create_members',
 				13 => '016_create_shippings',
 				14 => '017_create_member_emails',
+				15 => '018_create_shippings',
 			),
 		),
 		'module' => 

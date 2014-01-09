@@ -225,7 +225,7 @@ class Controller_Member extends Controller_Center{
 
        // 转换成积分
        Config::load('common');
-       $point = Input::post('money') * Config::get('point');
+       $point = intval($money) * Config::get('point');
        $source = Input::post('source');
        $sign = Input::post('sign');
        $res = Model_Member::addMoney($this->current_user->id, $point);
@@ -249,9 +249,35 @@ class Controller_Member extends Controller_Center{
         return;
     }
 
-    // 上传图片
-    public function action_avatarUpload() {
+    // 上传头像图片
+    public function action_avatarUpload() 
+    {
         $files = Model_Member::upload();
         return json_encode(['files' => $files]);
     }
+    
+    
+    /*
+    * 验证用户邮箱的真实性之发送邮件
+    */
+    public function action_checkemail()
+    {
+       $email = $this->current_user->email;  
+       $email = "398667606@qq.com";
+       $send = Model_Member_Email::sendEmail($email);
+       if ($send){
+          return json_encode(['email' => $send]);
+       }
+       return json_encode(['email' => 0]);
+    }
+    
+    /*
+    * 验证用户邮箱的真实性之验证返回的KEY
+    */
+    public function action_emailok()
+    {
+       $key = Input::get('key');
+       return json_encode(['key' => $key]);
+    }
+    
 }
