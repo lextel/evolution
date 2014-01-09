@@ -2,7 +2,7 @@ $(function(){
     // 分类品牌联动
     $('#form_cate_id').change(function(){
         var id = $(this).val();
-        var options = '<option value="0">--请选择品牌--</option>';
+        var options = '<option value="">--请选择品牌--</option>';
 
         if(id != 0) {
             $.ajax({

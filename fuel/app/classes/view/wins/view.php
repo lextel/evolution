@@ -28,6 +28,7 @@ class View_Wins_View extends Viewmodel {
            return $timer->friendlyDate($timestamp);
        };
 
+
        // 已开奖期数数量
        $this->openCount = function($itemId) {
            

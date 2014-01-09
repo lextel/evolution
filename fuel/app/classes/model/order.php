@@ -249,6 +249,7 @@ class Model_Order extends \Orm\Model
                     'nickname' => $member->nickname,
                     'count' => $order->code_count,
                     'ip'    => $order->ip,
+                    'area' => $order->area,
                     'created_at' => date('Y-m-d H:i:s', $order->created_at),
                 ];
         }
