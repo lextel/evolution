@@ -20,10 +20,11 @@
     width: 152px;
     margin: 0 10px;
 }
-.announced-news ul li.announcing{
+.announced-news ul li.active{
     border: 2px solid #e60012;
 }
 .news-count{
+    text-align: center;
     overflow: hidden;
     padding: 5px;
     background:#e60012 ;
