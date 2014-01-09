@@ -1,5 +1,5 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
-<?php echo Asset::js(['wins/index.js','jquery.bxslider.min.js']); ?>
+<?php echo Asset::js(['wins/index.js']); ?>
 
 <div class="latest-wrap w">
    <!--左边内容开始-->
@@ -14,6 +14,7 @@
                     $itemInfo = $getItemInfo($win->item_id);
                     if($win->member_id):
                     $memberInfo = $getMemberInfo($win->member_id);
+                    $from = $getFrom($win->order_id);
             ?>
             <li>
                 <div class="item-body">
