@@ -60,7 +60,23 @@ function upcookie(){
 function cpage(id){
     getCommentList(id);
 }
-$(function(){    
+$(function(){
+    var screenwidth,screenheight,mytop,getPosLeft,getPosTop;
+    screenwidth = $(document).width();
+    screenheight = $(document).height();
+    mytop = $(document).scrollTop();
+    getPosLeft = screenwidth/2 - 260;
+    getPosTop = (screenheight-mytop)/2;
+    $(".login2").css({"left":getPosLeft,"top":getPosTop});
+    $(window).resize(function(){
+        screenwidth = $(window).width();
+        screenheight = $(window).height();
+        mytop = $(document).scrollTop();
+        getPosLeft = screenwidth/2 - 260;
+        getPosTop = screenheight-mytop;
+        $(".login2").css({"left":getPosLeft,"top":getPosTop+mytop});
+    });
+
      //点击刷新喜欢
      $('.sns-love').click(function(){
         var postid =  this.id;
@@ -82,7 +98,7 @@ $(function(){
                              });
                         w.html("已喜欢(<s>" + (parseInt(up) + 1) + "</s>)");
                     }
-                    });
+             });
         }
      });
 
@@ -121,8 +137,11 @@ $(function(){
            });
            return true;
          } else {
-            $('.login2').show();
-            return false;
+             $(".login2").fadeIn("fast");
+             $("body").append("<div id='greybackground'></div>");
+             var documentheight = $(document).height();
+             $("#greybackground").css({"opacity":"0.5","height":documentheight});
+             return false;
         }
      });
      upcookie();
