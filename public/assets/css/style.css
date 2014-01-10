@@ -131,7 +131,7 @@
 }
 /*个人主页*/
 .home-wrap{
-    border: 1px solid #EEEEEE;
+    border: 1px solid #dddddd;
     width: 780px;
     background: #FFFFFF;
 }
@@ -140,6 +140,7 @@
     overflow: hidden;
     padding: 10px;
     background: #FFFFFF;
+    border: 1px solid #dddddd;
 }
 .left-sidebar .img-box{
     height: 160px;
@@ -152,8 +153,9 @@
 }
 .signature{
     background: #ffffff;
-    padding: 5px;
+    height: 36px;
     line-height: 18px;
+    overflow: hidden;
 }
 .main{
     width: 780px;
@@ -187,7 +189,6 @@
 }
 .home-wrap .home-c dl{
     overflow: hidden;
-    margin-top: 15px;
 }
 .home-wrap .home-c dl dd{
     width: 218px;
@@ -338,8 +339,29 @@
     border: 1px solid #EEEEEE;
     padding: 10px;
 }
+.buy-menu dd{
+    min-height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+}
+.buy-menu dd.right-box{
+    margin-left: 80px;
+}
 .home-wrap .buy-menu .right-box .buy-record{
     width: 60%;
+}
+.bask-menu{
+   overflow: hidden;
+    padding: 15px;
+}
+.bask-menu dd{
+    overflow: hidden;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #dddddd;
+}
+.bask-menu dd .info-side{
+    margin-left:20px;
 }
 .icon-jx{
     width:40px ;
@@ -565,7 +587,7 @@
 }
 .navbar-inner{
     overflow: hidden;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     border-top: 3px solid #D96D66;
 }
 .navbar-inner ul li{

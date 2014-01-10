@@ -29,7 +29,9 @@ h4{
     font-weight: normal;
 }
 h5{
-    font-size: 12px;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
 }
 textarea{
     width: 100%;
@@ -62,6 +64,11 @@ textarea:focus,input:focus{
     height: 52px;
     text-indent: 2em;
     overflow: hidden;
+}
+.text-content{
+    line-height: 18px;
+    text-indent: 2em;
+    color: #666666;
 }
 .sidebar{
     overflow: hidden;
@@ -181,12 +188,12 @@ textarea:focus,input:focus{
  }
 .sns-bar .sns-love{
     display: inline-block;
-    text-indent: 8px;
+    text-indent: 12px;
     background: url("../images/icon-02.png") no-repeat -0px -175px;
 }
 .sns-bar .sns-comment{
     display: inline-block;
-    text-indent: 8px;
+    text-indent: 12px;
     background: url("../images/icon-02.png") no-repeat -90px -174px;
 }
 .buy{
@@ -730,6 +737,7 @@ table tbody tr td{
     width: 980px;
     margin: 0 auto;
     overflow: hidden;
+    border-right: 1px solid #920303;
 }
 .navbar ul li{
     height: 36px;
@@ -743,10 +751,11 @@ table tbody tr td{
 }
 .navbar ul li a{
     display: block;
-    width: 196px;
-    height: 36px;
-    color: #ffffff;
+    width: 195px;
+    height: 37px;
+    color: white;
     font-size: 14px;
+    border-left: 1px solid #920303;
 }
 .navbar ul li a:hover{
     background: #cd2d14;
