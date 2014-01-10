@@ -6,25 +6,27 @@
 
 namespace Classes;
 
-use Fuel\core\Config;
+//use Fuel\core\Config;
 use Fuel\core\Log;
 
-class SendEmail {
+use Email\Email as SysEmail;
+class Email {
 
     /*
-    * @return array 分类数组 如[1' => '手机', '2' => '其他']
+    * 总发送
     */
-    public static function send($toemails) {
-        $email = Email::forge();
-       
-        $email->to('398667606@qq.com', '王大麦子');
-        $email->subject('这事个测试数据哈');
+
+    public static function send($to) {
+        $email = SysEmail::forge();
+
+        $email->to($to);
+        $email->subject('ceshi ');
         //$email->to([
         //  ]);
 
         $email->body('This is my message');
         $email->body('This is my message');
-        try 
+        try
         {
            $email->send();
            return true;
@@ -39,4 +41,5 @@ class SendEmail {
         }
         return false;
     }
+
 }

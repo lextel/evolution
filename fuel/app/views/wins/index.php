@@ -27,7 +27,7 @@
                         </div>
                         <div class="user-info fl">
                             <div class="username">获奖者：<a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><?php echo $memberInfo->nickname; ?></a></div>
-                            <div class="ip">来自：未知</div>
+                            <div class="ip">来自：<?php echo $from; ?></div>
                             <div class="number">当前乐拍：<b><?php echo $win->code_count; ?></b>次</div>
                         </div>
                         <div class="p-info">

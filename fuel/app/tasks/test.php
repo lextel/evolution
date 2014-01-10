@@ -25,8 +25,7 @@ class Test
      */
     public static function test()
     {
-        touch('test.touch');
-        return 'test';
+        echo 'test';
     }
 }
 
