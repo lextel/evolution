@@ -566,7 +566,7 @@
                   });
                   //zoom title
                  $('.zoomWrapperTitle', this.node).css({
-                        width: '100%',
+                        width: '0%',
                         position: 'absolute'
                   });  
               
