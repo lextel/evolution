@@ -1,5 +1,7 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
 <?php echo Asset::js(['jquery.cookie.js','common.js', 'post/postup.js']);?>
+<?php echo Asset::css('member/validfrom_style.css'); ?>
+<?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
 <div class="w">
    <div class="content">
        <div class="title-bar">
@@ -112,7 +114,7 @@
 </div>
 <!--弹出登录框-->
 <div class="login2">
-    <form action="/signin" method="POST">
+    <form action="/signin" method="POST" class="demoform">
         <div class="login2-head">
           <h4>用户登录</h4>
            <button class="close" id="close"></button>
@@ -120,14 +122,16 @@
         <label for="" class="error"></label>
         <ul class="login2-body">
             <li>
-                <input name="username" type="text" value="" placeholder="用户邮箱" />
+                <input name="username" type="text" value="" placeholder="用户邮箱" datatype="e" errorms="请输入邮箱帐号" id="form_username" class="Validform_error"/>
                 <span class="icon-user"></span>
             </li>
+            <li> <span class="Validform_checktip">请填写信息！</span></li>
             <li>
-                <input name="password"  type="text" value="" placeholder="用户密码" />
+                <input name="password"  type="text" value="" placeholder="用户密码"  datatype="*6-15" errorms="密码范围在6-18位之间" id="form_username" class="Validform_error" />
                 <span class="icon-password"></span>
             </li>
             <li>
+                <span class="Validform_checktip">请填写信息！</span>
                 <a href="" class="fr">忘记密码？</a>
             </li>
             <li>
@@ -137,3 +141,10 @@
         </ul>
     </form>
 </div>
+<script type="text/javascript">
+    $(function(){
+    	$(".demoform").Validform({
+    	tiptype:4,
+    	});
+    });
+</script>

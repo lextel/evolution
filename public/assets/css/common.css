@@ -146,9 +146,7 @@ textarea:focus,input:focus{
     background:none;
     cursor: pointer;
     display: inline-block;
-}
-.btn-group .btn-link{
-    padding:5px 10px;
+    padding: 4px 6px;
 }
 .btn-red{
     background: #B92C00;
@@ -318,6 +316,18 @@ table tbody tr td{
     vertical-align: middle;
     background-position:0 -226px;
 }
+.icon-user,.icon-password{
+    width: 18px;
+    height: 16px;
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: url("../images/icon-02.png") no-repeat -0px -213px;
+}
+.icon-password{
+    background-position: -0px -264px;
+}
 .icon-01{
     width: 65px;
     height: 65px;
@@ -358,11 +368,13 @@ table tbody tr td{
     width: 120px;
     height: 120px;
     line-height: 120px;
+    overflow: hidden;
 }
 .img-sm{
     width: 70px;
     height: 70px;
     line-height: 50px;
+    overflow: hidden;
 }
 .img-box img{
     max-width: 100%;
@@ -421,6 +433,7 @@ table tbody tr td{
     width: 300px;
     line-height: 22px;
     overflow: hidden;
+    height: 22px;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
@@ -428,18 +441,21 @@ table tbody tr td{
     width: 180px;
     line-height: 22px;
     overflow: hidden;
+    height: 22px;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 .title-mx{
     width: 120px;
     line-height: 22px;
+    height: 22px;
     overflow: hidden;
     white-space: nowrap;
 }
 .title-md{
     width: 210px;
     line-height: 22px;
+    height: 22px;
     overflow: hidden;
     white-space: nowrap;
 }
@@ -637,9 +653,10 @@ table tbody tr td{
     margin-left: 30px;
 }
 .shopping-box .shopping-cart{
-    width: 168px;
+    width: 178px;
     height: 28px;
     line-height: 28px;
+    border: 1px solid #F1F1F1;
     margin: 10px 0 10px 0px;
     background:#af2812;
     text-align: center;
@@ -693,8 +710,9 @@ table tbody tr td{
 .shopping-box  .all{
     height: 25px;
     line-height: 25px;
-    border: 1px solid #eeeeee;
+    border: 1px solid #dddddd;
     padding: 0 10px;
+    background: #d1d1d1;
 }
 .shopping-box  .all b{
     color: #437eff;
@@ -825,7 +843,7 @@ table tbody tr td{
 .weiXin{
     width: 120px;
     position: fixed;
-    z-index: 888;
+    z-index: 100;
     background: #FFFFFF;
     padding: 5px;
 }
@@ -851,6 +869,7 @@ table tbody tr td{
     right: 0px;
     background: url("../images/icon-02.png") no-repeat -117px -0px;
 }
+
 .short-cut{
     overflow: hidden;
     border: 1px solid #e4e4e4;
