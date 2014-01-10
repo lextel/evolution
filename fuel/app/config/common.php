@@ -23,8 +23,11 @@ return [
      */
     'open'    => 5,
 
+    'default_headico' => 'upload/avatar/header.png',
+
+    'email_key' => 'zhujianglong~!@l0l0t0_com',
     /**
-     * @var 快递100密钥 
+     * @var 快递100密钥
      */
     'shipping_key' => '',
 ];
