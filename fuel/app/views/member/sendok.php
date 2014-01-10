@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>找回密码</title>
+    <title>邮件发送成功</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <?php echo Asset::css('/member/bootstrap.min.css');?>
@@ -29,24 +29,13 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary ">
-                <div class="panel-heading">找回密码</div>
+                <div class="panel-heading">邮件发送成功</div>
                 <div class="panel-body">
-                    <?php echo Form::open(['action'=>'forgotemail','class'=>'col-md-5 col-md-offset-3']);?>
-                        <div class="form-group">
-                            <label for="" class="control-label">请输入您要找回密码的注册邮箱</label>
-                            <input type="text" name="email" class="form-control"/>
-                        </div>
-                        <!--<div class="form-group">
-                            <label for="" class="control-label">请输入您绑定的邮箱</label>
-                            <input type="text" type="text" class="form-control"/>
-                        </div>
-                        -->
-                        <button class="btn btn-primary">发送邮件</button>
-                    <?php echo Form::close();?>
+                    
                 </div>
-                <!-- <div class="panel-body">
+                <div class="panel-body">
                     <div for="" class="col-md-offset-3">发送成功！<a href="">点击查看邮箱</a></div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
