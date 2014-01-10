@@ -6,8 +6,9 @@
     width: 100%;
     overflow: hidden;
     background: #F1F1F1;
-    margin: 0 auto 30px;
-    height: 100px;
+    padding-top: 30px;
+    margin: 0 auto 20px;
+    height: 70px;
 }
 .logo-wrapper .logo{
     width: 980px;
@@ -834,35 +835,52 @@
     overflow: hidden;
 }
 /*帮助中心*/
+.help-side{
+    width: 180px;
+    overflow: hidden;
+    background: white;
+    border: 1px solid #dddddd;
+}
+.help-side h2{
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+}
 .help-center{
-    border: 1px solid #EEEEEE;
     overflow: hidden;
     text-indent: 10px;
 }
 .help-center dt{
-    border: 1px solid #EEEEEE;
+    text-align: center;
+    border-bottom: 1px solid #dddddd;
     background: #f1f1f1;
     height: 33px;
     line-height: 33px;
+    font-weight: bold;
 }
 .help-center dd{
-    border-top: 1px solid #EEEEEE;
+    text-align: right;
+    border-bottom: 1px solid #dddddd;
     text-indent: 20px;
     height: 33px;
+    padding-right: 60px;
     line-height: 33px;
     cursor: pointer;
 }
-.left-sidebar h2{
-    border: 1px solid #EEEEEE;
-    text-align: center;
+.help-center dd:hover{
+    background: #D96D66;
+    color: #FFFFFF;
 }
+.help-center dd.active{
+    background: #D96D66;
+    color: #FFFFFF;
+}
+
 .help-main{
     width: 745px;
     float: right;
     overflow: hidden;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #dddddd;
     padding:0 20px 15px;
-    margin: 10px 0;
     background: #FFFFFF;
 }
 .help-main h2{
@@ -871,8 +889,15 @@
     height: 36px;
     line-height: 36px;
     border-bottom: 2px  solid #D96D66;
+    margin-bottom: 20px;
 }
-.help-main  .content p{
+.help-content{
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.help-content  p{
+    text-indent: 2em;
+    font-size: 14px;
     line-height: 22px;
     margin-bottom: 5px;
 }

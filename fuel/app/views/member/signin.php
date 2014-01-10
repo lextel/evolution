@@ -12,7 +12,7 @@
 <body>
 <div class="logo-wrapper">
     <div class="logo w">
-        <a href="">乐乐淘logo</a>
+        <a href=""><img src="/assets/images/logo.png" alt="乐乐淘首页"></a>
     </div>
 </div>
 <!--中间内容开始-->
