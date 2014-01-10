@@ -702,7 +702,7 @@
             preloadImages: true,
             //image preload
             preloadText: '加载中...',
-            title: true,
+            title: false,
             lens: true,
             imageOpacity: 0.4,
             alwaysOn: false,
