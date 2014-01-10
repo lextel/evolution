@@ -11,7 +11,7 @@ class Create_shippings
 			'member_id' => array('constraint' => 11, 'type' => 'int'),
 			'phase_id' => array('constraint' => 11, 'type' => 'int'),
 			'status' => array('constraint' => 11, 'type' => 'int'),
-			'excode' => array('constraint' => 11, 'type' => 'int'),
+			'excode' => array('constraint' => 20, 'type' => 'varchar'),
 			'exname' => array('constraint' => 255, 'type' => 'varchar'),
 			'exdesc' => array('type' => 'text'),
 			'admin_id' => array('constraint' => 11, 'type' => 'int'),
