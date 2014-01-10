@@ -1,5 +1,8 @@
 <?php echo Asset::css('product.css'); ?>
 <?php echo Asset::js('/cart/cart.js'); ?>
+<?php echo Asset::css('member/validfrom_style.css'); ?>
+<?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
+<?php echo Asset::js('jquery-1.10.1.min.js'); ?>
     <div class="wrapper w">
         <div class="cart-content">
             <ol class="pay-prompt">
@@ -84,7 +87,7 @@
         </div>
         <!--弹出登录框-->
         <div class="login2">
-            <form action="<?php echo Uri::create('signin'); ?>" method="post">
+            <form action="<?php echo Uri::create('signin'); ?>" method="post" >
                 <div class="login2-head">
                   <h4>用户登录</h4>
                    <button class="close" id="close"></button>
@@ -92,14 +95,16 @@
                 <label for="" class="error"></label>
                 <ul class="login2-body">
                     <li>
-                        <input type="text" value="" name="username" placeholder="输入邮箱"/>
+                        <input type="text" name="username" placeholder="输入邮箱"  datatype="e" errorms="请输入邮箱帐号" id="form_username" class="Validform_error"/>
                         <span class="icon-user"></span>
                     </li>
+                    <li><span class="Validform_checktip Validform_wrong">请填写信息！</span></li>
                     <li>
-                        <input type="password" value="" name="password" placeholder="输入密码"/>
+                        <input type="password" value="" name="password" placeholder="输入密码"   datatype="*6-15" errorms="密码范围在6-18位之间" id="form_username" class="Validform_error"/>
                         <span class="icon-password"></span>
                     </li>
                     <li>
+                        <span class="Validform_checktip Validform_wrong">请填写信息！</span>
                         <a href="<?php echo Uri::create('/u/passwd/forgot'); ?>" class="fr">忘记密码？</a>
                     </li>
                     <li>
@@ -142,6 +147,14 @@
         </div>
         <!--今日热门结束-->
     </div>
+    <script type="text/javascript">
+
+    $(function(){
+    	$(".login2-body").Validform({
+    	tiptype:4,
+    	});
+    });
+    </script>
     <script>
         IS_LOGIN = <?php echo isset($current_user) ? 'true' : 'false';?>;
     </script>

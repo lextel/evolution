@@ -13,7 +13,7 @@
 <body>
     <div class="register w">
         <div class="title">
-            <h4 class="fl">新用户注册</h4>
+            <h3 class="fl">新用户注册</h3>
             <ul class="fl">
                 <li><a href="">1填写注册信息</a></li>
                 <li><a href="">2填写注册信息</a></li>
@@ -44,8 +44,8 @@
                    <input type="password" value="" name="userpassword2" class="inputxt" datatype="*6-20" recheck="password">
                    <span class="Validform_checktip"></span>
                 </li>
-                <li><!--<a href="" class="btn btn-default fl">同意协议并注册</a>-->
-                   <?php echo Form::submit('submit', '同意协议并注册', array('class' => 'btn btn-default fl')); ?>
+                <li><!--<a href="" class="btn btn-red fl">同意协议并注册</a>-->
+                   <?php echo Form::submit('submit', '同意协议并注册', array('class' => 'btn btn-red')); ?>
                 </li>
             </ul>
         <?php echo Form::close(); ?>
