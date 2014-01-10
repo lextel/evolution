@@ -38,13 +38,13 @@ $(function(){
             .animate({
                 'top': cart.offset().top,
                 'left': cart.offset().left,
-                'width': 130,
-                'height': 25
+                'width': 170,
+                'height':30 
             }, 1000);
             imgclone.animate({
                 'opacity': '0',
-                'width': 130,
-                'height': 25 
+                'width': 170,
+                'height': 30 
             }, function () {
                 $(this).detach()
             });
