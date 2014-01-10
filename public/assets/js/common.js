@@ -233,6 +233,20 @@ $(function(){
         phases(1);
     });
 
+
+    // 当前nav标识
+    $('.navbar > ul > li').each(function() {
+        var target = $(this).find('a');
+        var navlink = target.attr('href').replace(/\//g,'\\/');
+        navlink = eval('/'+navlink.replace(/\./g,'\\.') + '/');
+        var url = window.location.href
+
+        if(navlink.test(url)) {
+            $('.navbar > ul > li').find('a').removeClass('active');
+            target.addClass('active');
+        }
+    });
+
 });
 /**
  * 选择充值方式
@@ -366,13 +380,13 @@ $(function(){
             .animate({
                 'top': cart.offset().top,
                 'left': cart.offset().left,
-                'width': 130,
-                'height': 25
+                'width': 170,
+                'height':30 
             }, 1000);
             imgclone.animate({
                 'opacity': '0',
-                'width': 130,
-                'height': 25 
+                'width': 170,
+                'height': 30 
             }, function () {
                 $(this).detach()
             });
