@@ -103,7 +103,8 @@
                             <?php echo Html::anchor('m/'.$order->phase_id, Html::img($getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image));?>
                         </div>
                         <div class="info-side">
-                            <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'b']);?> 刚刚乐拍了</div>
+                            <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'b']);?>
+                             <?php echo \Helper\Timer::friendlyDate($order->created_at);?>乐拍了</div>
                             <h4><?php echo Html::anchor('m/'.$order->phase_id, $getPhaseInfo($order->phase_id)->title);?></h4>
                         </div>
 
