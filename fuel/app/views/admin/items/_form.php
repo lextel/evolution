@@ -96,13 +96,12 @@ echo Asset::js(
                                   $index = $idx;
                                   $top = ' top';
                               }
-                              echo '<a href="javascript:void(0);" index="'.$idx.'">';
-                              echo '<div class="col-xs-1 item-img-list'.$top.'">';
+                              echo '<div class="item-img-list'.$top.'">';
+                              echo '<a style="display:block;" href="javascript:void(0);" index="'.$idx.'">';
                               echo '<img src="'.Uri::create('image/80x80/'.$image).'">';
-                              echo '<d class="close">&times;</d>';
-                              echo '<input type="hidden" name="images[]" value="'.$image.'">';
-                              echo '</div>';
                               echo '</a>';
+                              echo '<input type="hidden" name="images[]" value="'.$image.'">';
+                              echo '<d class="close">&times;</d></div>';
                           }
                       }
                     ?>
