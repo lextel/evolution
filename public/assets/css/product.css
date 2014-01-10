@@ -468,27 +468,29 @@
     text-align: center;
 }
 .lantern-slide .slide-img a img{
-    max-width: 100%;
     height: auto;
     vertical-align: middle;
 }
 .slide-list{
     overflow: hidden;
-    background: #EEEEEE;
+    background: #1e1e1e;
     padding: 5px 0;
 }
 .slide-list li{
     width: 74px;
-    height: 67px;
+    height: 74px;
     line-height: 67px;
     text-align: center;
     position: relative;
     margin-left: 5px;
     float: left;
 }
-.slide-list li span{
+.slide-list li a {
+   display: block;
+}
+.slide-list li a span{
     width: 74px;
-    height:67px;
+    height:74px;
     position: absolute;
     top: 0;
     left: 0;
@@ -497,9 +499,9 @@
     display: block;
     cursor: pointer;
 }
-.slide-list li.active span{
+.slide-list li a.zoomThumbActive span{
     width: 68px;
-    height: 61px;
+    height: 68px;
     border: 3px solid #D9534F;
     background:none;
     opacity: 1;
@@ -900,8 +902,10 @@
 .top-navbar{
     overflow: hidden;
     margin-bottom: 10px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #dddddd;
     font-size: 14px;
+    width: 978px;
+    background: #FFFFFF;
 }
 .top-navbar li{
     float: left;
@@ -913,7 +917,9 @@
 .select-result{
     height: 38px;
     overflow: hidden;
-    border: 1px solid #EEEEEE;
+    width: 978px;
+    border: 1px solid #dddddd;
+    background: #FFFFFF;
 }
 .select-result h2{
     text-indent: 2em;

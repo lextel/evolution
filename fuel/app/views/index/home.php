@@ -56,20 +56,8 @@
                     </dd>
                     <?php } ?>
                 </dl>
-                <dl class="buy-menu">
-                    <?php foreach($posts as $pitem) { ?>
-                    <dd>在<?php echo \Helper\Timer::friendlyDate($pitem->created_at);?>晒单了 </dd>
-                    <dd class="right-box">
-                        <div class="img-box img-md fl">
-                            <?php echo Html::anchor('/p/'.$pitem->id, $pitem->title);?>
-                        </div>
-                             <?php echo Html::anchor('/p/'.$pitem->id, "详情>>");?>
-                    </dd>
-                    <?php } ?>
-                </dl>
             </div>
-            <div class="record">
-            </div>
+            <div class="record"></div>
             <div class="obtain"></div>
             <div class="single"></div>
         </div>

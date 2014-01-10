@@ -44,7 +44,7 @@ return array(
      */
     // 'index_file' => false,
 
-     'profiling'  => true,
+     'profiling'  => false,
 
     /**
      * Default location for the file cache
@@ -106,7 +106,7 @@ return array(
      * Fuel::L_INFO
      * Fuel::L_ALL
      */
-    'log_threshold'    => Fuel::L_ALL,
+    'log_threshold'    => Fuel::L_NONE,
     // 'log_path'         => APPPATH.'logs/',
     // 'log_date_format'  => 'Y-m-d H:i:s',
 
