@@ -124,6 +124,7 @@ class Controller_Center extends Controller_Frontend
     */
     public function action_getforgot()
     {
+        Session::set_flash('error', null);
         return Response::forge(View::forge('member/forgot'));
     }
 
@@ -142,7 +143,13 @@ class Controller_Center extends Controller_Frontend
             if ($member)
             {
                //生成KEY发送邮件
-
+               //data包含邮件标题subject，收件人email，KEY值，URI，模板路径view, type邮件类型
+               $data = ["email"=>$email,
+                   'uri' => 'findpwd',
+                   'view'=>'member/email/findpassord',
+                   'type'=>'email',                   
+                   "subject"=>"乐乐淘用户邮箱验证"];       
+               $send = Model_Member_Email::sendEmail($data);
                return Response::forge(View::forge('member/sendok', ['email'=>$email], false));
             }
         }
@@ -151,12 +158,13 @@ class Controller_Center extends Controller_Frontend
     }
 
     /*
-    *  邮件验证KEY
+    * 验证用户邮箱的真实性之验证返回的KEY
     */
-    public function action_checkkey()
+    public function action_emailok()
     {
-
-        return Response::forge(View::forge('member/forgot'));
+       $key = Input::get('key');
+       Model_Member_Email::check($key);
+       return json_encode(['key' => $key]);
     }
 
 

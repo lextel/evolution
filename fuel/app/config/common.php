@@ -26,6 +26,7 @@ return [
     'default_headico' => 'upload/avatar/header.png',
 
     'email_key' => 'zhujianglong~!@l0l0t0_com',
+    'email_deadtime' => 3600 * 24 * 3,
     /**
      * @var 快递100密钥
      */
