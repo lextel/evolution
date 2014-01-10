@@ -319,18 +319,4 @@ return array(
                 'email',
             ),
         ),
-        'sms' => array(
-            'type' => array(1=>'晒单',
-                2=>'商品',
-                3=>'成员',
-                4=>'其他'),
-            'operate' => array(1=>'添加',
-                2=>'上架',
-                3=>'下架',
-                4=>'删除',
-                5=>'修改',
-                6=>'审核',
-                7=>'其他')
-       ),
-       'default_headico' => 'upload/avatar/header.png',
 );

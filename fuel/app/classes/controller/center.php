@@ -100,7 +100,8 @@ class Controller_Center extends Controller_Frontend
                     if ($this->auth->check() or $user)
                     {
                         $current_user = Model_Member::find_by_username($this->auth->get_screen_name());
-                        $current_user -> avatar = \Config::get('default_headico');
+                        Config::load('common');
+                        $current_user -> avatar = Config::get('default_headico');
                         $current_user -> save();
                         Session::set_flash('success', e('Welcome singnup, '.$current_user->username));
                         Response::redirect('/u/getnickname');
@@ -119,18 +120,53 @@ class Controller_Center extends Controller_Frontend
         return Response::forge(View::forge('member/signup', array('val' => $val), false));
     }
     /**
-    * forgot the password
-    * it will send a email to the user Email
-    * @access public
-    * @return void
+    * 打开忘记密码页面
     */
-    public function action_forgotpassword()
+    public function action_getforgot()
+    {
+        return Response::forge(View::forge('member/forgot'));
+    }
+
+    /**
+    *  填入邮箱 检测邮箱 发送KEY
+    */
+    public function action_forgotemail()
+    {
+        !Input::method() == 'POST' and Response::redirect('/forgot');
+        $val = Validation::forge('email');
+        $val->add_field('email', 'Email', 'required|valid_email|max_length[255]');
+        if ($val->run())
+        {
+            $email = Input::post('email');
+            $member = Model_Member::find_by_email($email);
+            if ($member)
+            {
+               //生成KEY发送邮件
+
+               return Response::forge(View::forge('member/sendok', ['email'=>$email], false));
+            }
+        }
+        Session::set_flash('error', e('你输入的邮箱错误'));
+        Response::redirect('/forgot');
+    }
+
+    /*
+    *  邮件验证KEY
+    */
+    public function action_checkkey()
     {
 
-        //$this->template->title = 'Dashboard';
+        return Response::forge(View::forge('member/forgot'));
+    }
+
+
+    /*
+    *  新密码填写
+    */
+    public function action_findpassword()
+    {
+
         return Response::forge(View::forge('member/forgot'));
     }
 
 }
-
-/* End of file admin.php */
