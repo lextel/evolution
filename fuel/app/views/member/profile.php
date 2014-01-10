@@ -4,6 +4,11 @@ $(function(){
     $(".btn-profile").click(function(){
         $(".form-profile").submit();
     });
+    $(".btn-checkemail").click(function(){
+        $.get("/u/checkemail", '', function(data){          
+            alert(data.msg);
+        });
+    });
 });
 </script>
 <div class="set-wrap">
@@ -29,7 +34,12 @@ $(function(){
             <li>
                 <label>邮箱：</label>
                 <?php echo Form::input('username', Input::post('username', $member->email), array('type'=>"text",'name'=>'username','datatype'=>'e','errorms'=>'请输入邮箱帐号', 'readonly')); ?>
-                <span class="Validform_checktip"></span>
+                <?php if (!Model_Member_Email::check_emailok($member->email)) {  ?>
+                <input class="btn btn-red btn-checkemail" type="text" value="验证">
+                <!--<span class="Validform_checktip"></span>-->
+                <?php }else{ ?>
+                <input class="btn btn-red btn-email" type="text" value="已验证">
+                <?php }?>
             </li>
             <li>
                 <label>昵称：</label>

@@ -13,10 +13,10 @@ return array(
     'forgotemail' => 'center/forgotemail',
     'findpwd' => 'center/findpassword',
     'newpwd' => 'center/newpassword',
+    'sendok'=> 'center/sendok',
 
     'emailok'=>'member/emailok',
     'u/checkemail' => 'member/checkemail',
-    'u/newpwd' => 'member/newpassword',
     'u/(\d+)' => 'home/index/$1',
     'u/(\d+)/orders' => 'home/orders/$1',
     'u/(\d+)/orders/p/(\d+)' => 'home/orders/$1/$2',
