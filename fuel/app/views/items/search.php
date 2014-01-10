@@ -2,7 +2,6 @@
 <?php echo Asset::js(['Xslider.js', 'item/index.js']); ?>
 <div class="wrapper w">
 <!--产品列表开始-->
-<div class="content">
     <div class="top-navbar w">
         <ul>
             <?php 
@@ -25,10 +24,10 @@
             <li>
               <form class="xpxp" id="xpxp" action="<?php echo Uri::create('cart/add'); ?>" method="post">
                 <div class="title-box">
-                    <h4><a href="<?php echo Uri::create('m/' . $item->phase->id); ?>"><?php echo $item->phase->title; ?></a></h4>
+                    <h4 class="title-md"><a href="<?php echo Uri::create('m/' . $item->phase->id); ?>"><?php echo $item->phase->title; ?></a></h4>
                     <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $item->price); ?></b></span>
                 </div>
-                <div class="img-box">
+                <div class="img-box img-lg">
                     <a href="<?php echo Uri::create('m/' . $item->phase->id); ?>"><img src="<?php echo Uri::create('image/200x200/' . $item->image);?>" alt=""></a>
                 </div>
                 <dl class="progress-side">
@@ -66,7 +65,6 @@
             ?>
         </ul>
         <?php echo Pagination::instance('mypagination')->render();?>
-    </div>
 </div>
 <!--产品列表结束-->
 <!--今日热门开始-->

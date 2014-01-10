@@ -902,8 +902,10 @@
 .top-navbar{
     overflow: hidden;
     margin-bottom: 10px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #dddddd;
     font-size: 14px;
+    width: 978px;
+    background: #FFFFFF;
 }
 .top-navbar li{
     float: left;
@@ -915,7 +917,9 @@
 .select-result{
     height: 38px;
     overflow: hidden;
-    border: 1px solid #EEEEEE;
+    width: 978px;
+    border: 1px solid #dddddd;
+    background: #FFFFFF;
 }
 .select-result h2{
     text-indent: 2em;
