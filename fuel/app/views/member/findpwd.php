@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>找回密码</title>
+    <title>填写新密码</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <?php echo Asset::css('/member/bootstrap.min.css');?>
@@ -29,20 +29,19 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary ">
-                <div class="panel-heading">找回密码</div>
+                <div class="panel-heading">填写新密码</div>
                 <div class="panel-body">
                     <?php echo Session::get_flash('error');?>
-                    <?php echo Form::open(['action'=>'forgotemail','class'=>'col-md-5 col-md-offset-3']);?>
+                    <?php echo Form::open(['action'=>'newpwd','class'=>'col-md-5 col-md-offset-3']);?>
                         <div class="form-group">
-                            <label for="" class="control-label">请输入您要找回密码的注册邮箱</label>
-                            <input type="text" name="email" class="form-control"/>
+                            <label for="" class="control-label">新密码</label>
+                            <input type="text" name="newpassword" class="form-control"/>
                         </div>
-                        <!--<div class="form-group">
-                            <label for="" class="control-label">请输入您绑定的邮箱</label>
-                            <input type="text" type="text" class="form-control"/>
+                        <div class="form-group">
+                            <label for="" class="control-label">再次输入密码</label>
+                            <input type="text" name="newpassword1" class="form-control"/>
                         </div>
-                        -->
-                        <button class="btn btn-primary">发送邮件</button>
+                        <button class="btn btn-primary">保存</button>
                     <?php echo Form::close();?>
                 </div>
                 <!-- <div class="panel-body">

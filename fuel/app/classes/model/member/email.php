@@ -65,8 +65,7 @@ class Model_Member_Email extends Model
        if ($mail->save()){
             return true;
        }
-       return false;
-       
+       return false;       
     }
     
     /*
@@ -116,15 +115,60 @@ class Model_Member_Email extends Model
     }
     
     /*
-    * 检测KEY的真实性 先验证加密正确性，然后查询数据库是否有，有是否过期，或者使用过
+    * 检测KEY的真实性 先验证加密正确性，然后查询数据库是否有，有是否过期，或者使用过, 如果未使用过，则把status修改为1
     */
-    public static function check($key, $type)
+    public static function check_key($key, $type)
     {
         if (!self::decode_key($key))
         {
             return false;
         }
+        $key = Model_Member_Email::find_by_key($key, ['where'=>['status'=>0, 
+                                          'type'=> $type, 
+                                          'and'=>['deadtime', '>=', time()]
+                                          ]]);
+        if ($key)
+        { 
+           //$key->status = 1;
+           //$key->save();
+           return true;
+        }
+        return false;
         
     }
+    
+    /*
+    * 检测用户邮箱是否已经验证过了，验证过了就不在发送邮件了,只针对type = email的
+    * 
+    */
+    public static function check_emailok($email)
+    {
+       $email = Model_Member_Email::find_by_email($email, ['where'=>['status'=>1, 
+                                          'type'=>'email',
+                                          'is_delete'=> 0,
+                                          ]]);
+       if ($email)
+       {
+          return true;
+       }
+       return false;
+   }
+   
+   /*
+   * 如果数据库里已经有发送过的数据了则清掉再发
+   */
+   public static function check_emailsend($email)
+   {
+       $email = Model_Member_Email::find_by_email($email, ['where'=>['status'=>0, 
+                                          'type'=> 'email',
+                                          'is_delete'=>0,
+                                          ]]);
+       if ($email)
+       {
+          $email->is_delete = 1;
+          $email->save();
+       }
+       return false;
+   }
 
 }
