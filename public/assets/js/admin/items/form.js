@@ -11,9 +11,10 @@ $(function () {
                 var idx = $('#files').find('a').length;
                 var topClass = ''
                 if(idx == 0) {
-                    topClass = ' top'
+                    topClass = ' top';
+                    $('#top').html('<div><img src="'+BASE_URL + 'image/80x80/' + file.link+'"/><p style="font-size: 10px; text-align: center; width:80px">当前首图</p></div>');
                 }
-                $('<a href="javascript:void(0)" index="'+idx+'" />').html('<div class="col-xs-1 item-img-list'+topClass+'"><img src="'+BASE_URL+'image/80x80/'+file.link+'"/><d class="close">&times;</d><input type="hidden" name="images[]" value="'+file.link+'"></div>').appendTo('#files');
+                $('#files').append('<div class="item-img-list'+topClass+'"><a href="javascript:void(0);" style="display:block" index="'+idx+'"><img src="'+BASE_URL+'image/80x80/'+file.link+'"/></a><input type="hidden" name="images[]" value="'+file.link+'"><d class="close">&times;</d></div>');
             });
         },
     }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
@@ -47,33 +48,46 @@ $(function () {
 
     // 删除图片
     $(document).on('click', '.close', function(){
-        $(this).parent().parent().remove();
+
+        // 如果删除的是首图
+        var isTop = false;
+        if($(this).parent().hasClass('top')) {
+            isTop = true;
+        }
+
+        // 删除
+        $(this).parent().remove();
 
         // 重排索引
         var i = 0;
-        $('#files').find('a').each(function() {
+        $('#files').find('div>a').each(function() {
             $(this).attr('index', i);
             i++;
         });
 
-        // 如果删除的是首图
-        if($(this).parent().hasClass('top')) {
-            $('#files').find('a').eq(0).find('div').addClass('top');
+        // 删除首图选第一个
+        if(isTop) {
+            // 如果没有了，清空首图dom
+            if($('#files').find('div').length == 0) {
+                $('#top').html('');
+                return false;
+            }
+            $('#files').find('div').eq(0).addClass('top');
             $('#index').val(0);
+            var link = $('#files').find('div').eq(0).find('a>img').attr('src');
+            $('#top > div').find('img').attr('src', link);
         }
     });
 
     // 选择首图
-    $(document).on('click', '#files>a', function() {
-        $(this).parent().find('a>div').removeClass('top');
-        var target = $(this).find('div');
-        if(target.hasClass('top')) {
-            target.removeClass('top');
-        } else {
-            target.addClass('top');
-            var idx = target.parent().attr('index');
-            $('#index').val(idx);
-        }
+    $(document).on('click', '.item-img-list>a', function() {
+        $(this).parent().parent().find('div').removeClass('top');
+        var target = $(this).parent();
+        target.addClass('top');
+        var idx = $(this).attr('index');
+        var link = $(this).find('img').attr('src');
+        $('#index').val(idx);
+        $('#top > div').find('img').attr('src', link);
     });
 
 
