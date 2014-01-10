@@ -51,7 +51,7 @@ class View_Index extends Viewmodel {
        $this->posts = function() {
            $posts = Model_Post::find('all', ['where'=>['status'=>1],
                      'order_by'=>['id'=>'desc'],
-                     'rows_limit'=>2,
+                     'rows_limit'=>3,
                      'rows_offset'=>1
                      ]);
            return $posts;
