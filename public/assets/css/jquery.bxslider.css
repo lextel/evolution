@@ -18,15 +18,8 @@
 	position: relative;
 	margin: 0 auto 60px;
 	padding: 0;
-	*zoom: 1;
+	zoom: 1;
 }
-
-.bx-wrapper img {
-	width: 980px;
-    height: 350px
-	display: block;
-}
-
 /** THEME
 ===================================*/
 
@@ -34,7 +27,6 @@
 	-moz-box-shadow: 0 0 5px #ccc;
 	-webkit-box-shadow: 0 0 5px #ccc;
 	box-shadow: 0 0 5px #ccc;
-	border: solid #fff 5px;
 	left: -5px;
 	background: #fff;
 }

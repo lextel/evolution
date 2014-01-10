@@ -737,6 +737,7 @@ table tbody tr td{
     width: 980px;
     margin: 0 auto;
     overflow: hidden;
+    border-right: 1px solid #920303;
 }
 .navbar ul li{
     height: 36px;
@@ -750,10 +751,11 @@ table tbody tr td{
 }
 .navbar ul li a{
     display: block;
-    width: 196px;
-    height: 36px;
-    color: #ffffff;
+    width: 195px;
+    height: 37px;
+    color: white;
     font-size: 14px;
+    border-left: 1px solid #920303;
 }
 .navbar ul li a:hover{
     background: #cd2d14;
