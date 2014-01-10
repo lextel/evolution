@@ -235,15 +235,23 @@ $(function(){
 
 
     // 当前nav标识
+    var location_url = window.location.href;
+    if(location_url == BASE_URL) {
+        $('.navbar>ul>li').eq(0).find('a').addClass('active');
+    }
     $('.navbar > ul > li').each(function() {
-        var target = $(this).find('a');
-        var navlink = target.attr('href').replace(/\//g,'\\/');
-        navlink = eval('/'+navlink.replace(/\./g,'\\.') + '/');
-        var url = window.location.href
 
-        if(navlink.test(url)) {
-            $('.navbar > ul > li').find('a').removeClass('active');
-            target.addClass('active');
+        if($(this).index() != 0) {
+            var target = $(this).find('a');
+
+            var navlink = target.attr('href').replace(/\//g,'\\/');
+            navlink = eval('/'+navlink.replace(/\./g,'\\.') + '/');
+
+            if(navlink.test(location_url)) {
+                match = true;
+                $('.navbar > ul > li').find('a').removeClass('active');
+                target.addClass('active');
+            }
         }
     });
 
