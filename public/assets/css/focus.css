@@ -1,10 +1,9 @@
 .banner {
     width: 980px;
     height: 350px;
-    border: 1px solid #EEE;
     position: relative;
     overflow: hidden;
-    margin: 0 auto 20px;
+    margin-bottom: 20px;
 }
 
 .focus ul li a img {

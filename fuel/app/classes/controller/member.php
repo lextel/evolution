@@ -264,20 +264,21 @@ class Controller_Member extends Controller_Center{
     {
        $email = $this->current_user->email;  
        $email = "398667606@qq.com";
-       $send = Model_Member_Email::sendEmail($email);
+             
+       //data包含邮件标题subject，收件人email，KEY值，URI，模板路径view, type邮件类型
+       $data = ["email"=>$email,
+                   'uri' => 'emaiok',
+                   'view'=>'member/email/emailok',
+                   'type'=>'email',                   
+                   "subject"=>"乐乐淘用户邮箱验证"];       
+       $send = Model_Member_Email::sendEmail($data, $this->current_user->id);
        if ($send){
-          return json_encode(['email' => $email]);
+          return json_encode(['email' => $email, 'msg'=>'发送成功']);
        }
-       return json_encode(['email' => 0]);
+       return json_encode(['email' => 0, 'msg'=>'发送邮件失败']);
     }
     
-    /*
-    * 验证用户邮箱的真实性之验证返回的KEY
-    */
-    public function action_emailok()
-    {
-       $key = Input::get('key');
-       return json_encode(['key' => $key]);
-    }
+    
+    
     
 }
