@@ -3,6 +3,12 @@ use Orm\Model;
 
 class Model_Member_Email extends Model
 {
+    /*
+    * type email为验证邮件 password为找回密码
+    * deadtime 为有效时间 时间有效为 3600 * 24 * 3 3天有效
+    * status = 1 为已经使用过 = 0 为未使用过
+    *
+    */
     protected static $_properties = array(
         'id',
         'email',
@@ -41,23 +47,84 @@ class Model_Member_Email extends Model
         return $val;
     }
 
-    public static function add($key)
-    {
-
-    }
-
-    public static function sendEmail($email){
-        $key = self::hash_email($email);
-
-       //$send =  \Classes\Email::send($email);
-       return $key;
-    }
-
-    public static function hash_email($email)
+    /*
+    * 添加到数据库记录
+    */
+    public static function add($member_id, $data)
     {
         Config::load('common');
-        $email = Crypt::encode(md5($email), Config::get('email_key'));
-        return $email;
+        $mail = Model_Member_Email::forge([
+            "member_id"=>$member_id,
+            "key"=>$data['key'],
+            "type"=>$data['type'],
+            "email"=>$data['email'],
+            "deadtime" => time() + Config::get('email_deadtime'),
+            "status" => 0,
+            "is_delete" => 0,
+            ]);
+       if ($mail->save()){
+            return true;
+       }
+       return false;
+       
+    }
+    
+    /*
+    * 发送邮件
+    * 输入 data集合, 用户ID
+    $data = ["email"=>$email,
+                   'key' => $key,
+                   'uri' => 'emaiok',
+                   'view'=>'member/email/emailok',
+                   'type'=>'email',                   
+                   "subject"=>"乐乐淘用户邮箱验证"];
+    */
+    public static function sendEmail($data, $member_id=0)
+    {
+        $data['key'] = Model_Member_Email::email_key($data['email']);
+        if (!self::add($member_id,$data)){
+            return false;
+        }
+        $data['href'] = Uri::create($data['uri'], [], ['key'=>$data['key']]);
+        $send =  \Classes\Email::checkemail($data);
+        return true;
+    }
+
+    /*
+    * 生成key
+    */
+    public static function email_key($email)
+    {
+        Config::load('common');
+        $key = Crypt::encode(md5($email + time()), Config::get('email_key'));
+        return $key;
+    }
+    
+    /*
+    * 验证解密完整KEY
+    */
+    public static function decode_key($key)
+    {
+        Config::load('common');
+        try{
+            $key = Crypt::decode($key, Config::get('email_key'));
+            return true;
+        }catch(Exception $e){
+            Log::error($e);
+            return false;
+        }
+    }
+    
+    /*
+    * 检测KEY的真实性 先验证加密正确性，然后查询数据库是否有，有是否过期，或者使用过
+    */
+    public static function check($key, $type)
+    {
+        if (!self::decode_key($key))
+        {
+            return false;
+        }
+        
     }
 
 }
