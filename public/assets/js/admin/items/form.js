@@ -11,7 +11,8 @@ $(function () {
                 var idx = $('#files').find('a').length;
                 var topClass = ''
                 if(idx == 0) {
-                    topClass = ' top'
+                    topClass = ' top';
+                    $('#top').html('<div><img src="'+BASE_URL + 'image/80x80/' + file.link+'"/><p style="font-size: 10px; text-align: center;width:80px">当前首图</p></div>');
                 }
                 $('<a href="javascript:void(0)" index="'+idx+'" />').html('<div class="col-xs-1 item-img-list'+topClass+'"><img src="'+BASE_URL+'image/80x80/'+file.link+'"/><d class="close">&times;</d><input type="hidden" name="images[]" value="'+file.link+'"></div>').appendTo('#files');
             });
@@ -47,6 +48,14 @@ $(function () {
 
     // 删除图片
     $(document).on('click', '.close', function(){
+
+        // 如果删除的是首图
+        var isTop = false;
+        if($(this).parent().hasClass('top')) {
+            isTop = true;
+        }
+
+        // 删除
         $(this).parent().parent().remove();
 
         // 重排索引
@@ -56,11 +65,18 @@ $(function () {
             i++;
         });
 
-        // 如果删除的是首图
-        if($(this).parent().hasClass('top')) {
+        if(isTop) {
             $('#files').find('a').eq(0).find('div').addClass('top');
             $('#index').val(0);
         }
+
+        // 找首图
+        $('#files').find('a').each(function() {
+            if($(this).find('div').hasClass('top')) {
+                var link = $(this).find('div>img').attr('src');
+                $('#top > div').find('img').attr('src', link);
+            }
+        });
     });
 
     // 选择首图
@@ -72,7 +88,9 @@ $(function () {
         } else {
             target.addClass('top');
             var idx = target.parent().attr('index');
+            var link = $(this).find('img').attr('src');
             $('#index').val(idx);
+            $('#top > div').find('img').attr('src', link);
         }
     });
 

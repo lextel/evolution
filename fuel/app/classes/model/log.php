@@ -88,8 +88,6 @@ class Model_Log extends \Orm\Model
             $where += [['created_at', '<=', strtotime($options['end_at'])]];
         }
 
-        // $where += ['is_delete' => 0];
-
         return $where;
     }
 

@@ -44,7 +44,7 @@ return array(
      */
     // 'index_file' => false,
 
-     'profiling'  => true,
+     'profiling'  => false,
 
     /**
      * Default location for the file cache
@@ -106,7 +106,7 @@ return array(
      * Fuel::L_INFO
      * Fuel::L_ALL
      */
-    'log_threshold'    => Fuel::L_ALL,
+    'log_threshold'    => Fuel::L_NONE,
     // 'log_path'         => APPPATH.'logs/',
     // 'log_date_format'  => 'Y-m-d H:i:s',
 
@@ -319,18 +319,4 @@ return array(
                 'email',
             ),
         ),
-        'sms' => array(
-            'type' => array(1=>'晒单',
-                2=>'商品',
-                3=>'成员',
-                4=>'其他'),
-            'operate' => array(1=>'添加',
-                2=>'上架',
-                3=>'下架',
-                4=>'删除',
-                5=>'修改',
-                6=>'审核',
-                7=>'其他')
-       ),
-       'default_headico' => 'upload/avatar/header.png',
 );
