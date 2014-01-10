@@ -76,7 +76,16 @@ echo Asset::js(
                   <input id="fileupload" type="file" name="files[]" multiple>
               </span>
               <span class="help-block">正方形，不超过5张图片，点击图片可设置首图(默认第一张为首图)</span>
-              <div id="files" class="row">
+              <div class="row">
+              <div id="top" class="col-sm-1">
+                <?php 
+                    if(isset($item)):
+                        echo "<div><img src='".Uri::create('image/80x80/' .$item->image)."'>";
+                        echo "<p style='font-size: 10px; text-align: center; width:80px'>当前首图</p></div>";
+                    endif;
+                ?>
+              </div>
+              <div id="files" class="col-sm-5">
                     <?php 
                       $index = 0;
                       if(isset($item)) {

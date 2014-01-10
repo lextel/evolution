@@ -85,7 +85,7 @@ class Controller_Admin_Shipping extends Controller_Admin
         $ship->postcode = Input::post('postcode');
         $ship->exname = Input::post('exname');
         $ship->excode = Input::post('excode');
-        $ship->status = 101;
+        $ship->status = 99;
         $ship->admin_id = $this->current_user->id;
         if($ship->save()) {
             Model_Log::add('发货操作 #' . $id);
