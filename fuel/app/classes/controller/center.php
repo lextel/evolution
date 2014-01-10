@@ -6,7 +6,7 @@ class Controller_Center extends Controller_Frontend
     public function before()
     {
         parent::before();
-        if (! in_array(Request::active()->action, array('signin', 'signup')))
+        if (! in_array(Request::active()->action, ['signin', 'signup', 'findpassword', 'newpassword', 'forgotemail']))
         {
             $this -> membercheck();
         }
@@ -124,6 +124,7 @@ class Controller_Center extends Controller_Frontend
     */
     public function action_getforgot()
     {
+        Session::set_flash('error', null);
         return Response::forge(View::forge('member/forgot'));
     }
 
@@ -137,12 +138,19 @@ class Controller_Center extends Controller_Frontend
         $val->add_field('email', 'Email', 'required|valid_email|max_length[255]');
         if ($val->run())
         {
-            $email = Input::post('email');
+            $email = Input::post('email');            
             $member = Model_Member::find_by_email($email);
             if ($member)
             {
                //生成KEY发送邮件
-
+               //data包含邮件标题subject，收件人email，KEY值，URI，模板路径view, type邮件类型
+               $email = '398667606@qq.com';
+               $data = ["email"=>$email,
+                   'uri' => 'findpwd',
+                   'view'=>'member/email/findpassword',
+                   'type'=>'password',                   
+                   "subject"=>"乐乐淘用户找回密码"];       
+               $send = Model_Member_Email::sendEmail($data);
                return Response::forge(View::forge('member/sendok', ['email'=>$email], false));
             }
         }
@@ -151,22 +159,70 @@ class Controller_Center extends Controller_Frontend
     }
 
     /*
-    *  邮件验证KEY
+    * 验证用户邮箱的真实性之验证返回的KEY
     */
-    public function action_checkkey()
+    public function action_emailok()
     {
-
-        return Response::forge(View::forge('member/forgot'));
+       $key = Input::get('key');
+       if (Model_Member_Email::check_key($key, 'email')){
+          return json_encode(['key' => $key]);
+       }else{
+          return json_encode(['error'=>'key 错误']);
+       }
     }
 
-
     /*
-    *  新密码填写
+    *  新密码填写,先验证KEY的正确性, 则直接登陆,member_id作为会话
     */
     public function action_findpassword()
     {
-
-        return Response::forge(View::forge('member/forgot'));
+        $header = ['Content-Type' => 'application/json'];
+        $header = [];
+        $key = Input::get('key');
+        if (Model_Member_Email::check_key($key, 'password'))
+        {
+           $email = Model_Member_Email::find_by_key($key);
+           $member = Model_Member::find_by_email($email->email);              
+           if (!$member)
+           {
+              return Response::forge(json_encode(['error'=>'用户数据库 错误']),200, $header);
+           }   
+           Session::set('member_id', $member->id);
+           return Response::redirect('newpwd');          
+        }else{
+           return Response::forge(json_encode(['error'=>'key 错误']),200, $header);
+        }
+        
     }
-
+    
+    /*
+    *  忘记密码之新密码提交,需要检测会话是否来自KEY
+    */
+    public function action_newpassword()
+    {
+        $header = [];
+        $member_id = Session::get('member_id', null);
+        if (!$member_id)
+        {
+            return Response::redirect('signup');            
+        }
+        if (!(Input::method() == 'POST'))
+        {
+            return Response::forge(View::forge('member/findpwd'));
+        }
+        
+        if ($this->auth->force_login($member_id)){
+                Session::delete('member_id');
+        }
+        $newpassword = Input::post('newpassword');
+        $user = Model_Member::find($member_id);
+        $newrandpwd = $this->auth->reset_password($this->auth->get_screen_name()); 
+        $res = $this->auth->change_password($newrandpwd, $newpassword, $this->auth->get_screen_name());   
+        if ($res)
+        {
+           return Response::redirect('u');
+           //return Response::forge(json_encode(['error'=>'key 错误']),200, $header);
+        }       
+        return Response::forge(View::forge('member/findpwd'));
+    }
 }

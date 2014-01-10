@@ -26,6 +26,7 @@
                     <li>
                         <a class="<?php echo $image == $item->image ? 'zoomThumbActive' : ''; ?>" rel='<?php echo str_replace('\/', '/', $getZoom($image));?>'>
                             <img src="<?php echo Uri::create('/image/80x80/' . $image); ?>" alt=""/>
+                            <span></span>
                         </a>
                     </li>
                     <?php endforeach; ?>
