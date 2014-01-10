@@ -49,7 +49,7 @@
             </div>
 		<!--公告-->
         <div class="notice fr">
-                <div class="title"><h4>乐拍公告 <span class="icon icon-horn"></span></h4></div>
+                <div class="title"><h3>乐拍公告 <span class="icon icon-horn"></span></h3></div>
                 <ul>
                     <?php foreach($notices() as $notice) { ?>
                     <li><?php echo Html::anchor('/notice', $notice->title); ?></li>
@@ -94,7 +94,7 @@
         </div>
         <!--大家正在乐拍 -->
         <div class="buying-box fr" >
-                <div class="title"><h4>大家正在乐拍</h4></div>
+                <div class="title"><h3>大家正在乐拍</h3></div>
                 <div class="buyListdiv" >
                 <ul class="buyList">
                     <?php foreach($orders() as $order) {?>

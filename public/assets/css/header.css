@@ -48,7 +48,7 @@
     margin-bottom: 10px;
 }
 .sort-list .title,.buying-box .title,.notice  .title{
-    background:url("../images/bg.png") repeat-x -276px -2px;
+    background:url("../images/bg.png")  -3px -184px;
 }
 .notice ul{
     overflow: hidden;
