@@ -34,19 +34,19 @@
                     <tr>
                         <td style="display:none"><input type="checkbox" name="ids[]" value="<?php echo $item->get_id(); ?>"/></td>
                         <td>
-                            <div class="img-box fl"><a href="<?php echo Uri::create('/m/'.$item->get_id()); ?>"><img src="<?php echo Uri::create('/image/80x80/' . $info->image); ?>" alt=""></a>
+                            <div class="img-sm fl"><a href="<?php echo Uri::create('/m/'.$item->get_id()); ?>"><img src="<?php echo Uri::create('/image/80x80/' . $info->image); ?>" alt=""></a>
                             </div>
                             <div class="info-side fl">
-                                <div class="title">
+                                <h4>
                                     <a href="<?php echo Uri::create('/m/'.$item->get_id()); ?>"><?php echo $info->title; ?></a>
-                                </div>
+                                </h4>
                                 <div class="remain">剩余<b class="red"><?php echo $info->phase->remain; ?></b>人次</div>
                             </div>
                         </td>
-                        <td><s class="red"><?php echo $info->phase->cost.Config::get('unit'); ?></s></td>
-                        <td><s class="red"><?php echo Config::get('point').Config::get('unit'); ?></s></td>
+                        <td><b class="o"><?php echo $info->phase->cost.Config::get('unit'); ?></b></td>
+                        <td><b class="o"><?php echo Config::get('point').Config::get('unit'); ?></b></td>
                         <td><?php echo $item->get_qty(); ?></td>
-                        <td><s class="red"><?php echo $item->get_qty() * Config::get('point') . Config::get('unit'); ?></s></td>
+                        <td><b class="o"><?php echo $item->get_qty() * Config::get('point') . Config::get('unit'); ?></b></td>
                         <td><button class="btn btn-default btn-sx" action="delete">删除</button></td>
                     </tr>
                     <?php endforeach; ?>
@@ -54,22 +54,18 @@
                 </table>
             </form>
             <div class="cart-footer">
-                <a class="btn btn-default btn-sx fl" href="<?php echo Uri::create('cart/list'); ?>">返回修改订单</a>
-                <div class="price fr">总积分：<s class="red" id="total" total="<?php echo $subTotal*Config::get('point'); ?>"><?php echo $subTotal * Config::get('point'); ?></s><?php echo Config::get('unit');?></div>
+                <div class="price fl">
+                     您拥有的积分：<b class="y" id="money"></b>
+                </div>
+                <div class="all-price fr">总积分：<b id="total" total="<?php echo $subTotal*Config::get('point'); ?>"><?php echo $subTotal * Config::get('point'); ?></b><?php echo Config::get('unit');?></div>
             </div>
         </div>
-            <div class="balance-box w">
-                <?php
-                    $memberInfo = $userInfo();
-                ?>
-                <label>
-                    <span>您拥有的积分：<b class="y" id="money" money="<?php echo $memberInfo->points; ?>"><?php echo $memberInfo->points; ?></b><?php echo Config::get('unit'); ?></span>
-                </label>
-            </div>
+
     </div>
     <!--选择支付方式开始-->
     <div class="pay-way">
-        <a href="<?php echo Uri::create('cart/complete'); ?>" class="btn buy fr" id="doBuy">确认购买</a>
+        <a class="btn  fl" href="<?php echo Uri::create('cart/list'); ?>">返回修改订单</a>
+        <a href="<?php echo Uri::create('cart/complete'); ?>" class="btn btn-red fr" id="doBuy">确认购买</a>
         <!-- 弹出开始 -->
         <div id="payModal" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm">

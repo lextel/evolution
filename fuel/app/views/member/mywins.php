@@ -40,7 +40,7 @@
                     <?php foreach($list as $win) { ?>
                     <tr>
                         <td>1</td>
-                        <td><div class="img-box"><?php echo Html::anchor("w/".$win->id, Html::img($getItem($win)->image)); ?></div></td>
+                        <td><div class="img-box img-md"><?php echo Html::anchor("w/".$win->id, Html::img($getItem($win)->image)); ?></div></td>
                         <td>（第<?php echo $win->phase_id;?>期）<?php echo $win->title;?></td>
                         <td>已经揭晓</td>
                         <td><?php echo $win->code_count;?>人次</td>

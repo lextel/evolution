@@ -132,10 +132,11 @@
                 <span class="icon-password"></span>
             </li>
             <li>
+                <span class="Validform_checktip">请填写信息！</span>             
                 <button class="btn btn-red fl">登录</button>
-                <a href="" class="fr">忘记密码？</a>
+                <a href="/forgot" class="fr">忘记密码？</a>
             </li>
-            <div class="register-bar">还没有帐号？<a href="/signup" class="register">马上注册</a> </div>
+            <div class="register-bar">还没有帐号？<a href="/signup" class="register blue">马上注册</a> </div>
         </ul>
     </form>
 </div>
