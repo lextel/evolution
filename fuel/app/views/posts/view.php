@@ -48,8 +48,8 @@
        </div>
    </div>
     <div class="sidebar fr">
-        <div class="title-md">
-            <h4>往期获得者</h4>
+        <div class="title-red">
+            <h3>往期获得者</h3>
         </div>
         <ul class="before">
             <?php $lwins = $getLastWins($post->item_id);?>
@@ -72,8 +72,8 @@
             <?php }?>
             <?php }?>
         </ul>
-        <div class="title-md">
-            <h4 class="fl">最新晒单</h4>
+        <div class="title-red">
+            <h3 class="fl">最新晒单</h3>
         </div>
         <ul class="news">
             <?php foreach($getNewPosts() as $npost){?>
