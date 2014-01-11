@@ -866,6 +866,8 @@
 .help-side h2{
     border-bottom: 1px solid #dddddd;
     text-align: center;
+    background: #D96D66;
+    color: #FFFFFF;
 }
 .help-center{
     overflow: hidden;

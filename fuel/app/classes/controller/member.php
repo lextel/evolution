@@ -262,20 +262,23 @@ class Controller_Member extends Controller_Center{
     */
     public function action_checkemail()
     {
-       $email = $this->current_user->email;  
-       $email = "398667606@qq.com";
-             
+       $header = ['Content-Type' => 'application/json'];
+       $email = $this->current_user->email;               
        //data包含邮件标题subject，收件人email，KEY值，URI，模板路径view, type邮件类型
        $data = ["email"=>$email,
-                   'uri' => 'emaiok',
+                   'uri' => 'emailok',
                    'view'=>'member/email/emailok',
                    'type'=>'email',                   
-                   "subject"=>"乐乐淘用户邮箱验证"];       
-       $send = Model_Member_Email::sendEmail($data, $this->current_user->id);
-       if ($send){
-          return json_encode(['email' => $email, 'msg'=>'发送成功']);
-       }
-       return json_encode(['email' => 0, 'msg'=>'发送邮件失败']);
+                   "subject"=>"乐乐淘用户邮箱验证"];   
+       if (!Model_Member_Email::check_emailok($email)){    
+           $send = Model_Member_Email::sendEmail($data, $this->current_user->id);
+           if ($send){
+              return Response::forge(json_encode(['email' => $email, 'msg'=>'发送成功']), 200, $header);
+           }
+           return Response::forge(json_encode(['email' => 0, 'msg'=>'发送邮件失败']), 200, $header);
+       }else{
+           return Response::forge(json_encode(['email' => 0, 'msg'=>'邮箱已经验证过了']), 200, $header);
+       }     
     }
     
     

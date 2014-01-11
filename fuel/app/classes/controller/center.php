@@ -6,7 +6,7 @@ class Controller_Center extends Controller_Frontend
     public function before()
     {
         parent::before();
-        if (! in_array(Request::active()->action, ['signin', 'signup', 'findpassword', 'newpassword', 'forgotemail']))
+        if (! in_array(Request::active()->action, ['signin', 'signup', 'findpassword', 'newpassword', 'forgotemail', 'getforgot', 'sendok']))
         {
             $this -> membercheck();
         }
@@ -74,7 +74,8 @@ class Controller_Center extends Controller_Frontend
     public function action_signout()
     {
         $this->auth->logout();
-        Response::redirect('/signin');
+        $url = Uri::current();
+        Response::redirect($url);
     }
 
     public function action_signup()
@@ -127,7 +128,21 @@ class Controller_Center extends Controller_Frontend
         Session::set_flash('error', null);
         return Response::forge(View::forge('member/forgot'));
     }
-
+    
+    /**
+    * 忘记密码之发送邮件成功
+    */
+    public function action_sendok()
+    {
+       $email = Session::get('email', null);
+       if (!$email)
+       {
+           Response::redirect('/signin');
+       }
+       Session::delete('email');
+       return Response::forge(View::forge('member/sendok', ['email'=>$email], true));        
+    }
+    
     /**
     *  填入邮箱 检测邮箱 发送KEY
     */
@@ -144,14 +159,14 @@ class Controller_Center extends Controller_Frontend
             {
                //生成KEY发送邮件
                //data包含邮件标题subject，收件人email，KEY值，URI，模板路径view, type邮件类型
-               $email = '398667606@qq.com';
                $data = ["email"=>$email,
                    'uri' => 'findpwd',
                    'view'=>'member/email/findpassword',
                    'type'=>'password',                   
                    "subject"=>"乐乐淘用户找回密码"];       
                $send = Model_Member_Email::sendEmail($data);
-               return Response::forge(View::forge('member/sendok', ['email'=>$email], false));
+               Session::set('email', $email);
+               return Response::redirect('/sendok');
             }
         }
         Session::set_flash('error', e('你输入的邮箱错误'));
@@ -159,12 +174,15 @@ class Controller_Center extends Controller_Frontend
     }
 
     /*
-    * 验证用户邮箱的真实性之验证返回的KEY
+    * 验证用户邮箱的真实性之验证返回的KEY，强制登陆
     */
     public function action_emailok()
     {
        $key = Input::get('key');
        if (Model_Member_Email::check_key($key, 'email')){
+          
+          $email = Model_Member_Email::find_by_key($key);
+          $this->auth->force_login($email->member_id);
           return json_encode(['key' => $key]);
        }else{
           return json_encode(['error'=>'key 错误']);
