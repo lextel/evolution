@@ -1,17 +1,13 @@
 <?php echo Asset::css('product.css'); ?>
-    <div class="wrapper w">
         <div class="pay-panel">
-            <div class="pay-panel-head">
-                <span class="icon"></span>
-                <p>恭喜你支付成功！请等待系统为你揭晓结果</p>
-                <p>你可以 <a href="<?php echo Uri::create('u/orders'); ?>">查看云购记录</a>或<a href="<?php echo Uri::base(); ?>">继续购物</a> </p>
-                <p>总共成功云购<em><?php echo count($orders); ?></em>件商品，信息如下</p>
+            <div class="panel-head">
+                <h2 class="title-chg"><span class="icon icon-succeed"></span>恭喜您成功购买<b><?php echo count($orders); ?></b>件商品，信息如下</h2>
             </div>
             <table>
                 <thead>
                 <tr>
-                    <th>购买时间</th>
                     <th>商品名称</th>
+                    <th>购买时间</th>
                     <th>购买数量</th>
                     <th>乐拍码</th>
                 </tr>
@@ -22,35 +18,41 @@
                         $info = $getInfo($item->phase_id);
                     ?>
                     <tr>
+                        <td>(第<?php echo $info->phase->phase_id; ?>期)<?php echo $info->phase->title; ?></td>
                         <td>
-                            <?php 
+                            <?php
                                 $ordered_at = $item->ordered_at;
                                 $at = explode('.', $ordered_at);
                                 echo date('Y-m-d H:i:s.', $at[0]);
                                 echo $at[1];
                             ?>
                         </td>
-                        <td>(第<?php echo $info->phase->phase_id; ?>期)<?php echo $info->phase->title; ?></td>
                         <td><?php echo $item->code_count; ?></td>
                         <td>
-                            <?php 
-                                $codes =  unserialize($item->codes); 
-                                $separator = '';
-                                foreach($codes as $code):
-                                   echo $separator . $code;
-                                   $separator = '<br />';
-                                endforeach;
-                            ?>
+                        <div class="toolbox">
+                            <a class="tooltip" href="javascript:void(0)">查看</a>
+                            <div class="num-list">
+                                <div class="icon-arrow"></div>
+                                <ul>
+                                     <li>10000086</li>
+                                     <li>10000086</li>
+                                     <li>10000086</li>
+                                     <li>10000086</li>
+                                     <li>10000086</li>
+                                     <li>10000086</li>
+                                 </ul>
+                            </div>
+                         </div>
                         </td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <a class="btn btn-red" href="<?php echo Uri::base(); ?>">继续购物</a>
         </div>
-    </div>
         <!--今日热门开始-->
         <div class="unveiled w">
-            <h4>以下商品即将揭晓,快去乐拍吧~</h4>
+            <h3>以下商品即将揭晓,快去乐拍吧~</h3>
             <ul>
                 <?php
                 $remains = $getRemains();
@@ -58,14 +60,14 @@
                 ?>
                 <li>
                     <form action="<?php echo Uri::create('cart/add'); ?>" method="post" />
-                        <div class="title">
-                            <h5><?php echo $remain->title; ?></h5>
+                        <div class="title-box">
+                            <h3 class="title-md"><?php echo $remain->title; ?></h3>
                             <div class="price">价值<b>￥<?php echo sprintf('%.2f', $remain->price); ?></b></div>
                         </div>
                         <div class="img-box">
                             <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/' . $remain->image); ?>" alt=""></a>
                             <div class="sheng-yi">
-                                剩余 <b class="red"><?php echo $remain->phase->remain; ?></b>人次本商品就揭晓了！
+                                剩余 <b class="red"><?php echo $remain->phase->remain; ?></b>人次！
                             </div>
                         </div>
                         <div class="btn-group">

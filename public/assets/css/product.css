@@ -367,15 +367,11 @@
 }
 
 .cart-list table .info-side{
+    margin: 10px 0 0 10px;
     text-align: left;
     width: 300px;
     overflow: hidden;
-    display: inline-block;
 }
-.cart-list table .img-box{
-    display: inline-block;
-}
-
 .cart-list .cart-footer{
     border: 1px solid #EEEEEE;
     overflow: hidden;
@@ -393,13 +389,6 @@
     overflow: hidden;
     margin-top: 40px;
 }
-.unveiled h4{
-    background: #FFFFFF;
-    height: 38px;
-    background: #f1f1f1;
-    line-height: 38px;
-    text-indent: 10px;
-}
 .unveiled ul {
     margin-right: -10px;
     overflow: hidden;
@@ -407,21 +396,13 @@
     background: #FFFFFF;
     padding: 10px;
 }
-.unveiled ul li .title{
+.unveiled ul li .title-box{
     width: auto;
     height: 34px;
     padding: 8px;
     background: url("../images/bg.png") repeat-x -9px -366px
 }
-.unveiled ul li .title h5{
-    width: 235px;
-    overflow: hidden;
-    white-space: normal;
-    height: 22px;
-    line-height: 22px;
-    font-size: 14px;
-}
-.unveiled ul li .title .price{
+.unveiled ul li .title-box .price{
     text-align: right;
 }
 .unveiled ul li{
@@ -434,18 +415,22 @@
 }
 .pay-panel{
     border: 1px solid #EEEEEE;
-    padding: 30px;
+    background: #FFFFFF;
+    padding: 10px;
 }
-.pay-panel-head{
+.panel-head{
     overflow: hidden;
-    margin: 0 200px 20px;
+    margin-bottom: 10px;
 }
-.pay-panel-head a{
+.panel-head a{
     font-size: 14px;
     text-decoration: underline;
     color: #4FBAFF;
 }
-.pay-panel-head p{
+.pay-panel table{
+    margin-bottom: 10px;
+}
+.panel-head p{
     line-height: 24px;
 }
 .balance-box{

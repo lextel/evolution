@@ -665,3 +665,27 @@ $(function(){
         $("a").focus(function(){this.blur();});
     }
 })
+/**/
+$(function(){
+    $(".tooltip").click(function(){
+          var num_list=$(this).next(".num-list");
+           if(num_list.css("display")=="none"){
+              num_list.css({display:"block"});
+           }
+           else{
+              num_list.css({display:"none"});
+           }
+      });
+});
+
+
+
+
+
+
+
+
+
+
+
+
