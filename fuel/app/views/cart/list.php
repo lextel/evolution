@@ -2,7 +2,6 @@
 <?php echo Asset::js('/cart/cart.js'); ?>
 <?php echo Asset::css('member/validfrom_style.css'); ?>
 <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
-<?php echo Asset::js('jquery-1.10.1.min.js'); ?>
     <div class="wrapper w">
         <div class="cart-content">
             <ol class="pay-prompt">
@@ -61,7 +60,7 @@
                             <td><span class="price"><b><?php echo $item->get_qty() * Config::get('point') . Config::get('unit'); ?></b></span></td>
                             <td><button class="" action="delete">删除</button></td>
                         </tr>
-                        <?php 
+                        <?php
                             endforeach;
                             else:
                                 if(!is_null($current_user)):
