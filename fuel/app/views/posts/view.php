@@ -100,10 +100,10 @@
     </div>
 </div>
 <!--评论-->
-<div class="comment-panel w">
+<div class="comment-panel">
     <div class="comment-box">
         <input id="<?php echo $post->id;?>" type="hidden" class="postid">
-        <textarea name="text" id="comment" cols="30" rows="5"></textarea>
+        <textarea name="text" id="comment" cols="30" rows="4"></textarea>
         <div class="comment-footer">
             <div class="expression fl"><span class="icon icon-expression"></span>表情</div>
             <button class="fr btn btn-default btn-comment">发表评论</button>
@@ -118,7 +118,7 @@
 <div class="login2">
     <form action="/signin" method="POST" class="demoform">
         <div class="login2-head">
-          <h4>用户登录</h4>
+          <h3>用户登录</h3>
            <button class="close" id="close"></button>
         </div>
         <label for="" class="error"></label>
@@ -127,19 +127,16 @@
                 <input name="username" type="text" value="" placeholder="用户邮箱" datatype="e" errorms="请输入邮箱帐号" id="form_username" class="Validform_error"/>
                 <span class="icon-user"></span>
             </li>
-            <li> <span class="Validform_checktip">请填写信息！</span></li>
             <li>
                 <input name="password"  type="text" value="" placeholder="用户密码"  datatype="*6-15" errorms="密码范围在6-18位之间" id="form_username" class="Validform_error" />
                 <span class="icon-password"></span>
             </li>
             <li>
-                <span class="Validform_checktip">请填写信息！</span>
+                <span class="Validform_checktip">请填写信息！</span>             
+                <button class="btn btn-red fl">登录</button>
                 <a href="/forgot" class="fr">忘记密码？</a>
             </li>
-            <li>
-                <button class=" btn btn-red">登录</button>
-            </li>
-            <li>还没有帐号？<a href="/signup" class="register">马上注册</a> </li>
+            <div class="register-bar">还没有帐号？<a href="/signup" class="register blue">马上注册</a> </div>
         </ul>
     </form>
 </div>
