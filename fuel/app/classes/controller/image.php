@@ -11,13 +11,14 @@ class Controller_Image extends Controller_Template {
         $size = $this->param('size');
         $uploadConfig = Config::get('item');
         $link = $this->param('link') . '.jpg';
-        if(!file_exists($uploadConfig['path'].$link)) {
+        $file = str_replace('/upload/item/upload/item', '/upload/item', $uploadConfig['path'].DS.$link);
+        if(!file_exists($file)) {
             $link = $this->param('link') . '.jpeg';
         }
 
         $image = new \Classes\Image();
         $link = $image->resize($link, $size);
 
-        Response::redirect(Uri::create('/'.$link));
+        Response::redirect(Uri::create($link));
     }
 }
