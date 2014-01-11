@@ -55,7 +55,14 @@ class Model extends \Orm\Model {
 
         $model = get_called_class();
 
-        return $model::find('all', ['where' => [['id', 'in', $ids]]]);
+        $results = $model::find('all', ['where' => [['id', 'in', $ids]]]);
+
+        $data = [];
+        foreach($results as $result) {
+            $data[$result->id] = $result;
+        }
+
+        return $data;
     }
 
     // 重写父类避免报异常 其实跟父类一样的
