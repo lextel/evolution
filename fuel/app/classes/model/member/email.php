@@ -129,8 +129,8 @@ class Model_Member_Email extends Model
                                           ]]);
         if ($key)
         { 
-           //$key->status = 1;
-           //$key->save();
+           $key->status = 1;
+           $key->save();
            return true;
         }
         return false;
@@ -157,10 +157,10 @@ class Model_Member_Email extends Model
    /*
    * 如果数据库里已经有发送过的数据了则清掉再发
    */
-   public static function check_emailsend($email)
+   public static function check_emailsend($email, $type='email')
    {
        $email = Model_Member_Email::find_by_email($email, ['where'=>['status'=>0, 
-                                          'type'=> 'email',
+                                          'type'=> $type,
                                           'is_delete'=>0,
                                           ]]);
        if ($email)

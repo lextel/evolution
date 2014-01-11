@@ -34,7 +34,7 @@
                     
                 </div>
                 <div class="panel-body">
-                    <div for="" class="col-md-offset-3">发送成功！<a href="">点击查看邮箱</a></div>
+                    <div for="" class="col-md-offset-3">发送成功！<a href="<?php echo \Classes\Email::toemail($email) ? 'http://'.\Classes\Email::toemail($email) : '';?>">点击查看邮箱</a></div>
                 </div>
             </div>
         </div>

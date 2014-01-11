@@ -34,7 +34,7 @@
                 <li><span class="Validform_checktip"></span></li>
                 <li>
                     <button class="login">登录</button>
-                    <?php echo Html::anchor('', '忘记密码?', array('class' => ''));?>
+                    <?php echo Html::anchor('forgot', '忘记密码?', array('class' => ''));?>
                 </li>
             </ul>
         </form>

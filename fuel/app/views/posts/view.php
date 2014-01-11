@@ -48,8 +48,8 @@
        </div>
    </div>
     <div class="sidebar fr">
-        <div class="title-md">
-            <h4>往期获得者</h4>
+        <div class="title-red">
+            <h3>往期获得者</h3>
         </div>
         <ul class="before">
             <?php $lwins = $getLastWins($post->item_id);?>
@@ -72,14 +72,16 @@
             <?php }?>
             <?php }?>
         </ul>
-        <div class="title-md">
-            <h4 class="fl">最新晒单</h4>
+        <div class="title-red">
+            <h3 class="fl">最新晒单</h3>
         </div>
         <ul class="news">
             <?php foreach($getNewPosts() as $npost){?>
             <li>
-               <div class="username"><?php echo Html::anchor('u/'.$npost->member_id, $getUser($npost->member_id)->nickname, ['class'=>'blue']);?></div>
-               <div class="datetime"><?php echo date('Y-m-d H:i:s', $npost->created_at); ?></div>
+               <div><?php echo Html::anchor('u/'.$npost->member_id, $getUser($npost->member_id)->nickname, ['class'=>'blue username']);?>
+               <s class="datetime"><?php echo \Helper\Timer::friendlyDate($npost->created_at); ?></s>
+               </div>
+               
                <div class="content-md">
                     <?php echo Html::anchor('p/'.$npost->id, mb_substr($npost->desc, 0, 100,'utf-8')); ?>
                </div>
