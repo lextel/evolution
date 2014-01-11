@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style.css" afterPath="$PROJECT_DIR$/public/assets/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/posts/view.php" afterPath="$PROJECT_DIR$/fuel/app/views/posts/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,10 +44,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="view.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/posts/view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="35" selection-start="3891" selection-end="3891" vertical-scroll-proportion="0.5155039" vertical-offset="1026" max-vertical-offset="3002">
+            <state line="102" column="25" selection-start="4965" selection-end="4965" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3002">
               <folding />
             </state>
           </provider>
@@ -71,10 +71,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="869" column="19" selection-start="15754" selection-end="15754" vertical-scroll-proportion="-27.64" vertical-offset="15820" max-vertical-offset="18392">
+            <state line="790" column="4" selection-start="14403" selection-end="14403" vertical-scroll-proportion="0.48293963" vertical-offset="14642" max-vertical-offset="18487">
               <folding />
             </state>
           </provider>
@@ -147,9 +147,9 @@
         <option value="$PROJECT_DIR$/public/assets/css/focus.css" />
         <option value="$PROJECT_DIR$/public/assets/css/jquery.bxslider.css" />
         <option value="$PROJECT_DIR$/public/assets/css/member/validfrom_style.css" />
-        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
         <option value="$PROJECT_DIR$/public/assets/css/common.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/posts/view.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
       </list>
     </option>
   </component>
@@ -609,13 +609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="869" column="19" selection-start="15754" selection-end="15754" vertical-scroll-proportion="-27.64" vertical-offset="15820" max-vertical-offset="18392">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="473" column="19" selection-start="8265" selection-end="8265" vertical-scroll-proportion="-13.2" vertical-offset="8657" max-vertical-offset="21869">
@@ -625,7 +618,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/posts/view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="35" selection-start="3891" selection-end="3891" vertical-scroll-proportion="0.5155039" vertical-offset="1026" max-vertical-offset="3002">
+        <state line="102" column="25" selection-start="4965" selection-end="4965" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3002">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="790" column="4" selection-start="14403" selection-end="14403" vertical-scroll-proportion="0.48293963" vertical-offset="14642" max-vertical-offset="18487">
           <folding />
         </state>
       </provider>

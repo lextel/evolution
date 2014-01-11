@@ -100,10 +100,10 @@
     </div>
 </div>
 <!--评论-->
-<div class="comment-panel w">
+<div class="comment-panel">
     <div class="comment-box">
         <input id="<?php echo $post->id;?>" type="hidden" class="postid">
-        <textarea name="text" id="comment" cols="30" rows="5"></textarea>
+        <textarea name="text" id="comment" cols="30" rows="4"></textarea>
         <div class="comment-footer">
             <div class="expression fl"><span class="icon icon-expression"></span>表情</div>
             <button class="fr btn btn-default btn-comment">发表评论</button>
