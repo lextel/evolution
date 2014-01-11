@@ -32,7 +32,7 @@ class Image {
     /**
      * url路径转存储路径
      *
-     * @param $link   string url路径  如 upload/item/origin/xxx.jpg
+     * @param $link string url路径
      *
      * @return string 存储路径
      */

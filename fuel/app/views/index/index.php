@@ -72,7 +72,7 @@
                             <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?>.00</b></span>
                         </div>
                         <div class="img-box img-lg">
-                            <?php echo Html::anchor('m/'.$phase->id, Html::img($getItemInfo($phase->item_id)->image));?>
+                            <?php echo Html::anchor('m/'.$phase->id, Html::img('image/400x400/'.$phase->image));?>
                         </div>
                         <dl class="progress-side">
                             <dd>
@@ -100,7 +100,7 @@
                     <?php foreach($orders() as $order) {?>
                     <li>
                         <div class="img-box img-sm fl">
-                            <?php echo Html::anchor('m/'.$order->phase_id, Html::img($getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image));?>
+                            <?php echo Html::anchor('m/'.$order->phase_id, Html::img('image/80x80/'.$getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image));?>
                         </div>
                         <div class="info-side">
                             <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'b']);?>
@@ -126,7 +126,7 @@
                     <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?>.00</b></span>
                 </div>
                 <div class="img-box img-lg"
-                    <?php echo Html::anchor('m/'.$phase->id, Html::img($getItemInfo($phase->item_id)->image));?>
+                    <?php echo Html::anchor('m/'.$phase->id, Html::img('image/400x400/'.$phase->image));?>
                 </div>
                 <dl class="progress-side">
                     <dd>
