@@ -180,7 +180,7 @@
                         </div>
                         <h4 class="title-mx"><?php echo Html::anchor('m/'.$post->phase_id, $getItemInfo($post->item_id)->title);?></h4>
                         <div class="username">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $getMemberInfo($post->member_id)->nickname);?></b></div>
-                        <div class="datetime">揭晓时间：<?php  echo date('Y-m-d', $getPhaseInfo($post->phase_id)->opentime);?></div>
+                        <div class="datetime">揭晓时间：<?php  echo date('Y-m-d H:i:s', $getPhaseInfo($post->phase_id)->opentime);?></div>
                     </li>
                     <?php } ?>
                 </ul>
