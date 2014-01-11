@@ -84,6 +84,14 @@ textarea:focus,input:focus{
     color: #f60;
     padding: 0px 5px;
 }
+.all-price{
+    display: block;
+    font-size: 14px;
+}
+.all-price b{
+    color: #E4393C;
+    padding: 0px 5px;
+}
 .username{
      display: inline-block;
      max-width: 150px;
@@ -361,6 +369,20 @@ table tbody tr td{
     display: inline-block;
     background: url("../images/bg.png") no-repeat -9px -457px;
 }
+.icon-succeed{
+   width:65px;
+   height: 50px;
+   vertical-align: middle;
+   background-position: 0 -224px;
+}
+.icon-arrow{
+    width: 24px;
+    height: 16px;
+    background: url("../images/icon-02.png") no-repeat 0 -297px;
+    position: absolute;
+    top:-10px;
+    right: 10%;
+}
 /*图片*/
 .img-box{
     text-align: center;
@@ -436,6 +458,10 @@ table tbody tr td{
     padding: 10px;
     overflow: hidden;
 }
+.title h3{
+    float: left;
+    font-size: 16px;
+}
 .title-lg{
     width: 300px;
     line-height: 22px;
@@ -478,9 +504,15 @@ table tbody tr td{
 .title-md h4{
     color: #FFFFFF;
 }
-.title h3{
-    float: left;
+.title-chg{
+    height: 50px;
+    line-height: 50px;
     font-size: 16px;
+    font-weight:400;
+}
+.title-chg b{
+    margin: 0 5px;
+    color: #AF2812;
 }
 .title-box{
     min-height: 40px;
@@ -702,6 +734,7 @@ table tbody tr td{
     border-bottom: 1px solid #dddddd;
     margin-bottom: 5px;
     overflow: hidden;
+    position: relative;
 }
 .dropdown-list li .info-side{
     margin-left:10px;
@@ -1136,6 +1169,40 @@ table tbody tr td{
 .wrapper{
     overflow: hidden;
 	margin:0 auto;
+}
+.toolbox{
+    position: relative;
+}
+.tooltip{
+    padding: 3px 15px;
+    color: #FFFFFF;
+    display: inline-block;
+    background: #b9270d;
+}
+.num-list{
+    position: absolute;
+    top:40px;
+    right: -10px;
+    z-index: 999;
+    display: none;
+}
+.num-list ul{
+    border: 1px solid #dddddd;
+    background: #ECF0F5;
+    padding: 10px;
+    max-height: 200px;
+    border-radius: 5px;
+    width:260px;
+    height: 200px;
+    position: relative;
+    overflow-y: auto;
+}
+
+.num-list li{
+    height: 24px;
+    line-height: 24px;
+    float: left;
+    width:80px;
 }
 .vertical-ticker{
 	overflow:hidden;
