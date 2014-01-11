@@ -118,7 +118,7 @@
 <div class="login2">
     <form action="/signin" method="POST" class="demoform">
         <div class="login2-head">
-          <h4>用户登录</h4>
+          <h3>用户登录</h3>
            <button class="close" id="close"></button>
         </div>
         <label for="" class="error"></label>
@@ -127,19 +127,15 @@
                 <input name="username" type="text" value="" placeholder="用户邮箱" datatype="e" errorms="请输入邮箱帐号" id="form_username" class="Validform_error"/>
                 <span class="icon-user"></span>
             </li>
-            <li> <span class="Validform_checktip">请填写信息！</span></li>
             <li>
                 <input name="password"  type="text" value="" placeholder="用户密码"  datatype="*6-15" errorms="密码范围在6-18位之间" id="form_username" class="Validform_error" />
                 <span class="icon-password"></span>
             </li>
             <li>
-                <span class="Validform_checktip">请填写信息！</span>
+                <button class="btn btn-red fl">登录</button>
                 <a href="" class="fr">忘记密码？</a>
             </li>
-            <li>
-                <button class=" btn btn-red">登录</button>
-            </li>
-            <li>还没有帐号？<a href="/signup" class="register">马上注册</a> </li>
+            <div class="register-bar">还没有帐号？<a href="/signup" class="register">马上注册</a> </div>
         </ul>
     </form>
 </div>
