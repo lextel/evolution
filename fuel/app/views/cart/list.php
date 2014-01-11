@@ -35,11 +35,11 @@
                         <tr>
                             <td><input type="checkbox" name="ids[]" value="<?php echo $item->get_id(); ?>"/></td>
                             <td>
-                                <div class="img-box img-md">
+                                <div class="img-sm fl">
                                     <a href="<?php echo Uri::create('/m/'. $item->get_id()); ?>"><img src="<?php echo Uri::create('/image/80x80/' . $info->image); ?>" alt=""></a>
                                 </div>
-                                <div class="info-side">
-                                    <div class="title-lg">
+                                <div class="info-side fl">
+                                    <div class="title-row">
                                          <a href="<?php echo Uri::create('/m/'. $item->get_id()); ?>"><?php echo $info->title; ?></a>
                                     </div>
                                     <div class="remain">剩余<b class="o"><?php echo $info->phase->remain; ?></b>人次</div>
@@ -56,7 +56,7 @@
                                 </div>
                             </td>
                             <td><span class="price"><b><?php echo $item->get_qty() * Config::get('point') . Config::get('unit'); ?></b></span></td>
-                            <td><button class="" action="delete">删除</button></td>
+                            <td><a href="javascript:void(0)" action="delete">删除</a></td>
                         </tr>
                         <?php 
                             endforeach;

@@ -603,6 +603,15 @@ $(function(){
     var ie = jQuery.support.htmlSerialize;
 
     text.focus(function(){
+        var c = $.cookie('userlogin');
+        console.log(c)
+        if (c!=true){
+             $(".login2").fadeIn("fast");
+             $("body").append("<div id='greybackground'></div>");
+             var documentheight = $(document).height();
+             $("#greybackground").css({"opacity":"0.5","height":documentheight});
+             return false;
+        }
         if(ie){
             text[0].oninput = changeNum;
         }else{
@@ -656,3 +665,27 @@ $(function(){
         $("a").focus(function(){this.blur();});
     }
 })
+/**/
+$(function(){
+    $(".tooltip").click(function(){
+          var num_list=$(this).next(".num-list");
+           if(num_list.css("display")=="none"){
+              num_list.css({display:"block"});
+           }
+           else{
+              num_list.css({display:"none"});
+           }
+      });
+});
+
+
+
+
+
+
+
+
+
+
+
+
