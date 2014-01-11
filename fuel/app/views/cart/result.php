@@ -32,6 +32,7 @@
                         <div class="toolbox">
                             <a class="tooltip" href="javascript:void(0)">查看</a>
                             <div class="num-list">
+                                <div class="icon-arrow"></div>
                                 <ul>
                                      <li>10000086</li>
                                      <li>10000086</li>
