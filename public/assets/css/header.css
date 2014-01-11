@@ -13,15 +13,19 @@
     overflow: hidden;
     border: 1px solid #eeeeee;
     margin: 10px;
-    padding: 10px;
+    padding: 10px 0 10px 15px;
 }
 .announced-news ul li{
     float: left;
-    width: 152px;
-    margin: 0 10px;
+    width: 135px;
+    margin-right: 15px;
+    padding: 10px;
+    border: 2px solid #FFFFFF;
 }
-.announced-news ul li .img-box{
-    margin: 0 15px 10px;
+.announced-news ul li h4{
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .announced-news ul li.active{
     border: 2px solid #e60012;
@@ -29,11 +33,10 @@
 .news-count{
     text-align: center;
     overflow: hidden;
-    padding: 5px;
+    padding: 2px;
     background:#e60012 ;
     color: #ffe400;
     font-size: 14px;
-    font-weight: bold;
 }
 .news-count span{
     vertical-align: middle;

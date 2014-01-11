@@ -161,7 +161,7 @@
                 </div>
                 <div class="bask-info fr">
                     <div class="title-box">
-                        <h3 class="title-md"><?php echo Html::anchor('m/'.$topPost->phase_id, $getItemInfo($topPost->item_id)->title);?></h3>
+                        <h3 class="title-md"><?php echo Html::anchor('p/'.$topPost->id, $topPost->title);?>;?></h3>
                         <div class="winner">获得者：<b><?php echo Html::anchor('u/'.$topPost->member_id, $getMemberInfo($topPost->member_id)->nickname, ['class'=>'bule']);?></b></div>
                     </div>
                     <div class="bask-content">
@@ -178,9 +178,9 @@
                         <div class="img-box img-md">
                             <?php echo Html::anchor('p/'.$post->id, Html::img($post->topimage));?>
                         </div>
-                        <h4 class="title-mx"><?php echo Html::anchor('m/'.$post->phase_id, $getItemInfo($post->item_id)->title);?></h4>
+                        <h4 class="title-mx"><?php echo Html::anchor('p/'.$post->id, $post->title);?></h4>
                         <div class="username">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $getMemberInfo($post->member_id)->nickname);?></b></div>
-                        <div class="datetime">揭晓时间：<?php  echo date('Y-m-d H:i:s', $getPhaseInfo($post->phase_id)->opentime);?></div>
+                        <div class="datetime">揭晓时间：<?php  echo date('Y-m-d', $getPhaseInfo($post->phase_id)->opentime);?></div>
                     </li>
                     <?php } ?>
                 </ul>

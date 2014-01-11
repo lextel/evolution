@@ -66,17 +66,24 @@ $(function(){
     screenheight = $(document).height();
     mytop = $(document).scrollTop();
     getPosLeft = screenwidth/2 - 260;
-    getPosTop = (screenheight-mytop)/2;
+    getPosTop = (screenheight-mytop)/4;
     $(".login2").css({"left":getPosLeft,"top":getPosTop});
     $(window).resize(function(){
         screenwidth = $(window).width();
         screenheight = $(window).height();
         mytop = $(document).scrollTop();
         getPosLeft = screenwidth/2 - 260;
-        getPosTop = screenheight-mytop;
+        getPosTop = (screenheight-mytop)/2-200;
         $(".login2").css({"left":getPosLeft,"top":getPosTop+mytop});
     });
-
+    $(window).scroll(function(){
+        screenwidth = $(window).width();
+        screenheight = $(document).height();
+        mytop = $(document).scrollTop();
+        getPosLeft = screenwidth/2 - 260;
+        getPosTop = (screenheight-mytop)/4;
+        $(".login2").css({"left":getPosLeft,"top":getPosTop+mytop});
+    });
      //点击刷新喜欢
      $('.sns-love').click(function(){
         var postid =  this.id;

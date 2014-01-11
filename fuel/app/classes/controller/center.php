@@ -74,8 +74,8 @@ class Controller_Center extends Controller_Frontend
     public function action_signout()
     {
         $this->auth->logout();
-        $url = Uri::current();
-        Response::redirect($url);
+        $url = Input::server('HTTP_REFERER', '/signin');
+        return Response::redirect($url);
     }
 
     public function action_signup()

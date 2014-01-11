@@ -961,36 +961,42 @@ table tbody tr td{
     top: 0;
     right: 0;
 }
-.login2 .login2-head h4,.prompt .prompt-head h4{
+ .login2-head h3,
+ .prompt .prompt-head h3{
     line-height: 40px;
     text-align: center;
 }
-.login2 .login2-body{
+ .login2-body{
     overflow: hidden;
-    padding:0 30px 30px;
+    padding: 20px 30px 0;
 }
-.login2 .login2-body li{
+ .login2-body li{
+    max-height: 65px;
     position: relative;
-    margin-bottom:10px;
+    margin-bottom:5px;
     overflow: hidden;
 }
-.login2 .login2-body li input{
+.login2-body li input{
     height: 36px;
     border: 1px solid #EEEEEE;
     width: 296px;
     text-indent: 30px;
 }
-.login2 .login2-body li .register{
+.login2-body li .Validform_checktip{
+    line-height: 22px;
+    height: 22px;
+}
+.register-bar{
+    margin-top: 15px;
+    border-top: 1px solid #F1F1F1;
+    padding:10px;
+}
+.register-bar .register{
     font-weight: bold;
     text-decoration: underline;
-}
-.login2 .error{
-    height: 22px;
-    width: 100%;
-    line-height: 22px;
-    color: red;
-    text-indent: 30px;
-    display: inline-block;
+    border: none;
+    text-decoration: underline;
+    color: #16abff;
 }
 #greybackground {
    background:#000;
