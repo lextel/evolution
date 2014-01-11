@@ -134,7 +134,7 @@
             </li>
             <li>
                 <span class="Validform_checktip">请填写信息！</span>
-                <a href="" class="fr">忘记密码？</a>
+                <a href="/forgot" class="fr">忘记密码？</a>
             </li>
             <li>
                 <button class=" btn btn-red">登录</button>
