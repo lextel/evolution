@@ -758,7 +758,11 @@
     font-size: 14px;
     margin-bottom: 10px;
 }
-
+.pane-bd img{
+    max-width: 685px;
+    height: auto;
+    vertical-align: middle;
+}
 .before{
     overflow: hidden;
 }
@@ -782,8 +786,9 @@
     float: left;
     width: 70px;
     height: 70px;
-    line-height: 60px;
+    line-height: 70px;
     margin-right: 5px;
+    overflow: hidden;
     text-align: center;
 }
  .images-list dd img{
@@ -844,11 +849,11 @@
     width: 90%;
 }
 .comment-box {
-    width: 700px;
+    width: 708px;
     overflow: hidden;
 }
 .comment-box textarea{
-   width: 698px;
+   width: 706px;
 }
 .comment-text{
     font-size: 14px;
