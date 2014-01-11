@@ -96,6 +96,6 @@
                     <li>3.如果你未开通网上银行，可以使用储蓄卡快捷支付轻松完成付款;</li>
                 </ol>
             </dd>
-            <dd><a href="<?php echo Uri::create('/help'); ?>">更多帮助</a><a href="<?php echo Uri::create('/u'); ?>">进入我的个人中心</a></dd>
+            <dd><a href="<?php echo Uri::create('/h'); ?>">更多帮助</a><a href="<?php echo Uri::create('/u'); ?>">进入我的个人中心</a></dd>
         </dl>
 </div>
