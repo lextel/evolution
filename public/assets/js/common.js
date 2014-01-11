@@ -656,3 +656,26 @@ $(function(){
         $("a").focus(function(){this.blur();});
     }
 })
+/**/
+$(function(){
+    $(".tooltip").click(function(){
+           if($(".num-list").css("display")=="none"){
+               $(".num-list").css({display:"block"});
+           }
+           else{
+               $(".num-list").css({display:"none"});
+           }
+      });
+});
+
+
+
+
+
+
+
+
+
+
+
+
