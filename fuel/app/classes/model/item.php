@@ -1,5 +1,5 @@
 <?php
-class Model_Item extends \Orm\Model {
+class Model_Item extends \Classes\Model {
 
     /**
      * @var 定义模型属性
