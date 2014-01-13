@@ -10,12 +10,10 @@
         <ul class="item-group">
             <?php
                 if($wins):
-                $members = $getMembersByWin($wins);
+                list($members, $areas) = $getMembersByWin($wins);
                 
                 foreach($wins as $win):
                     if($win->member_id):
-                    //$memberInfo = $getMemberInfo($win->member_id);                    
-                    $from = $getFrom($win->order_id);
             ?>
             <li>
                 <div class="item-body">
@@ -28,7 +26,7 @@
                         </div>
                         <div class="user-info fl">
                             <div class="username">获奖者：<a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><?php echo $members[$win->member_id]->nickname; ?></a></div>
-                            <div class="ip">来自：<?php echo $from; ?></div>
+                            <div class="ip">来自：<?php echo $areas[$win->order_id]->area; ?></div>
                             <div class="number">当前乐拍：<b><?php echo $win->code_count; ?></b>次</div>
                         </div>
                         <div class="p-info">
@@ -91,17 +89,16 @@
             <div class="buyListdiv" >
                 <ul class="buyList">
                 <?php $orders1 = $orders();
-                       $members = $getMembersByOrder($orders1);
+                       list($members,$phaseByOrders)  = $getMembersByOrder($orders1);
                 ?>
                 <?php foreach($orders1 as $order) {?>
-                    <?php $phase = $getPhaseInfo($order->phase_id); ?>
                     <li>
                         <div class="img-box img-sm fl">
-                            <?php echo Html::anchor('m/'.$order->phase_id, Html::img($phase->image));?>
+                            <?php echo Html::anchor('m/'.$order->phase_id, Html::img($phaseByOrders[$order->phase_id]->image));?>
                         </div>
                         <div class="info-side">
                             <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $members[$order->member_id]->nickname, ['class'=>'bule']);?> 刚刚乐拍了</div>
-                            <h4 class="title-br"><?php echo Html::anchor('m/'.$order->phase_id, $phase->title);?></h4>
+                            <h4 class="title-br"><?php echo Html::anchor('m/'.$order->phase_id, $phaseByOrders[$order->phase_id]->title);?></h4>
                         </div>
                     </li>
                <?php } ?>

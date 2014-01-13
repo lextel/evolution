@@ -1,7 +1,6 @@
 <?php
-use Orm\Model;
 
-class Model_Comment extends Model
+class Model_Comment extends \Classes\Model
 {
     protected static $_properties = array(
         'id',

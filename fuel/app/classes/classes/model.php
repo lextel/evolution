@@ -48,7 +48,7 @@ class Model extends \Orm\Model {
      * $members = Model_Member::byIds($memberIds);
      *
      * @param $ids array 主键ID
-     * 
+     *
      * @return array
      */
     public static function byIds($ids) {
