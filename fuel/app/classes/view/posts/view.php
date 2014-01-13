@@ -13,12 +13,31 @@ class View_Posts_View extends Viewmodel {
            $phase = Model_Phase::find($phaseid);
            return $phase;
        };
-       //
+       //获得单个用户
        $this->getUser = function($mid) {
            $user = Model_Member::find($mid);
            return $user;
         };
-       //
+        
+       // 获得往期中奖的用户列表
+       $this->getMembersByPosts = function($posts) {
+           $memberIds = [];
+           foreach($posts as $post){
+              $memberIds[] = $post->member_id;
+           }
+           $members = Model_Member::byIds($memberIds);
+           return $members;
+        };
+       // 获得最新晒单的用户列表
+       $this->getMembersByPhases = function($phases) {
+           foreach($phases as $phase){
+              $memberIds[] = $phase->member_id;
+           }
+           $members = Model_Member::byIds($memberIds);
+           return $members;
+        };
+        
+       //获得最新的晒单列表5个
        $this->getNewPosts = function(){
             $posts = Model_Post::find('all',[
                                                   'where' => ['is_delete'=>0, 'status'=>1],
@@ -28,7 +47,7 @@ class View_Posts_View extends Viewmodel {
            return $posts;
        };
        //
-
+       // 获得最新同商品的期数
        $this->getLastPhase = function($item_id){
             $phase = Model_Phase::find('first',[
                                                   'where' => ['item_id'=>$item_id, 'and'=>['member_id', '=', 0]],
@@ -40,7 +59,7 @@ class View_Posts_View extends Viewmodel {
             }
            return $phase;
        };
-
+       // 获得最近的获奖名单
        $this->getLastWins = function($item_id){
             $wins = Model_Phase::find('all',[
                                                   'where' => ['item_id'=>$item_id, 'and'=>['member_id', '!=', 0]],
@@ -53,6 +72,7 @@ class View_Posts_View extends Viewmodel {
            return $wins;
        };
     }
+    
     public function set_view(){
         $this->_view = View::forge('posts/view');
    }

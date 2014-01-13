@@ -4,9 +4,9 @@
 <!--产品列表开始-->
     <div class="top-navbar w">
         <ul>
-            <?php 
+            <?php
                 $cates = $getCates();
-                foreach($cates as $cate): 
+                foreach($cates as $cate):
             ?>
             <li><a href="<?php echo Uri::create('m/c/'.$cate->id.'#list'); ?>"><?php echo $cate->name; ?></a></li>
             <?php endforeach; ?>
