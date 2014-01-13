@@ -26,12 +26,9 @@ class Model extends \Orm\Model {
 
         $data = [];
         foreach($modelObj as $item) {
-            $i = 0;
-            foreach($idFields as $field) {
-                $data[$i][] = $item->$field;
-                $i++;
+            foreach($idFields as $key => $field) {
+                $data[$key][] = $item->$field;
             }
-            
         }
 
         return $data;

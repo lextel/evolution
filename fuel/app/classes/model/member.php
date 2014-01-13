@@ -1,5 +1,5 @@
 <?php
-class Model_Member extends  \Classes\Model
+class Model_Member extends \Classes\Model
 {
     protected static $_properties = array(
         'id',

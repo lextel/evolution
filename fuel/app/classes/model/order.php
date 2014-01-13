@@ -1,6 +1,6 @@
 <?php
 
-class Model_Order extends \Orm\Model
+class Model_Order extends \Classes\Model
 {
     protected static $_properties = array(
         'id',
@@ -196,9 +196,12 @@ class Model_Order extends \Orm\Model
      *
      * @return array
      */
-    public function newOrders($phaseId, $len = 5) {
+    public function newOrders($phaseId = 0, $len = 5) {
 
-        $where   = ['phase_id' => $phaseId];
+        $where = [];
+        if(!empty($phaseId)) {
+            $where = ['phase_id' => $phaseId];
+        }
         $orderBy = ['id' => 'desc'];
 
         return Model_Order::find('all', ['where' => $where, 'limit' => $len, 'order_by' => $orderBy]);

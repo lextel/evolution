@@ -19,14 +19,6 @@ class View_Index extends Viewmodel {
            return $notices;
        };
 
-       //获得最新揭晓
-       $this->newWins = function() {
-           $phaseModel = new Model_Phase();
-           $wins = $phaseModel->getWins(0, 4);
-
-           return $wins;
-       };
-
        //获得人气推荐1
        $this->topHotItems = function() {
            $select = ['id', 'title', 'image', 'joined', 'remain', 'amount', 'cost'];
@@ -46,29 +38,6 @@ class View_Index extends Viewmodel {
                      'rows_offset'=>3,
                      ]);
            return $items;
-       };
-
-       //获得最新晒单TOP1
-       $this->topPost = Model_Post::find('first', ['where'=>['status'=>1],
-                      'order_by'=>['id'=>'desc']
-                      ]);
-
-       //获得最新晒单TOP2
-       $this->posts = function() {
-           $posts = Model_Post::find('all', ['where'=>['status'=>1],
-                     'order_by'=>['id'=>'desc'],
-                     'rows_limit'=>3,
-                     'rows_offset'=>1
-                     ]);
-           return $posts;
-       };
-       //获得最新乐拍记录
-       $this->orders = function() {
-           $posts = Model_Order::find('all', [
-                     'order_by'=>['id'=>'desc'],
-                     'rows_limit'=>8
-                     ]);
-           return $posts;
        };
 
        //获得商品信息
