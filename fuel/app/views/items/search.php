@@ -4,9 +4,9 @@
 <!--产品列表开始-->
     <div class="top-navbar w">
         <ul>
-            <?php 
+            <?php
                 $cates = $getCates();
-                foreach($cates as $cate): 
+                foreach($cates as $cate):
             ?>
             <li><a href="<?php echo Uri::create('m/c/'.$cate->id.'#list'); ?>"><?php echo $cate->name; ?></a></li>
             <?php endforeach; ?>
@@ -19,24 +19,25 @@
         <ul class="product-box">
             <?php
                 if($items) :
+                Config::load('common');
                 foreach($items as $item):
             ?>
             <li>
               <form class="xpxp" id="xpxp" action="<?php echo Uri::create('cart/add'); ?>" method="post">
                 <div class="title-box">
-                    <h4 class="title-md"><a href="<?php echo Uri::create('m/' . $item->phase->id); ?>"><?php echo $item->phase->title; ?></a></h4>
-                    <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $item->price); ?></b></span>
+                    <h4 class="title-md"><a href="<?php echo Uri::create('m/' . $item->id); ?>"><?php echo $item->title; ?></a></h4>
+                    <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $item->cost/Config::get('point')); ?></b></span>
                 </div>
                 <div class="img-box img-lg">
-                    <a href="<?php echo Uri::create('m/' . $item->phase->id); ?>"><img src="<?php echo Uri::create('image/200x200/' . $item->image);?>" alt=""></a>
+                    <a href="<?php echo Uri::create('m/' . $item->id); ?>"><img src="<?php echo Uri::create('image/200x200/' . $item->image);?>" alt=""></a>
                 </div>
                 <dl class="progress-side">
                     <dd>
-                        <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->phase->joined/$item->phase->amount*100)?>%"></div></div>
+                        <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->joined/$item->amount*100)?>%"></div></div>
                     </dd>
                     <dd>
-                        <span class="fl red"><?php echo $item->phase->joined; ?></span>
-                        <span class="fr blue"><?php echo $item->phase->remain; ?></span>
+                        <span class="fl red"><?php echo $item->joined; ?></span>
+                        <span class="fr blue"><?php echo $item->remain; ?></span>
                     </dd>
                     <dd>
                         <span class="fl">已参与人次</span>
@@ -46,14 +47,14 @@
                 <div class="btn-menu">
                     <span>我要乐拍</span>
                     <a class="add btn-jian" href="javascript:void(0);">-</a>
-                    <input type="text" value="1" name="qty" remain="<?php echo $item->phase->remain; ?>"/>
+                    <input type="text" value="1" name="qty" remain="<?php echo $item->remain; ?>"/>
                     <a class="add btn-jia" href="javascript:void(0);">+</a>
                     <span>人次</span>
                 </div>
                 <div class="btn-group">
-                    <input name="id" value="<?php echo $item->phase->id; ?>" type="hidden">
+                    <input name="id" value="<?php echo $item->id; ?>" type="hidden">
                     <button class="btn btn-red btn-lg" type="submit">立即乐拍</button>
-                    <a class="btn btn-default doCart" href="javascript:void(0);" phaseId="<?php echo $item->phase->id; ?>">加入购物车</a>
+                    <a class="btn btn-default doCart" href="javascript:void(0);" phaseId="<?php echo $item->id; ?>">加入购物车</a>
                 </div>
               </form>
             </li>
@@ -78,12 +79,12 @@
             foreach($hotItems as $item) :
         ?>
         <li>
-            <div class="img-box"><a href="<?php echo Uri::create('/m/'.$item->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
-            <h5><?php echo $item->phase->title; ?></h5>
-            <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->price); ?></b></div>
+            <div class="img-box"><a href="<?php echo Uri::create('/m/'.$item->id); ?>"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
+            <h5><?php echo $item->title; ?></h5>
+            <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->cost/Config::get('point')); ?></b></div>
             <div class="btn-group">
                 <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
-                    <input name="id" value="<?php echo $item->phase->id; ?>" type="hidden">
+                    <input name="id" value="<?php echo $item->id; ?>" type="hidden">
                     <input name="qty" value="1" type="hidden">
                     <button class="btn btn-lg btn-red" type="submit">立即乐拍</button>
                 </form>
