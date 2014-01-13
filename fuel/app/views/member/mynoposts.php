@@ -90,7 +90,7 @@ $(function(){
                             <div class="number">幸运乐拍码：<?php echo $phase->code;?></div>
                             <div class="datetime">揭晓时间：<?php echo Date("Y-m-d H:i:s", $phase->opentime);?></div>
                         </td>
-                        <td><a href="javascript:;" class="btn btn-default btn-sx btn-addpost" id=<?php echo $phase->id;?>>晒单</a></td>
+                        <td><a href="javascript:;" class="btn btn-sx btn-addpost" id=<?php echo $phase->id;?>>晒单</a></td>
                     </tr>
                     <?php } ?>
                     </tbody>
@@ -118,7 +118,7 @@ $(function(){
                     <li>
                         <input id="postid" name="phase_id" type="hidden" value="" />
                     </li>
-                    <li><button type="text" class="btn btn-red tj">发布</button><a href="javascript:;" class="btn btn-red chance">取消</a></li>
+                    <li><button type="text" class="btn btn-red tj">发布</button><a href="javascript:;" class="btn  chance">取消</a></li>
                     <?php echo Form::close();?>
                 </ul>
                 <br />
