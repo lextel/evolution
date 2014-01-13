@@ -1,5 +1,5 @@
 <?php
-class Model_Member extends \Orm\Model
+class Model_Member extends  \Classes\Model
 {
     protected static $_properties = array(
         'id',
@@ -47,7 +47,7 @@ class Model_Member extends \Orm\Model
         $val->add_field('profile_fields', 'Profile Fields', 'required');
         return $val;
     }
-    
+
     /**
      * 会员列表
      *
