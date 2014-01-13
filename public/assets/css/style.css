@@ -472,6 +472,7 @@
     border: 1px solid #EEEEEE;
     text-indent: 10px;
     margin: 0 10px;
+    width: 500px;
 }
 .show-form li button{
     vertical-align: top;
@@ -494,14 +495,14 @@
     position: relative;
 }
 .delete{
-    width: 22px;
+    width: 18px;
     height: 22px;
-    display:block ;
+    display: block;
     position: absolute;
     top: 0;
     right: 0;
     cursor: pointer;
-    background: url("../images/icon_3.png") no-repeat -35px 0;
+    background: url("../images/icon.png") no-repeat -38px -116px;
 }
 .show-form li dl dd.img-box img{
     max-width: 70px;
@@ -696,6 +697,19 @@
 .edit-data li .file-img input{
     cursor: pointer;
     opacity: 0;
+}
+.show-form li .file-img{
+    width: 159px;
+    height: 41px;
+    display: inline-block;
+    overflow: hidden;
+    background: url("../images/icon.png") no-repeat 0 -318px;
+}
+.show-form li .file-img input{
+    cursor: pointer;
+    opacity: 0;
+    width: 150px;
+    height: 41px;
 }
 /*晒单分享*/
 .share-list{
@@ -927,7 +941,7 @@
 }
 .help-content  p{
     text-indent: 2em;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 22px;
     margin-bottom: 5px;
 }

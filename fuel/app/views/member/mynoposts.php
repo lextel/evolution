@@ -90,7 +90,7 @@ $(function(){
                             <div class="number">幸运乐拍码：<?php echo $phase->code;?></div>
                             <div class="datetime">揭晓时间：<?php echo Date("Y-m-d H:i:s", $phase->opentime);?></div>
                         </td>
-                        <td><a href="javascript:;" class="btn btn-default btn-sx btn-addpost" id=<?php echo $phase->id;?>>晒单</a></td>
+                        <td><a href="javascript:;" class="btn btn-sx btn-addpost" id=<?php echo $phase->id;?>>晒单</a></td>
                     </tr>
                     <?php } ?>
                     </tbody>
@@ -102,26 +102,23 @@ $(function(){
                     <li>
                         <label for="">标题</label>
                         <input name="title" type="text"/><span></span>
-                        <label for="" class="error"></label>
                     </li>
                     <li>
                         <label for="" class="body-label">正文</label>
-                        <textarea name="desc" id="" cols="70" rows="6"></textarea>
-                        <label for="" class="error"></label>
+                        <textarea name="desc" id="" cols="70" rows="6"></textarea >
                     </li>
                     <li>
                         <label for="" class="body-label">图片</label>
                         <dl class="postimg">
                          
                         </dl>
-                        <!--<button class="btn btn-default">上传图片</button>-->
-                        <input id="postUpload" type="file" name="post" multiple class="btn btn-default">
+                        <div class="file-img"><input id="postUpload" type="file" name="post" multiple></div>
                         <label for="" class="error"></label>
                     </li>
                     <li>
                         <input id="postid" name="phase_id" type="hidden" value="" />
                     </li>
-                    <li><button type="text" class="btn btn-red tj">发布</button><a href="javascript:;" class="btn btn-red chance">取消</a></li>
+                    <li><button type="text" class="btn btn-red tj">发布</button><a href="javascript:;" class="btn  chance">取消</a></li>
                     <?php echo Form::close();?>
                 </ul>
                 <br />
