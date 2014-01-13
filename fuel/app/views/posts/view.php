@@ -1,5 +1,5 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
-<?php echo Asset::js(['jquery.cookie.js','common.js', 'post/postup.js']);?>
+<?php echo Asset::js(['jquery.cookie.js', 'post/postup.js']);?>
 <?php echo Asset::css('member/validfrom_style.css'); ?>
 <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
 <div class="w">

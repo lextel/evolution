@@ -17,9 +17,9 @@
             <label for="">全部商品</label>
 
         <span class="time-choose">选择时间段：
-            <input  id="datepicker" type="text"/>
+            <input  id="datepicker" type="text" placeholder="输入起始时间" />
 
-            <input  id="datepicker1" type="text"/>
+            <input  id="datepicker1" type="text"  placeholder="输入结束时间" />
             <button class="rechargelog-date-search">搜索</button>
         </span>
     </div>
