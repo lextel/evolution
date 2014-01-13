@@ -1,14 +1,6 @@
 <?php
 
-class Model_Phase extends  \Classes\Model
-{
-
-    /**
-     * @def 商品上架状态
-     */
-    const ON_SELF = 1;
-
-    protected static $_belongs_to = array('items');
+class Model_Phase extends \Classes\Model {
 
     protected static $_properties = array(
             'id',
