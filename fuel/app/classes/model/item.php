@@ -63,18 +63,11 @@ class Model_Item extends \Classes\Model {
         $where = $this->handleWhere($options, true);
         $orderBy = $this->handleOrderBy($options);
 
-        $phases = Model_Phase::query()->where($where)->order_by($orderBy)->get();
-
         $limit = \Helper\Page::PAGESIZE;
         $offset = ($options['page'] - 1) * $limit;
-        $phases = array_slice($phases, $offset, $limit);
+        $select = ['id', 'title', 'image', 'joined', 'remain', 'amount', 'cost'];
 
-        $items = [];
-        foreach($phases as $key => $phase) {
-            $items[] = $this->itemInfo($phase);
-        }
-
-        return $items;
+        return Model_Phase::find('all', ['select' => $select, 'where' => $where, 'offset' => $offset, 'limit' => $limit, 'order_by' => $orderBy]);
     }
 
     /**
@@ -371,7 +364,7 @@ class Model_Item extends \Classes\Model {
 
         if($isFrontEnd) {
             $where += [
-                    'status'    => \Helper\Item::IS_CHECK,
+                    'status' => \Helper\Item::IS_CHECK,
                     ];
         }
 
