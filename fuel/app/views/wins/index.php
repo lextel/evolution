@@ -127,7 +127,7 @@
                     <div class="longItem" style="display: <?php echo $i == 1 ? 'block' : 'none'; ?>">
                         <form  action="<?php echo Uri::create('cart/add'); ?>" method="post">
                             <div class="title-box">
-                                <h4><a href=""><?php echo $hot->title; ?></a></h4>
+                                <h4 class="title-br"><a href=""><?php echo $hot->title; ?></a></h4>
                                 <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $hot->price); ?></b></span>
                             </div>
                             <div class="img-box">

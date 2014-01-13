@@ -495,14 +495,14 @@
     position: relative;
 }
 .delete{
-    width: 22px;
+    width: 18px;
     height: 22px;
-    display:block ;
+    display: block;
     position: absolute;
     top: 0;
     right: 0;
     cursor: pointer;
-    background: url("../images/icon_3.png") no-repeat -35px 0;
+    background: url("../images/icon.png") no-repeat -38px -116px;
 }
 .show-form li dl dd.img-box img{
     max-width: 70px;
