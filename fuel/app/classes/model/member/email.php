@@ -1,7 +1,6 @@
 <?php
-use Orm\Model;
 
-class Model_Member_Email extends Model
+class Model_Member_Email extends \Classes\Model
 {
     /*
     * type email为验证邮件 password为找回密码
@@ -65,9 +64,9 @@ class Model_Member_Email extends Model
        if ($mail->save()){
             return true;
        }
-       return false;       
+       return false;
     }
-    
+
     /*
     * 发送邮件
     * 输入 data集合, 用户ID
@@ -75,7 +74,7 @@ class Model_Member_Email extends Model
                    'key' => $key,
                    'uri' => 'emaiok',
                    'view'=>'member/email/emailok',
-                   'type'=>'email',                   
+                   'type'=>'email',
                    "subject"=>"乐乐淘用户邮箱验证"];
     */
     public static function sendEmail($data, $member_id=0)
@@ -98,7 +97,7 @@ class Model_Member_Email extends Model
         $key = Crypt::encode(md5($email + time()), Config::get('email_key'));
         return $key;
     }
-    
+
     /*
     * 验证解密完整KEY
     */
@@ -113,7 +112,7 @@ class Model_Member_Email extends Model
             return false;
         }
     }
-    
+
     /*
     * 检测KEY的真实性 先验证加密正确性，然后查询数据库是否有，有是否过期，或者使用过, 如果未使用过，则把status修改为1
     */
@@ -123,27 +122,27 @@ class Model_Member_Email extends Model
         {
             return false;
         }
-        $key = Model_Member_Email::find_by_key($key, ['where'=>['status'=>0, 
-                                          'type'=> $type, 
+        $key = Model_Member_Email::find_by_key($key, ['where'=>['status'=>0,
+                                          'type'=> $type,
                                           'and'=>['deadtime', '>=', time()]
                                           ]]);
         if ($key)
-        { 
+        {
            $key->status = 1;
            $key->save();
            return true;
         }
         return false;
-        
+
     }
-    
+
     /*
     * 检测用户邮箱是否已经验证过了，验证过了就不在发送邮件了,只针对type = email的
-    * 
+    *
     */
     public static function check_emailok($email)
     {
-       $email = Model_Member_Email::find_by_email($email, ['where'=>['status'=>1, 
+       $email = Model_Member_Email::find_by_email($email, ['where'=>['status'=>1,
                                           'type'=>'email',
                                           'is_delete'=> 0,
                                           ]]);
@@ -153,13 +152,13 @@ class Model_Member_Email extends Model
        }
        return false;
    }
-   
+
    /*
    * 如果数据库里已经有发送过的数据了则清掉再发
    */
    public static function check_emailsend($email, $type='email')
    {
-       $email = Model_Member_Email::find_by_email($email, ['where'=>['status'=>0, 
+       $email = Model_Member_Email::find_by_email($email, ['where'=>['status'=>0,
                                           'type'=> $type,
                                           'is_delete'=>0,
                                           ]]);

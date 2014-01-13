@@ -1,7 +1,6 @@
 <?php
-use Orm\Model;
 
-class Model_Member_Sm extends Model
+class Model_Member_Sm extends \Classes\Model
 {
     protected static $_properties = array(
         'id',

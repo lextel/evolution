@@ -1,5 +1,5 @@
 <?php
-class Model_Log extends \Orm\Model
+class Model_Log extends \Classes\Model
 {
     protected static $_properties = array(
         'id',

@@ -1,6 +1,6 @@
 <?php
 
-class Model_User extends \Orm\Model
+class Model_User extends \Classes\Model
 {
     protected static $_table_name = 'users';
 
@@ -31,8 +31,8 @@ class Model_User extends \Orm\Model
             'mysql_timestamp' => false,
         ),
     );
-    
-    
+
+
     public static function validate($factory)
     {
         $val = Validation::forge($factory);

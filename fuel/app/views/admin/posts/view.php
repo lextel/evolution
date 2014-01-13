@@ -27,7 +27,7 @@
                 <?php
                     $images = unserialize($post->images);
                     foreach($images as $image) { ?>
-                        <?php echo Html::img($image, ['style'=>"margin: 10px; border: 1px #ccc solid; padding:3px"]);?>
+                        <?php echo Html::img($image, ['style'=>"margin: 10px; border: 1px #ccc solid; padding:3px;width:80px"]);?>
                 <?php } ?>
             </p>
           </div>
