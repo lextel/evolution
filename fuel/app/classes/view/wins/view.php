@@ -15,9 +15,19 @@ class View_Wins_View extends Viewmodel {
            return $user;
        };
 
+       // 批量获取用户信息
+       $this->getMembers = function($ids) {
+           return Model_Member::byIds($ids);
+       };
+
        // 获取期数信息
        $this->getPhase = function($phaseId) {
            return Model_Phase::find($phaseId);
+       };
+
+       // 批量获取期数信息
+       $this->getPhases = function($ids){
+           return Model_Phase::byIds($ids);
        };
 
        // 友好时间
