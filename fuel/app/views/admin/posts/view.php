@@ -26,10 +26,9 @@
             <p class="form-control-static">
                 <?php
                     $images = unserialize($post->images);
-                    foreach($images as $image) {
-                        echo '<img src="'.Uri::create('/image/80x80/' . $image).'" style="margin: 10px; border: 1px #ccc solid; padding:3px">';
-                    }
-                ?>
+                    foreach($images as $image) { ?>
+                        <?php echo Html::img($image, ['style'=>"margin: 10px; border: 1px #ccc solid; padding:3px"]);?>
+                <?php } ?>
             </p>
           </div>
         </div>
