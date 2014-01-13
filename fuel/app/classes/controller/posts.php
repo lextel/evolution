@@ -40,7 +40,7 @@ class Controller_Posts extends Controller_Frontend{
             $sortType = $type[$sort];
         }
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('/p/s/'.$sort.'/p', $postscount, 4, 5);
+        $config = $page->setCofigPage('/p/s/'.$sort.'/p', $postscount, 16, 5);
         $pagination = Pagination::forge('postspage', $config);
         $data['posts'] = Model_Post::find('all', [
                                                   'where' => ['is_delete'=>0, 'status'=>1],
