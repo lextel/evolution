@@ -10,11 +10,10 @@
         <ul class="item-group">
             <?php
                 if($wins):
+                list($members, $areas) = $getMembersByWin($wins);
+                
                 foreach($wins as $win):
-                    //$itemInfo = $getItemInfo($win->item_id);
                     if($win->member_id):
-                    $memberInfo = $getMemberInfo($win->member_id);
-                    $from = $getFrom($win->order_id);
             ?>
             <li>
                 <div class="item-body">
@@ -23,11 +22,11 @@
                     </div>
                     <div class="info-side fr">
                         <div class="head-img fl">
-                            <a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><img src="<?php echo Uri::create($memberInfo->avatar); ?>"/></a>
+                            <a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><img src="<?php echo Uri::create($members[$win->member_id]->avatar); ?>"/></a>
                         </div>
                         <div class="user-info fl">
-                            <div class="username">获奖者：<a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><?php echo $memberInfo->nickname; ?></a></div>
-                            <div class="ip">来自：<?php echo $from; ?></div>
+                            <div class="username">获奖者：<a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><?php echo $members[$win->member_id]->nickname; ?></a></div>
+                            <div class="ip">来自：<?php echo $areas[$win->order_id]->area; ?></div>
                             <div class="number">当前乐拍：<b><?php echo $win->code_count; ?></b>次</div>
                         </div>
                         <div class="p-info">
@@ -89,14 +88,17 @@
             <div class="title"><h3>大家正在乐拍</h3></div>
             <div class="buyListdiv" >
                 <ul class="buyList">
-                <?php foreach($orders() as $order) {?>
+                <?php $orders1 = $orders();
+                       list($members,$phaseByOrders)  = $getMembersByOrder($orders1);
+                ?>
+                <?php foreach($orders1 as $order) {?>
                     <li>
                         <div class="img-box img-sm fl">
-                            <?php echo Html::anchor('m/'.$order->phase_id, Html::img($getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image));?>
+                            <?php echo Html::anchor('m/'.$order->phase_id, Html::img($phaseByOrders[$order->phase_id]->image));?>
                         </div>
                         <div class="info-side">
-                            <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'bule']);?> 刚刚乐拍了</div>
-                            <h4 class="title-br"><?php echo Html::anchor('m/'.$order->phase_id, $getPhaseInfo($order->phase_id)->title);?></h4>
+                            <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $members[$order->member_id]->nickname, ['class'=>'bule']);?> 刚刚乐拍了</div>
+                            <h4 class="title-br"><?php echo Html::anchor('m/'.$order->phase_id, $phaseByOrders[$order->phase_id]->title);?></h4>
                         </div>
                     </li>
                <?php } ?>
@@ -116,28 +118,28 @@
                 <li>
                     <div class="shortItem" style="display: <?php echo $i == 1 ? 'none' : 'block'; ?>">
                         <div class="img-box img-sm fl">
-                            <a href=""><img src="<?php echo Uri::create($hot->image); ?>" alt=""></a>
+                            <?php echo Html::anchor('/m/'.$hot->id, Html::img($hot->image)); ?>
                             <div class="top <?php echo $i < 4 ? 'one' : '';?>"><?php echo $i; ?></div>
                         </div>
                         <div class="info-side fr">
                             <div class="title-sm"><a href=""><?php echo $hot->title; ?></a></div>
-                            <div class="remain">剩余次数: <b class="red"><?php echo $hot->phase->remain; ?></b></div>
+                            <div class="remain">剩余次数: <b class="red"><?php echo $hot->remain; ?></b></div>
                         </div>
                     </div>
                     <div class="longItem" style="display: <?php echo $i == 1 ? 'block' : 'none'; ?>">
                         <form  action="<?php echo Uri::create('cart/add'); ?>" method="post">
                             <div class="title-box">
-                                <h4 class="title-br"><a href=""><?php echo $hot->title; ?></a></h4>
-                                <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $hot->price); ?></b></span>
+                                <h4><?php echo Html::anchor('/m/'.$hot->id, $hot->title); ?></h4>
+                                <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $hot->amount); ?></b></span>
                             </div>
                             <div class="img-box">
                                 <div class="top <?php echo $i < 4 ? 'one' : '';?>"><?php echo $i; ?></div>
                                 <a href=""><img src="<?php echo Uri::create($hot->image); ?>" alt=""></a>
                             </div>
-                            <div class="remain tc">剩余次数: <b class="red"><?php echo $hot->phase->remain; ?></b></div>
+                            <div class="remain tc">剩余次数: <b class="red"><?php echo $hot->remain; ?></b></div>
                             <div class="btn-group">
                                 <input name="qty" value="1" type="hidden"/>
-                                <input name="id" value="<?php echo $hot->phase->id; ?>" type="hidden">
+                                <input name="id" value="<?php echo $hot->id; ?>" type="hidden">
                                 <button type="submit" class="btn btn-red">立即购买</button>
                             </div>
                         </form>
