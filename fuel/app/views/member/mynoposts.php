@@ -102,20 +102,17 @@ $(function(){
                     <li>
                         <label for="">标题</label>
                         <input name="title" type="text"/><span></span>
-                        <label for="" class="error"></label>
                     </li>
                     <li>
                         <label for="" class="body-label">正文</label>
-                        <textarea name="desc" id="" cols="70" rows="6"></textarea>
-                        <label for="" class="error"></label>
+                        <textarea name="desc" id="" cols="70" rows="6"></textarea >
                     </li>
                     <li>
                         <label for="" class="body-label">图片</label>
                         <dl class="postimg">
                          
                         </dl>
-                        <!--<button class="btn btn-default">上传图片</button>-->
-                        <input id="postUpload" type="file" name="post" multiple class="btn btn-default">
+                        <div class="file-img"><input id="postUpload" type="file" name="post" multiple></div>
                         <label for="" class="error"></label>
                     </li>
                     <li>
