@@ -1,6 +1,6 @@
 <?php
 
-class Model_Shipping extends \Orm\Model
+class Model_Shipping extends \Classes\Model
 {
     protected static $_properties = array(
         'id',

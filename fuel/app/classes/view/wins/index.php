@@ -17,26 +17,21 @@ class View_Wins_Index extends Viewmodel {
                      ]);
            return $orders;
        };
-       // 通过中奖列表获得中奖者的列表信息
+       // 通过中奖列表获得中奖者,以及订单的列表信息，用户揭晓列表
        $this->getMembersByWin=function($wins){
-           list($memberIds, $oderIds) = Model_Phase::getIds($wins, ['member_id', 'order_id']);
+           list($memberIds, $orderIds) = Model_Phase::getIds($wins, ['member_id', 'order_id']);
            $members = Model_Member::byIds($memberIds);
            $orders = Model_Order::byIds($orderIds);
-           return $members;
+           return [$members, $orders];
        };
-       // 通过订单列表获得下单者的列表信息
+       // 通过订单列表获得下单者的列表信息，用户最新订单列表
        $this->getMembersByOrder=function($orders){
-           $memberIds = Model_Order::getIds($orders, ['member_id']);
+           list($memberIds, $phaseIds) = Model_Order::getIds($orders, ['member_id', 'phase_id']);
            $members = Model_Member::byIds($memberIds);
-           return $members;
+           $phases = Model_Phase::byIds($phaseIds);
+           return [$members, $phases];
        };
        
-       // 通过中奖列表获得中奖者的列表信息
-       $this->getMembersByOrder=function($orders){
-           $memberIds = Model_Order::getIds($orders, ['member_id']);
-           $members = Model_Member::byIds($memberIds);
-           return $members;
-       };
 
        //获得人气推荐
        $this->hotItems = function() {

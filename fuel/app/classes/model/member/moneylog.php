@@ -1,7 +1,6 @@
 <?php
-use Orm\Model;
 
-class Model_Member_Moneylog extends Model
+class Model_Member_Moneylog extends \Classes\Model
 {
     /*
     * type = 0 is recharge
