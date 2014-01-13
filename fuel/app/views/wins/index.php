@@ -11,7 +11,7 @@
             <?php
                 if($wins):
                 foreach($wins as $win):
-                    $itemInfo = $getItemInfo($win->item_id);
+                    //$itemInfo = $getItemInfo($win->item_id);
                     if($win->member_id):
                     $memberInfo = $getMemberInfo($win->member_id);
                     $from = $getFrom($win->order_id);
@@ -19,7 +19,7 @@
             <li>
                 <div class="item-body">
                     <div class="img-box img-md fl">
-                        <a href="<?php echo Uri::create('w/'.$win->id); ?>"><img src="<?php echo Uri::create($itemInfo->image);?>"></a>
+                        <a href="<?php echo Uri::create('w/'.$win->id); ?>"><img src="<?php echo Uri::create($win->image);?>"></a>
                     </div>
                     <div class="info-side fr">
                         <div class="head-img fl">
@@ -32,9 +32,9 @@
                         </div>
                         <div class="p-info">
                             <h5 class="title-sm">
-                                <a href="<?php echo Uri::create('w/'.$win->id); ?>">(第<?php echo $win->phase_id;?>期)<?php echo $itemInfo->title; ?></a>
+                                <a href="<?php echo Uri::create('w/'.$win->id); ?>">(第<?php echo $win->phase_id;?>期)<?php echo $win->title; ?></a>
                             </h5>
-                            <div class="price">价值：<b>￥<?php echo sprintf('%.2f', $itemInfo->price); ?></b>元</div>
+                            <div class="price">价值：<b>￥<?php echo sprintf('%.2f', $win->amount); ?></b>元</div>
                             <div class="datetime">揭晓时间：<?php echo $friendlyDate($win->opentime);?></div>
                         </div>
                     </div>
