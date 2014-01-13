@@ -72,6 +72,15 @@ textarea:focus,input:focus{
     line-height: 18px;
     text-indent: 2em;
     color: #666666;
+    text-align: left;
+}
+.text-title{
+    text-align: left;
+    max-height: 40px;
+    line-height: 20px;
+    word-wrap: break-word;
+    overflow: hidden;
+    width: 420px;
 }
 .sidebar{
     overflow: hidden;
@@ -112,6 +121,7 @@ textarea:focus,input:focus{
 .number,.ip,.price,.datetime,.remain{
     line-height:18px;
     color: #999;
+    text-align: left;
 }
 .number b,.remain b{
     color: #f60;
@@ -437,11 +447,6 @@ table tbody tr td{
     width: 65%;
     overflow: hidden;
 }
-.info-side h4{
-    height: 40px;
-    font-size: 12px;
-    line-height: 20px;
-}
 .info-side span{
     display: block;
 }
@@ -524,6 +529,12 @@ table tbody tr td{
 }
 .title-box h3{
     font-weight: normal;
+}
+.title-br{
+    height: 40px;
+    line-height: 20px;
+    word-wrap:break-word ;
+    overflow: hidden;
 }
 .more{
     display: block;
