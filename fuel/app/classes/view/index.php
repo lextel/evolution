@@ -18,6 +18,7 @@ class View_Index extends Viewmodel {
                        ]);
            return $notices;
        };
+
        //获得最新揭晓
        $this->newWins = function() {
            $phaseModel = new Model_Phase();
@@ -25,23 +26,28 @@ class View_Index extends Viewmodel {
 
            return $wins;
        };
+
        //获得人气推荐1
        $this->topHotItems = function() {
-           $items = Model_Phase::find('all', ['where'=>['status'=>1, 'opentime' => 0],
+           $select = ['id', 'title', 'image', 'joined', 'remain', 'amount', 'cost'];
+           $items = Model_Phase::find('all', ['select' => $select, 'where'=>['status'=>1, 'opentime' => 0],
                      'order_by'=>['hots'=>'desc'],
                      'rows_limit'=>3
                      ]);
            return $items;
        };
+
        //获得人气推荐2
        $this->hotItems = function() {
-           $items = Model_Phase::find('all', ['where'=>['status'=>1, 'opentime' => 0],
+           $select = ['id', 'title', 'image', 'joined', 'remain', 'amount', 'cost'];
+           $items = Model_Phase::find('all', ['select' => $select, 'where'=>['status'=>1, 'opentime' => 0],
                      'order_by'=>['hots'=>'desc'],
                      'rows_limit'=>4,
                      'rows_offset'=>3,
                      ]);
            return $items;
        };
+
        //获得最新晒单TOP1
        $this->topPost = Model_Post::find('first', ['where'=>['status'=>1],
                       'order_by'=>['id'=>'desc']
@@ -64,17 +70,20 @@ class View_Index extends Viewmodel {
                      ]);
            return $posts;
        };
+
        //获得商品信息
        $this->getItemInfo = function($item_id) {
            $item = Model_Item::find_by_id($item_id);
            return $item;
        };
+
        //获得期数信息
        $this->getPhaseInfo = function($phase_id) {
            $phase = Model_Phase::find($phase_id);
 
            return $phase;
        };
+
        //获得用户信息
        $this->getMemberInfo = function($member_id) {
            $member = Model_Member::find_by_id($member_id);

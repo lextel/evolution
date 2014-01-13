@@ -2,18 +2,24 @@
 
 class Controller_Index extends Controller_Frontend {
 
-    /*
-    *首页功能
-    *幻灯片播放
-    *右侧公告
-    *最新揭晓
-    *人气推荐
-    *右侧大家在乐拍
-    *最下大家晒单
-    */
+    /**
+     * 首页
+     */
     public function action_index() {
+
+        $phaseModel = new Model_Phase();
+
+        // 最新揭晓
+        $data['wins'] = $phaseModel->getWins(0, 4);
+
+        $x  = Model_Phase::getIds($data['wins'], ['member_id', 'id']);
+        print_r($x);
+        die;
+
+        $members = Model_Member::byIds();
         $view = ViewModel::forge('index', 'view');
-        $this->template->title = '乐乐淘首页';
+        $view->set('data', $data);
+        $this->template->title = '乐乐淘';
         $this->template->layout = $view;
     }
 
