@@ -46,7 +46,7 @@ $(function(){
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
                 console.log(file.link);
-                var text = '<dd class="img-box"><img src="/'+file.link+'" alt="" /><input type="hidden" name="images[]" value="'+file.link+'"><a href="javascript:;" class="delete"></a></dd>';
+                var text = '<dd class="img-box img-md"><img src="/'+file.link+'" alt="" /><input type="hidden" name="images[]" value="'+file.link+'"><a href="javascript:;" class="delete"></a></dd>';
                 $(".postimg").append(text);
             });
             
@@ -84,7 +84,7 @@ $(function(){
                     <tr>
                         
                         <td><?php echo $phase->id;?></td>
-                        <td><div class="img-box"><?php echo Html::anchor('/w/'.$phase->id, Html::img($getItem($phase->item_id)->image));?></div></td>
+                        <td><div class="img-box img-sm"><?php echo Html::anchor('/w/'.$phase->id, Html::img($getItem($phase->item_id)->image));?></div></td>
                         <td>
                             <div class="text-title">（第<?php echo $phase->phase_id;?>期）<?php echo $phase->title;?></div>
                             <div class="number">幸运乐拍码：<?php echo $phase->code;?></div>

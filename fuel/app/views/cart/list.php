@@ -1,7 +1,5 @@
-<?php echo Asset::css('product.css'); ?>
-<?php echo Asset::js('/cart/cart.js'); ?>
-<?php echo Asset::css('member/validfrom_style.css'); ?>
-<?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
+<?php echo Asset::css(['product.css', 'member/validfrom_style.css']); ?>
+<?php echo Asset::js(['Validform_v5.3.2_min.js', 'cart/cart.js']); ?>
     <div class="wrapper w">
         <div class="cart-content">
             <ol class="pay-prompt">
