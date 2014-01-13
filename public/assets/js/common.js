@@ -332,7 +332,7 @@ $(function(){
                         html += '</div><div class="price tl">'+data[i].point+ data[i].unit +' x <b class="y">'+data[i].qty+'</b></div>';
                         html += '<a href="javascript:void(0);" class="cartRemove btn-delete" rowId="'+data[i].rowId+'">删除</a></div></li>';
                     }
-                    html += '<div class="btn-group tr"><a href="'+BASE_URL + 'cart/list' + '" class="btn-red  btn-sm">查看购物车</a></div>';
+                    html += '<div class="btn-group tr"><a href="'+BASE_URL + 'cart/list' + '" class="btn-red  btn">查看购物车</a></div>';
                 } else {
                     html = '<li>购物车是空的</li>';
                 }
