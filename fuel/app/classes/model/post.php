@@ -89,6 +89,7 @@ class Model_Post extends \Classes\Model
 
     /**
      * 获取指定字段
+     * TODO 优化后待删除
      *
      * @param $posts  晒单数据
      * @param $fields 指定fields
@@ -152,7 +153,18 @@ class Model_Post extends \Classes\Model
         }
 
         return $data;
+    }
 
+    /**
+     * 获取最新晒单
+     *
+     * @param $len integer 数量
+     *
+     * @return array
+     */
+    public function newPosts($len) {
+
+        return Model_Post::find('all', ['where'=>['status'=>1], 'order_by'=>['id'=>'desc'], 'limit'=>$len]);
     }
 
 }
