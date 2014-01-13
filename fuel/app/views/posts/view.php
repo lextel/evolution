@@ -29,8 +29,9 @@
                        (第<?php echo $getPhase($post->phase_id)->phase_id; ?>期)<?php echo Html::anchor('/m/'.$post->item_id, $getItem($post->item_id)->title); ?>|
                    </span>
                    <span class="price">价值<b>￥<?php echo $getItem($post->item_id)->price;?>.00</b></span>
-                   <?php if ($getLastPhase($post->item_id)) { ?>
-                   <a href="<?php echo Uri::create('/m/'.$getLastPhase($post->item_id)->id);?>" class="underway">第<?php echo $getLastPhase($post->item_id)->phase_id;?>期进行中...</a>
+                   <?php $phase = $getLastPhase($post->item_id);?>
+                   <?php if ($phase) { ?>
+                   <a href="<?php echo Uri::create('/m/'.$phase->id);?>" class="underway">第<?php echo $phase->phase_id;?>期进行中...</a>
                    <?php } ?>
                </div>
            </li>
@@ -54,13 +55,14 @@
         <ul class="before">
             <?php $lwins = $getLastWins($post->item_id);?>
             <?php if ($lwins) { ?>
+            <?php $members = $getMembersByPhases($lwins);?>
             <?php foreach($lwins as $lwin){?>
             <li>
                 <div class="head-img fl">
-                    <?php echo Html::anchor('u/'.$lwin->member_id, Html::img($getUser($lwin->member_id)->avatar));?>
+                    <?php echo Html::anchor('u/'.$lwin->member_id, Html::img($members[$lwin->member_id]->avatar));?>
                 </div>
                 <div class="info-side">
-                        <div class="username"><?php echo Html::anchor('u/'.$lwin->member_id, $getUser($lwin->member_id)->nickname, ['class'=>'blue']);?></div>
+                        <div class="username"><?php echo Html::anchor('u/'.$lwin->member_id, $members[$lwin->member_id]->nickname, ['class'=>'blue']);?></div>
                         <div class="datetime"><?php echo '获得了第'.$lwin->phase_id.'期';?></div>
                     <?php if($lwin->post_id == 0){?>
                         <p>暂未晒单</p>
@@ -76,9 +78,12 @@
             <h3 class="fl">最新晒单</h3>
         </div>
         <ul class="news">
-            <?php foreach($getNewPosts() as $npost){?>
+            <?php $nposts = $getNewPosts();
+                   $npostMembers = $getMembersByPosts($nposts);
+            ?>
+            <?php foreach($nposts as $npost) { ?>
             <li>
-               <div><?php echo Html::anchor('u/'.$npost->member_id, $getUser($npost->member_id)->nickname, ['class'=>'blue username']);?>
+               <div><?php echo Html::anchor('u/'.$npost->member_id, $npostMembers[$npost->member_id]->nickname, ['class'=>'blue username']);?>
                <s class="datetime"><?php echo \Helper\Timer::friendlyDate($npost->created_at); ?></s>
                </div>
                

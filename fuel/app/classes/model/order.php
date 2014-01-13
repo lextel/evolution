@@ -258,7 +258,7 @@ class Model_Order extends \Classes\Model
     }
 
     /*
-    *
+    *获得总购买人次
     */
     public static function totalCountBuy()
     {
