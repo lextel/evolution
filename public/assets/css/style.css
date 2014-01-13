@@ -871,7 +871,7 @@
 .help-side h2{
     border-bottom: 1px solid #dddddd;
     text-align: center;
-    background: #D96D66;
+    background: #af2812;
     color: #FFFFFF;
 }
 .help-center{
@@ -883,8 +883,9 @@
     border-bottom: 1px solid #dddddd;
     background: #f1f1f1;
     height: 33px;
+    color: #af2812;
     line-height: 33px;
-    font-weight: bold;
+    font-weight: 700;
 }
 .help-center dd{
     text-align: right;
@@ -896,11 +897,11 @@
     cursor: pointer;
 }
 .help-center dd:hover{
-    background: #D96D66;
+    background: #af2812;
     color: #FFFFFF;
 }
 .help-center dd.active{
-    background: #D96D66;
+    background: #af2812;
     color: #FFFFFF;
 }
 
@@ -917,7 +918,7 @@
     font-weight: bold;
     height: 36px;
     line-height: 36px;
-    border-bottom: 2px  solid #D96D66;
+    border-bottom: 2px  solid #af2812;
     margin-bottom: 20px;
 }
 .help-content{

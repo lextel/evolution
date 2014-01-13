@@ -2,7 +2,14 @@ $(function(){
 
     // 批量删除
     $('button[action="batchDelete"]').click(function(){
-        $('#cartForm').submit();
+
+        var len = $('input[name="ids[]"]:checked').length;
+
+        if(len > 0) {
+            $('#cartForm').submit();
+        } else {
+            alert('请先选择商品。');
+        }
 
         return false;
     });

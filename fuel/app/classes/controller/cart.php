@@ -66,7 +66,7 @@ class Controller_Cart extends Controller_Frontend {
     // 删除商品
     public function action_remove() {
 
-        $ids = Input::post('ids');
+        $ids = Input::post('ids', [0]);
 
         $items = Cart::items();
         foreach($items as $item) {

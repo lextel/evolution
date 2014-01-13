@@ -26,7 +26,7 @@
                 <tr>
                     <td><?php echo $post->id;?></td>
                     
-                    <td><div class="img-box">
+                    <td><div class="img-box img-sm">
                     <?php if ($post->status == 1) { ?>
                     <?php echo Html::anchor('u/p'.$post->id, Html::img($post->topimage)); ?>
                     <?php } else { ?>
