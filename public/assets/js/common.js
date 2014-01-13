@@ -533,11 +533,11 @@ function handlePosts(data) {
         for(var i in data.posts) {
             images = '';
             for(var j in data.posts[i].images) {
-                images += '<dd class="img-box"><a href="'+BASE_URL+ data.posts[i].images[j]+'" target="_blank"><img src="'+BASE_URL+ data.posts[i].images[j]+'" alt=""></a></dd>';
+                images += '<dd class="img-box img-md"><a href="'+BASE_URL+ data.posts[i].images[j]+'" target="_blank"><img src="'+BASE_URL+ data.posts[i].images[j]+'" alt=""></a></dd>';
             }
 
             html += '<li>' +
-                    '<div class="head-sm fl">' +
+                    '<div class="head-img fl">' +
                     '    <a href="'+BASE_URL + 'u/' + data.posts[i].member_id+'"><img src="'+data.posts[i].avatar+'" alt=""></a>'+
                     '    <div class="name"><a href="'+BASE_URL + 'u/' + data.posts[i].member_id+'">'+data.posts[i].nickname+'</a></div>'+
                     '</div>'+
@@ -546,9 +546,9 @@ function handlePosts(data) {
                     '    <div class="datetime">'+data.posts[i].created_at+'</div>'+
                     '    <div class="bask-text">'+data.posts[i].desc+'</div>'+
                     '    <dl class="bask-imgBox">' + images + '</dl>'+
-                    '    <div class="btn-group tl">'+
-                    '        <span>喜欢<s>('+data.posts[i].up+')</s></span'+
-                    '        <span>评论<s>('+data.posts[i].count+')</s></span>'+
+                    '    <div class="btn-group sns-bar tl">'+
+                    '        <span class="sns-love">喜欢<s>('+data.posts[i].up+')</s></span'+
+                    '        <span class="sns-comment">评论<s>('+data.posts[i].count+')</s></span>'+
                     '    </div>'+
                     '    <div class="bask-number">'+'第'+data.posts[i].phase+'期晒单'+'</div>'+
                     '</div>'+
