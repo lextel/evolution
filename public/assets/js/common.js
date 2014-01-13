@@ -10,7 +10,7 @@ $(function(){
     });
 });
 /**
- *返回首页
+ *返回顶部--侧边浮动快捷栏
  */
 $(function(){
     var w_width=$(window).width();
