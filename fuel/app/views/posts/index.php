@@ -13,8 +13,9 @@
     <div class="w">
         <ul class="share-list">
         <?php if ($posts): ?>
+        <?php $members = $getMembersByPosts($posts);?>
         <?php foreach ([0,1,2,3] as $li){?>
-        <li class="product-item">
+        <li class="product-item">       
         <?php foreach ($posts as $v=>$item){ ?>
             <?php if (array_search($v, array_keys($posts)) % 4 == $li){?>
                  <div class="img-box">
@@ -22,10 +23,10 @@
                  </div>
                  <div class="item-head">
                       <div class="head-img fl">
-                           <?php echo Html::anchor('u/'.$item->member_id, Html::img($getUser($item->member_id)->avatar));?>
+                           <?php echo Html::anchor('u/'.$item->member_id, Html::img($members[$item->member_id]->avatar));?>
                       </div>
                       <div class="info-side fl">
-                            <div class="username"><?php echo Html::anchor('u/'.$item->member_id, $getUser($item->member_id)->nickname);?></div>
+                            <div class="username"><?php echo Html::anchor('u/'.$item->member_id, $members[$item->member_id]->nickname);?></div>
                             <div class="datetime"><?php echo \Helper\Timer::friendlyDate($item->created_at); ?></div>
                       </div>
                  </div>

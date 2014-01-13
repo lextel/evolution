@@ -752,6 +752,9 @@
     line-height: 30px;
     font-size: 18px;
 }
+.title-bar .datetime{
+    text-align: center;
+}
 .pane-hd{
     overflow: hidden;
 }

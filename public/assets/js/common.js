@@ -530,9 +530,11 @@ function handlePosts(data) {
             }
 
             html += '<li>' +
-                    '<div class="head-img fl">' +
-                    '    <a href="'+BASE_URL + 'u/' + data.posts[i].member_id+'"><img src="'+data.posts[i].avatar+'" alt=""></a>'+
-                    '    <div class="name"><a href="'+BASE_URL + 'u/' + data.posts[i].member_id+'">'+data.posts[i].nickname+'</a></div>'+
+                    '<div class="fl">'+
+                         '<div class="head-img">' +
+                             '<a href="'+BASE_URL + 'u/' + data.posts[i].member_id+'"><img src="'+data.posts[i].avatar+'" alt=""></a>'+
+                         '</div>'+
+                         '<div class="username"><a href="'+BASE_URL + 'u/' + data.posts[i].member_id+'">'+data.posts[i].nickname+'</a></div>'+
                     '</div>'+
                     '<div class="bask-list fr">'+
                     '    <h4 class="text-title"><a href="'+BASE_URL+ 'p/' + data.posts[i].id+'">'+data.posts[i].title+'</a></h4>'+
