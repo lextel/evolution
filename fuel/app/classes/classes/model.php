@@ -25,8 +25,8 @@ class Model extends \Orm\Model {
     public static function getIds($modelObj, $idFields) {
 
         $data = [];
-        foreach($modelObj as $key => $item) {
-            foreach($idFields as $field) {
+        foreach($modelObj as $item) {
+            foreach($idFields as $key => $field) {
                 $data[$key][] = $item->$field;
             }
         }
@@ -53,8 +53,8 @@ class Model extends \Orm\Model {
      */
     public static function byIds($ids) {
 
-        $model = get_called_class();
-
+        $ids     = array_unique($ids);
+        $model   = get_called_class();
         $results = $model::find('all', ['where' => [['id', 'in', $ids]]]);
 
         $data = [];
