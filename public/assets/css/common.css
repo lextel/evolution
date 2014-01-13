@@ -214,11 +214,13 @@ textarea:focus,input:focus{
 .sns-bar .sns-love{
     display: inline-block;
     text-indent: 12px;
+    padding: 4px 6px;
     background: url("../images/icon-02.png") no-repeat -0px -175px;
 }
 .sns-bar .sns-comment{
     display: inline-block;
     text-indent: 12px;
+    padding: 4px 6px;
     background: url("../images/icon-02.png") no-repeat -90px -174px;
 }
 .buy{

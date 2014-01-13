@@ -2,18 +2,42 @@
 
 class Controller_Index extends Controller_Frontend {
 
-    /*
-    *首页功能
-    *幻灯片播放
-    *右侧公告
-    *最新揭晓
-    *人气推荐
-    *右侧大家在乐拍
-    *最下大家晒单
-    */
+    /**
+     * 首页
+     */
     public function action_index() {
+
+        $phaseModel = new Model_Phase();
+
+        $memberIds = [];
+        $phaseIds = [];
+
+        // 最新揭晓
+        $data['wins'] = $phaseModel->getWins(0, 4);
+        list($mids) = Model_Phase::getIds($data['wins'], ['member_id']);
+        $memberIds = array_merge($memberIds, $mids);
+
+        // 正在乐拍
+        $orderModel = new Model_Order();
+        $data['orders'] = $orderModel->newOrders(0, 8);
+        list($mids, $pids) = Model_Order::getIds($data['orders'], ['member_id', 'phase_id']);
+        $memberIds = array_merge($memberIds, $mids);
+        $phaseIds = array_merge($phaseIds, $pids);
+
+        // 晒单分享
+        $postModel = new Model_Post();
+        $data['posts'] =$postModel->newPosts(4); 
+        list($mids, $pids) = Model_Post::getIds($data['posts'], ['member_id', 'phase_id']);
+        $memberIds = array_merge($memberIds, $mids);
+        $phaseIds = array_merge($phaseIds, $pids);
+
+        // 订单的期数信息
+        $data['phases'] = Model_Phase::byIds($phaseIds);
+        $data['members'] = Model_Member::byIds($memberIds);
+
         $view = ViewModel::forge('index', 'view');
-        $this->template->title = '乐乐淘首页';
+        $view->set('data', $data);
+        $this->template->title = '乐乐淘';
         $this->template->layout = $view;
     }
 

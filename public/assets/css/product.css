@@ -697,6 +697,8 @@
     right: 0;
     padding: 5px 10px;
     border: 1px solid #EEEEEE;
+    background:#AF2812;
+    color: #FFFFFF;
 }
 /*所有参与记录*/
 .record,.look-bak{
