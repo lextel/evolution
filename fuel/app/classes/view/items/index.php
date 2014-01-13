@@ -55,6 +55,7 @@ class View_Items_index extends Viewmodel {
         // 即将揭晓
         $this->getTopItem = function() {
 
+            $select = ['title', 'image', 'cost', 'remain', 'joined', 'amount'];
             $where = [
                 'opentime'  => \Helper\Item::NOT_OPEN, 
                 'is_delete' => \Helper\Item::NOT_DELETE, 
@@ -62,10 +63,9 @@ class View_Items_index extends Viewmodel {
                 ];
             $orderBy = ['remain' => 'asc'];
 
-            $phase = Model_Phase::find('first', ['where' => $where, 'order_by' => $orderBy]);
-            $itemModel = new Model_Item();
+            $item = Model_Phase::find('first', ['select' => $select, 'where' => $where, 'order_by' => $orderBy]);
 
-            return $itemModel->itemInfo($phase);
+            return $item;
         };
 
         // 排序处理
@@ -100,20 +100,16 @@ class View_Items_index extends Viewmodel {
         // 今日热门
         $this->getHots = function() {
 
+            $select = ['title', 'image', 'cost', 'remain', 'joined', 'amount'];
             $where = [
                 'opentime'  => \Helper\Item::NOT_OPEN, 
                 'is_delete' => \Helper\Item::NOT_DELETE, 
                 'status'    => \Helper\Item::IS_CHECK
                 ];
 
-            $phases = Model_Phase::find('all', ['where' => $where, 'order_by' => ['hots' => 'desc'], 'limit' => 10]);
-            $itemModel = new Model_Item();
-            $items = [];
-            foreach($phases as $phase) {
-                $items[] = $itemModel->itemInfo($phase);
-            }
+            $phases = Model_Phase::find('all', ['select' => $select, 'where' => $where, 'order_by' => ['hots' => 'desc'], 'limit' => 10]);
 
-            return $items;
+            return $phases;
         };
     }
 }
