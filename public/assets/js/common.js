@@ -17,15 +17,8 @@ $(function(){
     var w_height=$(window).height();
     $(".weiXin").css({right:(w_width-980)/2-150,top:w_height/4});
     var getRight=(w_width-980)/2-80
-    $(window).scroll(function(){
-          if( $(document).scrollTop()>=150){
-             $(".short-cut").show();
-             $(".short-cut").css({right:getRight});
-          }
-        else{
-              $(".short-cut").hide();
-          }
-     });
+    $(".short-cut").show();
+    $(".short-cut").css({right:getRight});
     $(window).resize(function(){
         var screenWidth = $(window).width();
         var screenHeight = $(window).height();

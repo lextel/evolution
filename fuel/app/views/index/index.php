@@ -19,15 +19,14 @@
                 </div>
                     <ul>
                         <?php
-                            foreach($newWins() as $win) { 
-
+                            foreach($data['wins'] as $win) { 
                                 if($win->code_count == 0) {
                         ?>
                         <li class="active">
                             <div class="img-box img-md">
-                                <?php echo Html::anchor('w/'.$win->id, Html::img($getItemInfo($win->item_id)->image));?>
+                                <?php echo Html::anchor('w/'.$win->id, Html::img($win->image));?>
                             </div>
-                            <h4 class="title-br"><?php echo Html::anchor('m/'.$win->id, $getPhaseInfo($win->id)->title);?></h4>
+                            <h4 clsss="title-br"><?php echo Html::anchor('m/'.$win->id, $win->title);?></h4>
                             <div id="win<?php echo $win->id; ?>" class="news-count countdown" endtime="<?php echo date('M d, Y H:i:s', $win->opentime);?>" phaseId="<?php echo $win->id; ?>"></div>
                             <div style="display: none" class="news-count" >计算中...</div>
                             </li>
@@ -36,10 +35,10 @@
                         ?>
                         <li>
                             <div class="img-box img-md">
-                                <?php echo Html::anchor('w/'.$win->id, Html::img($getItemInfo($win->item_id)->image));?>
+                                <?php echo Html::anchor('w/'.$win->id, Html::img($win->image));?>
                             </div>
-                            <h4 class="title-br"><?php echo Html::anchor('m/'.$win->phase_id, $getPhaseInfo($win->id)->title);?></h4>
-                            <div class="username">获得者: <?php echo Html::anchor('u/'.$win->member_id, $getMemberInfo($win->member_id)->nickname, ['class'=>'']);?></div>
+                            <h4 class="title-br"><?php echo Html::anchor('m/'.$win->phase_id, $win->title);?></h4>
+                            <div class="username">获得者: <?php echo Html::anchor('u/'.$win->member_id, $data['members'][$win->member_id]->nickname, ['class'=>'']);?></div>
                         </li>
                         <?php 
                                 }
@@ -65,11 +64,14 @@
                     <?php echo Html::anchor('m', '更多>>', ['class'=>'more']);?>
                 </div>
              <ul>
-                    <?php foreach($topHotItems() as $phase) { ?>
+                    <?php 
+                        Config::load('common');
+                        foreach($topHotItems() as $phase) { 
+                    ?>
                     <li>
                         <div class="title-box">
                             <h3 class="title-md"><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h3>
-                            <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?>.00</b></span>
+                            <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
                         </div>
                         <div class="img-box img-lg">
                             <?php echo Html::anchor('m/'.$phase->id, Html::img('image/400x400/'.$phase->image));?>
@@ -97,20 +99,21 @@
                 <div class="title"><h3>大家正在乐拍</h3></div>
                 <div class="buyListdiv" >
                 <ul class="buyList">
-                    <?php foreach($orders() as $order) {?>
+                    <?php 
+                    foreach($data['orders'] as $order) {
+                    ?>
                     <li>
                         <div class="img-box img-sm fl">
-                            <?php echo Html::anchor('m/'.$order->phase_id, Html::img('image/80x80/'.$getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image));?>
+                            <?php echo Html::anchor('m/'.$order->phase_id, Html::img('image/80x80/'.$data['phases'][$order->phase_id]->image));?>
                         </div>
                         <div class="info-side">
-                            <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $getMemberInfo($order->member_id)->nickname, ['class'=>'b']);?>
+                            <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $data['members'][$order->member_id]->nickname, ['class'=>'b']);?>
                              <?php echo \Helper\Timer::friendlyDate($order->created_at);?>乐拍了</div>
-                            <h4 class="title-br"><?php echo Html::anchor('m/'.$order->phase_id, $getPhaseInfo($order->phase_id)->title);?></h4>
+                            <h4 class="title-br"><?php echo Html::anchor('m/'.$order->phase_id, $data['phases'][$order->phase_id]->title);?></h4>
                         </div>
 
                     </li>
-               <?php } ?>
-
+                    <?php } ?>
                 </ul>
                 </div>
             </div>
@@ -123,7 +126,7 @@
             <li>
                 <div class="title-box">
                     <h3 class="title-md"><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h3>
-                    <span class="price">价值 <b>￥<?php echo $getItemInfo($phase->item_id)->price;?>.00</b></span>
+                    <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
                 </div>
                 <div class="img-box img-lg"
                     <?php echo Html::anchor('m/'.$phase->id, Html::img('image/400x400/'.$phase->image));?>
@@ -154,38 +157,41 @@
         </div>
 
         <div class="bask-side">
-            <?php if($topPost) { ?>
+            <?php 
+                if(isset($data['posts']) && !empty($data['posts'])):
+                $post = array_shift($data['posts']);
+            ?>
             <div class="bask fl">
                 <div class="img-box img-md fl">
-                    <?php echo Html::anchor('p/'.$topPost->id, Html::img($topPost->topimage));?>
+                    <?php echo Html::anchor('p/'.$post->id, Html::img($post->topimage));?>
                 </div>
                 <div class="bask-info fr">
                     <div class="title-box">
-                        <h3 class="title-md"><?php echo Html::anchor('p/'.$topPost->id, $topPost->title);?>;?></h3>
-                        <div class="winner">获得者：<b><?php echo Html::anchor('u/'.$topPost->member_id, $getMemberInfo($topPost->member_id)->nickname, ['class'=>'bule']);?></b></div>
+                        <h3 class="title-md"><?php echo Html::anchor('p/'.$post->id, $post->title);?>;?></h3>
+                        <div class="winner">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $data['members'][$post->member_id]->nickname, ['class'=>'bule']);?></b></div>
                     </div>
                     <div class="bask-content">
-                        <?php echo mb_substr($topPost->desc, 0, 120,'utf-8');?>
+                        <?php echo mb_substr($post->desc, 0, 120,'utf-8');?>
                     </div>
                 </div>
             </div>
-            <?php } ?>
-            <?php if($posts()) { ?>
             <div class="bask-list">
                 <ul>
-                    <?php foreach($posts() as $post) { ?>
+                    <?php foreach($data['posts'] as $post) { ?>
                     <li>
                         <div class="img-box img-md">
                             <?php echo Html::anchor('p/'.$post->id, Html::img($post->topimage));?>
                         </div>
                         <h4 class="title-mx"><?php echo Html::anchor('p/'.$post->id, $post->title);?></h4>
-                        <div class="username">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $getMemberInfo($post->member_id)->nickname);?></b></div>
-                        <div class="datetime">揭晓时间：<?php  echo date('Y-m-d', $getPhaseInfo($post->phase_id)->opentime);?></div>
+                        <div class="username">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $data['members'][$post->member_id]->nickname);?></b></div>
+                        <div class="datetime">揭晓时间：<?php  echo date('Y-m-d', $data['phases'][$post->phase_id]->opentime);?></div>
                     </li>
                     <?php } ?>
                 </ul>
             </div>
-            <?php } ?>
+            <?php
+                endif;
+            ?>
         </div>
     </div>
     <!--晒单分享结束-->
