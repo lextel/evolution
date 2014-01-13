@@ -22,13 +22,8 @@ class View_Items_Search extends Viewmodel {
                 ];
 
             $phases = Model_Phase::find('all', ['where' => $where, 'order_by' => ['hots' => 'desc'], 'limit' => 10]);
-            $itemModel = new Model_Item();
-            $items = [];
-            foreach($phases as $phase) {
-                $items[] = $itemModel->itemInfo($phase);
-            }
 
-            return $items;
+            return $phases;
         };
     }
 }
