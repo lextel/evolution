@@ -10,7 +10,7 @@
             </li>
             <li>
                 <div class="price fl">帐户积分： <b><?php echo $current_user->points;?>点</b> </div>
-                <?php echo Html::anchor('/u/getrecharge', '<button class="edit fl">充值</button>');?>
+                <?php echo Html::anchor('/u/getrecharge', '<button class="edit btn-red fl">充值</button>');?>
             </li>
         </ul>
         <?php foreach($orders as $item) { ?>
