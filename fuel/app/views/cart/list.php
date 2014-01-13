@@ -58,7 +58,7 @@
                             <td><span class="price"><b><?php echo $item->get_qty() * Config::get('point') . Config::get('unit'); ?></b></span></td>
                             <td><a href="javascript:void(0)" action="delete">删除</a></td>
                         </tr>
-                        <?php 
+                        <?php
                             endforeach;
                             else:
                                 if(!is_null($current_user)):

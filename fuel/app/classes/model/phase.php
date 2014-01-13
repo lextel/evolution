@@ -1,6 +1,6 @@
 <?php
 
-class Model_Phase extends \Orm\Model
+class Model_Phase extends  \Classes\Model
 {
 
     /**
