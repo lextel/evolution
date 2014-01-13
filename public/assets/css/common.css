@@ -190,6 +190,10 @@ textarea:focus,input:focus{
 .btn-sm{
     padding:2px 4px;
 }
+.btn-lg{
+    padding:8px 15px;
+    font-size: 14px;
+}
 .btn-block{
     display: block;
 }
