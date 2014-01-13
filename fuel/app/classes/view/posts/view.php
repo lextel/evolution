@@ -37,6 +37,7 @@ class View_Posts_View extends Viewmodel {
            return $members;
         };
         
+        
        //获得最新的晒单列表5个
        $this->getNewPosts = function(){
             $posts = Model_Post::find('all',[
