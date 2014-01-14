@@ -18,8 +18,8 @@
     <div class="product-list">
         <ul class="product-box">
             <?php
-                if($items) :
                 Config::load('common');
+                if(!empty($items)) :
                 foreach($items as $item):
             ?>
             <li>
