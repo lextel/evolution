@@ -208,25 +208,6 @@ class Model_Member extends \Classes\Model
     }
 
     /**
-     * 批量获取用户信息
-     *
-     * @param $ids     array 会员IDs
-     * @param $select  array 获取的字段
-     *
-     * @return array
-     */
-    public static function byIds($ids, $select = []) {
-
-        $members = Model_Member::find('all', ['select' => $select, 'where' => [['id', 'IN', $ids]]]);
-        $memberInfo = [];
-        foreach($members as $member) {
-            $memberInfo[$member->id] = $member;
-        }
-
-        return $memberInfo;
-    }
-
-    /**
      * 冻结用户
      *
      * @param $id integer 用户ID

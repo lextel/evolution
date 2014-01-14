@@ -155,24 +155,4 @@ class Model_Phase extends \Classes\Model {
 
         return Model_Phase::find($id);
     }
-
-    /**
-     * 批量获取用户信息
-     *
-     * @param $ids     array 会员IDs
-     * @param $select  array 获取的字段
-     *
-     * @return array
-     */
-    public static function byIds($ids, $select = []) {
-
-        $phases = Model_Phase::find('all', ['select' => $select, 'where' => [['id', 'IN', $ids]]]);
-        $phaseInfo = [];
-        foreach($phases as $phase) {
-            $phaseInfo[$phase->id] = $phase;
-        }
-
-        return $phaseInfo;
-    }
-
 }
