@@ -355,6 +355,10 @@ $(function(){
                     if($('.dropdown-list').find('li').length == 0) {
                         $('.dropdown-list').html('<li>购物车是空的</li>');
                     }
+
+                    var count = $('.item-cart').find('s').html();
+                    count = parseInt(count);
+                    $('.item-cart').find('s').html(count-1);
                 }
             }
         });
@@ -362,8 +366,11 @@ $(function(){
 
     // 添加购物车效果
     $('.doCart').click(function () {
-        var cart = $('.shopping-cart');
+        var cart = $('.item-cart');
         var imgtodrag = $(this).parent().prev().prev().prev().find("a").eq(0);
+
+        var id = $(this).attr('phaseId');
+        var qty = $(this).parent().prev().find('input').val();
         if (imgtodrag) {
             var imgclone = imgtodrag.clone()
                 .offset({
@@ -381,34 +388,30 @@ $(function(){
             .animate({
                 'top': cart.offset().top,
                 'left': cart.offset().left,
-                'width': 170,
-                'height':30 
+                'width': 59,
+                'height':59 
             }, 1000);
             imgclone.animate({
                 'opacity': '0',
-                'width': 170,
-                'height': 30 
+                'width': 59,
+                'height': 59 
             }, function () {
                 $(this).detach()
+                // 提交到后台
+                $.ajax({
+                    url: BASE_URL + 'cart/new',
+                    data: {id:id, qty:qty},
+                    type: 'post',
+                    dataType: 'json',
+                    success: function(data) {
+                        if(data.status == 'success') {
+                            $('.item-cart').find('s').html(data.msg);
+                        }
+                    }
+                });
             });
         }
-
-        // 提交到后台
-        var id = $(this).attr('phaseId');
-        var qty = $(this).parent().prev().find('input').val();
-        $.ajax({
-            url: BASE_URL + 'cart/new',
-            data: {id:id, qty:qty},
-            type: 'post',
-            dataType: 'json',
-            success: function(data) {
-                if(data.status == 'success') {
-                    // 统计购物车数量
-                }
-            }
-        });
     });
-
 });
 
 // 初始化ajax分页
@@ -672,6 +675,26 @@ $(function(){
            }
       });
 });
+
+// 收藏
+function addFavorite(sURL, sTitle)
+{
+    try
+    {
+        window.external.addFavorite(sURL, sTitle);
+    }
+    catch (e)
+    {
+        try
+        {
+            window.sidebar.addPanel(sTitle, sURL, "");
+        }
+        catch (e)
+        {
+            alert("加入收藏失败，请使用Ctrl+D进行添加");
+        }
+    }
+}
 
 
 

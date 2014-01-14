@@ -16,16 +16,21 @@ class Controller_Cart extends Controller_Frontend {
     // 快捷购物车信息获取
     public function action_info() {
 
-        $carts = Cart::items();
-        $data = [];
-        $itemModel = new Model_Item();
         Config::load('common');
+        $carts = Cart::items();
+        $ids = [0];
         foreach($carts as $cart) {
-            $phase = Model_Phase::find($cart->get_id());
-            $item = $itemModel->itemInfo($phase);
+            if(!empty($cart->get_id())) { 
+                $ids[] = $cart->get_id();
+            }
+        }
+
+        $phases = Model_Phase::byIds($ids);
+        $data = [];
+        foreach($carts as $cart) {
             $data[] = [
-                    'image' => $item->image,
-                    'title' => $item->title,
+                    'image' => $phases[$cart->get_id()]->image,
+                    'title' => $phases[$cart->get_id()]->title,
                     'unit'  => Config::get('unit'),
                     'point'  => Config::get('point'),
                     'qty'   => $cart->get_qty(),
@@ -86,7 +91,9 @@ class Controller_Cart extends Controller_Frontend {
             'qty'   => Input::post('qty'),
         ]);
 
-        return json_encode(['status' => $result ? 'success' : 'fail']);
+        $count = count(Cart::items());
+
+        return json_encode(['status' => $result ? 'success' : 'fail', 'msg' => $count]);
     }
 
     // 快捷购物车删除商品
