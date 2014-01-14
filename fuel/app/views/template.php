@@ -129,9 +129,9 @@
     </div>
     <!--二维码结束-->
     <div class="short-cut">
-        <a  href="javascript:void(null);" class="item-cart"><s>0</s></a>
+        <a  href="<?php echo Uri::create('cart/list'); ?>" class="item-cart"><s><?php echo $cartCount; ?></s></a>
         <a  href="javascript:void(null)" class="item-qq"></a>
-        <a  href="javascript:void(null)" class="item-love"></a>
+        <a  href="javascript:void(null)" onclick="addFavorite(window.location,document.title)"  class="item-love"></a>
         <a  href="javascript:void(null)" class="item-gotTop"></a>
     </div>
     <script>

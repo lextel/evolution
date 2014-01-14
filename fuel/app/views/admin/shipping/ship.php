@@ -26,13 +26,14 @@
         </div>
         <div class="form-group">
           <?php echo Form::label('快递公司:', 'exname', array('class'=>'control-label col-sm-1')); ?>
-          <div class="col-sm-8">
-            <?php echo Form::input('exname', Input::post('exname', isset($ship) ? $ship->exname : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'快递公司')); ?>
+          <div class="col-sm-2">
+            <?php Config::load('shipping');?>
+            <?php echo Form::select('exname', Input::post('exname', isset($ship) ? $ship->exname : ''), Config::get('company'), ['class' => 'form-control']); ?>
           </div>
         </div>
         <div class="form-group">
           <?php echo Form::label('快递单号:', 'excode', array('class'=>'control-label col-sm-1')); ?>
-          <div class="col-sm-8">
+          <div class="col-sm-2">
             <?php echo Form::input('excode', Input::post('excode', isset($ship) ? $ship->excode : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'快递单号')); ?>
           </div>
         </div>
