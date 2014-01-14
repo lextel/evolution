@@ -16,7 +16,7 @@ class View_Cart_Result extends Viewmodel {
         // 即将揭晓
         $this->getRemains = function() {
 
-            $where = ['status' => \Helper\Item::IS_CHECK, 'opentime' => \Helper\Item::NOT_OPEN];
+            $where = ['status' => \Helper\Item::IS_CHECK, 'opentime' => \Helper\Item::NOT_OPEN, 'is_delete' => \Helper\Item::NOT_DELETE];
             $phases = Model_Phase::find('all', ['where' => $where, 'order_by' => ['remain' => 'asc'], 'limit' => 4]);
             $itemModel = new Model_Item();
             $items = [];
