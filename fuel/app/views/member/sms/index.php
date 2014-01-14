@@ -1,5 +1,4 @@
-<h2><span class='muted'></span></h2>
-<br>
+
 <div class="content-inner">
         <div class="message-box">
             <?php if ($member_sms): ?>

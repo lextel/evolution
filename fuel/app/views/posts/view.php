@@ -133,7 +133,7 @@
                 <span class="icon-user"></span>
             </li>
             <li>
-                <input name="password"  type="text" value="" placeholder="用户密码"  datatype="*6-18" errorms="密码范围在6-18位之间" id="form_username" class="Validform_error" />
+                <input name="password"  type="password" value="" placeholder="用户密码"  datatype="*6-18" errorms="密码范围在6-18位之间" id="form_username" class="Validform_error" />
                 <span class="icon-password"></span>
             </li>
             <li>
