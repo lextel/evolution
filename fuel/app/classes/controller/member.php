@@ -34,8 +34,6 @@ class Controller_Member extends Controller_Center{
     */
     public function action_getnickname()
     {
-        //$member = Model_Member::find_by_username($this->current_user->username);
-        //$data['member'] = $member;
         $this->template->title = '添加用户昵称';
         $this->template->layout = View::forge('member/nickname');
     }
@@ -50,14 +48,15 @@ class Controller_Member extends Controller_Center{
         if ($val->run())
         {
             $member = Model_Member::find($this->current_user->id);
-
-            if (!Model_Member::checkNickname(Input::post('nickname')))
+            $nickname = Input::post('nickname');
+            if (!Model_Member::checkNickname($nickname))
             {
                 Session::set_flash('error', '用户昵称已经存在了');
+                Session::set_flash('nickname', $nickname);
                 Response::redirect('/u/getnickname');
             }
 
-            $member->nickname = Input::post('nickname');
+            $member->nickname = $nickname;
             if ($member and $member->save())
             {
                 Session::set_flash('success', '更新个人设置OK');

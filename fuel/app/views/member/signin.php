@@ -12,7 +12,7 @@
 <body>
 <div class="logo-wrapper">
     <div class="logo w">
-        <a href=""><img src="/assets/images/logo.png" alt="乐乐淘首页"></a>
+        <a href="/"><img src="/assets/images/logo.png" alt="乐乐淘首页"></a>
     </div>
 </div>
 <!--中间内容开始-->
@@ -27,11 +27,16 @@
             </div>
             <ul class="loginBar">
                 <li>
-                   <?php echo Form::input('username', '', array('type'=>"text",'name'=>'username','datatype'=>'e','errorms'=>'请输入邮箱帐号','placeholder'=>'输入邮箱帐号')); ?>
-                </li>
-                <li><span class="Validform_checktip"></span></li>
-                <li><?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'输入密码','name'=>'userpassword','datatype'=>'*6-15','errormsg'=>'密码范围在6~15位之间！' )); ?></li>
-                <li><span class="Validform_checktip"></span></li>
+                   <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'name'=>'username',
+                      'datatype'=>'e','errorms'=>'请输入邮箱帐号','placeholder'=>'输入邮箱帐号')); ?>
+                   <?php if (Session::get_flash('signError', null)) { ?>
+                   <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('signError');?></span>
+                   <?php }else{?>
+                   <span class="Validform_checktip"></span>
+                   <?php } ?></li>
+                <li><?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'输入密码',
+                    'name'=>'userpassword','datatype'=>'*6-18','errormsg'=>'密码范围在6~18位之间！' )); ?>
+                <span class="Validform_checktip"></span></li>
                 <li>
                     <button class="login">登录</button>
                     <?php echo Html::anchor('forgot', '忘记密码?', array('class' => ''));?>
