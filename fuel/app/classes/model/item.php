@@ -116,15 +116,17 @@ class Model_Item extends \Classes\Model {
 
         $phases = Model_Phase::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::PAGESIZE]);
 
+        list($memberIds) = Model_Phase::getIds($phases, ['member_id']);
+        $members = Model_Member::byIds($memberIds);
+
         $data = [];
         foreach($phases as $phase) {
             if($phase->member_id) {
-                $member = Model_Member::find($phase->member_id);
                 $data[] = [
                         'phase'    => Html::anchor(Uri::create('w/'.$phase->id), "第{$phase->phase_id}期"),
                         'code'     => $phase->code,
                         'total'    => $phase->code_count,
-                        'member'   => Html::anchor(Uri::create('u/'.$member->id), $member->nickname),
+                        'member'   => Html::anchor(Uri::create('u/'.$members[$phase->member_id]->id), $members[$phase->member_id]->nickname),
                         'opentime' => date('Y-m-d H:i:s', $phase->opentime),
                     ];
             } elseif($phase->opentime) {
