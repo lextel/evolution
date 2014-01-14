@@ -5,7 +5,7 @@ class Controller_Member_Sms extends Controller_Center{
     {
         $count = Model_Member_Sm::count(['where'=>['owner_id'=>$this->current_user->id]]);
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('u/message/p', $count, 4, 4);
+        $config = $page->setCofigPage('u/message/p', $count, 10, 4);
         $pagination = Pagination::forge('message', $config);
         $data['member_sms'] = Model_Member_Sm::find('all', [
                                                   'where'=>['owner_id'=>$this->current_user->id],
