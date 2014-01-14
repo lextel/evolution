@@ -27,5 +27,10 @@ class Controller_Frontend extends Controller_Template {
        $count = Model_Order::totalCountBuy();
         View::set_global('count', $count);
         View::set_global('current_user', $this->current_user);
+
+
+        // 统计购物车数量
+        $cartCount = count(Cart::items());
+        View::set_global('cartCount', $cartCount);
     }
 }
