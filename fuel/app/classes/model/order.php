@@ -143,7 +143,10 @@ class Model_Order extends \Classes\Model
         if($total == $count) {
             $item = Model_Item::find($phase->item_id);
             // 生成新一期
-            if($item->status == \Helper\Item::IS_CHECK && $item->phase >= $phase->phase_id + 1) {
+            if($item->status == \Helper\Item::IS_CHECK 
+               && $item->is_delete == \Helper\Item::NOT_DELETE 
+               && ($item->phase == 0 || $item->phase >= $phase->phase_id + 1)
+              ) {
                 $phaseModel = new Model_Phase();
                 $phaseModel->add($item);
             }
