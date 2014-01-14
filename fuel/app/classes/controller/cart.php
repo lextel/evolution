@@ -125,6 +125,10 @@ class Controller_Cart extends Controller_Frontend {
     // 完成支付处理
     public function action_complete() {
 
+        if(!$this->auth->check()) {
+            Response::redirect('cart/list');
+        }
+
         $this->current_user->points;
         $items = Cart::items();
         $quantity = 0;
@@ -153,6 +157,10 @@ class Controller_Cart extends Controller_Frontend {
 
     // 支付结果
     public function action_result() {
+
+        if(!$this->auth->check()) {
+            Response::redirect('cart/list');
+        }
 
         $orderIds = Input::get('orderIds', 0);
         $orderIds = explode(',', $orderIds);
