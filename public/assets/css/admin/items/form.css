@@ -1,13 +1,1 @@
-.item-img-list {
-    position: relative;
-    width: 88px;
-    padding: 1px;
-    float: left;
-    border: 2px solid #ccc;
-    margin: 5px;
-}
-.item-img-list d{
-    position: absolute;
-    right: 2px;
-    top: -4px;
-}
+

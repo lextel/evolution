@@ -85,7 +85,7 @@ echo Asset::js(
                     endif;
                 ?>
               </div>
-              <div id="files" class="col-sm-5">
+              <div id="files" class="col-sm-6">
                     <?php 
                       $index = 0;
                       if(isset($item)) {
@@ -96,7 +96,7 @@ echo Asset::js(
                                   $index = $idx;
                                   $top = ' top';
                               }
-                              echo '<div class="item-img-list'.$top.'">';
+                              echo '<div class="item-img-list'.$top.' withclose">';
                               echo '<a style="display:block;" href="javascript:void(0);" index="'.$idx.'">';
                               echo '<img src="'.Uri::create('image/80x80/'.$image).'">';
                               echo '</a>';
