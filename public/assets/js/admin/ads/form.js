@@ -18,7 +18,7 @@ $(function() {
         dataType: 'json',
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
-                $('#files').html($('<p/>').html('<img src="'+IMAGE_URL+file.link+'" alt="'+file.name+'"/><d class="close">&times;</d><input type="hidden" name="image" value="'+file.link+'">'));
+                $('#files').append('<div class="ad-img withclose"><img src="'+IMAGE_URL+file.link+'"/><input type="hidden" name="images" value="'+file.link+'"><d class="close">&times;</d></div>');
                 initAd();
             });
         },
@@ -29,6 +29,11 @@ $(function() {
         initAd();
     });
 
+    // 删除图片
+    $(document).on('click', '.close', function(){
+        $(this).parent().remove();
+    });
+
     initAd();
 });
 
@@ -36,8 +41,10 @@ $(function() {
 function initAd() {
     var val = $('#form_zone').val();
     if(val == 1) {
-        $('#files').find('p > img').attr('style', 'width: 196px; height: 70px; margin: 5px;');
+        $('#files').find('div').attr('style', 'width: 200px; height: 74px;');
+        $('#files').find('div>img').attr('style', 'width: 196px; height: 70px;');
     } else {
-        $('#files').find('p > img').attr('style', 'width: 90px; height: 50px; margin: 5px');
+        $('#files').find('div').attr('style', 'width: 94px; height: 54px;');
+        $('#files').find('div>img').attr('style', 'width: 90px; height: 50px;');
     }
 }

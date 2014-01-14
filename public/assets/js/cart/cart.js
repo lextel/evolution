@@ -15,7 +15,7 @@ $(function(){
     });
 
     // 单个删除
-    $('button[action="delete"]').click(function(){
+    $('a[action="delete"]').click(function(){
         var tr = $(this).parent().parent();
         tr.eq(0).find('input').attr('checked', true);
         $('#cartForm').submit();
@@ -90,8 +90,8 @@ function updateTotal() {
  */
 function updateSubtotal(obj) {
     var val = obj.val();
-    var target = obj.parent().parent().next().find('s');
+    var target = obj.parent().parent().next();
 
     var subtotal = parseInt(val) * parseInt(POINT);
-    target.html(subtotal + UNIT);
+    target.html('<span class="price"><b>' +subtotal + UNIT+'</b></span>');
 }
