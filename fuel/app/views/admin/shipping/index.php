@@ -4,7 +4,7 @@
             <div class="input-group">
               <span class="input-group-addon">状态</span>
               <select class="form-control" name="status" id="form_cate_id">
-                  <?php 
+                  <?php
                       Config::load('shipping');
                       $status = Config::get('status');
                       $current_status = Input::get('status');
@@ -38,8 +38,8 @@
         </tr>
     </thead>
     <tbody>
-        <?php 
-            foreach ($ships as $item): 
+        <?php
+            foreach ($ships as $item):
             $userInfo = $getUser($item->member_id);
             $phaseInfo = $getItem($item->phase_id);
         ?>

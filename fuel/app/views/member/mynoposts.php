@@ -7,15 +7,9 @@ echo Asset::css(
     );
 echo Asset::js(
         [
-            //'jquery.validate.js', 
-            //'additional-methods.min.js',
             'jquery.ui.widget.js',
             'jquery.iframe-transport.js',
             'jquery.fileupload.js',
-            //'ueditor/ueditor.config.js',
-            //'ueditor/ueditor.all.min.js',
-            //'ueditor/lang/zh-cn/zh-cn.js',
-            //'admin/items/form.js', 
             ]
         ); 
 ?>
@@ -70,7 +64,6 @@ $(function(){
             <table>
                     <thead>
                     <tr>
-                        <th>编号</th>
                         <th>商品图片</th>
                         <th>商品信息</th>
                         <th>操作</th>
@@ -83,7 +76,6 @@ $(function(){
                     <?php foreach($noposts as $phase) { ?>
                     <tr>
                         
-                        <td><?php echo $phase->id;?></td>
                         <td><div class="img-box img-sm"><?php echo Html::anchor('/w/'.$phase->id, Html::img($getItem($phase->item_id)->image));?></div></td>
                         <td>
                             <div class="text-title">（第<?php echo $phase->phase_id;?>期）<?php echo $phase->title;?></div>

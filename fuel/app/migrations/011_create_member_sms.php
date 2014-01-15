@@ -15,7 +15,7 @@ class Create_member_sms
             'user_name' => array('constraint' => 255, 'type' => 'varchar'),
             'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
             'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
-
+            'status' => array('constraint' => 11, 'type' => 'int', 'null' => true),
         ), array('id'));
     }
 

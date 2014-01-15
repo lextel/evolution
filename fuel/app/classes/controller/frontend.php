@@ -24,7 +24,7 @@ class Controller_Frontend extends Controller_Template {
         } else {
             $this->current_user = $this->auth->check() ? Model_Member::find_by_username($this->auth->get_screen_name()) : null;
         }
-       $count = Model_Order::totalCountBuy();
+        $count = Model_Order::totalCountBuy();
         View::set_global('count', $count);
         View::set_global('current_user', $this->current_user);
 

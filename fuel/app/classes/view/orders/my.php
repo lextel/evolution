@@ -5,12 +5,13 @@ class View_Orders_my extends Viewmodel
     public function view(){
         $this->countOrder = function($orders){
           $data=['winstart'=>0, 'buy'=>0, 'winok'=>0];
-          foreach ($orders as $order) {
-            $info = Model_Phase::find($order->phase_id);
-            if ($info->remain > 0){
+          list($phaseIds) = Model_Order::getIds($orders, ['phase_id',]);
+          $phases = Model_Phase::byIdS($phaseIds);
+          foreach ($phases as $item) {
+            if ($item->remain > 0){
                $data['buy'] += 1;
             }else{
-               if ($info->member_id > 0){
+               if ($item->member_id > 0){
                    $data['winok'] += 1;
                }else{
                      $data['winstart'] += 1;

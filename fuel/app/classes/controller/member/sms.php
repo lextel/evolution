@@ -5,7 +5,7 @@ class Controller_Member_Sms extends Controller_Center{
     {
         $count = Model_Member_Sm::count(['where'=>['owner_id'=>$this->current_user->id]]);
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('u/message/p', $count, 10, 4);
+        $config = $page->setCofigPage('u/message/p', $count, 15, 4);
         $pagination = Pagination::forge('message', $config);
         $data['member_sms'] = Model_Member_Sm::find('all', [
                                                   'where'=>['owner_id'=>$this->current_user->id],
@@ -13,7 +13,8 @@ class Controller_Member_Sms extends Controller_Center{
                                                   'rows_limit'=>$pagination->per_page,
                                                   'rows_offset'=>$pagination->offset,]
                                          );
-        $this->template->title = "Member_sm";
+        Model_Member_Sm::updateNew($this->current_user->id);
+        $this->template->title = "用户中心消息管理列表";
         $this->template->layout->content = View::forge('member/sms/index', $data);
     }
 
