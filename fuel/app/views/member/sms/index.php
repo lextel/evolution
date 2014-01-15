@@ -16,7 +16,11 @@
                     <?php foreach ($member_sms as $item): ?>
                     <tr>
                         <td><?php echo $item->id;?></td>
+                        <?php if ($item->type == 'win') { ?>
+                        <td style="text-align:left;">恭喜您获得了商品 <b><?php echo $item->title;?></b> </td>
+                        <?php }else { ?>
                         <td><?php echo $item->title;?></td>
+                        <?php }?>
                         <td><?php echo Date('Y-m-d H:i:s', $item->created_at);?></td>
                         <td><?php echo $item->user_name;?></td>
                     </tr>

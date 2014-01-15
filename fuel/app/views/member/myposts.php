@@ -11,7 +11,6 @@
             <table>
                 <thead>
                 <tr>
-                    <th>编号</th>
                     <th>晒单图片</th>
                     <th>晒单信息</th>
                     <th>晒单状态</th>
@@ -24,11 +23,10 @@
                   }?>
                 <?php foreach($posts as $post) { ?>
                 <tr>
-                    <td><?php echo $post->id;?></td>
                     
                     <td><div class="img-box img-sm">
                     <?php if ($post->status == 1) { ?>
-                    <?php echo Html::anchor('u/p'.$post->id, Html::img($post->topimage)); ?>
+                    <?php echo Html::anchor('u/p'.$post->id, Html::img($post->topimage ? $post->topimage : '')); ?>
                     <?php } else { ?>
                     <?php echo Html::img($post->topimage); ?>
                     <?php }?>

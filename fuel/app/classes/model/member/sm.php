@@ -11,6 +11,7 @@ class Model_Member_Sm extends \Classes\Model
         'user_name',
         'created_at',
         'updated_at',
+        'status',
     );
 
     protected static $_observers = array(
@@ -34,6 +35,12 @@ class Model_Member_Sm extends \Classes\Model
         $val->add_field('user_name', 'User Name', 'required|max_length[255]');
 
         return $val;
+    }
+
+    public static function updateNew($owner_id)
+    {
+         DB::update('member_sms')->set(['status'  => 1])->where('owner_id', '=', $owner_id)->execute();
+        return false;
     }
 
 }
