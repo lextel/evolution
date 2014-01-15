@@ -17,7 +17,7 @@ $(function(){
     // 单个删除
     $('a[action="delete"]').click(function(){
         var tr = $(this).parent().parent();
-        tr.eq(0).find('input').attr('checked', true);
+        tr.eq(0).find('input').prop('checked', true);
         $('#cartForm').submit();
 
         return false;
