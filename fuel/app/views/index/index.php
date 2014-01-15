@@ -128,7 +128,7 @@
                     <h3 class="title-md"><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h3>
                     <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
                 </div>
-                <div class="img-box img-lg"
+                <div class="img-box img-lg">
                     <?php echo Html::anchor('m/'.$phase->id, Html::img('image/400x400/'.$phase->image));?>
                 </div>
                 <dl class="progress-side">
