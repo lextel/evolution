@@ -24,7 +24,7 @@
                         ?>
                         <li class="active">
                             <div class="img-box img-md">
-                                <?php echo Html::anchor('w/'.$win->id, Html::img($win->image));?>
+                                <?php echo Html::anchor('w/'.$win->id, Html::img($win->image, ['rel' => 'nofollow']));?>
                             </div>
                             <h4 clsss="title-br"><?php echo Html::anchor('m/'.$win->id, $win->title);?></h4>
                             <div id="win<?php echo $win->id; ?>" class="news-count countdown" endtime="<?php echo date('M d, Y H:i:s', $win->opentime);?>" phaseId="<?php echo $win->id; ?>"></div>
@@ -35,9 +35,9 @@
                         ?>
                         <li>
                             <div class="img-box img-md">
-                                <?php echo Html::anchor('w/'.$win->id, Html::img($win->image));?>
+                                <?php echo Html::anchor('w/'.$win->id, Html::img($win->image), ['rel' => 'nofollow']);?>
                             </div>
-                            <h4 class="title-br"><?php echo Html::anchor('m/'.$win->phase_id, $win->title);?></h4>
+                            <h4 class="title-br"><?php echo Html::anchor('w/'.$win->id, $win->title);?></h4>
                             <div class="username">获得者: <?php echo Html::anchor('u/'.$win->member_id, $data['members'][$win->member_id]->nickname, ['class'=>'']);?></div>
                         </li>
                         <?php 
@@ -74,7 +74,7 @@
                             <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
                         </div>
                         <div class="img-box img-lg">
-                            <?php echo Html::anchor('m/'.$phase->id, Html::img('image/400x400/'.$phase->image));?>
+                            <?php echo Html::anchor('m/'.$phase->id, Html::img('image/400x400/'.$phase->image), ['rel' => 'nofollow']);?>
                         </div>
                         <dl class="progress-side">
                             <dd>
@@ -89,7 +89,7 @@
                                 <span class="fr">剩余人次</span>
                             </dd>
                         </dl>
-                        <?php echo Html::anchor('m/'.$phase->id, '<button class="buy">立即乐拍</button>');?>
+                        <?php echo Html::anchor('m/'.$phase->id, '<button class="buy">立即乐拍</button>', ['rel' => 'nofollow']);?>
                     </li>
                     <?php } ?>
                 </ul>
@@ -104,7 +104,7 @@
                     ?>
                     <li>
                         <div class="img-box img-sm fl">
-                            <?php echo Html::anchor('m/'.$order->phase_id, Html::img('image/80x80/'.$data['phases'][$order->phase_id]->image));?>
+                            <?php echo Html::anchor('m/'.$order->phase_id, Html::img('image/80x80/'.$data['phases'][$order->phase_id]->image), ['rel' => 'nofollow']);?>
                         </div>
                         <div class="info-side">
                             <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $data['members'][$order->member_id]->nickname, ['class'=>'b']);?>
@@ -129,7 +129,7 @@
                     <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
                 </div>
                 <div class="img-box img-lg">
-                    <?php echo Html::anchor('m/'.$phase->id, Html::img('image/400x400/'.$phase->image));?>
+                    <?php echo Html::anchor('m/'.$phase->id, Html::img('image/400x400/'.$phase->image), ['rel' => 'nofollow']);?>
                 </div>
                 <dl class="progress-side">
                     <dd>
@@ -144,7 +144,7 @@
                         <span class="fr">剩余人次</span>
                     </dd>
                 </dl>
-                <?php echo Html::anchor('m/'.$phase->id, '<button class="buy">立即乐拍</button>');?>
+                <?php echo Html::anchor('m/'.$phase->id, '<button class="buy">立即乐拍</button>', ['rel' => 'nofollow']);?>
             </li>
             <?php } ?>
         </ul>
@@ -163,7 +163,7 @@
             ?>
             <div class="bask fl">
                 <div class="img-box img-md fl">
-                    <?php echo Html::anchor('p/'.$post->id, Html::img($post->topimage));?>
+                    <?php echo Html::anchor('p/'.$post->id, Html::img($post->topimage), ['rel' => 'nofollow']);?>
                 </div>
                 <div class="bask-info fr">
                     <div class="title-box">
