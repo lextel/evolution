@@ -39,6 +39,7 @@
             ?>
             <!--获奖者开始-->
             <div class="previous-box">
+                <div class="title"><h3>上期获奖者</h3></div>
                 <div class="head-img fl"><a href="<?php Uri::create('u/'.$winner->id); ?>"><img src="<?php echo Uri::create($winner->avatar); ?>" alt=""></a></div>
                 <div class="info-side fl">
                     <div class="username">获得者<a href="<?php Uri::create('u/'.$winner->id); ?>"><b><?php echo $winner->nickname; ?></b></a></div>

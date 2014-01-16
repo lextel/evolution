@@ -325,13 +325,14 @@
     position: absolute;
     right: 22px;
     bottom: 68px;
-    width: 100px;
+    width: 120px;
     color: #FFFFFF;
     text-align: center;
     height: 24px;
     line-height: 24px;
     background: black;
     opacity: 0.6;
+    filter: Alpha(opacity=60)
 }
 /*购物车列表*/
 .pay-prompt{
@@ -481,6 +482,7 @@
     left: 0;
     background: #000000;
     opacity: 0.5;
+    filter: Alpha(opacity=50)
     display: block;
     cursor: pointer;
 }
@@ -490,6 +492,7 @@
     border: 3px solid #D9534F;
     background:none;
     opacity: 1;
+    filter: Alpha(opacity=100)
 }
 .slide-list li img{
     height: auto;
@@ -609,7 +612,7 @@
 }
 .previous-box{
     overflow: hidden;
-    padding: 10px;
+    padding:0 10px 10px;
     border: 1px solid #dddddd;
     background:#FFFFFF;
 }
@@ -739,13 +742,14 @@
 }
 .left-content .item-group{
     overflow: hidden;
-    min-height: 600px;
     padding-left: 15px;
+    margin-bottom: 10px;
 }
+
 .left-content .item-group li{
     float: left;
     width: 335px;
-    height: 184px;
+    height: 182px;
     border: 1px solid #EEEEEE;
     margin: 0 15px 15px 0;
 }
@@ -945,6 +949,7 @@
     height: 38px;
 	overflow:hidden;
     opacity: 0.5;
+    filter: Alpha(opacity=50);
 	background:#000 url("../images/icon-02.png") no-repeat;
 }
 .scrollleft a.aleft{

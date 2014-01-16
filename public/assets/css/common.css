@@ -28,10 +28,17 @@ h4{
     color: #666;
     font-weight: normal;
 }
+h3{
+    font-size: 14px;
+}
 h5{
     font-size: 14px;
     height: 20px;
     line-height: 20px;
+    font-weight: normal;
+}
+h2{
+    font-size: 18px;
 }
 textarea{
     width: 100%;
@@ -44,7 +51,9 @@ button,input{
     outline: none;
 }
 button{
+    overflow: visible;
     cursor:pointer;
+    line-height: 13px;
 }
 textarea:focus,input:focus{
     outline: none;
@@ -162,12 +171,13 @@ textarea:focus,input:focus{
     overflow: hidden;
 }
 .btn{
+    overflow: visible;
     padding:5px 10px;
-    border: 1px solid #EEEEEE;
-    cursor: pointer;
     display: inline-block;
     border-radius: 4px;
     background:#ffffff;
+    text-align: center;
+    -moz-user-select: none;
 }
 .btn-link{
     border: none;
@@ -185,7 +195,7 @@ textarea:focus,input:focus{
     background: #FFD79C;
 }
 .btn-sx{
-    padding:4px 10px;
+    padding:6px 12px;
 }
 .btn-sm{
     padding:2px 4px;
@@ -196,6 +206,9 @@ textarea:focus,input:focus{
 }
 .btn-block{
     display: block;
+}
+.btn-comment{
+    padding: 6px 15px;
 }
 .underway{
     border-radius: 3px;
@@ -310,7 +323,7 @@ table tbody tr td{
     width: 19px;
     height:23px;
     vertical-align: middle;
-    background-position:-89px -40px;
+    background-position:-89px -45px;
 }
 .icon-like{
     width: 18px;
@@ -481,19 +494,23 @@ table tbody tr td{
     overflow: hidden;
     height: 22px;
     white-space: nowrap;
+    font-size: 14px;
     text-overflow: ellipsis;
 }
 .title-sm{
     width: 180px;
     line-height: 22px;
+    font-size: 12px;
     overflow: hidden;
     height: 22px;
     white-space: nowrap;
+    font-weight: bold;
     text-overflow: ellipsis;
 }
 .title-mx{
     width: 120px;
     line-height: 22px;
+    font-size: 14px;
     height: 22px;
     overflow: hidden;
     white-space: nowrap;
@@ -501,6 +518,7 @@ table tbody tr td{
 .title-md{
     width: 210px;
     line-height: 22px;
+    font-size: 14px;
     height: 22px;
     overflow: hidden;
     white-space: nowrap;
@@ -538,6 +556,8 @@ table tbody tr td{
 .title-br{
     height: 40px;
     line-height: 20px;
+    font-size: 12px;
+    font-weight:bold;
     word-wrap:break-word ;
     overflow: hidden;
 }
@@ -610,6 +630,7 @@ table tbody tr td{
 .pagination{
     overflow: hidden;
     margin-bottom: 10px;
+    clear: both;
 }
 
 .pagination span{
@@ -662,11 +683,14 @@ table tbody tr td{
      width: 980px;
      margin: 0 auto;
  }
-.top-menu span{
+.top-menu span.login-bar{
+    min-width: 65px;
     float: right;
 }
 .top-menu span.online{
+    float: right;
     margin-left: 20px;
+    width: 70px;
 }
 .top-menu span a{
 }
@@ -818,6 +842,7 @@ table tbody tr td{
 .footer-wrapper{
     overflow: hidden;
     margin-top: 20px;
+    background: #fff;
 }
 .help-bg{
     width: 100%;
@@ -1023,16 +1048,18 @@ table tbody tr td{
     padding: 20px 30px 0;
 }
  .login2-body li{
-    max-height: 65px;
     position: relative;
     margin-bottom:5px;
     overflow: hidden;
+    width: 300px;
 }
 .login2-body li input{
     height: 36px;
+    line-height: 36px;
     border: 1px solid #EEEEEE;
     width: 296px;
     text-indent: 30px;
+    display:block;
 }
 .login2-body li .Validform_checktip{
     line-height: 22px;
@@ -1041,7 +1068,7 @@ table tbody tr td{
 .register-bar{
     margin-top: 15px;
     border-top: 1px solid #F1F1F1;
-    padding:10px;
+    padding:10px 30px;
 }
 .register-bar .register{
     font-weight: bold;

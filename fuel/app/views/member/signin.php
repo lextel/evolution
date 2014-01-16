@@ -29,11 +29,9 @@
                 <li>
                    <?php echo Form::input('username', '', array('type'=>"text",'name'=>'username','datatype'=>'e','errorms'=>'请输入邮箱帐号','placeholder'=>'输入邮箱帐号')); ?>
                 </li>
-                <li><span class="Validform_checktip"></span></li>
                 <li><?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'输入密码','name'=>'userpassword','datatype'=>'*6-15','errormsg'=>'密码范围在6~15位之间！' )); ?></li>
-                <li><span class="Validform_checktip"></span></li>
                 <li>
-                    <button class="login">登录</button>
+                    <button class="btn btn-lg btn-red">登录</button>
                     <?php echo Html::anchor('forgot', '忘记密码?', array('class' => ''));?>
                 </li>
             </ul>

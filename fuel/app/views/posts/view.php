@@ -133,7 +133,7 @@
                 <span class="icon-user"></span>
             </li>
             <li>
-                <input name="password"  type="text" value="" placeholder="用户密码"  datatype="*6-18" errorms="密码范围在6-18位之间" id="form_username" class="Validform_error" />
+                <input name="password"  type="password" value="" placeholder="用户密码"  datatype="*6-18" errorms="密码范围在6-18位之间" id="form_username" class="Validform_error" />
                 <span class="icon-password"></span>
             </li>
             <li>
@@ -141,8 +141,8 @@
                 <button class="btn btn-red fl">登录</button>
                 <a href="/forgot" class="fr">忘记密码？</a>
             </li>
-            <div class="register-bar">还没有帐号？<a href="/signup" class="register blue">马上注册</a> </div>
         </ul>
+        <div class="register-bar">还没有帐号？<a href="/signup" class="register blue">马上注册</a> </div>
     </form>
 </div>
 <script type="text/javascript">

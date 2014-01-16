@@ -42,7 +42,7 @@
                     <div class="lucky-code fl">
                         幸运乐拍码:<b><?php echo $win->code?></b>
                     </div>
-                    <?php echo Html::anchor('w/'.$win->id, '查看详情', ['class'=>'btn btn-default fr']); ?>
+                    <?php echo Html::anchor('w/'.$win->id, '查看详情', ['class'=>'btn btn-red btn-sx fr']); ?>
                 </div>
             </li>
             <?php
@@ -129,7 +129,7 @@
                     <div class="longItem" style="display: <?php echo $i == 1 ? 'block' : 'none'; ?>">
                         <form  action="<?php echo Uri::create('cart/add'); ?>" method="post">
                             <div class="title-box">
-                                <h4><?php echo Html::anchor('/m/'.$hot->id, $hot->title); ?></h4>
+                                <h4 class="title-br"><?php echo Html::anchor('/m/'.$hot->id, $hot->title); ?></h4>
                                 <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $hot->amount); ?></b></span>
                             </div>
                             <div class="img-box">
