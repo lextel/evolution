@@ -72,7 +72,7 @@
 <!--产品列表开始-->
 <div class="w">
         <div class="list_sort">
-            <span>排序</span>
+            <label>排序</label>
             <?php echo $sort(); ?>
         </div>
         <ul class="product-list">

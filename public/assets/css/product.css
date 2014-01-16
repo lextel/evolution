@@ -260,13 +260,24 @@
 }
 .list_sort{
     overflow: hidden;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #dddddd;
     padding: 5px 10px;
-    margin-bottom: 20px;
-    background: #FFFFFF;
+    margin-bottom: 10px;
+    background: #FFFFFF;;
+}
+.list_sort label{
+    display: inline-block;
+    padding: 7px;
+    vertical-align: middle;
+    float: left;
 }
 .list_sort a{
     margin: 0 5px;
+    float: left;
+    border: 2px solid #fff;
+}
+.list_sort a:hover{
+    border: 2px solid #AF2812;
 }
 .product-list {
     overflow: hidden;

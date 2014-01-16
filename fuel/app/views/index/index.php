@@ -168,7 +168,7 @@
                 <div class="bask-info fr">
                     <div class="title-box">
                         <h3 class="title-md"><?php echo Html::anchor('p/'.$post->id, $post->title);?></h3>
-                        <div class="winner">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $data['members'][$post->member_id]->nickname, ['class'=>'bule']);?></b></div>
+                        <div class="username">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $data['members'][$post->member_id]->nickname, ['class'=>'bule']);?></b></div>
                     </div>
                     <div class="bask-content">
                         <?php echo mb_substr($post->desc, 0, 120,'utf-8');?>

@@ -510,9 +510,10 @@ table tbody tr td{
 .title-mx{
     width: 120px;
     line-height: 22px;
-    font-size: 14px;
+    font-weight: bold;
     height: 22px;
     overflow: hidden;
+    font-size: 12px;
     white-space: nowrap;
 }
 .title-md{
