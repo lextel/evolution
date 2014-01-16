@@ -18,7 +18,7 @@
             <li>
                 <div class="item-body">
                     <div class="img-box img-md fl">
-                        <a href="<?php echo Uri::create('w/'.$win->id); ?>"><img src="<?php echo Uri::create($win->image);?>"></a>
+                        <a href="<?php echo Uri::create('w/'.$win->id); ?>" rel="nofollow"><img src="<?php echo Uri::create($win->image);?>"></a>
                     </div>
                     <div class="info-side fr">
                         <div class="head-img fl">
@@ -42,7 +42,7 @@
                     <div class="lucky-code fl">
                         幸运乐拍码:<b><?php echo $win->code?></b>
                     </div>
-                    <?php echo Html::anchor('w/'.$win->id, '查看详情', ['class'=>'btn btn-red btn-sx fr']); ?>
+                    <?php echo Html::anchor('w/'.$win->id, '查看详情', ['class'=>'btn btn-default fr']); ?>
                 </div>
             </li>
             <?php
@@ -51,7 +51,7 @@
             <li id="win<?php echo $win->id; ?>">
                 <div class="item-body">
                     <div class="img-box img-md fl">
-                        <a href="<?php echo Uri::create('m/'.$win->id); ?>"><img src="<?php echo Uri::create($win->image); ?>" alt=""/></a>
+                        <a href="<?php echo Uri::create('m/'.$win->id); ?>" rel="nofollow"><img src="<?php echo Uri::create($win->image); ?>"/></a>
                     </div>
                     <div class="info-side fr">
                         <div class="p-info">
@@ -94,7 +94,7 @@
                 <?php foreach($orders1 as $order) {?>
                     <li>
                         <div class="img-box img-sm fl">
-                            <?php echo Html::anchor('m/'.$order->phase_id, Html::img($phaseByOrders[$order->phase_id]->image));?>
+                            <?php echo Html::anchor('m/'.$order->phase_id, Html::img($phaseByOrders[$order->phase_id]->image), ['rel' => 'nofollow']);?>
                         </div>
                         <div class="info-side">
                             <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $members[$order->member_id]->nickname, ['class'=>'bule']);?> 刚刚乐拍了</div>
@@ -118,7 +118,7 @@
                 <li>
                     <div class="shortItem" style="display: <?php echo $i == 1 ? 'none' : 'block'; ?>">
                         <div class="img-box img-sm fl">
-                            <?php echo Html::anchor('/m/'.$hot->id, Html::img($hot->image)); ?>
+                            <?php echo Html::anchor('/m/'.$hot->id, Html::img($hot->image), ['rel' => 'nofollow']); ?>
                             <div class="top <?php echo $i < 4 ? 'one' : '';?>"><?php echo $i; ?></div>
                         </div>
                         <div class="info-side fr">
@@ -134,7 +134,7 @@
                             </div>
                             <div class="img-box">
                                 <div class="top <?php echo $i < 4 ? 'one' : '';?>"><?php echo $i; ?></div>
-                                <a href=""><img src="<?php echo Uri::create($hot->image); ?>" alt=""></a>
+                                <a href="<?php echo Uri::create('m/'.$hot->id);?>" rel="nofollow"><img src="<?php echo Uri::create($hot->image); ?>" alt=""></a>
                             </div>
                             <div class="remain tc">剩余次数: <b class="red"><?php echo $hot->remain; ?></b></div>
                             <div class="btn-group">

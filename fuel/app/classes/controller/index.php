@@ -1,3 +1,4 @@
+
 <?php
 
 class Controller_Index extends Controller_Frontend {
@@ -14,22 +15,28 @@ class Controller_Index extends Controller_Frontend {
 
         // 最新揭晓
         $data['wins'] = $phaseModel->getWins(0, 4);
-        list($mids) = Model_Phase::getIds($data['wins'], ['member_id']);
-        $memberIds = array_merge($memberIds, $mids);
+        if($data['wins']) {
+            list($mids) = Model_Phase::getIds($data['wins'], ['member_id']);
+            $memberIds = array_merge($memberIds, $mids);
+        }
 
         // 正在乐拍
         $orderModel = new Model_Order();
         $data['orders'] = $orderModel->newOrders(0, 8);
+        if($data['orders']) {
         list($mids, $pids) = Model_Order::getIds($data['orders'], ['member_id', 'phase_id']);
         $memberIds = array_merge($memberIds, $mids);
         $phaseIds = array_merge($phaseIds, $pids);
+        }
 
         // 晒单分享
         $postModel = new Model_Post();
         $data['posts'] =$postModel->newPosts(4); 
+        if($data['posts']) {
         list($mids, $pids) = Model_Post::getIds($data['posts'], ['member_id', 'phase_id']);
         $memberIds = array_merge($memberIds, $mids);
         $phaseIds = array_merge($phaseIds, $pids);
+        }
 
         // 订单的期数信息
         $data['phases'] = Model_Phase::byIds($phaseIds);
@@ -53,3 +60,4 @@ class Controller_Index extends Controller_Frontend {
         return $response->body(json_encode($data));
     }
 }
+

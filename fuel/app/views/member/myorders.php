@@ -27,7 +27,7 @@
                 <table>
                     <thead>
                     <tr>
-                        <th>编号</th>
+
                         <th>商品图片</th>
                         <th>商品名称</th>
                         <th>乐拍状态</th>
@@ -42,23 +42,38 @@
                     }
                     ?>
                     <?php foreach($orders as $order) { ?>
-                    
+                    <?php $phase = $getPhaseInfo($order->phase_id);?>
                     <tr>
-                        <td><?php echo $order->id; ?></td>
-                        <td><div class="img-box img-sm"><?php echo Html::anchor('/m/'.$order->phase_id, Html::img($getItemInfo($getPhaseInfo($order->phase_id)->item_id)->image));?></div></td>
+                           
+                        <td><div class="img-box img-sm"><?php echo Html::anchor('/m/'.$order->phase_id, Html::img($phase->image));?></div></td>
                         <td>
-                            <div class="title-lg">（第<?php echo $getPhaseInfo($order->phase_id)->phase_id;?>期）<?php echo $getPhaseInfo($order->phase_id)->title;?></div>
+                            <div class="title-lg">（第<?php echo $phase->phase_id;?>期）<?php echo $phase->title;?></div>
                             <?php if ($getPhaseInfo($order->phase_id)->member_id !=0) {?>
-                            <div class="username">获得者：<?php echo $getUser($getPhaseInfo($order->phase_id)->member_id)->nickname;?></div>
-                            <div class="number">幸运乐拍码：<?php echo $getPhaseInfo($order->phase_id)->code;?></div>
-                            <div class="datetime">揭晓时间：<?php echo Date("Y-m-d H:i:s", $getPhaseInfo($order->phase_id)->opentime);?></div>
+                            <div class="username">获得者：<?php echo $getUser($phase->member_id)->nickname;?></div>
+                            <div class="number">幸运乐拍码：<?php echo $phase->code;?></div>
+                            <div class="datetime">揭晓时间：<?php echo Date("Y-m-d H:i:s", $phase->opentime);?></div>
                             <?php }else{ ?>
                             
                             <?php } ?>
                         </td>
-                        <td><?php echo ($getPhaseInfo($order->phase_id)->member_id !=0) ? "已经揭晓": "进行中";?></td>
+                        <td><?php echo ($phase->member_id !=0) ? "已经揭晓": "进行中";?></td>
                         <td><?php echo $order->code_count;?>人次</td>
-                        <td><a href="">查看</a></td>
+                        <td><div class="toolbox">
+                           <a class="tooltip" href="javascript:void(0)">查看</a>
+                        
+                           <div class="num-list">
+                                <div class="icon-arrow"></div>
+                                <ul>
+                                     <?php 
+                                        $codes = unserialize($order->codes);
+                                        foreach($codes as $code) {
+                                            echo "<li>{$code}</li>";
+                                        }
+                                     ?>
+                                 </ul>
+                            </div>
+                        </div>
+                            </td>
                         <td><?php echo Html::anchor("/m/".$order->phase_id, "查看详情");?></td>
                     </tr>
                     <?php } ?>

@@ -1,3 +1,4 @@
+
 <?php
 
 class Controller_Center extends Controller_Frontend
@@ -10,6 +11,14 @@ class Controller_Center extends Controller_Frontend
         {
             $this -> membercheck();
         }
+        if ($this->auth->check()){
+            $smscount = Model_Member_Sm::count(['where'=>['owner_id'=>$this->current_user->id, ['status'=>Null, 'or'=>['status'=>0,]]]]);
+            if ($smscount > 0) {
+                View::set_global('isnew', true);
+            }else{
+                View::set_global('isnew', false);
+            }
+        }
         $this->template->layout = View::forge('memberlayout');
     }
 
@@ -21,25 +30,23 @@ class Controller_Center extends Controller_Frontend
         }
     }
 
+    /*
+    *用户登陆系统
+    */
     public function action_signin()
     {
-        // Already logged in
         $this->auth->check() and Response::redirect('/u');
-        $val = Validation::forge();
-        $this->template->set_global('error', '');
         if (Input::method() == 'POST')
         {
-            $val->add('username', 'Email or Username')
-                ->add_rule('required');
-            $val->add('password', 'Password')
-                ->add_rule('required');
-
+            $val = Model_Member::validateSignin('signin');
+            Session::set_flash('username', Input::post('username', ''));
+            Session::set_flash('signError', '用户名或者密码格式错误');
             if ($val->run())
             {
-                // check the credentials. This assumes that you have the previous table created
-                if ($this->auth->check() or $this->auth->login(Input::post('username'), Input::post('password')))
+                $username = Input::post('username');
+                $password = Input::post('password');
+                if ($this->auth->check() or $this->auth->login($username, $password))
                 {
-                    // credentials ok, go right in
                     if (Config::get('auth.driver', 'Memberauth') == 'Ormauth')
                     {
                         $current_user = Model\Auth_Member::find_by_username($this->auth->get_screen_name());
@@ -52,17 +59,15 @@ class Controller_Center extends Controller_Frontend
                         Response::redirect('/u/getnickname');
                     }
                     Session::set_flash('success', e('欢迎登陆, '.$current_user->username));
-                    Response::redirect('/u');
+                    $url = Input::server('HTTP_REFERER', '/u');                    
+                    return Response::redirect($url);
                 }
-                else
-                {
-                    $this->template->set_global('error', '用户登陆失败');
-                }
-            }else{
-                $this->template->set_global('error', '用户名和密码格式不正确');
-            }
+               
+                Session::set_flash('signError', '用户名或者密码错误');
+            }                       
+            return Response::redirect('/signin');
         }
-        return Response::forge(View::forge('member/signin', array('val' => $val), false));
+        return Response::forge(View::forge('member/signin', [], false));
     }
 
     /**
@@ -80,20 +85,13 @@ class Controller_Center extends Controller_Frontend
 
     public function action_signup()
     {
-
         $this->auth->check() and Response::redirect('/u');
-        $val = Validation::forge();
-        $this->template->set_global('signup_error', '');
         if (Input::method() == 'POST')
         {
-            $val->add('username', 'Email or Username')
-                ->add_rule('required');
-            $val->add('password', 'Password')
-                ->add_rule('required');
-
+            $val = Model_Member::validateSignin('signup');
+            
             if ($val->run())
             {
-                // check the credentials. This assumes that you have the previous table created
                 $username = Input::post('username');
                 $password = Input::post('password');
                 try{
@@ -104,22 +102,29 @@ class Controller_Center extends Controller_Frontend
                         Config::load('common');
                         $current_user -> avatar = Config::get('default_headico');
                         $current_user -> save();
-                        Session::set_flash('success', e('Welcome singnup, '.$current_user->username));
+                        Session::set_flash('success', e('欢迎登陆, '.$current_user->username));
                         Response::redirect('/u/getnickname');
+                        
                     }
                     else
                     {
-                        $this->template->set_global('signup_error', '已经存在用户名了');
+                        Session::set_flash('usernameError', e('已经存在用户名了'));
+
                     }
                 }catch (Exception $e){
-                    $this->template->set_global('signup_error', '已经存在用户名了');
+                    Session::set_flash('usernameError', e('已经存在用户名了'));
+
                 }
             }else{
-                $this->template->set_global('signup_error', '用户名格式不对');
+                Session::set_flash('usernameError', e('用户名格式不对'));                
             }
+            Session::set_flash('username', e($username));
+            Response::redirect('/signup');
         }
-        return Response::forge(View::forge('member/signup', array('val' => $val), false));
+        $this->template->title = '用户注册页面';
+        $this->template->layout = View::forge('member/signup', [], false);
     }
+    
     /**
     * 打开忘记密码页面
     */

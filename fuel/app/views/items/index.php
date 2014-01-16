@@ -57,7 +57,7 @@
                         <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $topItem->cost / Config::get('point')); ?></b></span>
                     </div>
                     <div class="img-box img-lg">
-                        <a href="<?php echo Uri::create('/m/'.$topItem->id); ?>"><img src="<?php echo Uri::create('/image/200x200/' . $topItem->image); ?>" alt=""></a>
+                        <a href="<?php echo Uri::create('/m/'.$topItem->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('/image/200x200/' . $topItem->image); ?>" alt=""></a>
                         <div class="sheng-yi">剩余 <b><?php echo $topItem->remain ?></b>人次！</div>
                     </div>
                     <input name="id" value="<?php echo $topItem->id;?>" type="hidden"/>
@@ -75,8 +75,7 @@
             <span>排序</span>
             <?php echo $sort(); ?>
         </div>
-        <div  class="product-list">
-        <ul>
+        <ul class="product-list">
                 <?php 
                 foreach($items as $item): 
                 ?>
@@ -87,7 +86,7 @@
                             <span class="price">价值 <b>￥<?php echo sprintf('%.2f' ,$item->cost / Config::get('point')); ?></b></span>
                         </div>
                         <div class="img-box img-lg">
-                            <a href="<?php echo Uri::create('/m/'.$item->id); ?>"><img src="<?php echo Uri::create('/image/200x200/' . $item->image); ?>" alt=""></a>
+                            <a href="<?php echo Uri::create('/m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('/image/200x200/' . $item->image); ?>"></a>
                         </div>
                         <dl class="progress-side">
                             <dd>
@@ -117,9 +116,8 @@
                     </form>
                 </li>
                 <?php endforeach; ?>
+            <?php echo Pagination::instance('mypagination')->render();?>
         </ul>
-        <?php echo Pagination::instance('mypagination')->render();?>
-        </div>
     </div>
 <!--产品列表结束-->
 <!--今日热门开始-->
@@ -132,7 +130,7 @@
                         if(isset($hotItems)) {
                         foreach($hotItems as $item) { ?>
                       <li>
-                          <div class="img-box img-md"><a href="<?php echo Uri::create('/m/'.$item->id); ?>"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
+                          <div class="img-box img-md"><a href="<?php echo Uri::create('/m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
                           <h4 class="title-mx"><?php echo $item->title; ?></h4>
                           <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->cost / Config::get('point')); ?></b></div>
                           <div class="btn-group">

@@ -1239,7 +1239,6 @@ table tbody tr td{
     max-height: 200px;
     border-radius: 5px;
     width:260px;
-    height: 200px;
     position: relative;
     overflow-y: auto;
 }

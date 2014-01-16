@@ -88,32 +88,6 @@ class Model_Post extends \Classes\Model
     }
 
     /**
-     * 获取指定字段
-     * TODO 优化后待删除
-     *
-     * @param $posts  晒单数据
-     * @param $fields 指定fields
-     *
-     * @return array
-     */
-    public function getIdsBy($posts, $fields = ['id']) {
-
-        $data = [];
-        foreach($fields as $field) {
-            $data[$field] = [];
-        }
-
-        foreach($posts as $post) {
-            foreach($fields as $key => $field) {
-                $data[$key][] = $post->$field;
-            }
-        }
-
-        return $data;
-    }
-
-
-    /**
      * 商品详情晒单列表
      *
      * @param $get array get参数
@@ -131,7 +105,7 @@ class Model_Post extends \Classes\Model
 
         $posts = Model_Post::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::PAGESIZE]);
 
-        list($memberIds, $phaseIds) = $this->getIdsBy($posts, ['member_id', 'phase_id']);
+        list($memberIds, $phaseIds) = Model_Post::getIds($posts, ['member_id', 'phase_id']);
         $memberInfo = Model_Member::byIds($memberIds, ['avatar', 'nickname']);
         $phaseInfo  = Model_Phase::byIds($phaseIds);
 

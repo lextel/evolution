@@ -14,7 +14,7 @@ $(function () {
                     topClass = ' top';
                     $('#top').html('<div><img src="'+BASE_URL + 'image/80x80/' + file.link+'"/><p style="font-size: 10px; text-align: center; width:80px">当前首图</p></div>');
                 }
-                $('#files').append('<div class="item-img-list'+topClass+'"><a href="javascript:void(0);" style="display:block" index="'+idx+'"><img src="'+BASE_URL+'image/80x80/'+file.link+'"/></a><input type="hidden" name="images[]" value="'+file.link+'"><d class="close">&times;</d></div>');
+                $('#files').append('<div class="item-img-list withclose'+topClass+'"><a href="javascript:void(0);" style="display:block" index="'+idx+'"><img src="'+BASE_URL+'image/80x80/'+file.link+'"/></a><input type="hidden" name="images[]" value="'+file.link+'"><d class="close">&times;</d></div>');
             });
         },
     }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');

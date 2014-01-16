@@ -158,7 +158,19 @@ class Model_Member extends \Classes\Model
     public static function validateNickname($factory)
     {
         $val = Validation::forge($factory);
-        $val->add_field('nickname', '', 'required');
+        $val->add_field('nickname', '', 'required|min_length[3]|max_length[18]');
+        return $val;
+    }
+    
+    
+    /*
+    * 检测用户登陆协议
+    */
+    public static function validateSignin($factory)
+    {
+        $val = Validation::forge($factory);
+        $val->add_field('username', '用户名|邮箱', 'required|valid_email');            
+        $val->add_field('password', '用户密码', 'required|min_length[6]|max_length[18]');
         return $val;
     }
 
@@ -205,25 +217,6 @@ class Model_Member extends \Classes\Model
             $rs =  $upload->getFiles();
         }
         return $rs;
-    }
-
-    /**
-     * 批量获取用户信息
-     *
-     * @param $ids     array 会员IDs
-     * @param $select  array 获取的字段
-     *
-     * @return array
-     */
-    public static function byIds($ids, $select = []) {
-
-        $members = Model_Member::find('all', ['select' => $select, 'where' => [['id', 'IN', $ids]]]);
-        $memberInfo = [];
-        foreach($members as $member) {
-            $memberInfo[$member->id] = $member;
-        }
-
-        return $memberInfo;
     }
 
     /**

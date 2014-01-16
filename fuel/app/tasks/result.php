@@ -17,7 +17,7 @@ class Result {
         if(empty($phase)) return 'fail';
 
         // 获取100个支付记录
-        $orders = \Model_Order::find('all', ['where' => [['created_at', '<=', $phase->updated_at]], 'limit' => 100]);
+        $orders = \Model_Order::find('all', ['where' => [['created_at', '<=', $phase->updated_at]] , 'order_by' => ['id'=>'desc'], 'limit' => 100]);
 
         $total = 0;
         $results = [];
@@ -57,6 +57,7 @@ class Result {
             'status'    => 100,
             'address'   => '',
             'mobile'    => '',
+            'postcode'  => '',
             'name'      => '',
             'excode'    => '',
             'exname'    => '',
@@ -80,4 +81,3 @@ class Result {
         return 'success';
     }
 }
-
