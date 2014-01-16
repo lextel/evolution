@@ -1,5 +1,6 @@
+
 <?php echo Asset::css(['product.css', 'style.css']);?>
-<?php echo Asset::js(['jquery.cookie.js','common.js', 'post/postup.js']);?>
+<?php echo Asset::js(['jquery.cookie.js', 'post/postup.js']);?>
 <?php echo Asset::css('member/validfrom_style.css'); ?>
 <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
 <div class="w">
@@ -141,8 +142,8 @@
                 <button class="btn btn-red fl">登录</button>
                 <a href="/forgot" class="fr">忘记密码？</a>
             </li>
+            <div class="register-bar">还没有帐号？<a href="/signup" class="register blue">马上注册</a> </div>
         </ul>
-        <div class="register-bar">还没有帐号？<a href="/signup" class="register blue">马上注册</a> </div>
     </form>
 </div>
 <script type="text/javascript">

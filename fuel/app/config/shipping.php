@@ -12,4 +12,11 @@ return [
         '5'   => '派件',
         '6'   => '退回',
     ],
+    'company' => [
+        'shunfeng'  => '顺风快递',
+        'shentong'  => '申通快递',
+        'yuantong'  => '圆通速递',
+        'yunda'     => '韵达快运',
+        'zhongtong' => '中通速递',
+    ],
 ];

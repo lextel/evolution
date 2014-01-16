@@ -1,11 +1,14 @@
-<?php echo Asset::css(['common.css', 'style.css']); ?>
-<?php echo Asset::css('member/validfrom_style.css'); ?>
+<?php echo Asset::css(['style.css', 'member/validfrom_style.css']); ?>
 <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
 <script type="text/javascript">
 $(function(){
     $(".btn-nickname").click(function(){
         $(".addnickname").submit();
     });
+
+	$(".addnickname").Validform({
+	tiptype:4,
+	});
 });
 </script>
 <br />
@@ -13,19 +16,23 @@ $(function(){
     <div class="title">
         <h4 class="fl">新用户注册</h4>
         <ul class="fl">
-            <li><a href="">1填写注册信息</a></li>
-            <li><a href="">2填写注册信息</a></li>
-            <li><a href=""></a></li>
+            <li><a href="javascript:;">1填写注册信息</a></li>
+            <li><a href="javascript:;">2填写用户昵称</a></li>
+            <li><a href="javascript:;"></a></li>
         </ul>
     </div>
     <div class="register-wrap">
-        <h2><span class="icon-prompt"></span>恭喜你成为乐拍会员，现在输入昵称开始乐拍吧</h2>
+        <h2><span class="icon-prompt"></span>恭喜你成为乐拍会员，现在输入昵称就可以立刻开始乐拍了</h2>
         <form action="/u/nickname" method="POST" class="addnickname">
         <ul class="edit-data">
             <li>
                 <label>输入你的昵称：</label>
-                <input type="text" name="nickname" placeholder="输入你的昵称" />
-                <span for="" class=""></span>
+                <?php echo Form::input('nickname', Session::get_flash('nickname', ''), array('type'=>"text",'name'=>'nickname', 'datatype'=>'*3-8', 'errormsg'=>'请输入3-8个字符','placeholder'=>'输入昵称')); ?>
+                <?php if (Session::get_flash('error', null)) { ?>
+                   <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('error');?></span>
+                <?php }else{?>
+                   <span class="Validform_checktip">请输入3-8个字符</span>
+                <?php } ?>
             </li>
             <li>
                 <a href="javascript:void(0);" class="btn btn-red btn-nickname">确定</a>

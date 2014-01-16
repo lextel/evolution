@@ -1,7 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="" />
+    <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/migrations/011_create_member_sms.php" afterPath="$PROJECT_DIR$/fuel/app/migrations/011_create_member_sms.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/admin/items/_form.php" afterPath="$PROJECT_DIR$/fuel/app/views/admin/items/_form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/cart/cart.js" afterPath="$PROJECT_DIR$/public/assets/js/cart/cart.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/center.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/center.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/common.js" afterPath="$PROJECT_DIR$/public/assets/js/common.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/admin/items/form.css" afterPath="$PROJECT_DIR$/public/assets/css/admin/items/form.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/admin/ads/form.js" afterPath="$PROJECT_DIR$/public/assets/js/admin/ads/form.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/admin/items/form.js" afterPath="$PROJECT_DIR$/public/assets/js/admin/items/form.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/frontend.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/frontend.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/image.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/image.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/index.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/view/index.php" afterPath="$PROJECT_DIR$/fuel/app/classes/view/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/admin/shipping/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/admin/shipping/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/index/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/index/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/items/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/items/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/wins/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/wins/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/moneylog/index_buy.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/moneylog/index_buy.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/moneylog/index_recharge.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/moneylog/index_recharge.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/model/item.php" afterPath="$PROJECT_DIR$/fuel/app/classes/model/item.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/view/cart/list.php" afterPath="$PROJECT_DIR$/fuel/app/classes/view/cart/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/cart/list.php" afterPath="$PROJECT_DIR$/fuel/app/views/cart/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/admin/login.php" afterPath="$PROJECT_DIR$/fuel/app/views/admin/login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/member.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/member.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/model/member.php" afterPath="$PROJECT_DIR$/fuel/app/classes/model/member.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/memberlayout.php" afterPath="$PROJECT_DIR$/fuel/app/views/memberlayout.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/member/moneylog.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/member/moneylog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/view/wins/my.php" afterPath="$PROJECT_DIR$/fuel/app/classes/view/wins/my.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/mynoposts.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/mynoposts.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/myorders.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/myorders.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/myposts.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/myposts.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/mywins.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/mywins.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/nickname.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/nickname.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/model/order.php" afterPath="$PROJECT_DIR$/fuel/app/classes/model/order.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/cart/pay.php" afterPath="$PROJECT_DIR$/fuel/app/views/cart/pay.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/model/phase.php" afterPath="$PROJECT_DIR$/fuel/app/classes/model/phase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/model/post.php" afterPath="$PROJECT_DIR$/fuel/app/classes/model/post.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/view/cart/result.php" afterPath="$PROJECT_DIR$/fuel/app/classes/view/cart/result.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/tasks/result.php" afterPath="$PROJECT_DIR$/fuel/app/tasks/result.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/cart/result.php" afterPath="$PROJECT_DIR$/fuel/app/views/cart/result.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/config/routes.php" afterPath="$PROJECT_DIR$/fuel/app/config/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/items/search.php" afterPath="$PROJECT_DIR$/fuel/app/views/items/search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/admin/shipping/ship.php" afterPath="$PROJECT_DIR$/fuel/app/views/admin/shipping/ship.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/config/shipping.php" afterPath="$PROJECT_DIR$/fuel/app/config/shipping.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/signin.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/signup.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/signup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/model/member/sm.php" afterPath="$PROJECT_DIR$/fuel/app/classes/model/member/sm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/member/sms.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/member/sms.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/template.php" afterPath="$PROJECT_DIR$/fuel/app/views/template.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/item/view.js" afterPath="$PROJECT_DIR$/public/assets/js/item/view.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/view/posts/view.php" afterPath="$PROJECT_DIR$/fuel/app/classes/view/posts/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/view/wins/view.php" afterPath="$PROJECT_DIR$/fuel/app/classes/view/wins/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/posts/view.php" afterPath="$PROJECT_DIR$/fuel/app/views/posts/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/wins/view.php" afterPath="$PROJECT_DIR$/fuel/app/views/wins/view.php" />
+    </list>
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,64 +77,67 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="product.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/css/product.css">
+      <file leaf-file-name="view.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/wins/view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="745" column="24" selection-start="13795" selection-end="13795" vertical-scroll-proportion="-10.08" vertical-offset="13903" max-vertical-offset="18582">
+            <state line="144" column="9" selection-start="7368" selection-end="7368" vertical-scroll-proportion="0.0" vertical-offset="2072" max-vertical-offset="2869">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/posts/index.php">
+      <file leaf-file-name="form.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/admin/items/form.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="12" selection-start="841" selection-end="841" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1330">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="361">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/wins/index.php">
+      <file leaf-file-name="form.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/js/admin/ads/form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="96" selection-start="2428" selection-end="2428" vertical-scroll-proportion="0.0" vertical-offset="566" max-vertical-offset="3173">
+            <state line="50" column="1" selection-start="1560" selection-end="1560" vertical-scroll-proportion="0.0" vertical-offset="286" max-vertical-offset="1083">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
+      <file leaf-file-name="form.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/js/admin/items/form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="20" selection-start="450" selection-end="450" vertical-scroll-proportion="-19.0" vertical-offset="114" max-vertical-offset="24130">
+            <state line="93" column="3" selection-start="3065" selection-end="3065" vertical-scroll-proportion="0.0" vertical-offset="1103" max-vertical-offset="1900">
+              <folding>
+                <marker date="1389870301311" expanded="false" signature="529:576" placeholder="..." />
+                <marker date="1389870301311" expanded="false" signature="736:749" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cart.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/js/cart/cart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="96" column="1" selection-start="2090" selection-end="2090" vertical-scroll-proportion="0.0" vertical-offset="1147" max-vertical-offset="1957">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/css/header.css">
+      <file leaf-file-name="common.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/js/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="13" selection-start="2133" selection-end="2133" vertical-scroll-proportion="6.72" vertical-offset="2391" max-vertical-offset="3629">
+            <state line="697" column="0" selection-start="20377" selection-end="20377" vertical-scroll-proportion="-25.56" vertical-offset="12604" max-vertical-offset="13376">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
+      <file leaf-file-name="view.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/assets/js/item/view.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="16" selection-start="1959" selection-end="1959" vertical-scroll-proportion="0.49044585" vertical-offset="1629" max-vertical-offset="18867">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signin.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="53" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="1919">
+            <state line="72" column="1" selection-start="2034" selection-end="2034" vertical-scroll-proportion="0.8358025" vertical-offset="691" max-vertical-offset="1501">
               <folding />
             </state>
           </provider>
@@ -89,7 +146,25 @@
       <file leaf-file-name="view.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/posts/view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="21" selection-start="4448" selection-end="4448" vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="3040">
+            <state line="154" column="9" selection-start="6963" selection-end="6963" vertical-scroll-proportion="0.0" vertical-offset="2262" max-vertical-offset="3059">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="template.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="151" column="7" selection-start="6314" selection-end="6314" vertical-scroll-proportion="0.0" vertical-offset="2205" max-vertical-offset="3002">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/wins/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="131" column="51" selection-start="6612" selection-end="6612" vertical-scroll-proportion="0.0" vertical-offset="2148" max-vertical-offset="3173">
               <folding />
             </state>
           </provider>
@@ -113,28 +188,28 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/fuel/app/views/help/suggest.html" />
-        <option value="$PROJECT_DIR$/fuel/app/views/help/privacy.html" />
-        <option value="$PROJECT_DIR$/fuel/app/views/help/longTime.html" />
-        <option value="$PROJECT_DIR$/fuel/app/views/help/promise.html" />
-        <option value="$PROJECT_DIR$/fuel/app/views/member/mynoposts.php" />
-        <option value="$PROJECT_DIR$/public/assets/js/common.js" />
-        <option value="$PROJECT_DIR$/public/assets/css/header.css" />
-        <option value="$PROJECT_DIR$/fuel/app/views/items/view.php" />
-        <option value="$PROJECT_DIR$/fuel/app/views/items/index.php" />
-        <option value="$PROJECT_DIR$/fuel/app/views/posts/index.php" />
-        <option value="$PROJECT_DIR$/fuel/app/views/posts/view.php" />
-        <option value="$PROJECT_DIR$/public/assets/css/product.css" />
-        <option value="$PROJECT_DIR$/fuel/app/views/wins/index.php" />
-        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
+        <option value="$PROJECT_DIR$/fuel/app/views/member/myposts.php" />
+        <option value="$PROJECT_DIR$/fuel/app/views/member/mywins.php" />
+        <option value="$PROJECT_DIR$/fuel/app/views/member/nickname.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
-        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/fuel/app/views/member/signup.php" />
+        <option value="$PROJECT_DIR$/fuel/app/views/memberlayout.php" />
+        <option value="$PROJECT_DIR$/fuel/app/views/posts/view.php" />
+        <option value="$PROJECT_DIR$/fuel/app/views/template.php" />
+        <option value="$PROJECT_DIR$/fuel/app/views/wins/index.php" />
+        <option value="$PROJECT_DIR$/fuel/app/views/wins/view.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/admin/items/form.css" />
+        <option value="$PROJECT_DIR$/public/assets/js/admin/ads/form.js" />
+        <option value="$PROJECT_DIR$/public/assets/js/admin/items/form.js" />
+        <option value="$PROJECT_DIR$/public/assets/js/cart/cart.js" />
+        <option value="$PROJECT_DIR$/public/assets/js/common.js" />
+        <option value="$PROJECT_DIR$/public/assets/js/item/view.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="376" />
-    <option name="y" value="10" />
+    <option name="x" value="561" />
+    <option name="y" value="7" />
     <option name="width" value="1260" />
     <option name="height" value="991" />
   </component>
@@ -220,6 +295,166 @@
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="item" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="items" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ads" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -253,195 +488,77 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fuel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fuel" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fuel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fuel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fuel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fuel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="posts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fuel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orders" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fuel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="member" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fuel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="items" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fuel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fuel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fuel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -455,7 +572,7 @@
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="vcs.Git" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="last_opened_file_path" value="E:/bootdtrap/index.html" />
+    <property name="last_opened_file_path" value="C:/Program Files (x86)/Git/cmd/git.exe" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -564,7 +681,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="376" y="10" width="1260" height="991" extended-state="0" />
+    <frame x="561" y="7" width="1260" height="991" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -601,108 +718,117 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/assets/js/item/index.js">
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/nickname.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="809" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/item/view.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.8788628" vertical-offset="711" max-vertical-offset="1520" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/wins/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.64400494" vertical-offset="521" max-vertical-offset="2128" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="531" column="13" selection-start="14571" selection-end="14571" vertical-scroll-proportion="0.0" vertical-offset="9709" max-vertical-offset="13148">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/header.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="13" selection-start="2133" selection-end="2133" vertical-scroll-proportion="6.72" vertical-offset="2391" max-vertical-offset="3629">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/product.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="745" column="24" selection-start="13795" selection-end="13795" vertical-scroll-proportion="-10.08" vertical-offset="13903" max-vertical-offset="18582">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/items/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="48" selection-start="1892" selection-end="1892" vertical-scroll-proportion="0.8684504" vertical-offset="0" max-vertical-offset="4579">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/items/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="35" selection-start="3140" selection-end="3140" vertical-scroll-proportion="1.4024526" vertical-offset="205" max-vertical-offset="3040">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/posts/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="12" selection-start="841" selection-end="841" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1330">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/wins/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="37" selection-start="649" selection-end="649" vertical-scroll-proportion="-1.20362" vertical-offset="1368" max-vertical-offset="2660">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/posts/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="21" selection-start="4448" selection-end="4448" vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="3040">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/wins/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="96" selection-start="2428" selection-end="2428" vertical-scroll-proportion="0.0" vertical-offset="566" max-vertical-offset="3173">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="20" selection-start="450" selection-end="450" vertical-scroll-proportion="-19.0" vertical-offset="114" max-vertical-offset="24130">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/admin/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="897">
+        <state line="42" column="6" selection-start="1579" selection-end="1579" vertical-scroll-proportion="0.0" vertical-offset="134" max-vertical-offset="931">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="53" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="1919">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3914">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="16" selection-start="1959" selection-end="1959" vertical-scroll-proportion="0.49044585" vertical-offset="1629" max-vertical-offset="18867">
+        <state line="63" column="7" selection-start="2433" selection-end="2433" vertical-scroll-proportion="0.0" vertical-offset="514" max-vertical-offset="1311">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1083">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/memberlayout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="6" selection-start="1734" selection-end="1734" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/posts/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1330">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/posts/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="9" selection-start="6963" selection-end="6963" vertical-scroll-proportion="0.0" vertical-offset="2262" max-vertical-offset="3059">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="151" column="7" selection-start="6314" selection-end="6314" vertical-scroll-proportion="0.0" vertical-offset="2205" max-vertical-offset="3002">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/wins/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="51" selection-start="6612" selection-end="6612" vertical-scroll-proportion="0.0" vertical-offset="2148" max-vertical-offset="3173">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/wins/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="144" column="9" selection-start="7368" selection-end="7368" vertical-scroll-proportion="0.0" vertical-offset="2072" max-vertical-offset="2869">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/admin/items/form.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/admin/ads/form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="1" selection-start="1560" selection-end="1560" vertical-scroll-proportion="0.0" vertical-offset="286" max-vertical-offset="1083">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/admin/items/form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="3" selection-start="3065" selection-end="3065" vertical-scroll-proportion="0.0" vertical-offset="1103" max-vertical-offset="1900">
+          <folding>
+            <marker date="1389870301311" expanded="false" signature="529:576" placeholder="..." />
+            <marker date="1389870301311" expanded="false" signature="736:749" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/cart/cart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="1" selection-start="2090" selection-end="2090" vertical-scroll-proportion="0.0" vertical-offset="1147" max-vertical-offset="1957">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="697" column="0" selection-start="20377" selection-end="20377" vertical-scroll-proportion="-25.56" vertical-offset="12604" max-vertical-offset="13376">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/item/view.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="1" selection-start="2034" selection-end="2034" vertical-scroll-proportion="0.8358025" vertical-offset="691" max-vertical-offset="1501">
           <folding />
         </state>
       </provider>

@@ -87,6 +87,7 @@ class Model_Order extends \Classes\Model
             // 写消费日志
             $perPoint = $cart->get_qty() * Config::get('point');
             Model_Member_Moneylog::buy_log($memberId, $perPoint, $phaseId, $cart->get_qty());
+            
         }
 
         // 更新用户积分
@@ -120,6 +121,7 @@ class Model_Order extends \Classes\Model
         }
 
         $remainCodes = array_slice($codes, $count, $total);
+        unset($codes);
         $phase->codes = serialize($remainCodes);
         $phase->remain = $phase->remain - $count;
         $phase->joined = $phase->joined + $count;
@@ -137,10 +139,14 @@ class Model_Order extends \Classes\Model
 
         $phase->save();
 
-        // 生成新一期
+        // 卖完
         if($total == $count) {
             $item = Model_Item::find($phase->item_id);
-            if($item->status == \Helper\Item::IS_CHECK && $item->phase < $phase->phase_id + 1) {
+            // 生成新一期
+            if($item->status == \Helper\Item::IS_CHECK 
+               && $item->is_delete == \Helper\Item::NOT_DELETE 
+               && ($item->phase == 0 || $item->phase >= $phase->phase_id + 1)
+              ) {
                 $phaseModel = new Model_Phase();
                 $phaseModel->add($item);
             }
@@ -244,12 +250,14 @@ class Model_Order extends \Classes\Model
         $orders = Model_Order::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::PAGESIZE]);
 
         $data = [];
+        list($memberIds) = Model_Order::getIds($orders, ['member_id']);
+        $members = Model_Member::byIds($memberIds);
+
         foreach($orders as  $order) {
-            $member = Model_Member::find($order->member_id);
             $data[] = [
-                    'link' => Uri::create('u/'.$member->id),
-                    'avatar' => Uri::create($member->avatar),
-                    'nickname' => $member->nickname,
+                    'link' => Uri::create('u/'.$members[$order->member_id]->id),
+                    'avatar' => Uri::create($members[$order->member_id]->avatar),
+                    'nickname' => $members[$order->member_id]->nickname,
                     'count' => $order->code_count,
                     'ip'    => $order->ip,
                     'area' => $order->area,

@@ -101,7 +101,7 @@
                     </li>
                     <li>
                         <button class="btn btn-red">登录</button>
-                        <a href="<?php echo Uri::create('/u/passwd/forgot'); ?>" class="fr">忘记密码？</a>
+                        <a href="<?php echo Uri::create('/forgot'); ?>" class="fr">忘记密码？</a>
                     </li>
                     <div class="register-bar">还没有帐号？<a href="/signup" class="register">马上注册</a> </div>
                 </ul>
@@ -151,4 +151,3 @@
     <script>
         IS_LOGIN = <?php echo isset($current_user) ? 'true' : 'false';?>;
     </script>
-

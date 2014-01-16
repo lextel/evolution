@@ -75,22 +75,33 @@
                         <tbody>
                             <?php 
                                 $results = unserialize($win->results);
+                                if(!empty($results) && is_array($results)):
+                                $memberIds = [];
+                                $phaseIds  = [];
+                                foreach($results as $result) {
+                                    $memberIds[] = $result['member_id'];
+                                    $phaseIds[]  = $result['phase_id'];
+                                }
+                                $members = $getMembers($memberIds);
+                                $phases = $getPhases($phaseIds);
+
                                 foreach($results as $result):
-                                    $memberInfo = $getUser($result['member_id']);
-                                    $phaseInfo = $getPhase($result['phase_id']);
                                     $times = explode('.', $result['ordered_at']);
                             ?>
                             <tr>
                                 <td><s><?php echo date('Y-m-d', $times[0]);?></s><?php echo date('H:i:s', $times[0]); ?>.<?php echo $times[1]; ?></td>
-                                <td><a href="<?php echo Uri::create('u/'.$memberInfo->id); ?>"><?php echo $memberInfo->nickname;?></a></td>
+                                <td><a href="<?php echo Uri::create('u/'.$result['member_id']); ?>"><?php echo $members[$result['member_id']]->nickname;?></a></td>
                                 <td><?php echo $result['count']; ?></td>
                                 <td>
                                     <div class="inner-title">
-                                        <a href="<?php echo Uri::create('m/'.$phaseInfo->id); ?>">（第<?php echo $phaseInfo->phase_id; ?>期）<b><?php echo $phaseInfo->title; ?></b></a>
+                                        <a href="<?php echo Uri::create('m/'.$result['phase_id']); ?>">（第<?php echo $phases[$result['phase_id']]->phase_id; ?>期）<b><?php echo $phases[$result['phase_id']]->title; ?></b></a>
                                     </div>
                                 </td>
                             </tr>
-                            <?php endforeach; ?>
+                            <?php 
+                                endforeach;
+                            endif;
+                            ?>
                         </tbody>
                     </table>
                 </div>

@@ -55,7 +55,7 @@
             </form>
             <div class="cart-footer">
                 <div class="price fl">
-                     您拥有的积分：<b class="y" id="money"></b>
+                     您拥有的积分：<b class="y" id="money" money="<?php echo $current_user->points; ?>"><?php echo $current_user->points; ?></b><?php echo Config::get('unit'); ?>
                 </div>
                 <div class="all-price fr">总积分：<b id="total" total="<?php echo $subTotal*Config::get('point'); ?>"><?php echo $subTotal * Config::get('point'); ?></b><?php echo Config::get('unit');?></div>
             </div>

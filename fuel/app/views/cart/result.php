@@ -34,12 +34,12 @@
                             <div class="num-list">
                                 <div class="icon-arrow"></div>
                                 <ul>
-                                     <li>10000086</li>
-                                     <li>10000086</li>
-                                     <li>10000086</li>
-                                     <li>10000086</li>
-                                     <li>10000086</li>
-                                     <li>10000086</li>
+                                     <?php 
+                                        $codes = unserialize($item->codes);
+                                        foreach($codes as $code) {
+                                            echo "<li>{$code}</li>";
+                                        }
+                                     ?>
                                  </ul>
                             </div>
                          </div>
@@ -81,5 +81,3 @@
             </ul>
         </div>
         <!--今日热门结束-->
-
-

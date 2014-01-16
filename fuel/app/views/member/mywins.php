@@ -22,12 +22,13 @@
                 <table>
                     <thead>
                     <tr>
-                        <th>编号</th>
+
                         <th>商品图片</th>
                         <th>商品名称</th>
                         <th>乐拍状态</th>
                         <th>购买数量</th>
                         <th>幸运乐拍码</th>
+                        <th> 快递状态 </th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -39,12 +40,28 @@
                      ?>
                     <?php foreach($list as $win) { ?>
                     <tr>
-                        <td>1</td>
-                        <td><div class="img-box img-md"><?php echo Html::anchor("w/".$win->id, Html::img($getItem($win)->image)); ?></div></td>
+
+                        <td><div class="img-box img-sm"><?php echo Html::anchor("w/".$win->id, Html::img($win->image)); ?></div></td>
                         <td>（第<?php echo $win->phase_id;?>期）<?php echo $win->title;?></td>
                         <td>已经揭晓</td>
                         <td><?php echo $win->code_count;?>人次</td>
-                        <td><?php echo $win->code; ?><!--<a href="">查看</a>--></td>
+                        <td><?php echo $win->code; ?></td>
+                        
+                        <td><?php $status = intval($getShipping($win->id)); ?>
+                        <?php echo $getShippingStatus($status);?>
+                        <?php if ($status < 100) { ?>
+                           <div class="toolbox">
+                           <a class="tooltip" href="javascript:void(0)" style="padding: 2px 2px;">查看快递</a>
+                        
+                           <div class="num-list">
+                                <div class="icon-arrow"></div>
+                                <ul>
+                                    
+                                 </ul>
+                            </div>
+                            </div>
+                        <?php }?>                        
+                        </td>
                         <td><?php echo Html::anchor('w/'.$win->id, '查看详情'); ?></td>
                     </tr>
                     <?php }?>
@@ -56,4 +73,3 @@
         </div>
         <!--获得的商结束-->
     </div>
-
