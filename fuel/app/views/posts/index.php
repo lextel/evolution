@@ -15,32 +15,35 @@
         <?php if ($posts): ?>
         <?php $members = $getMembersByPosts($posts);?>
         <?php foreach ([0,1,2,3] as $li){?>
-        <li class="product-item">       
-        <?php foreach ($posts as $v=>$item){ ?>
-            <?php if (array_search($v, array_keys($posts)) % 4 == $li){?>
-                 <div class="img-box">
-                     <?php echo Html::anchor('/p/'.$item->id, Html::img($item->topimage));?>
-                 </div>
-                 <div class="item-head">
-                      <div class="head-img fl">
-                           <?php echo Html::anchor('u/'.$item->member_id, Html::img($members[$item->member_id]->avatar));?>
-                      </div>
-                      <div class="info-side fl">
-                            <div class="username"><?php echo Html::anchor('u/'.$item->member_id, $members[$item->member_id]->nickname);?></div>
-                            <div class="datetime"><?php echo \Helper\Timer::friendlyDate($item->created_at); ?></div>
-                      </div>
-                 </div>
-                 <div class="item-footer">
-                       <div class="content-md">
-                            <?php echo mb_substr($item->desc, 0, 42,'utf-8'); ?>
-                       </div>
-                       <div class="btn-group sns-bar">
-                            <?php echo Html::anchor('javascript:;', '喜欢(<s>'.$item->up.'</s>)', array('class'=>'btn-link sns-love', 'id'=>$item->id));?>
-                            <?php echo Html::anchor('/p/'.$item->id, '评论(<s>'.$item->comment_count.'</s>)', array('class'=>'btn-link sns-comment'));?>
-                       </div>
-                 </div>
-            <?php }; ?>
-        <?php }; ?>
+        <li>
+            <div class="product-item">
+                <?php foreach ($posts as $v=>$item){ ?>
+                            <?php if (array_search($v, array_keys($posts)) % 4 == $li){?>
+                                 <div class="img-box">
+                                     <?php echo Html::anchor('/p/'.$item->id, Html::img($item->topimage));?>
+                                 </div>
+                                 <div class="item-head">
+                                      <div class="head-img fl">
+                                           <?php echo Html::anchor('u/'.$item->member_id, Html::img($members[$item->member_id]->avatar));?>
+                                      </div>
+                                      <div class="info-side fl">
+                                            <div class="username"><?php echo Html::anchor('u/'.$item->member_id, $members[$item->member_id]->nickname);?></div>
+                                            <div class="datetime"><?php echo \Helper\Timer::friendlyDate($item->created_at); ?></div>
+                                            <h5 class="title-mx"> 这是标题</h5>
+                                      </div>
+                                 </div>
+                                 <div class="item-footer">
+                                       <div class="content-md">
+                                            <?php echo mb_substr($item->desc, 0, 42,'utf-8'); ?>
+                                       </div>
+                                       <div class="btn-group sns-bar">
+                                            <?php echo Html::anchor('javascript:;', '喜欢(<s>'.$item->up.'</s>)', array('class'=>'btn-link sns-love', 'id'=>$item->id));?>
+                                            <?php echo Html::anchor('/p/'.$item->id, '评论(<s>'.$item->comment_count.'</s>)', array('class'=>'btn-link sns-comment'));?>
+                                       </div>
+                                 </div>
+                            <?php }; ?>
+                 <?php }; ?>
+            </div>
         </li>
         <?php }; ?>
         <?php else: ?>

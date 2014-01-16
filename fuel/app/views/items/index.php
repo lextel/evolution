@@ -75,7 +75,8 @@
             <span>排序</span>
             <?php echo $sort(); ?>
         </div>
-        <ul class="product-list">
+        <div  class="product-list">
+        <ul>
                 <?php 
                 foreach($items as $item): 
                 ?>
@@ -116,8 +117,9 @@
                     </form>
                 </li>
                 <?php endforeach; ?>
-            <?php echo Pagination::instance('mypagination')->render();?>
         </ul>
+        <?php echo Pagination::instance('mypagination')->render();?>
+        </div>
     </div>
 <!--产品列表结束-->
 <!--今日热门开始-->

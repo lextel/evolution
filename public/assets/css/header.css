@@ -115,7 +115,7 @@
     width: 230px;
 }
 .buying-box ul li{
-    height:80px;
+    height:78px;
     border-bottom: 1px dashed #d2d2d2;
     margin:10px 0;
     padding:4px 5px;
@@ -135,6 +135,7 @@
     padding: 0 10px 10px;
 }
 .bask-side .bask{
+    width: 482px;
     padding: 10px;
     border: 1px solid #eeeeee;
 }
@@ -169,7 +170,7 @@
 .bask-side .bask-list{
     overflow: hidden;
     float: right;
-    width: 440px;
+    width: 425px;
     padding: 10px 0px 10px 10px;
     border: 1px solid #EEEEEE;
  }
