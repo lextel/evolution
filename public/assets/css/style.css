@@ -751,6 +751,9 @@
 .pane-hd{
     overflow: hidden;
 }
+.pane-hd .img-box{
+    margin-right: 10px;
+}
 .pane-hd li{
     width: 332px;
     float: left;
