@@ -31,9 +31,9 @@
                         </dd>
                     </dl>
                     <?php if ($getProgress($item->phase_id) != 100) { ?>
-                    <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="buy">去乐拍</button>');?>
+                    <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="btn btn-red">去乐拍</button>');?>
                     <?php }else{ ?>
-                    <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="buy">去揭晓</button>');?>
+                    <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="btn btn-red">去揭晓</button>');?>
                     <?php } ?>
                 </div>
             </li>

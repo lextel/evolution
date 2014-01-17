@@ -13,8 +13,8 @@
     </div>
     <div class="form-group">
         <div class="col-lg-4 col-md-offset-2">
-            <button type="submit" class="btn btn-primary">确定</button>
-            <button type="button" class="btn btn-default">取消</button>
+            <button type="submit" class="btn btn-red btn-primary">确定</button>
+            <button type="button" class="btn ">取消</button>
         </div>
     </div>
 </form>

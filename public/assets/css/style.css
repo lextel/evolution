@@ -35,15 +35,16 @@
     width: 260px;
     overflow: hidden;
     margin-bottom:5px;
+    position: relative;
 }
 .login-form .loginBar li input{
     position: relative;
     display:inline-block;
-    padding: 0 0 0 20px;
+    padding: 0 0 0 28px;
     height: 35px;
     line-height: 35px;
     border: 1px solid #dddddd;
-    width: 238px;
+    width: 230px;
  }
 .login-form .loginBar li span{
     display: inline-block;
@@ -285,6 +286,7 @@
     min-height: 400px;
 }
 .center-main .center-info{
+    width: 520px;
     overflow: hidden;
     padding: 10px;
     border-bottom: 1px solid #DDDDDD;
