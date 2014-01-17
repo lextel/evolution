@@ -27,9 +27,9 @@
                                 </dd>
                             </dl>
                             <?php if ($getProgress($oitem->phase_id) != 100) { ?>
-                                <?php echo Html::anchor('m/'.$oitem->phase_id, '<button class="buy">去乐拍</button>');?>
+                                <?php echo Html::anchor('m/'.$oitem->phase_id, '<button class="btn btn-red">去乐拍</button>');?>
                             <?php }else{ ?>
-                                <?php echo Html::anchor('w/'.$oitem->phase_id, '<button class="buy">去揭晓</button>');?>
+                                <?php echo Html::anchor('w/'.$oitem->phase_id, '<button class="btn btn-red">去揭晓</button>');?>
                             <?php } ?>
                         </div>
                     </dd>
@@ -51,7 +51,7 @@
                             <div class="price">价值：<b><?php echo $getItemInfo($witem->item_id)->price; ?>.00</b></div>
                             <div class="number">幸运乐拍码：<s><?php echo $witem->code;?></s></div>
                             <div class="datetime">揭晓时间：<s><?php echo \Helper\Timer::friendlyDate($getPhaseInfo($witem->phase_id)->opentime);?></s></div>
-                            <?php echo Html::anchor('m/'.$witem->phase_id, '<button class="buy">查看详情</button>') ;?>
+                            <?php echo Html::anchor('m/'.$witem->phase_id, '<button class="btn btn-sm btn-red">查看详情</button>') ;?>
                         </div>
                     </dd>
                     <?php } ?>
