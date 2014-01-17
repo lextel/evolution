@@ -712,14 +712,14 @@
 .share-list li{
     float: left;
     margin:0 10px 10px 0;
-    background: #FFFFFF;
     overflow: hidden;
 }
 .product-item{
     width: 235px;
     overflow: hidden;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #ddd;
     margin-bottom: 10px;
+    background: #FFFFFF;
 }
 .product-item .item-head{
     overflow: hidden;
