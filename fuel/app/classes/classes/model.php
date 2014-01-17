@@ -25,6 +25,10 @@ class Model extends \Orm\Model {
     public static function getIds($modelObj, $idFields) {
 
         $data = [];
+        $count = count($idFields);
+        for($i = 0; $i < $count; $i++) {
+            $data[$i] = 0;
+        }
         foreach($modelObj as $item) {
             foreach($idFields as $key => $field) {
                 $data[$key][] = $item->$field;
