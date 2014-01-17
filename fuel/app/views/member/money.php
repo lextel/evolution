@@ -121,8 +121,28 @@ $(function() {
                         </label>
                     </dd>
                 </dl>
-                <button class="buy-btn btn btn-red fr">确认支付</button>
+                <button class="buy-btn btn btn-red fl">确认支付</button>
             </div>
             <!--选择支付方式结束-->
         </div>
 </div>
+<!--弹出充值提醒-->
+        <div class="login2">
+            <form action="<?php echo Uri::create('signin'); ?>" method="post" >
+                <div class="login2-head">
+                  <h3>充值提醒</h3>
+                   <button class="close" id="close"></button>
+                </div>
+                <ul class="login2-body">
+                    <h4 class="o">请在新打开的页面上完成支付</h4>
+                    <p>付款完成之前，请不要关闭本窗口！ </p>
+                    <p>完成付款后根据您的个人情况完成此操作 </p>
+                    <div class="register-bar">
+                        <div class="btn-group">
+                             <a  href="javascript:void(0)" class="btn btn-red">查看充值记录</a>
+                             <a  href="javascript:void(0)" class="btn">查看充值记录</a>
+                          </div>
+                    </div>
+                 </ul>
+            </form>
+        </div>

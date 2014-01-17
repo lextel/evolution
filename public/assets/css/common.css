@@ -15,6 +15,7 @@ body{
 }
 a{
     color: #333333;
+    outline: none;
 }
 .w{
     margin: 0 auto;
@@ -1129,7 +1130,7 @@ table tbody tr td{
 }
 .pay-way dl dd{
     float: left;
-    margin:0 30px 10px 0;
+    margin:0 40px 20px 0;
     overflow: hidden;
 }
 .pay-way dl dd input{
@@ -1146,11 +1147,10 @@ table tbody tr td{
     height: 31px;
 }
 .pay-way dl dd label span{
-    display: inline-block;
+    display:block;
     width: 105px;
     height: 31px;
-    float: left;
-    background: url("../images/bank_logo.png")no-repeat;
+    background:url("../images/bank_logo.png") no-repeat;
 }
 .pay-way dl dd label .zhs{
     background-position: 0 -36px;

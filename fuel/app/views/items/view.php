@@ -144,7 +144,7 @@
                                         foreach($myOrders as $myOrder):
                                     ?>
                                     <tr>
-                                        <td><div class="img-box"><a href="<?php echo Uri::create('u/'.$current_user->id); ?>"><img src="<?php echo Uri::create($current_user->avatar); ?>" alt=""></a></div></td>
+                                        <td><div class="head-sm"><a href="<?php echo Uri::create('u/'.$current_user->id); ?>"><img src="<?php echo Uri::create($current_user->avatar); ?>" alt=""></a></div></td>
                                         <td><?php echo $current_user->nickname; ?></td>
                                         <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($myOrder->created_at); ?></b></td>
                                         <td>乐拍了<s><?php echo $myOrder->code_count; ?></s>次</td>
