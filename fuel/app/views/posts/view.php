@@ -142,8 +142,8 @@
                 <button class="btn btn-red fl">登录</button>
                 <a href="/forgot" class="fr">忘记密码？</a>
             </li>
-            <div class="register-bar">还没有帐号？<a href="/signup" class="register blue">马上注册</a> </div>
         </ul>
+        <div class="register-bar">还没有帐号？<a href="/signup" class="register blue">马上注册</a> </div>
     </form>
 </div>
 <script type="text/javascript">

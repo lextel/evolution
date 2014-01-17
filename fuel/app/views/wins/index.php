@@ -42,7 +42,7 @@
                     <div class="lucky-code fl">
                         幸运乐拍码:<b><?php echo $win->code?></b>
                     </div>
-                    <?php echo Html::anchor('w/'.$win->id, '查看详情', ['class'=>'btn btn-default fr']); ?>
+                    <?php echo Html::anchor('w/'.$win->id, '查看详情', ['class'=>'btn btn-red fr']); ?>
                 </div>
             </li>
             <?php
