@@ -50,7 +50,7 @@ $(function(){
                 <span class="Validform_checktip"></span>
             </li>
             <li>
-                 <input class="btn btn-red btn-password" type="submit" value="提交"/>
+                <button class="btn btn-red btn-password" type="submit">提交</button>
             </li>
         </ul>
          <?php echo Form::close(); ?>

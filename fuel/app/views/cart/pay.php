@@ -3,12 +3,12 @@
 <div class="wrapper w">
     <div class="cart-content">
         <ol class="pay-prompt">
-            <li><a href="javascript:void(0);"><span>1</span>确认提交订单>></a></li>
-            <li class="active"><a href="javascript:void(0);"><span>2</span>网银支付>></a></li>
-            <li><a href="javascript:void(0);"><span>3</span>等待揭晓>></a></li>
-            <li><a href="javascript:void(0);"><span>4</span>揭晓获奖者>></a></li>
-            <li><a href="javascript:void(0);"><span>5</span>晒单分享>></a></li>
-        </ol>
+                        <li class="active"><span>1</span><a href="">确认提交订单></a></li>
+                        <li><span>2</span><a href="">网银支付></a></li>
+                        <li><span>3</span><a href="">等待揭晓></a></li>
+                        <li><span>4</span><a href="">揭晓获奖者></a></li>
+                        <li><span>5</span><a href="">晒单分享></a></li>
+                    </ol>
         <div class="cart-list">
             <form id="cartForm" action="<?php echo Uri::create('cart/remove'); ?>" method="post">
                 <table>

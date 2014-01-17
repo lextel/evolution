@@ -121,7 +121,7 @@ $(function() {
                         </label>
                     </dd>
                 </dl>
-                <button class="buy-btn buy fr">确认支付</button>
+                <button class="buy-btn btn btn-red fr">确认支付</button>
             </div>
             <!--选择支付方式结束-->
         </div>
