@@ -49,11 +49,12 @@ textarea{
 }
 button,input{
     outline: none;
-}
-button{
-    overflow: visible;
+    text-transform: none;
+    padding: 0;
+    margin: 0;
+    border: 0;
     cursor:pointer;
-    line-height: 13px;
+    overflow: visible;
 }
 textarea:focus,input:focus{
     outline: none;
@@ -136,6 +137,10 @@ textarea:focus,input:focus{
     color: #f60;
 }
 /*按钮*/
+.btn-comment{
+    background: #ffffff;
+    border: 1px solid #dddddd;
+}
 .btn-menu {
     margin: 0 10px 10px;
     text-align: center;
@@ -171,13 +176,19 @@ textarea:focus,input:focus{
     overflow: hidden;
 }
 .btn{
-    overflow: visible;
-    padding:5px 10px;
     display: inline-block;
-    border-radius: 4px;
-    background:#ffffff;
+    overflow: visible;
+    padding: 0px 12px;
+    font-size: 14px;
+    font-weight: normal;
+    height: 33px;
+    line-height:33px;
     text-align: center;
-    -moz-user-select: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 4px;
+    text-emphasis:none;
+    behavior:url(ie-css3.htc);
 }
 .btn-link{
     border: none;
@@ -190,9 +201,15 @@ textarea:focus,input:focus{
     background: #B92C00;
     color: #ffffff;
 }
+.btn-red:hover{
+    background: #CF3404;
+}
 .btn-y{
-    color: #B92C00;
-    background: #FFD79C;
+    color: #666666;
+    background: #EEC891;
+}
+.btn-y:hover{
+    background: #eed9ab;
 }
 .btn-sx{
     padding:6px 12px;
@@ -235,19 +252,6 @@ textarea:focus,input:focus{
     text-indent: 12px;
     padding: 4px 6px;
     background: url("../images/icon-02.png") no-repeat -90px -174px;
-}
-.buy{
-    width: 135px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    font-size: 16px;
-    margin: 0 auto;
-    display: block;
-    border-radius: 3px;
-    cursor: pointer;
-    color: #FFFFFF;
-    background: #b92c00;
 }
 .tl{
     text-align:left ;
@@ -592,6 +596,9 @@ table tbody tr td{
     background: #f1f1f1;
     overflow: hidden;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    behavior:url("ie-css3.htc");
 }
 .progress .progress-bar{
     height: 100%;
@@ -678,7 +685,7 @@ table tbody tr td{
     width: 100%;
     height: 30px;
     line-height: 30px;
-    background: #ffffff;
+    background: #e5e5e5;
 }
 .top-menu{
      width: 980px;

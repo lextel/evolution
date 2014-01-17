@@ -62,7 +62,7 @@
                     </div>
                     <input name="id" value="<?php echo $topItem->id;?>" type="hidden"/>
                     <input name="qty" value="1" type="hidden"/>
-                    <button class="buy" type="submit">立即乐拍</button>
+                    <div class="btn-group tc"><button class="btn btn-red" type="submit">立即乐拍</button></div>
                 </form>
             <?php
                 }
@@ -75,49 +75,52 @@
             <label>排序</label>
             <?php echo $sort(); ?>
         </div>
-        <ul class="product-list">
-                <?php 
-                foreach($items as $item): 
-                ?>
-                <li>
-                    <form class="xpxp" id="xpxp" action="<?php echo Uri::create('cart/add'); ?>" method="post">
-                        <div class="title-box">
-                            <h3 class="title-md"><a href="<?php echo Uri::create('/m/'.$item->id); ?>"><?php echo $item->title; ?></a></h3>
-                            <span class="price">价值 <b>￥<?php echo sprintf('%.2f' ,$item->cost / Config::get('point')); ?></b></span>
-                        </div>
-                        <div class="img-box img-lg">
-                            <a href="<?php echo Uri::create('/m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('/image/200x200/' . $item->image); ?>"></a>
-                        </div>
-                        <dl class="progress-side">
-                            <dd>
-                                <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->joined/$item->amount*100)?>%"></div></div>
-                            </dd>
-                            <!--dd>
-                                <span class="fl red"><?php echo $item->joined; ?></span>
-                                <span class="fr blue"><?php echo $item->remain; ?></span>
-                            </dd>
-                            <dd>
-                                <span class="fl">已参与人次</span>
-                                <span class="fr">剩余人次</span>
-                            </dd-->
-                        </dl>
-                        <div class="btn-menu">
-                            <span>我要乐拍</span>
-                            <a class="add btn-jian" href="javascript:void(0);">-</a>
-                            <input type="text" value="1" name="qty" remain="<?php echo $item->remain; ?>"/>
-                            <a class="add btn-jia" href="javascript:void(0);">+</a>
-                            <span>人次</span>
-                        </div>
-                        <div class="btn-group">
-                            <input name="id" value="<?php echo $item->id; ?>" type="hidden">
-                            <button class="btn btn-red btn-lg" type="submit" >立即乐拍</button>
-                            <a class="btn btn-lg doCart" href="javascript:void(0);" phaseId="<?php echo $item->id; ?>">加入购物车</a>
-                        </div>
-                    </form>
-                </li>
-                <?php endforeach; ?>
-            <?php echo Pagination::instance('mypagination')->render();?>
-        </ul>
+        <div class="product-list">
+             <ul>
+                            <?php
+                            foreach($items as $item):
+                            ?>
+                            <li>
+                                <form class="xpxp" id="xpxp" action="<?php echo Uri::create('cart/add'); ?>" method="post">
+                                    <div class="title-box">
+                                        <h3 class="title-md"><a href="<?php echo Uri::create('/m/'.$item->id); ?>"><?php echo $item->title; ?></a></h3>
+                                        <span class="price">价值 <b>￥<?php echo sprintf('%.2f' ,$item->cost / Config::get('point')); ?></b></span>
+                                    </div>
+                                    <div class="img-box img-lg">
+                                        <a href="<?php echo Uri::create('/m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('/image/200x200/' . $item->image); ?>"></a>
+                                    </div>
+                                    <dl class="progress-side">
+                                        <dd>
+                                            <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->joined/$item->amount*100)?>%"></div></div>
+                                        </dd>
+                                        <!--dd>
+                                            <span class="fl red"><?php echo $item->joined; ?></span>
+                                            <span class="fr blue"><?php echo $item->remain; ?></span>
+                                        </dd>
+                                        <dd>
+                                            <span class="fl">已参与人次</span>
+                                            <span class="fr">剩余人次</span>
+                                        </dd-->
+                                    </dl>
+                                    <div class="btn-menu">
+                                        <span>我要乐拍</span>
+                                        <a class="add btn-jian" href="javascript:void(0);">-</a>
+                                        <input type="text" value="1" name="qty" remain="<?php echo $item->remain; ?>"/>
+                                        <a class="add btn-jia" href="javascript:void(0);">+</a>
+                                        <span>人次</span>
+                                    </div>
+                                    <div class="btn-group">
+                                        <input name="id" value="<?php echo $item->id; ?>" type="hidden">
+                                        <button class="btn btn-red" type="submit" >立即乐拍</button>
+                                        <a class="btn btn-y doCart" href="javascript:void(0);" phaseId="<?php echo $item->id; ?>">加入购物车</a>
+                                    </div>
+                                </form>
+                            </li>
+                            <?php endforeach; ?>
+
+                    </ul>
+                    <?php echo Pagination::instance('mypagination')->render();?>
+        </div>
     </div>
 <!--产品列表结束-->
 <!--今日热门开始-->
@@ -137,7 +140,7 @@
                                 <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
                                     <input name="id" value="<?php echo $item->id; ?>" type="hidden">
                                     <input name="qty" value="1" type="hidden">
-                                    <button class="btn btn-lg btn-red" type="submit">立即乐拍</button>
+                                    <button class="btn btn-red" type="submit">立即乐拍</button>
                                 </form>
                           </div>
                       </li>
