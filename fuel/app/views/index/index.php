@@ -89,7 +89,9 @@
                                 <span class="fr">剩余人次</span>
                             </dd>
                         </dl>
-                        <?php echo Html::anchor('m/'.$phase->id, '<button class="buy">立即乐拍</button>', ['rel' => 'nofollow']);?>
+                        <div class="btn-group tc">
+                            <?php echo Html::anchor('m/'.$phase->id, '立即乐拍', ['rel' => 'nofollow','class'=>'btn btn-red']);?>
+                        </div>
                     </li>
                     <?php } ?>
                 </ul>
@@ -144,7 +146,9 @@
                         <span class="fr">剩余人次</span>
                     </dd>
                 </dl>
-                <?php echo Html::anchor('m/'.$phase->id, '<button class="buy">立即乐拍</button>', ['rel' => 'nofollow']);?>
+                <div class="btn-group tc">
+                    <?php echo Html::anchor('m/'.$phase->id, '立即乐拍', ['rel' => 'nofollow','class'=>'btn btn-red ']);?>
+                </div>
             </li>
             <?php } ?>
         </ul>
