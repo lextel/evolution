@@ -16,9 +16,11 @@
         <?php $members = $getMembersByPosts($posts);?>
         <?php foreach ([0,1,2,3] as $li){?>
         <li>
-            <div class="product-item">
+            
                 <?php foreach ($posts as $v=>$item){ ?>
+                 
                             <?php if (array_search($v, array_keys($posts)) % 4 == $li){?>
+                                 <div class="product-item">
                                  <div class="img-box">
                                      <?php echo Html::anchor('/p/'.$item->id, Html::img($item->topimage));?>
                                  </div>
@@ -41,9 +43,11 @@
                                             <?php echo Html::anchor('/p/'.$item->id, '评论(<s>'.$item->comment_count.'</s>)', array('class'=>'btn-link sns-comment'));?>
                                        </div>
                                  </div>
+                                 </div>
                             <?php }; ?>
+                  
                  <?php }; ?>
-            </div>
+            
         </li>
         <?php }; ?>
         <?php else: ?>
