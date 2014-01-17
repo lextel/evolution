@@ -10,8 +10,8 @@ class Controller_Index extends Controller_Frontend {
 
         $phaseModel = new Model_Phase();
 
-        $memberIds = [];
-        $phaseIds = [];
+        $memberIds = [0];
+        $phaseIds = [0];
 
         // 最新揭晓
         $data['wins'] = $phaseModel->getWins(0, 4);

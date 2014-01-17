@@ -19,7 +19,7 @@ $(function() {
         dataType: 'json',
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
-                $('#files').append('<div class="ad-img withclose"><img src="'+IMAGE_URL+file.link+'"/><input type="hidden" name="images" value="'+file.link+'"><d class="close">&times;</d></div>');
+                $('#files').append('<div class="ad-img withclose"><img src="'+IMAGE_URL+file.link+'"/><input type="hidden" name="image" value="'+file.link+'"><d class="close">&times;</d></div>');
                 initAd();
             });
         },
