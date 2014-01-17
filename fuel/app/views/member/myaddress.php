@@ -43,7 +43,7 @@
                     </tbody>
                 </table>
             </li>
-            <button class="btn btn-addAddress">添加新地址</button>
+            <button class="btn btn-red btn-addAddress">添加新地址</button>
             <br />
             <ol class="address" style="display:none">
             <li>

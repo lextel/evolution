@@ -3,11 +3,11 @@
     <div class="wrapper w">
         <div class="cart-content">
             <ol class="pay-prompt">
-                <li><a href=""><span>1</span>确认提交订单></a></li>
-                <li><a href=""><span>2</span>网银支付></a></li>
-                <li><a href=""><span>3</span>等待揭晓></a></li>
-                <li><a href=""><span>4</span>揭晓获奖者></a></li>
-                <li><a href=""><span>5</span>晒单分享></a></li>
+                <li class="active"><span>1</span><a href="">确认提交订单></a></li>
+                <li><span>2</span><a href="">网银支付></a></li>
+                <li><span>3</span><a href="">等待揭晓></a></li>
+                <li><span>4</span><a href="">揭晓获奖者></a></li>
+                <li><span>5</span><a href="">晒单分享></a></li>
             </ol>
             <form action="<?php echo Uri::create('cart/remove'); ?>" method="post" id="cartForm">
                 <div class="cart-list">
@@ -64,7 +64,7 @@
                                 if(!is_null($current_user)):
                                 echo "<tr><td colspan='7' style='line-height: 50px'>暂时没有商品 <a href='".Uri::base()."'>去购买</a></td></tr>";
                                 else:
-                                echo "<tr><td colspan='7' style='line-height: 50px'>您还没有登陆，请先<a href='".Uri::create('signin')."'>登陆</a></td></tr>";
+                                echo "<tr><td colspan='7' style='line-height: 50px'>您还没有登陆，请先<a class='signin' href='".Uri::create('signin')."'>登陆</a></td></tr>";
                                 endif;
                             endif;
                         ?>
@@ -78,7 +78,7 @@
                 </div>
             </form>
             <div class="btn-group tr">
-                <a href="<?php echo Uri::base(); ?>" class="btn btn-default doCart">< 返回首页</a>
+                <a href="<?php echo Uri::base(); ?>" class="btn btn-y doCart">< 返回首页</a>
                 <a href="<?php echo Uri::create('cart/pay'); ?>" class="btn btn-red" id="doOrder">提交订单</a>
             </div>
         </div>
@@ -103,8 +103,8 @@
                         <button class="btn btn-red">登录</button>
                         <a href="<?php echo Uri::create('/forgot'); ?>" class="fr">忘记密码？</a>
                     </li>
-                    <div class="register-bar">还没有帐号？<a href="/signup" class="register">马上注册</a> </div>
                 </ul>
+                <div class="register-bar">还没有帐号？<a href="/signup" class="register">马上注册</a> </div>
             </form>
         </div>
         <!--登陆框-->
@@ -119,7 +119,7 @@
                 <li>
                     <form action="<?php echo Uri::create('cart/add'); ?>" method="post" />
                         <div class="title">
-                            <h5><?php echo $remain->title; ?></h5>
+                            <h5 class="title-md"><?php echo $remain->title; ?></h5>
                             <div class="price">价值<b>￥<?php echo sprintf('%.2f', $remain->price); ?></b></div>
                         </div>
                         <div class="img-box img-lg">
