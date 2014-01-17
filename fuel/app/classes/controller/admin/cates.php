@@ -143,6 +143,13 @@ class Controller_Admin_Cates extends Controller_Admin{
         if ($cate = Model_Cate::find($id)) {
             $cate->is_delete = 1;
             $cate->save();
+
+            if($cate->parent_id == 0) {
+                DB::update('cates')->value('is_delete', 1)
+                                    ->where('parent_id', $cate->id)
+                                    ->execute();
+            }
+
             Model_Log::add('删除分类/品牌 #' . $id);
             Session::set_flash('success', e('删除成功 #'.$id));
         } else {
