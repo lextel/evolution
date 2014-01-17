@@ -35,10 +35,10 @@ $(function(){
                 <label>邮箱：</label>
                 <?php echo Form::input('username', Input::post('username', $member->email), array('type'=>"text",'name'=>'username','datatype'=>'e','errorms'=>'请输入邮箱帐号', 'readonly')); ?>
                 <?php if (!Model_Member_Email::check_emailok($member->email)) {  ?>
-                <input class="btn btn-red btn-checkemail" type="text" value="验证">
+                <button class="btn btn-red btn-checkemail" type="text">验证</button>
                 <!--<span class="Validform_checktip"></span>-->
                 <?php }else{ ?>
-                <input class="btn btn-red btn-email" type="text" value="已验证">
+                <button class="btn btn-red btn-email" type="text">已验证</button>
                 <?php }?>
             </li>
             <li>
@@ -57,7 +57,7 @@ $(function(){
                 <span class="Validform_checktip"></span>
             </li>
             <li>
-                <input class="btn btn-red btn-password" type="submit" value="提交">
+                <button class="btn btn-red " type="submit" >提交</button>
             </li>
             <?php echo Form::close(); ?>
         </ul>

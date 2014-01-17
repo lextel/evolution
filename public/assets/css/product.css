@@ -350,25 +350,36 @@
     background: #FFFFFF;
 }
 .pay-prompt li{
-    width: 120px;
     height: 30px;
     line-height: 30px;
     text-align: center;
     float: left;
+    margin-left: 15px;
 }
 .pay-prompt li a{
+    display: block;
     font-size: 14px;
+    height: 30px;
+    float: left;
 }
-.pay-prompt li a span{
+.pay-prompt li span{
     width: 18px;
     height: 18px;
     line-height: 18px;
     text-align: center;
-    display: inline-block;
+    display: block;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ffffff;
+}
+.pay-prompt li.active span{
     border: 1px solid #AF2812;
     color: #AF2812;
     border-radius: 50%;
     margin: 5px;
+}
+.pay-prompt li.active a{
+    color: #AF2812;
 }
 .cart-list{
     background: #FFFFFF;

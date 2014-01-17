@@ -35,14 +35,17 @@
                    <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('signError');?></span>
                    <?php }else{?>
                    <span class="Validform_checktip"></span>
-                   <?php } ?></li>
+                   <span class="icon-user"></span>
+                   <?php } ?>
+                </li>
                 <li><?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'输入密码',
                     'name'=>'userpassword','datatype'=>'*6-18','errormsg'=>'密码范围在6~18位之间！' )); ?>
-                <span class="Validform_checktip"></span></li>
+                   <span class="Validform_checktip"></span>
+                   <span class="icon-password"></span>
+                </li>
                 <li>
-                    <?php echo Form::submit('login', '登录', array('class' => 'login btn btn-red')); ?>
-                    <br />
-                    <?php echo Html::anchor('forgot', '忘记密码?', array('class' => ''));?>
+                    <button class="login btn btn-red fl" type="submit">登录</button>
+                    <?php echo Html::anchor('forgot', '忘记密码?', array('class' => 'fr'));?>
                 </li>
             </ul>
         </form>
