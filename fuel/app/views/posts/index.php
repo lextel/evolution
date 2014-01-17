@@ -31,7 +31,7 @@
                                       <div class="info-side fl">
                                             <div class="username"><?php echo Html::anchor('u/'.$item->member_id, $members[$item->member_id]->nickname);?></div>
                                             <div class="datetime"><?php echo \Helper\Timer::friendlyDate($item->created_at); ?></div>
-                                            <h5 class="title-mx"> 这是标题</h5>
+                                            <h5 class="title-mx"> <?php echo Html::anchor('p/'.$item->id, $item->title);?></h5>
                                       </div>
                                  </div>
                                  <div class="item-footer">
