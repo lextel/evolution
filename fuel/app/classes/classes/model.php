@@ -57,6 +57,8 @@ class Model extends \Orm\Model {
      */
     public static function byIds($ids) {
 
+        if(!is_array($ids)) $ids = [0];
+
         $ids     = array_unique($ids);
         $model   = get_called_class();
         $results = $model::find('all', ['where' => [['id', 'in', $ids]]]);
