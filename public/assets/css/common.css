@@ -190,7 +190,8 @@ textarea:focus,input:focus{
     vertical-align: middle;
     border-radius: 4px;
     text-emphasis:none;
-    behavior:url(ie-css3.htc);
+    position: relative;
+    z-index: 100;
 }
 .btn-link{
     border: none;
@@ -223,6 +224,7 @@ textarea:focus,input:focus{
     height: 16;
     line-height: 16px;
     padding:0px 4px;
+    font-size: 12px;
 }
 .btn-lg{
     padding:8px 15px;
@@ -609,7 +611,8 @@ table tbody tr td{
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
-    behavior:url("ie-css3.htc");
+    z-index: 100;
+    position: relative;
 }
 .progress .progress-bar{
     height: 100%;

@@ -5,6 +5,18 @@
     <title><?php echo $title?></title>
     <?php echo Asset::css(['common.css', 'header.css']); ?>
     <?php echo Asset::js(['jquery.min.js', 'common.js']); ?>
+    <!--[if lt IE 10]>
+    <?php echo Asset::js(['PIE.js']); ?>
+    <![endif]-->
+        <script type="text/javascript">
+            $(function() {
+                if (window.PIE) {
+                    $('.btn,.progress').each(function() {
+                        PIE.attach(this);
+                    });
+                }
+            });
+        </script>
     <script type="text/javascript">
          $(function(){
             function getTotalBuy(){
