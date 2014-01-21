@@ -11,14 +11,6 @@ class Controller_Center extends Controller_Frontend
         {
             $this -> membercheck();
         }
-        if ($this->auth->check()){
-            $smscount = Model_Member_Sm::count(['where'=>['owner_id'=>$this->current_user->id, ['status'=>Null, 'or'=>['status'=>0,]]]]);
-            if ($smscount > 0) {
-                View::set_global('isnew', $smscount);
-            }else{
-                View::set_global('isnew', false);
-            }
-        }
         $this->template->layout = View::forge('memberlayout');
     }
 
