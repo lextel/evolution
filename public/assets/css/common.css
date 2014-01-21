@@ -55,8 +55,10 @@ button,input{
     padding: 0;
     margin: 0;
     border: 0;
-    cursor:pointer;
     overflow: visible;
+}
+button{
+    cursor:pointer;
 }
 textarea:focus,input:focus{
     outline: none;
@@ -221,7 +223,7 @@ textarea:focus,input:focus{
     padding:0px 12px;
 }
 .btn-sm{
-    height: 16;
+    height: 16px;
     line-height: 16px;
     padding:0px 4px;
     font-size: 12px;
@@ -1282,4 +1284,12 @@ table tbody tr td{
 		padding:10px 10px;
 		display:block;
 		border-bottom:1px solid #ddd;
+}
+.time-box input{
+    border: 1px solid #F1F1F1;
+    height: 20px;
+    line-height: 20px;
+    margin: 5px 10px 5px 0;
+    width: 120px;
+    text-indent: 1em;
 }
