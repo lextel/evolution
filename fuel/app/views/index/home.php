@@ -8,16 +8,19 @@
             </ul>
             <div class="home">
                 <dl class="buy-menu">
+                    <?php if($orders) { ?>
+                    <?php $phases = $getPhaseInfos($orders); ?>
                     <?php foreach($orders as $oitem) { ?>
+                    <?php $phase = $phases[$oitem->phase_id];?>
                     <dd><b><?php echo \Helper\Timer::friendlyDate($oitem->created_at);?></b>乐拍了 </dd>
                     <dd class="right-box">
                         <div class="img-box img-md fl">
-                            <?php echo Html::anchor('m/'.$oitem->phase_id, Html::img($getPhaseInfo($oitem->phase_id)->image));?>
+                            <?php echo Html::anchor('m/'.$oitem->phase_id, Html::img($phase->image));?>
                         </div>
                         <div class="buy-record fl">
-                            <h4>(第<?php echo $getPhaseInfo($oitem->phase_id)->phase_id; ?>期) <?php echo Html::anchor('m/'.$oitem->phase_id, 
-                                                                      $getPhaseInfo($oitem->phase_id)->title);?></h4>
-                            <div class="price">价值：<b><?php echo $getPhaseInfo($oitem->phase_id)->amount;?>.00</b></div>
+                            <h4>(第<?php echo $phase->phase_id; ?>期) <?php echo Html::anchor('m/'.$oitem->phase_id,
+                                                                      $phase->title);?></h4>
+                            <div class="price">价值：<b><?php echo $phase->amount;?>.00</b></div>
                             <dl class="progress-side">
                                 <dd>
                                     <div class="progress">
@@ -34,24 +37,25 @@
                         </div>
                     </dd>
                     <?php } ?>
+                    <?php } ?>
                 </dl>
-                
+
                 <dl class="buy-menu">
                     <?php foreach($wins as $witem) { ?>
                     <dd>在<?php echo \Helper\Timer::friendlyDate($witem->created_at);?>获得了 </dd>
                     <dd class="right-box">
                         <div class="img-box img-md fl">
-                            <?php echo Html::anchor('m/'.$witem->phase_id, Html::img($getItemInfo($witem->item_id)->image));?>
+                            <?php echo Html::anchor('m/'.$witem->id, Html::img($witem->image));?>
                             <div class="icon-jx">
                                 已揭晓
                             </div>
                         </div>
                         <div class="buy-record fl">
-                            <h4>(第<?php echo $getPhaseInfo($witem->phase_id)->phase_id; ?>期)<?php Html::anchor('m/'.$witem->phase_id, $getItemInfo($witem->item_id)->title);?></h4>
-                            <div class="price">价值：<b><?php echo $getItemInfo($witem->item_id)->price; ?>.00</b></div>
+                            <h4>(第<?php echo $witem->phase_id; ?>期)<?php Html::anchor('m/'.$witem->id, $witem->title);?></h4>
+                            <div class="price">价值：<b><?php echo $witem->amount; ?>.00</b></div>
                             <div class="number">幸运乐拍码：<s><?php echo $witem->code;?></s></div>
-                            <div class="datetime">揭晓时间：<s><?php echo \Helper\Timer::friendlyDate($getPhaseInfo($witem->phase_id)->opentime);?></s></div>
-                            <?php echo Html::anchor('m/'.$witem->phase_id, '<button class="btn btn-sm btn-red">查看详情</button>') ;?>
+                            <div class="datetime">揭晓时间：<s><?php echo \Helper\Timer::friendlyDate($witem->opentime);?></s></div>
+                            <?php echo Html::anchor('m/'.$witem->id, '<button class="btn btn-sm btn-red">查看详情</button>') ;?>
                         </div>
                     </dd>
                     <?php } ?>

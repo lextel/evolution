@@ -10,15 +10,17 @@
 <!--乐拍记录-->
         <div class="home-c">
             <?php if($orders) { ?>
+            <?php $phases = $getPhaseInfos($orders);?>
             <dl>
                 <?php foreach($orders as $item) { ?>
+                <?php $phase = $phases[$item->phase_id]; ?>
                 <dd>
                     <div class="img-box">
-                        <?php echo Html::anchor('m/'.$item->phase_id, Html::img($getItemInfo($getPhaseInfo($item->phase_id)->item_id)->image));?>
+                        <?php echo Html::anchor('m/'.$item->phase_id, Html::img($phase->image));?>
                     </div>
                     <div class="title-box">
-                        <h3 class="title-sm"><?php echo Html::anchor('m/'.$item->phase_id, '(第'.$getPhaseInfo($item->phase_id)->phase_id.'期) '.$getPhaseInfo($item->phase_id)->title);?></h3>
-                        <span class="price">价值 <b><?php echo $getItemInfo($getPhaseInfo($item->phase_id)->item_id)->price;?>.00</b></span>
+                        <h3 class="title-sm"><?php echo Html::anchor('m/'.$item->phase_id, '(第'.$phase->phase_id.'期) '.$phase->title);?></h3>
+                        <span class="price">价值 <b><?php echo $phase->amount;?>.00</b></span>
                     </div>
                 </dd>
                 <?php } ?>
