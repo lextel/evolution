@@ -52,12 +52,13 @@ class Controller_Home extends Controller_Frontend {
         $orders = Model_Order::find('all',
                         ['where'=>['member_id'=>$member_id],
                         'rows_limit'=>$pagination->per_page,
+                        'order_by'=>['id'=>'desc'],
                         'rows_offset'=>$pagination->offset,]
                         );
         $view = ViewModel::forge('home/orders');
         $view->set('orders', $orders);
         $view->set('member', $member);
-        $this->template->title = 'TA的个人主页';
+        $this->template->title = 'TA的乐购记录';
         $this->template->layout->member = $member;
         $this->template->layout->content= $view;
     }
@@ -77,7 +78,7 @@ class Controller_Home extends Controller_Frontend {
                                                   'rows_limit'=>$pagination->per_page,
                                                   'rows_offset'=>$pagination->offset,]
                                          );
-        $this->template->title = "用户获得商品";
+        $this->template->title = "TA的获奖记录";
         $view = ViewModel::forge('home/wins');
         $view->set('wins', $wins);
         $view->set('member', $member);
@@ -92,7 +93,7 @@ class Controller_Home extends Controller_Frontend {
         $member = Model_Member::find($member_id);
         $postscount = Model_Post::count(['where'=>['member_id'=>$member_id]]);
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('/u/'.$member_id.'/posts/p', $postscount, 2, 5);
+        $config = $page->setCofigPage('/u/'.$member_id.'/posts/p', $postscount, 6, 5);
         $pagination = Pagination::forge('hposts', $config);
         $posts = Model_Post::find('all', [
                                                   'where'=>['member_id'=>$member_id,
@@ -101,7 +102,7 @@ class Controller_Home extends Controller_Frontend {
                                                   'rows_limit'=>$pagination->per_page,
                                                   'rows_offset'=>$pagination->offset,]
                                          );
-        $this->template->title = "用户获得商品";
+        $this->template->title = "TA的晒单记录";
         $view = View::forge('index/home_posts');
         $view->set('posts', $posts);
         $view->set('member', $member);
