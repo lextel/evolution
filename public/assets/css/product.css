@@ -84,18 +84,22 @@
     clear: both;
     border: 1px solid #EEEEEE;
 }
-.win-number dl{
-    overflow: hidden;
-    padding: 10px;
-}
-.win-number dl dt{
-    width: 100px;
+.win-number .left{
+    width: 80px;
     height: 60px;
     float: left;
+    padding: 10px;
+}
+.win-number dl{
+    float: right;
+    width: 305px;
+    overflow: auto;
+    height: 80px;
+    padding: 10px;
 }
 .win-number dl dd{
+    margin: 5px;
     float: left;
-    margin:0 0 5px 15px;
 }
 /*计算结果*/
 .calculation-box {
