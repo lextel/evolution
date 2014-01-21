@@ -1,24 +1,5 @@
 <?php echo Asset::css(['style.css']);?>
-    <div class="wrapper w">
-        <div class="help-side fl">
-            <h2 class="title">帮助中心</h2>
-           <dl class="help-center">
-               <dt>新手指南</dt>
-               <dd>了解乐拍</dd>
-               <dd>常见问题</dd>
-               <dd>服务协议</dd>
-               <dt>乐拍保障</dt>
-               <dd>乐拍保障体系</dd>
-               <dd>正品承诺</dd>
-               <dd>安全支付</dd>
-               <dd>商品配送</dd>
-               <dd>投诉协议</dd>
-               <dt>新手指南</dt>
-               <dd>商品配送</dd>
-               <dd>商品验货与签收</dd>
-               <dd>未收到商品问题</dd>
-           </dl>
-        </div>
+    
         <div class="help-main fr">
               <h2>了解乐拍</h2>
             <div class="help-content">
@@ -87,6 +68,3 @@
                     </li>
                 </ul-->
             </div>
-        </div>
-    </div>
-

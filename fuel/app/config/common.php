@@ -31,4 +31,20 @@ return [
      * @var 快递100密钥
      */
     'shipping_key' => '',
+
+    'helppages' => [
+              'about'=>['title'=>'关于乐拍', 'page'=>'help/about'],
+              'new'=>['title'=>'了解乐拍', 'page'=>'help/new'],
+              'examine'=>['title'=>'商品验货与签收', 'page'=>'help/examine'],
+              'expresscost'=>['title'=>'配送费用', 'page'=>'help/expressCost'],
+              'shipping'=>['title'=>'商品配送', 'page'=>'help/expressInfo'],
+              'longTime'=>['title'=>'长时间未收到商品', 'page'=>'help/longTime'],
+              'pay'=>['title'=>'安全支付', 'page'=>'help/pay'],
+              'privacy'=>['title'=>'隐私声明', 'page'=>'help/privacy'],
+              'promise'=>['title'=>'正品承诺', 'page'=>'help/promise'],
+              'question'=>['title'=>'常见问题', 'page'=>'help/question'],
+              'safeguard'=>['title'=>'乐拍保障体系', 'page'=>'help/safeguard'],
+              'serve'=>['title'=>'服务协议', 'page'=>'help/serve'],
+              'suggest'=>['title'=>'投诉与建议', 'page'=>'help/suggest'],
+    ]
 ];
