@@ -411,6 +411,8 @@
     margin-right: 10px;
 }
 .time-choose{
+    height:33px;
+    line-height: 33px;
     display: inline-block;
 }
 .time-choose select{
@@ -645,6 +647,7 @@
     border: 1px solid #f1f1f1;
     padding: 5px;
     width: 428px;
+    display: inline-block;
 }
 .edit-data li select{
     display: inline-block;
@@ -956,6 +959,8 @@
     margin-bottom: 10px;
 }
 .history-content{
+    padding: 10px;
+    background: #fff;
     overflow: hidden;
 }
 .history-content .search{
