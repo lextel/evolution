@@ -26,11 +26,14 @@
             </thead>
             <tbody>
                 <?php if($orders) { ?>
+                <?php $members = $getMembersByOrders($orders);?>
+                <?php $phases = $getPhaseByOrders($orders);?>
+                
                 <?php foreach($orders as $item) { ?>
                 <tr>
                     <td><?php echo Date('Y-m-d H:i:s', $item->created_at);?></td>
-                    <td><?php echo $item->member_id;?></td>
-                    <td><?php echo $item->phase_id;?> </td>
+                    <td><?php echo Html::anchor('u/'.$item->member_id, $members[$item->member_id]->nickname);?></td>
+                    <td><p class="tl"><?php echo Html::anchor('m/'.$item->phase_id,'（第'.$phases[$item->phase_id]->phase_id.'期) '.$item->title);?></p></td>
                     <td><?php echo $item->code_count;?>人次</td>
                 </tr>
                 <?php } ?>
