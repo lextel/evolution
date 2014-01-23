@@ -13,13 +13,13 @@
                     <?php foreach($wins as $item) { ?>
                     <dd>
                         <div class="img-box">
-                            <?php echo Html::anchor('m/'.$item->phase_id, Html::img($getItemInfo($item->item_id)->image));?>
+                            <?php echo Html::anchor('m/'.$item->id, Html::img($item->image));?>
                         </div>
                         <div class="title-box">
-                            <h3 class="title-sm"><?php echo Html::anchor('m/'.$item->phase_id, $getItemInfo($item->item_id)->title);?></h3>
-                            <span class="price">价值 <b>￥<?php echo $getItemInfo($item->item_id)->price;?>.00</b></span>
+                            <h3 class="title-sm"><?php echo Html::anchor('m/'.$item->id, '第('.$item->phase_id.')期 '.$item->title);?></h3>
+                            <span class="price">价值 <b>￥<?php echo $item->amount;?>.00</b></span>
                             <div class="number">幸运乐拍码：<b class="y"><?php echo $item->code;?></b></div>
-                            <div class="datetime">揭晓时间：<?php echo \Helper\Timer::friendlyDate($getPhaseInfo($item->phase_id)->opentime);?></div>
+                            <div class="datetime">揭晓时间：<?php echo \Helper\Timer::friendlyDate($item->opentime);?></div>
                         </div>
                     </dd>
                     <?php } ?>

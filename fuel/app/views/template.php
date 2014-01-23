@@ -70,7 +70,6 @@
                           <ul class="dropdown-list" style="display:none"></ul>
                     </div>
                     <div class="all">
-                        <!--a href="<?php echo Uri::create('l'); ?>">当前乐拍人数<b id="totalbuy">100000</b></a-->
                         当前乐拍人数<b id="totalbuy"><?php echo $count;?></b>
                     </div>
                 </div>
@@ -82,7 +81,7 @@
             <li><a href="<?php echo Uri::create('/m'); ?>">所有商品</a></li>
             <li><a href="<?php echo Uri::create('/w'); ?>">最新揭晓</a></li>
             <li><?php echo Html::anchor('p', '晒单分享'); ?></li>
-            <li><a href="<?php echo Uri::create('/h/new'); ?>">新手指南</a></li>
+            <li><a href="<?php echo Uri::create('/h'); ?>">新手指南</a></li>
         </ul>
     </div>
     <!--头部结束-->
@@ -94,15 +93,15 @@
         <div class="help-bg">
             <div class="footer-help w">
                 <dl>
-                    <dt><a href="<?php echo Uri::create('/h/center'); ?>">帮助中心</a></dt>
+                    <dt><a href="<?php echo Uri::create('/h'); ?>">帮助中心</a></dt>
                     <dd><a href="<?php echo Uri::create('/h/new'); ?>">新手指南</a></dd>
                     <dd><a href="<?php echo Uri::create('/h/safeguard'); ?>">乐拍保障</a></dd>
                     <dd><a href="<?php echo Uri::create('/h/shipping'); ?>">商品配送</a></dd>
                 </dl>
                 <dl>
                     <dt>关注我们</dt>
-                    <dd><a href="">新浪微博</a></dd>
-                    <dd><a href="">官方微信</a></dd>
+                    <dd><a href="javascript:;">新浪微博</a></dd>
+                    <dd><a href="javascript:;">官方微信</a></dd>
                     <dd>官方QQ群：10000000</dd>
                 </dl>
                 <dl>
@@ -112,15 +111,15 @@
                     <dd><span class="kf"><i class="icon icon-online"></i>24小时在线客服</span></dd>
                 </dl>
                 <dl>
-                    <dt><a href="">二维码</a></dt>
+                    <dt><a href="javascript:;">二维码</a></dt>
                 </dl>
             </div>
         </div>
         <div class="footer w">
             <ul class="bottom-nav">
                 <li><a href="<?php echo Uri::base(); ?>">首页</a></li>
-                <li><a href="javascript:void(0);">关于乐拍</a></li>
-                <li><a href="javascript:void(0);">隐私声明</a></li>
+                <li><?php echo Html::anchor('h/about', '关于乐拍'); ?></li>
+                <li><?php echo Html::anchor('h/privacy', '隐私声明'); ?></li>
                 <li><a href="javascript:void(0);">合作专区</a></li>
                 <li><a href="javascript:void(0);">联系我们</a></li>
             </ul>
