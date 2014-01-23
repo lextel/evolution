@@ -301,6 +301,9 @@ table tbody tr td .username{
     width: 100%;
     display: block;
 }
+table td p.tl{
+    width: 600px;
+}
 .inner-title{
     width: 500px;
     overflow: hidden;

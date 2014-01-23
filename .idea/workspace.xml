@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/announcement.html" afterPath="$PROJECT_DIR$/public/html/announcement.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/common.js" afterPath="$PROJECT_DIR$/public/assets/js/common.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="evolution.iws" />
@@ -37,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1303" column="4" selection-start="23118" selection-end="23118" vertical-scroll-proportion="0.0" vertical-offset="24757" max-vertical-offset="24966">
+            <state line="304" column="12" selection-start="5091" selection-end="5091" vertical-scroll-proportion="0.54522926" vertical-offset="5336" max-vertical-offset="25023">
               <folding />
             </state>
           </provider>
@@ -49,16 +47,16 @@
       <file leaf-file-name="announcement.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/html/announcement.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="54" selection-start="567" selection-end="567" vertical-scroll-proportion="-4.964286" vertical-offset="165" max-vertical-offset="969">
+            <state line="16" column="54" selection-start="567" selection-end="567" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="969">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="history.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="history.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/html/history.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="19" selection-start="827" selection-end="827" vertical-scroll-proportion="0.47263682" vertical-offset="0" max-vertical-offset="950">
+            <state line="20" column="19" selection-start="827" selection-end="827" vertical-scroll-proportion="-8.357142" vertical-offset="146" max-vertical-offset="950">
               <folding />
             </state>
           </provider>
@@ -113,9 +111,9 @@
         <option value="$PROJECT_DIR$/public/html/history.html" />
         <option value="$PROJECT_DIR$/public/html/announced-details.html" />
         <option value="$PROJECT_DIR$/public/assets/css/product.css" />
-        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
         <option value="$PROJECT_DIR$/public/assets/js/common.js" />
         <option value="$PROJECT_DIR$/public/html/announcement.html" />
+        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
       </list>
     </option>
   </component>
@@ -357,14 +355,14 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="vcs.Git" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="C:/Program Files (x86)/Git/cmd/git.exe" />
+    <property name="options.lastSelected" value="vcs.Git" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="last_opened_file_path" value="C:/Program Files (x86)/Git/cmd/git.exe" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -384,6 +382,14 @@
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
     </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -392,14 +398,6 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -507,9 +505,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24978466" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33681673" sideWeight="0.6718377" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -585,13 +583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1303" column="4" selection-start="23118" selection-end="23118" vertical-scroll-proportion="0.0" vertical-offset="24757" max-vertical-offset="24966">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="0" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="13414">
@@ -608,14 +599,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/html/announcement.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="54" selection-start="567" selection-end="567" vertical-scroll-proportion="-4.964286" vertical-offset="165" max-vertical-offset="969">
+        <state line="16" column="54" selection-start="567" selection-end="567" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="969">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/html/history.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="19" selection-start="827" selection-end="827" vertical-scroll-proportion="0.47263682" vertical-offset="0" max-vertical-offset="950">
+        <state line="20" column="19" selection-start="827" selection-end="827" vertical-scroll-proportion="-8.357142" vertical-offset="146" max-vertical-offset="950">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="304" column="12" selection-start="5091" selection-end="5091" vertical-scroll-proportion="0.54522926" vertical-offset="5336" max-vertical-offset="25023">
           <folding />
         </state>
       </provider>
