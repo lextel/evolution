@@ -2,14 +2,6 @@
 
 class Controller_Member_Orders extends Controller_Center
 {
-   
-
-    public function action_index()
-    {
-        $data["subnav"] = array('index'=> 'active' );
-        $this->template->title = 'Orders &raquo; Index';
-        $this->template->layout = View::forge('orders/index', $data);
-    }
 
     public function action_my($page=1)
     {
@@ -26,16 +18,16 @@ class Controller_Member_Orders extends Controller_Center
         }
         if (!is_null($date1) and !is_null($date2))
         {
-           $where += [['created_at', '>=', strtotime($date1)], 
+           $where += [['created_at', '>=', strtotime($date1)],
                 'and'=>['created_at', '<=', strtotime($date2)+3600*24]];
            $url = Uri::update_query_string(['date1' => $date1, 'date2' => $date2], $url);
-        }      
+        }
         $count = Model_Order::count(['where'=>$where]);
         $page = new \Helper\Page();
-        
+
         $config = $page->setCofigPage($url, $count, 4, 4);
         $pagination = Pagination::forge('uorderpage', $config);
-        
+
         $orders = Model_Order::find('all', [
                                               'where'=>$where,
                                               'order_by' =>array('id' => 'desc'),

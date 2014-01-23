@@ -1,29 +1,37 @@
 <?php
 
 class Controller_Orders extends Controller_Frontend {
-    //public $template = 'memberlayout';
 
-    public function action_index()
+    // 所有的订单记录，时间需要精确到点
+    public function action_index($p=1)
     {
-        $data["subnav"] = array('index'=> 'active' );
-        $this->template->title = 'Orders &raquo; Index';
-        $this->template->layout = View::forge('orders/index', $data);
-    }
-
-    public function action_my($page=1)
-    {
-        $count = Model_Order::count(['where'=>['member_id'=>$this->current_user->id]]);
+        $where = [];
+        $date1 = Input::get('date1', null);
+        $date2 = Input::get('date2', null);
+        $url = '/l/p';
+        
+        if (!is_null($date1) and !is_null($date2))
+        {
+           $where += [['created_at', '>=', strtotime($date1)],
+                'and'=>['created_at', '<=', strtotime($date2)+3600*24]];
+           $url = Uri::update_query_string(['date1' => $date1, 'date2' => $date2], $url);
+        }
+        $count = Model_Order::count(['where'=>$where]);
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('u/orders/p', $count, 4, 4);
-        $pagination = Pagination::forge('uorderpage', $config);
-        $data['orders'] = Model_Order::find('all', [
-                                              'where'=>['member_id'=>$this->current_user->id],
+
+        $config = $page->setCofigPage($url, $count, 15, 3);
+        $pagination = Pagination::forge('orderpage', $config);
+
+        $orders = Model_Order::find('all', [
+                                              'where'=>$where,
                                               'order_by' =>array('id' => 'desc'),
                                               'rows_limit'=>$pagination->per_page,
                                               'rows_offset'=>$pagination->offset,]
                                              );
+        $view = ViewModel::forge('orders/index', 'view');
+        $view->set('orders', $orders);
         $this->template->title = '购买记录';
-        $this->template->layout->content = View::forge('member/myorders', $data);
+        $this->template->layout =$view;
     }
 
     public function action_search()

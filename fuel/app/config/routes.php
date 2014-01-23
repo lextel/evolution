@@ -104,6 +104,7 @@ return array(
     'w/result' => 'wins/result',
 
     'l' => 'orders/index',
+    'l/p/(\d+)' => 'orders/index/$1',
     'l/joined' => 'orders/joined',
     'l/posts' => 'posts/posts',
     'l/phases' => 'items/phases',
