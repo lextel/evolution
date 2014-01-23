@@ -70,7 +70,7 @@
                           <ul class="dropdown-list" style="display:none"></ul>
                     </div>
                     <div class="all">
-                        当前乐拍人数<b id="totalbuy"><?php echo $count;?></b>
+                        <a href="/l">当前乐拍人数<b id="totalbuy"><?php echo $count;?></b></a>
                     </div>
                 </div>
          </div>
