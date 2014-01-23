@@ -10,6 +10,10 @@ $(function(){
     });
 });
 /**
+ *公告交互效果
+ */
+
+/**
  *返回顶部--侧边浮动快捷栏
  */
 $(function(){
@@ -694,4 +698,3 @@ function addFavorite(sURL, sTitle)
         }
     }
 }
-
