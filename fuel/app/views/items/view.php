@@ -99,9 +99,9 @@
              <!--已卖完结束-->
              <?php endif; ?>
             <ul class="security-list">
-                <li><a href="javascript:void(0);" class="01">100%公平公正</a></li>
-                <li><a href="javascript:void(0);" class="02">100%正品保证</a></li>
-                <li><a href="javascript:void(0);" class="03">全国免费配送</a></li>
+                <li><a href="<?php echo Uri::create('/h/safeguard'); ?>" class="01">100%公平公正</a></li>
+                <li><a href="<?php echo Uri::create('/h/promise'); ?>" class="02">100%正品保证</a></li>
+                <li><a href="<?php echo Uri::create('/h/expressinfo'); ?>" class="03">全国免费配送</a></li>
             </ul>
             <div class="new-buyer">
                 <div class="new-buyer-header">
