@@ -99,9 +99,9 @@
              <!--已卖完结束-->
              <?php endif; ?>
             <ul class="security-list">
-                <li><a href="javascript:void(0);" class="01">100%公平公正</a></li>
-                <li><a href="javascript:void(0);" class="02">100%正品保证</a></li>
-                <li><a href="javascript:void(0);" class="03">全国免费配送</a></li>
+                <li><a href="<?php echo Uri::create('/h/safeguard'); ?>" class="01">100%公平公正</a></li>
+                <li><a href="<?php echo Uri::create('/h/promise'); ?>" class="02">100%正品保证</a></li>
+                <li><a href="<?php echo Uri::create('/h/expressinfo'); ?>" class="03">全国免费配送</a></li>
             </ul>
             <div class="new-buyer">
                 <div class="new-buyer-header">
@@ -177,12 +177,11 @@
                         </table>
                     </div>
                     <div class="tab-pane" id="help">
-                        <p>1元云购是指只需1元就有机会买到想要的商品。即每件商品被平分成若干“等份”出售，每份1元，
+                        <p>乐乐淘是指只需10乐淘币就有机会买到想要的商品。即每件商品被平分成若干“等份”出售，每份10乐淘币，
                          当一件商品所有“等份”售出后，根据云购规则产生一名幸运者，该幸运者即可获得此商品。
                         </p>
                         <p>
-                        1元云购以“快乐云购，惊喜无限”为宗旨，力求打造一个100%公平公正、100%正品保障、
-                        寄娱乐与购物一体化的新型购物网站。
+                       乐乐淘以“快乐云淘，惊喜无限”为宗旨，力求打造一个100%公平公正、100%正品保障、寄娱乐与购物一体化的新型购物网站。
                         </p>
                         <a href="<?php echo Uri::create('h/new'); ?>" class="link">查看更多</a>
                     </div>
