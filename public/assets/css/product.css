@@ -84,18 +84,22 @@
     clear: both;
     border: 1px solid #EEEEEE;
 }
-.win-number dl{
-    overflow: hidden;
-    padding: 10px;
-}
-.win-number dl dt{
-    width: 100px;
+.win-number .left{
+    width: 80px;
     height: 60px;
     float: left;
+    padding: 10px;
+}
+.win-number dl{
+    float: right;
+    width: 305px;
+    overflow: auto;
+    height: 80px;
+    padding: 10px;
 }
 .win-number dl dd{
+    margin: 5px;
     float: left;
-    margin:0 0 5px 15px;
 }
 /*计算结果*/
 .calculation-box {
@@ -373,10 +377,8 @@
     border: 1px solid #ffffff;
 }
 .pay-prompt li.active span{
-    border: 1px solid #AF2812;
     color: #AF2812;
-    border-radius: 50%;
-    margin: 5px;
+    background: url("../images/icon-02.png") no-repeat -135px -337px;
 }
 .pay-prompt li.active a{
     color: #AF2812;
@@ -890,14 +892,13 @@
     line-height: 25px;
     text-align: center;
     position: absolute;
-    border-radius: 50%;
-    background: #DBDBDB;
+    background: url("../images/icon-02.png") no-repeat -61px -333px;
     top: 0;
     left: 0;
 }
  .one{
     color: #ffffff;
-    background: #f60;
+    background: url("../images/icon-02.png") no-repeat 0px -333px;
 }
 .sort-list ul li div.longItem{
     background: #EEEEEE;

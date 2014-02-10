@@ -62,5 +62,9 @@ $(function() {
         getDateSearch(url);
     });
     
+    $(".allorders-date-search").click(function (){
+        var url = '/l';
+        getDateSearch(url);
+    });
     
 });

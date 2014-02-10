@@ -10,6 +10,10 @@ $(function(){
     });
 });
 /**
+ *公告交互效果
+ */
+
+/**
  *返回顶部--侧边浮动快捷栏
  */
 $(function(){
@@ -176,7 +180,7 @@ $(function(){
         $(this).val(val);
     });
 
-    
+
 
     // 数量增加
     $('.btn-jia').click(function(){
@@ -389,12 +393,12 @@ $(function(){
                 'top': cart.offset().top,
                 'left': cart.offset().left,
                 'width': 59,
-                'height':59 
+                'height':59
             }, 1000);
             imgclone.animate({
                 'opacity': '0',
                 'width': 59,
-                'height': 59 
+                'height': 59
             }, function () {
                 $(this).detach()
                 // 提交到后台
@@ -430,7 +434,7 @@ function joined(page) {
     if(page === '+1') {
         page = INIT_PAGE +1;
     }
-   
+
     INIT_PAGE = page;
 
     $.ajax({
@@ -457,7 +461,7 @@ function posts(page) {
     if(page === '+1') {
         page = INIT_PAGE +1;
     }
-   
+
     INIT_PAGE = page;
 
     $.ajax({
@@ -484,7 +488,7 @@ function phases(page) {
     if(page === '+1') {
         page = INIT_PAGE +1;
     }
-   
+
     INIT_PAGE = page;
 
     $.ajax({
@@ -602,7 +606,6 @@ $(function(){
 
     text.focus(function(){
         var c = $.cookie('userlogin');
-        console.log(c)
         if (c!=true){
              $(".login2").fadeIn("fast");
              $("body").append("<div id='greybackground'></div>");
@@ -659,7 +662,7 @@ $(function(){
             unitdisplayed:5,
             numtoMove:1
         });
-        
+
         $("a").focus(function(){this.blur();});
     }
 })
@@ -695,4 +698,3 @@ function addFavorite(sURL, sTitle)
         }
     }
 }
-

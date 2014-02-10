@@ -5,20 +5,33 @@ $(function() {
        money = $("input[name='money1']:checked").val();
        if (!money){
           money = $("input[name='money2']").val();
-       } 
+       }
+       if (!money){
+          alert('请填写金额');
+          return false;
+       }
        $("input[name='money']").val(money);
        data = $('#addmoney').serialize();
        $.post( '/u/recharge',
            data,
            function(data) {
               if (data.code==0){
-                 alert("充值成功");
-                 window.location.href="/u";
+                 $(".moneysuss").show();
+                 $(".login2").fadeIn("fast");
+                 $("body").append("<div id='greybackground'></div>");
+                 var documentheight = $(document).height();
+                 $("#greybackground").css({"opacity":"0.5","height":documentheight});
+                 return false;
+              }
+              else{
+                 alert('充值失败');
               }
            },
            'json' 
        );
    });
+
+
 })
 </script>
 
@@ -121,8 +134,28 @@ $(function() {
                         </label>
                     </dd>
                 </dl>
-                <button class="buy-btn btn btn-red fr">确认支付</button>
+                <button class="buy-btn btn btn-red fl">确认支付</button>
             </div>
             <!--选择支付方式结束-->
         </div>
 </div>
+<!--弹出充值提醒-->
+        <div class="login2 moneysuss">
+
+                <div class="login2-head">
+                  <h3>充值提醒</h3>
+                   <button class="close" id="close"></button>
+                </div>
+                <ul class="login2-body">
+                    <h4 class="o">请在新打开的页面上完成支付</h4>
+                    <p>付款完成之前，请不要关闭本窗口！ </p>
+                    <p>完成付款后根据您的个人情况完成此操作 </p>
+                    <div class="register-bar">
+                        <div class="btn-group">
+                             <?php echo Html::anchor('/u/moneylog', '查看充值记录', ['class'=>'btn btn-red']);?>
+                             <?php echo Html::anchor('/u/getrecharge', '返回充值页面', ['class'=>'btn']);?>
+                          </div>
+                    </div>
+                 </ul>
+
+        </div>

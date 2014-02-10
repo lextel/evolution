@@ -359,13 +359,12 @@
     margin-left:20px;
 }
 .icon-jx{
-    width:40px ;
-    height: 40px;
+    width:42px ;
+    height: 42px;
     text-align: center;
-    line-height: 40px;
-    border: 1px solid #D96D66;
-    background:  #D96D66;
-    border-radius: 50%;
+    line-height: 42px;
+    color: #ffffff;
+    background: url("../images/icon-02.png") no-repeat -254px -325px;
     position: absolute;
     top: 0px;
     right: 0px;
@@ -412,6 +411,8 @@
     margin-right: 10px;
 }
 .time-choose{
+    height:33px;
+    line-height: 33px;
     display: inline-block;
 }
 .time-choose select{
@@ -646,6 +647,7 @@
     border: 1px solid #f1f1f1;
     padding: 5px;
     width: 428px;
+    display: inline-block;
 }
 .edit-data li select{
     display: inline-block;
@@ -957,6 +959,8 @@
     margin-bottom: 10px;
 }
 .history-content{
+    padding: 10px;
+    background: #fff;
     overflow: hidden;
 }
 .history-content .search{
