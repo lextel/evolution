@@ -50,14 +50,16 @@ class Controller_Member_Moneylog extends Controller_Center{
         $page = new \Helper\Page();
         $config = $page->setCofigPage($url, $count, 8, 4);
         $pagination = Pagination::forge('ulogpage', $config);
-        $data['list'] = Model_Member_Moneylog::find('all', [
+        $list = Model_Member_Moneylog::find('all', [
                                               'where'=>$where,
                                               'order_by' =>array('id' => 'desc'),
                                               'rows_limit'=>$pagination->per_page,
                                               'rows_offset'=>$pagination->offset,]
                                              );
         $this->template->title = "用户消费明细";
-        $this->template->layout->content = View::forge('member/moneylog/index_buy', $data);
+        $view = ViewModel::forge('member/buylog', 'view');
+        $view->set('list', $list);
+        $this->template->layout->content = $view;
     }
 }
 
