@@ -263,6 +263,18 @@
     top: -10px;
     left: 0;
 }
+.sheng-yi2{
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    background:url("../images/bg.png") no-repeat -287px -365px;
+    position: absolute;
+    width:119px;
+    color: #FFFFFF;
+    font-weight: bold;
+    top: -4px;
+    left: -19px;
+}
 .list_sort{
     overflow: hidden;
     border: 1px solid #dddddd;
@@ -281,10 +293,17 @@
     float: left;
     padding: 7px;
     display: block;
-    border: 2px solid #fff;
+    border: 1px solid #fff;
 }
+.list_sort span{
+    float: left;
+    padding: 7px;
+    display: block;
+    border: 1px solid #fff;
+}
+
 .list_sort a:hover{
-    border: 2px solid #AF2812;
+    border: 1px solid #AF2812;
 }
 .product-list {
     overflow: hidden;
