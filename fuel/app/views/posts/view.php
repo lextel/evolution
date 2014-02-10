@@ -111,7 +111,7 @@
         <input id="<?php echo $post->id;?>" type="hidden" class="postid">
         <textarea name="text" id="comment" cols="30" rows="4"></textarea>
         <div class="comment-footer">
-            <div class="expression fl"><span class="icon icon-expression"></span>表情</div>
+            <!--<div class="expression fl"><span class="icon icon-expression"></span>表情</div>-->
             <button class="fr btn btn-default btn-comment">发表评论</button>
             <span class="fr comment-count">还可以输入<b>200</b>字</span>
         </div>
