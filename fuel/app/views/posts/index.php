@@ -6,9 +6,9 @@
     </div>
     <div class="list_sort">
         <span>排序</span>
-        <?php echo Html::anchor('/p/s/sortnew', '最新晒单', array('class' => 'btn btn-default btn-sx'));?>
-        <?php echo Html::anchor('/p/s/sortup', '人气晒单', array('class' => 'btn btn-default btn-sx'));?>
-        <?php echo Html::anchor('/p/s/sortcomment', '评论最多', array('class' => 'btn btn-default btn-sx'));?>
+        <?php echo Html::anchor('/p/s/sortnew', '最新晒单', array('class' => ''));?>
+        <?php echo Html::anchor('/p/s/sortup', '人气晒单', array('class' => ''));?>
+        <?php echo Html::anchor('/p/s/sortcomment', '评论最多', array('class' => ''));?>
     </div>
     <div class="w">
         <ul class="share-list">

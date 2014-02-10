@@ -58,7 +58,7 @@
                     </div>
                     <div class="img-box img-lg">
                         <a href="<?php echo Uri::create('/m/'.$topItem->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('/image/200x200/' . $topItem->image); ?>" alt=""></a>
-                        <div class="sheng-yi">剩余 <b><?php echo $topItem->remain ?></b>人次！</div>
+                        <div class="sheng-yi2">剩余 <b><?php echo $topItem->remain ?></b>人次！</div>
                     </div>
                     <input name="id" value="<?php echo $topItem->id;?>" type="hidden"/>
                     <input name="qty" value="1" type="hidden"/>
