@@ -598,7 +598,7 @@ function handlePhases(data) {
 $(function(){
     var text=$(".comment-box>textarea");
     //最大输入字数
-    var word=$(".comment-footer>span>s");
+    var word=$(".comment-footer>span>b");
     var max_num=200;
     var scr_num=0;
     var abc_num=0;
