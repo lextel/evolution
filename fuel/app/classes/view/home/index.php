@@ -8,9 +8,10 @@ class View_Home_Index extends Viewmodel {
            $item = Model_Item::find($itemid);
            return $item;
        };
-   $this->getPhaseInfo = function($phaseid) {
-           $info = Model_Phase::find($phaseid);
-           return $info;
+   $this->getPhaseInfos = function($orders) {
+           list($phaseIds, ) = Model_Order::getIds($orders, ['phase_id']);
+           $phases = Model_Phase::byIds($phaseIds);
+           return $phases;
        };
     $this->getProgress = function($phaseid){
           $info =  Model_Phase::find($phaseid);

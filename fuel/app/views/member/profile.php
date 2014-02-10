@@ -33,12 +33,12 @@ $(function(){
             </li>
             <li>
                 <label>邮箱：</label>
-                <?php echo Form::input('username', Input::post('username', $member->email), array('type'=>"text",'name'=>'username','datatype'=>'e','errorms'=>'请输入邮箱帐号', 'readonly')); ?>
+                <?php echo Form::input('username', Input::post('username', $member->email), array('type'=>"text",'name'=>'username',
+                'datatype'=>'e','errorms'=>'请输入邮箱帐号', 'style'=>'border: 0;', 'readonly')); ?>
                 <?php if (!Model_Member_Email::check_emailok($member->email)) {  ?>
-                <button class="btn btn-red btn-checkemail" type="text">验证</button>
-                <!--<span class="Validform_checktip"></span>-->
+                <a href="javascript:;" class="btn btn-red btn-checkemail" style="margin-left: 0px;margin-top: -5px;">验证</a>
                 <?php }else{ ?>
-                <button class="btn btn-red btn-email" type="text">已验证</button>
+                <a href="javascript:;" class="btn btn-red btn-email" style="margin-left: 0px;margin-top: -5px;">已验证</a>
                 <?php }?>
             </li>
             <li>

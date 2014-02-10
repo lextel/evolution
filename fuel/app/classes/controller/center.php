@@ -11,14 +11,6 @@ class Controller_Center extends Controller_Frontend
         {
             $this -> membercheck();
         }
-        if ($this->auth->check()){
-            $smscount = Model_Member_Sm::count(['where'=>['owner_id'=>$this->current_user->id, ['status'=>Null, 'or'=>['status'=>0,]]]]);
-            if ($smscount > 0) {
-                View::set_global('isnew', true);
-            }else{
-                View::set_global('isnew', false);
-            }
-        }
         $this->template->layout = View::forge('memberlayout');
     }
 
@@ -59,12 +51,12 @@ class Controller_Center extends Controller_Frontend
                         Response::redirect('/u/getnickname');
                     }
                     Session::set_flash('success', e('欢迎登陆, '.$current_user->username));
-                    $url = Input::server('HTTP_REFERER', '/u');                    
+                    $url = Input::server('HTTP_REFERER', '/u');
                     return Response::redirect($url);
                 }
-               
+
                 Session::set_flash('signError', '用户名或者密码错误');
-            }                       
+            }
             return Response::redirect('/signin');
         }
         return Response::forge(View::forge('member/signin', [], false));
@@ -89,7 +81,7 @@ class Controller_Center extends Controller_Frontend
         if (Input::method() == 'POST')
         {
             $val = Model_Member::validateSignin('signup');
-            
+
             if ($val->run())
             {
                 $username = Input::post('username');
@@ -104,7 +96,7 @@ class Controller_Center extends Controller_Frontend
                         $current_user -> save();
                         Session::set_flash('success', e('欢迎登陆, '.$current_user->username));
                         Response::redirect('/u/getnickname');
-                        
+
                     }
                     else
                     {
@@ -116,7 +108,7 @@ class Controller_Center extends Controller_Frontend
 
                 }
             }else{
-                Session::set_flash('usernameError', e('用户名格式不对'));                
+                Session::set_flash('usernameError', e('用户名格式不对'));
             }
             Session::set_flash('username', e($username));
             Response::redirect('/signup');
@@ -124,7 +116,7 @@ class Controller_Center extends Controller_Frontend
         $this->template->title = '用户注册页面';
         $this->template->layout = View::forge('member/signup', [], false);
     }
-    
+
     /**
     * 打开忘记密码页面
     */
@@ -133,7 +125,7 @@ class Controller_Center extends Controller_Frontend
         Session::set_flash('error', null);
         return Response::forge(View::forge('member/forgot'));
     }
-    
+
     /**
     * 忘记密码之发送邮件成功
     */
@@ -145,9 +137,9 @@ class Controller_Center extends Controller_Frontend
            Response::redirect('/signin');
        }
        Session::delete('email');
-       return Response::forge(View::forge('member/sendok', ['email'=>$email], true));        
+       return Response::forge(View::forge('member/sendok', ['email'=>$email], true));
     }
-    
+
     /**
     *  填入邮箱 检测邮箱 发送KEY
     */
@@ -158,7 +150,7 @@ class Controller_Center extends Controller_Frontend
         $val->add_field('email', 'Email', 'required|valid_email|max_length[255]');
         if ($val->run())
         {
-            $email = Input::post('email');            
+            $email = Input::post('email');
             $member = Model_Member::find_by_email($email);
             if ($member)
             {
@@ -167,8 +159,8 @@ class Controller_Center extends Controller_Frontend
                $data = ["email"=>$email,
                    'uri' => 'findpwd',
                    'view'=>'member/email/findpassword',
-                   'type'=>'password',                   
-                   "subject"=>"乐乐淘用户找回密码"];       
+                   'type'=>'password',
+                   "subject"=>"乐乐淘用户找回密码"];
                $send = Model_Member_Email::sendEmail($data);
                Session::set('email', $email);
                return Response::redirect('/sendok');
@@ -185,7 +177,7 @@ class Controller_Center extends Controller_Frontend
     {
        $key = Input::get('key');
        if (Model_Member_Email::check_key($key, 'email')){
-          
+
           $email = Model_Member_Email::find_by_key($key);
           $this->auth->force_login($email->member_id);
           return json_encode(['key' => $key]);
@@ -205,19 +197,19 @@ class Controller_Center extends Controller_Frontend
         if (Model_Member_Email::check_key($key, 'password'))
         {
            $email = Model_Member_Email::find_by_key($key);
-           $member = Model_Member::find_by_email($email->email);              
+           $member = Model_Member::find_by_email($email->email);
            if (!$member)
            {
               return Response::forge(json_encode(['error'=>'用户数据库 错误']),200, $header);
-           }   
+           }
            Session::set('member_id', $member->id);
-           return Response::redirect('newpwd');          
+           return Response::redirect('newpwd');
         }else{
            return Response::forge(json_encode(['error'=>'key 错误']),200, $header);
         }
-        
+
     }
-    
+
     /*
     *  忘记密码之新密码提交,需要检测会话是否来自KEY
     */
@@ -227,25 +219,25 @@ class Controller_Center extends Controller_Frontend
         $member_id = Session::get('member_id', null);
         if (!$member_id)
         {
-            return Response::redirect('signup');            
+            return Response::redirect('signup');
         }
         if (!(Input::method() == 'POST'))
         {
             return Response::forge(View::forge('member/findpwd'));
         }
-        
+
         if ($this->auth->force_login($member_id)){
                 Session::delete('member_id');
         }
         $newpassword = Input::post('newpassword');
         $user = Model_Member::find($member_id);
-        $newrandpwd = $this->auth->reset_password($this->auth->get_screen_name()); 
-        $res = $this->auth->change_password($newrandpwd, $newpassword, $this->auth->get_screen_name());   
+        $newrandpwd = $this->auth->reset_password($this->auth->get_screen_name());
+        $res = $this->auth->change_password($newrandpwd, $newpassword, $this->auth->get_screen_name());
         if ($res)
         {
            return Response::redirect('u');
            //return Response::forge(json_encode(['error'=>'key 错误']),200, $header);
-        }       
+        }
         return Response::forge(View::forge('member/findpwd'));
     }
 }

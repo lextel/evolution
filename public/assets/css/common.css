@@ -15,6 +15,7 @@ body{
 }
 a{
     color: #333333;
+    outline: none;
 }
 .w{
     margin: 0 auto;
@@ -27,6 +28,7 @@ p{
 h4{
     color: #666;
     font-weight: normal;
+    font-size: 12px;
 }
 h3{
     font-size: 14px;
@@ -53,8 +55,10 @@ button,input{
     padding: 0;
     margin: 0;
     border: 0;
-    cursor:pointer;
     overflow: visible;
+}
+button{
+    cursor:pointer;
 }
 textarea:focus,input:focus{
     outline: none;
@@ -120,6 +124,7 @@ textarea:focus,input:focus{
      color:#999;
      line-height: 18px;
      font-weight: bold;
+    text-align: left;
      overflow: hidden;
      vertical-align: middle;
      white-space: nowrap;
@@ -188,7 +193,8 @@ textarea:focus,input:focus{
     vertical-align: middle;
     border-radius: 4px;
     text-emphasis:none;
-    behavior:url(ie-css3.htc);
+    position: relative;
+    z-index: 100;
 }
 .btn-link{
     border: none;
@@ -218,7 +224,10 @@ textarea:focus,input:focus{
     padding:0px 12px;
 }
 .btn-sm{
-    padding:2px 4px;
+    height: 16px;
+    line-height: 16px;
+    padding:0px 4px;
+    font-size: 12px;
 }
 .btn-lg{
     padding:8px 15px;
@@ -287,6 +296,13 @@ table tbody tr td{
     text-align: center;
     padding: 8px;
     line-height: 1.38462;
+}
+table tbody tr td .username{
+    width: 100%;
+    display: block;
+}
+table td p.tl{
+    width: 600px;
 }
 .inner-title{
     width: 500px;
@@ -605,7 +621,8 @@ table tbody tr td{
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
-    behavior:url("ie-css3.htc");
+    z-index: 100;
+    position: relative;
 }
 .progress .progress-bar{
     height: 100%;
@@ -1003,8 +1020,7 @@ table tbody tr td{
     line-height: 18px;
     text-align: center;
     color: #FFFFFF;
-    background: #D96D66;
-    border-radius: 50%;
+    background: url("../images/icon-02.png") no-repeat -194px -337px;
     position: absolute;
     top: 0;
     right: 0;
@@ -1129,7 +1145,7 @@ table tbody tr td{
 }
 .pay-way dl dd{
     float: left;
-    margin:0 30px 10px 0;
+    margin:0 40px 20px 0;
     overflow: hidden;
 }
 .pay-way dl dd input{
@@ -1146,11 +1162,10 @@ table tbody tr td{
     height: 31px;
 }
 .pay-way dl dd label span{
-    display: inline-block;
+    display:block;
     width: 105px;
     height: 31px;
-    float: left;
-    background: url("../images/bank_logo.png")no-repeat;
+    background:url("../images/bank_logo.png") no-repeat;
 }
 .pay-way dl dd label .zhs{
     background-position: 0 -36px;
@@ -1203,8 +1218,9 @@ table tbody tr td{
 
 .announcement{
     overflow: hidden;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #dddddd;
     padding: 20px;
+    background: #ffffff;
 }
 .announcement dt{
     height: 36px;
@@ -1222,12 +1238,14 @@ table tbody tr td{
 .announcement dd .a-content{
     line-height: 22px;
     overflow: hidden;
+    height: 44px;
     text-indent: 2em;
 }
 .announcement dd .a-title{
     font-size: 14px;
     height: 24px;
     line-height: 24px;
+    font-weight: bold;
 }
 .wrapper{
     overflow: hidden;
@@ -1277,4 +1295,18 @@ table tbody tr td{
 		padding:10px 10px;
 		display:block;
 		border-bottom:1px solid #ddd;
+}
+.time-box input{
+    border: 1px solid #F1F1F1;
+    height: 20px;
+    line-height: 20px;
+    margin: 5px 10px 5px 0;
+    width: 120px;
+    text-indent: 1em;
+}
+.sca{
+    padding: 4px 8px;
+    color: #238cff;
+    font-size: 12px;
+    display: block;
 }
