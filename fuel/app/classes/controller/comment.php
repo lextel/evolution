@@ -8,13 +8,13 @@ class Controller_Comment extends Controller_Rest{
     public function action_index($pid=null, $pagenum=1)
     {
         $this->response->set_header('Content-Type','application/json');
+        //$this->ignore_http_accept = true;
         $data = ['code'=>-1, 'msg'=>'pid is null'];
         is_null($pid) and $this->response($data);
         $count = Model_Comment::count(['where'=>['pid'=>$pid]]);
         $page = new \Helper\Page();
         $config = $page->setCommentPage('/comment/'.$pid.'/p', 'cpage',$count, 4, 4);
         $pagination = Pagination::forge('commentpage', $config);
-        $response = new Response();
         $comments = Model_Comment::find('all', [
                                 'where'=>['pid'=>$pid],
                                 'order_by' =>['id'=>'desc'],
@@ -31,7 +31,7 @@ class Controller_Comment extends Controller_Rest{
                     'userid'=>$c->member_id,
                     'avatar'=>$member->avatar,
                     'nickname'=>$member->nickname,
-                    'text'=>$c->text,
+                    'text'=>htmlentities($c->text),
                     'date'=>\Helper\Timer::friendlyDate($c->created_at)]
                     ];
             }

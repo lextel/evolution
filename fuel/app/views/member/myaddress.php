@@ -35,7 +35,7 @@
                             <td><?php echo $address->postcode; ?></td>
                             <td><?php echo $address->name; ?></td>
                             <td><?php echo $address->mobile; ?></td>
-                            <td><?php echo Html::anchor('javascript:;', $address->rate == 100 ? '默认地址': '设为默认地址', 
+                            <td><?php echo Html::anchor('javascript:;', $address->rate == 100 ? '<font color="#f00">默认地址</font>': '设为默认', 
                                       ['class'=>'setFlag', 'data'=>$address->id, 'rate'=>$address->rate]); ?>
                             <?php echo Html::anchor('javascript:;', '修改', ['onclick'=>'modifyAddress('.$address->id.')']); ?></td>
                         </tr>

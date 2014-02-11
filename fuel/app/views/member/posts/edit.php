@@ -7,15 +7,9 @@ echo Asset::css(
     );
 echo Asset::js(
         [
-            //'jquery.validate.js', 
-            //'additional-methods.min.js',
             'jquery.ui.widget.js',
             'jquery.iframe-transport.js',
             'jquery.fileupload.js',
-            //'ueditor/ueditor.config.js',
-            //'ueditor/ueditor.all.min.js',
-            //'ueditor/lang/zh-cn/zh-cn.js',
-            //'admin/items/form.js', 
             ]
         ); 
 ?>
@@ -41,17 +35,24 @@ $(function(){
         $(this).parent().remove();
     });
     //上传图片
+    $("body").on('click', '#postUpload', function(){
+    var imgs = $(".postimg dd").length;
+    if (imgs >= 5){
+        alert('您上传的图片超过了5张');
+        return false;
+    }
     $('#postUpload').fileupload({
         url: UPLOAD_URL,
         dataType: 'json',
         done: function (e, data) {
-            $.each(data.result.files, function (index, file) {var text = '<dd><img src="/'+file.link+'" alt="" /><input type="hidden" name="images[]" value="'+file.link+'"><a href="javascript:;" class="delete"></a></dd>';
+            $.each(data.result.files, function (index, file) {
+                var text = '<dd class="img-box"><img src="/'+file.link+'" alt="" /><input type="hidden" name="images[]" value="'+file.link+'"><a href="javascript:;" class="delete"></a></dd>';
                 $(".postimg").append(text);
             });
             
         },
-    }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
-    
+      }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
+    });
 });
 </script>
 <div class="content-inner">
@@ -59,17 +60,18 @@ $(function(){
         <div class="show-box">
             <!--查看晒单详情-->
             <div class="show-c" >
-                <?php echo Form::open(['action' => 'u/posts/edit/'.$post->id]);?>
+                <?php echo Form::open(['action' => 'u/posts/edit/'.$post->id, 'class'=>'demoform']);?>
                 <ul class="show-form">
                     <li>
-                        <label for="">标题</label>
-                        <input type="text" name="title" value="<?php echo $post->title;?>"/><span></span>
-                        <label for="" class="error"></label>
+                        <label for="">标题</label>                        
+                        <?php echo Form::input('title', $post->title, ['class' =>'form-control', 'name'=>'', 'datatype'=>'*', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>'已填写']);?>
+                        <span class="Validform_checktip"></span>
                     </li>
                     <li>
                         <label for="" class="body-label">正文</label>
-                        <textarea name="desc" cols="70" rows="15"><?php echo $post->desc;?></textarea>
-                        <label for="" class="error"></label>
+                        <?php echo Form::textarea('desc', $post->desc, ['class' => 'form-control', 'name'=>'', 
+                                           'datatype'=>'*', 'rows'=>'15', 'cols'=>'70', 'nullmsg'=>'请输入', 'sucmsg'=>'已填写']);?>
+                        <span class="Validform_checktip"></span>
                     </li>
                     <li>
                         <label for="" class="body-label">图片</label>
@@ -97,3 +99,10 @@ $(function(){
             </div>
         </div>
 </div>
+<script>
+$(function(){
+	$(".demoform").Validform({
+	tiptype:4,
+	});
+});
+</script>
