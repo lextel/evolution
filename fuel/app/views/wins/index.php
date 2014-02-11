@@ -130,10 +130,9 @@
                         <form  action="<?php echo Uri::create('cart/add'); ?>" method="post">
                             <div class="title-box">
                                 <h4 class="title-br"><?php echo Html::anchor('/m/'.$hot->id, $hot->title); ?></h4>
-                                <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $hot->amount); ?></b></span>
+                                <span class="price tr">价值 <b>￥<?php echo sprintf('%.2f', $hot->amount); ?></b></span>
                             </div>
                             <div class="img-box">
-                                <div class="top <?php echo $i < 4 ? 'one' : '';?>"><?php echo $i; ?></div>
                                 <a href="<?php echo Uri::create('m/'.$hot->id);?>" rel="nofollow"><img src="<?php echo Uri::create('image/200x200/'.$hot->image); ?>" alt=""></a>
                             </div>
                             <div class="remain tc">剩余次数: <b class="red"><?php echo $hot->remain; ?></b></div>
@@ -142,6 +141,7 @@
                                 <input name="id" value="<?php echo $hot->id; ?>" type="hidden">
                                 <button type="submit" class="btn btn-red">立即购买</button>
                             </div>
+                            <div class="top2 <?php echo $i < 4 ? 'one' : '';?>"><?php echo $i; ?></div>
                         </form>
                     </div>
 
