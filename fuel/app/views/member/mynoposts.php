@@ -39,7 +39,6 @@ $(function(){
         dataType: 'json',
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
-                console.log(file.link);
                 var text = '<dd class="img-box img-md"><img src="/'+file.link+'" alt="" /><input type="hidden" name="images[]" value="'+file.link+'"><a href="javascript:;" class="delete"></a></dd>';
                 $(".postimg").append(text);
             });
@@ -82,14 +81,14 @@ $(function(){
                             <div class="number">幸运乐拍码：<?php echo $phase->code;?></div>
                             <div class="datetime">揭晓时间：<?php echo Date("Y-m-d H:i:s", $phase->opentime);?></div>
                         </td>
-                        <td><a href="javascript:;" class="btn btn-sx btn-addpost" id=<?php echo $phase->id;?>>晒单</a></td>
+                        <td><a href="#add1" class="btn btn-sx btn-addpost" id=<?php echo $phase->id;?>>晒单</a></td>
                     </tr>
                     <?php } ?>
                     </tbody>
                      
                 </table>
                 
-                <ul class="show-form" style="display:none">
+                <ul class="show-form" style="display:none"><a name="add1"></a>
                     <?php echo Form::open(['action' => 'u/posts/add', 'method' => 'post']);?>
                     <li>
                         <label for="">标题</label>
