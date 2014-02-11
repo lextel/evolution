@@ -477,18 +477,43 @@
     margin-left:90px;
 }
 .show-form li dl{
-    overflow: hidden;
     margin-left: 10px;
-    display: inline-block;
+    float: left;
 }
-.show-form li dl dd.img-box{
-    display: inline-block;
+.show-form li dl dd{
+    overflow: hidden;
     width: 70px;
     height: 70px;
     line-height: 70px;
     margin-right: 10px;
-    border: 1px solid #EEEEEE;
+    overflow: hidden;
+    border:4px solid #0093D0;
     position: relative;
+    float: left;
+
+}
+.destItem{
+    display: inline-block;
+    width: 540px;
+    overflow: hidden;
+}
+.add-images{
+    float: left;
+    width: 70px;
+    height: 70px;
+    border:4px solid #dddddd;
+    background: url("../images/bg.png") no-repeat -138px -650px;
+}
+.add-images:hover{
+    border:4px solid #e7594b;
+    background: url("../images/bg.png") no-repeat -28px -650px;
+}
+.show-form li .add-images2{
+    width: 70px;
+    height: 70px;
+    opacity:0;
+    display: block;
+    cursor: pointer;
 }
 .delete{
     width: 18px;

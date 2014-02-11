@@ -45,8 +45,7 @@ $(function(){
         url: UPLOAD_URL,
         dataType: 'json',
         done: function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                var text = '<dd class="img-box"><img src="/'+file.link+'" alt="" /><input type="hidden" name="images[]" value="'+file.link+'"><a href="javascript:;" class="delete"></a></dd>';
+            $.each(data.result.files, function (index, file) {var text = '<dd><img src="/'+file.link+'" alt="" /><input type="hidden" name="images[]" value="'+file.link+'"><a href="javascript:;" class="delete"></a></dd>';
                 $(".postimg").append(text);
             });
             
@@ -74,6 +73,7 @@ $(function(){
                     </li>
                     <li>
                         <label for="" class="body-label">图片</label>
+                        <div class="destItem">
                         <dl class="postimg">
                             <?php foreach(unserialize($post->images) as $img) { ?>
                             <dd class="img-box">
@@ -83,8 +83,10 @@ $(function(){
                             </dd>
                             <?php } ?>
                         </dl>
-                        <input id="postUpload" type="file" name="post" multiple class="btn btn-default">
-                        <label for="" class="error"></label>
+                        <span class="add-images" title="上传图片">
+                           <input id="postUpload" type="file" name="post" multiple class="add-images2">
+                         </span>
+                         </div>
                     </li>             
                     <li>
                         <button class="btn btn-red tj">发布</button>
