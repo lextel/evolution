@@ -40,7 +40,10 @@
                                     <dl>
                                     	<?php
                                     		foreach($orderCodes as $code) {
-                                    			echo '<dd>'.$code.'</dd>';
+                                    			if($win->code == $code) 
+                                    				echo '<dd style="color:red; font-weight: bold">'.$code.'</dd>';
+                                    			else
+                                    				echo '<dd>'.$code.'</dd>';
                                     		}
                                     	?>
                                     </dl>
