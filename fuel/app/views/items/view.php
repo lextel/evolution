@@ -42,7 +42,7 @@
                 <div class="title"><h3>上期获奖者</h3></div>
                 <div class="head-img fl"><a href="<?php Uri::create('u/'.$winner->id); ?>"><img src="<?php echo Uri::create($winner->avatar); ?>" alt=""></a></div>
                 <div class="info-side fl">
-                    <div class="username">获得者<a href="<?php Uri::create('u/'.$winner->id); ?>"><b><?php echo $winner->nickname; ?></b></a></div>
+                    <div class="username">获得者：<a href="<?php Uri::create('u/'.$winner->id); ?>"><b><?php echo $winner->nickname; ?></b></a></div>
                     <span class="datetime">揭晓时间：<b><?php echo date('Y-m-d H:i:s', $prevWinner->opentime); ?></b></span>
                     <span class="datetime">乐拍时间：<b><?php echo date('Y-m-d H:i:s', $prevWinner->order_created_at); ?></b></span>
                     <span class="number">幸运码：<b class="red"><?php echo $prevWinner->code; ?></b></span>
@@ -57,6 +57,7 @@
         ?>
         <div class="product-column fr">
             <div class="state-heading">
+                <span class="icon icon-horn"></span>
                 <span>本商品已有 <b class="blue"><?php echo $postsCount($item->id); ?></b>位幸运者晒单，<b class="blue"><?php echo $commentCount($item->id); ?></b>评论</span>
             </div>
             <div class="price">价值:<b>￥<?php echo sprintf('%.2f', $item->price); ?></b></div>
@@ -66,14 +67,14 @@
                 <dd>
                     <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->phase->joined/$item->phase->amount*100); ?>%"></div></div>
                 </dd>
-                <!--dd>
+                <dd>
                     <span class="fl red"><?php echo $item->phase->joined; ?></span>
                     <span class="fr blue"><?php echo $item->phase->remain; ?></span>
                 </dd>
                 <dd>
                     <span class="fl">已参与人次</span>
                     <span class="fr">剩余人次</span>
-                </dd-->
+                </dd>
             </dl>
             <form action="<?php echo Uri::create('/cart/add'); ?>" method="post">
                 <div class="btn-menu">
@@ -83,7 +84,7 @@
                     <a class="add btn-jia" href="javascript:void(0);">+</a>
                     <span>人次</span>
                     <span>剩余<?php echo $item->phase->remain; ?>人次</span>
-                    <span>获得几率：<s class="red" id="percent"><?php echo sprintf('%.2f', 1/$item->phase->amount*100); ?>%</s> </span>
+                    <span class="chance">获得几率：<s class="red" id="percent"><?php echo sprintf('%.2f', 1/$item->phase->amount*100); ?>%</s> </span>
                 </div>
                 <div class="btn-group">
                     <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>

@@ -111,6 +111,7 @@ textarea:focus,input:focus{
 }
 .price b{
     padding: 0px 5px;
+    font-weight: normal;
 }
 .all-price{
     display: block;
@@ -119,6 +120,9 @@ textarea:focus,input:focus{
 .all-price b{
     color: #E4393C;
     padding: 0px 5px;
+}
+.chance{
+    color: #0137ff;
 }
 .username{
      display: inline-block;
@@ -131,17 +135,21 @@ textarea:focus,input:focus{
      vertical-align: middle;
      white-space: nowrap;
      text-overflow: ellipsis;
+     font-size: 14px;
  }
 .username a{
      color: #0137ff;
 }
 .number,.ip,.price,.datetime,.remain{
     line-height:18px;
-    color: #999;
     text-align: left;
 }
 .number b,.remain b{
     color: #af2812;
+    font-weight: normal;
+}
+.datetime b{
+    font-weight: normal;
 }
 /*按钮*/
 .btn-comment{
@@ -151,6 +159,9 @@ textarea:focus,input:focus{
 .btn-menu {
     margin: 0 10px 10px;
     text-align: center;
+}
+.btn-menu span{
+    font-size: 14px;
 }
 .btn-menu  .add{
     display: inline-block;
@@ -162,7 +173,7 @@ textarea:focus,input:focus{
 }
 
 .btn-menu input{
-    width: 80px;
+    width:70px;
     border: 1px solid #f1f1f1;
     height: 20px;
     display: inline-block;
@@ -589,6 +600,9 @@ table td p.tl{
 .title-box h3{
     font-weight: normal;
 }
+.title-box h3 a{
+    font-weight: normal;
+}
 .title-br{
     height: 40px;
     line-height: 20px;
@@ -596,11 +610,13 @@ table td p.tl{
     font-weight:bold;
     word-wrap:break-word ;
     overflow: hidden;
+    font-weight: normal;
 }
 .more{
     display: block;
     float: right;
     color: #379BE9;
+    font-size: 14px;
 }
 .fl{
     float: left;
@@ -784,6 +800,11 @@ table td p.tl{
     background:#af2812;
     text-align: center;
     position: relative;
+}
+.shopping-box .shopping-cart .title-md a:hover{
+    color: #af2812;
+    text-decoration: underline;
+
 }
 .shopping-box  .shp-c-h{
     background: #FFFFFF;

@@ -36,7 +36,18 @@
                               <span class="number">乐购数量：<b class="red"><?php echo $win->code_count; ?></b>人次</span>
                          </div>
                         <div class="win-number">
-                        </div>
+                            <div class="left"><?php echo date('Y-m-d', $win->order_created_at); ?><br><?php echo date('H:i:s', $win->order_created_at); ?></div>
+                                    <dl>
+                                    	<?php
+                                    		foreach($orderCodes as $code) {
+                                    			if($win->code == $code) 
+                                    				echo '<dd style="color:red; font-weight: bold">'.$code.'</dd>';
+                                    			else
+                                    				echo '<dd>'.$code.'</dd>';
+                                    		}
+                                    	?>
+                                    </dl>
+                            </div>
                     </div>
                     <span class="icon-01"></span>
                     <span class="icon-02"></span>
