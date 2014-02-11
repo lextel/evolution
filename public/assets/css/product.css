@@ -23,9 +23,13 @@
     overflow: hidden;
     line-height: 23px;
     margin-bottom: 10px;
+    font-size: 14px;
     background:url("../images/bg.png") no-repeat -2px -181px;
 }
-
+.state-heading .blue{
+    color: #af2812;
+    margin: 0 5px;
+}
 .details {
     width: 100px;
     height: 22px;
@@ -248,9 +252,6 @@
     display: block;
     margin:0px auto 10px;
 }
-.product-hot b{
-    font-size: 16px;
-}
 .product-hot .title-box{
     background: url("../images/bg.png") repeat-x -9px -366px;
 }
@@ -274,9 +275,13 @@
     position: absolute;
     width:119px;
     color: #FFFFFF;
-    font-weight: bold;
+    font-size: 14px;
     top: -4px;
     left: -19px;
+}
+.sheng-yi2 b{
+    font-size: 18px;
+    font-weight: normal;
 }
 .list_sort{
     overflow: hidden;
@@ -694,6 +699,7 @@
     min-width: 40px;
     display: block;
     padding: 0 20px;
+    font-size: 14px;
     border-right: 1px  solid #dddddd;
 }
 .sub-nav li a.active{
