@@ -54,7 +54,7 @@
                 <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
                     <div class="title-box">
                         <h3 class="title-md"><a href="<?php echo Uri::create('/m/'.$topItem->id); ?>"><?php echo $topItem->title; ?></a></h3>
-                        <span class="price tr">价值 <b>￥<?php echo sprintf('%.2f', $topItem->cost / Config::get('point')); ?></b></span>
+                        <span class="price tr">价值<b>￥<?php echo sprintf('%.2f', $topItem->cost / Config::get('point')); ?></b></span>
                     </div>
                     <div class="img-box img-lg">
                         <a href="<?php echo Uri::create('/m/'.$topItem->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('/image/400x400/' . $topItem->image); ?>" alt=""></a>

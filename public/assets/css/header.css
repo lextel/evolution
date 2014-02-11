@@ -12,7 +12,7 @@
 .announced-news ul{
     overflow: hidden;
     border: 1px solid #eeeeee;
-    margin: 10px;
+    margin:0 10px 10px;
     padding: 10px 0 10px 15px;
 }
 .announced-news ul li{
@@ -172,7 +172,6 @@
     float: right;
     width: 430px;
     padding: 10px 0px 10px 10px;
-    border: 1px solid #EEEEEE;
  }
 .bask-side .bask-list ul li{
     float: left;
