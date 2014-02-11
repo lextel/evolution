@@ -56,13 +56,5 @@
         </ul>
         <!--分页-->
         <?php echo Pagination::instance('postspage')->render(); ?>
-        <!--<div class="pagination fr">
-            <span><a href="" class="previous-inactive">上一页&lt;</a></span>
-            <span><a href="" class="active">1</a></span>
-            <span><a href="">2</a></span>
-            <span><a href="">3</a></span>
-            <span><a href="">4</a></span>
-            <span><a href="" class="next">下一页&gt;</a></span>
-        </div>-->
     </div>
 </div>

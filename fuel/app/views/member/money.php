@@ -30,7 +30,18 @@ $(function() {
            'json' 
        );
    });
-
+   $("#money2").keyup(function(){   
+    var value = $("#money2").val();   
+    if((/^[1-9]{1}\d*$/.test(value))|| value<0)   
+    {     
+      return true;     
+    }   
+    else
+    {    
+      $("#money2").val("1");     
+      return false;     
+    }     
+   });
 
 })
 </script>
