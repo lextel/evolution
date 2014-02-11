@@ -33,6 +33,9 @@ h4{
 h3{
     font-size: 14px;
 }
+h3 a{
+    font-weight: bold;
+}
 h5{
     font-size: 14px;
     height: 20px;
@@ -107,7 +110,6 @@ textarea:focus,input:focus{
     font-size: 12px;
 }
 .price b{
-    color: #f60;
     padding: 0px 5px;
 }
 .all-price{
@@ -124,14 +126,14 @@ textarea:focus,input:focus{
      color:#999;
      line-height: 18px;
      font-weight: bold;
-    text-align: left;
+     text-align: left;
      overflow: hidden;
      vertical-align: middle;
      white-space: nowrap;
      text-overflow: ellipsis;
  }
 .username a{
-     color: #379BE9;
+     color: #0137ff;
 }
 .number,.ip,.price,.datetime,.remain{
     line-height:18px;
@@ -139,7 +141,7 @@ textarea:focus,input:focus{
     text-align: left;
 }
 .number b,.remain b{
-    color: #f60;
+    color: #af2812;
 }
 /*按钮*/
 .btn-comment{
@@ -211,7 +213,7 @@ textarea:focus,input:focus{
     background: #CF3404;
 }
 .btn-y{
-    color: #666666;
+    color: #bb4c30;
     background: #EEC891;
 }
 .btn-y:hover{
@@ -324,6 +326,12 @@ table td p.tl{
     background-position: -134px -11px;
 }
 .icon-search{
+    width: 25px;
+    height: 25px;
+    margin:0;
+    background:url("../images/icon.png") no-repeat -22px -5px;
+}
+.icon-search:hover{
     width: 25px;
     height: 25px;
     margin:0;
@@ -840,13 +848,12 @@ table td p.tl{
     width: 100%;
     background:#af2812 ;
     height: 38px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .navbar ul{
     width: 980px;
     margin: 0 auto;
     overflow: hidden;
-    border-right: 1px solid #920303;
 }
 .navbar ul li{
     height: 36px;
@@ -864,7 +871,6 @@ table td p.tl{
     height: 37px;
     color: white;
     font-size: 14px;
-    border-left: 1px solid #920303;
 }
 .navbar ul li a:hover{
     background: #cd2d14;
