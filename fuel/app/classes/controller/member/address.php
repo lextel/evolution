@@ -128,12 +128,14 @@ class Controller_Member_Address extends Controller_Center{
         $data = ['code'=>0, 'msg'=>'ok'];
         if ($post = Model_Member_Address::find($id, ['where'=>['is_delete'=>0, 'rate'=>0]]))
         {
-            $check = Model_Member_Address::find('all', ['where'=>['is_delete'=>0, 'rate'=>100]]);
-            if (!$check){
-                $post->rate = 100;
-                $post->save();
-                return json_encode($data);
+            $check = Model_Member_Address::find('first', ['where'=>['is_delete'=>0, 'rate'=>100]]);
+            if ($check){
+                $check->rate = 0;
+                $check->save();
             }
+            $post->rate = 100;
+            $post->save();
+            return json_encode($data);
         }
         $data['code'] = -1;
         return json_encode($data);
