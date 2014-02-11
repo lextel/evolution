@@ -21,11 +21,11 @@ $(function(){
         <?php echo Form::open(['action' => 'u/passwd', 'method' => 'post', 'class'=>'form-password registerform']); ?>
         <ul class="edit-data">
             <li>
-            <?php if (Session::get_flash('success')): ?>
+            <?php if (Session::get_flash('info')): ?>
                  <?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
             <?php endif; ?>
-            <?php if (Session::get_flash('error')): ?>
-                 <?php echo implode('</p><p>', (array) Session::get_flash('error')); ?>
+            <?php if (Session::get_flash('info')): ?>
+                 <font color="#f00" style="margin-left: 20%;display: block;"><?php echo implode('</p><p>', (array) Session::get_flash('info')); ?></font>
             <?php endif; ?>
             </li>
             <li>
