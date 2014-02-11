@@ -44,6 +44,7 @@ class Controller_Wins extends Controller_Frontend{
 
         $orderModel = new Model_Order();
         $orderCount = $orderModel->countByPhaseId($id);
+        $orderCodes = $orderModel->userCodesByPhaseId($win->member_id, $id);
         $postModel  = new Model_Post();
         $postCount  = $postModel->countByItemId($win->item_id);
         $itemModel = new Model_Item();
@@ -52,6 +53,7 @@ class Controller_Wins extends Controller_Frontend{
         $view = ViewModel::forge('wins/view');
 
         $view->set('orderCount', $orderCount);
+        $view->set('orderCodes', $orderCodes);
         $view->set('postCount', $postCount);
         $view->set('phaseCount', $phaseCount);
         $view->set('win', $win , false);

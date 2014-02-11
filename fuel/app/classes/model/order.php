@@ -195,6 +195,20 @@ class Model_Order extends \Classes\Model
     }
 
     /**
+     * 获取某用户某期购买的号码
+     *
+     * @param $memberId integer 会员ID
+     * @param $phaseId  integer 期数ID
+     *
+     * @return array
+     */
+    public function userCodesByPhaseId($memberId, $phaseId) {
+        $order = Model_Order::find('first',['where' => ['phase_id' => $phaseId, 'member_id' => $memberId]]);
+
+        return unserialize($order->codes) ? unserialize($order->codes) : [];
+    }
+
+    /**
      * 最新乐拍记录
      *
      * @param $phaseId integer 期数ID
