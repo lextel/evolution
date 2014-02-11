@@ -199,11 +199,13 @@ class Model_Order extends \Classes\Model
      *
      * @param $memberId integer 会员ID
      * @param $phaseId  integer 期数ID
+     * @param $code     integer 中奖号码
      *
      * @return array
      */
-    public function userCodesByPhaseId($memberId, $phaseId) {
-        $order = Model_Order::find('first',['where' => ['phase_id' => $phaseId, 'member_id' => $memberId]]);
+    public function userCodesByPhaseId($memberId, $phaseId, $code) {
+        $like = '%'.$code.'%';
+        $order = Model_Order::find('first',['where' => ['phase_id' => $phaseId, 'member_id' => $memberId, ['codes', 'LIKE', $like]]]);
 
         return unserialize($order->codes) ? unserialize($order->codes) : [];
     }

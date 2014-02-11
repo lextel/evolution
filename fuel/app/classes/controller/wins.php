@@ -44,7 +44,7 @@ class Controller_Wins extends Controller_Frontend{
 
         $orderModel = new Model_Order();
         $orderCount = $orderModel->countByPhaseId($id);
-        $orderCodes = $orderModel->userCodesByPhaseId($win->member_id, $id);
+        $orderCodes = $orderModel->userCodesByPhaseId($win->member_id, $id, $win->code);
         $postModel  = new Model_Post();
         $postCount  = $postModel->countByItemId($win->item_id);
         $itemModel = new Model_Item();
