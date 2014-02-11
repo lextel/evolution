@@ -35,9 +35,10 @@
             </tr>
         </thead>
         <tbody>
+        <?php $phaselist = $getPhaseInfo($list);?>
         <?php foreach ($list as $item): ?>
              <tr>
-                <td><?php echo '第('.$item->phase_id.')期'.$item->phase_id; ?></td>
+                <td style="text-align: left;"><?php echo '第('.$item->phase_id.')期 '.$phaselist[$item->phase_id]->title; ?></td>
                 <td><?php echo $item->total.'人次'; ?></td>
                 <td><?php echo Date::forge($item->created_at)->format("%Y-%m-%d %H:%M:%S"); ?></td>
                 <td><?php echo $item->sum; ?>点积分</td>
