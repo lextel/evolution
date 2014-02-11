@@ -46,7 +46,7 @@
        </div>
        <div class="btn-group sns-bar">
            <?php echo Html::anchor('javascript:;', '喜欢(<s>'.$post->up.'</s>)', array('class'=>'btn-link sns-love', 'id'=>$post->id));?>
-           <span class="btn-link sns-comment">评论(<s><?php echo $post->comment_count;?></s>)</span>
+           <span class="btn-link sns-comment"><a href="#comment">评论</a>(<s><?php echo $post->comment_count;?></s>)</span>
        </div>
    </div>
     <div class="sidebar fr">
@@ -106,7 +106,7 @@
     </div>
 </div>
 <!--评论-->
-<div class="comment-panel">
+<div class="comment-panel" name="comment">
     <div class="comment-box">
         <input id="<?php echo $post->id;?>" type="hidden" class="postid">
         <textarea name="text" id="comment" cols="30" rows="4"></textarea>
