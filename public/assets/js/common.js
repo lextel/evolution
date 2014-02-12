@@ -10,9 +10,17 @@ $(function(){
     });
 });
 /**
- *公告交互效果
+ *顶部设置鼠标滑过效果
  */
+$(function(){
+    $(".top-portrait").hover(
+        function(){
+            $(this).children(".head-setting").css({display:"block"})},
+        function(){
+            $(this).children(".head-setting").css({display:"none"})}
 
+    );
+});
 /**
  *返回顶部--侧边浮动快捷栏
  */

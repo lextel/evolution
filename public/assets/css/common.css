@@ -135,7 +135,6 @@ textarea:focus,input:focus{
      vertical-align: middle;
      white-space: nowrap;
      text-overflow: ellipsis;
-     font-size: 14px;
  }
 .username a{
      color: #0137ff;
@@ -762,7 +761,35 @@ table td p.tl{
     margin-left: 20px;
     width: 70px;
 }
-.top-menu span a{
+.top-portrait{
+    display: inline-block;
+    position: relative;
+}
+.head-setting{
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    width: 120px;
+    overflow: hidden;
+    padding-top: 10px;
+    display: none;
+}
+.head-setting li{
+    text-align: center;
+    background: #E5E5E5;
+    border: 1px solid #dbdbdb;
+}
+.head-setting li a{
+     display: block;
+     width: 95px;
+     height: 30px;
+     margin: -1px auto 0;
+     line-height: 30px;
+     text-align: center;
+     border-top:1px solid #ccc;
+ }
+.head-setting li a:hover{
+    color: #cd1212;
 }
 .logo-box{
     width: 980px;
@@ -940,7 +967,7 @@ table td p.tl{
 }
 .footer-help dl dd{
     text-indent: 10px;
-    line-height: 24px;
+    line-height: 30px;
 }
 .footer{
     text-align: center;

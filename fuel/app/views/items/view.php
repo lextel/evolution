@@ -1,9 +1,7 @@
 <?php echo Asset::css(['product.css', 'jquery.jqzoom.css', 'customBootstrap.css', 'style.css']); ?>
 <?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js','jquery.pin.js', 'item/view.js']); ?>
 <?php $this->title = '(第' . $item->phase->phase_id .'期)' . $item->title; ?>
-<div class="wrapper w">
-    <!--商品信息开始-->
-    <div class="panel w">
+<div class="panel w">
         <div class="title">
             <h2>
                 <b>(第<?php echo $item->phase->phase_id; ?>期)</b>
@@ -192,36 +190,37 @@
             </div>
         </div>
     </div>
+<div class="wrapper w">
+    <!--商品信息开始-->
 	<div class="bd w">
-		<div class="sub-nav w" id="bigNav">
-        <ul class="fl">
-            <li><a href="#desc" data-toggle="tab" class="active">商品详情</a></li>
-            <li><a href="#buylog" phaseId="<?php echo $item->phase->id; ?>" data-toggle="tab">所有参与纪录(<s class="r"><?php echo $orderCount; ?></s>)</a></li>
-            <li><a href="#posts" itemId="<?php echo $item->id; ?>" data-toggle="tab">晒单(<s class="r"><?php echo $postCount; ?></s>)</a></li>
-            <li><a href="#phase" itemId="<?php echo $item->id; ?>" data-toggle="tab">往期回顾(<s class="r"><?php echo $phaseCount; ?></s>)</a></li>
-        </ul>
-        <div class="online-qq fr"><span class="icon icon-qq"></span><a class="chance" href="javaxcript:void(0)">在线客服</a></div>
-    </div>
-    <!--商品信息结束-->
-    <div class="tab-content">
-        <!--商品详情开始-->
-        <div class="product-details tab-pane active" id="desc">
-            <?php echo $item->desc; ?>
+	    <div class="sub-nav w" id="bigNav">
+            <ul class="fl">
+                <li><a href="#desc" data-toggle="tab" class="active">商品详情</a></li>
+                <li><a href="#buylog" phaseId="<?php echo $item->phase->id; ?>" data-toggle="tab">所有参与纪录(<s class="r"><?php echo $orderCount; ?></s>)</a></li>
+                <li><a href="#posts" itemId="<?php echo $item->id; ?>" data-toggle="tab">晒单(<s class="r"><?php echo $postCount; ?></s>)</a></li>
+                <li><a href="#phase" itemId="<?php echo $item->id; ?>" data-toggle="tab">往期回顾(<s class="r"><?php echo $phaseCount; ?></s>)</a></li>
+            </ul>
+            <div class="online-qq fr"><span class="icon icon-qq"></span><a class="chance" href="javaxcript:void(0)">在线客服</a></div>
         </div>
-        <!--商品详情结束-->
-        <!--参与记录开始-->
-        <div class="record d-n tab-pane" id="buylog">
-            <p style="margin-bottom: 15px;text-align: center">暂无参与记录</p>
+        <div class="tab-content">
+            <!--商品详情开始-->
+            <div class="product-details tab-pane active" id="desc">
+                <?php echo $item->desc; ?>
+            </div>
+            <!--商品详情结束-->
+            <!--参与记录开始-->
+            <div class="record d-n tab-pane" id="buylog">
+                <p style="margin-bottom: 15px;text-align: center">暂无参与记录</p>
+            </div>
+            <!--参与记录结束-->
+            <!--晒单开始-->
+            <div class="product-bask tab-pane" id="posts">
+                <p style="margin-bottom: 15px;text-align: center">暂无晒单记录</p>
+            </div>
+            <!--晒单结束-->
+            <!--往期回顾开始-->
+            <div class="look-bak d-n tab-pane" id="phase"></div>
         </div>
-        <!--参与记录结束-->
-        <!--晒单开始-->
-        <div class="product-bask tab-pane" id="posts">
-            <p style="margin-bottom: 15px;text-align: center">暂无晒单记录</p>
-        </div>
-        <!--晒单结束-->
-        <!--往期回顾开始-->
-        <div class="look-bak d-n tab-pane" id="phase"></div>
-    </div>
 	</div>
 
 </div>
