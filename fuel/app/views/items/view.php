@@ -60,6 +60,7 @@
                 <span class="icon icon-horn"></span>
                 <span>本商品已有 <b class="blue"><?php echo $postsCount($item->id); ?></b>位幸运者晒单，<b class="blue"><?php echo $commentCount($item->id); ?></b>评论</span>
             </div>
+            <div class="middle">
             <div class="price">价值:<b>￥<?php echo sprintf('%.2f', $item->price); ?></b></div>
             <div class="price">总积分:<b><?php echo $item->phase->cost; ?><?php echo $unit; ?></b></div>
             <?php if(!empty($item->phase->remain)): ?>
@@ -82,8 +83,7 @@
                     <a class="add btn-jian" href="javascript:void(0);">-</a>
                     <input type="text" value="1" name="qty" amount="<?php echo $item->phase->amount; ?>" remain="<?php echo $item->phase->remain; ?>">
                     <a class="add btn-jia" href="javascript:void(0);">+</a>
-                    <span>人次</span>
-                    <span>剩余<?php echo $item->phase->remain; ?>人次</span>
+                    <span>(剩余<?php echo $item->phase->remain; ?>人次)</span>
                     <span class="chance">获得几率：<s class="red" id="percent"><?php echo sprintf('%.2f', 1/$item->phase->amount*100); ?>%</s> </span>
                 </div>
                 <div class="btn-group">
@@ -104,6 +104,7 @@
                 <li><a href="<?php echo Uri::create('/h/promise'); ?>" class="02">100%正品保证</a></li>
                 <li><a href="<?php echo Uri::create('/h/expressinfo'); ?>" class="03">全国免费配送</a></li>
             </ul>
+            </div>
             <div class="new-buyer">
                 <div class="new-buyer-header">
                     <ul class="tab">
@@ -157,25 +158,26 @@
                                     endif;
                                     else:
                                 ?>
-                                <form action="<?php echo Uri::create('signin'); ?>" method="post">
-                                    <ul class="edit-data" style="display: block;">
-                                        <li>
-                                            <label>帐号：</label>
-                                            <input type="text" name="username">
-                                        </li>
-                                        <li>
-                                            <label>密码：</label>
-                                            <input type="password" name="password">
-                                        </li>
-                                        <li>
-                                            <button type="submit" class="btn btn-red">登录</button>
-                                            <a href="<?php echo Uri::create('signup'); ?>">注册</a>
-                                        </li>
-                                    </ul>
-                                </form>
-                                <?php endif; ?>
+
                             </tbody>
                         </table>
+                         <form action="<?php echo Uri::create('signin'); ?>" method="post">
+                               <ul class="edit-data" style="display: block;">
+                                    <li>
+                                          <label>帐号：</label>
+                                          <input type="text" name="username">
+                                    </li>
+                                    <li>
+                                          <label>密码：</label>
+                                          <input type="password" name="password">
+                                    </li>
+                                    <li>
+                                          <button type="submit" class="btn btn-red">登录</button>
+                                          <a class="btn-register" href="<?php echo Uri::create('signup'); ?>">注册</a>
+                                    </li>
+                               </ul>
+                         </form>
+                         <?php endif; ?>
                     </div>
                     <div class="tab-pane" id="help">
                         <p>乐乐淘是指只需10乐淘币就有机会买到想要的商品。即每件商品被平分成若干“等份”出售，每份10乐淘币，
@@ -184,7 +186,7 @@
                         <p>
                        乐乐淘以“快乐云淘，惊喜无限”为宗旨，力求打造一个100%公平公正、100%正品保障、寄娱乐与购物一体化的新型购物网站。
                         </p>
-                        <a href="<?php echo Uri::create('h/new'); ?>" class="link">查看更多</a>
+                        <div class="tr"><a href="<?php echo Uri::create('h/new'); ?>" class="link">更多详情></a></div>
                     </div>
                 </div>
             </div>
@@ -192,12 +194,13 @@
     </div>
 	<div class="bd w">
 		<div class="sub-nav w" id="bigNav">
-        <ul>
+        <ul class="fl">
             <li><a href="#desc" data-toggle="tab" class="active">商品详情</a></li>
-            <li><a href="#buylog" phaseId="<?php echo $item->phase->id; ?>" data-toggle="tab">所有参与纪录(<b><?php echo $orderCount; ?></b>)</a></li>
-            <li><a href="#posts" itemId="<?php echo $item->id; ?>" data-toggle="tab">晒单(<b><?php echo $postCount; ?></b>)</a></li>
-            <li><a href="#phase" itemId="<?php echo $item->id; ?>" data-toggle="tab">往期回顾(<b><?php echo $phaseCount; ?></b>)</a></li>
+            <li><a href="#buylog" phaseId="<?php echo $item->phase->id; ?>" data-toggle="tab">所有参与纪录(<s class="r"><?php echo $orderCount; ?></s>)</a></li>
+            <li><a href="#posts" itemId="<?php echo $item->id; ?>" data-toggle="tab">晒单(<s class="r"><?php echo $postCount; ?></s>)</a></li>
+            <li><a href="#phase" itemId="<?php echo $item->id; ?>" data-toggle="tab">往期回顾(<s class="r"><?php echo $phaseCount; ?></s>)</a></li>
         </ul>
+        <div class="online-qq fr"><span class="icon icon-qq"></span><a class="chance" href="javaxcript:void(0)">在线客服</a></div>
     </div>
     <!--商品信息结束-->
     <div class="tab-content">

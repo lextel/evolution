@@ -107,7 +107,7 @@ textarea:focus,input:focus{
 }
 .price{
     display: block;
-    font-size: 12px;
+    font-size: 14px;
 }
 .price b{
     padding: 0px 5px;
@@ -171,7 +171,21 @@ textarea:focus,input:focus{
     text-align: center;
     background: #d5d5d5;
 }
-
+.btn-register{
+    text-align: center;
+    width: 80px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    background: #d2d2d2;
+    color: #af2812;
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 14px;
+}
 .btn-menu input{
     width:70px;
     border: 1px solid #f1f1f1;
@@ -225,7 +239,7 @@ textarea:focus,input:focus{
 }
 .btn-y{
     color: #bb4c30;
-    background: #EEC891;
+    background: #ffd79c;
 }
 .btn-y:hover{
     background: #eed9ab;
@@ -239,7 +253,7 @@ textarea:focus,input:focus{
 .btn-sm{
     height: 16px;
     line-height: 16px;
-    padding:0px 4px;
+    padding:3px 9px;
     font-size: 12px;
 }
 .btn-lg{

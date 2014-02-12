@@ -22,7 +22,6 @@
     padding: 8px 10px;
     overflow: hidden;
     line-height: 23px;
-    margin-bottom: 10px;
     font-size: 14px;
     background:url("../images/bg.png") no-repeat -2px -181px;
 }
@@ -60,7 +59,7 @@
     font-weight: bold;
 }
 .panel{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .result-box .right-box {
     overflow: hidden;
@@ -498,22 +497,27 @@
     width: 402px;
 }
 .lantern-slide{
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border: 1px solid #EEEEEE;
+    background: #ffffff;
 }
 .lantern-slide .slide-img{
-    width:400px ;
-    height:400px ;
+    width:376px;
+    height:376px;
+    margin: 10px;
+    border: 1px solid #EEEEEE;
     text-align: center;
 }
 .lantern-slide .slide-img a img{
+    width:376px;
+    height:376px;
     height: auto;
+    overflow: hidden;
     vertical-align: middle;
 }
 .slide-list{
     overflow: hidden;
-    background: #1e1e1e;
-    padding: 5px 0;
+    background: #ffffff;
 }
 .slide-list li{
     width: 74px;
@@ -521,12 +525,14 @@
     line-height: 67px;
     text-align: center;
     position: relative;
-    margin-left: 5px;
+    margin: 0px 0 10px 10px;
     float: left;
+    border: 1px solid #dbdbdb;
 }
 .slide-list li a {
    display: block;
 }
+/*
 .slide-list li a span{
     width: 74px;
     height:74px;
@@ -539,7 +545,8 @@
     display: block;
     cursor: pointer;
 }
-.slide-list li a.zoomThumbActive span{
+*/
+/*.slide-list li a.zoomThumbActive span{
     width: 68px;
     height: 68px;
     border: 3px solid #D9534F;
@@ -547,6 +554,7 @@
     opacity: 1;
     filter: Alpha(opacity=100)
 }
+*/
 .slide-list li img{
     height: auto;
     max-width: 100%;
@@ -554,9 +562,12 @@
 }
 /*幻灯片结束*/
 .product-column {
-    width: 558px;
+    width: 568px;
     overflow: hidden;
-    background: #FFFFFF;
+}
+.middle{
+    overflow: hidden;
+   background: #ffffff;
 }
 .product-column .price{
     margin: 10px;
@@ -607,6 +618,7 @@
     overflow: hidden;
     border: 1px solid #DDDDDD;
     border-right: none;
+    margin-top: 10px;
 }
 .new-buyer-header{
     overflow: hidden;
@@ -655,13 +667,11 @@
 }
 .new-buyer  .new-buyer-body  p{
     line-height: 24px;
-    color: #666666;
-    font-size: 14px;
+    font-size: 13px;
 }
 .new-buyer  .new-buyer-body .link{
-    color: #5BC5FF;
-    font-size: 14px;
-    text-decoration: underline;
+    color: #0137ff;
+    font-size: 13px;
 }
 .previous-box{
     overflow: hidden;
@@ -672,42 +682,44 @@
 .product-details{
     padding: 20px;
     border: 1px solid #ddd;
-    border-top: 0;
+}
+.pin-wrapper{
+    margin-bottom: 10px;
 }
 .sub-nav {
     overflow: hidden;
     background: #ffffff;
     z-index: 999;
 }
-
 .sub-nav ul {
-    border: 1px solid #ddd;
     overflow: hidden;
 }
-
 .sub-nav ul li {
     text-align: center;
     float: left;
-    height: 38px;
-    line-height: 38px;
-    background: #F1F1F1;
 }
 .sub-nav ul li .active{
-    background: #D9534F;
+    color: #af2812;
 }
 .sub-nav ul li a{
     min-width: 40px;
     display: block;
+    margin: 10px 0;
     padding: 0 20px;
     font-size: 14px;
-    border-right: 1px  solid #dddddd;
+    border-right:1px  solid #dddddd;
 }
 .sub-nav li a.active{
-    background: #ffffff;
-    margin-bottom: -1px;
-    border-top:3px solid #D9534F;
+    color: #af2812;
 }
-.bd{
+.online-qq{
+    width: 80px;
+    padding: 8px;
+}
+.online-qq a{
+    font-size: 14px;
+}
+.tab-content{
     background: #FFFFFF;
 }
 /*商品详情--晒单*/
@@ -736,6 +748,7 @@
     overflow: hidden;
     width: auto;
     height: 45px;
+    font-size: 14px;
 }
 .bask-list .bask-imgBox{
     overflow: hidden;
@@ -752,10 +765,19 @@
     position: absolute;
     top: 0;
     right: 0;
-    padding: 5px 10px;
+    width: 110px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
     border: 1px solid #EEEEEE;
     background:#AF2812;
+    font-size: 14px;
     color: #FFFFFF;
+}
+.bask-list h4 a{
+    font-size: 16px;
+    font-weight: bold;
+    color: #161616;
 }
 /*所有参与记录*/
 .record,.look-bak{
@@ -803,19 +825,36 @@
 .left-content .item-group li{
     float: left;
     width: 335px;
-    height: 188px;
+    height: 222px;
     border: 1px solid #EEEEEE;
     margin: 0 15px 15px 0;
 }
+.left-content .item-group li.active{
+    border: 1px solid #af2812;
+}
 .item-group li .item-head{
     line-height: 24px;
-    padding:3px 10px;
+    padding:4px 10px;
     overflow: hidden;
+    background: #eeeeee;
+    border: 1px solid #EEEEEE;
+}
+.item-head .price {
+    font-size: 12px;
 }
 .item-group li .item-body{
     overflow: hidden;
     padding: 10px;
     height: 122px;
+    position: relative;
+}
+.icon-jx{
+    width:50px;
+    height: 45px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("../images/bg.png") no-repeat -236px -460px;
 }
 .item-group li .item-body .winner{
     width: 110px;
@@ -830,17 +869,20 @@
     overflow: hidden;
     padding: 5px 10px;
 }
-.item-group li .item-footer span{
+.item-group li .item-footer p{
     display: block;
     text-align: center;
     font-size: 16px;
-    color: #f60;
-    padding: 7px;
+    color: #ffffff;
+    padding: 11px;
+    background: #af2812;
+    margin:0 -10px -5px;
 }
 .lucky-code{
     vertical-align: middle;
     font-size: 16px;
     padding: 5px 0;
+
 }
 .lucky-code b{
     font-weight: bold;
@@ -853,6 +895,12 @@
 .user-info .username a{
     width: 60px;
 }
+.h-info{
+    overflow: hidden;
+    width: 100%;
+    clear: both;
+    margin-bottom: 10px;
+}
 .p-info{
     overflow: hidden;
     width: 100%;
@@ -860,39 +908,42 @@
 }
 .countdown{
     overflow: hidden;
-    background: #f60;
-    padding: 8px;
     margin-top: 10px;
 }
 .countdown dt{
-    color: #ffffff;
-    font-size: 14px;
+    font-size: 18px;
     float: left;
-    line-height: 26px;
-    font-weight: bold;
-    margin: 0 5px;
+    width: 100%;
+    margin-bottom: 10px;
 }
 .countdown dd{
     background: #ffffff;
     float: left;
-    color: #f60;
+    color: #af2812;
     padding: 5px;
-    font-size: 16px;
+    font-size: 40px;
     border-radius: 4px;
+    height: 34px;
+    line-height: 34px;
+}
+.countdown dd.num{
+    width: 34px;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 30px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border: 1px solid #a0a0a0;
+    background: #cbcbcb;
 }
 .counting{
-    display: none;
     overflow: hidden;
-    background: #f60;
-    margin-top: 10px;
-}
-.counting h2{
-    width: 183px;
-    height: 45px;
-    line-height: 45px;
-    color: #FFFFFF;
-    font-size: 18px;
+    height: 120px;
+    line-height: 120px;
     text-align: center;
+    width: 190px;
+    color: #af2812;
+    font-size: 40px;
 }
 /*右边内容*/
 .latest-wrap .right-box{
