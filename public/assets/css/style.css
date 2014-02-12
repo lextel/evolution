@@ -71,12 +71,35 @@
     border-bottom: 1px  solid #dddddd;
     background: #f1f1f1;
 }
-.register .title ul li{
+.crumbs li{
     float: left;
     line-height: 20px;
     margin-left: 15px;
 }
- .register-form{
+.crumbs li s{
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #606060;
+    border-radius: 50px;
+    display: inline-block;
+    margin: 0 10px;
+}
+.crumbs li.active s{
+    background: #ffffff;
+    border: 1px solid #af2812;
+}
+.crumbs li a{
+    font-size: 14px;
+}
+.crumbs li.active a{
+    color:#af2812 ;
+}
+.link{
+    font-size: 14px;
+}
+.register-form{
     margin: 50px 0 0 100px;
     overflow: hidden;
 }
