@@ -179,6 +179,13 @@
     padding: 5px;
     margin-top: 5px;
 }
+.signature2{
+    background: #ffffff;
+    max-height: 40px;
+    line-height: 18px;
+    overflow: hidden;
+    font-size: 12px;
+}
 .main{
     width: 780px;
     overflow: hidden;
