@@ -1,4 +1,3 @@
-<br />
 <script type="text/javascript">
 $(function(){
     $(".btn-profile").click(function(){
@@ -12,6 +11,7 @@ $(function(){
 });
 </script>
 <div class="set-wrap">
+         <div class="lead">个人设置</div>
         <div class="navbar-inner">
             <ul>
                 <li class="active"><?php echo Html::anchor('u/getprofile', '个人资料'); ?></li>
@@ -36,9 +36,9 @@ $(function(){
                 <?php echo Form::input('username', Input::post('username', $member->email), array('type'=>"text",'name'=>'username',
                 'datatype'=>'e','errorms'=>'请输入邮箱帐号', 'style'=>'border: 0;', 'readonly')); ?>
                 <?php if (!Model_Member_Email::check_emailok($member->email)) {  ?>
-                <a href="javascript:;" class="btn btn-red btn-checkemail" style="margin-left: 0px;margin-top: -5px;">验证</a>
+                <a href="javascript:;" class="btn btn-red btn-sx  btn-checkemail" style="margin-left: 0px;margin-top: -5px;">验证</a>
                 <?php }else{ ?>
-                <a href="javascript:;" class="btn btn-red btn-email" style="margin-left: 0px;margin-top: -5px;">已验证</a>
+                <a href="javascript:;" class="btn  btn-email" style="margin-left: 0px;margin-top: -5px;">已验证</a>
                 <?php }?>
             </li>
             <li>
