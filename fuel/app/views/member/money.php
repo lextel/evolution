@@ -75,6 +75,7 @@ $(function() {
                 </dd>
                 <dd>
                     <span class="else">其他金额<input type="text" name="money2" id="money2" value="" />元</span>
+                    <span>(1元=10乐淘币)</span>
                 </dd>
             </dl>
             

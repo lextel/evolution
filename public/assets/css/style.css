@@ -149,19 +149,20 @@
 /*个人主页*/
 .home-wrap{
     border: 1px solid #dddddd;
-    width: 780px;
+    width: 800px;
     background: #FFFFFF;
 }
 .left-sidebar{
     width: 160px;
     overflow: hidden;
-    padding: 10px;
     background: #FFFFFF;
     border: 1px solid #dddddd;
 }
 .left-sidebar .img-box{
     height: 160px;
     line-height: 160px;
+    padding: 10px;
+    margin: 0;
 }
 .left-sidebar .winner{
     width: 160px;
@@ -170,9 +171,13 @@
 }
 .signature{
     background: #ffffff;
-    height: 36px;
+    min-height: 36px;
     line-height: 18px;
     overflow: hidden;
+    font-size: 12px;
+    border: 1px solid #EEEEEE;
+    padding: 5px;
+    margin-top: 5px;
 }
 .main{
     width: 780px;
@@ -195,7 +200,7 @@
 }
 .home{
     overflow: hidden;
-    padding:10px 20px;
+    padding:10px;
 }
 
 .buy-record{
@@ -219,10 +224,17 @@
     height: 200px;
     text-align: center;
 }
+.home-mu{
+    overflow: hidden;
+    padding: 10px;
+}
 .home-c{
     overflow: hidden;
     width: 100%;
     margin-bottom: 15px;
+}
+.home-c .title-box{
+    background: none;
 }
 .home-c dl .right-box{
     width: 592px;
@@ -262,17 +274,16 @@
 /*个人中心*/
 .left-nav{
     overflow: hidden;
-    margin-top: 10px;
     border-bottom: 1px #DDDDDD solid;
     background: #f1f1f1;
 }
 .left-nav li{
     line-height: 35px;
-    border: 1px #DDDDDD solid;
     margin-bottom: -1px;
     text-indent: 20px;
     font-size: 14px;
     position: relative;
+    border-bottom: 1px solid #ffffff;
 }
 .icon-arrow{
     width: 22px;
@@ -287,6 +298,8 @@
 }
 .left-nav li a{
     display: block;
+    color: #af2812;
+    font-weight: bold;
 }
 .dropdown-menu{
     background: #ffffff;
@@ -300,20 +313,27 @@
     line-height: 30px;
     font-size: 12px;
 }
+.dropdown-menu li a{
+    font-size: 14px;
+    font-weight: normal;
+    color: #333333;
+}
+.dropdown-menu li a.active{
+    color: #af2812;
+}
 .center-main {
-    min-width: 540px;
+    width: 735px;
     overflow: hidden;
     margin: 0 10px;
     border: 1px solid #EEEEEE;
     background: #FFFFFF;
-    min-height: 400px;
+    min-height: 450px;
+    padding: 20px;
 }
 .center-main .center-info{
     width: 520px;
     overflow: hidden;
-    padding: 10px;
-    border-bottom: 1px solid #DDDDDD;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 .center-main .center-info li{
     width: 100%;
@@ -343,12 +363,10 @@
 .buy-menu li.right-box{
     overflow: hidden;
     margin-bottom: 10px;
-    padding-bottom: 10px;
-    margin-left:50px;
-}
-.buy-menu .right-box{
-    width: 440px;
+    padding: 10px;
+    margin-left:125px;
     position: relative;
+    border: 1px solid #d2d2d2;
 }
 .home-wrap .buy-menu li{
     width: 600px;
@@ -357,16 +375,23 @@
     border: 1px solid #EEEEEE;
     padding: 10px;
 }
-.buy-menu dd{
+.buy-menu dt{
     min-height: 30px;
     line-height: 30px;
+    width: 150px;
+}
+.buy-menu dd.right-box {
+    width: 557px;
+    padding:20px;
+    margin:-30px 0 20px  160px ;
     overflow: hidden;
+    border: 1px solid #eeeeee;
 }
-.buy-menu dd.right-box{
-    margin-left: 80px;
+ .buy-menu li.right-box .buy-record{
+    width: 70%;
 }
-.home-wrap .buy-menu .right-box .buy-record{
-    width: 60%;
+.buy-menu dd.right-box .buy-record{
+    width: 75%;
 }
 .bask-menu{
    overflow: hidden;
@@ -382,12 +407,11 @@
     margin-left:20px;
 }
 .icon-jx{
-    width:42px ;
-    height: 42px;
+    width:50px ;
+    height: 50px;
     text-align: center;
-    line-height: 42px;
-    color: #ffffff;
-    background: url("../images/icon-02.png") no-repeat -254px -325px;
+    line-height: 50px;
+    background: url("../images/icon-02.png") no-repeat -250px -318px;
     position: absolute;
     top: 0px;
     right: 0px;
@@ -396,12 +420,35 @@
     padding: 5px 0;
 }
 .content-inner{
-    width: 750px;
+    width: 763px;
     float: right;
     overflow: hidden;
-    padding:20px 20px 10px;
+    padding:15px 20px 10px;
     border: 1px solid #dddddd;
     background: #FFFFFF;
+}
+.home-navbar{
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.home-navbar ul li{
+    width: 199px;
+    float: left;
+    font-size: 14px;
+    border-right: 1px solid white;
+    height: 28px;
+    line-height: 28px;
+    cursor: pointer;
+    text-align: center;
+    background: #EEE;
+}
+.home-navbar ul li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.home-navbar ul li.active{
+    background: #ffffff;
 }
 /*获得的商品*/
 .acquire-box,.record-box,show-box,.message-box{
@@ -426,8 +473,15 @@
     line-height: 33px;
     font-size: 14px;
 }
-.select-box label,.select .select-title{
+.select-box label{
     background: #EEEEEE;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    margin-right: 10px;
+    color: #004eff;
+}
+.select .select-title{
     display: inline-block;
     width: 100px;
     text-align: center;
@@ -462,8 +516,11 @@
     cursor: pointer;
 }
 .show-form,.not-form{
-    overflow: hidden;
     margin-top: 20px;
+    border: 1px solid #eeeeee;
+    padding: 10px 0 0 0;
+    width: 746px;
+    position: relative;
 }
 .show-form li{
     margin:0 10px 10px 20px;
@@ -567,12 +624,15 @@
     line-height: 30px;
     width: 60px;
     text-align: center;
-    background:#D96D66 ;
+    background:#af2812 ;
     border-radius: 3px;
     color: #ffffff;
     display: inline-block;
     text-indent: 0;
     margin:0 10px;
+}
+.btn-pay:hover{
+    background:#D96D66 ;
 }
 .balance {
     display: inline-block;
@@ -622,42 +682,39 @@
 }
 /*个人设置*/
 .set-wrap{
-    width: 780px;
+    width: 765px;
     overflow: hidden;
     border: 1px solid #EEEEEE;
     border-top:none;
     float: right;
     background: #FFFFFF;
-    min-height: 400px;
+    min-height: 450px;
+    padding:15px 20px;
 }
 .navbar-inner{
     overflow: hidden;
     margin-bottom: 15px;
-    border-top: 3px solid #D96D66;
 }
 .navbar-inner ul li{
-    width: 195px;
+    width: 190px;
     float: left;
     font-size: 14px;
-    border: 1px solid #DEDEDE;
-    height: 33px;
-    line-height: 33px;
+    border-right: 1px solid #ffffff;
+    height: 28px;
+    line-height: 28px;
     cursor: pointer;
     text-align: center;
-    background: #f1f1f1;
-    margin:0 -1px;
+    background: #eeeeee;
 }
-.navbar-inner ul li.active{
-    background: #ffffff;
-    border-bottom: none;
+.navbar-inner ul li.active a{
+    color: #af2812;
 }
-
 .navbar-inner ul li a{
     display:block;
 }
 /*表单*/
 .edit-data{
-    padding:10px 20px;
+    padding:15px 20px;
     overflow: hidden;
 }
 .edit-data li{
@@ -743,6 +800,22 @@
 .edit-data li .file-img input{
     cursor: pointer;
     opacity: 0;
+}
+.address{
+    border: 1px solid #eeeeee;
+    margin-top:20px;
+    width: 705px;
+    padding: 10px;
+    position: relative;
+}
+.address .icon-upward{
+    position: absolute;
+    left: 40px;
+}
+.address li h4{
+    font-weight: bold;
+    color: #333333;
+    font-size: 14px;
 }
 .show-form li .file-img{
     width: 159px;

@@ -1,4 +1,4 @@
-<div class="navbar-inner">
+<div class="home-navbar">
         <ul>
             <li><?php echo Html::anchor('u/'.$member->id, '主页');?></li>
             <li><?php echo Html::anchor('u/'.$member->id.'/orders', '乐拍记录');?></li>

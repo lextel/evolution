@@ -46,6 +46,18 @@ $(function(){
         $("body,html").animate({scrollTop:0},300)
     });
 });
+/*关闭按钮*/
+$(function(){
+    $(".show-form .icon-close").click(function(){
+        $(this).parents(".show-form").fadeOut();
+    });
+    $(".num-list .icon-close").click(function(){
+        $(this).parents(".num-list").fadeOut();
+    });
+    $(".address .icon-close").click(function(){
+        $(this).parents(".address").fadeOut();
+    });
+});
 /*用户中心折叠效果*/
 $(function(){
     $(".dropdown>a").click(function(){
