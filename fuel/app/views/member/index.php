@@ -6,7 +6,7 @@
                 <!--<button class="edit fl">编辑</button>-->
             </li>
             <li>
-                <div class="signature"> 个性签名：<?php echo $current_user->bio;?></div>
+                <div class="signature2"> 个性签名：<?php echo $current_user->bio;?></div>
             </li>
             <li>
                 <span class="price fl">帐户积分： <b><?php echo $current_user->points;?>点</b> </span>
