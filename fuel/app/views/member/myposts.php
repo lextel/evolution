@@ -1,5 +1,6 @@
 <div class="content-inner">
     <!--晒单开始-->
+    <div class="lead">晒单</div>
     <div class="show-box">
         <div class="toggles">
             <?php echo Html::anchor('u/posts', '已晒单', ['class'=>'first-child active']); ?>
@@ -7,7 +8,6 @@
         </div>
 
         <div class="show-c">
-
             <table>
                 <thead>
                 <tr>
@@ -23,7 +23,6 @@
                   }?>
                 <?php foreach($posts as $post) { ?>
                 <tr>
-                    
                     <td><div class="img-box img-sm">
                     <?php if ($post->status == 1) { ?>
                     <?php echo Html::anchor('u/p'.$post->id, Html::img($post->topimage ? $post->topimage : '')); ?>
@@ -48,9 +47,7 @@
                 </tr>
                <?php };?>
                 </tbody>
-
             </table>
-            <br />
             <?php echo Pagination::instance('postspage')->render(); ?>
         </div>
     </div>

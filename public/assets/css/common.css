@@ -45,6 +45,15 @@ h5{
 h2{
     font-size: 18px;
 }
+h1{
+    font-size: 16px;
+    font-weight: normal;
+}
+.lead{
+    font-size: 14px;
+    font-weight: bold;
+    height: 30px;
+}
 textarea{
     width: 100%;
     overflow:auto;
@@ -90,6 +99,9 @@ textarea:focus,input:focus{
     text-indent: 2em;
     color: #666666;
     text-align: left;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #eeeeee;
 }
 .text-title{
     text-align: left;
@@ -107,7 +119,7 @@ textarea:focus,input:focus{
 }
 .price{
     display: block;
-    font-size: 12px;
+    font-size: 14px;
 }
 .price b{
     padding: 0px 5px;
@@ -135,7 +147,6 @@ textarea:focus,input:focus{
      vertical-align: middle;
      white-space: nowrap;
      text-overflow: ellipsis;
-     font-size: 14px;
  }
 .username a{
      color: #0137ff;
@@ -171,7 +182,21 @@ textarea:focus,input:focus{
     text-align: center;
     background: #d5d5d5;
 }
-
+.btn-register{
+    text-align: center;
+    width: 80px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    background: #d2d2d2;
+    color: #af2812;
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 14px;
+}
 .btn-menu input{
     width:70px;
     border: 1px solid #f1f1f1;
@@ -225,7 +250,7 @@ textarea:focus,input:focus{
 }
 .btn-y{
     color: #bb4c30;
-    background: #EEC891;
+    background: #ffd79c;
 }
 .btn-y:hover{
     background: #eed9ab;
@@ -239,18 +264,46 @@ textarea:focus,input:focus{
 .btn-sm{
     height: 16px;
     line-height: 16px;
-    padding:0px 4px;
+    padding:3px 9px;
     font-size: 12px;
 }
 .btn-lg{
     padding:8px 15px;
     font-size: 14px;
 }
+.btn-topUp {
+    width: 90px;
+    height: 26px;
+    line-height: 26px;
+    left: 23px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+.edit-data li .btn-cancel{
+    width: 78px;
+    height: 31px;
+    line-height: 31px;
+    text-align: center;
+    padding: 0;
+    border: 1px solid #eeeeee;
+    margin-left: 20px;
+    background: #e3e3e3;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3px;
+}
 .btn-block{
     display: block;
 }
 .btn-comment{
     padding: 6px 15px;
+}
+.btn-details{
+    overflow: hidden;
+    margin-top: 20px;
 }
 .signin{
     font-weight: bold;
@@ -666,7 +719,7 @@ table td p.tl{
     display:block;
     float: left;
     background: #E74C3C;
-    padding: 8px 10px;
+    padding:5px 10px;
     color: #ffffff;
 }
 .toggles a.first-child{
@@ -748,7 +801,35 @@ table td p.tl{
     margin-left: 20px;
     width: 70px;
 }
-.top-menu span a{
+.top-portrait{
+    display: inline-block;
+    position: relative;
+}
+.head-setting{
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    width: 120px;
+    overflow: hidden;
+    padding-top: 10px;
+    display: none;
+}
+.head-setting li{
+    text-align: center;
+    background: #E5E5E5;
+    border: 1px solid #dbdbdb;
+}
+.head-setting li a{
+     display: block;
+     width: 95px;
+     height: 30px;
+     margin: -1px auto 0;
+     line-height: 30px;
+     text-align: center;
+     border-top:1px solid #ccc;
+ }
+.head-setting li a:hover{
+    color: #cd1212;
 }
 .logo-box{
     width: 980px;
@@ -926,7 +1007,7 @@ table td p.tl{
 }
 .footer-help dl dd{
     text-indent: 10px;
-    line-height: 24px;
+    line-height: 30px;
 }
 .footer{
     text-align: center;
@@ -1015,7 +1096,14 @@ table td p.tl{
     right: 0px;
     background: url("../images/icon-02.png") no-repeat -117px -0px;
 }
-
+.icon-upward{
+    height: 11px;
+    position: absolute;
+    right: 36px;
+    top: -11px;
+    width: 20px;
+    background: url("../images/icon-02.png") no-repeat scroll -245px -6px rgba(0, 0, 0, 0);
+}
 .short-cut{
     overflow: hidden;
     border: 1px solid #e4e4e4;
@@ -1282,14 +1370,17 @@ table td p.tl{
     position: relative;
 }
 .tooltip{
-    padding: 3px 15px;
-    color: #FFFFFF;
+    width: 60px;
+    height: 22px;
+    color: #333;
     display: inline-block;
-    background: #b9270d;
+    text-align: left;
+    color: #333333;
+    background:url("../images/icon-02.png") no-repeat -45px -300px;
 }
 .num-list{
     position: absolute;
-    top:40px;
+    top:18px;
     right: -10px;
     z-index: 999;
     display: none;

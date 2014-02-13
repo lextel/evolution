@@ -2,15 +2,15 @@
     <div class="center-main fl">
         <ul class="center-info">
             <li>
-                <div class="winner fl">昵称：<a href="/u"><?php echo $current_user->nickname;?></a></div>
+                <div class="winner fl"><h1>昵称：<a href="/u"><?php echo $current_user->nickname;?></a></h1></div>
                 <!--<button class="edit fl">编辑</button>-->
             </li>
             <li>
                 <div class="signature"> 个性签名：<?php echo $current_user->bio;?></div>
             </li>
             <li>
-                <div class="price fl">帐户积分： <b><?php echo $current_user->points;?>点</b> </div>
-                <?php echo Html::anchor('/u/getrecharge', '<button class="edit btn-red fl">去充值</button>');?>
+                <span class="price fl">帐户积分： <b><?php echo $current_user->points;?>点</b> </span>
+                <a href="#" class="btn-topUp btn-y">充值</a>
             </li>
         </ul>
         <?php foreach($orders as $item) { ?>
@@ -21,7 +21,7 @@
                     <?php echo Html::anchor('/m/'.$item->phase_id, Html::img($getItemInfo($getPhaseInfo($item->phase_id)->item_id)->image));?>
                 </div>
                 <div class="buy-record fl">
-                    <h4 class="title-lg">(第<?php echo $getPhaseInfo($item->phase_id)->phase_id;?>期)<?php echo Html::anchor('/m/'.$item->phase_id, $getItemInfo($getPhaseInfo($item->phase_id)->item_id)->title);?></h4>
+                    <h4 class="title-lg">(第<?php echo $getPhaseInfo($item->phase_id)->phase_id;?>期)<?php echo Html::anchor('/m/'.$item->phase_id, $getItemInfo($getPhaseInfo($item->phase_id)->item_id)->title, ['class'=>'chance']);?></h4>
                     <div class="price">价值：<b><?php echo $getPhaseInfo($item->phase_id)->amount;?>.00</b></div>
                     <dl class="progress-side">
                         <dd>
@@ -31,21 +31,13 @@
                         </dd>
                     </dl>
                     <?php if ($getProgress($item->phase_id) != 100) { ?>
-                    <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="btn btn-red">去乐拍</button>');?>
+                    <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="btn-topUp btn-red">去乐拍</button>');?>
                     <?php }else{ ?>
-                    <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="btn btn-red">去揭晓</button>');?>
+                    <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="btn-topUp btn-red">去揭晓</button>');?>
                     <?php } ?>
                 </div>
             </li>
         </ul>
         <?php } ?>
 
-    </div>
-    <div class="notice fr">
-        <div class="title"><h3>乐拍公告 <span class="icon icon-horn"></span></h3></div>
-        <ul>
-            <?php foreach($getNotices() as $notice) { ?>
-            <li><?php echo Html::anchor('/notice/'.$notice->id, $notice->title);?></li>
-            <?php } ?>
-        </ul>
     </div>

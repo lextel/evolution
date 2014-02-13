@@ -16,24 +16,28 @@
                     if($win->member_id):
             ?>
             <li>
+                <div class="item-head">
+                    <h4 class="title-sm fl">
+                       <a href="<?php echo Uri::create('w/'.$win->id); ?>">(第<?php echo $win->phase_id;?>期)<?php echo $win->title; ?></a>
+                    </h4>
+                    <div class="price fr">价值：<b>￥<?php echo sprintf('%.2f', $win->amount); ?></b>元</div>
+                </div>
                 <div class="item-body">
                     <div class="img-box img-md fl">
                         <a href="<?php echo Uri::create('w/'.$win->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('image/200x200/'.$win->image);?>"></a>
                     </div>
                     <div class="info-side fr">
-                        <div class="head-img fl">
-                            <a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><img src="<?php echo Uri::create($members[$win->member_id]->avatar); ?>"/></a>
-                        </div>
-                        <div class="user-info fl">
-                            <div class="username">获奖者：<a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><?php echo $members[$win->member_id]->nickname; ?></a></div>
-                            <div class="ip">来自：<?php echo $areas[$win->order_id]->area; ?></div>
-                            <div class="number">当前乐拍：<b><?php echo $win->code_count; ?></b>次</div>
+                        <div class="h-info">
+                            <div class="head-img fl">
+                                <a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><img src="<?php echo Uri::create($members[$win->member_id]->avatar); ?>"/></a>
+                            </div>
+                            <div class="user-info fl">
+                                <div class="username">获奖者：<a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><?php echo $members[$win->member_id]->nickname; ?></a></div>
+                                <div class="ip">来自：<?php echo $areas[$win->order_id]->area; ?></div>
+                            </div>
                         </div>
                         <div class="p-info">
-                            <h5 class="title-sm">
-                                <a href="<?php echo Uri::create('w/'.$win->id); ?>">(第<?php echo $win->phase_id;?>期)<?php echo $win->title; ?></a>
-                            </h5>
-                            <div class="price">价值：<b>￥<?php echo sprintf('%.2f', $win->amount); ?></b>元</div>
+                            <div class="number">当前乐拍：<b><?php echo $win->code_count; ?></b>次</div>
                             <div class="datetime">揭晓时间：<?php echo $friendlyDate($win->opentime);?></div>
                         </div>
                     </div>

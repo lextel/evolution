@@ -47,8 +47,18 @@
                  <i>/</i>
                  <a href="<?php echo Uri::create('/signup'); ?>">注册</a>
             <?php else:?>
-                 <a href="<?php echo Uri::create('/u'); ?>" class="top-portrait"><?php echo Html::img($current_user->avatar, ['width'=>'15px']);?><?php echo $current_user->nickname;?></a>
-                 &nbsp;<span>可用乐淘币<b class="r"><?php echo $current_user->points;?>点</b></span>&nbsp;
+                 <span class="top-portrait">
+                 <a href="<?php echo Uri::create('/u'); ?>" ><?php echo Html::img($current_user->avatar, ['width'=>'15px']);?><?php echo $current_user->nickname;?>
+                 </a>
+                 <ul class="head-setting">
+                                         <li><a href="">乐拍记录</a></li>
+                                         <li><a href="">获得的商品</a></li>
+                                         <li><a href="">账户管理</a></li>
+                                         <li><a href="">个人设置</a></li>
+                                     </ul>
+                 </span>
+                 &nbsp;
+                 <span>可用乐淘币<b class="r"><?php echo $current_user->points;?>点</b></span>&nbsp;
                  <span>消息(<b class="r"><?php echo $isnew? $isnew : 0;?></b >)</span>&nbsp;
                  <?php echo Html::anchor('signout', '[退出]', ['class'=>'navbar-link'])?>
             <?php endif;?>
