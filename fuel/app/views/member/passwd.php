@@ -1,14 +1,8 @@
 <?php echo Asset::css(['member/validfrom_style.css']); ?>
 <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
-<br />
-<script type="text/javascript">
-$(function(){
-    //$(".btn-password").click(function(){
-     //   $(".form-password").submit();
-   // });
-});
-</script>
+
 <div class="set-wrap">
+        <div class="lead">个人设置</div>
         <div class="navbar-inner">
             <ul>
                 <li><?php echo Html::anchor('u/getprofile', '个人资料'); ?></li>
@@ -21,11 +15,11 @@ $(function(){
         <?php echo Form::open(['action' => 'u/passwd', 'method' => 'post', 'class'=>'form-password registerform']); ?>
         <ul class="edit-data">
             <li>
-            <?php if (Session::get_flash('success')): ?>
+            <?php if (Session::get_flash('info')): ?>
                  <?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
             <?php endif; ?>
-            <?php if (Session::get_flash('error')): ?>
-                 <?php echo implode('</p><p>', (array) Session::get_flash('error')); ?>
+            <?php if (Session::get_flash('info')): ?>
+                 <font color="#f00" style="margin-left: 20%;display: block;"><?php echo implode('</p><p>', (array) Session::get_flash('info')); ?></font>
             <?php endif; ?>
             </li>
             <li>
