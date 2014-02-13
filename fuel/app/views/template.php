@@ -51,10 +51,10 @@
                  <a href="<?php echo Uri::create('/u'); ?>" ><?php echo Html::img($current_user->avatar, ['width'=>'15px']);?><?php echo $current_user->nickname;?>
                  </a>
                  <ul class="head-setting">
-                                         <li><a href="">乐拍记录</a></li>
-                                         <li><a href="">获得的商品</a></li>
-                                         <li><a href="">账户管理</a></li>
-                                         <li><a href="">个人设置</a></li>
+                                         <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐拍记录</a></li>
+                                         <li><a href="<?php echo Uri::create('/u/wins'); ?>">获得的商品</a></li>
+                                         <li><a href="<?php echo Uri::create('/u/getrecharge'); ?>">账户管理</a></li>
+                                         <li><a href="<?php echo Uri::create('/u/profile'); ?>">个人设置</a></li>
                                      </ul>
                  </span>
                  &nbsp;
