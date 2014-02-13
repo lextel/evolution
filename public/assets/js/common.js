@@ -10,9 +10,17 @@ $(function(){
     });
 });
 /**
- *公告交互效果
+ *顶部设置鼠标滑过效果
  */
+$(function(){
+    $(".top-portrait").hover(
+        function(){
+            $(this).children(".head-setting").css({display:"block"})},
+        function(){
+            $(this).children(".head-setting").css({display:"none"})}
 
+    );
+});
 /**
  *返回顶部--侧边浮动快捷栏
  */
@@ -36,6 +44,18 @@ $(function(){
     /*返回顶部*/
     $(".item-gotTop").click(function(){
         $("body,html").animate({scrollTop:0},300)
+    });
+});
+/*关闭按钮*/
+$(function(){
+    $(".show-form .icon-close").click(function(){
+        $(this).parents(".show-form").fadeOut();
+    });
+    $(".num-list .icon-close").click(function(){
+        $(this).parents(".num-list").fadeOut();
+    });
+    $(".address .icon-close").click(function(){
+        $(this).parents(".address").fadeOut();
     });
 });
 /*用户中心折叠效果*/
