@@ -1,9 +1,8 @@
 <?php echo Asset::js('jquery.provincesCity.js',"utf-8"); ?>
 <?php echo Asset::css(['member/validfrom_style.css']); ?>
 <?php echo Asset::js(['provincesdata.js','Validform_v5.3.2_min.js', 'address/index.js']); ?>
-
-<br />
 <div class="set-wrap">
+        <div class="lead">个人设置</div>
         <div class="navbar-inner">
             <ul>
                 <li><?php echo Html::anchor('u/getprofile', '个人资料'); ?></li>
@@ -35,7 +34,7 @@
                             <td><?php echo $address->postcode; ?></td>
                             <td><?php echo $address->name; ?></td>
                             <td><?php echo $address->mobile; ?></td>
-                            <td><?php echo Html::anchor('javascript:;', $address->rate == 100 ? '<font color="#f00">默认地址</font>': '设为默认', 
+                            <td><?php echo Html::anchor('javascript:;', $address->rate == 100 ? '<font color="#f00">默认地址</font>': '设为默认',
                                       ['class'=>'setFlag', 'data'=>$address->id, 'rate'=>$address->rate]); ?>
                             <?php echo Html::anchor('javascript:;', '修改', ['onclick'=>'modifyAddress('.$address->id.')']); ?></td>
                         </tr>
