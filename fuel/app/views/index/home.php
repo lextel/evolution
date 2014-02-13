@@ -30,7 +30,7 @@
                                         <div class="progress-bar" style="width:<?php echo $getProgress($phase);?>%">
                                         </div>
                                     </div>
-                                </dd>
+                                 </dd>
                                  <dd>
                                     <span class="fl r"><?php echo $phase->joined;?></span>
                                     <span class="fr b"><?php echo $phase->remain;?></span>
