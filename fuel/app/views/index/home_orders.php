@@ -20,7 +20,27 @@
                     </div>
                     <div class="title-box">
                         <h3 class="title-sm"><?php echo Html::anchor('m/'.$item->phase_id, '(第'.$phase->phase_id.'期) '.$phase->title);?></h3>
-                        <span class="price">价值 <b><?php echo $phase->amount;?>.00</b></span>
+                        <span class="price">价值：<b><?php echo $phase->amount;?>.00</b></span>
+                        <?php if ($phase->code == '') { ?>
+                            <dl class="progress-side">
+                                <dd>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width:<?php echo $getProgress($phase);?>%">
+                                        </div>
+                                    </div>
+                                </dd>
+                                 <dd>
+                                    <span class="fl r"><?php echo $phase->joined;?></span>
+                                    <span class="fr b"><?php echo $phase->remain;?></span>
+                                <dd>
+                                    <span class="fl">已参与人次</span>
+                                    <span class="fr">剩余人次</span>
+                                </dd>
+                            </dl>
+                        <?php }else{ ?>
+                            <div class="number">幸运乐拍码：<b class="y"><?php echo $phase->code;?></b></div>
+                            <div class="datetime">揭晓时间：<?php echo date("Y-m-d H:i:s", $phase->opentime);?></div>
+                        <?php } ?>
                     </div>
                 </dd>
                 <?php } ?>

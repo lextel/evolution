@@ -1,14 +1,8 @@
 <?php echo Asset::css(['member/validfrom_style.css']); ?>
 <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
-<br />
-<script type="text/javascript">
-$(function(){
-    //$(".btn-password").click(function(){
-     //   $(".form-password").submit();
-   // });
-});
-</script>
+
 <div class="set-wrap">
+        <div class="lead">个人设置</div>
         <div class="navbar-inner">
             <ul>
                 <li><?php echo Html::anchor('u/getprofile', '个人资料'); ?></li>

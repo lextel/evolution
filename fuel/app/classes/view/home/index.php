@@ -13,8 +13,8 @@ class View_Home_Index extends Viewmodel {
            $phases = Model_Phase::byIds($phaseIds);
            return $phases;
        };
-    $this->getProgress = function($phaseid){
-          $info =  Model_Phase::find($phaseid);
+    $this->getProgress = function($phase){
+          $info = $phase;
           $res = $info->joined/$info->amount * 100;
           return $res;
     };
