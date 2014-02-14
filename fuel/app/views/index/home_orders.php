@@ -17,6 +17,9 @@
                 <dd>
                     <div class="img-box">
                         <?php echo Html::anchor('m/'.$item->phase_id, Html::img($phase->image));?>
+                        <?php if ($phase->code != '') { ?>
+                             <span class="icon-jx">已揭晓</span>
+                            <?php } ?>
                     </div>
                     <div class="title-box">
                         <h3 class="title-sm"><?php echo Html::anchor('m/'.$item->phase_id, '(第'.$phase->phase_id.'期) '.$phase->title);?></h3>

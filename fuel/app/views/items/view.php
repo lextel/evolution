@@ -156,9 +156,6 @@
                                     endif;
                                     else:
                                 ?>
-
-                            </tbody>
-                        </table>
                          <form action="<?php echo Uri::create('signin'); ?>" method="post">
                                <ul class="edit-data" style="display: block;">
                                     <li>
@@ -176,6 +173,8 @@
                                </ul>
                          </form>
                          <?php endif; ?>
+                         </tbody>
+                       </table>
                     </div>
                     <div class="tab-pane" id="help">
                         <p>乐乐淘是指只需10乐淘币就有机会买到想要的商品。即每件商品被平分成若干“等份”出售，每份10乐淘币，
@@ -192,8 +191,8 @@
 </div>
 <div class="wrapper w">
     <!--商品信息开始-->
-	<div class="bd w">
-	    <div class="sub-nav w" id="bigNav">
+    <div class="bd w">
+         <div class="sub-nav w" id="bigNav">
             <ul class="fl">
                 <li><a href="#desc" data-toggle="tab" class="active">商品详情</a></li>
                 <li><a href="#buylog" phaseId="<?php echo $item->phase->id; ?>" data-toggle="tab">所有参与纪录(<s class="r"><?php echo $orderCount; ?></s>)</a></li>
@@ -221,7 +220,7 @@
             <!--往期回顾开始-->
             <div class="look-bak d-n tab-pane" id="phase"></div>
         </div>
-	</div>
+     </div>
 
 </div>
 <script>
