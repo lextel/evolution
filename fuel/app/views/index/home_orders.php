@@ -23,7 +23,7 @@
                     </div>
                     <div class="title-box">
                         <h3 class="title-sm"><?php echo Html::anchor('m/'.$item->phase_id, '(第'.$phase->phase_id.'期) '.$phase->title);?></h3>
-                        <span class="price">价值：<b><?php echo $phase->amount;?>.00</b></span>
+                        <span class="price">价值：￥<b><?php echo $phase->amount;?>.00</b></span>
                         <?php if ($phase->code == '') { ?>
                             <ol class="progress-side">
                                 <li>
