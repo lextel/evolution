@@ -37,8 +37,8 @@
                             </div>
                         </div>
                         <div class="p-info">
-                            <div class="number">当前乐拍：<b><?php echo $win->code_count; ?></b>次</div>
-                            <div class="datetime">揭晓时间：<?php echo $friendlyDate($win->opentime);?></div>
+                            <div class="number">当前乐拍：<b><?php echo $win->code_count; ?></b>人次</div>
+                            <div class="datetime">揭晓时间：<?php echo date('Y-m-d H:i:s', $win->opentime);?></div>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                     <span>即将揭晓，敬请期待...</span>
                 </div>
             </li>-->
-            <li class="active">
+            <li class="active" id="win<?php echo $win->id; ?>">
                 <div class="item-head">
                     <h4 class="title-sm fl">
                         <a href="<?php echo Uri::create('m/'.$win->id); ?>">(第<?php echo $win->phase_id;?>期)<?php echo $win->title; ?></a>
@@ -90,10 +90,10 @@
                         </dl>
                         <!--计算中-->
                     </div>
-                    <div class="counting fr">
+                    <div class="counting fr" style="display:none">
                           正在计算...
                     </div>
-                    <i class="icon-jiexiao"></i>
+                    <i class="icon-jxiao"></i>
                 </div>
                 <div class="item-footer">
                     <p>即将揭晓，敬请期待...</p>

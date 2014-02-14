@@ -21,6 +21,8 @@ $(function() {
 
     // 倒计时渲染结果
     var renderDiv = function(id, data) {
+        $('#win' + id + ' .item-body').remove();
+        $('#win' + id + ' .item-footer').remove();
         var html = '<div class="item-body">';
         html += '<div class="img-box img-md fl">';
         html += '<a href="'+data.link+'" rel="nofollow"><img src="'+data.image+'"></a>';
@@ -42,9 +44,9 @@ $(function() {
         html += '</div></div>';
         html += '<div class="item-footer"><div class="lucky-code fl">';
         html += '幸运乐拍码:<b>'+data.code+'</b></div>';
-        html += '<a class="btn btn-default fr" href="'+data.link+'">查看详情</a></div>';
+        html += '<a class="btn btn-red fr" href="'+data.link+'">查看详情</a></div>';
 
-        $('#win' + id).html(html);
+        $('#win' + id + ' .item-head').after(html);
     }
 
     // 倒计时效果
@@ -52,7 +54,7 @@ $(function() {
         var obj = $(this);
         var t = obj.attr('endtime');
         var id = obj.attr('phaseId');
-
+        
         var timer = setInterval(function() {
             var endtime = new Date(t);  
             var nowtime = new Date();  
@@ -80,7 +82,7 @@ $(function() {
                 clearInterval(timer);
                 // 切换计算中
                 obj.hide();
-                obj.next().show();
+                obj.parent().next().show();
 
                 var loadTimer = setInterval(function() {
                    // 获取揭晓结果
@@ -100,7 +102,7 @@ $(function() {
                             }
                         }
                    });
-                }, 300000);
+                }, 3000);
             } else {
                 render(min, sec, msec, obj);
             }
