@@ -42,11 +42,11 @@
                 <a href="javascript:void(0);">在线客服<span class="icon icon-qq"></span></a>
             </span>
             <span class="login-bar">
-            <?php if (!isset($current_user)):?>
+            <?php if (!isset($current_user)) { ?>
                  <a href="<?php echo Uri::create('/signin'); ?>">登录</a>
                  <i>/</i>
                  <a href="<?php echo Uri::create('/signup'); ?>">注册</a>
-            <?php else:?>
+            <?php }else {?>
                  <span class="top-portrait">
                  <a href="<?php echo Uri::create('/u'); ?>" ><?php echo Html::img($current_user->avatar, ['width'=>'15px']);?><?php echo $current_user->nickname;?>
                  </a>
@@ -61,7 +61,7 @@
                  <span>可用乐淘币<b class="r"><?php echo $current_user->points;?>点</b></span>&nbsp;
                  <span>消息(<b class="r"><?php echo $isnew? $isnew : 0;?></b >)</span>&nbsp;
                  <?php echo Html::anchor('signout', '[退出]', ['class'=>'navbar-link'])?>
-            <?php endif;?>
+            <?php }?>
             </span>
         </div>
     </div>
