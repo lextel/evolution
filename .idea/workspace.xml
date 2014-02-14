@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/images/icon-02.png" afterPath="$PROJECT_DIR$/public/assets/images/icon-02.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/images/icon.png" afterPath="$PROJECT_DIR$/public/assets/images/icon.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/header.css" afterPath="$PROJECT_DIR$/public/assets/css/header.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/index/home_orders.php" afterPath="$PROJECT_DIR$/fuel/app/views/index/home_orders.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/index/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/index/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/jquery.bxslider.css" afterPath="$PROJECT_DIR$/public/assets/css/jquery.bxslider.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/signin.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style.css" afterPath="$PROJECT_DIR$/public/assets/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/items/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/items/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/items/view.php" afterPath="$PROJECT_DIR$/fuel/app/views/items/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/items/view1.php" afterPath="$PROJECT_DIR$/fuel/app/views/items/view1.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="evolution.iws" />
@@ -35,10 +30,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="215" column="0" selection-start="3535" selection-end="3545" vertical-scroll-proportion="-17.2" vertical-offset="3655" max-vertical-offset="27284">
+            <state line="711" column="16" selection-start="12398" selection-end="12398" vertical-scroll-proportion="0.8327183" vertical-offset="12832" max-vertical-offset="27379">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/items/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="97" column="61" selection-start="4730" selection-end="4730" vertical-scroll-proportion="0.0" vertical-offset="1482" max-vertical-offset="3059">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view1.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/items/view1.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="71" column="21" selection-start="3789" selection-end="3789" vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="4541">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/items/view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="70" column="37" selection-start="3764" selection-end="3764" vertical-scroll-proportion="0.0" vertical-offset="1083" max-vertical-offset="4598">
               <folding />
             </state>
           </provider>
@@ -80,19 +102,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/items/view.php">
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/member/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="191" column="0" selection-start="10544" selection-end="10544" vertical-scroll-proportion="0.38134593" vertical-offset="3306" max-vertical-offset="4617">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userhome.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/html/userhome.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="4" selection-start="58" selection-end="80" vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="1349">
+            <state line="36" column="32" selection-start="1985" selection-end="1985" vertical-scroll-proportion="0.0" vertical-offset="209" max-vertical-offset="1235">
               <folding />
             </state>
           </provider>
@@ -125,22 +138,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/fuel/app/views/index/home.php" />
-        <option value="$PROJECT_DIR$/fuel/app/views/index/home_posts.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/index/home_wins.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/index/homelayout.php" />
         <option value="$PROJECT_DIR$/public/html/userhome.html" />
-        <option value="$PROJECT_DIR$/fuel/app/views/member/index.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/template.php" />
         <option value="$PROJECT_DIR$/public/html/youjian1.html" />
         <option value="$PROJECT_DIR$/fuel/app/views/index/home_orders.php" />
         <option value="$PROJECT_DIR$/public/assets/css/jquery.bxslider.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/index/index.php" />
         <option value="$PROJECT_DIR$/public/assets/css/header.css" />
-        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
         <option value="$PROJECT_DIR$/public/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/fuel/app/views/member/index.php" />
+        <option value="$PROJECT_DIR$/fuel/app/views/items/index.php" />
+        <option value="$PROJECT_DIR$/fuel/app/views/items/view1.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/items/view.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
       </list>
     </option>
   </component>
@@ -610,18 +623,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/index/home_posts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="23" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="779" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/index/homelayout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="34" selection-start="589" selection-end="589" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="494">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/memberlayout.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="14" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855" />
@@ -642,11 +643,6 @@
     <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="118" column="36" selection-start="5117" selection-end="5117" vertical-scroll-proportion="0.49937266" vertical-offset="1844" max-vertical-offset="3439" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="38" selection-start="332" selection-end="342" vertical-scroll-proportion="0.18559219" vertical-offset="0" max-vertical-offset="931" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/index/home_wins.php">
@@ -675,13 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="215" column="0" selection-start="3535" selection-end="3545" vertical-scroll-proportion="-17.2" vertical-offset="3655" max-vertical-offset="27284">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/index/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="53" column="31" selection-start="2716" selection-end="2716" vertical-scroll-proportion="0.0" vertical-offset="399" max-vertical-offset="3990">
@@ -696,6 +685,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="32" selection-start="1985" selection-end="1985" vertical-scroll-proportion="0.0" vertical-offset="209" max-vertical-offset="1235">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/items/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="61" selection-start="4730" selection-end="4730" vertical-scroll-proportion="0.0" vertical-offset="1482" max-vertical-offset="3059">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/items/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="37" selection-start="3764" selection-end="3764" vertical-scroll-proportion="0.0" vertical-offset="1083" max-vertical-offset="4598">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/items/view1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="21" selection-start="3789" selection-end="3789" vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="4541">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="84" column="26" selection-start="1509" selection-end="1509" vertical-scroll-proportion="-24.28" vertical-offset="989" max-vertical-offset="22173">
@@ -703,9 +720,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/items/view.php">
+    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="191" column="0" selection-start="10544" selection-end="10544" vertical-scroll-proportion="0.38134593" vertical-offset="3306" max-vertical-offset="4617">
+        <state line="711" column="16" selection-start="12398" selection-end="12398" vertical-scroll-proportion="0.8327183" vertical-offset="12832" max-vertical-offset="27379">
           <folding />
         </state>
       </provider>

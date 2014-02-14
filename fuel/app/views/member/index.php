@@ -33,17 +33,17 @@
                     <dl class="progress-side">
                         <dd>
                             <div class="progress">
-                            <div class="progress-bar" style="width:<?php echo $getProgress($phase);?>%">
-                            </div></div>
+                                <div class="progress-bar" style="width:<?php echo $getProgress($phase);?>%">
+                                </div>
+                            </div>
                         </dd>
-                    </dl>
-                    <dd>
-                         <span class="fl r"><?php echo $phase->joined;?></span>
-                         <span class="fr b"><?php echo $phase->remain;?></span>
-                    <dd>
-                         <span class="fl">已参与人次</span>
-                         <span class="fr">剩余人次</span>
-                    </dd>
+                        <dd>
+                            <span class="fl r"><?php echo $phase->joined;?></span>
+                            <span class="fr b"><?php echo $phase->remain;?></span>
+                        <dd>
+                            <span class="fl">已参与人次</span>
+                            <span class="fr">剩余人次</span>
+                        </dd>
                     </dl>                    
                     <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="btn-topUp btn-red">去乐拍</button>');?>
                     <?php }else{ ?>
