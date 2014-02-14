@@ -688,12 +688,18 @@ table td p.tl{
 .progress-side dd{
     width: 100%;
     overflow: hidden;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 .progress-side li{
     width: 100%;
     overflow: hidden;
     margin-bottom: 8px;
+}
+.progress-side li span{
+    line-height: 18px;
+}
+.progress-side dd span{
+    line-height: 18px;
 }
 .progress{
     height: 15px;
@@ -704,7 +710,6 @@ table td p.tl{
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     z-index: 50;
-    position: relative;
 }
 .progress .progress-bar{
     height: 100%;

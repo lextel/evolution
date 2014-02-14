@@ -93,14 +93,14 @@
                                         <dd>
                                             <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->joined/$item->amount*100)?>%"></div></div>
                                         </dd>
-                                        <!--dd>
-                                            <span class="fl red"><?php echo $item->joined; ?></span>
-                                            <span class="fr blue"><?php echo $item->remain; ?></span>
+                                        <dd>
+                                            <span class="fl r"><?php echo $item->joined; ?></span>
+                                            <span class="fr b"><?php echo $item->remain; ?></span>
                                         </dd>
                                         <dd>
                                             <span class="fl">已参与人次</span>
                                             <span class="fr">剩余人次</span>
-                                        </dd-->
+                                        </dd>
                                     </dl>
                                     <div class="btn-menu">
                                         <span>我要乐拍</span>

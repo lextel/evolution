@@ -67,8 +67,8 @@
                     <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->phase->joined/$item->phase->amount*100); ?>%"></div></div>
                 </dd>
                 <dd>
-                    <span class="fl red"><?php echo $item->phase->joined; ?></span>
-                    <span class="fr blue"><?php echo $item->phase->remain; ?></span>
+                    <span class="fl r"><?php echo $item->phase->joined; ?></span>
+                    <span class="fr b"><?php echo $item->phase->remain; ?></span>
                 </dd>
                 <dd>
                     <span class="fl">已参与人次</span>
