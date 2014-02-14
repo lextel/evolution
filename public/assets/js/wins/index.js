@@ -10,12 +10,12 @@ $(function() {
 
     // 倒计时渲染函数
     var render = function(min, sec, msec, obj) {
-        var html = '<dt>倒计时</dt>';
-        html += '<dd>' + min + '</dd>';
-        html += '<dt>:</dt>';
-        html += '<dd>' + sec + '</dd>';
-        html += '<dt>:</dt>';
-        html += '<dd>' + msec + '</dd>';
+        var html = '<dt>揭晓倒计时:</dt>';
+        html += '<dd class="num">' + min + '</dd>';
+        html += '<dd>:</dd>';
+        html += '<dd class="num">' + sec + '</dd>';
+        html += '<dd>:</dd>';
+        html += '<dd class="num">' + msec + '</dd>';
         obj.html(html);
     }
 
@@ -23,19 +23,23 @@ $(function() {
     var renderDiv = function(id, data) {
         var html = '<div class="item-body">';
         html += '<div class="img-box img-md fl">';
-        html += '<a href="'+data.link+'"><img src="'+data.image+'"></a>';
+        html += '<a href="'+data.link+'" rel="nofollow"><img src="'+data.image+'"></a>';
         html += '</div>';
         html += '<div class="info-side fr">';
-        html += '<div class="head-img fl">';
-        html += '<a href="'+data.userlink+'"><img src="'+data.avatar+'"></a>';
-        html += '</div><div class="user-info fl">';
-        html += '<div class="winner">获奖者：<b><a href="'+data.userlink+'">'+data.nickname+'</a></b></div>';
-        html += '<div class="ip">来自：'+data.area+'</div>';
-        html += '<div class="number">乐拍:<b>'+data.count+'</b>人次</div>';
-        html += '</div><div class="p-info"><h5 class="title-sm">';
-        html += '<a href="'+data.link+'">'+data.title+'</a>';
-        html += '</h5><div class="price">价值：<b>￥'+data.price+'</b>元</div>';
-        html += '<div class="datetime">揭晓时间：'+data.opentime+'</div></div></div></div>';
+        html += ' <div class="h-info">';
+        html += '    <div class="head-img fl">';
+        html += '    <a href="'+data.userlink+'"><img src="'+data.avatar+'"></a>';
+        html += '    </div>';
+        html += '    <div class="user-info fl">';
+        html += '       <div class="winner">获奖者：<b><a href="'+data.userlink+'">'+data.nickname+'</a></b></div>';
+        html += '       <div class="ip">来自：'+data.area+'</div>';
+        html += '    </div>';       
+        html += ' </div>';
+        html += ' <div class="p-info">';
+        html += '   <div class="number">当前乐拍:<b>'+data.count+'</b>人次</div>';
+        html += '   <div class="datetime">揭晓时间：'+data.opentime+'</div>';
+        html += ' </div>';
+        html += '</div></div>';
         html += '<div class="item-footer"><div class="lucky-code fl">';
         html += '幸运乐拍码:<b>'+data.code+'</b></div>';
         html += '<a class="btn btn-default fr" href="'+data.link+'">查看详情</a></div>';
@@ -96,7 +100,7 @@ $(function() {
                             }
                         }
                    });
-                }, 3000);
+                }, 300000);
             } else {
                 render(min, sec, msec, obj);
             }

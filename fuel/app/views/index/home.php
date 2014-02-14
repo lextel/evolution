@@ -22,7 +22,7 @@
                         </div>
                         <div class="buy-record fl">
                             <h4>(第<?php echo $phase->phase_id; ?>期) <?php echo Html::anchor('m/'.$oitem->phase_id,$phase->title, ['class'=>'b']);?></h4>
-                            <div class="price">价值：<b><?php echo $phase->amount;?>.00</b></div>                            
+                            <div class="price">价值：￥<b><?php echo $phase->amount;?>.00</b></div>                            
                             <?php if ($getProgress($phase) != 100) { ?>
                                 <dl class="progress-side">
                                 <dd>

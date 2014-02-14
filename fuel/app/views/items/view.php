@@ -1,5 +1,5 @@
 <?php echo Asset::css(['product.css', 'jquery.jqzoom.css', 'customBootstrap.css', 'style.css']); ?>
-<?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js','jquery.pin.js', 'item/view.js']); ?>
+<?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js','jquery.pin.js', 'item/view.js', 'Xslider.js']); ?>
 <?php $this->title = '(第' . $item->phase->phase_id .'期)' . $item->title; ?>
 <div class="panel w">
         <div class="title">
@@ -222,6 +222,36 @@
         </div>
      </div>
 
+</div>
+<!--今日热门开始-->
+<div class="date-hot w">
+    <div class="title"><h3>今日热门</h3></div>
+    <div class="scrollleft" >
+         <div class="scrollcontainer">
+             <ul>
+                 <?php $hotItems = $getHots();
+                        if(isset($hotItems)) {
+                        foreach($hotItems as $item) { ?>
+                      <li>
+                          <div class="img-box img-md"><a href="<?php echo Uri::create('/m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
+                          <h4 class="title-mx"><?php echo $item->title; ?></h4>
+                          <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->cost / Config::get('point')); ?></b></div>
+                          <div class="btn-group">
+                                <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
+                                    <input name="id" value="<?php echo $item->id; ?>" type="hidden">
+                                    <input name="qty" value="1" type="hidden">
+                                    <button class="btn btn-red" type="submit">立即乐拍</button>
+                                </form>
+                          </div>
+                      </li>
+                      <?php }} ?>
+                 </ul>
+            </div>
+            <a class="abtn aleft" href="#left"></a>
+            <a class="abtn aright" href="#right"></a>
+        </div>
+    </div>
+    <!--今日热门结束-->
 </div>
 <script>
     BUYLOG_URL   = '<?php echo Uri::create('l/joined'); ?>';
