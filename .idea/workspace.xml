@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/youjian1.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/images/icon-02.png" afterPath="$PROJECT_DIR$/public/assets/images/icon-02.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/images/icon.png" afterPath="$PROJECT_DIR$/public/assets/images/icon.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/template.php" afterPath="$PROJECT_DIR$/fuel/app/views/template.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/header.css" afterPath="$PROJECT_DIR$/public/assets/css/header.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/index/home_orders.php" afterPath="$PROJECT_DIR$/fuel/app/views/index/home_orders.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/index/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/index/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/jquery.bxslider.css" afterPath="$PROJECT_DIR$/public/assets/css/jquery.bxslider.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/signin.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style.css" afterPath="$PROJECT_DIR$/public/assets/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/items/view.php" afterPath="$PROJECT_DIR$/fuel/app/views/items/view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="evolution.iws" />
@@ -31,16 +38,25 @@
       <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="939" column="20" selection-start="16452" selection-end="16452" vertical-scroll-proportion="-14.24" vertical-offset="17485" max-vertical-offset="27246">
+            <state line="215" column="0" selection-start="3535" selection-end="3545" vertical-scroll-proportion="-17.2" vertical-offset="3655" max-vertical-offset="27284">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="memberlayout.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/memberlayout.php">
+      <file leaf-file-name="header.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/header.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="14" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
+            <state line="65" column="24" selection-start="1265" selection-end="1265" vertical-scroll-proportion="-19.96" vertical-offset="736" max-vertical-offset="3838">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signin.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="64" column="14" selection-start="2465" selection-end="2465" vertical-scroll-proportion="-27.84" vertical-offset="520" max-vertical-offset="2394">
               <folding />
             </state>
           </provider>
@@ -49,34 +65,8 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/index/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="685" max-vertical-offset="3990">
+            <state line="53" column="31" selection-start="2716" selection-end="2716" vertical-scroll-proportion="0.0" vertical-offset="399" max-vertical-offset="3990">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="template.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="36" selection-start="4957" selection-end="4957" vertical-scroll-proportion="0.0" vertical-offset="1844" max-vertical-offset="3439">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="youjian1.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/html/youjian1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="71" selection-start="167" selection-end="167" vertical-scroll-proportion="0.17295189" vertical-offset="0" max-vertical-offset="798">
-              <folding>
-                <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#td#0;n#tr#4;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#td#0;n#tr#5;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#7;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -84,16 +74,16 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="203" column="11" selection-start="3604" selection-end="3606" vertical-scroll-proportion="-10.44" vertical-offset="3596" max-vertical-offset="21470">
+            <state line="84" column="26" selection-start="1509" selection-end="1509" vertical-scroll-proportion="-24.28" vertical-offset="989" max-vertical-offset="22173">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/member/index.php">
+      <file leaf-file-name="view.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/items/view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="38" selection-start="332" selection-end="342" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="931">
+            <state line="191" column="0" selection-start="10544" selection-end="10544" vertical-scroll-proportion="0.38134593" vertical-offset="3306" max-vertical-offset="4617">
               <folding />
             </state>
           </provider>
@@ -102,18 +92,7 @@
       <file leaf-file-name="userhome.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/html/userhome.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="4" selection-start="58" selection-end="80" vertical-scroll-proportion="-2.7142856" vertical-offset="0" max-vertical-offset="1349">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#dd#0;n#dl#0;n#div#1;n#dd#1;n#dl#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home_wins.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/index/home_wins.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="31" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
+            <state line="4" column="4" selection-start="58" selection-end="80" vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="1349">
               <folding />
             </state>
           </provider>
@@ -122,7 +101,7 @@
       <file leaf-file-name="homelayout.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/index/homelayout.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="34" selection-start="589" selection-end="589" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="494">
+            <state line="14" column="34" selection-start="589" selection-end="589" vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="494">
               <folding />
             </state>
           </provider>
@@ -146,30 +125,29 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/assets/js/common.js" />
-        <option value="$PROJECT_DIR$/fuel/app/views/member/myaddress.php" />
-        <option value="$PROJECT_DIR$/fuel/app/views/member/profile.php" />
-        <option value="$PROJECT_DIR$/public/assets/css/member/jquery-ui.css" />
-        <option value="$PROJECT_DIR$/fuel/app/views/member/money.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/index/home.php" />
-        <option value="$PROJECT_DIR$/fuel/app/views/index/home_orders.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/index/home_posts.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/index/home_wins.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/index/homelayout.php" />
         <option value="$PROJECT_DIR$/public/html/userhome.html" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/index.php" />
-        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/template.php" />
         <option value="$PROJECT_DIR$/public/html/youjian1.html" />
+        <option value="$PROJECT_DIR$/fuel/app/views/index/home_orders.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/jquery.bxslider.css" />
+        <option value="$PROJECT_DIR$/fuel/app/views/index/index.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/header.css" />
+        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
+        <option value="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/fuel/app/views/items/view.php" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="600" />
-    <option name="y" value="29" />
-    <option name="width" value="1260" />
-    <option name="height" value="991" />
+    <option name="x" value="385" />
+    <option name="width" value="1355" />
+    <option name="height" value="1019" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -203,6 +181,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -249,7 +228,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -268,6 +247,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -399,6 +382,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="items" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fuel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="index" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -427,20 +436,19 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="vcs.Git" />
-    <property name="restartRequiresConfirmation" value="false" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="C:/Program Files (x86)/Git/cmd/git.exe" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -460,14 +468,6 @@
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -476,6 +476,14 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -545,14 +553,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="600" y="29" width="1260" height="991" extended-state="0" />
+    <frame x="385" y="0" width="1355" height="1019" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32816228" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24978466" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2692926" sideWeight="0.6705471" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2501867" sideWeight="0.6705471" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31914893" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -583,9 +591,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24978466" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33681673" sideWeight="0.6718377" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -602,53 +610,9 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/assets/css/product.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="617" column="14" selection-start="11210" selection-end="11210" vertical-scroll-proportion="0.0" vertical-offset="11606" max-vertical-offset="20881">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/money.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="35" selection-start="2436" selection-end="2436" vertical-scroll-proportion="0.66225964" vertical-offset="912" max-vertical-offset="3401">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="33" selection-start="1716" selection-end="1716" vertical-scroll-proportion="0.0" vertical-offset="513" max-vertical-offset="13794">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/index/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="23" selection-start="12" selection-end="23" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="931">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/index/home_orders.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="23" selection-start="24" selection-end="24" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="760">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/index/home_posts.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="23" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="779">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/index/home_wins.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="31" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
-          <folding />
-        </state>
+        <state line="0" column="23" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="779" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/index/homelayout.php">
@@ -658,69 +622,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/index.php">
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/memberlayout.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="38" selection-start="332" selection-end="342" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="931">
+        <state line="8" column="14" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/userhome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="4" selection-start="58" selection-end="80" vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="1349">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
+    <entry file="file://$PROJECT_DIR$/public/html/youjian1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="203" column="11" selection-start="3604" selection-end="3606" vertical-scroll-proportion="-10.44" vertical-offset="3596" max-vertical-offset="21470">
+        <state line="7" column="71" selection-start="167" selection-end="167" vertical-scroll-proportion="0.17295189" vertical-offset="0" max-vertical-offset="798" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="36" selection-start="5117" selection-end="5117" vertical-scroll-proportion="0.49937266" vertical-offset="1844" max-vertical-offset="3439" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="38" selection-start="332" selection-end="342" vertical-scroll-proportion="0.18559219" vertical-offset="0" max-vertical-offset="931" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/index/home_wins.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="31" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/index/home_orders.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="32" selection-start="2038" selection-end="2038" vertical-scroll-proportion="0.0" vertical-offset="93" max-vertical-offset="1140">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/jquery.bxslider.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="59" selection-start="1861" selection-end="1861" vertical-scroll-proportion="0.5045872" vertical-offset="1422" max-vertical-offset="3686">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/header.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="24" selection-start="1265" selection-end="1265" vertical-scroll-proportion="-19.96" vertical-offset="736" max-vertical-offset="3838">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="939" column="20" selection-start="16452" selection-end="16452" vertical-scroll-proportion="-14.24" vertical-offset="17485" max-vertical-offset="27246">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/memberlayout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="14" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
+        <state line="215" column="0" selection-start="3535" selection-end="3545" vertical-scroll-proportion="-17.2" vertical-offset="3655" max-vertical-offset="27284">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/index/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3990">
+        <state line="53" column="31" selection-start="2716" selection-end="2716" vertical-scroll-proportion="0.0" vertical-offset="399" max-vertical-offset="3990">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="36" selection-start="4957" selection-end="4957" vertical-scroll-proportion="0.0" vertical-offset="1844" max-vertical-offset="3439">
+        <state line="64" column="14" selection-start="2465" selection-end="2465" vertical-scroll-proportion="-27.84" vertical-offset="520" max-vertical-offset="2394">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/userhome.html">
+    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="4" selection-start="58" selection-end="80" vertical-scroll-proportion="-2.7142856" vertical-offset="0" max-vertical-offset="1349">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#dd#0;n#dl#0;n#div#1;n#dd#1;n#dl#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="84" column="26" selection-start="1509" selection-end="1509" vertical-scroll-proportion="-24.28" vertical-offset="989" max-vertical-offset="22173">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/youjian1.html">
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/items/view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="71" selection-start="167" selection-end="167" vertical-scroll-proportion="0.17295189" vertical-offset="0" max-vertical-offset="798">
-          <folding>
-            <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#td#0;n#tr#4;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#td#0;n#tr#5;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#7;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="191" column="0" selection-start="10544" selection-end="10544" vertical-scroll-proportion="0.38134593" vertical-offset="3306" max-vertical-offset="4617">
+          <folding />
         </state>
       </provider>
     </entry>

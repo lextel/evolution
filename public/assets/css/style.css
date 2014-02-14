@@ -5,7 +5,7 @@
 .logo-wrapper{
     width: 100%;
     overflow: hidden;
-    background: #F1F1F1;
+    background: #f5f7fa;
     padding-top: 30px;
     margin: 0 auto 20px;
     height: 70px;
@@ -13,19 +13,35 @@
 .logo-wrapper .logo{
     width: 980px;
 }
+.login-bd{
+    width: 920px;
+    padding: 0px 30px 30px;
+    background: #ffffff;
+    overflow: hidden;
+}
+.login-hd{
+    width: 920px;
+    padding:20px 30px 10px;
+    background: #ffffff;
+    overflow: hidden;
+    font-size: 14px;
+}
+.login-hd span{
+    margin: 0 5px;
+}
 .left-side{
     width: 500px;
     height: 310px;
 }
 .login-form{
     width: 300px;
-    height: 310px;
+    min-height: 310px;
     border: 1px solid #EEEEEE;
     background: #FFFFFF;
 }
 .login-form .loginBar{
     overflow: hidden;
-     margin:20px ;
+     margin:20px 20px 0 ;
  }
 .login-form .title{
     background: #AF2812;
@@ -50,14 +66,34 @@
     display: inline-block;
     line-height: 24px;
 }
+.btn-l{
+    width: 125px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 3px;
+    text-align: center;
+    color: #ffffff;
+    background: #af2812;
+}
+.btn-r{
+    width: 125px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 3px;
+    text-align: center;
+    color: #333;
+    display: inline-block;
+    background: #d9d9d9;
+}
 .register-box{
     overflow: hidden;
-    padding: 20px;
+    padding: 15px;
     border-top: 1px solid #dddddd;
+    margin-top: 15px;
 }
 .register-box .signup{
     font-size: 14px;
-    color: #47AFFF;
+    color: #0137ff;
 }
 .register-box .registered{
     margin-top: 20px;
@@ -255,6 +291,7 @@
     float: left;
     margin-left: 10px;
     margin-bottom: 10px;
+    height: 316px;
 }
 .home-c dl dd .img-box{
     width: 130px;

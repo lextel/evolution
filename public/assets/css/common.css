@@ -2,10 +2,10 @@
 body{
     font:12px/1.231 "微软雅黑","宋体",Helvetica,Arial,sans-serif;
     color: #333;
-    background: #F1F1F1;
+    background: #f5f7fa;
 }
 .b{
-    color:#379BE9;
+    color:#0137ff;
 }
 .r{
     color: #c10101;
@@ -268,8 +268,8 @@ textarea:focus,input:focus{
     font-size: 12px;
 }
 .btn-lg{
-    padding:8px 15px;
-    font-size: 14px;
+    padding:0px 33px;
+    font-size: 16px;
 }
 .btn-topUp {
     width: 90px;
@@ -407,10 +407,10 @@ table td p.tl{
     background-position: -44px -7px;
 }
 .icon-horn{
-    width: 19px;
+    width: 25px;
     height: 19px;
     vertical-align: middle;
-    background-position: -47px -44px;
+    background-position: -47px -42px;
 }
 .icon-phone{
      width: 22px;
@@ -686,6 +686,11 @@ table td p.tl{
     padding: 0 10px;
 }
 .progress-side dd{
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+.progress-side li{
     width: 100%;
     overflow: hidden;
     margin-bottom: 8px;
@@ -981,12 +986,9 @@ table td p.tl{
 .footer-wrapper{
     overflow: hidden;
     margin-top: 20px;
-    background: #fff;
 }
 .help-bg{
     width: 100%;
-    border-bottom: 2px solid #eeeeee;
-    border-top: 2px solid #eeeeee;
 }
 .footer-help {
     overflow: hidden;

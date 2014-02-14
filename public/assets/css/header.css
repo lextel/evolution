@@ -9,6 +9,10 @@
     background: #FFFFFF;
     width: 740px;
 }
+.announced-news .title h3,.recommended .title h3{
+    font-size: 18px;
+    font-weight: normal;
+}
 .announced-news ul{
     overflow: hidden;
     border: 1px solid #eeeeee;
@@ -57,10 +61,18 @@
     height: 22px;
     line-height: 22px;
     padding:5px;
-    width: 205px;
+    width: 200px;
     overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis;
+}
+.notice ul li i{
+    height: 10px;
+    display: inline-block;
+    width: 10px;
+    background: url("../images/icon-02.png") no-repeat -8px -377px;
+}
+.notice ul li a{
+    font-size: 14px;
 }
 /*人气推荐开始*/
 .recommended{

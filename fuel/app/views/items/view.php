@@ -189,7 +189,7 @@
                 </div>
             </div>
         </div>
-    </div>
+</div>
 <div class="wrapper w">
     <!--商品信息开始-->
 	<div class="bd w">

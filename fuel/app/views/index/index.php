@@ -51,7 +51,7 @@
                 <div class="title"><h3>乐拍公告 <span class="icon icon-horn"></span></h3></div>
                 <ul>
                     <?php foreach($notices() as $notice) { ?>
-                    <li><?php echo Html::anchor('/notice', $notice->title); ?></li>
+                    <li><i></i><?php echo Html::anchor('/notice', $notice->title); ?></li>
                     <?php } ?>
                 </ul>
             </div>
@@ -90,7 +90,7 @@
                             </dd>
                         </dl>
                         <div class="btn-group tc">
-                            <?php echo Html::anchor('m/'.$phase->id, '立即乐拍', ['rel' => 'nofollow','class'=>'btn btn-red']);?>
+                            <?php echo Html::anchor('m/'.$phase->id, '立即乐拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                         </div>
                     </li>
                     <?php } ?>
@@ -147,7 +147,7 @@
                     </dd>
                 </dl>
                 <div class="btn-group tc">
-                    <?php echo Html::anchor('m/'.$phase->id, '立即乐拍', ['rel' => 'nofollow','class'=>'btn btn-red ']);?>
+                    <?php echo Html::anchor('m/'.$phase->id, '立即乐拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg ']);?>
                 </div>
             </li>
             <?php } ?>
