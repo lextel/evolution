@@ -59,6 +59,8 @@ $(function(){
 <div class="content-inner">
     <!--晒单开始-->
     <div class="lead">晒单</div>
+    <div class="remind ">乐拍提醒：你总共晒单<?php echo $postscount;?>件商品，还有 <?php echo $nopostscount;?>件商品等待您晒单。</div>
+    <br />
     <div class="show-box">
         <div class="toggles">
            <?php echo Html::anchor('u/posts', '已晒单', ['class'=>'first-child']); ?>
