@@ -11,7 +11,7 @@
             <?php
                 if($wins):
                 list($members, $areas) = $getMembersByWin($wins);
-                
+
                 foreach($wins as $win):
                     if($win->member_id):
             ?>
@@ -37,8 +37,8 @@
                             </div>
                         </div>
                         <div class="p-info">
-                            <div class="number">当前乐拍：<b><?php echo $win->code_count; ?></b>次</div>
-                            <div class="datetime">揭晓时间：<?php echo $friendlyDate($win->opentime);?></div>
+                            <div class="number">当前乐拍：<b><?php echo $win->code_count; ?></b>人次</div>
+                            <div class="datetime">揭晓时间：<?php echo date('Y-m-d H:i:s', $win->opentime);?></div>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
             <?php
             else:
             ?>
-            <li id="win<?php echo $win->id; ?>">
+            <!--<li id="win<?php echo $win->id; ?>">
                 <div class="item-body">
                     <div class="img-box img-md fl">
                         <a href="<?php echo Uri::create('m/'.$win->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('image/200x200/' .$win->image); ?>"/></a>
@@ -72,6 +72,31 @@
                 </div>
                 <div class="item-footer">
                     <span>即将揭晓，敬请期待...</span>
+                </div>
+            </li>-->
+            <li class="active" id="win<?php echo $win->id; ?>">
+                <div class="item-head">
+                    <h4 class="title-sm fl">
+                        <a href="<?php echo Uri::create('m/'.$win->id); ?>">(第<?php echo $win->phase_id;?>期)<?php echo $win->title; ?></a>
+                    </h4>
+                    <div class="price fr">价值：<b>￥<?php echo sprintf('%.2f', $win->amount); ?></b>元</div>
+                </div>
+                <div class="item-body">
+                    <div class="img-box img-md fl">
+                        <a href="<?php echo Uri::create('m/'.$win->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('image/200x200/' .$win->image); ?>"/></a>
+                    </div>
+                    <div class="info-side fr">
+                        <dl class="countdown" style="min-height: 29px" endtime="<?php echo date('M d, Y H:i:s', $win->opentime);?>" phaseId="<?php echo $win->id;?>">
+                        </dl>
+                        <!--计算中-->
+                    </div>
+                    <div class="counting fr" style="display:none">
+                          正在计算...
+                    </div>
+                    <i class="icon-jxiao"></i>
+                </div>
+                <div class="item-footer">
+                    <p>即将揭晓，敬请期待...</p>
                 </div>
             </li>
             <?php

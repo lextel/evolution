@@ -42,9 +42,24 @@ class View_Items_view extends Viewmodel {
 
             $query = DB::query('SELECT SUM(comment_count) as count FROM `posts` where `item_id` = "'.$itemId.'" and `status` = 1 and `is_delete` = 0');
             $result = $query->execute();
-            $count = $result->get('count'); 
+            $count = $result->get('count');
 
             return $count ? $count : 0;
+        };
+
+        // 今日热门
+        $this->getHots = function() {
+
+            $select = ['title', 'image', 'cost', 'remain', 'joined', 'amount'];
+            $where = [
+                'opentime'  => \Helper\Item::NOT_OPEN,
+                'is_delete' => \Helper\Item::NOT_DELETE,
+                'status'    => \Helper\Item::IS_CHECK
+                ];
+
+            $phases = Model_Phase::find('all', ['select' => $select, 'where' => $where, 'order_by' => ['hots' => 'desc'], 'limit' => 10]);
+
+            return $phases;
         };
     }
 }
