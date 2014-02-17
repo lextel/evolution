@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/findPwd-mail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/findPwd.html" />
-      <change type="DELETED" beforePath="D:\www\evolution\public\assets\images\controls.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/images/header.png" afterPath="$PROJECT_DIR$/public/assets/images/header.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/images/icon-02.png" afterPath="$PROJECT_DIR$/public/assets/images/icon-02.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/index/homelayout.php" afterPath="$PROJECT_DIR$/fuel/app/views/index/homelayout.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/jquery.bxslider.css" afterPath="$PROJECT_DIR$/public/assets/css/jquery.bxslider.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/nickname.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/nickname.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style.css" afterPath="$PROJECT_DIR$/public/assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/template.php" afterPath="$PROJECT_DIR$/fuel/app/views/template.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/index/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/index/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="evolution.iws" />
@@ -36,10 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1450" column="24" selection-start="25908" selection-end="25908" vertical-scroll-proportion="-27.96" vertical-offset="26851" max-vertical-offset="27683">
+            <state line="626" column="20" selection-start="11001" selection-end="11001" vertical-scroll-proportion="0.7306273" vertical-offset="11300" max-vertical-offset="27797">
               <folding />
             </state>
           </provider>
@@ -48,16 +39,7 @@
       <file leaf-file-name="home.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/index/home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1197">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="product.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/css/product.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="853" column="11" selection-start="15739" selection-end="15739" vertical-scroll-proportion="0.0" vertical-offset="15898" max-vertical-offset="20881">
+            <state line="1" column="0" selection-start="26" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="1197">
               <folding />
             </state>
           </provider>
@@ -103,10 +85,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="findPwd-mail.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/index/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="188" column="43" selection-start="9179" selection-end="9187" vertical-scroll-proportion="0.0" vertical-offset="2964" max-vertical-offset="3990">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="findPwd-mail.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/html/findPwd-mail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="72" selection-start="4577" selection-end="4577" vertical-scroll-proportion="0.7754078" vertical-offset="1415" max-vertical-offset="2261">
+            <state line="107" column="72" selection-start="4577" selection-end="4577" vertical-scroll-proportion="-22.071428" vertical-offset="1415" max-vertical-offset="2261">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -152,7 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/fuel/app/views/index/index.php" />
         <option value="$PROJECT_DIR$/public/assets/css/header.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/index.php" />
@@ -166,8 +156,9 @@
         <option value="$PROJECT_DIR$/public/assets/css/jquery.bxslider.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/nickname.php" />
         <option value="$PROJECT_DIR$/public/html/findPwd.html" />
-        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
         <option value="$PROJECT_DIR$/public/html/findPwd-mail.html" />
+        <option value="$PROJECT_DIR$/fuel/app/views/index/index.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
       </list>
     </option>
   </component>
@@ -615,13 +606,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/html/announced-latest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="45" selection-start="1844" selection-end="1846" vertical-scroll-proportion="0.0" vertical-offset="399" max-vertical-offset="3344">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/product.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="853" column="11" selection-start="15739" selection-end="15739" vertical-scroll-proportion="0.0" vertical-offset="15898" max-vertical-offset="20881">
@@ -645,7 +629,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/index/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1197">
+        <state line="1" column="0" selection-start="26" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="1197">
           <folding />
         </state>
       </provider>
@@ -717,21 +701,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1450" column="24" selection-start="25908" selection-end="25908" vertical-scroll-proportion="-27.96" vertical-offset="26851" max-vertical-offset="27683">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/html/findPwd-mail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="72" selection-start="4577" selection-end="4577" vertical-scroll-proportion="0.7754078" vertical-offset="1415" max-vertical-offset="2261">
+        <state line="107" column="72" selection-start="4577" selection-end="4577" vertical-scroll-proportion="-22.071428" vertical-offset="1415" max-vertical-offset="2261">
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/index/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="188" column="43" selection-start="9179" selection-end="9187" vertical-scroll-proportion="0.0" vertical-offset="2964" max-vertical-offset="3990">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="626" column="20" selection-start="11001" selection-end="11001" vertical-scroll-proportion="0.7306273" vertical-offset="11300" max-vertical-offset="27797">
+          <folding />
         </state>
       </provider>
     </entry>
