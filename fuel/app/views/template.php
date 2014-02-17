@@ -38,6 +38,9 @@
     <!--头部开始-->
     <div class="top-nav">
         <div class="top-menu">
+            <div class="collection fl" style="CURSOR: hand" onClick="window.external.addFavorite('http://要收藏网页的完整网址')" title="乐乐淘">
+                 <a href="#">收藏乐乐淘</a>
+            </div>
             <span class="online">
                 <a href="javascript:void(0);">在线客服<span class="icon icon-qq"></span></a>
             </span>

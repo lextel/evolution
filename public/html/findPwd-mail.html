@@ -1,0 +1,114 @@
+<html><head>
+    <title>忘记密码</title>
+    <link type="text/css" rel="stylesheet" href="http://www.llt.com/assets/css/common.css?1392615387">
+    <link type="text/css" rel="stylesheet" href="http://www.llt.com/assets/css/header.css?1392345428">
+    <script type="text/javascript" src="http://www.llt.com/assets/js/jquery.min.js?1388384558"></script>
+    <script type="text/javascript" src="http://www.llt.com/assets/js/common.js?1392272156"></script>
+    <meta charset="utf-8">
+    <!--[if lt IE 10]>
+    <script type="text/javascript" src="http://www.llt.com/assets/js/PIE.js?1315399066"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        $(function() {
+            if (window.PIE) {
+                $('.btn,.progress').each(function() {
+                    PIE.attach(this);
+                });
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        $(function(){
+            function getTotalBuy(){
+                $.get("/totalbuycount?callback="+ new Date().getTime(), function(data){
+                    if (data.code==0){
+                        $("#totalbuy").html(data.num);
+                    }
+                });
+            }
+            function timer(){
+                getTotalBuy();
+            }
+            setInterval(timer,3000);
+            getTotalBuy();
+        });
+    </script>
+</head>
+<body style="">
+<!--头部开始-->
+<div class="top-nav">
+    <div class="top-menu">
+        <div class="collection fl" style="CURSOR: hand" onclick="window.external.addFavorite('http://要收藏网页的完整网址')" title="乐乐淘">
+            <a href="#">收藏乐乐淘</a>
+        </div>
+            <span class="online">
+                <a href="javascript:void(0);">在线客服<span class="icon icon-qq"></span></a>
+            </span>
+            <span class="login-bar">
+                             <a href="http://www.llt.com/signin">登录</a>
+                 <i>/</i>
+                 <a href="http://www.llt.com/signup">注册</a>
+                        </span>
+    </div>
+</div>
+<div class="logo-box">
+    <div class="logo"><a href="http://www.llt.com/"><img src="http://www.llt.com/assets/images/logo.png" alt="乐乐淘首页"></a></div>
+    <div class="right-box">
+        <div class="search">
+            <input id="txtSearch" type="text" value="" name="title" placeholder="输入“苹果手机”试试">
+            <a href="javascript:void(0);" class="search-btn" id="doSearch">
+                <span class="icon icon-search"></span>
+            </a>
+        </div>
+        <div class="shopping-box">
+            <div class="shopping-cart">
+                <a href="javascript:void(0);" class="car-t"><i class="icon icon-car"></i>购物车</a>
+                <ul class="dropdown-list" style="display:none"></ul>
+            </div>
+            <div class="all">
+                <a href="/l">当前乐拍人数<b id="totalbuy">00804072</b></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="navbar">
+    <ul>
+        <li><a href="http://www.llt.com/">首页</a></li>
+        <li><a href="http://www.llt.com/m">所有商品</a></li>
+        <li><a href="http://www.llt.com/w">最新揭晓</a></li>
+        <li><a href="http://www.llt.com/p">晒单分享</a></li>
+        <li><a href="http://www.llt.com/h">新手指南</a></li>
+    </ul>
+</div>
+<!--头部结束-->
+<div class="w">
+
+    <link type="text/css" rel="stylesheet" href="http://www.llt.com/assets/css/style.css?1392614329">
+    <link type="text/css" rel="stylesheet" href="http://www.llt.com/assets/css/member/validfrom_style.css?1389405498">
+    <script type="text/javascript" src="http://www.llt.com/assets/js/Validform_v5.3.2_min.js?1388629166"></script>
+    <div class="register w">
+        <div class="title">
+            忘记密码？不用急，您可以通过一下方式找回密码。
+        </div>
+        <form class="register-form demoform" action="http://www.llt.com/signup" accept-charset="utf-8" method="post">
+            <ul>
+                <li>
+                    <label>邮箱:</label>
+                    <input type="password" class="inputxt Validform_error" name="password" datatype="e" errorms="请输入6-18位密码" nullmsg="请输入6-18位密码" value="" id="form_password">
+                    <span class="Validform_checktip Validform_wrong">请输入6-18位密码</span>
+                </li>
+                <li>
+                    <input class="btn btn-red" name="submit" value="提交" type="submit" id="form_submit">
+                </li>
+            </ul>
+        </form>
+        <div class="help-tool">
+            <p style="font-weight: bold">没有收到验证邮件？</p>
+            <p>1.您若忘记注册时所用的手机号或邮箱建议您重新注册账号， <a href="" class="b">立即注册</a></p>
+            <p>2.若有任何疑问或需要帮助请您进入帮助中心,也可以点击在线客服进行咨询或拨打服务热线 <span class="r">400 685 9800</span></p>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

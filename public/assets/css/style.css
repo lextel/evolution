@@ -185,7 +185,7 @@
 /*个人主页*/
 .home-wrap{
     border: 1px solid #dddddd;
-    width: 800px;
+    width: 805px;
     background: #FFFFFF;
 }
 .left-sidebar{
@@ -269,7 +269,7 @@
 }
 .home-mu{
     overflow: hidden;
-    padding: 10px;
+    padding:0 10px 10px;
 }
 .home-c{
     overflow: hidden;
@@ -304,7 +304,6 @@
 }
 .home-c .bask-menu dd{
     overflow: hidden;
-    border-bottom: 1px solid #EEEEEE;
     padding: 10px 0;
     margin-bottom: 10px;
 }
@@ -443,9 +442,7 @@
 }
 .bask-menu dd{
     overflow: hidden;
-    padding: 10px;
     margin-bottom: 10px;
-    border-bottom: 1px dashed #dddddd;
 }
 .bask-menu dd .info-side{
     margin-left:20px;

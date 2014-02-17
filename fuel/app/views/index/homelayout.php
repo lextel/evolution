@@ -5,7 +5,7 @@
                 <?php echo Html::anchor('u/'.$member->id, Html::img($member->avatar));?>
             </div>
             <div class="home-mu">
-                <div class="username"><?php echo Html::anchor('u/'.$member->id, $member->nickname);?></div>
+                <div class="name"><?php echo Html::anchor('u/'.$member->id, $member->nickname);?></div>
                 <div class="signature">
                     个性签名:
                     <?php echo $member->bio;?>

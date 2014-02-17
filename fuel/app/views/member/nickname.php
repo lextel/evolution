@@ -14,12 +14,17 @@ $(function(){
 <br />
 <div class="register w">
     <div class="title">
-        <h4 class="fl">新用户注册</h4>
-        <ul class="fl">
-            <li><a href="javascript:;">1填写注册信息</a></li>
-            <li><a href="javascript:;">2填写用户昵称</a></li>
-            <li><a href="javascript:;"></a></li>
-        </ul>
+          <h3 class="fl">新用户注册</h3>
+                    <ul class="fl crumbs">
+                        <li><s>1</s><a href="javascript:;">填写注册信息</a></li>
+                        <li><b>></b><li>
+                        <li class="active"><s>2</s><a href="javascript:;">完成注册</a></li>
+                        <li><a href="javascript:;"></a></li>
+                    </ul>
+                    <div class="link fr">
+                        已经是会员，直接
+                        <?php echo Html::anchor('signin', '登录', array('class' => 'blue'));?>
+                    </div>
     </div>
     <div class="register-wrap">
         <h2><span class="icon-prompt"></span>恭喜你成为乐拍会员，现在输入昵称就可以立刻开始乐拍了</h2>

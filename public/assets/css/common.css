@@ -101,7 +101,7 @@ textarea:focus,input:focus{
     text-align: left;
     padding: 10px;
     margin-top: 6px;
-    border: 1px solid #eeeeee;
+    border: 1px solid #d2d2d2;
 }
 .text-title{
     text-align: left;
@@ -150,6 +150,11 @@ textarea:focus,input:focus{
  }
 .username a{
      color: #0137ff;
+}
+.name{
+    font-size: 14px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 .number,.ip,.price,.datetime,.remain{
     line-height:18px;
@@ -802,6 +807,12 @@ table td p.tl{
      width: 980px;
      margin: 0 auto;
  }
+.top-menu .collection{
+    width: 65px;
+    padding-left: 20px;
+    background: url("../images/collection.png") no-repeat 0 2px;
+}
+
 .top-menu span.login-bar{
     min-width: 65px;
     float: right;
@@ -1433,4 +1444,9 @@ table td p.tl{
     color: #238cff;
     font-size: 12px;
     display: block;
+}
+.help-tool{
+    margin-top: 20px;
+    border-top: 1px solid #d2d2d2;
+    padding: 20px 180px;
 }
