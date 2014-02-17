@@ -14,7 +14,7 @@
                 <?php echo Html::anchor('u/moneylog/b/1', '消费记录', ['class'=>'last-child active']); ?>
         </div>
         <div class="select-box">
-            <label for="">全部商品</label>
+            <label for=""><?php echo Html::anchor("/u/moneylog", '全部');?></label>
 
         <span class="time-choose">选择时间段：
             <input  id="datepicker" type="text" placeholder="输入起始时间" />
