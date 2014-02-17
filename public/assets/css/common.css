@@ -620,6 +620,12 @@ table td p.tl{
     font-size: 12px;
     white-space: nowrap;
 }
+.title-02{
+    width: 120px;
+    line-height: 22px;
+    font-weight: bold;
+    font-size: 12px;
+}
 .title-md{
     width: 210px;
     line-height: 22px;
