@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/index/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/index/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/header.css" afterPath="$PROJECT_DIR$/public/assets/css/header.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/jquery.bxslider.css" afterPath="$PROJECT_DIR$/public/assets/css/jquery.bxslider.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="evolution.iws" />
@@ -27,19 +27,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="626" column="20" selection-start="11001" selection-end="11001" vertical-scroll-proportion="0.7306273" vertical-offset="11300" max-vertical-offset="27797">
+            <state line="626" column="20" selection-start="11001" selection-end="11001" vertical-scroll-proportion="-23.76" vertical-offset="11300" max-vertical-offset="27797">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/index/home.php">
+      <file leaf-file-name="header.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/header.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="26" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="1197">
+            <state line="17" column="30" selection-start="329" selection-end="329" vertical-scroll-proportion="-0.9348093" vertical-offset="1083" max-vertical-offset="3838">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery.bxslider.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/jquery.bxslider.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="131" column="0" selection-start="2359" selection-end="2359" vertical-scroll-proportion="10.8" vertical-offset="2759" max-vertical-offset="3572">
               <folding />
             </state>
           </provider>
@@ -49,15 +58,6 @@
         <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state line="271" column="24" selection-start="4802" selection-end="4802" vertical-scroll-proportion="117.32" vertical-offset="8082" max-vertical-offset="22116">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="template.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="129" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.0" vertical-offset="494" max-vertical-offset="3496">
               <folding />
             </state>
           </provider>
@@ -143,7 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/assets/css/header.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/index.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/items/index.php" />
@@ -153,12 +152,13 @@
         <option value="$PROJECT_DIR$/fuel/app/views/index/homelayout.php" />
         <option value="$PROJECT_DIR$/public/assets/css/style.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/template.php" />
-        <option value="$PROJECT_DIR$/public/assets/css/jquery.bxslider.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/nickname.php" />
         <option value="$PROJECT_DIR$/public/html/findPwd.html" />
         <option value="$PROJECT_DIR$/public/html/findPwd-mail.html" />
         <option value="$PROJECT_DIR$/fuel/app/views/index/index.php" />
         <option value="$PROJECT_DIR$/public/assets/css/common.css" />
+        <option value="$PROJECT_DIR$/public/assets/css/header.css" />
+        <option value="$PROJECT_DIR$/public/assets/css/jquery.bxslider.css" />
       </list>
     </option>
   </component>
@@ -247,6 +247,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -606,13 +646,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/assets/css/product.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="853" column="11" selection-start="15739" selection-end="15739" vertical-scroll-proportion="0.0" vertical-offset="15898" max-vertical-offset="20881">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/index/homelayout.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="28" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="494">
@@ -630,13 +663,6 @@
     <entry file="file://$PROJECT_DIR$/fuel/app/views/index/home.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="0" selection-start="26" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="1197">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/jquery.bxslider.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="59" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.1508982" vertical-offset="1641" max-vertical-offset="3686">
           <folding />
         </state>
       </provider>
@@ -721,7 +747,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="626" column="20" selection-start="11001" selection-end="11001" vertical-scroll-proportion="0.7306273" vertical-offset="11300" max-vertical-offset="27797">
+        <state line="626" column="20" selection-start="11001" selection-end="11001" vertical-scroll-proportion="-23.76" vertical-offset="11300" max-vertical-offset="27797">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/jquery.bxslider.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="0" selection-start="2359" selection-end="2359" vertical-scroll-proportion="10.8" vertical-offset="2759" max-vertical-offset="3572">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/header.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="30" selection-start="329" selection-end="329" vertical-scroll-proportion="-0.9348093" vertical-offset="1083" max-vertical-offset="3838">
           <folding />
         </state>
       </provider>
