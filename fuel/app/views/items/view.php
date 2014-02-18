@@ -157,8 +157,7 @@
                                     else:
                                 ?>
 
-                            </tbody>
-                        </table>
+                            
                          <form action="<?php echo Uri::create('signin'); ?>" method="post">
                                <ul class="edit-data" style="display: block;">
                                     <li>
@@ -176,6 +175,8 @@
                                </ul>
                          </form>
                          <?php endif; ?>
+                         </tbody>
+                        </table>
                     </div>
                     <div class="tab-pane" id="help">
                         <p>乐乐淘是指只需10乐淘币就有机会买到想要的商品。即每件商品被平分成若干“等份”出售，每份10乐淘币，
