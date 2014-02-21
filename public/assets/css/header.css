@@ -79,7 +79,7 @@
     overflow: hidden;
     background: #FFFFFF;
     padding:0 10px;
-    width: 720px;
+    width: 719px;
 }
 .recommended ul{
     margin-right: -10px;
@@ -121,13 +121,13 @@
     width: 230px;
     background: #FFFFFF;
     border: 1px solid #eeeeee;
-    height: 427px;
+    height: 430px;
 }
 .buying-box ul{
     width: 230px;
 }
 .buying-box ul li{
-    height:79px;
+    height:80px;
     border-bottom: 1px dashed #d2d2d2;
     margin:10px 0 -1px;
     padding:4px 5px;
@@ -151,6 +151,10 @@
     padding: 10px;
     border: 1px solid #eeeeee;
 }
+.bask-wrapper .title h3{
+    font-size: 18px;
+    font-weight: normal;
+}
 .bask .bask-info{
     width: 305px;
     background: #edf1f4;
@@ -158,6 +162,11 @@
     padding: 10px;
     margin-left: 15px;
     position: relative;
+}
+.bask .bask-title{
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
 }
 .bask-info::before{
     content: "";
@@ -176,7 +185,7 @@
 .bask .bask-content{
     line-height: 21px;
     width: 300px;
-    height: 102px;
+    height: 154px;
     overflow: hidden;
 }
 .bask-side .bask-list{

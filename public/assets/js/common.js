@@ -27,16 +27,16 @@ $(function(){
 $(function(){
     var w_width=$(window).width();
     var w_height=$(window).height();
-    $(".weiXin").css({right:(w_width-980)/2-150,top:w_height/4});
-    var getRight=(w_width-980)/2-80
+    $(".weiXin").css({right:(w_width-980)/2-138,top:w_height/4});
+    var getRight=(w_width-980)/2-67
     $(".short-cut").show();
     $(".short-cut").css({right:getRight});
     $(window).resize(function(){
         var screenWidth = $(window).width();
         var screenHeight = $(window).height();
-        var getRight=(screenWidth-980)/2-80
+        var getRight=(screenWidth-980)/2-67
         $(".short-cut").css({right:getRight});
-        $(".weiXin").css({right:(screenWidth-980)/2-150,top:screenHeight/4});
+        $(".weiXin").css({right:(screenWidth-980)/2-138,top:screenHeight/4});
     });
     $(".weiXin-img button").click(function(){
         $(this).parents(".weiXin").fadeOut(1000);
