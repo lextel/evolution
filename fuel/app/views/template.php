@@ -134,7 +134,7 @@
                 <li><?php echo Html::anchor('h/about', '关于乐拍'); ?></li>
                 <li><?php echo Html::anchor('h/privacy', '隐私声明'); ?></li>
                 <li><a href="javascript:void(0);">合作专区</a></li>
-                <li><a href="javascript:void(0);">联系我们</a></li>
+                <li class="lastest"><a href="javascript:void(0);">联系我们</a></li>
             </ul>
             <P>版权所有</P>
             <span>乐拍，快乐抢拍你的人生！</span>

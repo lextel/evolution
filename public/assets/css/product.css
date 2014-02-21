@@ -182,12 +182,13 @@
 }
 .product-nav .header{
     width:81px;
-    height: 49px;
-    line-height: 48px;
+    height: 47px;
+    line-height: 47px;
     text-align: center;
     font-size: 14px;
     font-weight: bold;
     color: #000000;
+    border-top: 1px solid #d2d2d2;
     background: url("../images/bg.png") no-repeat -9px -542px;
 }
 .product-nav li{
@@ -205,6 +206,8 @@
 .product-nav li.active{
     background: #FFFFFF;
     margin-right: -1px;
+    border-left: 1px solid #d2d2d2;
+    border-bottom:1px solid #d2d2d2 ;
 }
 .product-nav li.active a{
     color:#af2812 ;
@@ -219,6 +222,7 @@
     padding: 10px;
     background: #FFFFFF;
     border: 1px solid #d2d2d2;
+    border-left: none;
 }
 .sub-menu  dl dt{
     line-height: 26px;

@@ -139,15 +139,17 @@ textarea:focus,input:focus{
 .username{
      display: inline-block;
      max-width: 150px;
-     color:#999;
+     color:#333;
      line-height: 18px;
-     font-weight: bold;
      text-align: left;
      overflow: hidden;
      vertical-align: middle;
      white-space: nowrap;
      text-overflow: ellipsis;
  }
+.username b{
+    font-weight: normal;
+}
 .username a{
      color: #0137ff;
 }
@@ -874,10 +876,10 @@ table td p.tl{
 }
 .right-box .search{
     float: left;
-    margin-top: 44px;
+    margin-top: 46px;
 }
 .search input{
-    width: 220px;
+    width: 288px;
     height: 25px;
     border: 2px  solid #af2812;
     border-right: 0;
@@ -1038,24 +1040,27 @@ table td p.tl{
     background: #FFFFFF;
 }
 .bottom-nav{
-    margin: 0 auto;
-    width: 320px;
+    margin: 0 auto 5px;
+    width: 330px;
     overflow: hidden;
 }
 .bottom-nav li{
     float: left;
-    height: 20px;
-    line-height: 20px;
-    padding: 10px;
+    height: 18px;
+    line-height: 18px;
+    padding:0px 10px;
     text-align: center;
+    border-right: 1px solid #5b5b5b;
+}
+.bottom-nav li.lastest{
+    border: none;
 }
 .footer p{
     line-height: 18px;
 }
 .footer span{
-    color: red;
+    color: #b92c00;
     font-size: 18px;
-    font-weight:bold;
 }
 .kf{
     display: block;
