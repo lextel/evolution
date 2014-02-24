@@ -769,29 +769,27 @@ table td p.tl{
     float: left;
     margin-right: 10px;
     display: block;
-    background: #f1f1f1;
-    border: 1px #EEEEEE solid;
-    border-radius: 3px;
+    border: 1px #d2d2d2 solid;
     text-align: center;
-    width: 30px;
-    height: 28px;
-    line-height: 28px;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
 }
 .pagination span a{
     display: block;
 }
 .pagination span a:hover{
-    background: #D9534F;
-    color: #ffffff;
-    border-radius: 3px;
 }
+/*
 .pagination span.active{
     background:#D9534F ;
     color: #ffffff;
 }
+
 .pagination span.active a{
     color: #ffffff;
 }
+*/
 .pagination span.previous-inactive{
     width:60px;
 }

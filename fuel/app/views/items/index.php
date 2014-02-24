@@ -125,7 +125,7 @@
 <!--产品列表结束-->
 <!--今日热门开始-->
 <div class="date-hot w">
-    <div class="title"><h3>今日热门</h3></div>
+    <div class="title">今日热门</div>
     <div class="scrollleft" >
          <div class="scrollcontainer">
              <ul>
@@ -134,13 +134,13 @@
                         foreach($hotItems as $item) { ?>
                       <li>
                           <div class="img-box img-md"><a href="<?php echo Uri::create('/m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
-                          <h4 class="title-mx"><?php echo $item->title; ?></h4>
-                          <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->cost / Config::get('point')); ?></b></div>
+                          <h4 class="title-br"><?php echo $item->title; ?></h4>
+                          <div class="price fr">价值￥<?php echo sprintf('%.2f', $item->cost / Config::get('point')); ?></div>
                           <div class="btn-group">
                                 <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
                                     <input name="id" value="<?php echo $item->id; ?>" type="hidden">
                                     <input name="qty" value="1" type="hidden">
-                                    <button class="btn btn-red" type="submit">立即乐拍</button>
+                                    <button class="hot-buy btn-red" type="submit">立即乐拍</button>
                                 </form>
                           </div>
                       </li>
