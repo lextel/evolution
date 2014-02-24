@@ -280,7 +280,7 @@
     width:119px;
     color: #FFFFFF;
     font-size: 14px;
-    top: -4px;
+    top: -10px;
     left: -19px;
 }
 .sheng-yi2 b{
@@ -317,6 +317,9 @@
 .list_sort a:hover{
     border: 1px solid #AF2812;
 }
+.list_sort a.active{
+    border: 1px solid #AF2812;
+}
 .product-list {
     overflow: hidden;
     margin-top: 10px;
@@ -345,12 +348,19 @@
     margin-top: 20px;
     background: #FFFFFF;
 }
-.date-hot .title{
+.date-hot  .title{
+    font-size: 18px;
+}
+.hot-buy{
+    width: 100px;
+    height: 23px;
+    line-height: 23px;
+    text-align: center;
+    border-radius: 3px;
 }
 .date-hot ul {
     overflow: hidden;
     padding: 10px 15px 10px 0px;
-
 }
 .date-hot ul li{
     float: left;
@@ -372,11 +382,12 @@
 .date-hot ul li .price{
     position: absolute;
     right: 24px;
-    bottom: 66px;
-    width: 120px;
+    bottom: 74px;
+    width: 105px;
     color: #FFFFFF;
     text-align: center;
     height: 24px;
+    font-size: 12px;
     line-height: 24px;
     background: black;
     opacity: 0.6;
@@ -817,7 +828,7 @@
 /*最新揭晓*/
 .latest-wrap .left-content{
     float: left;
-    width:74%;
+    width:75.5%;
     overflow: hidden;
     background: #FFFFFF;
 }
@@ -826,10 +837,16 @@
     padding-left: 15px;
     margin-bottom: 10px;
 }
-
+.latest-btn{
+    width: 100px;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    text-align: center;
+}
 .left-content .item-group li{
     float: left;
-    width: 335px;
+    width: 344px;
     height: 222px;
     border: 1px solid #EEEEEE;
     margin: 0 15px 15px 0;
@@ -837,6 +854,7 @@
 .left-content .item-group li.active{
     border: 1px solid #af2812;
 }
+
 .item-group li .item-head{
     line-height: 24px;
     padding:4px 10px;
@@ -846,6 +864,7 @@
 }
 .item-head .price {
     font-size: 12px;
+    margin-top: 2px;
 }
 .item-group li .item-body{
     overflow: hidden;
@@ -888,10 +907,6 @@
     font-size: 16px;
     padding: 5px 0;
 
-}
-.lucky-code b{
-    font-weight: bold;
-    color: #af2812;
 }
 .user-info{
     overflow: hidden;
@@ -1053,7 +1068,7 @@
 
 .scrollleft .scrollcontainer{
 	width:850px;
-	height:200px;
+	height:210px;
 	overflow:hidden;
 	position:relative;
 	margin:0 auto;
@@ -1070,27 +1085,19 @@
 	position:absolute;
     top: 62px;
     display: block;
-    width: 24px;
-    height: 38px;
+    width:30px;
+    height: 58px;
 	overflow:hidden;
-    opacity: 0.5;
-    filter: Alpha(opacity=50);
-	background:#000 url("../images/icon-02.png") no-repeat;
+	background:url("../images/bg02.png") no-repeat;
 }
 .scrollleft a.aleft{
-    background-position:  6px -53px;
-}
-.scrollleft a.agrayleft{
-	cursor:default;
-    background: #F1F1F1 url("../images/icon-02.png") 6px -53px;
+    cursor:pointer;
+    background-position:-9px 0px;
 }
 .scrollleft a.aright{
-	right:0px;
-    background-position:  -14px -53px;
-}
-.scrollleft a.agrayright{
-	cursor:default;
-    background: #F1F1F1 url("../images/icon-02.png")  -14px -53px;
+    cursor:pointer;
+	right:10px;
+    background-position:   -166px 0px;
 }
 
 

@@ -44,9 +44,9 @@
                 </div>
                 <div class="item-footer">
                     <div class="lucky-code fl">
-                        幸运乐拍码:<b><?php echo $win->code?></b>
+                        <b>幸运乐拍码:</b><s class="r"><?php echo $win->code?></s>
                     </div>
-                    <?php echo Html::anchor('w/'.$win->id, '查看详情', ['class'=>'btn btn-red fr']); ?>
+                    <?php echo Html::anchor('w/'.$win->id, '查看详情', ['class'=>'btn btn-red latest-btn fr']); ?>
                 </div>
             </li>
             <?php
