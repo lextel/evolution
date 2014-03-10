@@ -58,6 +58,24 @@ h1{
     font-weight: bold;
     height: 30px;
 }
+.btn-group.soon{
+    margin: 30px auto 0;
+}
+.btn-group.soon .btn{
+    padding: 0 72px;
+}
+.soonState{
+    width: 540px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 24px;
+    text-align: center;
+    border: 1px solid #d2d2d2;
+    background: #f1f1f1;
+}
+.btn-group .btn{
+    margin: 0 5px;
+}
 textarea{
     width: 100%;
     overflow:auto;

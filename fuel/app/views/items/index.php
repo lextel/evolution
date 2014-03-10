@@ -114,6 +114,7 @@
                                         <button class="btn btn-red" type="submit" >立即乐拍</button>
                                         <a class="btn btn-y doCart" href="javascript:void(0);" phaseId="<?php echo $item->id; ?>">加入购物车</a>
                                     </div>
+
                                 </form>
                             </li>
                             <?php endforeach; ?>
