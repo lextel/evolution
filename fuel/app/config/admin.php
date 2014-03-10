@@ -45,6 +45,7 @@ return [
             'childs' => [
                 ['name' => '添加商品', 'href' => Uri::create('/admin/items/create')],
                 ['name' => '待审核商品列表', 'href' => Uri::create('/admin/items/list/uncheck')],
+                ['name' => '显示中的商品', 'href' => Uri::create('/admin/items/list/show')],
                 ['name' => '运行中商品列表', 'href' => Uri::create('/admin/items/list/active')],
                 ['name' => '已揭晓商品列表', 'href' => Uri::create('/admin/items/list/open')],
                 ['name' => '审核不通过商品列表', 'href' => Uri::create('/admin/items/list/unpass')],

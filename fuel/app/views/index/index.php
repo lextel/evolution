@@ -90,7 +90,11 @@
                             </dd>
                         </dl>
                         <div class="btn-group tc">
-                            <?php echo Html::anchor('m/'.$phase->id, '立即乐拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                            <?php if($phase->status == \Helper\Item::IS_CHECK):?>
+                                <?php echo Html::anchor('m/'.$phase->id, '立即乐拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                            <?php else: ?>
+                                <?php echo Html::anchor('m/'.$phase->id, '即将开拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                            <?php endif;?>
                         </div>
                     </li>
                     <?php } ?>
@@ -147,7 +151,11 @@
                     </dd>
                 </dl>
                 <div class="btn-group tc">
-                    <?php echo Html::anchor('m/'.$phase->id, '立即乐拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg ']);?>
+                    <?php if($phase->status == \Helper\Item::IS_CHECK):?>
+                        <?php echo Html::anchor('m/'.$phase->id, '立即乐拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                    <?php else: ?>
+                        <?php echo Html::anchor('m/'.$phase->id, '即将开拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                    <?php endif;?>
                 </div>
             </li>
             <?php } ?>
