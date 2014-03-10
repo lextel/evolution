@@ -193,7 +193,7 @@
 <div class="wrapper w">
     <!--商品信息开始-->
 	<div class="bd w">
-	    <div class="sub-nav w" id="bigNav">
+	    <div class="sub-nav" id="bigNav">
             <ul class="fl">
                 <li><a href="#desc" data-toggle="tab" class="active">商品详情</a></li>
                 <li><a href="#buylog" phaseId="<?php echo $item->phase->id; ?>" data-toggle="tab">所有参与纪录(<s class="r"><?php echo $orderCount; ?></s>)</a></li>

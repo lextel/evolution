@@ -29,6 +29,10 @@
 .announced-news ul li.active{
     border: 2px solid #e60012;
 }
+
+.announced-news .more,.recommended .more,.bask-wrapper .more{
+    margin-top: 5px;
+}
 .news-count{
     text-align: center;
     overflow: hidden;
@@ -50,7 +54,7 @@
     margin-bottom: 10px;
 }
 .sort-list .title,.buying-box .title,.notice  .title{
-    background:url("../images/bg.png")  -3px -184px;
+    background:url("../images/bg.png")  -5px -185px;
 }
 .notice ul{
     overflow: hidden;
@@ -121,7 +125,7 @@
     width: 230px;
     background: #FFFFFF;
     border: 1px solid #eeeeee;
-    height: 430px;
+    height: 427px;
 }
 .buying-box.box2{
     width: 270px;
@@ -152,7 +156,7 @@
 }
 .bask-side{
     overflow: hidden;
-    padding: 0 10px 10px;
+    padding: 0 10px 0px;
 }
 .bask-side .bask{
     width: 482px;
@@ -166,7 +170,7 @@
 .bask .bask-info{
     width: 305px;
     background: #edf1f4;
-    border-radius: 4px;
+    border-radius: 9px;
     padding: 10px;
     margin-left: 15px;
     position: relative;
@@ -175,6 +179,9 @@
     height: 24px;
     line-height: 24px;
     overflow: hidden;
+    border-bottom: 1px solid #959595;
+    padding-bottom: 7px;
+    margin-bottom: 10px;
 }
 .bask-info::before{
     content: "";
@@ -193,7 +200,7 @@
 .bask .bask-content{
     line-height: 21px;
     width: 300px;
-    height: 154px;
+    height: 132px;
     overflow: hidden;
 }
 .bask-side .bask-list{

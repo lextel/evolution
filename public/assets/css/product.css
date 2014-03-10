@@ -18,12 +18,12 @@
 }
 
 .state-heading {
-    border: 1px solid #EEEEEE;
+    border: 1px solid #EEE;
     padding: 8px 10px;
     overflow: hidden;
-    line-height: 23px;
+    line-height: 15px;
     font-size: 14px;
-    background:url("../images/bg.png") no-repeat -2px -181px;
+    background: url("../images/bg.png") no-repeat -5px -185px;
 }
 .state-heading .blue{
     color: #af2812;
@@ -524,6 +524,7 @@
     right: 0;
 }
 .lantern-slide{
+    overflow: hidden;
     margin-bottom: 10px;
     border: 1px solid #EEEEEE;
     background: #ffffff;
@@ -644,14 +645,14 @@
     min-height: 222px;
     overflow: hidden;
     border: 1px solid #DDDDDD;
-    border-right: none;
     margin-top: 10px;
+    background: #ffffff;
 }
 .new-buyer-header{
     overflow: hidden;
 }
 .new-buyer .new-buyer-header ul li{
-    width: 190px;
+    width: 189px;
     height: 34px;
     text-align: center;
     float: left;
@@ -664,6 +665,9 @@
     display: block;
     width: 100%;
     height: 100%;
+}
+.new-buyer-body .edit-data li .btn{
+    float: left;
 }
 .new-buyer .new-buyer-header ul li.active{
     width: 184px;
@@ -701,11 +705,16 @@
     font-size: 13px;
 }
 .previous-box{
+    width: 377px;
     overflow: hidden;
     padding:0 10px 10px;
     border: 1px solid #dddddd;
     background:#FFFFFF;
 }
+.previous-box .title{
+    margin-left:-10px;
+}
+
 .product-details{
     padding: 20px;
     border: 1px solid #ddd;
@@ -717,6 +726,8 @@
     overflow: hidden;
     background: #ffffff;
     z-index: 999;
+    width: 978px;
+    border: 1px solid #d2d2d2;
 }
 .sub-nav ul {
     overflow: hidden;
@@ -1097,6 +1108,7 @@
 	background:url("../images/bg02.png") no-repeat;
 }
 .scrollleft a.aleft{
+    left: 10px;
     cursor:pointer;
     background-position:-9px 0px;
 }
