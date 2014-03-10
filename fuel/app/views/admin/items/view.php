@@ -52,12 +52,12 @@
               <div class="col-sm-2">
                   <?php if($item->status == 0 && $current_user->group >=50):?>
                   <select class="form-control" name="status"/>
-                      <option value="1">通过</option>
+                      <option value="3">通过</option>
                       <option value="2">不通过</option>
                   </select>
                   <?php 
                     else: 
-                    echo $item->status == 0 ? '待审核' : ($item->status == 1 ? '通过' : '未通过');
+                    echo $item->status == 0 ? '待审核' : (($item->status == 1 || $item->status == 3) ? '通过' : '未通过');
                     endif;
                   ?>
               </div>
