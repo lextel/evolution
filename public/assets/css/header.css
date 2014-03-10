@@ -123,6 +123,14 @@
     border: 1px solid #eeeeee;
     height: 430px;
 }
+.buying-box.box2{
+    width: 270px;
+}
+.worth{
+    font-size: 14px;
+    line-height: 33px;
+    height: 33px;
+}
 .buying-box ul{
     width: 230px;
 }

@@ -44,8 +44,6 @@
     overflow: hidden;
     border: 1px solid #EEEEEE;
     padding: 0 10px 10px 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
     background: #FFFFFF;
     position: relative;
 }
@@ -59,7 +57,8 @@
     font-weight: bold;
 }
 .panel{
-    margin-bottom: 10px;
+    overflow: hidden;
+    margin:0 auto 10px;
 }
 .result-box .right-box {
     overflow: hidden;
@@ -83,7 +82,7 @@
 }
 .win-number {
     width: 426px;
-    height: 100px;
+    height: 140px;
     clear: both;
     margin-top: 10px;
     border: 1px solid #EEEEEE;
@@ -232,10 +231,10 @@
     line-height: 26px;
 }
 .sub_banner{
-    width: 435px;
+    width: 440px;
     height: 337px;
     border: 1px solid #EEEEEE;
-    margin-left: 15px;
+    margin-left: 10px;
     text-align: center;
 }
 .sub_banner img{
@@ -292,7 +291,7 @@
     border: 1px solid #dddddd;
     margin-bottom: 10px;
     background: #FFFFFF;
-    padding: 5px;
+    padding: 6px;
 }
 .list_sort label{
     display:block;
@@ -332,6 +331,7 @@
 }
 .product-list .price{
     text-align: right;
+    font-size: 12px;
 }
 .product-list li{
     float: left;
@@ -509,8 +509,19 @@
 }
 /*商品详情*/
 /*幻灯片开始*/
-.panel .img-side {
-    width: 402px;
+.results-img{
+    width: 410px;
+    height: 410px;
+    background: #ffffff;
+    position: relative;
+}
+.results-img img{
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 .lantern-slide{
     margin-bottom: 10px;
@@ -828,13 +839,11 @@
 /*最新揭晓*/
 .latest-wrap .left-content{
     float: left;
-    width:75.5%;
+    width:72.3%;
     overflow: hidden;
-    background: #FFFFFF;
 }
 .left-content .item-group{
     overflow: hidden;
-    padding-left: 15px;
     margin-bottom: 10px;
 }
 .latest-btn{
@@ -848,8 +857,8 @@
     float: left;
     width: 344px;
     height: 222px;
-    border: 1px solid #EEEEEE;
-    margin: 0 15px 15px 0;
+    margin: 0 10px 10px 0;
+    background: #ffffff;
 }
 .left-content .item-group li.active{
     border: 1px solid #af2812;
@@ -860,7 +869,7 @@
     padding:4px 10px;
     overflow: hidden;
     background: #eeeeee;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
 }
 .item-head .price {
     font-size: 12px;
@@ -967,7 +976,7 @@
 }
 /*右边内容*/
 .latest-wrap .right-box{
-    width:230px;
+    width:270px;
     overflow: hidden;
 }
 .sort-list{
@@ -1056,10 +1065,7 @@
     text-indent: 2em;
     line-height: 38px;
 }
-.select-result h2 b{
-    color: #f60;
-    margin: 0 5px;
-}
+
 .scrollleft {
     padding-bottom: 10px;
     overflow: hidden;
@@ -1099,6 +1105,13 @@
 	right:10px;
     background-position:   -166px 0px;
 }
-
+.no-show{
+    width: 66px;
+    text-align: center;
+    height: 23px;
+    line-height:23px;
+    font-size: 12px;
+    background: #e5e5e5;
+}
 
 

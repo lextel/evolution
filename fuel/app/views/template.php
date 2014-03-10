@@ -11,9 +11,12 @@
         <script type="text/javascript">
             $(function() {
                 if (window.PIE) {
-                    $('.btn,.progress').each(function() {
+                    $('.btn').each(function() {
                         PIE.attach(this);
                     });
+                     $('.progress').each(function() {
+                        PIE.attach(this);
+                      });
                 }
             });
         </script>
@@ -119,7 +122,7 @@
                 </dl>
                 <dl>
                     <dt>联系我们</dt>
-                    <dd><h2 class="r"><span class="icon icon-phone"></span>4008123123</h2></dd>
+                    <dd><p class="r" style="font-size:22px;"><span class="icon icon-phone"></span>4008123123</p></dd>
                     <dd>仅收市话费，周一至周日8.00-18.00</dd>
                     <dd><span class="kf"><i class="icon icon-online"></i>24小时在线客服</span></dd>
                 </dl>
