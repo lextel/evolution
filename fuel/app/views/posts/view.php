@@ -66,7 +66,7 @@
                         <div class="username"><?php echo Html::anchor('u/'.$lwin->member_id, $members[$lwin->member_id]->nickname, ['class'=>'blue']);?></div>
                         <div class="datetime"><?php echo '获得了第'.$lwin->phase_id.'期';?></div>
                     <?php if($lwin->post_id == 0){?>
-                        <p>暂未晒单</p>
+                        <div class="no-show">暂未晒单</div>
                     <?php }else{?>
                         <p><?php echo Html::anchor('p/'.$lwin->post_id, '晒单详情', ['class'=>'btn-sm btn-y']);?></p>
                     <?php }?>

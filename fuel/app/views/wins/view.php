@@ -4,14 +4,14 @@
         $itemInfo = $getItem($win->item_id);
         $memberInfo = $getUser($win->member_id);
     ?>
-    <div class="panel w">
+    <div class="panel">
         <div class="title">
             <h2>
                 <b>(第<?php echo $win->phase_id; ?>期)</b>
                 <?php echo $win->title; ?>
             </h2>
         </div>
-        <div class="img-side fl">
+        <div class="results-img fl">
             <img src="<?php echo Uri::create('image/400x400/'.$itemInfo->image); ?>" alt="">
         </div>
         <div class="state-column fr">
@@ -20,7 +20,7 @@
                 <a href="<?php echo Uri::create('m/'.$activePhase->id); ?>" class="details fr">查看详情</a>
                 <?php endif;?>
             </div>
-            <div class="price">价值:<b><?php echo sprintf('%.2f', $itemInfo->price );?></b></div>
+            <div class="worth">价值:<?php echo sprintf('%.2f', $itemInfo->price );?></div>
             <div class="result-box">
                 <div class="H fl">揭晓结果</div>
                 <div class="right-box fl">

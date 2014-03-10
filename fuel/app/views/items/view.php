@@ -59,8 +59,7 @@
                 <span>本商品已有 <b class="blue"><?php echo $postsCount($item->id); ?></b>位幸运者晒单，<b class="blue"><?php echo $commentCount($item->id); ?></b>评论</span>
             </div>
             <div class="middle">
-              <div class="price">价值:<b>￥<?php echo sprintf('%.2f', $item->price); ?></b></div>
-              <div class="price">总积分:<b><?php echo $item->phase->cost; ?><?php echo $unit; ?></b></div>
+              <div class="price"><strong>价值:￥<?php echo sprintf('%.2f', $item->price); ?></strong></div>
             <?php if(!empty($item->phase->remain)): ?>
               <dl class="progress-side">
                   <dd>
@@ -86,8 +85,8 @@
                   </div>
                   <div class="btn-group">
                       <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>
-                      <button type="submit" class="btn btn-red">立即乐拍</button>
-                      <a class="btn btn-y doAddCart" href="javascript:void(0);" phaseId="<?php echo $item->phase->id; ?>">加入购物车</a>
+                      <button type="submit" class="btn btn-red btn-w">立即乐拍</button>
+                      <a class="btn btn-y btn-w doAddCart" href="javascript:void(0);" phaseId="<?php echo $item->phase->id; ?>">加入购物车</a>
                   </div>
               </form>
               <?php else: ?>

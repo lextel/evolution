@@ -20,7 +20,7 @@
                     <h4 class="title-sm fl">
                        <a href="<?php echo Uri::create('w/'.$win->id); ?>">(第<?php echo $win->phase_id;?>期)<?php echo $win->title; ?></a>
                     </h4>
-                    <div class="price fr">价值：<b>￥<?php echo sprintf('%.2f', $win->amount); ?></b>元</div>
+                    <div class="price black fr">价值:<b>￥<?php echo sprintf('%.2f', $win->amount); ?></b>元</div>
                 </div>
                 <div class="item-body">
                     <div class="img-box img-md fl">
@@ -113,7 +113,7 @@
     <!--右边内容开始-->
     <div class="right-box fr">
         <!--大家正在乐拍内容开始-->
-        <div class="buying-box">
+        <div class="buying-box box2">
             <div class="title"><h3>大家正在乐拍</h3></div>
             <div class="buyListdiv" >
                 <ul class="buyList">
@@ -168,7 +168,7 @@
                             <div class="btn-group">
                                 <input name="qty" value="1" type="hidden"/>
                                 <input name="id" value="<?php echo $hot->id; ?>" type="hidden">
-                                <button type="submit" class="btn btn-red">立即购买</button>
+                                <button type="submit" class="btn btn-red btn-w">立即购买</button>
                             </div>
                             <div class="top2 <?php echo $i < 4 ? 'one' : '';?>"><?php echo $i; ?></div>
                         </form>

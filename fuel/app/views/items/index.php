@@ -62,7 +62,7 @@
                     </div>
                     <input name="id" value="<?php echo $topItem->id;?>" type="hidden"/>
                     <input name="qty" value="1" type="hidden"/>
-                    <div class="btn-group tc"><button class="btn btn-red" type="submit">立即乐拍</button></div>
+                    <div class="btn-group tc"><button class="btn btn-red btn-hot" type="submit">立即乐拍</button></div>
                 </form>
             <?php
                 }
