@@ -66,7 +66,7 @@ class Model_Item extends \Classes\Model {
 
         $limit = \Helper\Page::PAGESIZE;
         $offset = ($options['page'] - 1) * $limit;
-        $select = ['id', 'title', 'image', 'joined', 'remain', 'amount', 'cost'];
+        $select = ['id', 'title', 'image', 'joined', 'remain', 'amount', 'cost', 'status'];
 
         return Model_Phase::find('all', ['select' => $select, 'where' => $where, 'offset' => $offset, 'limit' => $limit, 'order_by' => $orderBy]);
     }
@@ -175,7 +175,7 @@ class Model_Item extends \Classes\Model {
         $item->reason = $post['reason'];
         $rs = $item->save();
 
-        Model_Log::add('审核商品 #' . $item->id . $item->status == 1 ? '通过' : '不通过');
+        Model_Log::add('审核商品 #' . $item->id . $item->status == 3 ? '通过' : '不通过');
 
         DB::update('phases')->value('status', $post['status'])
                             ->where('item_id', $id)
@@ -185,7 +185,7 @@ class Model_Item extends \Classes\Model {
     }
 
     /**
-     * 快速审核通过
+     * 快速审核通过(到显示)
      *
      * @param $id integer 商品ID
      *
@@ -194,10 +194,32 @@ class Model_Item extends \Classes\Model {
     public function pass($id) {
 
         $item = Model_Item::find($id);
-        $item->status = \Helper\Item::IS_CHECK;
+        $item->status = \Helper\Item::IS_SHOW;
         $rs = $item->save();
 
         Model_Log::add('商品审核通过 #' . $item->id);
+
+        DB::update('phases')->value('status', \Helper\Item::IS_SHOW)
+                            ->where('item_id', $item->id)
+                            ->execute();
+
+        return $rs;
+    }
+
+    /**
+     * 快速上架
+     *
+     * @param $id integer 商品ID
+     *
+     * @param boolean 是否成功
+     */
+    public function sell($id) {
+
+        $item = Model_Item::find($id);
+        $item->status = \Helper\Item::IS_CHECK;
+        $rs = $item->save();
+
+        Model_Log::add('商品上架 #' . $item->id);
 
         DB::update('phases')->value('status', \Helper\Item::IS_CHECK)
                             ->where('item_id', $item->id)
@@ -244,6 +266,10 @@ class Model_Item extends \Classes\Model {
             case 'uncheck':
                 $name = '待审核商品';
                 $get['status'] = \Helper\Item::NOT_CHECK;
+                break;
+            case 'show':
+                $name = '显示中的商品';
+                $get['status'] = \Helper\Item::IS_SHOW;
                 break;
             case 'active':
                 $name = '进行中商品';
@@ -366,9 +392,7 @@ class Model_Item extends \Classes\Model {
         }
 
         if($isFrontEnd) {
-            $where += [
-                    'status' => \Helper\Item::IS_CHECK,
-                    ];
+            $where += [['status', 'in', [\Helper\Item::IS_CHECK, \Helper\Item::IS_SHOW]]];
         }
 
         if(!isset($options['opentime'])) {
@@ -377,7 +401,6 @@ class Model_Item extends \Classes\Model {
             $where += [['opentime', '>', 0]];
         }
 
-        
         $where += ['is_delete' => \Helper\Item::NOT_DELETE];
 
         return $where;

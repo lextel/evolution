@@ -22,6 +22,11 @@ class Item {
     const NOT_CHECK = 0;
 
     /**
+     * @def 已显示
+     */
+    const IS_SHOW = 3;
+
+    /**
      * @def 已审核
      */
     const IS_CHECK = 1;

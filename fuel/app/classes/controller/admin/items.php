@@ -214,7 +214,7 @@ class Controller_Admin_Items extends Controller_Admin {
         $itemModel = new Model_Item();
         if($itemModel->check($id, Input::post())) {
             Session::set_flash('success', e('操作成功 #'.$id));
-            Response::redirect('admin/items/list/active');
+            Response::redirect('admin/items/list/show');
         } else {
             Session::set_flash('error', e('操作失败 #'.$id));
             Response::redirect('admin/items/list/check/'.$id);
@@ -238,6 +238,23 @@ class Controller_Admin_Items extends Controller_Admin {
         Response::redirect('admin/items/list/uncheck');
     }
 
+    // 快速审核通过并上架
+    public function action_sell($id) {
+        if($this->current_user->group < 50) {
+            Session::set_flash('error', e('你没有权限'));
+            Response::redirect_back();
+        }
+
+        $itemModel = new Model_Item();
+        if($itemModel->sell($id)) {
+            Session::set_flash('success', e('审核&上架成功 #'.$id));
+        } else {
+            Session::set_flash('error', e('上架失败 #'.$id));
+        }
+
+        Response::redirect_back();
+    }
+
     // 快速审核不通过
     public function action_notPass($id) {
         if($this->current_user->group < 50) {
@@ -253,11 +270,6 @@ class Controller_Admin_Items extends Controller_Admin {
         }
 
         Response::redirect('admin/items/list/uncheck');
-    }
-
-    // faker
-    public function action_faker() {
-
     }
 
     // test
