@@ -60,7 +60,7 @@
             </div>
             <div class="middle">
               <div class="price"><strong>价值:￥<?php echo sprintf('%.2f', $item->price); ?></strong></div>
-            <?php if(!empty($item->phase->remain)): ?>
+            <?php if(!empty($item->phase->remain) && $item->status == \Helper\Item::IS_CHECK): ?>
               <dl class="progress-side">
                   <dd>
                       <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->phase->joined/$item->phase->amount*100); ?>%"></div></div>
@@ -89,12 +89,16 @@
                       <a class="btn btn-y btn-w doAddCart" href="javascript:void(0);" phaseId="<?php echo $item->phase->id; ?>">加入购物车</a>
                   </div>
               </form>
-              <?php else: ?>
+              <?php elseif($item->status == \Helper\Item::IS_CHECK): ?>
               <!--已卖完-->
               <div class="sell-out" style="display:block">
                    <h2>啊哦！！ 被抢光啦！！ </h2>
               </div>
                <!--已卖完结束-->
+               <?php else:?>
+              <div class="sell-out" style="display:block">
+                   <h2>即将开拍</h2>
+              </div>
                <?php endif; ?>
               <ul class="security-list">
                   <li><a href="<?php echo Uri::create('/h/safeguard'); ?>" class="01">100%公平公正</a></li>
