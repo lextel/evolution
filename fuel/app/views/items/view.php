@@ -8,7 +8,7 @@
                 <?php echo $item->title; ?>
             </h2>
         </div>
-        <div class="img-side fl">
+        <div class="img-wide fl">
             <!--幻灯片开始-->
             <div class="lantern-slide">
                 <div class="slide-img">
@@ -76,12 +76,12 @@
               </dl>
               <form action="<?php echo Uri::create('/cart/add'); ?>" method="post">
                   <div class="btn-menu">
-                      <span>购买数量：</span>
+                      <span class="left">购买数量：</span>
                       <a class="add btn-jian" href="javascript:void(0);">-</a>
                       <input type="text" value="1" name="qty" amount="<?php echo $item->phase->amount; ?>" remain="<?php echo $item->phase->remain; ?>">
                       <a class="add btn-jia" href="javascript:void(0);">+</a>
-                      <span>(剩余<?php echo $item->phase->remain; ?>人次)</span>
-                      <span class="chance">获得几率：<s class="red" id="percent"><?php echo sprintf('%.2f', 1/$item->phase->amount*100); ?>%</s> </span>
+                      <span class="right">(剩余<?php echo $item->phase->remain; ?>人次)</span>
+                      <span class="chance fl">获得几率：<s class="red" id="percent"><?php echo sprintf('%.2f', 1/$item->phase->amount*100); ?>%</s> </span>
                   </div>
                   <div class="btn-group">
                       <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>
@@ -162,20 +162,19 @@
 
                             
                          <form action="<?php echo Uri::create('signin'); ?>" method="post">
-                               <ul class="edit-data" style="display: block;">
-                                    <li>
-                                          <label>帐号：</label>
-                                          <input type="text" name="username">
-                                    </li>
-                                    <li>
-                                          <label>密码：</label>
-                                          <input type="password" name="password">
-                                    </li>
-                                    <li>
-                                          <button type="submit" class="btn btn-red">登录</button>
-                                          <a class="btn-register" href="<?php echo Uri::create('signup'); ?>">注册</a>
-                                    </li>
-                               </ul>
+                               <dl class="inner-login" style="display: block;">
+                                    <dt>请先登录</dt>
+                                    <dd>
+                                          <input type="text" class="text" name="username">
+                                    </dd>
+                                    <dd>
+                                          <input type="password" class="password" name="password">
+                                    </dd>
+                                    <dd class="last">
+                                          <button type="submit" class="btn-rg btn-red">登录</button>
+                                          <a class="btn-rg btn-gr" href="">注册</a>
+                                    </dd>
+                               </dl>
                          </form>
                          <?php endif; ?>
                          </tbody>
@@ -237,14 +236,18 @@
                         if(isset($hotItems)) {
                         foreach($hotItems as $item) { ?>
                       <li>
-                          <div class="img-box img-md"><a href="<?php echo Uri::create('/m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
-                          <h4 class="title-mx"><?php echo $item->title; ?></h4>
-                          <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->cost / Config::get('point')); ?></b></div>
+                          <div class="img-box img-md">
+                            <a href="<?php echo Uri::create('/m/'.$item->id); ?>" rel="nofollow">
+                                <img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt="">
+                             </a>
+                             <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->cost / Config::get('point')); ?></b></div>
+                          </div>
+                          <h4 class="caption"><?php echo $item->title; ?></h4>
                           <div class="btn-group">
                                 <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
                                     <input name="id" value="<?php echo $item->id; ?>" type="hidden">
                                     <input name="qty" value="1" type="hidden">
-                                    <button class="btn btn-red" type="submit">立即乐拍</button>
+                                    <button class="btn btn-red hot-buy" type="submit">立即乐拍</button>
                                 </form>
                           </div>
                       </li>

@@ -21,10 +21,10 @@
 }
 .announced-news ul li{
     float: left;
-    width: 135px;
+    width: 136px;
     margin-right: 15px;
     padding: 10px;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #ffffff;
 }
 .announced-news ul li.active{
     border: 2px solid #e60012;
@@ -100,7 +100,7 @@
     overflow: hidden;
     padding-bottom: 10px;
     margin-right: 10px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
 }
 .second ul{
     overflow: hidden;
@@ -114,7 +114,7 @@
     overflow: hidden;
     padding-bottom: 10px;
     margin-left: 10px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
 }
 .second .price{
     text-align: right;
@@ -124,11 +124,22 @@
     overflow: hidden;
     width: 230px;
     background: #FFFFFF;
-    border: 1px solid #eeeeee;
     height: 427px;
 }
 .buying-box.box2{
     width: 270px;
+}
+.buying-box.box2 .buyListdiv{
+    width: 270px;
+}
+.buying-box.box2 ul{
+    width: 270px;
+}
+.buying-box.box2 ul li{
+    padding: 4px 15px;
+}
+.buying-box.box2 ul li .info-side{
+    width: 160px;
 }
 .worth{
     font-size: 14px;
@@ -137,11 +148,11 @@
 }
 .buying-box ul{
     width: 230px;
+    padding: 10px 0;
 }
 .buying-box ul li{
-    height:80px;
+    height:85px;
     border-bottom: 1px dashed #d2d2d2;
-    margin:10px 0 -1px;
     padding:4px 5px;
 }
 .buying-box ul li .info-side{
@@ -161,7 +172,7 @@
 .bask-side .bask{
     width: 482px;
     padding: 10px;
-    border: 1px solid #eeeeee;
+    border: 1px solid #d2d2d2;
 }
 .bask-wrapper .title h3{
     font-size: 18px;
