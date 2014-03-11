@@ -13,6 +13,12 @@ body{
 .o{
     color: #f60;
 }
+.total{
+    font-size: 14px;
+}
+.total b{
+    color: #c10101;
+}
 .c9{
     color: #999999;
 }
@@ -26,6 +32,8 @@ a{
     color: #212121;
     outline: none;
 }
+a:active{noOutline:expression(this.onFocus=this.blur());}
+
 .w{
     margin: 0 auto;
     overflow: hidden;
@@ -64,10 +72,12 @@ h1{
     height: 30px;
 }
 .btn-group.soon{
-    margin: 30px auto 0;
+    margin: 28px auto 0;
 }
 .btn-group.soon .btn{
-    padding: 0 72px;
+    width: 200px;
+    height: 35px;
+    line-height: 35px;
 }
 .soonState{
     width: 540px;
@@ -107,12 +117,19 @@ textarea:focus,input:focus{
     display: none;
 }
 /*内容*/
+.bask-wide{
+    overflow: hidden;
+    float: left;
+    width: 73%;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+}
 .content{
     overflow: hidden;
     float: left;
     width: 72%;
     background: #FFFFFF;
-    border: 1px solid #dddddd;
+    border: 1px solid #DDDDDD;
 }
 .content-md{
     line-height: 18px;
@@ -167,6 +184,9 @@ textarea:focus,input:focus{
     padding: 0px 5px;
 }
 .chance{
+    height: 19px;
+    line-height: 19px;
+    margin-left: 5px;
     color: #0093D0;
 }
 .username{
@@ -205,18 +225,25 @@ textarea:focus,input:focus{
 /*按钮*/
 .btn-comment{
     background: #ffffff;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
 }
 .btn-menu {
     overflow: hidden;
     margin: 0 10px 10px;
 }
-.btn-menu span{
+.btn-menu span.left{
     display: block;
     float: left;
     height: 19px;
     line-height: 19px;
-    margin:0 5px;
+    margin-right: 5px;
+}
+.btn-menu span.right{
+    display: block;
+    float: left;
+    height: 19px;
+    line-height: 19px;
+    margin-left: 5px;
 }
 .btn-menu .add{
     display: block;
@@ -225,26 +252,11 @@ textarea:focus,input:focus{
     line-height: 20px;
     width: 26px;
     text-align: center;
-    background: #d5d5d5;
-}
-.btn-register{
-    text-align: center;
-    width: 80px;
-    height: 33px;
-    line-height: 33px;
-    text-align: center;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    background: #d2d2d2;
-    color: #af2812;
-    display: inline-block;
-    margin-left: 20px;
-    font-size: 14px;
+    background: #e5e5e5;
 }
 .btn-menu input{
-    width:72px;
-    border: 1px solid #f1f1f1;
+    width:82px;
+    border: 1px solid #d2d2d2;
     height: 18px;
     display: block;
     float: left;
@@ -254,7 +266,7 @@ textarea:focus,input:focus{
 }
 .btn-menu button{
     width: 22px;
-    border: 1px solid #f1f1f1;
+    border: 1px solid #d2d2d2;
     height: 24px;
     display: inline-block;
     cursor: pointer;
@@ -267,19 +279,23 @@ textarea:focus,input:focus{
 }
 .btn{
     display: inline-block;
-    overflow: visible;
-    padding: 0px 14px;
+    padding: 0px;
     font-size: 14px;
     font-weight: normal;
-    height: 33px;
-    line-height:33px;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    border-radius: 4px;
+    border-radius: 3px;
     text-emphasis:none;
     position: relative;
-    z-index: 50;
+    overflow: visible;
+    zoom: 1;
+    *display: inline;
+}
+.btn-md{
+    width: 85px;
+    height: 33px;
+    line-height: 33px;
 }
 .btn-link{
     border: none;
@@ -289,7 +305,27 @@ textarea:focus,input:focus{
     padding: 4px 6px;
 }
 .btn-hot{
-    padding: 0 22px;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 4px;
+}
+.btn-gr{
+    background: #d2d2d2;
+    color:#B92C00 ;
+}
+.btn-rg{
+    width: 140px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    display: block;
+    border-radius: 3px;
+}
+.btn-modal{
+    width: 100px;
+    height: 33px;
+    line-height: 33px;
 }
 .btn-red{
     background: #B92C00;
@@ -301,17 +337,14 @@ textarea:focus,input:focus{
 .btn-y{
     color: #bb4c30;
     background: #ffd79c;
-    padding: 0;
-    width: 85px;
-    text-align: center;
 }
 .btn-y:hover{
     background: #eed9ab;
 }
 .btn-sx{
-    height: 22px;
-    line-height: 22px;
-    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
     padding:0px 12px;
 }
 .btn-sm{
@@ -321,8 +354,9 @@ textarea:focus,input:focus{
     font-size: 12px;
 }
 .btn-lg{
-    padding:0px 33px;
-    font-size: 16px;
+    width: 135px;
+    height: 33px;
+    line-height: 33px;
 }
 .btn-w{
     width: 115px;
@@ -348,7 +382,7 @@ textarea:focus,input:focus{
     line-height: 31px;
     text-align: center;
     padding: 0;
-    border: 1px solid #eeeeee;
+    border: 1px solid #d2d2d2;
     margin-left: 20px;
     background: #e3e3e3;
     display: inline-block;
@@ -405,20 +439,20 @@ textarea:focus,input:focus{
     text-align:center ;
 }
 table{
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
 }
 table thead tr th{
-    border: 1px solid #DDDDDD;
+    border: 1px solid #d2d2d2;
     text-align: center;
     background: #f1f1f1;
     padding: 8px;
     line-height: 1.38462;
 }
 table tbody tr td{
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     text-align: center;
     padding: 8px;
     line-height: 1.38462;
@@ -462,9 +496,9 @@ table td p.tl{
     background:#a40000 url("../images/icon.png") no-repeat 0px -5px;
 }
 .icon-clock{
-    width: 20px;
-    height: 20px;
-    background-position: -44px -7px;
+    width: 18px;
+    height: 18px;
+    background-position: -50px -7px;
 }
 .icon-horn{
     width: 25px;
@@ -607,11 +641,11 @@ table td p.tl{
     height: 50px;
     margin-right: 10px;
     border-radius: 5px;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
 }
 .head-sm{
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     overflow: hidden;
     border-radius: 3px;
 }
@@ -734,7 +768,7 @@ table td p.tl{
 .more{
     display: block;
     float: right;
-    color: #0137ff;
+    color: #0093D0;
     font-size: 14px;
 }
 .fl{
@@ -770,16 +804,17 @@ table td p.tl{
 .progress{
     width: 100%;
     height: 10px;
-    background: #F5F7FA;
+    background: #e6e6e6;
+    border-radius: 3px;
+    position: relative;
     overflow: hidden;
-    border-radius: 4px;
 }
 .progress .progress-bar{
-    width: 0;
+    width: 0%;
     height: 100%;
     line-height: 10px;
-    background: #D9534F;
-    border-radius: 4px 0 0px 4px;
+    background: #ad3824;
+    border-radius:3px;
 }
 .toggles{
     overflow: hidden;
@@ -810,7 +845,6 @@ table td p.tl{
 /*分页*/
 .pagination{
     overflow: hidden;
-    margin-bottom: 10px;
     clear: both;
 }
 
@@ -822,6 +856,7 @@ table td p.tl{
     text-align: center;
     width: 26px;
     height: 26px;
+    background: #fff;
     line-height: 26px;
 }
 .pagination span a{
@@ -840,9 +875,11 @@ table td p.tl{
 }
 */
 .pagination span.previous-inactive{
+    margin-right: 0;
     width:60px;
 }
 .pagination span.next{
+    margin-right: 0;
     width:60px;
 }
 .pagination span.previous{
@@ -893,7 +930,7 @@ table td p.tl{
 .head-setting li{
     text-align: center;
     background: #E5E5E5;
-    border: 1px solid #dbdbdb;
+    border: 1px solid #d2d2d2;
 }
 .head-setting li a{
      display: block;
@@ -902,7 +939,7 @@ table td p.tl{
      margin: -1px auto 0;
      line-height: 30px;
      text-align: center;
-     border-top:1px solid #ccc;
+     border-top:1px solid #d2d2d2;
  }
 .head-setting li a:hover{
     color: #cd1212;
@@ -928,6 +965,7 @@ table td p.tl{
 .search input{
     width: 288px;
     height: 25px;
+    line-height: 25px;
     border: 2px  solid #af2812;
     border-right: 0;
     display:block;
@@ -952,7 +990,7 @@ table td p.tl{
     width: 178px;
     height: 28px;
     line-height: 28px;
-    border: 1px solid #F1F1F1;
+    border: 1px solid #d2d2d2;
     margin: 10px 0 10px 0px;
     background:#af2812;
     text-align: center;
@@ -965,7 +1003,7 @@ table td p.tl{
 }
 .shopping-box  .shp-c-h{
     background: #FFFFFF;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     border-bottom: 0;
     z-index: 999;
 }
@@ -992,7 +1030,7 @@ table td p.tl{
 }
 .shopping-cart .dropdown-list li{
     padding-bottom: 5px;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #d2d2d2;
     margin-bottom: 5px;
     overflow: hidden;
     position: relative;
@@ -1012,7 +1050,7 @@ table td p.tl{
 .shopping-box  .all{
     height: 25px;
     line-height: 25px;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
     padding: 0 10px;
 }
 .shopping-box  .all b{
@@ -1056,7 +1094,7 @@ table td p.tl{
 /*底部开始*/
 .footer-wrapper{
     overflow: hidden;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .help-bg{
     width: 100%;
@@ -1231,7 +1269,7 @@ table td p.tl{
 .login2,.prompt{
     width: 360px;
     overflow: hidden;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     display: none;
     position: absolute;
     z-index: 9999;
@@ -1239,7 +1277,7 @@ table td p.tl{
 }
 .login2 .login2-head,.prompt .prompt-head{
     height: 40px;
-    border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px solid #d2d2d2;
     background: #f1f1f1;
     position: relative;
 }
@@ -1270,7 +1308,7 @@ table td p.tl{
 .login2-body li input{
     height: 36px;
     line-height: 36px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     width: 296px;
     text-indent: 30px;
     display:block;
@@ -1281,7 +1319,7 @@ table td p.tl{
 }
 .register-bar{
     margin-top: 15px;
-    border-top: 1px solid #F1F1F1;
+    border-top: 1px solid #d2d2d2;
     padding:10px 30px;
 }
 .register-bar .register{
@@ -1314,7 +1352,7 @@ table td p.tl{
 }
 .pay-way dl{
     overflow: hidden;
-    border: 1px solid #f1f1f1;
+    border: 1px solid #d2d2d2;
     padding: 0 15px;
     font-size: 14px;
     margin-bottom: 20px;
@@ -1324,7 +1362,7 @@ table td p.tl{
     margin-bottom: 10px;
     padding: 10px 0;
     clear: both;
-    border-bottom: 1px solid #f1f1f1;
+    border-bottom: 1px solid #d2d2d2;
 }
 .pay-way dl dd{
     float: left;
@@ -1401,7 +1439,7 @@ table td p.tl{
 
 .announcement{
     overflow: hidden;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
     padding: 20px;
     background: #ffffff;
 }
@@ -1414,7 +1452,7 @@ table td p.tl{
 }
 .announcement dd{
     overflow: hidden;
-    border-top:1px dashed #EEEEEE ;
+    border-top:1px dashed #d2d2d2;
     padding: 10px 0;
     margin-bottom: 10px;
 }
@@ -1454,7 +1492,7 @@ table td p.tl{
     display: none;
 }
 .num-list ul{
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
     background: #ECF0F5;
     padding: 10px;
     max-height: 200px;
@@ -1480,10 +1518,10 @@ table td p.tl{
 .vertical-ticker li{
 		padding:10px 10px;
 		display:block;
-		border-bottom:1px solid #ddd;
+		border-bottom:1px solid #d2d2d2;
 }
 .time-box input{
-    border: 1px solid #F1F1F1;
+    border: 1px solid #d2d2d2;
     height: 20px;
     line-height: 20px;
     margin: 5px 10px 5px 0;
@@ -1510,3 +1548,72 @@ table td p.tl{
     color: #ce4d40;
     text-decoration: underline;
 }
+.inner-login{
+    overflow: hidden;
+}
+.inner-login dt{
+    font-weight: bold;
+    font-size: 14px;
+    overflow: hidden;
+    margin: 0 0 10px 50px;
+}
+.inner-login dd{
+    text-align: center;
+    height: 33px;
+    line-height: 33px;
+    margin-bottom: 15px;
+}
+.inner-login dd.last{
+    margin-bottom: 0;
+}
+.inner-login dd input.text{
+    width: 257px;
+    height: 33px;
+    line-height: 33px;
+    margin: 0;
+    padding-left: 33px;
+    border: 1px solid #d2d2d2;
+    background:url("../images/inner-login.png") no-repeat 4px 4px;
+}
+.inner-login dd input.password{
+    width: 257px;
+    height: 33px;
+    line-height: 33px;
+    margin: 0;
+    padding-left: 33px;
+    border: 1px solid #d2d2d2;
+    background:url("../images/inner-pwd.png") no-repeat  4px 4px;
+}
+.inner-login dd .btn-rg{
+    float: left;
+    margin-right: 10px;
+}
+.inner-login dd button{
+    margin-left: 129px;
+}
+.img-wide{
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

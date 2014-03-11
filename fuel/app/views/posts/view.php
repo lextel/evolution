@@ -4,7 +4,7 @@
 <?php echo Asset::css('member/validfrom_style.css'); ?>
 <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
 <div class="w">
-   <div class="content">
+   <div class="bask-wide">
        <div class="title-bar">
            <h2><?php echo $post->title; ?></h2>
            <div class="datetime">晒单时间：<?php echo date('Y-m-d H:i:s', $post->created_at); ?></div>
@@ -139,7 +139,7 @@
             </li>
             <li>
                 <span class="Validform_checktip">请填写信息！</span>             
-                <button class="btn btn-red fl">登录</button>
+                <button class="btn btn-red btn-modal fl">登录</button>
                 <a href="/forgot" class="fr">忘记密码？</a>
             </li>
         </ul>

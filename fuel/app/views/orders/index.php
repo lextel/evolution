@@ -9,11 +9,12 @@
     </div>
     <div class="history-content">
         <div class="select-box time-box">
-            <span class="time-choose">选择时间段：
-                 <input  id="datepicker" type="text" placeholder="输入起始时间"/>
-                 <input  id="datepicker1" type="text" placeholder="输入结束时间" />
-                 <a class="btn btn-red btn-sx allorders-date-search" href="javascript:;">搜索</a>
-            </span>
+            <ul class="time-choose">
+                 <li>选择时间段：</li>
+                 <li><input  id="datepicker" type="text" placeholder="输入起始时间"/></li>
+                 <li><input  id="datepicker1" type="text" placeholder="输入结束时间" /></li>
+                 <li><a class="btn btn-red btn-sx allorders-date-search" href="javascript:;">搜索</a></li>
+            </ul>
         </div>
         <table>
             <thead>

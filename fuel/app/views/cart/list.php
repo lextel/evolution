@@ -73,13 +73,13 @@
                     <div class="cart-footer">
                         <label class="fl"><input type="checkbox" action="selectAll"/>全选</label>
                         <button class="btn btn-sx fl" action="batchDelete">批量删除</button>
-                        <div class="price fr">总积分：<b id="total"><?php echo $subTotal * Config::get('point') . Config::get('unit'); ?></b></div>
+                        <div class="total fr">总积分：<b id=" r"><?php echo $subTotal * Config::get('point') . Config::get('unit'); ?></b></div>
                     </div>
                 </div>
             </form>
             <div class="btn-group tr">
-                <a href="<?php echo Uri::base(); ?>" class="btn btn-y doCart">< 返回首页</a>
-                <a href="<?php echo Uri::create('cart/pay'); ?>" class="btn btn-red" id="doOrder">提交订单</a>
+                <a href="<?php echo Uri::base(); ?>" class="btn btn-y btn-md doCart">< 返回首页</a>
+                <a href="<?php echo Uri::create('cart/pay'); ?>" class="btn btn-red btn-md" id="doOrder">提交订单</a>
             </div>
         </div>
         <!--弹出登录框-->
@@ -100,7 +100,7 @@
                         <span class="icon-password"></span>
                     </li>
                     <li>
-                        <button class="btn btn-red">登录</button>
+                        <button class="btn btn-red btn-modal">登录</button>
                         <a href="<?php echo Uri::create('/forgot'); ?>" class="fr">忘记密码？</a>
                     </li>
                 </ul>
@@ -110,7 +110,7 @@
         <!--登陆框-->
         <!--今日热门开始-->
         <div class="unveiled w">
-            <h4>以下商品即将揭晓,快去乐拍吧~</h4>
+            <div class="caption">以下商品即将揭晓,快去乐拍吧~</div>
             <ul>
                 <?php
                 $remains = $getRemains();
@@ -120,7 +120,7 @@
                     <form action="<?php echo Uri::create('cart/add'); ?>" method="post" />
                         <div class="title">
                             <h5 class="title-md"><?php echo $remain->title; ?></h5>
-                            <div class="price">价值<b>￥<?php echo sprintf('%.2f', $remain->price); ?></b></div>
+                            <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $remain->price); ?></b></div>
                         </div>
                         <div class="img-box img-lg">
                             <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/' . $remain->image); ?>" alt=""></a>
@@ -131,7 +131,7 @@
                         <div class="btn-group">
                             <input type="hidden" name="id" value="<?php echo $remain->phase->id; ?>"/>
                             <input type="hidden" name="qty" value="1"/>
-                            <button class="btn btn-red" type="submit">放入购物车</button>
+                            <button class="btn btn-red btn-md" type="submit">放入购物车</button>
                         </div>
                     </form>
                 </li>

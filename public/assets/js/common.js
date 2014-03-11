@@ -569,7 +569,7 @@ function handlePosts(data) {
                     '    <div class="bask-text">'+data.posts[i].desc+'</div>'+
                     '    <dl class="bask-imgBox">' + images + '</dl>'+
                     '    <div class="btn-group sns-bar tl">'+
-                    '        <span class="sns-love">喜欢<s>('+data.posts[i].up+')</s></span'+
+                    '        <span class="sns-love">喜欢<s>('+data.posts[i].up+')</s></span>'+
                     '        <span class="sns-comment">评论<s>('+data.posts[i].count+')</s></span>'+
                     '    </div>'+
                     '    <div class="bask-number">'+'第'+data.posts[i].phase+'期晒单'+'</div>'+
