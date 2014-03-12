@@ -314,6 +314,10 @@ textarea:focus,input:focus{
     background: #d2d2d2;
     color:#B92C00 ;
 }
+.btn-gy{
+     background: #f1f1f1;
+    font-size: 12px;
+}
 .btn-rg{
     width: 140px;
     height: 30px;
@@ -324,6 +328,11 @@ textarea:focus,input:focus{
 }
 .btn-modal{
     width: 100px;
+    height: 33px;
+    line-height: 33px;
+}
+.btn-atc{
+    width: 120px;
     height: 33px;
     line-height: 33px;
 }
@@ -344,7 +353,6 @@ textarea:focus,input:focus{
 .btn-sx{
     height: 30px;
     line-height: 30px;
-    font-size: 14px;
     padding:0px 12px;
 }
 .btn-sm{
@@ -388,9 +396,6 @@ textarea:focus,input:focus{
     display: inline-block;
     cursor: pointer;
     border-radius: 3px;
-}
-.btn-block{
-    display: block;
 }
 .btn-comment{
     padding: 6px 15px;
@@ -627,7 +632,7 @@ table td p.tl{
 .img-sm{
     width: 70px;
     height: 70px;
-    line-height: 50px;
+    line-height: 70px;
     overflow: hidden;
 }
 .img-box img{
@@ -1007,8 +1012,8 @@ table td p.tl{
     border-bottom: 0;
     z-index: 999;
 }
- .shp-c-h .dropdown-list{
-
+.dropdown-list .img-box{
+    margin-bottom: 0;
 }
  .shp-c-h a.car-t{
     color: #AF2812;
@@ -1355,14 +1360,18 @@ table td p.tl{
     border: 1px solid #d2d2d2;
     padding: 0 15px;
     font-size: 14px;
-    margin-bottom: 20px;
 }
 .pay-way dl dt{
     font-weight: bold;
     margin-bottom: 10px;
     padding: 10px 0;
     clear: both;
-    border-bottom: 1px solid #d2d2d2;
+}
+.pay-way .caption{
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: bold;
 }
 .pay-way dl dd{
     float: left;
@@ -1419,11 +1428,16 @@ table td p.tl{
     background-position: 0 -577px;
 }
 .pay-help{
-    margin: 10px 0;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 .pay-help dt{
     margin-bottom: 10px;
     line-height: 24px;
+    height: 24px;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 1px solid #D2D2D2;
 }
 .pay-help dd{
     margin-bottom: 10px;
@@ -1431,12 +1445,25 @@ table td p.tl{
 }
 .pay-help dd a{
     margin-right:30px;
+    color: #0093D0;
 }
 .pay-help dd ol{
     overflow: hidden;
     list-style-type: decimal;
 }
-
+.pay-row{
+    overflow: hidden;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.pay-row label input{
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    margin:0px 10px 0 0;
+    vertical-align: middle;
+}
 .announcement{
     overflow: hidden;
     border: 1px solid #d2d2d2;
@@ -1594,7 +1621,51 @@ table td p.tl{
 .img-wide{
     overflow: hidden;
 }
-
+/*帐户管理*/
+.prepaid-box{
+    background: #ffffff;
+    padding: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.prepaid-box .pay-money{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.prepaid-box .pay-money dt{
+    clear: both;
+    height: 24px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.prepaid-box .pay-money dd{
+    float: left;
+    overflow: hidden;
+    margin-right: 30px;
+}
+.prepaid-box .pay-money dd label{
+    display: block;
+    height: 22px;
+    line-height: 22px;
+    border: 1px solid #d2d2d2;
+    background: #f1f1f1;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+.prepaid-box .pay-money dd .else{
+    display: inline-block;
+    line-height: 36px;
+    height:36px;
+}
+.prepaid-box .pay-money dd .else input{
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #d2d2d2;
+    margin: 0 8px;
+    text-indent:1em;
+}
 
 
 
