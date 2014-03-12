@@ -120,7 +120,7 @@
                     <dd><a href="javascript:;">官方微信</a></dd>
                     <dd>官方QQ群：10000000</dd>
                 </dl>
-                <dl>
+                <dl class="three">
                     <dt>联系我们</dt>
                     <dd><p class="r" style="font-size:22px;"><span class="icon icon-phone"></span>4008123123</p></dd>
                     <dd>仅收市话费，周一至周日8.00-18.00</dd>
@@ -140,7 +140,7 @@
                 <li class="lastest"><a href="javascript:void(0);">联系我们</a></li>
             </ul>
             <P>版权所有</P>
-            <span>乐拍，快乐抢拍你的人生！</span>
+            <div class="log">乐拍，快乐抢拍你的人生！</div>
              <ul class="safety">
                 <li class="safety-01"></li>
                 <li class="safety-02"></li>

@@ -85,8 +85,8 @@
                                 <span class="fr b"><?php echo $phase->remain;?></span>
                             </dd>
                             <dd>
-                                <span class="fl">已参与人次</span>
-                                <span class="fr">剩余人次</span>
+                                <span class="fl c9">已参与人次</span>
+                                <span class="fr c9">剩余人次</span>
                             </dd>
                         </dl>
                         <div class="btn-group tc">
@@ -146,8 +146,8 @@
                         <span class="fr b"><?php echo $phase->remain;?></span>
                     </dd>
                     <dd>
-                        <span class="fl">已参与人次</span>
-                        <span class="fr">剩余人次</span>
+                        <span class="fl c9">已参与人次</span>
+                        <span class="fr c9">剩余人次</span>
                     </dd>
                 </dl>
                 <div class="btn-group tc">
