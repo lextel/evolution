@@ -27,8 +27,8 @@ $(function(){
 $(function(){
     var w_width=$(window).width();
     var w_height=$(window).height();
-    $(".weiXin").css({right:(w_width-980)/2-138,top:w_height/4});
-    var getRight=(w_width-980)/2-67
+    $(".weiXin").css({right:(w_width-980)/2-132,top:w_height/4});
+    var getRight=(w_width-980)/2-60
     $(".short-cut").show();
     $(".short-cut").css({right:getRight});
     $(window).resize(function(){
