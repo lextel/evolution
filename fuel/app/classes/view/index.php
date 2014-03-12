@@ -27,6 +27,7 @@ class View_Index extends Viewmodel {
                      'order_by'=>['hots'=>'desc'],
                      'limit'=>3
                      ]);
+
            return $items;
        };
 
