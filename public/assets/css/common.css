@@ -59,6 +59,9 @@ h5{
     line-height: 20px;
     font-weight: normal;
 }
+.datetime{
+    color:#999999;
+}
 h2{
     font-size: 18px;
 }
@@ -66,11 +69,14 @@ h1{
     font-size: 16px;
     font-weight: normal;
 }
-.lead{
+.total-money{
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #D2D2D2;
+    border-top: 1px solid #D2D2D2;
     font-size: 14px;
-    font-weight: bold;
-    height: 30px;
-}
+    margin: 20px 0;
+ }
 .btn-group.soon{
     margin: 28px auto 0;
 }
@@ -116,6 +122,14 @@ textarea:focus,input:focus{
 .d-n{
     display: none;
 }
+.lead{
+    font-size: 16px;
+    font-weight: bold;
+    height: 24px;
+    line-height: 24px;
+    width: 100%;
+    margin-bottom: 10px;
+}
 /*内容*/
 .bask-wide{
     overflow: hidden;
@@ -141,7 +155,7 @@ textarea:focus,input:focus{
 .text-content{
     line-height: 18px;
     text-indent: 2em;
-    color: #666666;
+    color: #333;
     text-align: left;
     padding: 10px;
     margin-top: 6px;
@@ -880,7 +894,6 @@ table td p.tl{
 }
 */
 .pagination span.previous-inactive{
-    margin-right: 0;
     width:60px;
 }
 .pagination span.next{

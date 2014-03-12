@@ -44,7 +44,7 @@
                 <span class="Validform_checktip"></span>
             </li>
             <li>
-                <button class="btn btn-red btn-password" type="submit">提交</button>
+                <button class="btn btn-red btn-sx btn-password" type="submit">提交</button>
             </li>
         </ul>
          <?php echo Form::close(); ?>

@@ -73,7 +73,7 @@
             </li>
             <li>
                 <input name="addressid" id="addressid" type="hidden" val=""/>
-                <input class="btn btn-red btn-address" type="submit" value="保存"/>
+                <input class="btn btn-red btn-sx btn-address" type="submit" value="保存"/>
                 <input class="btn-cancel btn-addressChance" type="submit" value="取消"/>
             </li>
             <button class="icon-close"></button>

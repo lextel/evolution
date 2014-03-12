@@ -5,9 +5,9 @@
     <!--晒单开始-->
 
     <div class="account-box">
-
+        <div class="lead">账户明细</div>
         <div class="remind ">
-            <span class="balance">帐户积分：<b><?php echo $current_user->points;?>点</b></span>
+            <span class="balance">帐户积分：<s><?php echo $current_user->points;?>点</s></span>
             <?php echo Html::anchor('u/getrecharge', '充值', ['class'=>'btn-pay']);?>
         </div>
         <div class="toggles">

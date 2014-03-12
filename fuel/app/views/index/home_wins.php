@@ -24,7 +24,6 @@
                     </dd>
                     <?php } ?>
                 </dl>
-                <br />
                  <?php echo Pagination::instance('hwins')->render();?>
                  <?php } else { ?>
                  <p> 该用户暂时没任何的中奖记录</p>
