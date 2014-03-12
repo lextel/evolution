@@ -44,11 +44,14 @@ return [
             'class' => 'dropdown',
             'childs' => [
                 ['name' => '添加商品', 'href' => Uri::create('/admin/items/create')],
+                ['name' => '所有商品列表', 'href' => Uri::create('/admin/items/list/all')],
                 ['name' => '待审核商品列表', 'href' => Uri::create('/admin/items/list/uncheck')],
                 ['name' => '显示中的商品', 'href' => Uri::create('/admin/items/list/show')],
                 ['name' => '运行中商品列表', 'href' => Uri::create('/admin/items/list/active')],
                 ['name' => '已揭晓商品列表', 'href' => Uri::create('/admin/items/list/open')],
                 ['name' => '审核不通过商品列表', 'href' => Uri::create('/admin/items/list/unpass')],
+                ['name' => '已完成商品列表', 'href' => Uri::create('/admin/items/list/finish')],
+                ['name' => '已删除商品列表', 'href' => Uri::create('/admin/items/list/delete')],
             ]
         ],
         ['name' => '晒单管理', 'href' => Uri::create('/admin/posts')],
