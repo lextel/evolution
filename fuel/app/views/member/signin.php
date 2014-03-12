@@ -41,13 +41,13 @@
                    <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('signError');?></span>
                    <?php }else{?>
                    <span class="Validform_checktip"></span>
-                   <span class="icon-user"></span>
+                   <s class="icon-user"></s>
                    <?php } ?>
                 </li>
                 <li><?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'输入密码',
                     'name'=>'userpassword','datatype'=>'*6-18','errormsg'=>'密码范围在6~18位之间！' )); ?>
                    <span class="Validform_checktip"></span>
-                   <span class="icon-password"></span>
+                   <s class="icon-password"></s>
                 </li>
                 <li>
                     <?php echo Html::anchor('forgot', '忘记密码?', array('class' => 'fr'));?>
