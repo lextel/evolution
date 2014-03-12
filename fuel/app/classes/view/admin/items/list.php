@@ -9,19 +9,22 @@ class View_Admin_Items_List extends ViewModel
 
             switch ($status) {
                 case \Helper\Item::NOT_CHECK:
-                    $name = '待审核';
+                    $name = '<span style="color:gray">待审核</span>';
                     break;
                 case \Helper\Item::IS_SHOW:
-                    $name = '显示中';
+                    $name = '<span style="color:blue">显示中</span>';
                     break;
                 case \Helper\Item::IS_CHECK:
-                    $name = '上架中';
+                    $name = '<span style="color:green">上架中</span>';
                     break;
                 case \Helper\Item::NOT_PASS:
-                    $name = '不通过';
+                    $name = '<span style="color:red">不通过</span>';
+                    break;
+                case \Helper\Item::IS_FINISH:
+                    $name = '<span style="color:orange">已完成</span>';
                     break;
                 default:
-                    $name = '未知';
+                    $name = '<span style="color:gray">未知</span>';
                     break;
             }
 
@@ -52,6 +55,7 @@ class View_Admin_Items_List extends ViewModel
                     } else {
                         $operate = Html::anchor('admin/items/view/'.$id.'/'.$phaseId, '详情') .' | ' .
                                    Html::anchor('admin/items/sell/'.$id, '上架') . ' | ' .
+                                   Html::anchor('admin/items/edit/'.$id, '编辑');
                                    Html::anchor('admin/items/delete/'.$id, '删除', array('onclick' => "return confirm('亲，确定删除么?')"));
                     }
                     break;
@@ -69,6 +73,25 @@ class View_Admin_Items_List extends ViewModel
                 case 'unpass':
                     $operate = Html::anchor('admin/items/view/'.$id.'/'.$phaseId, '详情') . ' | ' .
                                Html::anchor('admin/items/delete/'.$id, '删除', array('onclick' => "return confirm('亲，确定删除么?')"));
+                    break;
+                case 'finish':
+                    if($group < 50) {
+                        $operate = Html::anchor('admin/items/view/'.$id.'/'.$phaseId, '详情');
+                    } else {
+                        $operate = Html::anchor('admin/items/view/'.$id.'/'.$phaseId, '详情') . ' | ' .
+                                   Html::anchor('admin/items/resell/'.$id, '重新发布');
+                    }
+                    break;
+                case 'delete':
+                    if($group < 50) {
+                        $operate = Html::anchor('admin/items/view/'.$id.'/'.$phaseId, '详情');
+                    } else {
+                        $operate = Html::anchor('admin/items/view/'.$id.'/'.$phaseId, '详情') . ' | ' .
+                                   Html::anchor('admin/items/restore/'.$id, '恢复');
+                    }
+                    break;
+                case 'all':
+                    $operate = Html::anchor('admin/items/view/'.$id.'/'.$phaseId, '详情');
                     break;
                 default:
                     $operate = '';
