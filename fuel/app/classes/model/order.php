@@ -149,6 +149,9 @@ class Model_Order extends \Classes\Model
               ) {
                 $phaseModel = new Model_Phase();
                 $phaseModel->add($item);
+            } else {
+                // 标识已经完成
+                $item->finish($item);
             }
 
             // 写开奖命令

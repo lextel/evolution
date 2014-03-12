@@ -60,7 +60,8 @@ echo Asset::js(['admin/items/list.js']);
             <th width="45%">标题</th>
             <th>价格</th>
             <th>进度</th>
-            <th>审核状态</th>
+            <th>状态</th>
+            <th>是否删除</th>
             <th>操作</th>
         </tr>
     </thead>
@@ -69,10 +70,11 @@ echo Asset::js(['admin/items/list.js']);
         <?php foreach ($items as $item): ?>
           <tr>
             <td><img src="<?php echo Uri::create('image/80x80/' . $item->image); ?>" style="width: 40px; height: 40px"/></td>
-            <td><?php echo '(第'.$item->phase_id.'期)'.$item->title; ?></td>
+            <td><a href="<?php echo Uri::create('m/'.$item->id); ?>" target="_blank"><?php echo '(第'.$item->phase_id.'期)'.$item->title; ?></a></td>
             <td><?php echo '￥' . sprintf('%.2f', $item->cost/Config::get('point')); ?></td>
             <td><?php echo $item->joined, '/', $item->amount; ?></td>
             <td><?php echo $getStatus($item->status);  ?></td>
+            <td><?php echo $item->is_delete == 1 ? '<span style="color:red">是</span>':'否';  ?></td>
             <td>
             <?php echo $getOperate($type, $item->item_id, $item->id); ?>
             </td>
