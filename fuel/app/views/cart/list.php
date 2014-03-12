@@ -125,13 +125,13 @@
                         <div class="img-box img-lg">
                             <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/' . $remain->image); ?>" alt=""></a>
                             <div class="sheng-yi">
-                                剩余 <b class="red"><?php echo $remain->phase->remain; ?></b>人次！
+                                剩余 <s style="font-size:18px;font-weight: normal;"><?php echo $remain->phase->remain; ?></s>人次！
                             </div>
                         </div>
                         <div class="btn-group">
                             <input type="hidden" name="id" value="<?php echo $remain->phase->id; ?>"/>
                             <input type="hidden" name="qty" value="1"/>
-                            <button class="btn btn-red btn-md" type="submit">放入购物车</button>
+                            <button class="btn btn-red btn-atc" type="submit">放入购物车</button>
                         </div>
                     </form>
                 </li>

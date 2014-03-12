@@ -423,9 +423,9 @@
     float: left;
 }
 .pay-prompt li span{
-    width: 18px;
-    height: 18px;
-    line-height: 18px;
+    width: 19px;
+    height: 19px;
+    line-height: 19px;
     text-align: center;
     display: block;
     float: left;
@@ -434,7 +434,7 @@
 }
 .pay-prompt li.active span{
     color: #AF2812;
-    background: url("../images/icon-02.png") no-repeat -135px -337px;
+    background: url("../images/icon-02.png") no-repeat -134px -336px;
 }
 .pay-prompt li.active a{
     color: #AF2812;
@@ -477,6 +477,13 @@
     color: #C10101;
     background: #ffffff;
 }
+.unveiled .img-lg img{
+    width: 200px;
+    height: 200px;
+    margin:20px auto 15px;
+    border:1px solid #D2D2D2;
+}
+
 .unveiled ul {
     margin-right: -10px;
     overflow: hidden;
