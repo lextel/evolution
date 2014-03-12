@@ -49,7 +49,6 @@
                 <?php } ?>
 
             </dl>
-            <br />
             <?php echo Pagination::instance('horders')->render();?>
             <?php } else { ?>
             <p> 该用户暂时没任何的订单记录</p>

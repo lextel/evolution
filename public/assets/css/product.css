@@ -23,7 +23,7 @@
     overflow: hidden;
     line-height: 15px;
     font-size: 14px;
-    background: url("../images/bg.png") no-repeat -5px -180px;
+    background: url("../images/bg.png") no-repeat -5px -183px;
 }
 .state-heading .blue{
     color: #af2812;
@@ -634,7 +634,7 @@
     color: #af2812;
 }
 .sell-out{
-    height: 60px;
+    height: 118px;
     background: #FFFDE8;
     border: 1px solid #FFE4C2;
     display: none;
@@ -643,8 +643,8 @@
     text-align: center;
     font-size: 18px;
     color: #f60;
-    height: 60px;
-    line-height: 60px;
+    height: 118px;
+    line-height: 118px;
 }
 .new-buyer{
     min-height: 214px;
@@ -711,6 +711,7 @@
     padding:0 10px 10px;
     border: 1px solid #dddddd;
     background:#FFFFFF;
+    margin-top: 10px;
 }
 .previous-box .title{
     margin-left:-10px;
