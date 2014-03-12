@@ -25,7 +25,7 @@ echo Asset::js(
             ]
         ); 
 ?>
-<?php $rsell = $resell == 'resell' ? '/resell':'';?>
+<?php $rsell = (isset($resell) && $resell == 'resell') ? '/resell':'';?>
 <?php echo Form::open(["class"=>"form-horizontal", 'action' => $url . $rsell, 'id' => 'itemForm']); ?>
     <fieldset>
         <div class="form-group">
@@ -57,7 +57,7 @@ echo Asset::js(
             <div class="col-sm-2">
                 <?php echo Form::input('phase', Input::post('phase', isset($item) ? $item->phase : '0'), array('class' => 'form-control', 'placeholder'=>'开放期数')); ?>
             </div>
-            <span class="help-block">数字，本商品运行多少期，为0时不限制期数<?php if($resell == 'resell') echo '（<span style="color:red">已进行<d id="pCount">'.$pCount.'</d>期</span>）';?></span>
+            <span class="help-block">数字，本商品运行多少期，为0时不限制期数<?php if(isset($resell) && $resell == 'resell') echo '（<span style="color:red">已进行<d id="pCount">'.$pCount.'</d>期</span>）';?></span>
         </div>
         <div class="form-group">
             <?php echo Form::label('价值:', 'price', array('class'=>'control-label col-sm-1')); ?>
@@ -108,7 +108,7 @@ echo Asset::js(
                     ?>
               </div>
               <input type="hidden" value="<?php echo $index;?>" id="index" name="index">
-              <?php if($resell == 'resell'): ?>
+              <?php if(isset($resell) && $resell == 'resell'): ?>
               <input type="hidden" value="<?php echo $pCount;?>" name="pCount">
               <?php endif;?>
           </div>
