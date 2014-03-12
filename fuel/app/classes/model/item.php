@@ -632,7 +632,8 @@ class Model_Item extends \Classes\Model {
         if ($item->save()) {
             Model_Log::add('编辑商品 #' . $item->id);
 
-            // 编辑期同步更新期数信息
+            // 编辑期同步更新期数信息 =============begins=================
+            // 已经揭晓
             DB::update('phases')->value('title', $post['title'])
                                 ->value('cate_id', $post['cate_id'])
                                 ->value('brand_id', $post['brand_id'])
@@ -641,6 +642,13 @@ class Model_Item extends \Classes\Model {
                                 ->value('amount', $post['price'])
                                 ->where('item_id', $item->id)
                                 ->execute();
+
+            // 正在运行
+            $phase = Model_Phase::find('first', ['where' => ['item_id' => $item->id, 'opentime' => 0]]);
+            $phase->remain = $post['price'] - $phase->joined;
+            $phase->save();
+
+            // =============ends===================
 
             // 更新正在进行的期数的排序
             if($item->sort != $oldSort) {
