@@ -53,7 +53,7 @@
             ?>
                 <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
                     <div class="title-box">
-                        <h3 class="title-md"><a href="<?php echo Uri::create('/m/'.$topItem->id); ?>"><?php echo $topItem->title; ?></a></h3>
+                        <h3 class="caption"><a href="<?php echo Uri::create('/m/'.$topItem->id); ?>"><?php echo $topItem->title; ?></a></h3>
                         <span class="price tr">价值<b>￥<?php echo sprintf('%.2f', $topItem->cost / Config::get('point')); ?></b></span>
                     </div>
                     <div class="img-box img-lg">
@@ -94,26 +94,26 @@
                                             <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->joined/$item->amount*100)?>%"></div></div>
                                         </dd>
                                         <dd>
-                                            <span class="fl r"><?php echo $item->joined; ?></span>
-                                            <span class="fr b"><?php echo $item->remain; ?></span>
+                                            <span class="fl"><?php echo $item->joined; ?></span>
+                                            <span class="fr"><?php echo $item->remain; ?></span>
                                         </dd>
                                         <dd>
-                                            <span class="fl">已参与人次</span>
-                                            <span class="fr">剩余人次</span>
+                                            <span class="fl c9">已参与人次</span>
+                                            <span class="fr c9">剩余人次</span>
                                         </dd>
                                     </dl>
                                     <?php if($item->status == \Helper\Item::IS_CHECK): ?>
                                     <div class="btn-menu">
-                                        <span>我要乐拍</span>
+                                        <span class="left">我要乐拍</span>
                                         <a class="add btn-jian" href="javascript:void(0);">-</a>
                                         <input type="text" value="1" name="qty" remain="<?php echo $item->remain; ?>"/>
                                         <a class="add btn-jia" href="javascript:void(0);">+</a>
-                                        <span>人次</span>
+                                        <span class="right">人次</span>
                                     </div>
                                     <div class="btn-group">
                                         <input name="id" value="<?php echo $item->id; ?>" type="hidden">
-                                        <button class="btn btn-red" type="submit" >立即乐拍</button>
-                                        <a class="btn btn-y doCart" href="javascript:void(0);" phaseId="<?php echo $item->id; ?>">加入购物车</a>
+                                        <button class="btn btn-red btn-md" type="submit" >立即乐拍</button>
+                                        <a class="btn btn-y btn-md  doCart" href="javascript:void(0);" phaseId="<?php echo $item->id; ?>">加入购物车</a>
                                     </div>
                                     <?php else: ?>
                                     <div class="btn-group soon">
@@ -131,7 +131,7 @@
 <!--产品列表结束-->
 <!--今日热门开始-->
 <div class="date-hot w">
-    <div class="title">今日热门</div>
+    <div class="title"><h3>今日热门</h3></div>
     <div class="scrollleft" >
          <div class="scrollcontainer">
              <ul>
@@ -139,19 +139,19 @@
                         if(isset($hotItems)) {
                         foreach($hotItems as $item) { ?>
                       <li>
-                          <div class="img-box img-md"><a href="<?php echo Uri::create('/m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
-                          <h4 class="title-br"><?php echo $item->title; ?></h4>
-                          <div class="price fr">价值￥<?php echo sprintf('%.2f', $item->cost / Config::get('point')); ?></div>
+                          <div class="img-box img-md">
+                            <a href="<?php echo Uri::create('/m/'.$item->id); ?>" rel="nofollow">
+                                <img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt="">
+                             </a>
+                             <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->cost / Config::get('point')); ?></b></div>
+                          </div>
+                          <h4 class="caption"><?php echo $item->title; ?></h4>
                           <div class="btn-group">
-                                <?php if($item->status == \Helper\Item::IS_CHECK):?>
                                 <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
                                     <input name="id" value="<?php echo $item->id; ?>" type="hidden">
                                     <input name="qty" value="1" type="hidden">
-                                    <button class="hot-buy btn-red" type="submit">立即乐拍</button>
+                                    <button class="btn btn-red hot-buy" type="submit">立即乐拍</button>
                                 </form>
-                                <?php else: ?>
-                                    <button class="hot-buy btn-red" onclick="window.location.href='<?php echo Uri::create('/m/'.$item->id); ?>'">即将开拍</button>
-                                <?php endif;?>
                           </div>
                       </li>
                       <?php }} ?>

@@ -16,7 +16,7 @@
         </div>
         <div class="state-column fr">
             <div class="state-heading">
-                <span class="fl">本商品已开出 <b class="blue"><?php echo $openCount($itemInfo->id); ?></b>期<?php $activePhase = $activePhase($itemInfo->id); if($activePhase):?>，第<b class="blue"><?php echo $activePhase->phase_id; ?></b>期正在进行中...</span>
+                <span class="fl"><span class="icon icon-horn"></span>本商品已开出 <b class="blue"><?php echo $openCount($itemInfo->id); ?></b>期<?php $activePhase = $activePhase($itemInfo->id); if($activePhase):?>，第<b class="blue"><?php echo $activePhase->phase_id; ?></b>期正在进行中...</span>
                 <a href="<?php echo Uri::create('m/'.$activePhase->id); ?>" class="details fr">查看详情</a>
                 <?php endif;?>
             </div>
@@ -26,6 +26,7 @@
                 <div class="right-box fl">
                     <h2><?php echo $win->code; ?></h2>
                     <div class="result-info">
+                         <div class="row">
                          <div class="head-img fl">
                               <a href="<?php echo Uri::create('u/'.$memberInfo->id); ?>"><img src="<?php echo Uri::create($memberInfo->avatar); ?>" alt=""></a>
                          </div>
@@ -34,6 +35,7 @@
                               <span class="datetime">揭晓时间：<b><?php echo $friendlyDate($win->opentime);?></b></span>
                               <span class="datetime">乐拍时间：<b><?php echo $friendlyDate($win->order_created_at);?></b></span>
                               <span class="number">乐购数量：<b class="red"><?php echo $win->code_count; ?></b>人次</span>
+                         </div>
                          </div>
                         <div class="win-number">
                             <div class="left"><?php echo date('Y-m-d', $win->order_created_at); ?><br><?php echo date('H:i:s', $win->order_created_at); ?></div>
@@ -59,9 +61,9 @@
 		<div class="sub-nav w" id="bigNav">
         <ul>
             <li><a href="#result" class="active" data-toggle="tab">计算结果</a></li>
-            <li><a href="#buylog" phaseId="<?php echo $win->id; ?>"  data-toggle="tab">所有参与纪录(<b><?php echo $orderCount; ?></b>)</a></li>
-            <li><a href="#posts" itemId="<?php echo $itemInfo->id; ?>" data-toggle="tab">晒单(<b><?php echo $postCount; ?></b>)</a></li>
-            <li><a href="#phase" itemId="<?php echo $itemInfo->id; ?>" data-toggle="tab">往期回顾(<b><?php echo $phaseCount; ?></b>)</a></li>
+            <li><a href="#buylog" phaseId="<?php echo $win->id; ?>"  data-toggle="tab">所有参与纪录(<s class="r"><?php echo $orderCount; ?></s>)</a></li>
+            <li><a href="#posts" itemId="<?php echo $itemInfo->id; ?>" data-toggle="tab">晒单(<s class="r"><?php echo $postCount; ?></s>)</a></li>
+            <li><a href="#phase" itemId="<?php echo $itemInfo->id; ?>" data-toggle="tab">往期回顾(<s class="r"><?php echo $phaseCount; ?></s>)</a></li>
         </ul>
         </div>
 		<div class="tab-content">
@@ -101,11 +103,11 @@
                             ?>
                             <tr>
                                 <td><s><?php echo date('Y-m-d', $times[0]);?></s><?php echo date('H:i:s', $times[0]); ?>.<?php echo $times[1]; ?></td>
-                                <td><a href="<?php echo Uri::create('u/'.$result['member_id']); ?>"><?php echo $members[$result['member_id']]->nickname;?></a></td>
+                                <td><a href="<?php echo Uri::create('u/'.$result['member_id']); ?>" class="username"><?php echo $members[$result['member_id']]->nickname;?></a></td>
                                 <td><?php echo $result['count']; ?></td>
                                 <td>
                                     <div class="inner-title">
-                                        <a href="<?php echo Uri::create('m/'.$result['phase_id']); ?>">（第<?php echo $phases[$result['phase_id']]->phase_id; ?>期）<b><?php echo $phases[$result['phase_id']]->title; ?></b></a>
+                                        <a href="<?php echo Uri::create('m/'.$result['phase_id']); ?>">（第<?php echo $phases[$result['phase_id']]->phase_id; ?>期）<s><?php echo $phases[$result['phase_id']]->title; ?></s></a>
                                     </div>
                                 </td>
                             </tr>
