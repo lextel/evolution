@@ -11,12 +11,9 @@
         <script type="text/javascript">
             $(function() {
                 if (window.PIE) {
-                    $('.btn').each(function() {
+                    $(".btn,.progress,.crumbs li s").each(function() {
                         PIE.attach(this);
                     });
-                     $('.progress').each(function() {
-                        PIE.attach(this);
-                      });
                 }
             });
         </script>

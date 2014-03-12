@@ -36,7 +36,7 @@
 .login-form{
     width: 300px;
     min-height: 310px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     background: #FFFFFF;
 }
 .login-form .loginBar{
@@ -59,7 +59,7 @@
     padding: 0 0 0 28px;
     height: 35px;
     line-height: 35px;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
     width: 230px;
  }
 .login-form .loginBar li span{
@@ -88,29 +88,27 @@
 .register-box{
     overflow: hidden;
     padding: 15px;
-    border-top: 1px solid #dddddd;
+    border-top: 1px solid #d2d2d2;
     margin-top: 15px;
 }
 .register-box .signup{
     font-size: 14px;
-    color: #0137ff;
 }
 .register-box .registered{
     margin-top: 20px;
 }
 /*注册*/
 .register{
-    border: 1px  solid #dddddd;
+    border: 1px  solid #d2d2d2;
     background: #FFFFFF;
 }
 .register .title{
-    border-bottom: 1px  solid #dddddd;
+    border-bottom: 1px  solid #d2d2d2;
     background: #f1f1f1;
 }
 .crumbs li{
     float: left;
-    line-height: 20px;
-    margin-left: 15px;
+    margin:0 5px;
 }
 .crumbs li s{
     width: 20px;
@@ -118,9 +116,22 @@
     line-height: 20px;
     text-align: center;
     border: 1px solid #606060;
-    border-radius: 50px;
-    display: inline-block;
-    margin: 0 10px;
+    border-radius: 50%;
+    padding: 0;
+    display: block;
+    margin: 0 5px;
+    position: relative;
+    overflow: visible;
+    float: left;
+}
+.crumbs li a{
+    display: block;
+    float: left;
+}
+.crumbs li b{
+    height: 20px;
+    line-height: 20px;
+    font-size: 18px;
 }
 .crumbs li.active s{
     background: #ffffff;
@@ -151,7 +162,7 @@
      display: inline-block;
  }
 .register-form ul li input{
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     text-indent: 10px;
     height: 26px;
     line-height: 26px;
@@ -168,10 +179,10 @@
 
 }
 .register-help{
-    width: 640px;
+    width: 475px;
     height: 120px;
-    margin: 20px 0 20px 100px;
-    border: 1px solid #EEEEEE;
+    margin: 20px 0 20px 201px;
+    border: 1px solid #D2D2D2;
     padding: 10px;
 }
 .addnickname{
@@ -184,7 +195,7 @@
 }
 /*个人主页*/
 .home-wrap{
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
     width: 805px;
     background: #FFFFFF;
 }
@@ -192,7 +203,7 @@
     width: 160px;
     overflow: hidden;
     background: #FFFFFF;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
 }
 .left-sidebar .img-box{
     height: 160px;
@@ -211,7 +222,7 @@
     line-height: 18px;
     overflow: hidden;
     font-size: 12px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     padding: 5px;
     margin-top: 5px;
 }
@@ -229,7 +240,7 @@
 .subNav{
     height: 30px;
     overflow: hidden;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
 }
 .subNav li{
     height: 30px;
@@ -238,7 +249,7 @@
     margin-left: -1px;
     line-height: 30px;
     text-align: center;
-    border-left: 1px solid #EEEEEE;
+    border-left: 1px solid #d2d2d2;
     overflow: hidden;
 }
 .home{
@@ -258,7 +269,7 @@
 .home-wrap .home-c dl dd{
     width: 218px;
     padding: 10px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     float: left;
     margin:0 0 15px 15px;
 }
@@ -285,7 +296,7 @@
 .home-c .right-box{
     overflow: hidden;
     padding: 10px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
 }
 .home-c dl dd{
     float: left;
@@ -317,7 +328,7 @@
 /*个人中心*/
 .left-nav{
     overflow: hidden;
-    border-bottom: 1px #DDDDDD solid;
+    border-bottom: 1px #d2d2d2 solid;
     background: #f1f1f1;
 }
 .left-nav li{
@@ -368,7 +379,7 @@
     width: 735px;
     overflow: hidden;
     margin: 0 10px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     background: #FFFFFF;
     min-height: 450px;
     padding: 20px;
@@ -389,7 +400,7 @@
     height: 25px;
     line-height: 25px;
     text-align: center;
-    border: 1px solid #DDDDDD;
+    border: 1px solid #d2d2d2;
     border-radius: 3px;
     margin-left: 20px;
 }
@@ -415,7 +426,7 @@
     width: 600px;
     overflow: hidden;
     margin:15px 0 15px 60px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     padding: 10px;
 }
 .buy-menu dt{
@@ -428,7 +439,7 @@
     padding:20px;
     margin:-30px 0 20px  160px ;
     overflow: hidden;
-    border: 1px solid #eeeeee;
+    border: 1px solid #d2d2d2;
 }
  .buy-menu li.right-box .buy-record{
     width: 70%;
@@ -465,7 +476,7 @@
     float: right;
     overflow: hidden;
     padding:15px 20px 10px;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
     background: #FFFFFF;
 }
 .home-navbar{
@@ -498,13 +509,10 @@
 .record,.already-show{
     overflow: hidden;
 }
-.record table,.already-show table{
-    margin-bottom: 20px;
-}
 .remind{
     height: 28px;
     background: #f1f1f1;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
     line-height: 28px;
     text-indent: 15px;
 }
@@ -529,18 +537,33 @@
     margin-right: 10px;
 }
 .time-choose{
-    height:33px;
-    line-height: 33px;
+    height:30px;
+    vertical-align: middle;
     display: inline-block;
+    zoom:1;
+    *display:inline;
+}
+
+.history-content .time-choose{
+    display: block;
+}
+.time-choose li{
+    height: 33px;
+    line-height: 33px;
+    overflow: hidden;
+    float: left;
+}
+.time-choose li .hasDatepicker{
+    margin: 0px 10px 0px 0;
 }
 .time-choose select{
     width:120px ;
     height: 31px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
 }
 .select input,.select button{
     height: 31px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     display: inline-block;
     line-height: 31px;
 }
@@ -558,7 +581,7 @@
 }
 .show-form,.not-form{
     margin-top: 20px;
-    border: 1px solid #eeeeee;
+    border: 1px solid #d2d2d2;
     padding: 10px 0 0 0;
     width: 746px;
     position: relative;
@@ -581,12 +604,12 @@
 .show-form li input{
     width:350px;
     height: 28px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     text-indent: 10px;
     margin: 0 10px;
 }
 .show-form li textarea{
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     text-indent: 10px;
     margin: 0 10px;
     width: 500px;
@@ -622,7 +645,7 @@
     float: left;
     width: 70px;
     height: 70px;
-    border:4px solid #dddddd;
+    border:4px solid #d2d2d2;
     background: url("../images/bg.png") no-repeat -138px -650px;
 }
 .add-images:hover{
@@ -682,45 +705,7 @@
     color: #f60;
     font-size: 13px;
 }
-/*帐户管理*/
-.prepaid-box{
-    overflow: hidden;
-}
-.prepaid-box .pay-money{
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-.prepaid-box .pay-money dt{
-    clear: both;
-    height: 24px;
-    line-height: 24px;
-    margin-bottom: 10px;
-}
-.prepaid-box .pay-money dd{
-    float: left;
-    overflow: hidden;
-    margin-right: 30px;
-}
-.prepaid-box .pay-money dd label{
-    display: inline-block;
-    line-height: 24px;
-    border: 1px solid #EEEEEE;
-    background: #f1f1f1;
-    padding: 5px 15px;
-    cursor: pointer;
-}
-.prepaid-box .pay-money dd .else{
-    display: inline-block;
-    line-height: 36px;
-    height:36px;
-}
-.prepaid-box .pay-money dd .else input{
-    width: 90px;
-    height: 30px;
-    border: 1px solid #EEEEEE;
-    margin: 0 8px;
-    text-indent:1em;
-}
+
 /*个人设置*/
 .set-wrap{
     width: 765px;
@@ -775,7 +760,7 @@
     display: inline-block;
     width: 230px;
     font-size: 14px;
-    border: 1px solid #f1f1f1;
+    border: 1px solid #d2d2d2;
     padding: 8px;
 }
 
@@ -790,7 +775,7 @@
     vertical-align: top;
 }
 .edit-data li textarea{
-    border: 1px solid #f1f1f1;
+    border: 1px solid #d2d2d2;
     padding: 5px;
     width: 428px;
     display: inline-block;
@@ -799,7 +784,7 @@
     display: inline-block;
     width: 110px;
     font-size: 14px;
-    border: 1px solid #f1f1f1;
+    border: 1px solid #d2d2d2;
     padding:5px;
 }
 .edit-data li b{
@@ -814,7 +799,7 @@
     font-size: 14px;
 }
 .edit-data li .upload-photo{
-    border: 1px solid #f1f1f1;
+    border: 1px solid #d2d2d2;
     width:300px ;
     height: 300px;
     margin-left: 120px;
@@ -843,7 +828,7 @@
     opacity: 0;
 }
 .address{
-    border: 1px solid #eeeeee;
+    border: 1px solid #d2d2d2;
     margin-top:20px;
     width: 705px;
     padding: 10px;
@@ -925,7 +910,7 @@
     width: 332px;
     float: left;
     height: 82px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     border-right: none;
     margin-right: -1px;
     padding: 10px;
@@ -951,7 +936,7 @@
     overflow: hidden;
     margin-bottom: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px dashed #ddd;
+    border-bottom: 1px dashed #d2d2d2;
 }
 .before li .head-img{
     width: 60px;
@@ -987,7 +972,7 @@
     height: 34px;
     padding: 5px;
     line-height: 40px;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
 }
 
 .comment-footer .btn{
@@ -1007,11 +992,11 @@
 .comment-list{
     overflow: hidden;
     margin-top: 15px;
-    width: 700px;
+    width: 716px;
 }
 .comment-list dt{
     height:36px;
-    border-bottom:1px solid #ddd;
+    border-bottom:1px solid #d2d2d2;
     margin-bottom: 15px;
 }
 .comment-list dt h4{
@@ -1025,18 +1010,20 @@
 .comment-list dd{
     overflow: hidden;
     margin-bottom: 10px;
-    border-bottom:1px dashed #ddd;
+    border-bottom:1px dashed #d2d2d2;
     padding-bottom: 10px;
 }
 .comment-list .info-side{
     width: 90%;
 }
 .comment-box {
-    width: 708px;
+    width: 718px;
     overflow: hidden;
 }
 .comment-box textarea{
-   width: 706px;
+    display: block;
+    border: 1px solid #d2d2d2;
+    width: 716px;
 }
 .comment-text{
     font-size: 14px;
@@ -1049,10 +1036,10 @@
     width: 180px;
     overflow: hidden;
     background: white;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
 }
 .help-side h2{
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #d2d2d2;
     text-align: center;
     background: #af2812;
     color: #FFFFFF;
@@ -1063,7 +1050,6 @@
 }
 .help-center dt{
     text-align: center;
-    border-bottom: 1px solid #dddddd;
     background: #f1f1f1;
     height: 33px;
     color: #af2812;
@@ -1072,7 +1058,6 @@
 }
 .help-center dd{
     text-align: right;
-    border-bottom: 1px solid #dddddd;
     text-indent: 20px;
     height: 33px;
     padding-right: 60px;
@@ -1092,7 +1077,7 @@
     width: 745px;
     float: right;
     overflow: hidden;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
     padding:0 20px 15px;
     background: #FFFFFF;
 }
@@ -1101,7 +1086,7 @@
     font-weight: bold;
     height: 36px;
     line-height: 36px;
-    border-bottom: 2px  solid #af2812;
+    border-bottom: 1px  solid #D2D2D2;
     margin-bottom: 20px;
 }
 .help-content{
@@ -1118,11 +1103,11 @@
 .history .title{
     padding: 6px;
     font-size: 16px;
-    border-bottom: 1px solid#EEEEEE;
+    border-bottom: 1px solid #d2d2d2;
     margin-bottom: 10px;
 }
 .history-content{
-    padding: 10px;
+    padding:0 10px 10px;
     background: #fff;
     overflow: hidden;
 }

@@ -102,7 +102,7 @@ $(function(){
         $(".login2").fadeIn("fast");
         $("body").append("<div id='greybackground'></div>");
         var documentheight = $(document).height();
-        $("#greybackground").css({"opacity":"0.5","height":documentheight});
+        $("#greybackground").css({"opacity":"0.5","backgroundColor":"#000000","height":documentheight});
         return false;
     });
     $("#close").click(function() {
@@ -349,7 +349,7 @@ $(function(){
                         html += '</div><div class="price tl">'+data[i].point+ data[i].unit +' x <b class="y">'+data[i].qty+'</b></div>';
                         html += '<a href="javascript:void(0);" class="cartRemove btn-delete" rowId="'+data[i].rowId+'">删除</a></div></li>';
                     }
-                    html += '<div class="btn-group tr"><a href="'+BASE_URL + 'cart/list' + '" class="btn-red  btn">查看购物车</a></div>';
+                    html += '<div class="btn-group tr"><a href="'+BASE_URL + 'cart/list' + '" class="btn-red underway fr btn">查看购物车</a></div>';
                 } else {
                     html = '<li>购物车是空的</li>';
                 }
@@ -569,7 +569,7 @@ function handlePosts(data) {
                     '    <div class="bask-text">'+data.posts[i].desc+'</div>'+
                     '    <dl class="bask-imgBox">' + images + '</dl>'+
                     '    <div class="btn-group sns-bar tl">'+
-                    '        <span class="sns-love">喜欢<s>('+data.posts[i].up+')</s></span'+
+                    '        <span class="sns-love">喜欢<s>('+data.posts[i].up+')</s></span>'+
                     '        <span class="sns-comment">评论<s>('+data.posts[i].count+')</s></span>'+
                     '    </div>'+
                     '    <div class="bask-number">'+'第'+data.posts[i].phase+'期晒单'+'</div>'+
