@@ -37,6 +37,11 @@ class Item {
     const NOT_PASS = 2;
 
     /**
+     * @def 商品销售已完成
+     */
+    const IS_FINISH = 4;
+
+    /**
      * @def 未揭晓
      */
     const NOT_OPEN = 0;
