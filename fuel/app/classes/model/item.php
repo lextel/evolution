@@ -632,6 +632,16 @@ class Model_Item extends \Classes\Model {
         if ($item->save()) {
             Model_Log::add('编辑商品 #' . $item->id);
 
+            // 编辑期同步更新期数信息
+            DB::update('phases')->value('title', $post['title'])
+                                ->value('cate_id', $post['cate_id'])
+                                ->value('brand_id', $post['brand_id'])
+                                ->value('image', $image)
+                                ->value('cost', $post['price'])
+                                ->value('amount', $post['price'])
+                                ->where('item_id', $item->id)
+                                ->execute();
+
             // 更新正在进行的期数的排序
             if($item->sort != $oldSort) {
                 DB::update('phases')->value('sort', $post['sort'])
