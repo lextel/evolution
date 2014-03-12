@@ -195,7 +195,6 @@
 }
 /*个人主页*/
 .home-wrap{
-    border: 1px solid #d2d2d2;
     width: 805px;
     background: #FFFFFF;
 }
@@ -203,7 +202,6 @@
     width: 160px;
     overflow: hidden;
     background: #FFFFFF;
-    border: 1px solid #d2d2d2;
 }
 .left-sidebar .img-box{
     height: 160px;
@@ -254,7 +252,7 @@
 }
 .home{
     overflow: hidden;
-    padding:10px;
+    padding:0 20px 20px;
 }
 
 .buy-record{
@@ -267,7 +265,7 @@
     overflow: hidden;
 }
 .home-wrap .home-c dl dd{
-    width: 218px;
+    width: 226px;
     padding: 10px;
     border: 1px solid #d2d2d2;
     float: left;
@@ -277,6 +275,9 @@
     width: 218px;
     height: 200px;
     text-align: center;
+}
+.home-wrap .info-side {
+    width: 81%;
 }
 .home-mu{
     overflow: hidden;
@@ -328,7 +329,6 @@
 /*个人中心*/
 .left-nav{
     overflow: hidden;
-    border-bottom: 1px #d2d2d2 solid;
     background: #f1f1f1;
 }
 .left-nav li{
@@ -376,9 +376,9 @@
     color: #af2812;
 }
 .center-main {
-    width: 735px;
+    width: 765px;
     overflow: hidden;
-    margin: 0 10px;
+    margin-left: 10px;
     border: 1px solid #d2d2d2;
     background: #FFFFFF;
     min-height: 450px;
@@ -387,7 +387,7 @@
 .center-main .center-info{
     width: 520px;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .center-main .center-info li{
     width: 100%;
@@ -406,7 +406,6 @@
 }
 
 .buy-menu {
-    padding:0 15px;
     overflow: hidden;
 }
 .buy-menu li{
@@ -416,7 +415,6 @@
 }
 .buy-menu li.right-box{
     overflow: hidden;
-    margin-bottom: 10px;
     padding: 10px;
     margin-left:125px;
     position: relative;
@@ -435,14 +433,22 @@
     width: 150px;
 }
 .buy-menu dd.right-box {
-    width: 557px;
-    padding:20px;
-    margin:-30px 0 20px  160px ;
+    padding:10px;
+    margin:0px 0 10px  160px ;
     overflow: hidden;
     border: 1px solid #d2d2d2;
 }
- .buy-menu li.right-box .buy-record{
-    width: 70%;
+.buy-menu dd .img-box  {
+    margin-bottom: 0;
+}
+.buy-menu li .img-box  {
+    margin-bottom: 0;
+}
+.buy-menu li.right-box .buy-record{
+    width: 77%;
+}
+.buy-menu li.right-box .buy-record .progress-side{
+    padding: 0;
 }
 .buy-menu dd.right-box .buy-record{
     width: 75%;
@@ -479,12 +485,16 @@
     border: 1px solid #d2d2d2;
     background: #FFFFFF;
 }
+.content-inner .pagination {
+    margin-top: 20px;
+}
+
 .home-navbar{
     overflow: hidden;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 .home-navbar ul li{
-    width: 199px;
+    width: 200px;
     float: left;
     font-size: 14px;
     border-right: 1px solid white;
@@ -512,7 +522,6 @@
 .remind{
     height: 28px;
     background: #f1f1f1;
-    border: 1px solid #d2d2d2;
     line-height: 28px;
     text-indent: 15px;
 }
@@ -684,9 +693,9 @@
     margin-bottom: 10px;
 }
 .btn-pay{
-    height: 30px;
-    line-height: 30px;
-    width: 60px;
+    height: 25px;
+    line-height: 25px;
+    width: 80px;
     text-align: center;
     background:#af2812 ;
     border-radius: 3px;
@@ -699,13 +708,8 @@
     background:#D96D66 ;
 }
 .balance {
-    display: inline-block;
+    font-size: 14px;
 }
-.balance  b{
-    color: #f60;
-    font-size: 13px;
-}
-
 /*个人设置*/
 .set-wrap{
     width: 765px;
