@@ -221,7 +221,7 @@ class Model_Order extends \Classes\Model
      *
      * @return array
      */
-    public function newOrders($phaseId = 0, $len = 5) {
+    public function newOrders($phaseId = 0, $len = 4) {
 
         $where = [];
         if(!empty($phaseId)) {
