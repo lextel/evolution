@@ -42,8 +42,7 @@
                     </tbody>
                 </table>
             </li>
-            <button class="btn btn-red btn-sx btn-addAddress">添加新地址</button>
-            <br />
+            <div class="pay-row"><button class="btn btn-red btn-sx btn-addAddress">添加新地址</button></div>
             <ol class="address" style="display:none">
             <li><h4>添加收货地址</h4></li>
             <li>

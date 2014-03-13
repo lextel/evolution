@@ -356,6 +356,7 @@
     width: 100px;
     height: 24px;
     line-height: 24px;
+    font-size: 12px;
 }
 .date-hot ul {
     overflow: hidden;

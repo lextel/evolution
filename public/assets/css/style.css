@@ -748,6 +748,7 @@
     overflow: hidden;
 }
 .edit-data li{
+    overflow: hidden;
     margin-bottom: 15px;
     position: relative;
 }
@@ -841,6 +842,10 @@
 .address .icon-upward{
     position: absolute;
     left: 40px;
+}
+.address li input.btn,.address li input.btn-cancel{
+    float: left;
+    display: block;
 }
 .address li h4{
     font-weight: bold;
