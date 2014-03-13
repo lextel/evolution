@@ -12,6 +12,7 @@ fuel/app/logs/*/*/*
 fuel/app/cache/*/*
 *.idea/*
 .idea.*~
+.idea/*
 .gitignore
 # Compiled source #
 ###################

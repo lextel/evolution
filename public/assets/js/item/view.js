@@ -1,7 +1,7 @@
 $(function(){
 
-    // 放大镜
-    if($('.jqzoom').length > 0) {
+    // 已关闭放大镜 默认 > 0 删除了
+    if($('.jqzoom').length > 5) {
 
 	    $('.jqzoom').jqzoom({
             zoomType: 'standard',
@@ -10,6 +10,21 @@ $(function(){
             alwaysOn:false
         });
     }
+
+    // 关闭放大镜小图切换补丁
+    if($('#thumblist').length > 0) {
+        
+        $('#thumblist > li > a').hover(function() {
+            var data = $(this).attr('rel');
+            jsonData = eval('('+data+')');
+
+            $('.jqzoom > img').attr('src', BASE_URL + jsonData.smallimage);
+            $(this).parent().css('border', '1px solid #af2812');
+        }, function() {
+            $(this).parent().css('border', '1px solid #DBDBDB');
+        });
+    }
+
 
     // 滚动到描点
     $(document).on('click', '#bigNav > ul > li, .pagination > span > a', function() {
