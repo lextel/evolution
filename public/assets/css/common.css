@@ -95,7 +95,7 @@ h1{
     background: #f1f1f1;
 }
 .btn-group .btn{
-    margin: 0 5px;
+    margin: 0 2px;
 }
 textarea{
     width: 100%;
@@ -307,7 +307,7 @@ textarea:focus,input:focus{
     *display: inline;
 }
 .btn-md{
-    width: 85px;
+    width:100px;
     height: 33px;
     line-height: 33px;
 }
@@ -319,7 +319,7 @@ textarea:focus,input:focus{
     padding: 4px 6px;
 }
 .btn-hot{
-    width: 100px;
+    width: 130px;
     height: 35px;
     line-height: 35px;
     border-radius: 4px;
@@ -1225,7 +1225,7 @@ table td p.tl{
 .icon-close{
     width: 21px;
     height: 21px;
-    display:inline-block;
+    display:block;
     cursor: pointer;
     position: absolute;
     top: 0;

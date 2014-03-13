@@ -1,8 +1,7 @@
 <script type="text/javascript">
 $(function() {
    $(".buy-btn").click(function(){  
-   
-       money = $("input[name='money1']:checked").val();
+       var money = $("input[name='money1']:checked").val();
        if (!money){
           money = $("input[name='money2']").val();
        }
@@ -34,13 +33,19 @@ $(function() {
     var value = $("#money2").val();   
     if((/^[1-9]{1}\d*$/.test(value))|| value<0)   
     {     
+      $(".moneytotal").html(value);
       return true;     
     }   
     else
     {    
-      $("#money2").val("1");     
+      $("#money2").val("1");
+      $(".moneytotal").html(1);     
       return false;     
     }     
+   });
+   $("input[name='money1']").change(function(){
+      var value = $("input[name='money1']:checked").val();
+      $(".moneytotal").html(value);
    });
 
 })
@@ -147,9 +152,9 @@ $(function() {
                     </dd>
                 </dl>
                 <div class="total-money">
-                    应付金额：￥00.00
+                    应付金额：￥<s class="moneytotal">00</s>.00
                 </div>
-                <button class="btn btn-md btn-red fl">确认支付</button>
+                <button class="btn btn-md btn-red fl buy-btn">确认支付</button>
             </div>
             <!--选择支付方式结束-->
         </div>
