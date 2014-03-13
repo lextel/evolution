@@ -85,7 +85,7 @@
                   </div>
                   <div class="btn-group">
                       <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>
-                      <button type="submit" class="btn btn-red btn-w">立即乐拍</button>
+                      <button type="submit" class="btn btn-red btn-w">立即一元乐淘</button>
                       <a class="btn btn-y btn-w doAddCart" href="javascript:void(0);" phaseId="<?php echo $item->phase->id; ?>">加入购物车</a>
                   </div>
               </form>
@@ -247,7 +247,7 @@
                                 <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
                                     <input name="id" value="<?php echo $item->id; ?>" type="hidden">
                                     <input name="qty" value="1" type="hidden">
-                                    <button class="btn btn-red hot-buy" type="submit">立即乐拍</button>
+                                    <button class="btn btn-red hot-buy" type="submit">立即一元乐淘</button>
                                 </form>
                           </div>
                       </li>
