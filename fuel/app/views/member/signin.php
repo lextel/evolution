@@ -18,7 +18,13 @@
     </div>
 </div>
 <!--中间内容开始-->
-<div class=" w">
+<div class="w">
+    <div class="login-hd">
+        <a href="" class="b fr">返回首页</a>
+        <span class="fr">|</span>
+        <a href="" class="b fr">帮助中心</a>
+    </div>
+    <div class="login-bd">
     <div class="left-side fl">
         广告图
     </div>
@@ -35,23 +41,29 @@
                    <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('signError');?></span>
                    <?php }else{?>
                    <span class="Validform_checktip"></span>
-                   <span class="icon-user"></span>
+                   <s class="icon-user"></s>
                    <?php } ?>
                 </li>
                 <li><?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'输入密码',
                     'name'=>'userpassword','datatype'=>'*6-18','errormsg'=>'密码范围在6~18位之间！' )); ?>
                    <span class="Validform_checktip"></span>
-                   <span class="icon-password"></span>
+                   <s class="icon-password"></s>
                 </li>
                 <li>
-                    <button class="login btn btn-red fl" type="submit">登录</button>
                     <?php echo Html::anchor('forgot', '忘记密码?', array('class' => 'fr'));?>
                 </li>
             </ul>
+            <div class="btn-group">
+                <button class="login btn-l" type="submit">登录</button>
+            </div>
         </form>
         <div class="register-box">
-            还不是乐拍用户？<?php echo Html::anchor('signup', '快速注册', array('class' => 'signup'));?>
+            <p>还不是乐拍用户？马上注册吧</p>
+            <div class="btn-group">
+                 <?php echo Html::anchor('signup', '快速注册', array('class'=>'btn-r signup'));?>
+            </div>
         </div>
+    </div>
     </div>
 </div>
 <!--中间内容结束-->

@@ -43,53 +43,145 @@
                                 <div class="remain">剩余<b class="red"><?php echo $info->phase->remain; ?></b>人次</div>
                             </div>
                         </td>
-                        <td><b class="o"><?php echo $info->phase->cost.Config::get('unit'); ?></b></td>
-                        <td><b class="o"><?php echo Config::get('point').Config::get('unit'); ?></b></td>
+                        <td><s><?php echo $info->phase->cost.Config::get('unit'); ?></s></td>
+                        <td><s class="r"><?php echo Config::get('point').Config::get('unit'); ?></s></td>
                         <td><?php echo $item->get_qty(); ?></td>
-                        <td><b class="o"><?php echo $item->get_qty() * Config::get('point') . Config::get('unit'); ?></b></td>
-                        <td><button class="btn btn-default btn-sx" action="delete">删除</button></td>
+                        <td><s><?php echo $item->get_qty() * Config::get('point') . Config::get('unit'); ?></s></td>
+                        <td><sutton class="btn btn-default btn-sx" action="delete">删除</button></td>
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
                 </table>
             </form>
             <div class="cart-footer">
-                <div class="price fl">
-                     您拥有的积分：<b class="y" id="money" money="<?php echo $current_user->points; ?>"><?php echo $current_user->points; ?></b><?php echo Config::get('unit'); ?>
-                </div>
+                <a class="btn btn-sx btn-gy fl" href="<?php echo Uri::create('cart/list'); ?>"><返回修改订单</a>
                 <div class="all-price fr">总积分：<b id="total" total="<?php echo $subTotal*Config::get('point'); ?>"><?php echo $subTotal * Config::get('point'); ?></b><?php echo Config::get('unit');?></div>
             </div>
         </div>
-
     </div>
+    <div class="pay-row"><label><input type="checkbox" action="selectAll">使用账户余额支付,账户余额：00.00元</label></div>
     <!--选择支付方式开始-->
-    <div class="pay-way">
-        <a class="btn  fl" href="<?php echo Uri::create('cart/list'); ?>">返回修改订单</a>
-        <a href="<?php echo Uri::create('cart/complete'); ?>" class="btn btn-red fr" id="doBuy">确认购买</a>
-        <!-- 弹出开始 -->
-        <div id="payModal" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="mySmallModalLabel">温馨提示</h4>
-                    </div>
-                    <div class="modal-body">
-                        您的积分不足，请先充值。<a class="btn" href="<?php echo Uri::create('u/getrecharge'); ?>">充值积分</a>
-                    </div>
+    <div class="prepaid-box">
+                <dl class="pay-money">
+                    <dt>请选择充值金额</dt>
+                    <dd>
+                        <label for="money1">
+                            <input type="radio" name="money1" id="money1" value="10">
+                            <span>10元</span>
+                        </label>
+                    </dd>
+                    <dd>
+                        <label for="money2">
+                            <input type="radio" name="money1" id="money2" value="50">
+                            <span>50元</span>
+                        </label>
+                    </dd>
+                    <dd>
+                        <label for="money3">
+                            <input type="radio" name="money1" id="money3" value="100">
+                            <span>100元</span>
+                        </label>
+                    </dd>
+                    <dd>
+                        <span class="else">其他金额<input type="text" name="money2" id="money2" value="">元</span>
+                        <span>(1元=10乐淘币)</span>
+                    </dd>
+                </dl>
+
+                <!--选择支付方式开始-->
+                <div class="pay-way">
+                    <div class="caption">选择付款方式</div>
+                    <dl>
+                        <dt>第三方平台</dt>
+                        <dd>
+                            <input type="radio" id="zhf" name="account">
+                            <label for="zhf">
+                                <span class="zhf"></span>
+                            </label>
+                        </dd>
+                        <dd>
+                            <input type="radio" id="cft" name="account">
+                            <label for="cft">
+                                <span class="cft"></span>
+                            </label>
+                        </dd>
+                        <dd>
+                            <input type="radio" id="kq" name="account">
+                            <label for="kq">
+                                <span class="kq"></span>
+                            </label>
+                        </dd>
+                        <dt>网银支付</dt>
+                        <dd>
+                            <input type="radio" id="zhs" name="account">
+                            <label for="zhs">
+                                <span class="zhs"></span>
+                            </label>
+                        </dd>
+                        <dd>
+                            <input type="radio" id="jt" name="account">
+                            <label for="jt">
+                                <span class="jt"></span>
+                            </label>
+                        </dd>
+                        <dd>
+                            <input type="radio" id="gsh" name="account">
+                            <label for="gsh">
+                                <span class="gsh"></span>
+                            </label>
+                        </dd>
+                        <dd>
+                            <input type="radio" id="zhg" name="account">
+                            <label for="zhg">
+                                <span class="zhg"></span>
+                            </label>
+                        </dd>
+                        <dd>
+                            <input type="radio" id="zhx" name="account">
+                            <label for="zhx">
+                                <span class="zhx"></span>
+                            </label>
+                        </dd>
+                        <dd>
+                            <input type="radio" id="jsh" name="account">
+                            <label for="jsh">
+                                <span class="jsh"></span>
+                            </label>
+                        </dd>
+                        <dd>
+                            <input type="radio" id="ny" name="account">
+                            <label for="ny">
+                                <span class="ny"></span>
+                            </label>
+                        </dd>
+                    </dl>
                 </div>
+                <!--选择支付方式结束-->
+                <div id="payModal" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                     <div class="modal-dialog modal-sm">
+                         <div class="modal-content">
+                              <div class="modal-header">
+                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                   <h4 class="modal-title" id="mySmallModalLabel">温馨提示</h4>
+                              </div>
+                              <div class="modal-body">
+                                  您的积分不足，请先充值。<a class="btn" href="<?php echo Uri::create('u/getrecharge'); ?>">充值积分</a>
+                                </div>
+                              </div>
+                         </div>
+                     </div>
             </div>
-        </div>
-        <!-- 弹出结束 -->
     </div>
+    <div class="pay-row"><a href="" class="btn btn-red btn-md fr" id="doOrder">确认支付</a></div>
     <!--选择支付方式结束-->
         <dl class="pay-help w">
-            <dt><h4>购买遇到问题</h4></dt>
+            <dt>购买遇到问题</dt>
             <dd>
                 <ol>
-                    <li>1.如果你未开通网上银行，可以使用储蓄卡快捷支付轻松完成付款;</li>
-                    <li>2.如果你未开通网上银行，可以使用储蓄卡快捷支付轻松完成付款;</li>
-                    <li>3.如果你未开通网上银行，可以使用储蓄卡快捷支付轻松完成付款;</li>
+                    <li>1、如果你未开通网上银行，可以使用储蓄卡快捷支付轻松完成付款;</li>
+                    <li>2、如果您没有网银，可以使用银联在线支付，银联有支持无需开通网银的快捷支付和储值卡支付；;</li>
+                    <li>3、如果您有财付通或快钱、手机支付账户，可将款项先充入相应账户内，然后使用账户余额进行一次性支付；;</li>
+                    <li>4、如果银行卡已经扣款，但您的账户中没有显示，有可能因为网络原因导致，将在第二个工作日恢复。</li>
                 </ol>
             </dd>
             <dd><a href="<?php echo Uri::create('/h'); ?>">更多帮助</a><a href="<?php echo Uri::create('/u'); ?>">进入我的个人中心</a></dd>

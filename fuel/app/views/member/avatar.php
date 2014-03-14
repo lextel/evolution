@@ -1,16 +1,15 @@
-<br />
 
 <?php
 
 echo Asset::css(
     [
-        'jquery.fileupload.css', 
-        'admin/items/form.css', 
+        'jquery.fileupload.css',
+        'admin/items/form.css',
         ]
     );
 echo Asset::js(
         [
-            //'jquery.validate.js', 
+            //'jquery.validate.js',
             //'additional-methods.min.js',
             'jquery.ui.widget.js',
             'jquery.iframe-transport.js',
@@ -18,9 +17,9 @@ echo Asset::js(
             //'ueditor/ueditor.config.js',
             //'ueditor/ueditor.all.min.js',
             //'ueditor/lang/zh-cn/zh-cn.js',
-            //'admin/items/form.js', 
+            //'admin/items/form.js',
             ]
-        ); 
+        );
 ?>
 <script type="text/javascript">
 $(function(){
@@ -41,10 +40,11 @@ $(function(){
             });
         },
     }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
-    
+
 });
 </script>
 <div class="set-wrap">
+        <div class="lead">个人设置</div>
         <div class="navbar-inner">
             <ul>
                 <li><?php echo Html::anchor('u/getprofile', '个人资料'); ?></li>
@@ -67,7 +67,7 @@ $(function(){
             <li>
 				<div class="file-img">
 					<input id="avatarUpload" type="file" name="avatar" multiple>
-				</div>               
+				</div>
             </li>
             <li>
                 <div class="upload-photo">
@@ -78,7 +78,7 @@ $(function(){
                 <input type="hidden" value="" name="avatar" id="avatar">
             </li>
             <li>
-                 <button class="btn btn-red " type="submit">保存</button>
+                 <button class="btn btn-red btn-sx" type="submit">保存</button>
             </li>
             <?php echo Form::close(); ?>
         </ul>

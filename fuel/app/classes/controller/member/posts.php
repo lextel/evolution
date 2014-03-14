@@ -10,6 +10,7 @@ class Controller_Member_Posts extends Controller_Center
     public function action_index($pagenum=1)
     {
         $postscount = Model_Post::count(['where'=>['member_id'=>$this->current_user->id]]);
+        $nopostscount = Model_Phase::count(['where'=>['member_id'=>$this->current_user->id, 'post_id'=>0]]);
         $page = new \Helper\Page();
         $config = $page->setCofigPage('u/posts/p', $postscount, 4, 4);
         $pagination = Pagination::forge('postspage', $config);
@@ -22,6 +23,8 @@ class Controller_Member_Posts extends Controller_Center
                                          );
         $view = ViewModel::forge('posts/myposts');
         $view->set('posts', $posts);
+        $view->set('postscount', $postscount);
+        $view->set('nopostscount', $nopostscount);
         $this->template->title = '用户晒单列表';
         $this->template->layout->content = $view;
     }
@@ -31,9 +34,10 @@ class Controller_Member_Posts extends Controller_Center
     */
     public function action_noposts($pagenum=1)
     {
-        $postscount = Model_Phase::count(['where'=>['member_id'=>$this->current_user->id, 'post_id'=>0]]);
+        $postscount = Model_Post::count(['where'=>['member_id'=>$this->current_user->id]]);
+        $nopostscount = Model_Phase::count(['where'=>['member_id'=>$this->current_user->id, 'post_id'=>0]]);
         $page = new \Helper\Page();
-        $config = $page->setCofigPage('u/noposts/p', $postscount, 4, 4);
+        $config = $page->setCofigPage('u/noposts/p', $nopostscount, 4, 4);
         $pagination = Pagination::forge('postspage', $config);
         $noposts = Model_Phase::find('all', [
                                                   'where'=>['member_id'=>$this->current_user->id,
@@ -44,6 +48,8 @@ class Controller_Member_Posts extends Controller_Center
                                          );
         $view = ViewModel::forge('posts/noposts');
         $view->set('noposts', $noposts);
+        $view->set('postscount', $postscount);
+        $view->set('nopostscount', $nopostscount);
         $this->template->title = '用户未晒单列表';
         $this->template->layout->content = $view;
     }
@@ -108,6 +114,7 @@ class Controller_Member_Posts extends Controller_Center
         Response::redirect('/u/noposts');
     }
 
+    //晒单获得单个
     public function action_getedit($id=null)
     {
         is_null($id) and Response::redirect('/u/posts');

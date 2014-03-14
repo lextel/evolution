@@ -4,7 +4,7 @@ class View_Home_Orders extends Viewmodel {
 
 
     public function view(){
-    $this->getItemInfo = function($itemid) {
+        $this->getItemInfo = function($itemid) {
            $item = Model_Item::find($itemid);
            return $item;
        };
@@ -13,6 +13,11 @@ class View_Home_Orders extends Viewmodel {
            $phases = Model_Phase::byIds($phaseIds);
            return $phases;
        };
+       $this->getProgress = function($phase){
+          $info =  $phase;
+          $res = $info->joined/$info->amount * 100;
+          return $res;
+    };
    }
    public function set_view(){
         $this->_view = View::forge('index/home_orders');

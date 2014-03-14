@@ -5,13 +5,15 @@
     <div class="register w">
         <div class="title">
             <h3 class="fl">新用户注册</h3>
-            <ul class="fl">
-                <li><a href="javascript:;">1填写注册信息</a></li>
-                <li><a href="javascript:;">>>&nbsp;&nbsp;2填写注册信息</a></li>
+            <ul class="fl crumbs">
+                <li class="active"><s>1</s><a href="javascript:;">填写注册信息</a></li>
+                <li><b>></b><li>
+                <li><s>2</s><a href="javascript:;">完成注册</a></li>
                 <li><a href="javascript:;"></a></li>
             </ul>
-            <div class="login fr">               
-                <?php echo Html::anchor('signin', '已经是会员，直接登录', array('class' => 'blue'));?>
+            <div class="link fr">
+                已经是会员，直接
+                <?php echo Html::anchor('signin', '登录', array('class' => 'blue'));?>
             </div>
         </div>
 

@@ -37,6 +37,10 @@ $(function(){
         if(IS_LOGIN) {
             return true;
         } else {
+            $("body").append("<div id='greybackground'></div>");
+            var documentheight = $(document).height();
+            $("#greybackground").css({"opacity":"0.5","backgroundColor":"#000000","height":documentheight});
+
             $('.login2').show();
             return false;
         }

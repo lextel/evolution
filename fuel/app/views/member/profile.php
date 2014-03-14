@@ -1,4 +1,3 @@
-<br />
 <script type="text/javascript">
 $(function(){
     $(".btn-profile").click(function(){
@@ -12,6 +11,7 @@ $(function(){
 });
 </script>
 <div class="set-wrap">
+         <div class="lead">个人设置</div>
         <div class="navbar-inner">
             <ul>
                 <li class="active"><?php echo Html::anchor('u/getprofile', '个人资料'); ?></li>
@@ -38,7 +38,7 @@ $(function(){
                 <?php if (!Model_Member_Email::check_emailok($member->email)) {  ?>
                 <a href="javascript:;" class="btn btn-red btn-checkemail" style="margin-left: 0px;margin-top: -5px;">验证</a>
                 <?php }else{ ?>
-                <a href="javascript:;" class="btn btn-red btn-email" style="margin-left: 0px;margin-top: -5px;">已验证</a>
+                <a href="javascript:;" class="btn  btn-email" style="margin-left: 0px;margin-top: -5px;">已验证</a>
                 <?php }?>
             </li>
             <li>
@@ -57,7 +57,7 @@ $(function(){
                 <span class="Validform_checktip"></span>
             </li>
             <li>
-                <button class="btn btn-red " type="submit" >提交</button>
+                <button class="btn btn-red btn-sx" type="submit" >提交</button>
             </li>
             <?php echo Form::close(); ?>
         </ul>

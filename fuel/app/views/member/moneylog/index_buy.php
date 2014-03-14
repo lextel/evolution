@@ -5,9 +5,9 @@
     <!--晒单开始-->
 
     <div class="account-box">
-
+        <div class="lead">账户明细</div>
         <div class="remind ">
-            <span class="balance">帐户积分：<b><?php echo $current_user->points;?>点</b></span>
+            <span class="balance">帐户积分：<s><?php echo $current_user->points;?>点</s></span>
             <?php echo Html::anchor('u/getrecharge', '充值', ['class'=>'btn-pay']);?>
         </div>
         <div class="toggles">
@@ -15,7 +15,7 @@
                 <?php echo Html::anchor('u/moneylog/b/1', '消费记录', ['class'=>'last-child']); ?>
         </div>
         <div class="select-box">
-            <label for="">全部商品</label>
+            <label for=""><?php echo Html::anchor("u/moneylog/b/1", '全部');?></label>
             <span class="time-choose">选择时间段：
             <input  id="datepicker" type="text" placeholder="输入起始时间" />
 

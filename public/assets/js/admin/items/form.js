@@ -89,6 +89,16 @@ $(function () {
         $('#index').val(idx);
         $('#top > div').find('img').attr('src', link);
     });
+    
 
+    // 预览功能修改
+    $(document).on('click', '#edui173', function() {
+        $('.navbar-fixed-top').hide();
+    });
+
+    // 关闭预览
+    $(document).on('click', '#edui172', function() {
+        $('.navbar-fixed-top').show();
+    });
 
 });

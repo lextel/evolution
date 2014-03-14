@@ -3,10 +3,11 @@
 
     <div class="content-inner">
         <!--获得的商品开始-->
+        <div class="lead">获得的商品</div>
         <div class="acquire-box">
             <div class="remind ">乐拍提醒：你总共乐购获得商品（<?php echo $wincount;?>)件</div>
             <div class="select-box">
-            <label for="">全部商品</label>
+            <label for=""><?php echo Html::anchor('/u/wins', '全部商品', ['class'=>'b']);?></label>
             <span class="time-choose">选择时间段：                 
                  <input  id="datepicker" type="text" placeholder="输入起始时间" />
                  <input  id="datepicker1" type="text" placeholder="输入结束时间" />

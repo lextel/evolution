@@ -11,7 +11,7 @@
         <script type="text/javascript">
             $(function() {
                 if (window.PIE) {
-                    $('.btn,.progress').each(function() {
+                    $(".btn,.progress,.crumbs li s").each(function() {
                         PIE.attach(this);
                     });
                 }
@@ -38,20 +38,33 @@
     <!--头部开始-->
     <div class="top-nav">
         <div class="top-menu">
+            <div class="collection fl" style="CURSOR: hand" onClick="window.external.addFavorite('http://www.lltao.com')" title="乐乐淘">
+                 <a href="javascript:;">收藏乐乐淘</a>
+            </div>
             <span class="online">
                 <a href="javascript:void(0);">在线客服<span class="icon icon-qq"></span></a>
             </span>
             <span class="login-bar">
-            <?php if (!isset($current_user)):?>
+            <?php if (!isset($current_user)) { ?>
                  <a href="<?php echo Uri::create('/signin'); ?>">登录</a>
                  <i>/</i>
                  <a href="<?php echo Uri::create('/signup'); ?>">注册</a>
-            <?php else:?>
-                 <a href="<?php echo Uri::create('/u'); ?>" class="top-portrait"><?php echo Html::img($current_user->avatar, ['width'=>'15px']);?><?php echo $current_user->nickname;?></a>
-                 &nbsp;<span>可用乐淘币<b class="r"><?php echo $current_user->points;?>点</b></span>&nbsp;
+            <?php }else {?>
+                 <span class="top-portrait">
+                 <a href="<?php echo Uri::create('/u'); ?>" ><?php echo Html::img($current_user->avatar, ['width'=>'15px']);?><?php echo $current_user->nickname;?>
+                 </a>
+                 <ul class="head-setting">
+                                         <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐拍记录</a></li>
+                                         <li><a href="<?php echo Uri::create('/u/wins'); ?>">获得的商品</a></li>
+                                         <li><a href="<?php echo Uri::create('/u/getrecharge'); ?>">账户管理</a></li>
+                                         <li><a href="<?php echo Uri::create('/u/profile'); ?>">个人设置</a></li>
+                                     </ul>
+                 </span>
+                 &nbsp;
+                 <span>可用乐淘币<b class="r"><?php echo $current_user->points;?>点</b></span>&nbsp;
                  <span>消息(<b class="r"><?php echo $isnew? $isnew : 0;?></b >)</span>&nbsp;
                  <?php echo Html::anchor('signout', '[退出]', ['class'=>'navbar-link'])?>
-            <?php endif;?>
+            <?php }?>
             </span>
         </div>
     </div>
@@ -59,7 +72,7 @@
         <div class="logo"><a href="<?php echo Uri::base(); ?>"><img src="<?php echo Uri::create('assets/images/logo.png');?>" alt="乐乐淘首页"/></a></div>
          <div class="right-box">
                 <div class="search">
-                    <input id="txtSearch" type="text" value="" name="title" placeholder="输入“苹果手机”试试"/>
+                    <input id="txtSearch" type="text" value="" name="title" placeholder="输入“LOL”试试" onfocus="this.placeholder = ''" onblur="this.placeholder = '输入“LOL”试试'"/>
                     <a href="javascript:void(0);" class="search-btn" id="doSearch">
                         <span class="icon icon-search"></span>
                     </a>
@@ -104,9 +117,9 @@
                     <dd><a href="javascript:;">官方微信</a></dd>
                     <dd>官方QQ群：10000000</dd>
                 </dl>
-                <dl>
+                <dl class="three">
                     <dt>联系我们</dt>
-                    <dd><h2 class="red"><span class="icon icon-phone"></span>4008123123</h2></dd>
+                    <dd><p class="r" style="font-size:22px;"><span class="icon icon-phone"></span>4008123123</p></dd>
                     <dd>仅收市话费，周一至周日8.00-18.00</dd>
                     <dd><span class="kf"><i class="icon icon-online"></i>24小时在线客服</span></dd>
                 </dl>
@@ -121,10 +134,10 @@
                 <li><?php echo Html::anchor('h/about', '关于乐拍'); ?></li>
                 <li><?php echo Html::anchor('h/privacy', '隐私声明'); ?></li>
                 <li><a href="javascript:void(0);">合作专区</a></li>
-                <li><a href="javascript:void(0);">联系我们</a></li>
+                <li class="lastest"><a href="javascript:void(0);">联系我们</a></li>
             </ul>
             <P>版权所有</P>
-            <span>乐拍，快乐抢拍你的人生！</span>
+            <div class="log">乐拍，快乐抢拍你的人生！</div>
              <ul class="safety">
                 <li class="safety-01"></li>
                 <li class="safety-02"></li>

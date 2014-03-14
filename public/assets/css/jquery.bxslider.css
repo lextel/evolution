@@ -11,23 +11,17 @@
  */
 
 
-/** RESET AND LAYOUT
-===================================*/
-
 .bx-wrapper {
 	position: relative;
 	margin: 0 auto 60px;
 	padding: 0;
 	zoom: 1;
 }
-/** THEME
-===================================*/
 
 .bx-wrapper .bx-viewport {
 	-moz-box-shadow: 0 0 5px #ccc;
 	-webkit-box-shadow: 0 0 5px #ccc;
 	box-shadow: 0 0 5px #ccc;
-	left: -5px;
 	background: #fff;
 }
 
@@ -90,21 +84,19 @@
 /* DIRECTION CONTROLS (NEXT / PREV) */
 
 .bx-wrapper .bx-prev {
-	left: 10px;
-	background: url(../images/controls.png) no-repeat 0 -32px;
+    left: 0;
+	background: url("../images/icon-02.png") no-repeat -113px -54px;
 }
 
 .bx-wrapper .bx-next {
-	right: 10px;
-	background: url(../images/controls.png) no-repeat -43px -32px;
+    right: 0;
+	background: url("../images/icon-02.png") no-repeat -254px -54px;
 }
 
 .bx-wrapper .bx-prev:hover {
-	background-position: 0 0;
 }
 
 .bx-wrapper .bx-next:hover {
-	background-position: -43px 0;
 }
 
 .bx-wrapper .bx-controls-direction a {
@@ -112,8 +104,8 @@
 	top: 50%;
 	margin-top: -16px;
 	outline: 0;
-	width: 32px;
-	height: 32px;
+	width: 45px;
+	height: 59px;
 	text-indent: -9999px;
 	z-index: 9999;
 }
@@ -134,7 +126,7 @@
 	width: 10px;
 	height: 11px;
 	outline: 0;
-	background: url(../images/controls.png) -86px -11px no-repeat;
+	background: url("../images/controls.png") -86px -11px no-repeat;
 	margin: 0 3px;
 }
 
@@ -149,7 +141,7 @@
 	width: 9px;
 	height: 11px;
 	outline: 0;
-	background: url(../images/controls.png) -86px -44px no-repeat;
+	background: url("../images/controls.png") -86px -44px no-repeat;
 	margin: 0 3px;
 }
 

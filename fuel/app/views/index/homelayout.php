@@ -4,10 +4,12 @@
             <div class="img-box">
                 <?php echo Html::anchor('u/'.$member->id, Html::img($member->avatar));?>
             </div>
-            <div class="username"><?php echo Html::anchor('u/'.$member->id, $member->nickname);?></div>
-            <div class="signature">
-                个性签名:
-                <?php echo $member->bio;?>
+            <div class="home-mu">
+                <div class="name"><?php echo Html::anchor('u/'.$member->id, $member->nickname);?></div>
+                <div class="signature">
+                    个性签名:
+                    <?php echo $member->bio;?>
+                </div>
             </div>
         </div>
         <div class="home-wrap fr">

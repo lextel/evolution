@@ -1,13 +1,15 @@
 <div class="content-inner">
     <!--晒单开始-->
+    <div class="lead">晒单</div>
     <div class="show-box">
+        <div class="remind ">乐拍提醒：你总共晒单<?php echo $postscount;?>件商品，还有 <?php echo $nopostscount;?>件商品等待您晒单。</div>
+        <br />
         <div class="toggles">
             <?php echo Html::anchor('u/posts', '已晒单', ['class'=>'first-child active']); ?>
             <?php echo Html::anchor('u/noposts', '未晒单', ['class'=>'last-child']); ?>
         </div>
 
         <div class="show-c">
-
             <table>
                 <thead>
                 <tr>
@@ -23,7 +25,6 @@
                   }?>
                 <?php foreach($posts as $post) { ?>
                 <tr>
-                    
                     <td><div class="img-box img-sm">
                     <?php if ($post->status == 1) { ?>
                     <?php echo Html::anchor('u/p'.$post->id, Html::img($post->topimage ? $post->topimage : '')); ?>
@@ -32,8 +33,9 @@
                     <?php }?>
                     </div></td>
                     <td>
-                        <div class="text-title"><?php $post->title;?></div>
-                        <div class="text-content"><?php echo mb_substr($post->desc, 0, 32,'utf-8'); ?></div>
+                        <div class="text-title"><?php echo $post->title;?></div>
+                        <div class="text-time"><?php echo date("Y-m-d H:i:s", $post->created_at);?></div>
+                        <div class="text-content"><?php echo mb_substr($post->desc, 0,90,'utf-8'); ?>...</div>
                     </td>
                     <td><?php echo $getType($post->status); ?></td>
                     <td>
@@ -48,9 +50,7 @@
                 </tr>
                <?php };?>
                 </tbody>
-
             </table>
-            <br />
             <?php echo Pagination::instance('postspage')->render(); ?>
         </div>
     </div>

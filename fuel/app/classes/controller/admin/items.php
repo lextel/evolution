@@ -48,9 +48,9 @@ class Controller_Admin_Items extends Controller_Admin {
         $breads = [['name' => '商品管理'], ['name' => $name]];
 
         $view = ViewModel::forge('admin/items/list');
-        $view->set('cates', $cates, false);
-        $view->set('items', $items, false);
-        $view->set('type', $type, false);
+        $view->set('cates', $cates);
+        $view->set('items', $items);
+        $view->set('type', $type);
         $view->set('pagination', $pagination);
         $breadcrumb = new Helper\Breadcrumb();
         $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
@@ -123,7 +123,7 @@ class Controller_Admin_Items extends Controller_Admin {
     }
 
     // 编辑商品
-    public function action_edit($id = null) {
+    public function action_edit($id = null, $resell = '') {
 
         $breads = [
                 ['name' => '商品列表', 'href'=> Uri::create('admin/items/list/active')], 
@@ -134,29 +134,57 @@ class Controller_Admin_Items extends Controller_Admin {
 
         $breadcrumb = new Helper\Breadcrumb();
         $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        
+        $pCount = Model_Phase::count(['where' => ['item_id' => $item->id]]);
 
         $cateModel = new Model_Cate();
         $this->template->set_global('cates', $cateModel->cates(), false);
         $this->template->set_global('brands', $cateModel->brands($item->cate_id), false);
         $this->template->set_global('item', $item, false);
+        $this->template->set_global('resell', $resell);
+        $this->template->set_global('pCount', $pCount);
         $this->template->set_global('url', Uri::create('admin/items/update/' . $item->id));
         $this->template->title = "编辑商品 > 商品管理";
         $this->template->content = View::forge('admin/items/edit');
     }
 
     // 商品编辑
-    public function action_update($id = null) {
+    public function action_update($id = null, $resell = '') {
+
 
         $item = Model_Item::find($id);
+        
         $val  = Model_Item::validate('edit');
 
         if($val->run()) {
 
             $itemModel = new Model_Item();
+
+            if($resell == 'resell') {
+                $pCount = Input::post('pCount');
+                $phase = Input::post('phase');
+
+                if($phase == 0 || $phase > $pCount) {
+
+                    $phaseModel =  new Model_Phase();
+                    $phaseModel->add($item);
+                    $itemModel->resell($item->id);
+
+                } else {
+                    Session::set_flash('error', e('期数必须大于进行过的期数'));
+                    Response::redirect_back();
+                }
+            }
+
+
             $rs = $itemModel->edit($id, Input::post());
             if($rs) {
                 Session::set_flash('success', e('更新成功 #' . $id));
-                Response::redirect('admin/items/list/active');
+                if($resell == 'resell') {
+                    Response::redirect('admin/items/list/uncheck');
+                } else {
+                    Response::redirect_back();
+                }
             } else {
                 Session::set_flash('error', e('更新失败 #' . $id));
             }
@@ -164,10 +192,15 @@ class Controller_Admin_Items extends Controller_Admin {
         } else {
             $val->set_message('required', ':label 为必填项.');
             $val->set_message('max_length', ':label 不能超过:param:1个字.');
+            $val->set_message('valid_string', ':label 必须为数字.');
             Session::set_flash('error', $val->show_errors());
         }
 
-        Response::redirect('admin/items/edit/'.$id);
+        if($resell == 'resell') {
+            Response::redirect('admin/items/edit/'.$id.'/resell');
+        }else {
+            Response::redirect('admin/items/edit/'.$id);
+        }
     }
 
     // 商品删除
@@ -214,7 +247,7 @@ class Controller_Admin_Items extends Controller_Admin {
         $itemModel = new Model_Item();
         if($itemModel->check($id, Input::post())) {
             Session::set_flash('success', e('操作成功 #'.$id));
-            Response::redirect('admin/items/list/active');
+            Response::redirect('admin/items/list/show');
         } else {
             Session::set_flash('error', e('操作失败 #'.$id));
             Response::redirect('admin/items/list/check/'.$id);
@@ -238,6 +271,23 @@ class Controller_Admin_Items extends Controller_Admin {
         Response::redirect('admin/items/list/uncheck');
     }
 
+    // 快速审核通过并上架
+    public function action_sell($id) {
+        if($this->current_user->group < 50) {
+            Session::set_flash('error', e('你没有权限'));
+            Response::redirect_back();
+        }
+
+        $itemModel = new Model_Item();
+        if($itemModel->sell($id)) {
+            Session::set_flash('success', e('审核&上架成功 #'.$id));
+        } else {
+            Session::set_flash('error', e('上架失败 #'.$id));
+        }
+
+        Response::redirect_back();
+    }
+
     // 快速审核不通过
     public function action_notPass($id) {
         if($this->current_user->group < 50) {
@@ -255,9 +305,34 @@ class Controller_Admin_Items extends Controller_Admin {
         Response::redirect('admin/items/list/uncheck');
     }
 
-    // faker
-    public function action_faker() {
+    // 完成商品重新上架
+    public function action_resell($id) {
 
+        if($this->current_user->group < 50) {
+            Session::set_flash('error', e('你没有权限'));
+            Response::redirect_back();
+        }
+
+        Response::redirect('admin/items/edit/'.$id.'/resell');
+    }
+
+    // 删除恢复
+    public function action_restore($id) {
+
+        if($this->current_user->group < 50) {
+            Session::set_flash('error', e('你没有权限'));
+            Response::redirect_back();
+        }
+
+        $itemModel = new Model_Item();
+        if($itemModel->restore($id)) {
+            Session::set_flash('success', e('操作成功 #'.$id));
+        } else {
+            Session::set_flash('error', e('操作失败 #'.$id));
+        }
+
+
+        Response::redirect_back();
     }
 
     // test

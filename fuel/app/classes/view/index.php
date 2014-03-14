@@ -22,17 +22,18 @@ class View_Index extends Viewmodel {
 
        //获得人气推荐1
        $this->topHotItems = function() {
-           $select = ['id', 'title', 'image', 'joined', 'remain', 'amount', 'cost'];
+           $select = ['id', 'title', 'image', 'joined', 'remain', 'amount', 'cost', 'status'];
            $items = Model_Phase::find('all', ['select' => $select, 'where'=>['status'=>1, 'opentime' => 0, 'is_delete' => 0],
                      'order_by'=>['hots'=>'desc'],
                      'limit'=>3
                      ]);
+
            return $items;
        };
 
        //获得人气推荐2
        $this->hotItems = function() {
-           $select = ['id', 'title', 'image', 'joined', 'remain', 'amount', 'cost'];
+           $select = ['id', 'title', 'image', 'joined', 'remain', 'amount', 'cost', 'status'];
            $items = Model_Phase::find('all', ['select' => $select, 'where'=>['status'=>1, 'opentime' => 0, 'is_delete' => 0],
                      'order_by'=>['hots'=>'desc'],
                      'limit'=>4,

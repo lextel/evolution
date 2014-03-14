@@ -1,16 +1,14 @@
 <?php echo Asset::css(['product.css', 'jquery.jqzoom.css', 'customBootstrap.css', 'style.css']); ?>
-<?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js','jquery.pin.js', 'item/view.js']); ?>
+<?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js','jquery.pin.js', 'item/view.js', 'Xslider.js']); ?>
 <?php $this->title = '(第' . $item->phase->phase_id .'期)' . $item->title; ?>
-<div class="wrapper w">
-    <!--商品信息开始-->
-    <div class="panel w">
+<div class="panel w">
         <div class="title">
             <h2>
                 <b>(第<?php echo $item->phase->phase_id; ?>期)</b>
                 <?php echo $item->title; ?>
             </h2>
         </div>
-        <div class="img-side fl">
+        <div class="img-wide fl">
             <!--幻灯片开始-->
             <div class="lantern-slide">
                 <div class="slide-img">
@@ -60,50 +58,54 @@
                 <span class="icon icon-horn"></span>
                 <span>本商品已有 <b class="blue"><?php echo $postsCount($item->id); ?></b>位幸运者晒单，<b class="blue"><?php echo $commentCount($item->id); ?></b>评论</span>
             </div>
-            <div class="price">价值:<b>￥<?php echo sprintf('%.2f', $item->price); ?></b></div>
-            <div class="price">总积分:<b><?php echo $item->phase->cost; ?><?php echo $unit; ?></b></div>
-            <?php if(!empty($item->phase->remain)): ?>
-            <dl class="progress-side">
-                <dd>
-                    <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->phase->joined/$item->phase->amount*100); ?>%"></div></div>
-                </dd>
-                <dd>
-                    <span class="fl red"><?php echo $item->phase->joined; ?></span>
-                    <span class="fr blue"><?php echo $item->phase->remain; ?></span>
-                </dd>
-                <dd>
-                    <span class="fl">已参与人次</span>
-                    <span class="fr">剩余人次</span>
-                </dd>
-            </dl>
-            <form action="<?php echo Uri::create('/cart/add'); ?>" method="post">
-                <div class="btn-menu">
-                    <span>购买数量：</span>
-                    <a class="add btn-jian" href="javascript:void(0);">-</a>
-                    <input type="text" value="1" name="qty" amount="<?php echo $item->phase->amount; ?>" remain="<?php echo $item->phase->remain; ?>">
-                    <a class="add btn-jia" href="javascript:void(0);">+</a>
-                    <span>人次</span>
-                    <span>剩余<?php echo $item->phase->remain; ?>人次</span>
-                    <span class="chance">获得几率：<s class="red" id="percent"><?php echo sprintf('%.2f', 1/$item->phase->amount*100); ?>%</s> </span>
-                </div>
-                <div class="btn-group">
-                    <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>
-                    <button type="submit" class="btn btn-red">立即乐拍</button>
-                    <a class="btn btn-y doAddCart" href="javascript:void(0);" phaseId="<?php echo $item->phase->id; ?>">加入购物车</a>
-                </div>
-            </form>
-            <?php else: ?>
-            <!--已卖完-->
-            <div class="sell-out" style="display:block">
-                 <h2>啊哦！！ 被抢光啦！！ </h2>
+            <div class="middle">
+              <div class="price"><strong>价值:￥<?php echo sprintf('%.2f', $item->price); ?></strong></div>
+            <?php if(!empty($item->phase->remain) && $item->status == \Helper\Item::IS_CHECK): ?>
+              <dl class="progress-side">
+                  <dd>
+                      <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->phase->joined/$item->phase->amount*100); ?>%"></div></div>
+                  </dd>
+                  <dd>
+                      <span class="fl red"><?php echo $item->phase->joined; ?></span>
+                      <span class="fr blue"><?php echo $item->phase->remain; ?></span>
+                  </dd>
+                  <dd>
+                      <span class="fl">已参与人次</span>
+                      <span class="fr">剩余人次</span>
+                  </dd>
+              </dl>
+              <form action="<?php echo Uri::create('/cart/add'); ?>" method="post">
+                  <div class="btn-menu">
+                      <span class="left">购买数量：</span>
+                      <a class="add btn-jian" href="javascript:void(0);">-</a>
+                      <input type="text" value="1" name="qty" amount="<?php echo $item->phase->amount; ?>" remain="<?php echo $item->phase->remain; ?>">
+                      <a class="add btn-jia" href="javascript:void(0);">+</a>
+                      <span class="right">(剩余<?php echo $item->phase->remain; ?>人次)</span>
+                      <span class="chance fl">获得几率：<s class="red" id="percent"><?php echo sprintf('%.2f', 1/$item->phase->amount*100); ?>%</s> </span>
+                  </div>
+                  <div class="btn-group">
+                      <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>
+                      <button type="submit" class="btn btn-red btn-w">立即一元乐淘</button>
+                      <a class="btn btn-y btn-w doAddCart" href="javascript:void(0);" phaseId="<?php echo $item->phase->id; ?>">加入购物车</a>
+                  </div>
+              </form>
+              <?php elseif($item->status == \Helper\Item::IS_CHECK): ?>
+              <!--已卖完-->
+              <div class="sell-out" style="display:block">
+                   <h2>啊哦！！ 被抢光啦！！ </h2>
+              </div>
+               <!--已卖完结束-->
+               <?php else:?>
+              <div class="sell-out" style="display:block">
+                   <h2>即将开拍</h2>
+              </div>
+               <?php endif; ?>
+              <ul class="security-list">
+                  <li><a href="<?php echo Uri::create('/h/safeguard'); ?>" class="01">100%公平公正</a></li>
+                  <li><a href="<?php echo Uri::create('/h/promise'); ?>" class="02">100%正品保证</a></li>
+                  <li><a href="<?php echo Uri::create('/h/expressinfo'); ?>" class="03">全国免费配送</a></li>
+              </ul>
             </div>
-             <!--已卖完结束-->
-             <?php endif; ?>
-            <ul class="security-list">
-                <li><a href="<?php echo Uri::create('/h/safeguard'); ?>" class="01">100%公平公正</a></li>
-                <li><a href="<?php echo Uri::create('/h/promise'); ?>" class="02">100%正品保证</a></li>
-                <li><a href="<?php echo Uri::create('/h/expressinfo'); ?>" class="03">全国免费配送</a></li>
-            </ul>
             <div class="new-buyer">
                 <div class="new-buyer-header">
                     <ul class="tab">
@@ -157,24 +159,25 @@
                                     endif;
                                     else:
                                 ?>
-                                <form action="<?php echo Uri::create('signin'); ?>" method="post">
-                                    <ul class="edit-data" style="display: block;">
-                                        <li>
-                                            <label>帐号：</label>
-                                            <input type="text" name="username">
-                                        </li>
-                                        <li>
-                                            <label>密码：</label>
-                                            <input type="password" name="password">
-                                        </li>
-                                        <li>
-                                            <button type="submit" class="btn btn-red">登录</button>
-                                            <a href="<?php echo Uri::create('signup'); ?>">注册</a>
-                                        </li>
-                                    </ul>
-                                </form>
-                                <?php endif; ?>
-                            </tbody>
+
+                            
+                         <form action="<?php echo Uri::create('signin'); ?>" method="post">
+                               <dl class="inner-login" style="display: block;">
+                                    <dt>请先登录</dt>
+                                    <dd>
+                                          <input type="text" class="text" name="username">
+                                    </dd>
+                                    <dd>
+                                          <input type="password" class="password" name="password">
+                                    </dd>
+                                    <dd class="last">
+                                          <button type="submit" class="btn-rg btn-red">登录</button>
+                                          <a class="btn-rg btn-gr" href="">注册</a>
+                                    </dd>
+                               </dl>
+                         </form>
+                         <?php endif; ?>
+                         </tbody>
                         </table>
                     </div>
                     <div class="tab-pane" id="help">
@@ -184,43 +187,78 @@
                         <p>
                        乐乐淘以“快乐云淘，惊喜无限”为宗旨，力求打造一个100%公平公正、100%正品保障、寄娱乐与购物一体化的新型购物网站。
                         </p>
-                        <a href="<?php echo Uri::create('h/new'); ?>" class="link">查看更多</a>
+                        <div class="tr"><a href="<?php echo Uri::create('h/new'); ?>" class="link">更多详情></a></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+</div>
+<div class="wrapper w">
+    <!--商品信息开始-->
 	<div class="bd w">
-		<div class="sub-nav w" id="bigNav">
-        <ul>
-            <li><a href="#desc" data-toggle="tab" class="active">商品详情</a></li>
-            <li><a href="#buylog" phaseId="<?php echo $item->phase->id; ?>" data-toggle="tab">所有参与纪录(<b><?php echo $orderCount; ?></b>)</a></li>
-            <li><a href="#posts" itemId="<?php echo $item->id; ?>" data-toggle="tab">晒单(<b><?php echo $postCount; ?></b>)</a></li>
-            <li><a href="#phase" itemId="<?php echo $item->id; ?>" data-toggle="tab">往期回顾(<b><?php echo $phaseCount; ?></b>)</a></li>
-        </ul>
-    </div>
-    <!--商品信息结束-->
-    <div class="tab-content">
-        <!--商品详情开始-->
-        <div class="product-details tab-pane active" id="desc">
-            <?php echo $item->desc; ?>
+	    <div class="sub-nav" id="bigNav">
+            <ul class="fl">
+                <li><a href="#desc" data-toggle="tab" class="active">商品详情</a></li>
+                <li><a href="#buylog" phaseId="<?php echo $item->phase->id; ?>" data-toggle="tab">所有参与纪录(<s class="r"><?php echo $orderCount; ?></s>)</a></li>
+                <li><a href="#posts" itemId="<?php echo $item->id; ?>" data-toggle="tab">晒单(<s class="r"><?php echo $postCount; ?></s>)</a></li>
+                <li><a href="#phase" itemId="<?php echo $item->id; ?>" data-toggle="tab">往期回顾(<s class="r"><?php echo $phaseCount; ?></s>)</a></li>
+            </ul>
+            <div class="online-qq fr"><span class="icon icon-qq"></span><a class="chance" href="javaxcript:void(0)">在线客服</a></div>
         </div>
-        <!--商品详情结束-->
-        <!--参与记录开始-->
-        <div class="record d-n tab-pane" id="buylog">
-            <p style="margin-bottom: 15px;text-align: center">暂无参与记录</p>
+        <div class="tab-content">
+            <!--商品详情开始-->
+            <div class="product-details tab-pane active" id="desc">
+                <?php echo $item->desc; ?>
+            </div>
+            <!--商品详情结束-->
+            <!--参与记录开始-->
+            <div class="record d-n tab-pane" id="buylog">
+                <p style="margin-bottom: 15px;text-align: center">暂无参与记录</p>
+            </div>
+            <!--参与记录结束-->
+            <!--晒单开始-->
+            <div class="product-bask tab-pane" id="posts">
+                <p style="margin-bottom: 15px;text-align: center">暂无晒单记录</p>
+            </div>
+            <!--晒单结束-->
+            <!--往期回顾开始-->
+            <div class="look-bak d-n tab-pane" id="phase"></div>
         </div>
-        <!--参与记录结束-->
-        <!--晒单开始-->
-        <div class="product-bask tab-pane" id="posts">
-            <p style="margin-bottom: 15px;text-align: center">暂无晒单记录</p>
-        </div>
-        <!--晒单结束-->
-        <!--往期回顾开始-->
-        <div class="look-bak d-n tab-pane" id="phase"></div>
-    </div>
 	</div>
-
+</div>
+<!--今日热门开始-->
+<div class="date-hot w">
+    <div class="title"><h3>今日热门</h3></div>
+    <div class="scrollleft" >
+         <div class="scrollcontainer">
+             <ul>
+                 <?php $hotItems = $getHots();
+                        if(isset($hotItems)) {
+                        foreach($hotItems as $item) { ?>
+                      <li>
+                          <div class="img-box img-md">
+                            <a href="<?php echo Uri::create('/m/'.$item->id); ?>" rel="nofollow">
+                                <img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt="">
+                             </a>
+                             <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->cost / Config::get('point')); ?></b></div>
+                          </div>
+                          <h4 class="caption"><?php echo $item->title; ?></h4>
+                          <div class="btn-group">
+                                <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
+                                    <input name="id" value="<?php echo $item->id; ?>" type="hidden">
+                                    <input name="qty" value="1" type="hidden">
+                                    <button class="btn btn-red hot-buy" type="submit">立即一元乐淘</button>
+                                </form>
+                          </div>
+                      </li>
+                      <?php }} ?>
+                 </ul>
+            </div>
+            <a class="abtn aleft" href="#left"></a>
+            <a class="abtn aright" href="#right"></a>
+        </div>
+    </div>
+    <!--今日热门结束-->
 </div>
 <script>
     BUYLOG_URL   = '<?php echo Uri::create('l/joined'); ?>';
