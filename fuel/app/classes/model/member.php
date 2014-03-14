@@ -109,6 +109,21 @@ class Model_Member extends \Classes\Model
 
         return Model_Member::count(['where' => $where]);
     }
+    
+    /**
+     * 统计马甲会员
+
+     *
+     * @param $options array 筛选条件
+     *
+     * @return integer 数量
+     */
+    public function countGhost($options) {
+
+        $where = $this->handleWhere($options);
+
+        return Model_Member::count(['where' => $where]);
+    }
 
     /**
      * 处理where条件
@@ -134,6 +149,10 @@ class Model_Member extends \Classes\Model
 
         if(isset($options['email']) && !empty($options['email'])) {
             $where += [['email', 'LIKE', '%'.$options['email']. '%']];
+        }
+        
+        if(isset($options['type']) && !empty($options['type'])) {
+            $where += ['type' => $options['type']];
         }
 
         $where += ['is_delete' => 0];
