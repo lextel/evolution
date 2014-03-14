@@ -65,5 +65,16 @@ return [
                 ['name' => '用户充值', 'href' => Uri::create('/admin/moneylog/recharge')],
             ]
         ],
+        [
+            'name' => '马甲管理', 
+            'href' => 'javascript:void(0);',
+            'class' => 'dropdown',
+            'childs' => [
+                ['name' => '添加马甲', 'href' => Uri::create('/admin/ghost/add')],
+                ['name' => '马甲列表', 'href' => Uri::create('/admin/ghost/lists')],
+                ['name' => '中奖列表', 'href' => Uri::create('/admin/ghost/win')],
+                ['name' => '在拍列表', 'href' => Uri::create('/admin/ghost/sell')],
+            ]
+        ],
     ]
 ];
