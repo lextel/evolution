@@ -1,6 +1,20 @@
 <?php
     echo Asset::js(['admin/ghost/sell.js']);
 ?>
+<div class="panel panel-default" style="padding: 10px 0">
+    <form class="navbar-form navbar-left" role="search" action="" method="get">
+        <div class="col-sm-3">
+            <div class="input-group">
+              <span class="input-group-addon">标题</span>
+              <input type="text" class="form-control" value="<?php echo !empty(Input::get('title')) ? Input::get('title') : ''; ?>" name="title" placeholder="商品标题">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">搜索</button>
+        <a type="submit" class="btn btn-default" href="<?php echo Uri::create('admin/ghost/sell'); ?>">重置</a>
+        </form>
+    <div class="clearfix"></div>
+</div>
+
 <div class="panel panel-default">
 <?php if (isset($items)): ?>
 <table class="table table-striped">
