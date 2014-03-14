@@ -55,7 +55,7 @@ class View_Admin_Items_List extends ViewModel
                     } else {
                         $operate = Html::anchor('admin/items/view/'.$id.'/'.$phaseId, '详情') .' | ' .
                                    Html::anchor('admin/items/sell/'.$id, '上架') . ' | ' .
-                                   Html::anchor('admin/items/edit/'.$id, '编辑');
+                                   Html::anchor('admin/items/edit/'.$id, '编辑') . ' | ' .
                                    Html::anchor('admin/items/delete/'.$id, '删除', array('onclick' => "return confirm('亲，确定删除么?')"));
                     }
                     break;
