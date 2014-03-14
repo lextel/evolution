@@ -15,7 +15,7 @@
         
         <button type="submit" class="btn btn-primary">搜索</button>
         <a href="<?php echo Uri::create('admin/members'); ?>" class="btn btn-default">重置</a>
-        <?php echo Html::anchor('admin/ghost/create', '添加马甲', array('class' => 'btn btn-success pull-right')); ?>
+        <?php echo Html::anchor('admin/members/create', '添加会员', array('class' => 'btn btn-success pull-right')); ?>
     </form>
     <div class="clearfix"></div>
 </div>

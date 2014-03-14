@@ -70,7 +70,7 @@ return [
             'href' => 'javascript:void(0);',
             'class' => 'dropdown',
             'childs' => [
-                ['name' => '添加马甲', 'href' => Uri::create('/admin/ghost/add')],
+                ['name' => '添加马甲', 'href' => Uri::create('/admin/ghost/create')],
                 ['name' => '马甲列表', 'href' => Uri::create('/admin/ghost/lists')],
                 ['name' => '中奖列表', 'href' => Uri::create('/admin/ghost/win')],
                 ['name' => '在拍列表', 'href' => Uri::create('/admin/ghost/sell')],
