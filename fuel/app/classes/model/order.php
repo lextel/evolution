@@ -85,8 +85,8 @@ class Model_Order extends \Classes\Model
             }
 
             // 写消费日志
-            $perPoint = $cart->get_qty() * Config::get('point');
-            Model_Member_Moneylog::buy_log($memberId, $perPoint, $phaseId, $cart->get_qty());
+            $perPoint = count($fetchCodes) * Config::get('point');
+            Model_Member_Moneylog::buy_log($memberId, $perPoint, $phaseId, count($fetchCodes));
             
         }
 
@@ -149,6 +149,9 @@ class Model_Order extends \Classes\Model
               ) {
                 $phaseModel = new Model_Phase();
                 $phaseModel->add($item);
+            } else {
+                // 标识已经完成
+                $item->finish($item);
             }
 
             // 写开奖命令
@@ -218,7 +221,7 @@ class Model_Order extends \Classes\Model
      *
      * @return array
      */
-    public function newOrders($phaseId = 0, $len = 5) {
+    public function newOrders($phaseId = 0, $len = 4) {
 
         $where = [];
         if(!empty($phaseId)) {

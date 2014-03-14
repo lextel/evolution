@@ -10,25 +10,33 @@ $(function(){
     });
 });
 /**
- *公告交互效果
+ *顶部设置鼠标滑过效果
  */
+$(function(){
+    $(".top-portrait").hover(
+        function(){
+            $(this).children(".head-setting").css({display:"block"})},
+        function(){
+            $(this).children(".head-setting").css({display:"none"})}
 
+    );
+});
 /**
  *返回顶部--侧边浮动快捷栏
  */
 $(function(){
     var w_width=$(window).width();
     var w_height=$(window).height();
-    $(".weiXin").css({right:(w_width-980)/2-150,top:w_height/4});
-    var getRight=(w_width-980)/2-80
+    $(".weiXin").css({right:(w_width-980)/2-142,top:w_height/4});
+    var getRight=(w_width-980)/2-70
     $(".short-cut").show();
     $(".short-cut").css({right:getRight});
     $(window).resize(function(){
         var screenWidth = $(window).width();
         var screenHeight = $(window).height();
-        var getRight=(screenWidth-980)/2-80
+        var getRight=(screenWidth-980)/2-77
         $(".short-cut").css({right:getRight});
-        $(".weiXin").css({right:(screenWidth-980)/2-150,top:screenHeight/4});
+        $(".weiXin").css({right:(screenWidth-980)/2-148,top:screenHeight/4});
     });
     $(".weiXin-img button").click(function(){
         $(this).parents(".weiXin").fadeOut(1000);
@@ -36,6 +44,18 @@ $(function(){
     /*返回顶部*/
     $(".item-gotTop").click(function(){
         $("body,html").animate({scrollTop:0},300)
+    });
+});
+/*关闭按钮*/
+$(function(){
+    $(".show-form .icon-close").click(function(){
+        $(this).parents(".show-form").fadeOut();
+    });
+    $(".num-list .icon-close").click(function(){
+        $(this).parents(".num-list").fadeOut();
+    });
+    $(".address .icon-close").click(function(){
+        $(this).parents(".address").fadeOut();
     });
 });
 /*用户中心折叠效果*/
@@ -82,7 +102,7 @@ $(function(){
         $(".login2").fadeIn("fast");
         $("body").append("<div id='greybackground'></div>");
         var documentheight = $(document).height();
-        $("#greybackground").css({"opacity":"0.5","height":documentheight});
+        $("#greybackground").css({"opacity":"0.5","backgroundColor":"#000000","height":documentheight});
         return false;
     });
     $("#close").click(function() {
@@ -329,7 +349,7 @@ $(function(){
                         html += '</div><div class="price tl">'+data[i].point+ data[i].unit +' x <b class="y">'+data[i].qty+'</b></div>';
                         html += '<a href="javascript:void(0);" class="cartRemove btn-delete" rowId="'+data[i].rowId+'">删除</a></div></li>';
                     }
-                    html += '<div class="btn-group tr"><a href="'+BASE_URL + 'cart/list' + '" class="btn-red  btn">查看购物车</a></div>';
+                    html += '<div class="btn-group tr"><a href="'+BASE_URL + 'cart/list' + '" class="btn-red underway fr btn">查看购物车</a></div>';
                 } else {
                     html = '<li>购物车是空的</li>';
                 }
@@ -549,7 +569,7 @@ function handlePosts(data) {
                     '    <div class="bask-text">'+data.posts[i].desc+'</div>'+
                     '    <dl class="bask-imgBox">' + images + '</dl>'+
                     '    <div class="btn-group sns-bar tl">'+
-                    '        <span class="sns-love">喜欢<s>('+data.posts[i].up+')</s></span'+
+                    '        <span class="sns-love">喜欢<s>('+data.posts[i].up+')</s></span>'+
                     '        <span class="sns-comment">评论<s>('+data.posts[i].count+')</s></span>'+
                     '    </div>'+
                     '    <div class="bask-number">'+'第'+data.posts[i].phase+'期晒单'+'</div>'+

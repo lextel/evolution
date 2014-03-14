@@ -15,13 +15,14 @@ class View_Items_Search extends Viewmodel {
         // 今日热门
         $this->getHots = function() {
 
+            $select = ['title', 'image', 'cost', 'remain', 'joined', 'amount', 'status'];
             $where = [
                 'opentime'  => \Helper\Item::NOT_OPEN, 
                 'is_delete' => \Helper\Item::NOT_DELETE, 
                 'status'    => \Helper\Item::IS_CHECK
                 ];
 
-            $phases = Model_Phase::find('all', ['where' => $where, 'order_by' => ['hots' => 'desc'], 'limit' => 10]);
+            $phases = Model_Phase::find('all', ['select' => $select,'where' => $where, 'order_by' => ['hots' => 'desc'], 'limit' => 10]);
 
             return $phases;
         };

@@ -100,7 +100,7 @@ class View_Items_index extends Viewmodel {
         // 今日热门
         $this->getHots = function() {
 
-            $select = ['title', 'image', 'cost', 'remain', 'joined', 'amount'];
+            $select = ['title', 'image', 'cost', 'remain', 'joined', 'amount', 'status'];
             $where = [
                 'opentime'  => \Helper\Item::NOT_OPEN, 
                 'is_delete' => \Helper\Item::NOT_DELETE, 

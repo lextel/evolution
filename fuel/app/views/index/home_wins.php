@@ -1,4 +1,4 @@
-        <div class="navbar-inner">
+        <div class="home-navbar">
             <ul>
                 <li><?php echo Html::anchor('u/'.$member->id, '主页');?></li>
                 <li><?php echo Html::anchor('u/'.$member->id.'/orders', '乐拍记录');?></li>
@@ -17,14 +17,13 @@
                         </div>
                         <div class="title-box">
                             <h3 class="title-sm"><?php echo Html::anchor('m/'.$item->id, '第('.$item->phase_id.')期 '.$item->title);?></h3>
-                            <span class="price">价值 <b>￥<?php echo $item->amount;?>.00</b></span>
+                            <span class="price">价值：￥<b><?php echo $item->amount;?>.00</b></span>
                             <div class="number">幸运乐拍码：<b class="y"><?php echo $item->code;?></b></div>
                             <div class="datetime">揭晓时间：<?php echo \Helper\Timer::friendlyDate($item->opentime);?></div>
                         </div>
                     </dd>
                     <?php } ?>
                 </dl>
-                <br />
                  <?php echo Pagination::instance('hwins')->render();?>
                  <?php } else { ?>
                  <p> 该用户暂时没任何的中奖记录</p>

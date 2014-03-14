@@ -53,7 +53,7 @@
             ?>
                 <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
                     <div class="title-box">
-                        <h3 class="title-md"><a href="<?php echo Uri::create('/m/'.$topItem->id); ?>"><?php echo $topItem->title; ?></a></h3>
+                        <h3 class="caption"><a href="<?php echo Uri::create('/m/'.$topItem->id); ?>"><?php echo $topItem->title; ?></a></h3>
                         <span class="price tr">价值<b>￥<?php echo sprintf('%.2f', $topItem->cost / Config::get('point')); ?></b></span>
                     </div>
                     <div class="img-box img-lg">
@@ -62,7 +62,7 @@
                     </div>
                     <input name="id" value="<?php echo $topItem->id;?>" type="hidden"/>
                     <input name="qty" value="1" type="hidden"/>
-                    <div class="btn-group tc"><button class="btn btn-red" type="submit">立即乐拍</button></div>
+                    <div class="btn-group tc"><button class="btn btn-red btn-hot" type="submit">立即一元乐淘</button></div>
                 </form>
             <?php
                 }
@@ -93,27 +93,33 @@
                                         <dd>
                                             <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->joined/$item->amount*100)?>%"></div></div>
                                         </dd>
-                                        <!--dd>
-                                            <span class="fl red"><?php echo $item->joined; ?></span>
-                                            <span class="fr blue"><?php echo $item->remain; ?></span>
+                                        <dd>
+                                            <span class="fl"><?php echo $item->joined; ?></span>
+                                            <span class="fr"><?php echo $item->remain; ?></span>
                                         </dd>
                                         <dd>
-                                            <span class="fl">已参与人次</span>
-                                            <span class="fr">剩余人次</span>
-                                        </dd-->
+                                            <span class="fl c9">已参与人次</span>
+                                            <span class="fr c9">剩余人次</span>
+                                        </dd>
                                     </dl>
+                                    <?php if($item->status == \Helper\Item::IS_CHECK): ?>
                                     <div class="btn-menu">
-                                        <span>我要乐拍</span>
+                                        <span class="left">我要乐拍</span>
                                         <a class="add btn-jian" href="javascript:void(0);">-</a>
                                         <input type="text" value="1" name="qty" remain="<?php echo $item->remain; ?>"/>
                                         <a class="add btn-jia" href="javascript:void(0);">+</a>
-                                        <span>人次</span>
+                                        <span class="right">人次</span>
                                     </div>
                                     <div class="btn-group">
                                         <input name="id" value="<?php echo $item->id; ?>" type="hidden">
-                                        <button class="btn btn-red" type="submit" >立即乐拍</button>
-                                        <a class="btn btn-y doCart" href="javascript:void(0);" phaseId="<?php echo $item->id; ?>">加入购物车</a>
+                                        <button class="btn btn-red btn-md" type="submit" >立即一元乐淘</button>
+                                        <a class="btn btn-y btn-md  doCart" href="javascript:void(0);" phaseId="<?php echo $item->id; ?>">加入购物车</a>
                                     </div>
+                                    <?php else: ?>
+                                    <div class="btn-group soon">
+                                        <button class="btn btn-red" onclick="window.location.href='<?php echo Uri::create('/m/'.$item->id); ?>'; return false;">即将开拍</button>
+                                    </div>
+                                    <?php endif;?>
                                 </form>
                             </li>
                             <?php endforeach; ?>
@@ -133,14 +139,18 @@
                         if(isset($hotItems)) {
                         foreach($hotItems as $item) { ?>
                       <li>
-                          <div class="img-box img-md"><a href="<?php echo Uri::create('/m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt=""></a></div>
-                          <h4 class="title-mx"><?php echo $item->title; ?></h4>
-                          <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->cost / Config::get('point')); ?></b></div>
+                          <div class="img-box img-md">
+                            <a href="<?php echo Uri::create('/m/'.$item->id); ?>" rel="nofollow">
+                                <img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt="">
+                             </a>
+                             <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->cost / Config::get('point')); ?></b></div>
+                          </div>
+                          <h4 class="caption"><?php echo $item->title; ?></h4>
                           <div class="btn-group">
                                 <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
                                     <input name="id" value="<?php echo $item->id; ?>" type="hidden">
                                     <input name="qty" value="1" type="hidden">
-                                    <button class="btn btn-red" type="submit">立即乐拍</button>
+                                    <button class="btn btn-red hot-buy" type="submit">立即一元乐淘</button>
                                 </form>
                           </div>
                       </li>

@@ -11,44 +11,48 @@
             <?php
                 if($wins):
                 list($members, $areas) = $getMembersByWin($wins);
-                
+
                 foreach($wins as $win):
                     if($win->member_id):
             ?>
             <li>
+                <div class="item-head">
+                    <h4 class="title-sm fl">
+                       <a href="<?php echo Uri::create('w/'.$win->id); ?>">(第<?php echo $win->phase_id;?>期)<?php echo $win->title; ?></a>
+                    </h4>
+                    <div class="price black fr">价值:<b>￥<?php echo sprintf('%.2f', $win->amount); ?></b>元</div>
+                </div>
                 <div class="item-body">
                     <div class="img-box img-md fl">
                         <a href="<?php echo Uri::create('w/'.$win->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('image/200x200/'.$win->image);?>"></a>
                     </div>
                     <div class="info-side fr">
-                        <div class="head-img fl">
-                            <a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><img src="<?php echo Uri::create($members[$win->member_id]->avatar); ?>"/></a>
-                        </div>
-                        <div class="user-info fl">
-                            <div class="username">获奖者：<a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><?php echo $members[$win->member_id]->nickname; ?></a></div>
-                            <div class="ip">来自：<?php echo $areas[$win->order_id]->area; ?></div>
-                            <div class="number">当前乐拍：<b><?php echo $win->code_count; ?></b>次</div>
+                        <div class="h-info">
+                            <div class="head-img fl">
+                                <a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><img src="<?php echo Uri::create($members[$win->member_id]->avatar); ?>"/></a>
+                            </div>
+                            <div class="user-info fl">
+                                <div class="username">获奖者：<a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><?php echo $members[$win->member_id]->nickname; ?></a></div>
+                                <div class="ip">来自：<?php echo $areas[$win->order_id]->area; ?></div>
+                            </div>
                         </div>
                         <div class="p-info">
-                            <h5 class="title-sm">
-                                <a href="<?php echo Uri::create('w/'.$win->id); ?>">(第<?php echo $win->phase_id;?>期)<?php echo $win->title; ?></a>
-                            </h5>
-                            <div class="price">价值：<b>￥<?php echo sprintf('%.2f', $win->amount); ?></b>元</div>
-                            <div class="datetime">揭晓时间：<?php echo $friendlyDate($win->opentime);?></div>
+                            <div class="number">当前乐拍：<b><?php echo $win->code_count; ?></b>人次</div>
+                            <div class="datetime">揭晓时间：<?php echo date('Y-m-d H:i:s', $win->opentime);?></div>
                         </div>
                     </div>
                 </div>
                 <div class="item-footer">
                     <div class="lucky-code fl">
-                        幸运乐拍码:<b><?php echo $win->code?></b>
+                        <b>幸运乐拍码:</b><s class="r"><?php echo $win->code?></s>
                     </div>
-                    <?php echo Html::anchor('w/'.$win->id, '查看详情', ['class'=>'btn btn-red fr']); ?>
+                    <?php echo Html::anchor('w/'.$win->id, '查看详情', ['class'=>'btn btn-red latest-btn fr']); ?>
                 </div>
             </li>
             <?php
             else:
             ?>
-            <li id="win<?php echo $win->id; ?>">
+            <!--<li id="win<?php echo $win->id; ?>">
                 <div class="item-body">
                     <div class="img-box img-md fl">
                         <a href="<?php echo Uri::create('m/'.$win->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('image/200x200/' .$win->image); ?>"/></a>
@@ -69,6 +73,31 @@
                 <div class="item-footer">
                     <span>即将揭晓，敬请期待...</span>
                 </div>
+            </li>-->
+            <li class="active" id="win<?php echo $win->id; ?>">
+                <div class="item-head">
+                    <h4 class="title-sm fl">
+                        <a href="<?php echo Uri::create('m/'.$win->id); ?>">(第<?php echo $win->phase_id;?>期)<?php echo $win->title; ?></a>
+                    </h4>
+                    <div class="price fr">价值：<b>￥<?php echo sprintf('%.2f', $win->amount); ?></b>元</div>
+                </div>
+                <div class="item-body">
+                    <div class="img-box img-md fl">
+                        <a href="<?php echo Uri::create('m/'.$win->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('image/200x200/' .$win->image); ?>"/></a>
+                    </div>
+                    <div class="info-side fr">
+                        <dl class="countdown" style="min-height: 29px" endtime="<?php echo date('M d, Y H:i:s', $win->opentime);?>" phaseId="<?php echo $win->id;?>">
+                        </dl>
+                        <!--计算中-->
+                    </div>
+                    <div class="counting fr" style="display:none">
+                          正在计算...
+                    </div>
+                    <i class="icon-jxiao"></i>
+                </div>
+                <div class="item-footer">
+                    <p>即将揭晓，敬请期待...</p>
+                </div>
             </li>
             <?php
             endif;
@@ -84,7 +113,7 @@
     <!--右边内容开始-->
     <div class="right-box fr">
         <!--大家正在乐拍内容开始-->
-        <div class="buying-box">
+        <div class="buying-box box2">
             <div class="title"><h3>大家正在乐拍</h3></div>
             <div class="buyListdiv" >
                 <ul class="buyList">
@@ -139,7 +168,7 @@
                             <div class="btn-group">
                                 <input name="qty" value="1" type="hidden"/>
                                 <input name="id" value="<?php echo $hot->id; ?>" type="hidden">
-                                <button type="submit" class="btn btn-red">立即购买</button>
+                                <button type="submit" class="btn btn-red btn-w">立即一元乐淘</button>
                             </div>
                             <div class="top2 <?php echo $i < 4 ? 'one' : '';?>"><?php echo $i; ?></div>
                         </form>

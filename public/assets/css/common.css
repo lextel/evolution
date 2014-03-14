@@ -1,11 +1,11 @@
 ﻿*{margin: 0;padding: 0;list-style: none;text-decoration: none; border: 0;}
 body{
     font:12px/1.231 "微软雅黑","宋体",Helvetica,Arial,sans-serif;
-    color: #333;
-    background: #F1F1F1;
+    color: #212121;
+    background: #f5f7fa;
 }
 .b{
-    color:#379BE9;
+    color:#0093D0;
 }
 .r{
     color: #c10101;
@@ -13,10 +13,27 @@ body{
 .o{
     color: #f60;
 }
+.total{
+    font-size: 14px;
+}
+.total b{
+    color: #c10101;
+}
+.c9{
+    color: #999999;
+}
+.price.black{
+    color: #212121;
+}
+.bx-controls{
+    height: 350px;
+}
 a{
-    color: #333333;
+    color: #212121;
     outline: none;
 }
+a:active{noOutline:expression(this.onFocus=this.blur());}
+
 .w{
     margin: 0 auto;
     overflow: hidden;
@@ -42,8 +59,43 @@ h5{
     line-height: 20px;
     font-weight: normal;
 }
+.datetime{
+    color:#999999;
+}
 h2{
     font-size: 18px;
+}
+h1{
+    font-size: 16px;
+    font-weight: normal;
+}
+.total-money{
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #D2D2D2;
+    border-top: 1px solid #D2D2D2;
+    font-size: 14px;
+    margin: 20px 0;
+ }
+.btn-group.soon{
+    margin: 28px auto 0;
+}
+.btn-group.soon .btn{
+    width: 200px;
+    height: 35px;
+    line-height: 35px;
+}
+.soonState{
+    width: 540px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 24px;
+    text-align: center;
+    border: 1px solid #d2d2d2;
+    background: #f1f1f1;
+}
+.btn-group .btn{
+    margin: 0 2px;
 }
 textarea{
     width: 100%;
@@ -70,13 +122,28 @@ textarea:focus,input:focus{
 .d-n{
     display: none;
 }
+.lead{
+    font-size: 16px;
+    font-weight: bold;
+    height: 24px;
+    line-height: 24px;
+    width: 100%;
+    margin-bottom: 10px;
+}
 /*内容*/
+.bask-wide{
+    overflow: hidden;
+    float: left;
+    width: 73%;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+}
 .content{
     overflow: hidden;
     float: left;
     width: 72%;
     background: #FFFFFF;
-    border: 1px solid #dddddd;
+    border: 1px solid #DDDDDD;
 }
 .content-md{
     line-height: 18px;
@@ -88,8 +155,11 @@ textarea:focus,input:focus{
 .text-content{
     line-height: 18px;
     text-indent: 2em;
-    color: #666666;
+    color: #333;
     text-align: left;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #d2d2d2;
 }
 .text-title{
     text-align: left;
@@ -107,11 +177,17 @@ textarea:focus,input:focus{
 }
 .price{
     display: block;
-    font-size: 12px;
+    color: #828282;
 }
 .price b{
     padding: 0px 5px;
     font-weight: normal;
+}
+.price strong{
+    font-size: 14px;
+    font-weight: normal;
+    color: #1d1d1d;
+;
 }
 .all-price{
     display: block;
@@ -122,23 +198,32 @@ textarea:focus,input:focus{
     padding: 0px 5px;
 }
 .chance{
-    color: #0137ff;
+    height: 19px;
+    line-height: 19px;
+    margin-left: 5px;
+    color: #0093D0;
 }
 .username{
      display: inline-block;
      max-width: 150px;
-     color:#999;
+     color:#333;
      line-height: 18px;
-     font-weight: bold;
      text-align: left;
      overflow: hidden;
      vertical-align: middle;
      white-space: nowrap;
      text-overflow: ellipsis;
-     font-size: 14px;
  }
+.username b{
+    font-weight: normal;
+}
 .username a{
-     color: #0137ff;
+     color: #0093D0;
+}
+.name{
+    font-size: 14px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 .number,.ip,.price,.datetime,.remain{
     line-height:18px;
@@ -154,35 +239,48 @@ textarea:focus,input:focus{
 /*按钮*/
 .btn-comment{
     background: #ffffff;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
 }
 .btn-menu {
+    overflow: hidden;
     margin: 0 10px 10px;
-    text-align: center;
 }
-.btn-menu span{
-    font-size: 14px;
+.btn-menu span.left{
+    display: block;
+    float: left;
+    height: 19px;
+    line-height: 19px;
+    margin-right: 5px;
 }
-.btn-menu  .add{
-    display: inline-block;
-    height: 22px;
-    line-height: 22px;
-    width: 22px;
-    text-align: center;
-    background: #d5d5d5;
+.btn-menu span.right{
+    display: block;
+    float: left;
+    height: 19px;
+    line-height: 19px;
+    margin-left: 5px;
 }
-
-.btn-menu input{
-    width:70px;
-    border: 1px solid #f1f1f1;
+.btn-menu .add{
+    display: block;
+    float: left;
     height: 20px;
-    display: inline-block;
+    line-height: 20px;
+    width: 26px;
+    text-align: center;
+    background: #e5e5e5;
+}
+.btn-menu input{
+    width:82px;
+    border: 1px solid #d2d2d2;
+    height: 18px;
+    display: block;
+    float: left;
     margin:0 -4px;
+    padding: 0;
     text-align: center;
 }
 .btn-menu button{
     width: 22px;
-    border: 1px solid #f1f1f1;
+    border: 1px solid #d2d2d2;
     height: 24px;
     display: inline-block;
     cursor: pointer;
@@ -195,19 +293,23 @@ textarea:focus,input:focus{
 }
 .btn{
     display: inline-block;
-    overflow: visible;
-    padding: 0px 12px;
+    padding: 0px;
     font-size: 14px;
     font-weight: normal;
-    height: 33px;
-    line-height:33px;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    border-radius: 4px;
+    border-radius: 3px;
     text-emphasis:none;
     position: relative;
-    z-index: 50;
+    overflow: visible;
+    zoom: 1;
+    *display: inline;
+}
+.btn-md{
+    width:100px;
+    height: 33px;
+    line-height: 33px;
 }
 .btn-link{
     border: none;
@@ -215,6 +317,38 @@ textarea:focus,input:focus{
     cursor: pointer;
     display: inline-block;
     padding: 4px 6px;
+}
+.btn-hot{
+    width: 130px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 4px;
+}
+.btn-gr{
+    background: #d2d2d2;
+    color:#B92C00 ;
+}
+.btn-gy{
+     background: #f1f1f1;
+    font-size: 12px;
+}
+.btn-rg{
+    width: 140px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    display: block;
+    border-radius: 3px;
+}
+.btn-modal{
+    width: 100px;
+    height: 33px;
+    line-height: 33px;
+}
+.btn-atc{
+    width: 120px;
+    height: 33px;
+    line-height: 33px;
 }
 .btn-red{
     background: #B92C00;
@@ -225,32 +359,64 @@ textarea:focus,input:focus{
 }
 .btn-y{
     color: #bb4c30;
-    background: #EEC891;
+    background: #ffd79c;
 }
 .btn-y:hover{
     background: #eed9ab;
 }
 .btn-sx{
-    height: 22px;
-    line-height: 22px;
-    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
     padding:0px 12px;
 }
 .btn-sm{
     height: 16px;
     line-height: 16px;
-    padding:0px 4px;
+    padding:3px 9px;
     font-size: 12px;
 }
 .btn-lg{
-    padding:8px 15px;
-    font-size: 14px;
+    width: 135px;
+    height: 33px;
+    line-height: 33px;
 }
-.btn-block{
-    display: block;
+.btn-w{
+    width: 115px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    padding: 0;
+}
+.btn-topUp {
+    width: 90px;
+    height: 26px;
+    line-height: 26px;
+    left: 23px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+.edit-data li .btn-cancel{
+    width: 78px;
+    height: 31px;
+    line-height: 31px;
+    text-align: center;
+    padding: 0;
+    border: 1px solid #d2d2d2;
+    margin-left: 20px;
+    background: #e3e3e3;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3px;
 }
 .btn-comment{
     padding: 6px 15px;
+}
+.btn-details{
+    overflow: hidden;
+    margin-top: 20px;
 }
 .signin{
     font-weight: bold;
@@ -292,20 +458,20 @@ textarea:focus,input:focus{
     text-align:center ;
 }
 table{
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
 }
 table thead tr th{
-    border: 1px solid #DDDDDD;
+    border: 1px solid #d2d2d2;
     text-align: center;
     background: #f1f1f1;
     padding: 8px;
     line-height: 1.38462;
 }
 table tbody tr td{
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     text-align: center;
     padding: 8px;
     line-height: 1.38462;
@@ -349,15 +515,15 @@ table td p.tl{
     background:#a40000 url("../images/icon.png") no-repeat 0px -5px;
 }
 .icon-clock{
-    width: 20px;
-    height: 20px;
-    background-position: -44px -7px;
+    width: 18px;
+    height: 18px;
+    background-position: -50px -7px;
 }
 .icon-horn{
-    width: 19px;
+    width: 25px;
     height: 19px;
     vertical-align: middle;
-    background-position: -47px -44px;
+    background-position: -47px -42px;
 }
 .icon-phone{
      width: 22px;
@@ -480,7 +646,7 @@ table td p.tl{
 .img-sm{
     width: 70px;
     height: 70px;
-    line-height: 50px;
+    line-height: 70px;
     overflow: hidden;
 }
 .img-box img{
@@ -494,11 +660,11 @@ table td p.tl{
     height: 50px;
     margin-right: 10px;
     border-radius: 5px;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
 }
 .head-sm{
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     overflow: hidden;
     border-radius: 3px;
 }
@@ -562,6 +728,12 @@ table td p.tl{
     font-size: 12px;
     white-space: nowrap;
 }
+.title-02{
+    width: 120px;
+    line-height: 22px;
+    font-weight: bold;
+    font-size: 12px;
+}
 .title-md{
     width: 210px;
     line-height: 22px;
@@ -615,7 +787,7 @@ table td p.tl{
 .more{
     display: block;
     float: right;
-    color: #379BE9;
+    color: #0093D0;
     font-size: 14px;
 }
 .fl{
@@ -635,26 +807,33 @@ table td p.tl{
 .progress-side dd{
     width: 100%;
     overflow: hidden;
+    margin-bottom: 5px;
+}
+.progress-side li{
+    width: 100%;
+    overflow: hidden;
     margin-bottom: 8px;
 }
+.progress-side li span{
+    line-height: 18px;
+}
+.progress-side dd span{
+    line-height: 18px;
+}
 .progress{
-    height: 15px;
-    border-radius: 4px;
-    background: #f1f1f1;
-    overflow: hidden;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    z-index: 50;
+    width: 100%;
+    height: 10px;
+    background: #e6e6e6;
+    border-radius: 3px;
     position: relative;
+    overflow: hidden;
 }
 .progress .progress-bar{
+    width: 0%;
     height: 100%;
-    line-height: 15px;
-    background: #D9534F;
-    width: 10%;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
-    border-radius: 4px 0 0px 4px;
+    line-height: 10px;
+    background: #ad3824;
+    border-radius:3px;
 }
 .toggles{
     overflow: hidden;
@@ -666,7 +845,7 @@ table td p.tl{
     display:block;
     float: left;
     background: #E74C3C;
-    padding: 8px 10px;
+    padding:5px 10px;
     color: #ffffff;
 }
 .toggles a.first-child{
@@ -685,7 +864,6 @@ table td p.tl{
 /*分页*/
 .pagination{
     overflow: hidden;
-    margin-bottom: 10px;
     clear: both;
 }
 
@@ -693,33 +871,33 @@ table td p.tl{
     float: left;
     margin-right: 10px;
     display: block;
-    background: #f1f1f1;
-    border: 1px #EEEEEE solid;
-    border-radius: 3px;
+    border: 1px #d2d2d2 solid;
     text-align: center;
-    width: 30px;
-    height: 28px;
-    line-height: 28px;
+    width: 26px;
+    height: 26px;
+    background: #fff;
+    line-height: 26px;
 }
 .pagination span a{
     display: block;
 }
 .pagination span a:hover{
-    background: #D9534F;
-    color: #ffffff;
-    border-radius: 3px;
 }
+/*
 .pagination span.active{
     background:#D9534F ;
     color: #ffffff;
 }
+
 .pagination span.active a{
     color: #ffffff;
 }
+*/
 .pagination span.previous-inactive{
     width:60px;
 }
 .pagination span.next{
+    margin-right: 0;
     width:60px;
 }
 .pagination span.previous{
@@ -739,6 +917,12 @@ table td p.tl{
      width: 980px;
      margin: 0 auto;
  }
+.top-menu .collection{
+    width: 65px;
+    padding-left: 20px;
+    background: url("../images/collection.png") no-repeat 0 2px;
+}
+
 .top-menu span.login-bar{
     min-width: 65px;
     float: right;
@@ -748,7 +932,35 @@ table td p.tl{
     margin-left: 20px;
     width: 70px;
 }
-.top-menu span a{
+.top-portrait{
+    display: inline-block;
+    position: relative;
+}
+.head-setting{
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    width: 120px;
+    overflow: hidden;
+    padding-top: 10px;
+    display: none;
+}
+.head-setting li{
+    text-align: center;
+    background: #E5E5E5;
+    border: 1px solid #d2d2d2;
+}
+.head-setting li a{
+     display: block;
+     width: 95px;
+     height: 30px;
+     margin: -1px auto 0;
+     line-height: 30px;
+     text-align: center;
+     border-top:1px solid #d2d2d2;
+ }
+.head-setting li a:hover{
+    color: #cd1212;
 }
 .logo-box{
     width: 980px;
@@ -766,11 +978,12 @@ table td p.tl{
 }
 .right-box .search{
     float: left;
-    margin-top: 44px;
+    margin-top: 47px;
 }
 .search input{
-    width: 220px;
+    width: 288px;
     height: 25px;
+    line-height: 25px;
     border: 2px  solid #af2812;
     border-right: 0;
     display:block;
@@ -795,7 +1008,7 @@ table td p.tl{
     width: 178px;
     height: 28px;
     line-height: 28px;
-    border: 1px solid #F1F1F1;
+    border: 1px solid #d2d2d2;
     margin: 10px 0 10px 0px;
     background:#af2812;
     text-align: center;
@@ -808,12 +1021,12 @@ table td p.tl{
 }
 .shopping-box  .shp-c-h{
     background: #FFFFFF;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     border-bottom: 0;
     z-index: 999;
 }
- .shp-c-h .dropdown-list{
-
+.dropdown-list .img-box{
+    margin-bottom: 0;
 }
  .shp-c-h a.car-t{
     color: #AF2812;
@@ -835,7 +1048,7 @@ table td p.tl{
 }
 .shopping-cart .dropdown-list li{
     padding-bottom: 5px;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #d2d2d2;
     margin-bottom: 5px;
     overflow: hidden;
     position: relative;
@@ -855,9 +1068,8 @@ table td p.tl{
 .shopping-box  .all{
     height: 25px;
     line-height: 25px;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
     padding: 0 10px;
-    background: #d1d1d1;
 }
 .shopping-box  .all b{
     color: #437eff;
@@ -900,58 +1112,62 @@ table td p.tl{
 /*底部开始*/
 .footer-wrapper{
     overflow: hidden;
-    margin-top: 20px;
-    background: #fff;
+    margin-top: 10px;
 }
 .help-bg{
     width: 100%;
-    border-bottom: 2px solid #eeeeee;
-    border-top: 2px solid #eeeeee;
 }
 .footer-help {
     overflow: hidden;
-    padding: 20px 0;
-    background: #FFFFFF;
+    padding: 20px 0 55px;
+    background: #ffffff;
+
 }
 .footer-help dl{
     float: left;
     width: 205px;
     margin-left: 30px;
 }
+.footer-help dl.three{
+    width: 240px;
+}
 .footer-help dl dt{
     text-indent: 10px;
-    border-left: 2px solid #B92C00;
+    border-left: 3px solid #B92C00;
     font-weight: bold;
     font-size: 14px;
 }
 .footer-help dl dd{
-    text-indent: 10px;
-    line-height: 24px;
+    padding:5px 0  5px 15px;
+    font-size: 14px;
 }
+
 .footer{
     text-align: center;
     padding-bottom: 20px;
     background: #FFFFFF;
 }
 .bottom-nav{
-    margin: 0 auto;
-    width: 320px;
+    margin: 0 auto 5px;
+    width: 330px;
     overflow: hidden;
 }
 .bottom-nav li{
     float: left;
-    height: 20px;
-    line-height: 20px;
-    padding: 10px;
+    padding:0px 10px;
     text-align: center;
+    border-right: 1px solid #5b5b5b;
+}
+.bottom-nav li.lastest{
+    border: none;
 }
 .footer p{
     line-height: 18px;
 }
-.footer span{
-    color: red;
+.footer .log{
+    color: #b92c00;
     font-size: 18px;
-    font-weight:bold;
+    margin-top: 30px;
 }
 .kf{
     display: block;
@@ -966,7 +1182,7 @@ table td p.tl{
 .safety{
     overflow: hidden;
     width: 450px;
-    margin: 15px auto 0;
+    margin: 40px auto 0;
 }
 .safety li{
     float: left;
@@ -992,6 +1208,7 @@ table td p.tl{
     z-index: 100;
     background: #FFFFFF;
     padding: 5px;
+    border: 1px solid #d2d2d2;
 }
 .weiXin-img{
     width: 120px;
@@ -1008,14 +1225,21 @@ table td p.tl{
 .icon-close{
     width: 21px;
     height: 21px;
-    display:inline-block;
+    display:block;
     cursor: pointer;
     position: absolute;
     top: 0;
     right: 0px;
     background: url("../images/icon-02.png") no-repeat -117px -0px;
 }
-
+.icon-upward{
+    height: 11px;
+    position: absolute;
+    right: 36px;
+    top: -11px;
+    width: 20px;
+    background: url("../images/icon-02.png") no-repeat scroll -245px -6px rgba(0, 0, 0, 0);
+}
 .short-cut{
     overflow: hidden;
     border: 1px solid #e4e4e4;
@@ -1037,9 +1261,6 @@ table td p.tl{
     position: relative;
     background-position: 0 0;
 }
-.short-cut a.item-cart:hover{
-    background-position: -58px 0;
-}
 .short-cut a.item-cart s{
     display: inline-block;
     width:18px;
@@ -1055,27 +1276,18 @@ table td p.tl{
 .short-cut a.item-qq{
     background-position: -0px -59px;
 }
-.short-cut a.item-qq:hover{
-    background-position: -58px -59px;
-}
 .short-cut a.item-love{
     background-position: -0px -118px;
 }
-.short-cut a.item-love:hover{
-    background-position: -58px -118px;
-}
 .short-cut a.item-gotTop{
     background-position: -0px -177px;
-}
-.short-cut a.item-gotTop:hover{
-    background-position: -58px -177px;
 }
 /*底部结束*/
 /*弹出登录*/
 .login2,.prompt{
     width: 360px;
     overflow: hidden;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     display: none;
     position: absolute;
     z-index: 9999;
@@ -1083,7 +1295,7 @@ table td p.tl{
 }
 .login2 .login2-head,.prompt .prompt-head{
     height: 40px;
-    border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px solid #d2d2d2;
     background: #f1f1f1;
     position: relative;
 }
@@ -1114,7 +1326,7 @@ table td p.tl{
 .login2-body li input{
     height: 36px;
     line-height: 36px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     width: 296px;
     text-indent: 30px;
     display:block;
@@ -1125,7 +1337,7 @@ table td p.tl{
 }
 .register-bar{
     margin-top: 15px;
-    border-top: 1px solid #F1F1F1;
+    border-top: 1px solid #d2d2d2;
     padding:10px 30px;
 }
 .register-bar .register{
@@ -1158,17 +1370,21 @@ table td p.tl{
 }
 .pay-way dl{
     overflow: hidden;
-    border: 1px solid #f1f1f1;
+    border: 1px solid #d2d2d2;
     padding: 0 15px;
     font-size: 14px;
-    margin-bottom: 20px;
 }
 .pay-way dl dt{
     font-weight: bold;
     margin-bottom: 10px;
     padding: 10px 0;
     clear: both;
-    border-bottom: 1px solid #f1f1f1;
+}
+.pay-way .caption{
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: bold;
 }
 .pay-way dl dd{
     float: left;
@@ -1225,11 +1441,16 @@ table td p.tl{
     background-position: 0 -577px;
 }
 .pay-help{
-    margin: 10px 0;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 .pay-help dt{
     margin-bottom: 10px;
     line-height: 24px;
+    height: 24px;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 1px solid #D2D2D2;
 }
 .pay-help dd{
     margin-bottom: 10px;
@@ -1237,15 +1458,28 @@ table td p.tl{
 }
 .pay-help dd a{
     margin-right:30px;
+    color: #0093D0;
 }
 .pay-help dd ol{
     overflow: hidden;
     list-style-type: decimal;
 }
-
+.pay-row{
+    overflow: hidden;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.pay-row label input{
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    margin:0px 10px 0 0;
+    vertical-align: middle;
+}
 .announcement{
     overflow: hidden;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
     padding: 20px;
     background: #ffffff;
 }
@@ -1258,7 +1492,7 @@ table td p.tl{
 }
 .announcement dd{
     overflow: hidden;
-    border-top:1px dashed #EEEEEE ;
+    border-top:1px dashed #d2d2d2;
     padding: 10px 0;
     margin-bottom: 10px;
 }
@@ -1282,20 +1516,23 @@ table td p.tl{
     position: relative;
 }
 .tooltip{
-    padding: 3px 15px;
-    color: #FFFFFF;
+    width: 60px;
+    height: 22px;
+    color: #333;
     display: inline-block;
-    background: #b9270d;
+    text-align: left;
+    color: #333333;
+    background:url("../images/icon-02.png") no-repeat -45px -300px;
 }
 .num-list{
     position: absolute;
-    top:40px;
+    top:18px;
     right: -10px;
     z-index: 999;
     display: none;
 }
 .num-list ul{
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
     background: #ECF0F5;
     padding: 10px;
     max-height: 200px;
@@ -1321,10 +1558,10 @@ table td p.tl{
 .vertical-ticker li{
 		padding:10px 10px;
 		display:block;
-		border-bottom:1px solid #ddd;
+		border-bottom:1px solid #d2d2d2;
 }
 .time-box input{
-    border: 1px solid #F1F1F1;
+    border: 1px solid #d2d2d2;
     height: 20px;
     line-height: 20px;
     margin: 5px 10px 5px 0;
@@ -1337,3 +1574,130 @@ table td p.tl{
     font-size: 12px;
     display: block;
 }
+.help-tool{
+    margin-top: 20px;
+    border-top: 1px solid #d2d2d2;
+    padding: 20px 180px;
+}
+.announced-news .title-br a:hover,
+.buying-box .title-br a:hover,
+.notice li a:hover,
+.footer-help dl dd a:hover,
+.bask-list .title-02 a:hover
+{
+    color: #ce4d40;
+    text-decoration: underline;
+}
+.inner-login{
+    overflow: hidden;
+}
+.inner-login dt{
+    font-weight: bold;
+    font-size: 14px;
+    overflow: hidden;
+    margin: 0 0 10px 50px;
+}
+.inner-login dd{
+    text-align: center;
+    height: 33px;
+    line-height: 33px;
+    margin-bottom: 15px;
+}
+.inner-login dd.last{
+    margin-bottom: 0;
+}
+.inner-login dd input.text{
+    width: 257px;
+    height: 33px;
+    line-height: 33px;
+    margin: 0;
+    padding-left: 33px;
+    border: 1px solid #d2d2d2;
+    background:url("../images/inner-login.png") no-repeat 4px 4px;
+}
+.inner-login dd input.password{
+    width: 257px;
+    height: 33px;
+    line-height: 33px;
+    margin: 0;
+    padding-left: 33px;
+    border: 1px solid #d2d2d2;
+    background:url("../images/inner-pwd.png") no-repeat  4px 4px;
+}
+.inner-login dd .btn-rg{
+    float: left;
+    margin-right: 10px;
+}
+.inner-login dd button{
+    margin-left: 129px;
+}
+.img-wide{
+    overflow: hidden;
+}
+/*帐户管理*/
+.prepaid-box{
+    background: #ffffff;
+    padding: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.prepaid-box .pay-money{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.prepaid-box .pay-money dt{
+    clear: both;
+    height: 24px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.prepaid-box .pay-money dd{
+    float: left;
+    overflow: hidden;
+    margin-right: 30px;
+}
+.prepaid-box .pay-money dd label{
+    display: block;
+    height: 22px;
+    line-height: 22px;
+    border: 1px solid #d2d2d2;
+    background: #f1f1f1;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+.prepaid-box .pay-money dd .else{
+    display: inline-block;
+    line-height: 36px;
+    height:36px;
+}
+.prepaid-box .pay-money dd .else input{
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #d2d2d2;
+    margin: 0 8px;
+    text-indent:1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

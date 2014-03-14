@@ -5,7 +5,7 @@
 .logo-wrapper{
     width: 100%;
     overflow: hidden;
-    background: #F1F1F1;
+    background: #f5f7fa;
     padding-top: 30px;
     margin: 0 auto 20px;
     height: 70px;
@@ -13,19 +13,35 @@
 .logo-wrapper .logo{
     width: 980px;
 }
+.login-bd{
+    width: 920px;
+    padding: 0px 30px 30px;
+    background: #ffffff;
+    overflow: hidden;
+}
+.login-hd{
+    width: 920px;
+    padding:20px 30px 10px;
+    background: #ffffff;
+    overflow: hidden;
+    font-size: 14px;
+}
+.login-hd span{
+    margin: 0 5px;
+}
 .left-side{
     width: 500px;
     height: 310px;
 }
 .login-form{
     width: 300px;
-    height: 310px;
-    border: 1px solid #EEEEEE;
+    min-height: 310px;
+    border: 1px solid #d2d2d2;
     background: #FFFFFF;
 }
 .login-form .loginBar{
     overflow: hidden;
-     margin:20px ;
+     margin:20px 20px 0 ;
  }
 .login-form .title{
     background: #AF2812;
@@ -43,40 +59,94 @@
     padding: 0 0 0 28px;
     height: 35px;
     line-height: 35px;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
     width: 230px;
  }
 .login-form .loginBar li span{
     display: inline-block;
     line-height: 24px;
 }
+.btn-l{
+    width: 125px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 3px;
+    text-align: center;
+    color: #ffffff;
+    background: #af2812;
+}
+.btn-r{
+    width: 125px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 3px;
+    text-align: center;
+    color: #333;
+    display: inline-block;
+    background: #d9d9d9;
+}
 .register-box{
     overflow: hidden;
-    padding: 20px;
-    border-top: 1px solid #dddddd;
+    padding: 15px;
+    border-top: 1px solid #d2d2d2;
+    margin-top: 15px;
 }
 .register-box .signup{
     font-size: 14px;
-    color: #47AFFF;
 }
 .register-box .registered{
     margin-top: 20px;
 }
 /*注册*/
 .register{
-    border: 1px  solid #dddddd;
+    border: 1px  solid #d2d2d2;
     background: #FFFFFF;
 }
 .register .title{
-    border-bottom: 1px  solid #dddddd;
+    border-bottom: 1px  solid #d2d2d2;
     background: #f1f1f1;
 }
-.register .title ul li{
+.crumbs li{
     float: left;
-    line-height: 20px;
-    margin-left: 15px;
+    margin:0 5px;
 }
- .register-form{
+.crumbs li s{
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #606060;
+    border-radius: 50%;
+    padding: 0;
+    display: block;
+    margin: 0 5px;
+    position: relative;
+    overflow: visible;
+    float: left;
+}
+.crumbs li a{
+    display: block;
+    float: left;
+}
+.crumbs li b{
+    height: 20px;
+    line-height: 20px;
+    font-size: 18px;
+}
+.crumbs li.active s{
+    background: #ffffff;
+    border: 1px solid #af2812;
+}
+.crumbs li a{
+    font-size: 14px;
+}
+.crumbs li.active a{
+    color:#af2812 ;
+}
+.link{
+    font-size: 14px;
+}
+.register-form{
     margin: 50px 0 0 100px;
     overflow: hidden;
 }
@@ -92,7 +162,7 @@
      display: inline-block;
  }
 .register-form ul li input{
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     text-indent: 10px;
     height: 26px;
     line-height: 26px;
@@ -109,10 +179,10 @@
 
 }
 .register-help{
-    width: 640px;
+    width: 475px;
     height: 120px;
-    margin: 20px 0 20px 100px;
-    border: 1px solid #EEEEEE;
+    margin: 20px 0 20px 201px;
+    border: 1px solid #D2D2D2;
     padding: 10px;
 }
 .addnickname{
@@ -125,20 +195,19 @@
 }
 /*个人主页*/
 .home-wrap{
-    border: 1px solid #dddddd;
-    width: 780px;
+    width: 805px;
     background: #FFFFFF;
 }
 .left-sidebar{
     width: 160px;
     overflow: hidden;
-    padding: 10px;
     background: #FFFFFF;
-    border: 1px solid #dddddd;
 }
 .left-sidebar .img-box{
     height: 160px;
     line-height: 160px;
+    padding: 10px;
+    margin: 0;
 }
 .left-sidebar .winner{
     width: 160px;
@@ -147,9 +216,20 @@
 }
 .signature{
     background: #ffffff;
-    height: 36px;
+    min-height: 36px;
     line-height: 18px;
     overflow: hidden;
+    font-size: 12px;
+    border: 1px solid #d2d2d2;
+    padding: 5px;
+    margin-top: 5px;
+}
+.signature2{
+    background: #ffffff;
+    max-height: 40px;
+    line-height: 18px;
+    overflow: hidden;
+    font-size: 12px;
 }
 .main{
     width: 780px;
@@ -158,7 +238,7 @@
 .subNav{
     height: 30px;
     overflow: hidden;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
 }
 .subNav li{
     height: 30px;
@@ -167,12 +247,12 @@
     margin-left: -1px;
     line-height: 30px;
     text-align: center;
-    border-left: 1px solid #EEEEEE;
+    border-left: 1px solid #d2d2d2;
     overflow: hidden;
 }
 .home{
     overflow: hidden;
-    padding:10px 20px;
+    padding:0 20px 20px;
 }
 
 .buy-record{
@@ -185,9 +265,9 @@
     overflow: hidden;
 }
 .home-wrap .home-c dl dd{
-    width: 218px;
+    width: 226px;
     padding: 10px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     float: left;
     margin:0 0 15px 15px;
 }
@@ -196,10 +276,20 @@
     height: 200px;
     text-align: center;
 }
+.home-wrap .info-side {
+    width: 81%;
+}
+.home-mu{
+    overflow: hidden;
+    padding:0 10px 10px;
+}
 .home-c{
     overflow: hidden;
     width: 100%;
     margin-bottom: 15px;
+}
+.home-c .title-box{
+    background: none;
 }
 .home-c dl .right-box{
     width: 592px;
@@ -207,12 +297,13 @@
 .home-c .right-box{
     overflow: hidden;
     padding: 10px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
 }
 .home-c dl dd{
     float: left;
     margin-left: 10px;
     margin-bottom: 10px;
+    height: 316px;
 }
 .home-c dl dd .img-box{
     width: 130px;
@@ -225,7 +316,6 @@
 }
 .home-c .bask-menu dd{
     overflow: hidden;
-    border-bottom: 1px solid #EEEEEE;
     padding: 10px 0;
     margin-bottom: 10px;
 }
@@ -239,17 +329,15 @@
 /*个人中心*/
 .left-nav{
     overflow: hidden;
-    margin-top: 10px;
-    border-bottom: 1px #DDDDDD solid;
     background: #f1f1f1;
 }
 .left-nav li{
     line-height: 35px;
-    border: 1px #DDDDDD solid;
     margin-bottom: -1px;
     text-indent: 20px;
     font-size: 14px;
     position: relative;
+    border-bottom: 1px solid #ffffff;
 }
 .icon-arrow{
     width: 22px;
@@ -264,6 +352,8 @@
 }
 .left-nav li a{
     display: block;
+    color: #af2812;
+    font-weight: bold;
 }
 .dropdown-menu{
     background: #ffffff;
@@ -277,20 +367,27 @@
     line-height: 30px;
     font-size: 12px;
 }
+.dropdown-menu li a{
+    font-size: 14px;
+    font-weight: normal;
+    color: #333333;
+}
+.dropdown-menu li a.active{
+    color: #af2812;
+}
 .center-main {
-    min-width: 540px;
+    width: 765px;
     overflow: hidden;
-    margin: 0 10px;
-    border: 1px solid #EEEEEE;
+    margin-left: 10px;
+    border: 1px solid #d2d2d2;
     background: #FFFFFF;
-    min-height: 400px;
+    min-height: 450px;
+    padding: 20px;
 }
 .center-main .center-info{
     width: 520px;
     overflow: hidden;
-    padding: 10px;
-    border-bottom: 1px solid #DDDDDD;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 .center-main .center-info li{
     width: 100%;
@@ -303,13 +400,12 @@
     height: 25px;
     line-height: 25px;
     text-align: center;
-    border: 1px solid #DDDDDD;
+    border: 1px solid #d2d2d2;
     border-radius: 3px;
     margin-left: 20px;
 }
 
 .buy-menu {
-    padding:0 15px;
     overflow: hidden;
 }
 .buy-menu li{
@@ -319,31 +415,43 @@
 }
 .buy-menu li.right-box{
     overflow: hidden;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    margin-left:50px;
-}
-.buy-menu .right-box{
-    width: 440px;
+    padding: 10px;
+    margin-left:125px;
     position: relative;
+    border: 1px solid #d2d2d2;
 }
 .home-wrap .buy-menu li{
     width: 600px;
     overflow: hidden;
     margin:15px 0 15px 60px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     padding: 10px;
 }
-.buy-menu dd{
+.buy-menu dt{
     min-height: 30px;
     line-height: 30px;
+    width: 150px;
+}
+.buy-menu dd.right-box {
+    padding:10px;
+    margin:0px 0 10px  160px ;
     overflow: hidden;
+    border: 1px solid #d2d2d2;
 }
-.buy-menu dd.right-box{
-    margin-left: 80px;
+.buy-menu dd .img-box  {
+    margin-bottom: 0;
 }
-.home-wrap .buy-menu .right-box .buy-record{
-    width: 60%;
+.buy-menu li .img-box  {
+    margin-bottom: 0;
+}
+.buy-menu li.right-box .buy-record{
+    width: 77%;
+}
+.buy-menu li.right-box .buy-record .progress-side{
+    padding: 0;
+}
+.buy-menu dd.right-box .buy-record{
+    width: 75%;
 }
 .bask-menu{
    overflow: hidden;
@@ -351,20 +459,17 @@
 }
 .bask-menu dd{
     overflow: hidden;
-    padding: 10px;
     margin-bottom: 10px;
-    border-bottom: 1px dashed #dddddd;
 }
 .bask-menu dd .info-side{
     margin-left:20px;
 }
 .icon-jx{
-    width:42px ;
-    height: 42px;
+    width:50px ;
+    height: 50px;
     text-align: center;
-    line-height: 42px;
-    color: #ffffff;
-    background: url("../images/icon-02.png") no-repeat -254px -325px;
+    line-height: 50px;
+    background: url("../images/icon-02.png") no-repeat -250px -318px;
     position: absolute;
     top: 0px;
     right: 0px;
@@ -373,12 +478,39 @@
     padding: 5px 0;
 }
 .content-inner{
-    width: 750px;
+    width: 763px;
     float: right;
     overflow: hidden;
-    padding:20px 20px 10px;
-    border: 1px solid #dddddd;
+    padding:15px 20px 10px;
+    border: 1px solid #d2d2d2;
     background: #FFFFFF;
+}
+.content-inner .pagination {
+    margin-top: 20px;
+}
+
+.home-navbar{
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.home-navbar ul li{
+    width: 200px;
+    float: left;
+    font-size: 14px;
+    border-right: 1px solid white;
+    height: 28px;
+    line-height: 28px;
+    cursor: pointer;
+    text-align: center;
+    background: #EEE;
+}
+.home-navbar ul li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.home-navbar ul li.active{
+    background: #ffffff;
 }
 /*获得的商品*/
 .acquire-box,.record-box,show-box,.message-box{
@@ -387,13 +519,9 @@
 .record,.already-show{
     overflow: hidden;
 }
-.record table,.already-show table{
-    margin-bottom: 20px;
-}
 .remind{
     height: 28px;
     background: #f1f1f1;
-    border: 1px solid #dddddd;
     line-height: 28px;
     text-indent: 15px;
 }
@@ -403,26 +531,48 @@
     line-height: 33px;
     font-size: 14px;
 }
-.select-box label,.select .select-title{
+.select-box label{
     background: #EEEEEE;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    margin-right: 10px;
+    color: #004eff;
+}
+.select .select-title{
     display: inline-block;
     width: 100px;
     text-align: center;
     margin-right: 10px;
 }
 .time-choose{
-    height:33px;
-    line-height: 33px;
+    height:30px;
+    vertical-align: middle;
     display: inline-block;
+    zoom:1;
+    *display:inline;
+}
+
+.history-content .time-choose{
+    display: block;
+}
+.time-choose li{
+    height: 33px;
+    line-height: 33px;
+    overflow: hidden;
+    float: left;
+}
+.time-choose li .hasDatepicker{
+    margin: 0px 10px 0px 0;
 }
 .time-choose select{
     width:120px ;
     height: 31px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
 }
 .select input,.select button{
     height: 31px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     display: inline-block;
     line-height: 31px;
 }
@@ -439,8 +589,11 @@
     cursor: pointer;
 }
 .show-form,.not-form{
-    overflow: hidden;
     margin-top: 20px;
+    border: 1px solid #d2d2d2;
+    padding: 10px 0 0 0;
+    width: 746px;
+    position: relative;
 }
 .show-form li{
     margin:0 10px 10px 20px;
@@ -460,12 +613,12 @@
 .show-form li input{
     width:350px;
     height: 28px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     text-indent: 10px;
     margin: 0 10px;
 }
 .show-form li textarea{
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     text-indent: 10px;
     margin: 0 10px;
     width: 500px;
@@ -501,7 +654,7 @@
     float: left;
     width: 70px;
     height: 70px;
-    border:4px solid #dddddd;
+    border:4px solid #d2d2d2;
     background: url("../images/bg.png") no-repeat -138px -650px;
 }
 .add-images:hover{
@@ -540,104 +693,62 @@
     margin-bottom: 10px;
 }
 .btn-pay{
-    height: 30px;
-    line-height: 30px;
-    width: 60px;
+    height: 25px;
+    line-height: 25px;
+    width: 80px;
     text-align: center;
-    background:#D96D66 ;
+    background:#af2812 ;
     border-radius: 3px;
     color: #ffffff;
     display: inline-block;
     text-indent: 0;
     margin:0 10px;
 }
+.btn-pay:hover{
+    background:#D96D66 ;
+}
 .balance {
-    display: inline-block;
-}
-.balance  b{
-    color: #f60;
-    font-size: 13px;
-}
-/*帐户管理*/
-.prepaid-box{
-    overflow: hidden;
-}
-.prepaid-box .pay-money{
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-.prepaid-box .pay-money dt{
-    clear: both;
-    height: 24px;
-    line-height: 24px;
-    margin-bottom: 10px;
-}
-.prepaid-box .pay-money dd{
-    float: left;
-    overflow: hidden;
-    margin-right: 30px;
-}
-.prepaid-box .pay-money dd label{
-    display: inline-block;
-    line-height: 24px;
-    border: 1px solid #EEEEEE;
-    background: #f1f1f1;
-    padding: 5px 15px;
-    cursor: pointer;
-}
-.prepaid-box .pay-money dd .else{
-    display: inline-block;
-    line-height: 36px;
-    height:36px;
-}
-.prepaid-box .pay-money dd .else input{
-    width: 90px;
-    height: 30px;
-    border: 1px solid #EEEEEE;
-    margin: 0 8px;
-    text-indent:1em;
+    font-size: 14px;
 }
 /*个人设置*/
 .set-wrap{
-    width: 780px;
+    width: 765px;
     overflow: hidden;
     border: 1px solid #EEEEEE;
     border-top:none;
     float: right;
     background: #FFFFFF;
-    min-height: 400px;
+    min-height: 450px;
+    padding:15px 20px;
 }
 .navbar-inner{
     overflow: hidden;
     margin-bottom: 15px;
-    border-top: 3px solid #D96D66;
 }
 .navbar-inner ul li{
-    width: 195px;
+    width: 190px;
     float: left;
     font-size: 14px;
-    border: 1px solid #DEDEDE;
-    height: 33px;
-    line-height: 33px;
+    border-right: 1px solid #ffffff;
+    height: 28px;
+    line-height: 28px;
     cursor: pointer;
     text-align: center;
-    background: #f1f1f1;
-    margin:0 -1px;
+    background: #eeeeee;
 }
-.navbar-inner ul li.active{
-    background: #ffffff;
-    border-bottom: none;
+.navbar-inner ul li.active a{
+    color: #af2812;
 }
-
 .navbar-inner ul li a{
     display:block;
 }
 /*表单*/
 .edit-data{
-    padding:10px 20px;
+    padding:15px 20px;
     overflow: hidden;
 }
 .edit-data li{
+    overflow: hidden;
     margin-bottom: 15px;
     position: relative;
 }
@@ -654,7 +765,7 @@
     display: inline-block;
     width: 230px;
     font-size: 14px;
-    border: 1px solid #f1f1f1;
+    border: 1px solid #d2d2d2;
     padding: 8px;
 }
 
@@ -669,7 +780,7 @@
     vertical-align: top;
 }
 .edit-data li textarea{
-    border: 1px solid #f1f1f1;
+    border: 1px solid #d2d2d2;
     padding: 5px;
     width: 428px;
     display: inline-block;
@@ -678,7 +789,7 @@
     display: inline-block;
     width: 110px;
     font-size: 14px;
-    border: 1px solid #f1f1f1;
+    border: 1px solid #d2d2d2;
     padding:5px;
 }
 .edit-data li b{
@@ -693,7 +804,7 @@
     font-size: 14px;
 }
 .edit-data li .upload-photo{
-    border: 1px solid #f1f1f1;
+    border: 1px solid #d2d2d2;
     width:300px ;
     height: 300px;
     margin-left: 120px;
@@ -720,6 +831,26 @@
 .edit-data li .file-img input{
     cursor: pointer;
     opacity: 0;
+}
+.address{
+    border: 1px solid #d2d2d2;
+    margin-top:20px;
+    width: 705px;
+    padding: 10px;
+    position: relative;
+}
+.address .icon-upward{
+    position: absolute;
+    left: 40px;
+}
+.address li input.btn,.address li input.btn-cancel{
+    float: left;
+    display: block;
+}
+.address li h4{
+    font-weight: bold;
+    color: #333333;
+    font-size: 14px;
 }
 .show-form li .file-img{
     width: 159px;
@@ -788,7 +919,7 @@
     width: 332px;
     float: left;
     height: 82px;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #d2d2d2;
     border-right: none;
     margin-right: -1px;
     padding: 10px;
@@ -814,7 +945,7 @@
     overflow: hidden;
     margin-bottom: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px dashed #ddd;
+    border-bottom: 1px dashed #d2d2d2;
 }
 .before li .head-img{
     width: 60px;
@@ -850,7 +981,7 @@
     height: 34px;
     padding: 5px;
     line-height: 40px;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
 }
 
 .comment-footer .btn{
@@ -870,11 +1001,11 @@
 .comment-list{
     overflow: hidden;
     margin-top: 15px;
-    width: 700px;
+    width: 716px;
 }
 .comment-list dt{
     height:36px;
-    border-bottom:1px solid #ddd;
+    border-bottom:1px solid #d2d2d2;
     margin-bottom: 15px;
 }
 .comment-list dt h4{
@@ -888,18 +1019,20 @@
 .comment-list dd{
     overflow: hidden;
     margin-bottom: 10px;
-    border-bottom:1px dashed #ddd;
+    border-bottom:1px dashed #d2d2d2;
     padding-bottom: 10px;
 }
 .comment-list .info-side{
     width: 90%;
 }
 .comment-box {
-    width: 708px;
+    width: 718px;
     overflow: hidden;
 }
 .comment-box textarea{
-   width: 706px;
+    display: block;
+    border: 1px solid #d2d2d2;
+    width: 716px;
 }
 .comment-text{
     font-size: 14px;
@@ -912,10 +1045,10 @@
     width: 180px;
     overflow: hidden;
     background: white;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
 }
 .help-side h2{
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #d2d2d2;
     text-align: center;
     background: #af2812;
     color: #FFFFFF;
@@ -926,7 +1059,6 @@
 }
 .help-center dt{
     text-align: center;
-    border-bottom: 1px solid #dddddd;
     background: #f1f1f1;
     height: 33px;
     color: #af2812;
@@ -935,7 +1067,6 @@
 }
 .help-center dd{
     text-align: right;
-    border-bottom: 1px solid #dddddd;
     text-indent: 20px;
     height: 33px;
     padding-right: 60px;
@@ -955,7 +1086,7 @@
     width: 745px;
     float: right;
     overflow: hidden;
-    border: 1px solid #dddddd;
+    border: 1px solid #d2d2d2;
     padding:0 20px 15px;
     background: #FFFFFF;
 }
@@ -964,7 +1095,7 @@
     font-weight: bold;
     height: 36px;
     line-height: 36px;
-    border-bottom: 2px  solid #af2812;
+    border-bottom: 1px  solid #D2D2D2;
     margin-bottom: 20px;
 }
 .help-content{
@@ -981,11 +1112,11 @@
 .history .title{
     padding: 6px;
     font-size: 16px;
-    border-bottom: 1px solid#EEEEEE;
+    border-bottom: 1px solid #d2d2d2;
     margin-bottom: 10px;
 }
 .history-content{
-    padding: 10px;
+    padding:0 10px 10px;
     background: #fff;
     overflow: hidden;
 }

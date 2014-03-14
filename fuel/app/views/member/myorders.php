@@ -2,15 +2,16 @@
 <?php echo Asset::js(['jquery-ui.js', 'member/index.js']); ?>
 <div class="content-inner">
         <!--乐拍记录开始-->
+        <div class="lead">乐拍记录</div>
         <div class="record-box">
             <div class="remind ">乐拍提醒：
                 <?php $ordercount = $countOrder($myorders);?>
-                <span>即将揭晓商品（<b><?php echo $ordercount['winstart']; ?></b>）件</span>
-                <span>进行中的商品（<b><?php echo $ordercount['buy']; ?></b>)件</span>
-                <span>揭晓的商品（<b><?php echo $ordercount['winok']; ?></b>）件</span>
+                <span>即将揭晓商品（<s class="r"><?php echo $ordercount['winstart']; ?></s>）件</span>
+                <span>进行中的商品（<s class="r"><?php echo $ordercount['buy']; ?></s>）件</span>
+                <span>揭晓的商品（<s class="r"><?php echo $ordercount['winok']; ?></s>）件</span>
             </div>
             <div class="select-box">
-                <label for="">全部商品</label>
+                <label for=""><?php echo Html::anchor('/u/orders', '全部商品', ['class'=>'b']);?></label>
             <span class="time-choose">选择时间段：
                  <input  id="datepicker" type="text" placeholder="输入起始时间"/>
                  <input  id="datepicker1" type="text" placeholder="输入结束时间" />
@@ -48,8 +49,8 @@
                         <td>
                             <div class="title-lg">（第<?php echo $phase->phase_id;?>期）<?php echo $phase->title;?></div>
                             <?php if ($getPhaseInfo($order->phase_id)->member_id !=0) {?>
-                            <div class="username">获得者：<?php echo $getUser($phase->member_id)->nickname;?></div>
-                            <div class="number">幸运乐拍码：<?php echo $phase->code;?></div>
+                            <div class="username">获得者：<span class="b"><?php echo $getUser($phase->member_id)->nickname;?></span></div>
+                            <div class="number">幸运乐拍码：<span class="r"><?php echo $phase->code;?></span></div>
                             <div class="datetime">揭晓时间：<?php echo Date("Y-m-d H:i:s", $phase->opentime);?></div>
                             <?php }else{ ?>
                             
@@ -58,8 +59,7 @@
                         <td><?php echo ($phase->member_id !=0) ? "已经揭晓": "进行中";?></td>
                         <td><?php echo $order->code_count;?>人次</td>
                         <td><div class="toolbox">
-                           <a class="tooltip" href="javascript:void(0)">查看</a>
-                        
+                           <a class="tooltip" href="javascript:void(0)">乐拍码</a>
                            <div class="num-list">
                                 <div class="icon-arrow"></div>
                                 <ul>
@@ -70,6 +70,7 @@
                                         }
                                      ?>
                                  </ul>
+                                 <button class="icon-close"></button>
                             </div>
                         </div>
                             </td>

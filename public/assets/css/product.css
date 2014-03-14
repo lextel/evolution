@@ -18,13 +18,12 @@
 }
 
 .state-heading {
-    border: 1px solid #EEEEEE;
+    border: 1px solid #EEE;
     padding: 8px 10px;
     overflow: hidden;
-    line-height: 23px;
-    margin-bottom: 10px;
+    line-height: 15px;
     font-size: 14px;
-    background:url("../images/bg.png") no-repeat -2px -181px;
+    background: url("../images/bg.png") no-repeat -5px -183px;
 }
 .state-heading .blue{
     color: #af2812;
@@ -45,8 +44,6 @@
     overflow: hidden;
     border: 1px solid #EEEEEE;
     padding: 0 10px 10px 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
     background: #FFFFFF;
     position: relative;
 }
@@ -60,7 +57,8 @@
     font-weight: bold;
 }
 .panel{
-    margin-bottom: 20px;
+    overflow: hidden;
+    margin:0 auto 10px;
 }
 .result-box .right-box {
     overflow: hidden;
@@ -77,15 +75,18 @@
     margin: 10px 0;
 }
 
-.right-box .result-info {
+.right-box result-info {
     border: 1px solid #EEEEEE;
     padding: 10px;
     overflow: hidden;
 }
+.result-info .row{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
 .win-number {
     width: 426px;
-    height: 100px;
-    clear: both;
+    height: 147px;
     border: 1px solid #EEEEEE;
 }
 .win-number .left{
@@ -93,12 +94,13 @@
     height: 60px;
     float: left;
     padding: 10px;
+    margin-top: 5px;
 }
 .win-number dl{
     float: right;
     width: 305px;
     overflow: auto;
-    height: 80px;
+    height: 115px;
     padding: 10px;
 }
 .win-number dl dd{
@@ -182,12 +184,13 @@
 }
 .product-nav .header{
     width:81px;
-    height: 49px;
-    line-height: 48px;
+    height: 47px;
+    line-height: 47px;
     text-align: center;
     font-size: 14px;
     font-weight: bold;
     color: #000000;
+    border-top: 1px solid #d2d2d2;
     background: url("../images/bg.png") no-repeat -9px -542px;
 }
 .product-nav li{
@@ -205,6 +208,8 @@
 .product-nav li.active{
     background: #FFFFFF;
     margin-right: -1px;
+    border-left: 1px solid #d2d2d2;
+    border-bottom:1px solid #d2d2d2 ;
 }
 .product-nav li.active a{
     color:#af2812 ;
@@ -219,6 +224,7 @@
     padding: 10px;
     background: #FFFFFF;
     border: 1px solid #d2d2d2;
+    border-left: none;
 }
 .sub-menu  dl dt{
     line-height: 26px;
@@ -228,11 +234,12 @@
     line-height: 26px;
 }
 .sub_banner{
-    width: 435px;
-    height: 337px;
+    width: 442px;
+    height: 340px;
     border: 1px solid #EEEEEE;
-    margin-left: 15px;
+    margin-left: 10px;
     text-align: center;
+    overflow: hidden;
 }
 .sub_banner img{
     max-width: 100%;
@@ -276,7 +283,7 @@
     width:119px;
     color: #FFFFFF;
     font-size: 14px;
-    top: -4px;
+    top: -10px;
     left: -19px;
 }
 .sheng-yi2 b{
@@ -285,10 +292,9 @@
 }
 .list_sort{
     overflow: hidden;
-    border: 1px solid #dddddd;
     margin-bottom: 10px;
     background: #FFFFFF;
-    padding: 5px;
+    padding: 6px;
 }
 .list_sort label{
     display:block;
@@ -313,18 +319,18 @@
 .list_sort a:hover{
     border: 1px solid #AF2812;
 }
-.product-list {
-    overflow: hidden;
-    margin-top: 10px;
-    background: #FFFFFF;
+.list_sort a.active{
+    border: 1px solid #AF2812;
 }
 .product-list{
     overflow: hidden;
     padding: 10px;
+    background: #ffffff;
     margin-right: -10px;
 }
 .product-list .price{
     text-align: right;
+    font-size: 12px;
 }
 .product-list li{
     float: left;
@@ -334,19 +340,27 @@
     margin:0 10px 10px 0;
     border: 1px solid #EEEEEE;
 }
+.product-list .pagination {
+    margin-right: 10px;
+}
 /*今日热门*/
 .date-hot {
-    width: 978px;
-    border: 1px solid #EEEEEE;
-    margin-top: 20px;
+    width:980px;
+    margin-top: 10px;
     background: #FFFFFF;
 }
-.date-hot .title{
+.date-hot  .title{
+    font-size: 18px;
+}
+.hot-buy{
+    width: 100px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
 }
 .date-hot ul {
     overflow: hidden;
     padding: 10px 15px 10px 0px;
-
 }
 .date-hot ul li{
     float: left;
@@ -356,6 +370,7 @@
 }
 .date-hot ul li .img-box{
     border: 1px solid #d2d2d2;
+    position: relative;
 }
 .date-hot ul li h5{
     width: 127px;
@@ -366,18 +381,29 @@
 }
 
 .date-hot ul li .price{
+    overflow: hidden;
     position: absolute;
-    right: 24px;
-    bottom: 66px;
-    width: 120px;
+    right:0px;
+    bottom: 0px;
+    width: 105px;
     color: #FFFFFF;
     text-align: center;
     height: 24px;
+    font-size: 12px;
     line-height: 24px;
     background: black;
     opacity: 0.6;
     filter: Alpha(opacity=60)
 }
+.date-hot ul li .caption{
+    font-weight: normal;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+    line-height: 22px;
+    height: 44px;
+}
+
 /*购物车列表*/
 .pay-prompt{
     overflow: hidden;
@@ -398,9 +424,9 @@
     float: left;
 }
 .pay-prompt li span{
-    width: 18px;
-    height: 18px;
-    line-height: 18px;
+    width: 19px;
+    height: 19px;
+    line-height: 19px;
     text-align: center;
     display: block;
     float: left;
@@ -409,7 +435,7 @@
 }
 .pay-prompt li.active span{
     color: #AF2812;
-    background: url("../images/icon-02.png") no-repeat -135px -337px;
+    background: url("../images/icon-02.png") no-repeat -134px -336px;
 }
 .pay-prompt li.active a{
     color: #AF2812;
@@ -443,6 +469,22 @@
     overflow: hidden;
     margin-top: 40px;
 }
+.unveiled .title{
+    background: url("../images/bg.png") repeat-x -9px -366px;
+}
+.unveiled .caption{
+    padding: 10px;
+    font-size: 14px;
+    color: #C10101;
+    background: #ffffff;
+}
+.unveiled .img-lg img{
+    width: 200px;
+    height: 200px;
+    margin:20px auto 15px;
+    border:1px solid #D2D2D2;
+}
+
 .unveiled ul {
     margin-right: -10px;
     overflow: hidden;
@@ -494,58 +536,58 @@
 }
 /*商品详情*/
 /*幻灯片开始*/
-.panel .img-side {
-    width: 402px;
+.results-img{
+    width: 410px;
+    height: 410px;
+    background: #ffffff;
+    position: relative;
+}
+.results-img img{
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 .lantern-slide{
-    margin-bottom: 15px;
+    overflow: hidden;
     border: 1px solid #EEEEEE;
+    background: #ffffff;
 }
 .lantern-slide .slide-img{
-    width:400px ;
-    height:400px ;
+    width:376px;
+    height:376px;
+    margin: 10px;
+    border: 1px solid #EEEEEE;
     text-align: center;
 }
 .lantern-slide .slide-img a img{
+    width:376px;
+    height:376px;
     height: auto;
+    overflow: hidden;
     vertical-align: middle;
 }
 .slide-list{
     overflow: hidden;
-    background: #1e1e1e;
-    padding: 5px 0;
+    background: #ffffff;
+    padding: 0 10px 10px 10px;
 }
 .slide-list li{
-    width: 74px;
-    height: 74px;
-    line-height: 67px;
+    width: 65px;
+    height: 65px;
     text-align: center;
-    position: relative;
-    margin-left: 5px;
+    margin-right: 10px;
     float: left;
+    border: 1px solid #DBDBDB;
+    overflow: hidden;
+}
+.slide-list li:last-child{
+    margin-right: 0px;
 }
 .slide-list li a {
    display: block;
-}
-.slide-list li a span{
-    width: 74px;
-    height:74px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #000000;
-    opacity: 0.5;
-    filter: Alpha(opacity=50)
-    display: block;
-    cursor: pointer;
-}
-.slide-list li a.zoomThumbActive span{
-    width: 68px;
-    height: 68px;
-    border: 3px solid #D9534F;
-    background:none;
-    opacity: 1;
-    filter: Alpha(opacity=100)
 }
 .slide-list li img{
     height: auto;
@@ -554,9 +596,12 @@
 }
 /*幻灯片结束*/
 .product-column {
-    width: 558px;
+    width: 570px;
     overflow: hidden;
-    background: #FFFFFF;
+}
+.middle{
+    overflow: hidden;
+   background: #ffffff;
 }
 .product-column .price{
     margin: 10px;
@@ -570,7 +615,7 @@
 }
 .product-column .btn-group{
     text-align: left;
-    margin-left: 74px;
+    margin-left: 70px;
 }
 .security-list{
     overflow: hidden;
@@ -590,7 +635,7 @@
     color: #af2812;
 }
 .sell-out{
-    height: 60px;
+    height: 118px;
     background: #FFFDE8;
     border: 1px solid #FFE4C2;
     display: none;
@@ -599,35 +644,36 @@
     text-align: center;
     font-size: 18px;
     color: #f60;
-    height: 60px;
-    line-height: 60px;
+    height: 118px;
+    line-height: 118px;
 }
 .new-buyer{
-    height: 222px;
+    min-height: 214px;
     overflow: hidden;
-    border: 1px solid #DDDDDD;
-    border-right: none;
+    margin-top: 10px;
+    background: #ffffff;
 }
 .new-buyer-header{
     overflow: hidden;
 }
 .new-buyer .new-buyer-header ul li{
-    width: 185px;
+    width: 190px;
     height: 34px;
     text-align: center;
     float: left;
     line-height: 33px;
     background: #f1f1f1;
-    border-bottom:1px solid #DDDDDD;
-    border-right:1px solid #DDDDDD;
 }
 .new-buyer .new-buyer-header ul li a{
     display: block;
     width: 100%;
     height: 100%;
 }
+.new-buyer-body .edit-data li .btn{
+    float: left;
+}
 .new-buyer .new-buyer-header ul li.active{
-    width: 184px;
+    width: 190px;
     background: #FFFFFF;
     border-bottom: none;
 }
@@ -635,10 +681,9 @@
     color: #333333;
 }
 .new-buyer  .new-buyer-body{
-    border-right: 1px solid #EEEEEE;
     overflow: hidden;
     padding: 10px;
-    height: 166px;
+    max-height: 210px;
 }
 .new-buyer  .new-buyer-body div.active{
     display: block;
@@ -655,59 +700,70 @@
 }
 .new-buyer  .new-buyer-body  p{
     line-height: 24px;
-    color: #666666;
-    font-size: 14px;
+    font-size: 13px;
 }
 .new-buyer  .new-buyer-body .link{
-    color: #5BC5FF;
-    font-size: 14px;
-    text-decoration: underline;
+    color: #0093D0;
+    font-size: 13px;
 }
 .previous-box{
+    width: 377px;
     overflow: hidden;
     padding:0 10px 10px;
     border: 1px solid #dddddd;
     background:#FFFFFF;
+    margin-top: 10px;
 }
+.previous-box .title{
+    margin-left:-10px;
+}
+
 .product-details{
     padding: 20px;
     border: 1px solid #ddd;
-    border-top: 0;
+}
+.pin-wrapper{
+    width: 980px;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 .sub-nav {
     overflow: hidden;
     background: #ffffff;
     z-index: 999;
+    width: 978px;
+    border: 1px solid #d2d2d2;
 }
-
 .sub-nav ul {
-    border: 1px solid #ddd;
     overflow: hidden;
 }
-
 .sub-nav ul li {
     text-align: center;
     float: left;
-    height: 38px;
-    line-height: 38px;
-    background: #F1F1F1;
 }
 .sub-nav ul li .active{
-    background: #D9534F;
+    color: #af2812;
 }
 .sub-nav ul li a{
     min-width: 40px;
     display: block;
+    margin: 10px 0;
     padding: 0 20px;
     font-size: 14px;
-    border-right: 1px  solid #dddddd;
+    border-right:1px  solid #dddddd;
 }
 .sub-nav li a.active{
-    background: #ffffff;
-    margin-bottom: -1px;
-    border-top:3px solid #D9534F;
+    color: #af2812;
 }
-.bd{
+.online-qq{
+    width: 80px;
+    padding: 8px;
+}
+.online-qq a{
+    font-size: 14px;
+}
+.tab-content{
+    overflow: hidden;
     background: #FFFFFF;
 }
 /*商品详情--晒单*/
@@ -731,11 +787,25 @@
     width:86%;
     overflow: hidden;
 }
+.product-bask ul li .bask-list .text-title a{
+    font-size: 14px;
+}
+.product-bask .head-img{
+    width: 100px;
+    height:100px;
+    margin-bottom: 10px;
+}
+.product-bask .username{
+    font-size: 14px;
+    text-align: center;
+    width: 100px;
+}
 .bask-list .bask-text{
     line-height: 22px;
     overflow: hidden;
     width: auto;
     height: 45px;
+    font-size: 14px;
 }
 .bask-list .bask-imgBox{
     overflow: hidden;
@@ -746,22 +816,31 @@
     width: 130px;
     height: 130px;
     line-height: 130px;
+    margin-top: 10px;
     margin-right: 10px;
 }
 .bask-number{
     position: absolute;
     top: 0;
     right: 0;
-    padding: 5px 10px;
+    width: 115px;
+    height: 31px;
+    line-height: 31px;
+    text-align: center;
     border: 1px solid #EEEEEE;
     background:#AF2812;
+    font-size: 14px;
     color: #FFFFFF;
+}
+.bask-list h4 a{
+    font-size: 16px;
+    font-weight: bold;
+    color: #161616;
 }
 /*所有参与记录*/
 .record,.look-bak{
     overflow: hidden;
-    padding: 20px 20px 0;
-    border: 1px solid #EEEEEE;
+    padding: 10px 10px 0;
     border-top: none;
 }
 .record table,.look-bak table{
@@ -790,32 +869,58 @@
 /*最新揭晓*/
 .latest-wrap .left-content{
     float: left;
-    width:74%;
+    width:72.3%;
     overflow: hidden;
-    background: #FFFFFF;
 }
 .left-content .item-group{
     overflow: hidden;
-    padding-left: 15px;
     margin-bottom: 10px;
 }
-
+.latest-btn{
+    width: 100px;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    text-align: center;
+}
 .left-content .item-group li{
     float: left;
-    width: 335px;
-    height: 188px;
-    border: 1px solid #EEEEEE;
-    margin: 0 15px 15px 0;
+    width: 342px;
+    height: 207px;
+    margin: 0 10px 10px 0;
+    background: #ffffff;
+    border: 1px solid #F5F7FA;
+}
+.left-content .item-group li.active{
+    border: 1px solid #af2812;
+}
+.left-content .img-box{
+    margin-bottom: 0;
 }
 .item-group li .item-head{
     line-height: 24px;
-    padding:3px 10px;
+    padding:4px 10px;
     overflow: hidden;
+    background: #eeeeee;
+    border: 1px solid #d2d2d2;
+}
+.item-head .price {
+    font-size: 12px;
+    margin-top: 2px;
 }
 .item-group li .item-body{
     overflow: hidden;
-    padding: 10px;
+    padding: 10px 10px 0;
     height: 122px;
+    position: relative;
+}
+.icon-jxiao{
+    width:50px;
+    height: 45px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("../images/bg.png") no-repeat -236px -460px;
 }
 .item-group li .item-body .winner{
     width: 110px;
@@ -828,23 +933,22 @@
 }
 .item-group li .item-footer{
     overflow: hidden;
-    padding: 5px 10px;
+    padding:2px 10px;
 }
-.item-group li .item-footer span{
+.item-group li .item-footer p{
     display: block;
     text-align: center;
     font-size: 16px;
-    color: #f60;
-    padding: 7px;
+    color: #ffffff;
+    padding: 11px;
+    background: #af2812;
+    margin:0 -10px -5px;
 }
 .lucky-code{
     vertical-align: middle;
     font-size: 16px;
     padding: 5px 0;
-}
-.lucky-code b{
-    font-weight: bold;
-    color: #af2812;
+
 }
 .user-info{
     overflow: hidden;
@@ -853,6 +957,12 @@
 .user-info .username a{
     width: 60px;
 }
+.h-info{
+    overflow: hidden;
+    width: 100%;
+    clear: both;
+    margin-bottom: 10px;
+}
 .p-info{
     overflow: hidden;
     width: 100%;
@@ -860,43 +970,47 @@
 }
 .countdown{
     overflow: hidden;
-    background: #f60;
-    padding: 8px;
     margin-top: 10px;
 }
 .countdown dt{
-    color: #ffffff;
-    font-size: 14px;
+    font-size: 18px;
     float: left;
-    line-height: 26px;
-    font-weight: bold;
-    margin: 0 5px;
+    width: 100%;
+    margin-bottom: 10px;
 }
 .countdown dd{
     background: #ffffff;
     float: left;
-    color: #f60;
+    color: #af2812;
     padding: 5px;
-    font-size: 16px;
+    font-size: 40px;
     border-radius: 4px;
+    height: 34px;
+    line-height: 34px;
+}
+.countdown dd.num{
+    width: 34px;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 30px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border: 1px solid #a0a0a0;
+    background: #cbcbcb;
 }
 .counting{
-    display: none;
     overflow: hidden;
-    background: #f60;
-    margin-top: 10px;
-}
-.counting h2{
-    width: 183px;
-    height: 45px;
-    line-height: 45px;
-    color: #FFFFFF;
-    font-size: 18px;
+    height: 120px;
+    line-height: 120px;
     text-align: center;
+    width: 190px;
+    color: #af2812;
+    font-size: 40px;
 }
 /*右边内容*/
 .latest-wrap .right-box{
-    width:230px;
+    width:270px;
+    margin-top: 38px;
     overflow: hidden;
 }
 .sort-list{
@@ -910,7 +1024,6 @@
 .sort-list ul{
     padding: 10px 10px 0;
     overflow: hidden;
-    border: 1px solid #EEEEEE;
 }
 .sort-list ul li{
     margin-bottom: 10px;
@@ -952,6 +1065,10 @@
     line-height: 185px;
     margin: 0 auto;
 }
+.sort-list ul li h4.title-br{
+    margin-left: 18px;
+}
+
 .longItem .remain {
     margin-bottom: 10px;
 }
@@ -985,10 +1102,7 @@
     text-indent: 2em;
     line-height: 38px;
 }
-.select-result h2 b{
-    color: #f60;
-    margin: 0 5px;
-}
+
 .scrollleft {
     padding-bottom: 10px;
     overflow: hidden;
@@ -997,7 +1111,7 @@
 
 .scrollleft .scrollcontainer{
 	width:850px;
-	height:200px;
+	height:210px;
 	overflow:hidden;
 	position:relative;
 	margin:0 auto;
@@ -1014,28 +1128,28 @@
 	position:absolute;
     top: 62px;
     display: block;
-    width: 24px;
-    height: 38px;
+    width:30px;
+    height: 58px;
 	overflow:hidden;
-    opacity: 0.5;
-    filter: Alpha(opacity=50);
-	background:#000 url("../images/icon-02.png") no-repeat;
+	background:url("../images/bg02.png") no-repeat;
 }
 .scrollleft a.aleft{
-    background-position:  6px -53px;
-}
-.scrollleft a.agrayleft{
-	cursor:default;
-    background: #F1F1F1 url("../images/icon-02.png") 6px -53px;
+    left: 10px;
+    cursor:pointer;
+    background-position:-9px 0px;
 }
 .scrollleft a.aright{
-	right:0px;
-    background-position:  -14px -53px;
+    cursor:pointer;
+	right:10px;
+    background-position:   -166px 0px;
 }
-.scrollleft a.agrayright{
-	cursor:default;
-    background: #F1F1F1 url("../images/icon-02.png")  -14px -53px;
+.no-show{
+    width: 66px;
+    text-align: center;
+    height: 23px;
+    line-height:23px;
+    font-size: 12px;
+    background: #e5e5e5;
 }
-
 
 

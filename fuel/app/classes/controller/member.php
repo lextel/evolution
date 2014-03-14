@@ -182,10 +182,11 @@ class Controller_Member extends Controller_Center{
                 if ($res)
                 {
                     $current_user = Model_Member::find_by_username($this->auth->get_screen_name());
-                    Session::set_flash('success', e('修改密码成功, '.$current_user->username));
+                    Session::set_flash('info', e('修改密码成功, '.$current_user->username));
                     Response::redirect('/u');
                 }else{
-                    $this->template->set_global('error', '密码修改不成功，请再输入');
+                    Session::set_flash('info', e('密码修改不成功，请再输入, '));
+                    Response::redirect('/u/passwd');
                 }
             }
         }
@@ -250,27 +251,27 @@ class Controller_Member extends Controller_Center{
     }
 
     // 上传头像图片
-    public function action_avatarUpload() 
+    public function action_avatarUpload()
     {
         $files = Model_Member::upload();
         return json_encode(['files' => $files]);
     }
-    
-    
+
+
     /*
     * 验证用户邮箱的真实性之发送邮件
     */
     public function action_checkemail()
     {
        $header = ['Content-Type' => 'application/json'];
-       $email = $this->current_user->email;               
+       $email = $this->current_user->email;
        //data包含邮件标题subject，收件人email，KEY值，URI，模板路径view, type邮件类型
        $data = ["email"=>$email,
                    'uri' => 'emailok',
                    'view'=>'member/email/emailok',
-                   'type'=>'email',                   
-                   "subject"=>"乐乐淘用户邮箱验证"];   
-       if (!Model_Member_Email::check_emailok($email)){    
+                   'type'=>'email',
+                   "subject"=>"乐乐淘用户邮箱验证"];
+       if (!Model_Member_Email::check_emailok($email)){
            $send = Model_Member_Email::sendEmail($data, $this->current_user->id);
            if ($send){
               return Response::forge(json_encode(['email' => $email, 'msg'=>'发送成功']), 200, $header);
@@ -278,11 +279,11 @@ class Controller_Member extends Controller_Center{
            return Response::forge(json_encode(['email' => 0, 'msg'=>'发送邮件失败']), 200, $header);
        }else{
            return Response::forge(json_encode(['email' => 0, 'msg'=>'邮箱已经验证过了']), 200, $header);
-       }     
+       }
     }
-    
-    
-    
-    
+
+
+
+
 }
 

@@ -51,7 +51,7 @@
                 <div class="title"><h3>乐拍公告 <span class="icon icon-horn"></span></h3></div>
                 <ul>
                     <?php foreach($notices() as $notice) { ?>
-                    <li><?php echo Html::anchor('/notice', $notice->title); ?></li>
+                    <li><i></i><?php echo Html::anchor('/notice', $notice->title); ?></li>
                     <?php } ?>
                 </ul>
             </div>
@@ -85,12 +85,16 @@
                                 <span class="fr b"><?php echo $phase->remain;?></span>
                             </dd>
                             <dd>
-                                <span class="fl">已参与人次</span>
-                                <span class="fr">剩余人次</span>
+                                <span class="fl c9">已参与人次</span>
+                                <span class="fr c9">剩余人次</span>
                             </dd>
                         </dl>
                         <div class="btn-group tc">
-                            <?php echo Html::anchor('m/'.$phase->id, '立即乐拍', ['rel' => 'nofollow','class'=>'btn btn-red']);?>
+                            <?php if($phase->status == \Helper\Item::IS_CHECK):?>
+                                <?php echo Html::anchor('m/'.$phase->id, '立即一元乐淘', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                            <?php else: ?>
+                                <?php echo Html::anchor('m/'.$phase->id, '即将开拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                            <?php endif;?>
                         </div>
                     </li>
                     <?php } ?>
@@ -142,12 +146,16 @@
                         <span class="fr b"><?php echo $phase->remain;?></span>
                     </dd>
                     <dd>
-                        <span class="fl">已参与人次</span>
-                        <span class="fr">剩余人次</span>
+                        <span class="fl c9">已参与人次</span>
+                        <span class="fr c9">剩余人次</span>
                     </dd>
                 </dl>
                 <div class="btn-group tc">
-                    <?php echo Html::anchor('m/'.$phase->id, '立即乐拍', ['rel' => 'nofollow','class'=>'btn btn-red ']);?>
+                    <?php if($phase->status == \Helper\Item::IS_CHECK):?>
+                        <?php echo Html::anchor('m/'.$phase->id, '立即一元乐淘', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                    <?php else: ?>
+                        <?php echo Html::anchor('m/'.$phase->id, '即将开拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                    <?php endif;?>
                 </div>
             </li>
             <?php } ?>
@@ -170,9 +178,9 @@
                     <?php echo Html::anchor('p/'.$post->id, Html::img($post->topimage), ['rel' => 'nofollow']);?>
                 </div>
                 <div class="bask-info fr">
-                    <div class="title-box">
-                        <h3 class="title-md"><?php echo Html::anchor('p/'.$post->id, $post->title);?></h3>
-                        <div class="username">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $data['members'][$post->member_id]->nickname, ['class'=>'bule']);?></b></div>
+                    <div class="bask-title">
+                        <h3 class="title-md fl"><?php echo Html::anchor('p/'.$post->id, $post->title);?></h3>
+                        <div class="username fr">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $data['members'][$post->member_id]->nickname, ['class'=>'bule']);?></b></div>
                     </div>
                     <div class="bask-content">
                         <?php echo mb_substr($post->desc, 0, 120,'utf-8');?>
@@ -186,7 +194,7 @@
                         <div class="img-box img-md">
                             <?php echo Html::anchor('p/'.$post->id, Html::img($post->topimage));?>
                         </div>
-                        <h4 class="title-mx"><?php echo Html::anchor('p/'.$post->id, $post->title);?></h4>
+                        <h4 class="title-02"><?php echo Html::anchor('p/'.$post->id, $post->title);?></h4>
                         <div class="username">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $data['members'][$post->member_id]->nickname);?></b></div>
                         <div class="datetime">揭晓时间：<?php  echo date('Y-m-d', $data['phases'][$post->phase_id]->opentime);?></div>
                     </li>

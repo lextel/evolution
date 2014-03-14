@@ -22,6 +22,11 @@ class Item {
     const NOT_CHECK = 0;
 
     /**
+     * @def 已显示
+     */
+    const IS_SHOW = 3;
+
+    /**
      * @def 已审核
      */
     const IS_CHECK = 1;
@@ -30,6 +35,11 @@ class Item {
      * @def 不通过
      */
     const NOT_PASS = 2;
+
+    /**
+     * @def 商品销售已完成
+     */
+    const IS_FINISH = 4;
 
     /**
      * @def 未揭晓

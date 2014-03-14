@@ -66,7 +66,7 @@ class Model_Item extends \Classes\Model {
 
         $limit = \Helper\Page::PAGESIZE;
         $offset = ($options['page'] - 1) * $limit;
-        $select = ['id', 'title', 'image', 'joined', 'remain', 'amount', 'cost'];
+        $select = ['id', 'title', 'image', 'joined', 'remain', 'amount', 'cost', 'status'];
 
         return Model_Phase::find('all', ['select' => $select, 'where' => $where, 'offset' => $offset, 'limit' => $limit, 'order_by' => $orderBy]);
     }
@@ -175,7 +175,7 @@ class Model_Item extends \Classes\Model {
         $item->reason = $post['reason'];
         $rs = $item->save();
 
-        Model_Log::add('审核商品 #' . $item->id . $item->status == 1 ? '通过' : '不通过');
+        Model_Log::add('审核商品 #' . $item->id . $item->status == 3 ? '通过' : '不通过');
 
         DB::update('phases')->value('status', $post['status'])
                             ->where('item_id', $id)
@@ -185,7 +185,7 @@ class Model_Item extends \Classes\Model {
     }
 
     /**
-     * 快速审核通过
+     * 快速审核通过(到显示)
      *
      * @param $id integer 商品ID
      *
@@ -194,10 +194,32 @@ class Model_Item extends \Classes\Model {
     public function pass($id) {
 
         $item = Model_Item::find($id);
-        $item->status = \Helper\Item::IS_CHECK;
+        $item->status = \Helper\Item::IS_SHOW;
         $rs = $item->save();
 
         Model_Log::add('商品审核通过 #' . $item->id);
+
+        DB::update('phases')->value('status', \Helper\Item::IS_SHOW)
+                            ->where('item_id', $item->id)
+                            ->execute();
+
+        return $rs;
+    }
+
+    /**
+     * 快速上架
+     *
+     * @param $id integer 商品ID
+     *
+     * @param boolean 是否成功
+     */
+    public function sell($id) {
+
+        $item = Model_Item::find($id);
+        $item->status = \Helper\Item::IS_CHECK;
+        $rs = $item->save();
+
+        Model_Log::add('商品上架 #' . $item->id);
 
         DB::update('phases')->value('status', \Helper\Item::IS_CHECK)
                             ->where('item_id', $item->id)
@@ -228,6 +250,67 @@ class Model_Item extends \Classes\Model {
         return $rs;
     }
 
+    /**
+     * 重新发布
+     *
+     * 期数售完重新发布出售 需要重新编辑期数
+     *
+     * @param $id integer 商品ID
+     *
+     * @return 是否成功
+     */
+    public function resell($id) {
+        $item = Model_Item::find($id);
+        $item->status = 0;
+        $rs = $item->save();
+
+        Model_Log::add('商品重新上架 #' . $item->id);
+
+        DB::update('phases')->value('status', 0)
+                            ->where('item_id', $item->id)
+                            ->execute();
+
+        return $rs;
+    }
+
+    /**
+     * 删除恢复
+     *
+     * @param $id integer 商品ID
+     *
+     * @return 是否成功
+     */
+    public function restore($id) {
+        $item = Model_Item::find($id);
+        $item->is_delete = \Helper\Item::NOT_DELETE;
+        $rs = $item->save();
+        Model_Log::add('商品删除恢复 #' . $item->id);
+
+        DB::update('phases')->value('is_delete', \Helper\Item::NOT_DELETE)
+                            ->where('item_id', $item->id)
+                            ->execute();
+
+        return $rs;
+    }
+
+    /**
+     * 标识完成
+     *
+     * 商品已经达到预期期数
+     *
+     * @param $item 商品对象
+     * 
+     * @return void
+     */
+    public function finish($item) {
+        $item->status = \Helper\Item::IS_FINISH;
+        $item->save();
+
+        DB::update('phases')->value('status', \Helper\Item::IS_FINISH)
+                            ->where('item_id', $item->id)
+                            ->execute();
+    }
+
 
     /**
      * 处理后台列表类型
@@ -241,13 +324,23 @@ class Model_Item extends \Classes\Model {
 
         $name = '';
         switch ($type) {
+            case 'all':
+                $name = '所有商品';
+                break;
             case 'uncheck':
                 $name = '待审核商品';
                 $get['status'] = \Helper\Item::NOT_CHECK;
+                $get['is_delete'] = \Helper\Item::NOT_DELETE;
+                break;
+            case 'show':
+                $name = '显示中的商品';
+                $get['status'] = \Helper\Item::IS_SHOW;
+                $get['is_delete'] = \Helper\Item::NOT_DELETE;
                 break;
             case 'active':
                 $name = '进行中商品';
                 $get['status'] = \Helper\Item::IS_CHECK;
+                $get['is_delete'] = \Helper\Item::NOT_DELETE;
                 break;
             case 'open':
                 $name = '已揭晓商品';
@@ -256,6 +349,17 @@ class Model_Item extends \Classes\Model {
             case 'unpass':
                 $name = '审核不通过';
                 $get['status'] = \Helper\Item::NOT_PASS;
+                $get['is_delete'] = \Helper\Item::NOT_DELETE;
+                break;
+            case 'finish':
+                $name = '已完成的商品';
+                $get['status'] = \Helper\Item::IS_FINISH;
+                $get['is_delete'] = \Helper\Item::NOT_DELETE;
+                $get['opentime'] = \Helper\Item::IS_OPEN;
+                break;
+            case 'delete':
+                $name = '已删除的商品';
+                $get['is_delete'] = \Helper\Item::IS_DELETE;
                 break;
         }
 
@@ -366,19 +470,24 @@ class Model_Item extends \Classes\Model {
         }
 
         if($isFrontEnd) {
-            $where += [
-                    'status' => \Helper\Item::IS_CHECK,
-                    ];
-        }
+            $where += [['status', 'in', [\Helper\Item::IS_CHECK, \Helper\Item::IS_SHOW]]];
+            $where += ['is_delete' => \Helper\Item::NOT_DELETE];
 
-        if(!isset($options['opentime'])) {
-            $where += ['opentime' => \Helper\Item::NOT_OPEN];
-        } else {
-            $where += [['opentime', '>', 0]];
+        } else if (isset($options['is_delete']) && $options['is_delete'] !== '') {
+            $where += ['is_delete' => $options['is_delete']];
         }
-
         
-        $where += ['is_delete' => \Helper\Item::NOT_DELETE];
+        if($isFrontEnd) {
+            if(!isset($options['opentime'])) {
+                $where += ['opentime' => \Helper\Item::NOT_OPEN];
+            } else {
+                $where += [['opentime', '>', 0]];
+            }
+        } else if(isset($options['opentime'])) {
+            $where += [['opentime', '<', time()]];
+        } else {
+            $where += ['opentime' => \Helper\Item::NOT_OPEN];
+        }
 
         return $where;
     }
@@ -522,6 +631,24 @@ class Model_Item extends \Classes\Model {
 
         if ($item->save()) {
             Model_Log::add('编辑商品 #' . $item->id);
+
+            // 编辑期同步更新期数信息 =============begins=================
+            // 已经揭晓
+            DB::update('phases')->value('title', $post['title'])
+                                ->value('cate_id', $post['cate_id'])
+                                ->value('brand_id', $post['brand_id'])
+                                ->value('image', $image)
+                                ->value('cost', $post['price'])
+                                ->value('amount', $post['price'])
+                                ->where('item_id', $item->id)
+                                ->execute();
+
+            // 正在运行
+            $phase = Model_Phase::find('first', ['where' => ['item_id' => $item->id, 'opentime' => 0]]);
+            $phase->remain = $post['price'] - $phase->joined;
+            $phase->save();
+
+            // =============ends===================
 
             // 更新正在进行的期数的排序
             if($item->sort != $oldSort) {
