@@ -281,4 +281,13 @@ class Model_Member extends \Classes\Model
 
         return $result;
     }
+
+    /**
+     * 随机获取一个马甲
+     *
+     */
+    public function randGhost() {
+
+        return DB::query('SELECT id FROM `members` where type = 1 order by rand() limit 1')->execute()->as_array();
+    }
 }
