@@ -220,7 +220,11 @@ class Controller_Admin_Ghost extends Controller_Admin{
         $get = Input::get();
         $get['type'] = 1;
         $memberModel = new Model_Member();
-        $total = $memberModel->countGhost($get);
+        $phaseModel = new Model_Phase();
+        $members = $memberModel->index($get);
+        list($memberIds) = $memberModel->getIds($members, ['id']);
+        $phases = $phaseModel->byWinsIds($memberIds);
+        $count = $phaseModel->byWinsIdsCount($memberIds);
         $page = new \Helper\Page();
         $url = Uri::create('admin/ghost', 
                 ['member_id' => Input::get('member_id'), 'nickname' => Input::get('nickname'), 'email' => Input::get('email')], 
@@ -235,8 +239,8 @@ class Controller_Admin_Ghost extends Controller_Admin{
 
         $get['offset'] = $pagination->offset;
         $get['limit'] = $pagination->per_page;
-        $view->set('members', $memberModel->index($get));
-        $this->template->title = "会员列表 > 用户管理";
+        $view->set('phases', $phases);
+        $this->template->title = "马甲管理 > 中奖列表";
         $this->template->content = $view;
     }
     
@@ -282,8 +286,6 @@ class Controller_Admin_Ghost extends Controller_Admin{
 
     // 在拍列表
     public function action_sell() {
-
-
         $breads = [
                 ['name' => '马甲管理'], 
                 ['name' => '在拍列表'],

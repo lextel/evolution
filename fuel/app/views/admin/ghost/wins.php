@@ -26,27 +26,18 @@
         <tr>
             <th>#ID</th>
             <th class="text-center">昵称</th>
-            <td class="text-center">积分</td>
-            <th class="text-center">邮箱</th>
-            <th class="text-center">注册时间</th>
-            <th class="text-center">登陆时间</th>
-            <th class="text-center">状态</th>
+            <td class="text-center">中奖商品</td>
             <th class="text-center">操作</th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($members as $item): ?>
+        <?php foreach ($phases as $item): ?>
         <tr>
             <td><?php echo $item->id; ?></td>
             <td class="text-center"><?php echo $item->nickname; ?></td>
-            <td class="text-center"><?php echo $item->points; ?></td>
-            <td class="text-center"><?php echo $item->email; ?></td>
-            <td class="text-center"><?php echo !empty($item->created_at) ? date('Y-m-d H:i:s', $item->created_at) : ''; ?></td>
-            <td class="text-center"><?php echo !empty($item->last_login) ? date('Y-m-d H:i:s', $item->last_login) : ''; ?></td>
-            <th class="text-center"><?php echo $item->is_delete ? '已删除' : ($item->is_disable ? '已冻结' : '正常'); ?></th>
+            <td class="text-center"><?php echo $item->title ?></td>
             <td class="text-center">
-                <?php echo Html::anchor('admin/members/disable/'.$item->id, '冻结', array('onclick' => "return confirm('亲，您确定要冻结么?')")); ?> |
-                <?php echo Html::anchor('admin/members/delete/'.$item->id, '删除', array('onclick' => "return confirm('亲，您确定要删除么?')")); ?>
+                <?php echo Html::anchor('admin/ghost/disable/'.$item->id, '去晒单', array('onclick' => "return confirm('亲，你确定要去晒单吗?')")); ?> |
             </td>
         </tr>
         <?php endforeach; ?>
