@@ -1065,6 +1065,10 @@
     line-height: 185px;
     margin: 0 auto;
 }
+.sort-list ul li h4.title-br{
+    margin-left: 18px;
+}
+
 .longItem .remain {
     margin-bottom: 10px;
 }

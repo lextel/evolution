@@ -1,1 +1,1 @@
-<?php echo render('admin/users/_form'); ?>
+<?php echo render('admin/ghost/_form'); ?>
