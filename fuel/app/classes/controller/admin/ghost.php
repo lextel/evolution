@@ -1,5 +1,13 @@
 <?php
-class Controller_Admin_Ghost extends Controller_Admin {
+class Controller_Admin_Ghost extends Controller_Admin{
+    public function action_index() {
+    }
+    
+    public function action_add() {
+        $title = '';
+        $url = '';
+        return View::forge('admin/ghost/create');;
+    }
 
     // 在拍列表
     public function action_sell() {
@@ -38,6 +46,7 @@ class Controller_Admin_Ghost extends Controller_Admin {
     // 马甲拍下
     public function action_order($id = 0, $num = 0, $mid = 0) {
         Config::load('common');
+        $timer = new \Helper\Timer();
 
         if($id == 0 || $num == 0) {
             return json_encode(['code' => 1, 'msg' => '参数错误']);
@@ -88,13 +97,12 @@ class Controller_Admin_Ghost extends Controller_Admin {
             if($orderModel->save()) {
 
                 // 写消费日志
-                $perPoint = count('fetchCodes') * Config::get('point');
-                Model_Member_Moneylog::buy_log($mid, $perPoint, $id, count('fetchCodes'));
+                $perPoint = count($fetchCodes) * Config::get('point');
+                Model_Member_Moneylog::buy_log($mid, $perPoint, $id, count($fetchCodes));
 
-                return json_encode(['code' => 0, 'msg' => '乐拍成功', 'data' => ['remain' => $phase->amount - count('fetchCodes')]]);
+                return json_encode(['code' => 0, 'msg' => '乐拍成功', 'data' => ['joined' => $phase->joined], 'codeNum' => count($fetchCodes), 'points' => $perPoint]);
             }
 
             return json_encode(['code' => 1, 'msg' => '乐拍失败']);
     }
-
 }
