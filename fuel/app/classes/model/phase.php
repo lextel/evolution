@@ -155,4 +155,33 @@ class Model_Phase extends \Classes\Model {
 
         return Model_Phase::find($id);
     }
+    
+    
+    public static function byWinsIds($ids) {
+        var_dump($ids);
+        
+        if(!is_array($ids)) $ids = [0];
+
+        $ids     = array_unique($ids);
+        $model   = get_called_class();
+        $results = $model::find('all', ['where' => [['member_id', 'in', $ids]]]);
+
+        $data = [];
+        foreach($results as $result) {
+            $data[$result->id] = $result;
+        }
+
+        return $data;
+    }
+    
+    public static function byWinsIdsCount($ids) {
+
+        if(!is_array($ids)) $ids = [0];
+
+        $ids     = array_unique($ids);
+        $model   = get_called_class();
+        $count = $model::count(['where' => [['member_id', 'in', $ids]]]);
+
+        return $count;
+    }
 }

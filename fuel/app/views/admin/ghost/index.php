@@ -26,10 +26,7 @@
         <tr>
             <th>#ID</th>
             <th class="text-center">昵称</th>
-            <td class="text-center">积分</td>
-            <th class="text-center">邮箱</th>
-            <th class="text-center">注册时间</th>
-            <th class="text-center">登陆时间</th>
+            <th class="text-center">所在地区</th>
             <th class="text-center">状态</th>
             <th class="text-center">操作</th>
         </tr>
@@ -39,10 +36,7 @@
         <tr>
             <td><?php echo $item->id; ?></td>
             <td class="text-center"><?php echo $item->nickname; ?></td>
-            <td class="text-center"><?php echo $item->points; ?></td>
-            <td class="text-center"><?php echo $item->email; ?></td>
-            <td class="text-center"><?php echo !empty($item->created_at) ? date('Y-m-d H:i:s', $item->created_at) : ''; ?></td>
-            <td class="text-center"><?php echo !empty($item->last_login) ? date('Y-m-d H:i:s', $item->last_login) : ''; ?></td>
+            <td class="text-center"><?php echo $item->ip; ?></td>
             <th class="text-center"><?php echo $item->is_delete ? '已删除' : ($item->is_disable ? '已冻结' : '正常'); ?></th>
             <td class="text-center">
                 <?php echo Html::anchor('admin/ghost/forcelogin/'.$item->id, '跳转到个人页面', ['target'=>'blank']); ?> |

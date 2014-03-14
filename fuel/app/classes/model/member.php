@@ -33,6 +33,7 @@ class Model_Member extends \Classes\Model
         ),
     );
 
+
     public static function validate($factory)
     {
         $val = Validation::forge($factory);
@@ -213,7 +214,7 @@ class Model_Member extends \Classes\Model
     }
     
     /*
-    * 检测马甲用户字段
+    * 检测编辑马甲用户字段
     */
     public static function validateGhostEdit($factory)
     {
