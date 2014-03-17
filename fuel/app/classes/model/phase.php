@@ -159,7 +159,9 @@ class Model_Phase extends \Classes\Model {
     
     public static function byWinsIds($ids, $options) {        
         if(!is_array($ids)) $ids = [0];
-
+        if ($ids[0] == 0){
+            return [];
+        }
         $ids     = array_unique($ids);
         $model   = get_called_class();
         $condition = [];
@@ -196,7 +198,9 @@ class Model_Phase extends \Classes\Model {
     public static function byWinsIdsCount($ids, $options) {
 
         if(!is_array($ids)) $ids = [0];
-
+        if ($ids[0] == 0){
+            return 0;
+        }
         $ids     = array_unique($ids);
         $model   = get_called_class();
         $condition = [];
