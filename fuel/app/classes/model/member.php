@@ -233,7 +233,7 @@ class Model_Member extends \Classes\Model
     */
     public static function addMoney($member_id, $sum)
     {
-        $member = Model_Member::find($member_id);
+       $member = Model_Member::find($member_id);
        if(!$member){
            return false;
        }

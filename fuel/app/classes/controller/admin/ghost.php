@@ -222,24 +222,25 @@ class Controller_Admin_Ghost extends Controller_Admin{
         $memberModel = new Model_Member();
         $phaseModel = new Model_Phase();
         $members = $memberModel->index($get);
-        list($memberIds) = $memberModel->getIds($members, ['id']);
-        $phases = $phaseModel->byWinsIds($memberIds);
-        $count = $phaseModel->byWinsIdsCount($memberIds);
+        list($memberIds,) = $memberModel->getIds($members, ['id']);
+        $members = $memberModel->byIds($memberIds);
+        $count = $phaseModel->byWinsIdsCount($memberIds, $get);
         $page = new \Helper\Page();
-        $url = Uri::create('admin/ghost', 
+        $url = Uri::create('admin/ghost/win', 
                 ['member_id' => Input::get('member_id'), 'nickname' => Input::get('nickname'), 'email' => Input::get('email')], 
-                ['user_id' => ':user_id', 'nickname' => ':nickname', 'email' => ':email']);
+                ['member_id' => ':member_id', 'nickname' => ':nickname', 'email' => ':email']);
 
-        $config = $page->setConfig($url, $total, 'page');
+        $config = $page->setConfig($url, $count, 'page');
         $pagination = Pagination::forge('mypagination', $config);
         
         $view = View::forge('admin/ghost/wins');
         $breadcrumb = new Helper\Breadcrumb();
         $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
-
         $get['offset'] = $pagination->offset;
         $get['limit'] = $pagination->per_page;
+        $phases = $phaseModel->byWinsIds($memberIds, $get);
         $view->set('phases', $phases);
+        $view->set('members', $members);
         $this->template->title = "马甲管理 > 中奖列表";
         $this->template->content = $view;
     }
