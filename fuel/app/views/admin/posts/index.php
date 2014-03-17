@@ -1,4 +1,4 @@
-<h2>晒单审核列表</h2>
+<h2>晒单列表</h2>
 <script type="text/javascript">
 $(function(){
    $(".postactive").change(function(){
@@ -8,14 +8,19 @@ $(function(){
    });
 });
 </script>
+
+            <div class="input-group">
+              <span class="input-group-addon">选择分类</span>
 <?php echo Form::select('active', Input::param('active'),[
     '0' => '待审核晒单列表',
     '1' => '运行中晒单列表',
     '2' => '审核不通过晒单列表',
     '3' => '已删除晒单列表',
     ],
-    ['class'=>'postactive', 'style'=>'height:34px']
+    ['class'=>'form-control postactive', 'style'=>'height:34px']
 );?>
+</div>
+
 <br>
 <?php if ($posts): ?>
 <table class="table table-striped">
@@ -40,7 +45,7 @@ $(function(){
             <td>第<?php echo $getPhase($item)->phase_id; ?>期 <?php echo mb_substr($getPhase($item)->title, 0, 16,'utf-8'); ?>...</td>
             <td>
                 <?php if (Input::param('active')=='0' or Input::param('active')==null ) { ?>
-                <?php echo Html::anchor('admin/posts/view/'.$item->id, '审核'); ?>
+                <?php echo Html::anchor('admin/posts/view/'.$item->id, '审核', ['class'=>'btn btn-success']); ?>
                 <?php }elseif(Input::param('active')=='1') { ?>
                 <?php echo Html::anchor('p/'.$item->id, '浏览页面', ['target'=>'_blank']); ?>
                 <?php }else{ ?>

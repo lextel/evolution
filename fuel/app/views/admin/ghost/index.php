@@ -26,6 +26,7 @@
         <tr>
             <th>#ID</th>
             <th class="text-center">昵称</th>
+            <th class="text-center">所用IP</th>
             <th class="text-center">所在地区</th>
             <th class="text-center">状态</th>
             <th class="text-center">操作</th>
@@ -34,13 +35,15 @@
     <tbody>
         <?php foreach ($members as $item): ?>
         <tr>
+            <?php $ips = new \Classes\Ip2area();?>
             <td><?php echo $item->id; ?></td>
             <td class="text-center"><?php echo Html::anchor('admin/ghost/forcelogin/'.$item->id, $item->nickname, ['target'=>'blank']); ?></td>
             <td class="text-center"><?php echo $item->ip; ?></td>
+            <td class="text-center"><?php echo $ips->getlocation($item->ip); ?></td>
             <th class="text-center"><?php echo $item->is_delete ? '已删除' : ($item->is_disable ? '已冻结' : '正常'); ?></th>
             <td class="text-center">               
-                <?php echo Html::anchor('admin/ghost/getedit/'.$item->id, '编辑'); ?> |
-                <?php echo Html::anchor('admin/ghost/delete/'.$item->id, '删除', array('onclick' => "return confirm('亲，您确定要删除么?')")); ?>
+                <?php echo Html::anchor('admin/ghost/getedit/'.$item->id, '编辑', ['class'=>'btn btn-success']); ?> |
+                <?php echo Html::anchor('admin/ghost/delete/'.$item->id, '删除', ['onclick' => "return confirm('亲，您确定要删除么?')", ]); ?>
             </td>
         </tr>
         <?php endforeach; ?>
