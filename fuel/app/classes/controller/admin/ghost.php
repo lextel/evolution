@@ -226,6 +226,7 @@ class Controller_Admin_Ghost extends Controller_Admin{
         $phaseModel = new Model_Phase();
         $members = $memberModel->index($get);
         list($memberIds,) = $memberModel->getIds($members, ['id']);
+        
         $members = $memberModel->byIds($memberIds);
         $count = $phaseModel->byWinsIdsCount($memberIds, $get);
         $page = new \Helper\Page();
