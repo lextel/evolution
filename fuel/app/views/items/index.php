@@ -6,7 +6,10 @@
             <?php
                 $cates = $getCates();
                 foreach ($cates as $cate) :
-                    echo "<li class='cateNav'><a href='". Uri::create('/m/c/'. $cate->id) ."'>{$cate->name}</a></li>";
+                    $active = '';
+                    if($cateId == $cate->id)
+                        $active = ' active';
+                    echo "<li class='cateNav{$active}'><a href='". Uri::create('/m/c/'. $cate->id) ."'>{$cate->name}</a></li>";
                 endforeach;
             ?>
         </ul>
