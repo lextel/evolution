@@ -51,7 +51,7 @@
         <?php foreach ($phases as $item): ?>
         <tr>
             <td><?php echo $item->id; ?></td>
-            <td class="text-center"><?php echo 1;//$members[$item->member_id]->nickname; ?></td>
+            <td class="text-center"><?php echo $members[$item->member_id]->nickname; ?></td>
             <td class="text-center"><?php echo Html::anchor('w/'.$item->id, '第('.$item->phase_id.')期'.$item->title, ['target'=>'blank']); ?></td>
             <td class="text-center">
                 <?php if ($item->post_id==0){ ?>
