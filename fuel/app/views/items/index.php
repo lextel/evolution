@@ -5,11 +5,16 @@
             <div class="header">商品分类</div>
             <?php
                 $cates = $getCates();
+                $bannerIdx = 0;
+                $i = 0;
                 foreach ($cates as $cate) :
                     $active = '';
-                    if($cateId == $cate->id)
+                    if($cateId == $cate->id) {
                         $active = ' active';
+                        $bannerIdx = $i;
+                    }
                     echo "<li class='cateNav{$active}'><a href='". Uri::create('/m/c/'. $cate->id) ."'>{$cate->name}</a></li>";
+                    $i++;
                 endforeach;
             ?>
         </ul>
@@ -18,7 +23,7 @@
             $brands = $getBrands($cates);
             $i = 0;
             foreach($brands as $k => $brand) : 
-                $style = $i == 0 ? '' : 'display:none';
+                $style = $i == $bannerIdx ? '' : 'display:none';
             ?>
             <dl class="fl" style="<?php echo $style; ?>">
                 <dt>品牌</dt>
@@ -37,7 +42,7 @@
                     $ads = $getAds();
                     $i = 0;
                     foreach($ads as $ad):
-                    $style = $i == 0 ? '' : 'display:none';
+                    $style = ($i == $bannerIdx) ? '' : 'display:none';
                 ?>
                 <a style="<?php echo $style; ?>" href="<?php echo $ad->link ?>"><img src="<?php echo Uri::create($ad->image); ?>" alt="<?php echo $ad->title; ?>"/></a>
                 <?php
