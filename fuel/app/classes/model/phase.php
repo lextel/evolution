@@ -169,7 +169,19 @@ class Model_Phase extends \Classes\Model {
             $condition['offset'] = $options['offset'];
             $condition['limit']  = $options['limit'];
         }
-
+        if(isset($options['status'])) {
+            if ($options['status'] == 0)
+            {
+               $postid = 0;
+               $condition['where'] += ['and'=>['post_id', '=', $postid]];
+            }elseif ($options['status'] == 1){
+               $postid = 0;
+               $condition['where'] += ['and'=>['post_id', '!=', $postid]];
+            }else{
+               
+            }
+            
+        }
         $condition['order_by'] = ['id' => 'desc'];
         $results = $model::find('all', $condition);
 
@@ -189,12 +201,19 @@ class Model_Phase extends \Classes\Model {
         $model   = get_called_class();
         $condition = [];
         $condition['where'] = [['member_id', 'in', $ids]];
-        if(isset($options['offset']) && isset($options['limit'])) {
-
-            $condition['offset'] = $options['offset'];
-            $condition['limit']  = $options['limit'];
+        if(isset($options['status'])) {
+            if ($options['status'] == 0)
+            {
+               $postid = 0;
+               $condition['where'] += ['and'=>['post_id', '=', $postid]];
+            }elseif ($options['status'] == 1){
+               $postid = 0;
+               $condition['where'] += ['and'=>['post_id', '!=', $postid]];
+            }else{
+               
+            }
+            
         }
-      
         $count = $model::count($condition);
 
         return $count;
