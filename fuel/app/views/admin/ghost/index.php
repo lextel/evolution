@@ -12,12 +12,7 @@
               <input type="text" class="form-control" name="nickname" value="<?php echo !empty(Input::get('nickname')) ? Input::get('nickname') : ''; ?>" placeholder="会员昵称">
             </div>
         </div>
-        <div class="col-sm-3">
-            <div class="input-group">
-              <span class="input-group-addon">是否晒单</span>
-              <input type="text" class="form-control" name="postid" value="<?php echo !empty(Input::get('nickname')) ? Input::get('nickname') : ''; ?>" placeholder="会员昵称">
-            </div>
-        </div>
+        
         <button type="submit" class="btn btn-primary">搜索</button>
         <a href="<?php echo Uri::create('admin/ghost'); ?>" class="btn btn-default">重置</a>
         <?php echo Html::anchor('admin/ghost/create', '添加马甲', array('class' => 'btn btn-success pull-right')); ?>

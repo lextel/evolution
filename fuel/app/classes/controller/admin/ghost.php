@@ -214,7 +214,7 @@ class Controller_Admin_Ghost extends Controller_Admin{
     public function action_win() {
          $breads = [
                 ['name' => '马甲管理'], 
-                ['name' => '中奖列表', 'href'=> Uri::create('admin/members')],
+                ['name' => '中奖列表', 'href'=> Uri::create('admin/ghost')],
             ];
 
         $get = Input::get();
@@ -227,8 +227,8 @@ class Controller_Admin_Ghost extends Controller_Admin{
         $count = $phaseModel->byWinsIdsCount($memberIds, $get);
         $page = new \Helper\Page();
         $url = Uri::create('admin/ghost/win', 
-                ['member_id' => Input::get('member_id'), 'nickname' => Input::get('nickname'), 'email' => Input::get('email')], 
-                ['member_id' => ':member_id', 'nickname' => ':nickname', 'email' => ':email']);
+                ['member_id' => Input::get('member_id'), 'nickname' => Input::get('nickname'), 'status' => Input::get('status')], 
+                ['member_id' => ':member_id', 'nickname' => ':nickname', 'status' => ':status']);
 
         $config = $page->setConfig($url, $count, 'page');
         $pagination = Pagination::forge('mypagination', $config);
@@ -264,6 +264,27 @@ class Controller_Admin_Ghost extends Controller_Admin{
         Session::set_flash('error', e('登陆失败 #' . $id));
         Response::redirect('admin/ghost/lists');
     }
+    
+    /*
+    *强制跳转到发表晒单列表
+    */
+    public function action_gopost($id=null){
+        if (is_null($id)){
+           Response::redirect('_404_');
+        }
+        $member = Model_Member::find($id);
+        if (!$member){
+           Response::redirect('_404_');
+        }
+        
+        $auth = Auth::instance('Memberauth');
+        if($auth->force_login($id)){
+             Response::redirect('u/noposts');
+        }
+        Session::set_flash('error', e('登陆失败 #' . $id));
+        Response::redirect('admin/ghost/lists');
+    }
+    
     /*
     *特殊用户假删除
     */
