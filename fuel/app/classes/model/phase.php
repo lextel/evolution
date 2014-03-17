@@ -157,14 +157,21 @@ class Model_Phase extends \Classes\Model {
     }
     
     
-    public static function byWinsIds($ids) {
-        var_dump($ids);
-        
+    public static function byWinsIds($ids, $options) {        
         if(!is_array($ids)) $ids = [0];
 
         $ids     = array_unique($ids);
         $model   = get_called_class();
-        $results = $model::find('all', ['where' => [['member_id', 'in', $ids]]]);
+        $condition = [];
+        $condition['where'] = [['member_id', 'in', $ids]];
+        if(isset($options['offset']) && isset($options['limit'])) {
+
+            $condition['offset'] = $options['offset'];
+            $condition['limit']  = $options['limit'];
+        }
+
+        $condition['order_by'] = ['id' => 'desc'];
+        $results = $model::find('all', $condition);
 
         $data = [];
         foreach($results as $result) {
@@ -174,13 +181,21 @@ class Model_Phase extends \Classes\Model {
         return $data;
     }
     
-    public static function byWinsIdsCount($ids) {
+    public static function byWinsIdsCount($ids, $options) {
 
         if(!is_array($ids)) $ids = [0];
 
         $ids     = array_unique($ids);
         $model   = get_called_class();
-        $count = $model::count(['where' => [['member_id', 'in', $ids]]]);
+        $condition = [];
+        $condition['where'] = [['member_id', 'in', $ids]];
+        if(isset($options['offset']) && isset($options['limit'])) {
+
+            $condition['offset'] = $options['offset'];
+            $condition['limit']  = $options['limit'];
+        }
+      
+        $count = $model::count($condition);
 
         return $count;
     }
