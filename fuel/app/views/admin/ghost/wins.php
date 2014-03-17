@@ -55,7 +55,7 @@
             <td class="text-center"><?php echo Html::anchor('w/'.$item->id, '第('.$item->phase_id.')期'.$item->title, ['target'=>'blank']); ?></td>
             <td class="text-center">
                 <?php if ($item->post_id==0){ ?>
-                <?php echo Html::anchor('admin/ghost/gopost/'.$item->member_id, '去晒单', ['onclick' => "return confirm('亲，你确定要去晒单吗?')", 'target'=>'blank']); ?>
+                <?php echo Html::anchor('admin/ghost/gopost/'.$item->member_id, '去晒单', ['onclick' => "return confirm('亲，你确定要去晒单吗?')", 'target'=>'blank', 'class'=>'btn btn-success']); ?>
                 <?php }else{?>
                 <?php echo '已晒单'; ?>
                 <?php } ?>

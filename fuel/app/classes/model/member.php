@@ -344,4 +344,22 @@ class Model_Member extends \Classes\Model
 
         return DB::query('SELECT id FROM `members` where type = 1 order by rand() limit 1')->execute()->as_array();
     }
+    
+    /*
+    * 加密方式
+    */
+    public static function aes64($input) {
+        
+        $output = base64_encode($input);
+        return $output;
+    }
+    
+    /*
+    * 解密方式
+    */
+    public static function des64($input) {
+        $output = base64_decode($input);
+        return $output;
+    }
+    
 }

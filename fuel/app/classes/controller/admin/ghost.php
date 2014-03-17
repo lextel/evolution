@@ -75,7 +75,7 @@ class Controller_Admin_Ghost extends Controller_Admin{
             try {
                 $member = new Model_Member();
                 $member->username = $username;
-                $member->password = $password;
+                $member->password = Model_Member::aes64($password);
                 $member->email = $username;
                 $member->nickname = $nickname;
                 $member->avatar = $avatar;
@@ -87,6 +87,8 @@ class Controller_Admin_Ghost extends Controller_Admin{
                 $member->points = 0;
                 $member->last_login = 0;
                 $member->login_hash = 0;
+                $member->is_disable = 0;
+                $member->is_delete = 0;
                 $member->profile_fields = '';
                 $member->save();
                 $user_id = $member->id;
@@ -136,6 +138,7 @@ class Controller_Admin_Ghost extends Controller_Admin{
                 ['name' => '修改马甲'],
             ];
         $view = View::forge('admin/ghost/edit');
+        $member->password = Model_Member::des64($member->password);
         $breadcrumb = new Helper\Breadcrumb();
         $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $view->set_global('url', Uri::create('admin/ghost/edit/'.$member->id));
@@ -170,7 +173,7 @@ class Controller_Admin_Ghost extends Controller_Admin{
             $created_at = trim(Input::post('created_at'));
             $ip = trim(Input::post('ip'));
             try {
-                $member->password = $password;
+                $member->password = Model_Member::aes64($password);
                 $member->nickname = $nickname;
                 $member->avatar = $avatar;
                 $member->bio = $bio;
