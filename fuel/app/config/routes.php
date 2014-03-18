@@ -5,6 +5,7 @@ return array(
     '_500_'   => 'error/500',    // The main 500 route
 
     'totalbuycount' => 'index/totalCount',
+    'checkInvitcode' => 'index/checkInvitcode',
 
     'signin' => 'center/signin',
     'signup' => 'center/signup',

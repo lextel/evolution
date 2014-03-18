@@ -1,4 +1,3 @@
-
     <?php echo Asset::css('style.css');?>
     <?php echo Asset::css('member/validfrom_style.css'); ?>
     <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
@@ -31,7 +30,7 @@
                 </li>
                 <li>
                    <?php echo Form::label('输入密码'); ?>
-                   <?php echo Form::input('password', '', ['type'=>"password",'class' => 'inputxt Validform_error', 
+                   <?php echo Form::input('password', '', ['type'=>"password",'class' => 'inputxt', 
                        'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'请输入6-18位密码','nullmsg'=>'请输入6-18位密码']); ?>
                    <span class="Validform_checktip"></span>
                 </li>
@@ -40,6 +39,16 @@
                    <input type="password" value="" name="userpassword2" class="inputxt" datatype="*6-18" recheck="password">
                    <span class="Validform_checktip"></span>
                 </li>
+                <?php
+                    Config::load('common');
+                    if(Config::get('openInvitCode')):
+                ?>
+                <li>
+                   <?php echo Form::label('邀请码'); ?>
+                   <input type="text" value="" name="invitcode" class="inputxt" datatype="s" ajaxurl="<?php echo Uri::create('/checkInvitcode');?>" sucmsg="邀请码可用！" nullmsg="请输入邀请码！" errormsg="邀请码不正确或已经使用！"> 
+                   <span class="Validform_checktip"></span>
+                </li>
+                <?php endif;?>
                 <li>
                    <?php echo Form::submit('submit', '同意协议并注册', array('class' => 'btn btn-red')); ?>
                 </li>
