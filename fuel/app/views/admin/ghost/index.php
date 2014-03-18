@@ -12,15 +12,13 @@
               <input type="text" class="form-control" name="nickname" value="<?php echo !empty(Input::get('nickname')) ? Input::get('nickname') : ''; ?>" placeholder="会员昵称">
             </div>
         </div>
-        <div class="col-sm-3">
-            <div class="input-group">
-              <span class="input-group-addon">邮箱</span>
-              <input type="text" class="form-control" name="email" value="<?php echo !empty(Input::get('email')) ? Input::get('email') : ''; ?>" placeholder="会员邮箱">
-            </div>
-        </div>
+        
         <button type="submit" class="btn btn-primary">搜索</button>
-        <a href="<?php echo Uri::create('admin/members'); ?>" class="btn btn-default">重置</a>
-        <?php echo Html::anchor('admin/members/create', '添加会员', array('class' => 'btn btn-success pull-right')); ?>
+        <a href="<?php echo Uri::create('admin/ghost'); ?>" class="btn btn-default">重置</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <?php echo Html::anchor('admin/ghost/create', '添加特殊用户', array('class' => 'btn btn-success pull-right')); ?>
+        <?php echo Html::anchor('admin/ghost/multi', '批量添加', array('class' => 'btn btn-info pull-right')); ?>
+        
     </form>
     <div class="clearfix"></div>
 </div>
@@ -31,10 +29,8 @@
         <tr>
             <th>#ID</th>
             <th class="text-center">昵称</th>
-            <td class="text-center">积分</td>
-            <th class="text-center">邮箱</th>
-            <th class="text-center">注册时间</th>
-            <th class="text-center">登陆时间</th>
+            <th class="text-center">所用IP</th>
+            <th class="text-center">所在地区</th>
             <th class="text-center">状态</th>
             <th class="text-center">操作</th>
         </tr>
@@ -42,16 +38,15 @@
     <tbody>
         <?php foreach ($members as $item): ?>
         <tr>
+            <?php $ips = new \Classes\Ip2area();?>
             <td><?php echo $item->id; ?></td>
-            <td class="text-center"><?php echo $item->nickname; ?></td>
-            <td class="text-center"><?php echo $item->points; ?></td>
-            <td class="text-center"><?php echo $item->email; ?></td>
-            <td class="text-center"><?php echo !empty($item->created_at) ? date('Y-m-d H:i:s', $item->created_at) : ''; ?></td>
-            <td class="text-center"><?php echo !empty($item->last_login) ? date('Y-m-d H:i:s', $item->last_login) : ''; ?></td>
+            <td class="text-center"><?php echo Html::anchor('admin/ghost/forcelogin/'.$item->id, $item->nickname, ['target'=>'blank']); ?></td>
+            <td class="text-center"><?php echo $item->ip; ?></td>
+            <td class="text-center"><?php echo $ips->getlocation($item->ip); ?></td>
             <th class="text-center"><?php echo $item->is_delete ? '已删除' : ($item->is_disable ? '已冻结' : '正常'); ?></th>
-            <td class="text-center">
-                <?php echo Html::anchor('admin/members/disable/'.$item->id, '冻结', array('onclick' => "return confirm('亲，您确定要冻结么?')")); ?> |
-                <?php echo Html::anchor('admin/members/delete/'.$item->id, '删除', array('onclick' => "return confirm('亲，您确定要删除么?')")); ?>
+            <td class="text-center">               
+                <?php echo Html::anchor('admin/ghost/getedit/'.$item->id, '编辑', ['class'=>'btn btn-success']); ?> |
+                <?php echo Html::anchor('admin/ghost/delete/'.$item->id, '删除', ['onclick' => "return confirm('亲，您确定要删除么?')", ]); ?>
             </td>
         </tr>
         <?php endforeach; ?>

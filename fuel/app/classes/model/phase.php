@@ -155,4 +155,71 @@ class Model_Phase extends \Classes\Model {
 
         return Model_Phase::find($id);
     }
+    
+    
+    public static function byWinsIds($ids, $options) {        
+        if(!is_array($ids)) $ids = [0];
+        if ($ids[0] == 0){
+            return [];
+        }
+        $ids     = array_unique($ids);
+        $model   = get_called_class();
+        $condition = [];
+        $condition['where'] = [['member_id', 'in', $ids]];
+        if(isset($options['offset']) && isset($options['limit'])) {
+
+            $condition['offset'] = $options['offset'];
+            $condition['limit']  = $options['limit'];
+        }
+        if(isset($options['status'])) {
+            if ($options['status'] == 0)
+            {
+               $postid = 0;
+               $condition['where'] += ['and'=>['post_id', '=', $postid]];
+            }elseif ($options['status'] == 1){
+               $postid = 0;
+               $condition['where'] += ['and'=>['post_id', '!=', $postid]];
+            }else{
+               
+            }
+            
+        }
+        $condition['order_by'] = ['id' => 'desc'];
+        $results = $model::find('all', $condition);
+
+        $data = [];
+        foreach($results as $result) {
+            $data[$result->id] = $result;
+        }
+
+        return $data;
+    }
+    
+    public static function byWinsIdsCount($ids, $options) {
+
+        if(!is_array($ids)) $ids = [0];
+        if ($ids[0] == 0){
+            return 0;
+        }
+        $ids     = array_unique($ids);
+        $model   = get_called_class();
+        $condition = [];
+        $condition['where'] = [['member_id', 'in', $ids]];
+        if(isset($options['status'])) {
+            if ($options['status'] == 0)
+            {
+               $postid = 0;
+               $condition['where'] += ['and'=>['post_id', '=', $postid]];
+            }elseif ($options['status'] == 1){
+               $postid = 0;
+               $condition['where'] += ['and'=>['post_id', '!=', $postid]];
+            }else{
+               
+            }
+            
+        }
+        $count = $model::count($condition);
+
+        return $count;
+    }
 }

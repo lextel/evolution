@@ -17,6 +17,12 @@ return [
     'unit'     => '金币',
 
     /**
+     * 是否开启邀请码
+     */
+    'openInvitCode' => true,
+    'inviteCodeAddPoints' => 10,  // 赠送金币数量
+
+    /**
      * @var 揭晓时间 （单位:分钟）
      *
      * @tips 凌晨4点整到凌晨4点10分的揭晓双倍时间  给时间清空crontab

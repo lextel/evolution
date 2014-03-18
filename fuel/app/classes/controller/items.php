@@ -24,10 +24,19 @@ class Controller_Items extends Controller_Frontend {
 
         $items = $itemModel->index($options);
 
+        $title = '所有商品';
+
+        $cateId = $this->param('cate_id');
+        if(!empty($cateId)) {
+            $cateModel = new Model_Cate();
+            $title = $cateModel->cateName($cateId);
+        }
+
         $view = ViewModel::forge('items/index');
         $view->set('items', $items);
+        $view->set('cateId', $cateId);
         $view->set('pagination', $pagination);
-        $this->template->title = "所有商品";
+        $this->template->title = $title;
         $this->template->layout = $view;
     }
 

@@ -11,12 +11,12 @@ class Controller_Comment extends Controller_Rest{
         //$this->ignore_http_accept = true;
         $data = ['code'=>-1, 'msg'=>'pid is null'];
         is_null($pid) and $this->response($data);
-        $count = Model_Comment::count(['where'=>['pid'=>$pid]]);
+        $count = Model_Comment::count(['where'=>['pid'=>$pid, 'status'=>1]]);
         $page = new \Helper\Page();
         $config = $page->setCommentPage('/comment/'.$pid.'/p', 'cpage',$count, 4, 4);
         $pagination = Pagination::forge('commentpage', $config);
         $comments = Model_Comment::find('all', [
-                                'where'=>['pid'=>$pid],
+                                'where'=>['pid'=>$pid, 'status'=>1],
                                 'order_by' =>['id'=>'desc'],
                                 'rows_limit'=>$pagination->per_page,
                                 'rows_offset'=>$pagination->offset,
