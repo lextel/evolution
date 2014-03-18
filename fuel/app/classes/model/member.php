@@ -274,6 +274,24 @@ class Model_Member extends \Classes\Model
     }
 
     /**
+     * 上传CSV
+     *
+     * @param $file $_FILES数组
+     *
+     * @reutrn array 上传的文件数组
+
+     */
+    public static function  uploadcsv() {
+        $upload  = new Classes\Upload('mutilcsv');
+        $success = $upload->upload();
+        $rs = [];
+        if($success) {
+            $rs =  $upload->getFiles();
+        }
+        return $rs;
+    }
+    
+    /**
      * 冻结用户
      *
      * @param $id integer 用户ID

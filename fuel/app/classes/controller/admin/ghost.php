@@ -412,4 +412,32 @@ class Controller_Admin_Ghost extends Controller_Admin{
         $files = Model_Member::upload();
         return json_encode(['files' => $files]);
     }
+    // 批量页
+    public function action_multi()
+    {
+        $breads = [
+                ['name' => '马甲管理'], 
+                ['name' => '批量添加图片'],
+            ];
+
+        $view = View::forge('admin/ghost/multi');
+        $breadcrumb = new Helper\Breadcrumb();
+        $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $view->set_global('url', Uri::create('admin/ghost/multiUpload'));
+        $this->template->title = "批量添加图片";
+        $this->template->content = $view;
+    }
+    // 批量上传图片
+    public function action_multiUpload()
+    {
+        $files = Model_Member::uploadcsv();
+        return json_encode(['files' => $files]);
+    }
+    
+    // 导入CSV表格文件
+    public function action_csvUpload()
+    {
+        $files = Model_Member::uploadcsv();
+        return json_encode(['files' => $files]);
+    }
 }
