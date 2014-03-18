@@ -12,21 +12,25 @@ class Controller_Member_Comments extends Controller_Center
         {
            return $response->body(json_encode($data));
         }
-        $data['msg'] = 'pid is null';
-        is_null($pid) and $response->body(json_encode($data));
+        $post = Model_Post::find($pid);
+        if (!$post || is_null($pid)){
+            $data['msg'] = 'pid is null';
+            return $response->body(json_encode($data));
+        }
+        
         $val = Model_Comment::validateComment('create');
         if ($val->run())
         {
-            $comment = Model_Comment::forge(array(
+            $comment = Model_Comment::forge([
                 'member_id' => $this->current_user->id,
                 'text' => Input::post('text'),
                 'pid' => $pid,
-                'status'=>0,
-                'is_deleted'=>0,
-            ));
+                'status'=>1,
+                'is_delete'=>0,
+                'item_id'=>$post->item_id,
+            ]);
             if ($comment and $comment->save())
-            {
-                $post = Model_Post::find($pid);
+            {              
                 $post->comment_count +=1;
                 $post->save();
                 $data['code'] = 0;

@@ -4,11 +4,12 @@ class Model_Comment extends \Classes\Model
 {
     protected static $_properties = array(
         'id',
+        'item_id',
         'member_id',
         'text',
         'status',
         'pid',
-        'is_deleted',
+        'is_delete',
         'created_at',
         'updated_at',
     );
@@ -31,7 +32,6 @@ class Model_Comment extends \Classes\Model
         $val->add_field('text', 'Text', 'required');
         $val->add_field('status', 'Status', 'required|valid_string[numeric]');
         $val->add_field('pid', 'Pid', 'required|valid_string[numeric]');
-        $val->add_field('is_deleted', 'Is Deleted', 'required|valid_string[numeric]');
         return $val;
     }
     public static function validateComment($factory)
