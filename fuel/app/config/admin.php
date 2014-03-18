@@ -35,6 +35,7 @@ return [
                 ['name' => '管理员列表', 'href' => Uri::create('/admin/users')],
                 ['name' => '会员列表', 'href' => Uri::create('/admin/members')],
                 ['name' => '冻结会员', 'href' => Uri::create('/admin/members/black')],
+                ['name' => '邀请码', 'href' => Uri::create('/admin/invitcodes')],
             ]
         ],
         [
