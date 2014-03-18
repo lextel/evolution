@@ -85,8 +85,8 @@ class Model_Order extends \Classes\Model
             }
 
             // 写消费日志
-            $perPoint = $cart->get_qty() * Config::get('point');
-            Model_Member_Moneylog::buy_log($memberId, $perPoint, $phaseId, $cart->get_qty());
+            $perPoint = count($fetchCodes) * Config::get('point');
+            Model_Member_Moneylog::buy_log($memberId, $perPoint, $phaseId, count($fetchCodes));
             
         }
 

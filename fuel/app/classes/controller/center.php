@@ -94,14 +94,23 @@ class Controller_Center extends Controller_Frontend
                         Config::load('common');
                         $current_user -> avatar = Config::get('default_headico');
                         $current_user -> save();
+
+                        // 邀请码处理
+                        if(Config::get('openInvitCode')) {
+                            $code = Input::post('invitcode');
+                            $codeModel = new Model_Invitcode();
+                            if($codeModel->check($code)) {
+                                $codeModel->used($current_user->id, $code);
+                            }
+                        }
+
+
                         Session::set_flash('success', e('欢迎登陆, '.$current_user->username));
                         Response::redirect('/u/getnickname');
-
                     }
                     else
                     {
                         Session::set_flash('usernameError', e('已经存在用户名了'));
-
                     }
                 }catch (Exception $e){
                     Session::set_flash('usernameError', e('已经存在用户名了'));

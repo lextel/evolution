@@ -38,8 +38,8 @@
     <!--头部开始-->
     <div class="top-nav">
         <div class="top-menu">
-            <div class="collection fl" style="CURSOR: hand" onClick="window.external.addFavorite('http://要收藏网页的完整网址')" title="乐乐淘">
-                 <a href="#">收藏乐乐淘</a>
+            <div class="collection fl" style="CURSOR: hand" onClick="window.external.addFavorite('http://www.lltao.com')" title="乐乐淘">
+                 <a href="javascript:;">收藏乐乐淘</a>
             </div>
             <span class="online">
                 <a href="javascript:void(0);">在线客服<span class="icon icon-qq"></span></a>
@@ -72,7 +72,7 @@
         <div class="logo"><a href="<?php echo Uri::base(); ?>"><img src="<?php echo Uri::create('assets/images/logo.png');?>" alt="乐乐淘首页"/></a></div>
          <div class="right-box">
                 <div class="search">
-                    <input id="txtSearch" type="text" value="" name="title" placeholder="输入“苹果手机”试试"/>
+                    <input id="txtSearch" type="text" value="" name="title" placeholder="输入“LOL”试试" onfocus="this.placeholder = ''" onblur="this.placeholder = '输入“LOL”试试'"/>
                     <a href="javascript:void(0);" class="search-btn" id="doSearch">
                         <span class="icon icon-search"></span>
                     </a>

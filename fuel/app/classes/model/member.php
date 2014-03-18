@@ -33,6 +33,7 @@ class Model_Member extends \Classes\Model
         ),
     );
 
+
     public static function validate($factory)
     {
         $val = Validation::forge($factory);
@@ -109,6 +110,21 @@ class Model_Member extends \Classes\Model
 
         return Model_Member::count(['where' => $where]);
     }
+    
+    /**
+     * 统计马甲会员
+
+     *
+     * @param $options array 筛选条件
+     *
+     * @return integer 数量
+     */
+    public function countGhost($options) {
+
+        $where = $this->handleWhere($options);
+
+        return Model_Member::count(['where' => $where]);
+    }
 
     /**
      * 处理where条件
@@ -134,6 +150,10 @@ class Model_Member extends \Classes\Model
 
         if(isset($options['email']) && !empty($options['email'])) {
             $where += [['email', 'LIKE', '%'.$options['email']. '%']];
+        }
+        
+        if(isset($options['type']) && !empty($options['type'])) {
+            $where += ['type' => $options['type']];
         }
 
         $where += ['is_delete' => 0];
@@ -175,13 +195,45 @@ class Model_Member extends \Classes\Model
         $val->add_field('password', '用户密码', 'required|min_length[6]|max_length[18]');
         return $val;
     }
-
+    
+    /*
+    * 检测马甲用户字段
+    */
+    public static function validateGhost($factory)
+    {
+        $val = Validation::forge($factory);
+        $val->add_callable(new \Classes\MyRules());
+        $val->add_field('username', '用户邮箱', 'required|valid_email|max_length[256]|unique[members.username]');
+        $val->add_field('nickname', '用户昵称', 'required|max_length[25]|min_length[3]|unique[members.nickname]');
+        $val->add_field('password', '用户密码', 'required|max_length[255]|min_length[6]');        
+        $val->add_field('avatar', '用户头像', 'required');
+        $val->add_field('bio', '用户签名', 'required');
+        $val->add_field('created_at', '用户注册日期', 'required');
+        $val->add_field('ip', '用户注册IP', 'required');
+        return $val;
+    }
+    
+    /*
+    * 检测编辑马甲用户字段
+    */
+    public static function validateGhostEdit($factory)
+    {
+        $val = Validation::forge($factory);
+        $val->add_callable(new \Classes\MyRules());
+        $val->add_field('password', '用户密码', 'required|max_length[255]|min_length[6]');        
+        $val->add_field('avatar', '用户头像', 'required');
+        $val->add_field('bio', '用户签名', 'required');
+        $val->add_field('created_at', '用户注册日期', 'required');
+        $val->add_field('ip', '用户注册IP', 'required');
+        return $val;
+    }
+    
     /*
     *add money points
     */
     public static function addMoney($member_id, $sum)
     {
-        $member = Model_Member::find($member_id);
+       $member = Model_Member::find($member_id);
        if(!$member){
            return false;
        }
@@ -221,6 +273,24 @@ class Model_Member extends \Classes\Model
         return $rs;
     }
 
+    /**
+     * 上传CSV
+     *
+     * @param $file $_FILES数组
+     *
+     * @reutrn array 上传的文件数组
+
+     */
+    public static function  uploadcsv() {
+        $upload  = new Classes\Upload('mutilcsv');
+        $success = $upload->upload();
+        $rs = [];
+        if($success) {
+            $rs =  $upload->getFiles();
+        }
+        return $rs;
+    }
+    
     /**
      * 冻结用户
      *
@@ -283,4 +353,31 @@ class Model_Member extends \Classes\Model
 
         return $result;
     }
+
+    /**
+     * 随机获取一个马甲
+     *
+     */
+    public function randGhost() {
+
+        return DB::query('SELECT id FROM `members` where type = 1 order by rand() limit 1')->execute()->as_array();
+    }
+    
+    /*
+    * 加密方式
+    */
+    public static function aes64($input) {
+        
+        $output = base64_encode($input);
+        return $output;
+    }
+    
+    /*
+    * 解密方式
+    */
+    public static function des64($input) {
+        $output = base64_decode($input);
+        return $output;
+    }
+    
 }
