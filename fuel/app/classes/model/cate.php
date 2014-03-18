@@ -206,5 +206,17 @@ class Model_Cate extends \Orm\Model
         return $result;
     }
 
+    /**
+     * 获取分类名称
+     *
+     * @param $cateId int 分类ID
+     */
+    public function cateName($cateId) {
+
+        $cate = Model_Cate::find($cateId);
+
+        return $cate->name;
+    }
+
 
 }
