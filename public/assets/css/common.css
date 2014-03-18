@@ -741,6 +741,13 @@ table td p.tl{
     height: 22px;
     overflow: hidden;
     white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.caption{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .title-red{
     width: 120px;
