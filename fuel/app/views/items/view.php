@@ -127,7 +127,7 @@
                                         <td><div class="head-sm"><a href="<?php echo Uri::create('u/'.$member->id); ?>"><img src="<?php echo Uri::create($member->avatar); ?>" alt=""></a></div></td>
                                         <td><?php echo $member->nickname; ?></td>
                                         <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($newOrder->created_at); ?></b></td>
-                                        <td>乐拍了<s><?php echo $newOrder->code_count; ?></s>次</td>
+                                        <td>乐拍了<s><?php echo $newOrder->code_count; ?></s>金币</td>
                                     </tr>
                                 <?php
                                         endforeach;
@@ -150,7 +150,7 @@
                                         <td><div class="head-sm"><a href="<?php echo Uri::create('u/'.$current_user->id); ?>"><img src="<?php echo Uri::create($current_user->avatar); ?>" alt=""></a></div></td>
                                         <td><?php echo $current_user->nickname; ?></td>
                                         <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($myOrder->created_at); ?></b></td>
-                                        <td>乐拍了<s><?php echo $myOrder->code_count; ?></s>次</td>
+                                        <td>乐拍了<s><?php echo $myOrder->code_count; ?></s>金币</td>
                                     </tr>
                                 <?php
                                         endforeach;
@@ -181,11 +181,11 @@
                         </table>
                     </div>
                     <div class="tab-pane" id="help">
-                        <p>乐乐淘是指只需10乐淘币就有机会买到想要的商品。即每件商品被平分成若干“等份”出售，每份10乐淘币，
+                        <p>乐乐淘是指只需1金币就有机会买到想要的商品。即每件商品被平分成若干“等份”出售，每份1金币，
                          当一件商品所有“等份”售出后，根据云购规则产生一名幸运者，该幸运者即可获得此商品。
                         </p>
                         <p>
-                       乐乐淘以“快乐云淘，惊喜无限”为宗旨，力求打造一个100%公平公正、100%正品保障、寄娱乐与购物一体化的新型购物网站。
+                            乐乐淘以“快乐云淘，惊喜无限”为宗旨，力求打造一个100%公平公正、100%正品保障、寄娱乐与购物一体化的新型购物网站。
                         </p>
                         <div class="tr"><a href="<?php echo Uri::create('h/new'); ?>" class="link">更多详情></a></div>
                     </div>
