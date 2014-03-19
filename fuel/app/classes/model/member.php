@@ -205,11 +205,8 @@ class Model_Member extends \Classes\Model
         $val->add_callable(new \Classes\MyRules());
         $val->add_field('username', '用户邮箱', 'required|valid_email|max_length[256]|unique[members.username]');
         $val->add_field('nickname', '用户昵称', 'required|max_length[25]|min_length[3]|unique[members.nickname]');
-        $val->add_field('password', '用户密码', 'required|max_length[255]|min_length[6]');        
         $val->add_field('avatar', '用户头像', 'required');
         $val->add_field('bio', '用户签名', 'required');
-        $val->add_field('created_at', '用户注册日期', 'required');
-        $val->add_field('ip', '用户注册IP', 'required');
         return $val;
     }
     
@@ -220,11 +217,8 @@ class Model_Member extends \Classes\Model
     {
         $val = Validation::forge($factory);
         $val->add_callable(new \Classes\MyRules());
-        $val->add_field('password', '用户密码', 'required|max_length[255]|min_length[6]');        
         $val->add_field('avatar', '用户头像', 'required');
         $val->add_field('bio', '用户签名', 'required');
-        $val->add_field('created_at', '用户注册日期', 'required');
-        $val->add_field('ip', '用户注册IP', 'required');
         return $val;
     }
     
@@ -295,7 +289,7 @@ class Model_Member extends \Classes\Model
      *
      * @reutrn array 上传的文件数组
      */
-    public static function  uploadmutil() {
+    public static function  uploadmulti() {
         $upload  = new Classes\Upload('mutil');
         $success = $upload->upload();
         $rs = [];
@@ -407,8 +401,8 @@ class Model_Member extends \Classes\Model
     /*
     *
     */
-    public static function checkCsv($data){
-        if (count($data) < 4){
+    public static function checkCsv($row){
+        if (count($row) < 4){
             return false;
         }
         if (self::checkNickname($row[1])){
