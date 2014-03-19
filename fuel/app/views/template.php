@@ -54,14 +54,14 @@
                  <a href="<?php echo Uri::create('/u'); ?>" ><?php echo Html::img($current_user->avatar, ['width'=>'15px']);?><?php echo $current_user->nickname;?>
                  </a>
                  <ul class="head-setting">
-                                         <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐拍记录</a></li>
-                                         <li><a href="<?php echo Uri::create('/u/wins'); ?>">获得的商品</a></li>
-                                         <li><a href="<?php echo Uri::create('/u/getrecharge'); ?>">账户管理</a></li>
-                                         <li><a href="<?php echo Uri::create('/u/profile'); ?>">个人设置</a></li>
-                                     </ul>
+                     <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐拍记录</a></li>
+                     <li><a href="<?php echo Uri::create('/u/wins'); ?>">获得的商品</a></li>
+                     <li><a href="<?php echo Uri::create('/u/getrecharge'); ?>">账户管理</a></li>
+                     <li><a href="<?php echo Uri::create('/u/profile'); ?>">个人设置</a></li>
+                 </ul>
                  </span>
                  &nbsp;
-                 <span>可用乐淘币<b class="r"><?php echo $current_user->points;?>点</b></span>&nbsp;
+                 <span>财富：<b class="r"><?php echo \Helper\Coins::showCoins($current_user->points);?></b></span>&nbsp;
                  <span>消息(<b class="r"><?php echo $isnew? $isnew : 0;?></b >)</span>&nbsp;
                  <?php echo Html::anchor('signout', '[退出]', ['class'=>'navbar-link'])?>
             <?php }?>
@@ -165,10 +165,24 @@
             Config::load('common');
             $point = Config::get('point');
             $unit  = Config::get('unit');
+            $unit2 = Config::get('unit2');
         ?>
         BASE_URL = '<?php echo Uri::base(); ?>';
         POINT    = '<?php echo $point; ?>';
         UNIT     = '<?php echo $unit; ?>';
+        UNIT2    = '<?php echo $unit2?>';
+
+        function showCoins(point) {
+            var gold = parseInt(point/POINT);
+            var silver = point%POINT;
+
+            var unit = gold + UNIT;
+            if(silver > 0) {
+                unit += silver + UNIT2;
+            }
+
+            return unit;
+        }
     </script>
     <script type="text/javascript">
     // var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");

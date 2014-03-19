@@ -16,7 +16,7 @@
                         <tr>
                             <th></th>
                             <th>商品名称</th>
-                            <th>总积分</th>
+                            <th>总金币</th>
                             <th>单价</th>
                             <th>购买数量</th>
                             <th>小计</th>
@@ -42,20 +42,20 @@
                                     <div class="title-row">
                                          <a href="<?php echo Uri::create('/m/'. $item->get_id()); ?>"><?php echo $info->title; ?></a>
                                     </div>
-                                    <div class="remain">剩余<b class="o"><?php echo $info->phase->remain; ?></b>人次</div>
+                                    <div class="remain">还需<b class="o"><?php echo $info->phase->remain; ?></b>金币</div>
                                 </div>
                             </td>
-                            <td><span class="price"><b><?php echo $info->phase->cost.Config::get('unit'); ?></b></span></td>
-                            <td><span class="price"><b><?php echo Config::get('point').Config::get('unit'); ?></b></span></td>
+                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins($info->phase->cost); ?></b></span></td>
+                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point')); ?></b></span></td>
                             <td>
                                 <div class="btn-menu">
                                     <a class="add btn-jian" href="javascript:void(0);">-</a>
                                     <input type="text" value="<?php echo $item->get_qty(); ?>" class="qty" name="qty" rowId="<?php echo $item->get_rowid(); ?>" remain="<?php echo $info->phase->remain?>">
                                     <a class="add btn-jia" href="javascript:void(0);">+</a>
-                                    <span>人次</span>
+                                    <span>金币</span>
                                 </div>
                             </td>
-                            <td><span class="price"><b><?php echo $item->get_qty() * Config::get('point') . Config::get('unit'); ?></b></span></td>
+                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point') * $item->get_qty()); ?></b></span></td>
                             <td><a href="javascript:void(0)" action="delete">删除</a></td>
                         </tr>
                         <?php
@@ -73,7 +73,7 @@
                     <div class="cart-footer">
                         <label class="fl"><input type="checkbox" action="selectAll"/>全选</label>
                         <button class="btn btn-sx fl" action="batchDelete">批量删除</button>
-                        <div class="total fr">总积分：<b id=" r"><?php echo $subTotal * Config::get('point') . Config::get('unit'); ?></b></div>
+                        <div class="total fr">总金币：<b id="total"><?php echo \Helper\Coins::showCoins($subTotal * Config::get('point')); ?></b></div>
                     </div>
                 </div>
             </form>
@@ -125,7 +125,7 @@
                         <div class="img-box img-lg">
                             <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/' . $remain->image); ?>" alt=""></a>
                             <div class="sheng-yi">
-                                剩余 <s style="font-size:18px;font-weight: normal;"><?php echo $remain->phase->remain; ?></s>人次！
+                                还需 <s style="font-size:18px;font-weight: normal;"><?php echo $remain->phase->remain; ?></s>金币！
                             </div>
                         </div>
                         <div class="btn-group">

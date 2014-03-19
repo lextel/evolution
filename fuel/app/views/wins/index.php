@@ -20,7 +20,7 @@
                     <h4 class="title-sm fl">
                        <a href="<?php echo Uri::create('w/'.$win->id); ?>">(第<?php echo $win->phase_id;?>期)<?php echo $win->title; ?></a>
                     </h4>
-                    <div class="price black fr">价值:<b>￥<?php echo sprintf('%.2f', $win->amount); ?></b>元</div>
+                    <div class="price black fr">价值:<b>￥<?php echo sprintf('%.2f', $win->amount); ?></b></div>
                 </div>
                 <div class="item-body">
                     <div class="img-box img-md fl">
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <div class="p-info">
-                            <div class="number">当前乐拍：<b><?php echo $win->code_count; ?></b>人次</div>
+                            <div class="number">本期乐拍：<b><?php echo $win->code_count; ?></b>金币</div>
                             <div class="datetime">揭晓时间：<?php echo date('Y-m-d H:i:s', $win->opentime);?></div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
             endif;
             endforeach;
             else:
-                echo '<p>暂时还没有人中奖.</p>';
+                echo '<p style="margin-top: 20px; margin-left: 10px">暂时还没有人中奖.</p>';
             endif;
             ?>
         </ul>
@@ -152,7 +152,7 @@
                         </div>
                         <div class="info-side fr">
                             <div class="title-sm"><a href=""><?php echo $hot->title; ?></a></div>
-                            <div class="remain">剩余次数: <b class="red"><?php echo $hot->remain; ?></b></div>
+                            <div class="remain">还需金币: <b class="red"><?php echo $hot->remain; ?></b></div>
                         </div>
                     </div>
                     <div class="longItem" style="display: <?php echo $i == 1 ? 'block' : 'none'; ?>">
@@ -164,7 +164,7 @@
                             <div class="img-box">
                                 <a href="<?php echo Uri::create('m/'.$hot->id);?>" rel="nofollow"><img src="<?php echo Uri::create('image/200x200/'.$hot->image); ?>" alt=""></a>
                             </div>
-                            <div class="remain tc">剩余次数: <b class="red"><?php echo $hot->remain; ?></b></div>
+                            <div class="remain tc">还需金币: <b class="red"><?php echo $hot->remain; ?></b></div>
                             <div class="btn-group">
                                 <input name="qty" value="1" type="hidden"/>
                                 <input name="id" value="<?php echo $hot->id; ?>" type="hidden">
