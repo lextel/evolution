@@ -53,9 +53,16 @@ echo Asset::js(
             <div class="control-label col-sm-1"></div>-->
         </div>
         <div class="form-group">
+            <?php echo Form::label('', 'csv', array('class'=>'control-label col-sm-2')); ?>
+            <div class="col-sm-6">
+                需要CSV输入格式：用户邮箱，用户昵称，用户头像，用户签名
+                文件名不要带符号 数字+字母
+            </div>
+        </div>
+        <div class="form-group">
             <label class='control-label col-sm-1'>&nbsp;</label>
             <div class="col-sm-3">
-            <?php echo Form::submit('submit', '保存', array('class' => 'btn btn-primary')); ?>        </div>
+            <?php echo Form::submit('submit', '返回', array('class' => 'btn btn-primary')); ?>        </div>
             </div>
     </fieldset>
 <?php echo Form::close(); ?>
