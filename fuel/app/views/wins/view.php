@@ -34,7 +34,7 @@
                               <div class="username">获得者：<a href="<?php echo Uri::create('u/'.$memberInfo->id); ?>"><b><?php echo $memberInfo->nickname; ?></b></a></div>
                               <span class="datetime">揭晓时间：<b><?php echo $friendlyDate($win->opentime);?></b></span>
                               <span class="datetime">乐拍时间：<b><?php echo $friendlyDate($win->order_created_at);?></b></span>
-                              <span class="number">乐购数量：<b class="red"><?php echo $win->code_count; ?></b>金币</span>
+                              <span class="number">乐购数量：<b class="red"><?php echo $win->code_count; ?></b>元宝</span>
                          </div>
                          </div>
                         <div class="win-number">
@@ -81,7 +81,7 @@
                         <tr>
                             <th>乐拍时间</th>
                             <th>会员帐号</th>
-                            <th>金币数量</th>
+                            <th>元宝数量</th>
                             <th>商品名称</th>
                         </tr>
                         </thead>
