@@ -16,7 +16,7 @@
                </div>
                <div class="info fl">
                    <span class="username">幸运获奖者：<?php echo Html::anchor('u/'.$post->member_id, $getUser($post->member_id)->nickname, ['class'=>'blue']);?></span>
-                   <span class="number">共乐拍：<b><?php echo $getPhase($post->phase_id)->code_count;?></b> 金币</span>
+                   <span class="number">共乐拍：<b><?php echo $getPhase($post->phase_id)->code_count;?></b> 元宝</span>
                    <span class="number">幸运乐拍码：<b><?php echo $getPhase($post->phase_id)->code;?></b></span>
                    <span class="datetime">揭晓时间：<s><?php echo date('Y-m-d H:i:s', $getPhase($post->phase_id)->opentime);?></s></span>
                </div>

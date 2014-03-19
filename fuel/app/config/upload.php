@@ -33,7 +33,6 @@ return [
     'mutil' => [
         'path' => DOCROOT.'upload'.DS.'mutil',
         'randomize' => false,
-        'create_path' => false,
         'ext_whitelist' => ['csv', 'img', 'jpg', 'jpeg', 'png'],
         'auto_rename' => false,
     ],
