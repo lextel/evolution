@@ -1101,14 +1101,14 @@ table td p.tl{
     line-height: 40px;
     text-align: center;
     float: left;
-    width: 196px;
+    width: 179px;
 }
 .navbar ul li a.active{
     background: #cd2d14;
 }
 .navbar ul li a{
     display: block;
-    width: 195px;
+    width: 179px;
     height: 37px;
     color: white;
     font-size: 14px;
@@ -1687,25 +1687,3 @@ table td p.tl{
     margin: 0 8px;
     text-indent:1em;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
