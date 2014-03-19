@@ -7,21 +7,21 @@
 return [
 
     /**
-     * @var 金币:银币  1：100
+     * @var 元宝:银币  1：100
      */
     'point'    => 100,
 
     /**
      * @var 积分单位
      */
-    'unit'     => '金币',
+    'unit'     => '元宝',
     'unit2'    => '银币',
 
     /**
      * 是否开启邀请码
      */
     'openInvitCode' => true,
-    'inviteCodeAddPoints' => 10,  // 赠送金币数量
+    'inviteCodeAddPoints' => 10,  // 赠送元宝数量
 
     /**
      * @var 揭晓时间 （单位:分钟）

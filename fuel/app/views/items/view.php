@@ -70,8 +70,8 @@
                       <span class="fr b"><?php echo $item->phase->remain; ?></span>
                   </dd>
                   <dd>
-                      <span class="fl">已攒金币</span>
-                      <span class="fr">还需金币</span>
+                      <span class="fl">已攒元宝</span>
+                      <span class="fr">还需元宝</span>
                   </dd>
               </dl>
               <form action="<?php echo Uri::create('/cart/add'); ?>" method="post">
@@ -80,7 +80,7 @@
                       <a class="add btn-jian" href="javascript:void(0);" style="height: 30px;line-height: 30px;width:30px">-</a>
                       <input style="margin: 0;border: 1px solid #e5e5e5;font-size: 14px;height:28px" type="text" value="1" name="qty" amount="<?php echo $item->phase->amount; ?>" remain="<?php echo $item->phase->remain; ?>">
                       <a class="add btn-jia" style="height: 30px; font-size: 14px; line-height: 30px" href="javascript:void(0);">+</a>
-                      <span class="right" style="line-height: 30px">(还需<?php echo $item->phase->remain; ?>金币)</span>
+                      <span class="right" style="line-height: 30px">(还需<?php echo $item->phase->remain; ?>元宝)</span>
                       <span class="chance fl" style="line-height: 30px">获得几率：<s class="red" id="percent"><?php echo sprintf('%.2f', 1/$item->phase->amount*100); ?>%</s> </span>
                   </div>
                   <div class="btn-group" style="margin-left: 57px">
@@ -127,7 +127,7 @@
                                         <td><div class="head-sm"><a href="<?php echo Uri::create('u/'.$member->id); ?>"><img src="<?php echo Uri::create($member->avatar); ?>" alt=""></a></div></td>
                                         <td><?php echo $member->nickname; ?></td>
                                         <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($newOrder->created_at); ?></b></td>
-                                        <td>乐拍了<s><?php echo $newOrder->code_count; ?></s>金币</td>
+                                        <td>乐拍了<s><?php echo $newOrder->code_count; ?></s>元宝</td>
                                     </tr>
                                 <?php
                                         endforeach;
@@ -150,7 +150,7 @@
                                         <td><div class="head-sm"><a href="<?php echo Uri::create('u/'.$current_user->id); ?>"><img src="<?php echo Uri::create($current_user->avatar); ?>" alt=""></a></div></td>
                                         <td><?php echo $current_user->nickname; ?></td>
                                         <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($myOrder->created_at); ?></b></td>
-                                        <td>乐拍了<s><?php echo $myOrder->code_count; ?></s>金币</td>
+                                        <td>乐拍了<s><?php echo $myOrder->code_count; ?></s>元宝</td>
                                     </tr>
                                 <?php
                                         endforeach;
@@ -181,7 +181,7 @@
                         </table>
                     </div>
                     <div class="tab-pane" id="help">
-                        <p>乐乐淘是指只需1金币就有机会买到想要的商品。即每件商品被平分成若干“等份”出售，每份1金币，
+                        <p>乐乐淘是指只需1元宝就有机会买到想要的商品。即每件商品被平分成若干“等份”出售，每份1元宝，
                          当一件商品所有“等份”售出后，根据云购规则产生一名幸运者，该幸运者即可获得此商品。
                         </p>
                         <p>
