@@ -740,7 +740,14 @@ table td p.tl{
     font-size: 14px;
     height: 22px;
     overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.caption{
+    width: 100%;
+    overflow: hidden;
     white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .title-red{
     width: 120px;
@@ -971,7 +978,7 @@ table td p.tl{
     width: 150px;
     height: 60px;
     float: left;
-    margin: 20px 0 0 20px;
+    margin: 5px 0 0 10px;
 }
 .logo-box .right-box{
     float: right;

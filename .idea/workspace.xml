@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/common.js" afterPath="$PROJECT_DIR$/public/assets/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/header.css" afterPath="$PROJECT_DIR$/public/assets/css/header.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/product.css" afterPath="$PROJECT_DIR$/public/assets/css/product.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
     </list>
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +25,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="321" column="13" selection-start="5253" selection-end="5253" vertical-scroll-proportion="0.0" vertical-offset="5817" max-vertical-offset="32471">
-              <folding />
+            <state line="743" column="26" selection-start="12807" selection-end="12807" vertical-scroll-proportion="0.2398524" vertical-offset="13922" max-vertical-offset="32604">
+              <folding>
+                <marker date="1395148777786" expanded="true" signature="497:521" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,7 +93,7 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/items/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="92" selection-start="8181" selection-end="8181" vertical-scroll-proportion="0.0" vertical-offset="2337" max-vertical-offset="3249">
+            <state line="160" column="92" selection-start="8481" selection-end="8481" vertical-scroll-proportion="0.0" vertical-offset="2489" max-vertical-offset="3401">
               <folding />
             </state>
           </provider>
@@ -103,16 +102,16 @@
       <file leaf-file-name="product.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/product.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1068" column="19" selection-start="19720" selection-end="19720" vertical-scroll-proportion="-21.16" vertical-offset="19763" max-vertical-offset="22059">
+            <state line="1068" column="19" selection-start="19720" selection-end="19720" vertical-scroll-proportion="0.0" vertical-offset="20292" max-vertical-offset="22059">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="header.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/header.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="153" column="13" selection-start="2778" selection-end="2778" vertical-scroll-proportion="0.35696203" vertical-offset="2625" max-vertical-offset="4503">
+            <state line="153" column="13" selection-start="2778" selection-end="2778" vertical-scroll-proportion="0.0" vertical-offset="2907" max-vertical-offset="4503">
               <folding />
             </state>
           </provider>
@@ -145,13 +144,13 @@
         <option value="$PROJECT_DIR$/fuel/app/views/member/myaddress.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/index/index.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/items/index.php" />
-        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/items/search.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/wins/index.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/items/view.php" />
         <option value="$PROJECT_DIR$/public/assets/js/common.js" />
         <option value="$PROJECT_DIR$/public/assets/css/product.css" />
         <option value="$PROJECT_DIR$/public/assets/css/header.css" />
+        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
       </list>
     </option>
   </component>
@@ -192,7 +191,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -487,6 +485,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -611,7 +610,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32816228" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24978466" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22264437" sideWeight="0.67080045" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22255415" sideWeight="0.67080045" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31914893" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -668,16 +667,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="750" column="21" selection-start="13476" selection-end="13476" vertical-scroll-proportion="0.0" vertical-offset="13979" max-vertical-offset="22002">
-          <folding />
-        </state>
+        <state line="750" column="21" selection-start="13476" selection-end="13476" vertical-scroll-proportion="0.0" vertical-offset="13979" max-vertical-offset="22002" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/member/myaddress.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="16" selection-start="2801" selection-end="2801" vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="1672">
-          <folding />
-        </state>
+        <state line="57" column="16" selection-start="2801" selection-end="2801" vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="1672" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/index/index.php">
@@ -689,14 +684,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/items/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="92" selection-start="8181" selection-end="8181" vertical-scroll-proportion="0.0" vertical-offset="2337" max-vertical-offset="3249">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="321" column="13" selection-start="5253" selection-end="5253" vertical-scroll-proportion="0.0" vertical-offset="5817" max-vertical-offset="32471">
+        <state line="160" column="92" selection-start="8481" selection-end="8481" vertical-scroll-proportion="0.0" vertical-offset="2489" max-vertical-offset="3401">
           <folding />
         </state>
       </provider>
@@ -753,15 +741,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/product.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1068" column="19" selection-start="19720" selection-end="19720" vertical-scroll-proportion="-21.16" vertical-offset="19763" max-vertical-offset="22059">
+        <state line="1068" column="19" selection-start="19720" selection-end="19720" vertical-scroll-proportion="0.0" vertical-offset="20292" max-vertical-offset="22059">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/header.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="13" selection-start="2778" selection-end="2778" vertical-scroll-proportion="0.35696203" vertical-offset="2625" max-vertical-offset="4503">
+        <state line="153" column="13" selection-start="2778" selection-end="2778" vertical-scroll-proportion="0.0" vertical-offset="2625" max-vertical-offset="4503">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="743" column="26" selection-start="12807" selection-end="12807" vertical-scroll-proportion="0.2398524" vertical-offset="13922" max-vertical-offset="32604">
+          <folding>
+            <marker date="1395148777786" expanded="true" signature="497:521" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
