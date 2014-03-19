@@ -430,25 +430,30 @@ class Controller_Admin_Ghost extends Controller_Admin{
     // 批量上传图片
     public function action_multiUpload()
     {
-        
-        $files = Model_Member::uploadmutil();
-        return json_encode(['files' => $files]);
+        $response = new Response();
+        $response->set_header('Content-Type', 'application/json');
+        $files = Model_Member::uploadmulti();
+        return $response->body(json_encode(['files' => $files]));
     }
     
     // 导入CSV表格文件
     public function action_csvUpload()
     {
-        $files = Model_Member::uploadcsv();
+        $response = new Response();
+        $response->set_header('Content-Type', 'application/json');
+        $files = Model_Member::uploadmulti();
         if (!$files){
-            json_encode(['files' => $files, 'msg'=>'格式错误']);
+            return $response->body(json_encode(['files' => $files, 'msg'=>'格式错误']));
         }
         $csvfile = Model_Member::readcsv($files[0]['path']);
-
+        $res = [];
         foreach($csvfile as $key=>$row){
             if (($key > 0) && Model_Member::checkCsv($row)){
-                Model_Member::ADDghost($row);
+                if (Model_Member::ADDghost($row)){
+                   $res[] = $row[1];
+                }
             }
         }
-        return json_encode(['files' => $files, 'msg'=>'上传成功']);
+        return $response->body(json_encode(['files' => $files, 'msg'=>'上传成功', 'res'=>$res]));
     }
 }
