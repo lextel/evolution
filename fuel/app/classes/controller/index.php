@@ -59,5 +59,25 @@ class Controller_Index extends Controller_Frontend {
         $data['num'] = $count;
         return $response->body(json_encode($data));
     }
+
+    /**
+     * 验证邀请码
+     */
+    public function action_checkInvitcode() {
+
+        $config = Config::load('common');
+
+        $result = ['status' => 'n', 'info' => '邀请码不正确或已经使用'];
+        if($config['openInvitCode']) {
+            $code =  Input::post('param');
+            $codeModel = new Model_Invitcode();
+            if($codeModel->check($code)) {
+                $result = ['status' => 'y'];
+            }
+        }
+
+        $response = new Response();
+        return $response->body(json_encode($result));
+    }
 }
 
