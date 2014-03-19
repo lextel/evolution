@@ -67,7 +67,7 @@
                         <div class="img-box">
                             <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/' . $remain->image); ?>" alt=""></a>
                             <div class="sheng-yi">
-                                还需 <b class="red"><?php echo $remain->phase->remain; ?></b>金币！
+                                还需 <b class="red"><?php echo $remain->phase->remain; ?></b>元宝！
                             </div>
                         </div>
                         <div class="btn-group">
