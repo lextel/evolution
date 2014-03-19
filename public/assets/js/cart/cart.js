@@ -66,7 +66,7 @@ $(function(){
     // 购买 
     $('#doBuy').click(function() {
 
-        // 如果是金币支付
+        // 如果是元宝支付
         if($('#goldPay').is(':checked')) {
             var money = $('#money').attr('money');
             var total = $('#total').attr('total');
@@ -86,7 +86,7 @@ $(function(){
         }
     });
 
-    // 选择金币
+    // 选择元宝
     $('#goldPay').click(function(){
         if($(this).is(':checked')) {
             $('input:radio[name="account"]').attr('checked', false);

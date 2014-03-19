@@ -35,8 +35,8 @@
                                     <span class="fl r"><?php echo $phase->joined;?></span>
                                     <span class="fr b"><?php echo $phase->remain;?></span>
                                 <dd>
-                                    <span class="fl">已攒金币</span>
-                                    <span class="fr">还需金币</span>
+                                    <span class="fl">已攒元宝</span>
+                                    <span class="fr">还需元宝</span>
                                 </dd>
                                 </dl>
                                 <?php echo Html::anchor('m/'.$oitem->phase_id, '<button class="btn-red btn-topUp">去乐拍</button>');?>
