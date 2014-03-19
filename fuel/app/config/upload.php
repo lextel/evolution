@@ -30,10 +30,12 @@ return [
         'ext_whitelist' => ['jpg', 'jpeg', 'gif', 'png'],
 		    'savePath'   => 'updateSavePath(["upload"]);',
     ],
-    'mutilcsv' => [
-        'path' => DOCROOT.'upload'.DS.'csv',
-        'randomize' => true,
-        'ext_whitelist' => ['csv'],
+    'mutil' => [
+        'path' => DOCROOT.'upload'.DS.'mutil',
+        'randomize' => false,
+        'create_path' => false,
+        'ext_whitelist' => ['csv', 'img', 'jpg', 'jpeg', 'png'],
+        'auto_rename' => false,
     ],
     'upload' => [
         'auto_process' => true,

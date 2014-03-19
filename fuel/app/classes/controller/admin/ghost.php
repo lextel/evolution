@@ -185,7 +185,7 @@ class Controller_Admin_Ghost extends Controller_Admin{
                 Model_Log::add('修改马甲 #' . $user_id);
                 Response::redirect('admin/ghost/lists');
             } catch (Exception $e) {
-                Log::error($e);
+                Model_Log::error($e);
                 Session::set_flash('error', e('修改失败'));
             }
         } else {
@@ -430,7 +430,8 @@ class Controller_Admin_Ghost extends Controller_Admin{
     // 批量上传图片
     public function action_multiUpload()
     {
-        $files = Model_Member::uploadcsv();
+        
+        $files = Model_Member::uploadmutil();
         return json_encode(['files' => $files]);
     }
     
@@ -438,6 +439,16 @@ class Controller_Admin_Ghost extends Controller_Admin{
     public function action_csvUpload()
     {
         $files = Model_Member::uploadcsv();
-        return json_encode(['files' => $files]);
+        if (!$files){
+            json_encode(['files' => $files, 'msg'=>'格式错误']);
+        }
+        $csvfile = Model_Member::readcsv($files[0]['path']);
+
+        foreach($csvfile as $key=>$row){
+            if (($key > 0) && Model_Member::checkCsv($row)){
+                Model_Member::ADDghost($row);
+            }
+        }
+        return json_encode(['files' => $files, 'msg'=>'上传成功']);
     }
 }
