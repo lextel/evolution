@@ -1,7 +1,8 @@
 ﻿*{margin: 0;padding: 0;list-style: none;text-decoration: none; border: 0;}
 body{
-    font:12px/1.231 "微软雅黑","宋体",Helvetica,Arial,sans-serif;
-    color: #212121;
+    font-family: tahoma,"Hiragino Sans GB","宋体", sans-serif;
+    font-size: 12px;
+    color: #333;
     background: #f5f7fa;
 }
 .b{
@@ -29,7 +30,7 @@ body{
     height: 350px;
 }
 a{
-    color: #212121;
+    color: #333;
     outline: none;
 }
 a:active{noOutline:expression(this.onFocus=this.blur());}
@@ -740,7 +741,14 @@ table td p.tl{
     font-size: 14px;
     height: 22px;
     overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.caption{
+    width: 100%;
+    overflow: hidden;
     white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .title-red{
     width: 120px;
@@ -971,7 +979,7 @@ table td p.tl{
     width: 150px;
     height: 60px;
     float: left;
-    margin: 20px 0 0 20px;
+    margin: 5px 0 0 10px;
 }
 .logo-box .right-box{
     float: right;

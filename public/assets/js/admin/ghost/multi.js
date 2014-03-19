@@ -4,52 +4,30 @@ $(function() {
      // 广告图上传
     UPLOAD_URL = "/admin/ghost/multiUpload";
     IMAGE_URL  = "/";
-    $('#avatarUpload').fileupload({
-        url: UPLOAD_URL,
-        dataType: 'json',
-        done: function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                $('#files').html('');
-                var text = '<p><img style="margin:5px; float: left" src="'+IMAGE_URL+file.link+'"><d class="close"></d><input type="hidden" name="avatar" value="'+file.link+'"></p>';
-                $('#files').append(text);
-            });
-        },
-    }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
+
 
     $('#csvUpload').fileupload({
         url: '/admin/ghost/csvUpload',
         dataType: 'json',
         done: function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                console.log(file);
-            });
-            var filename = $('input[type=file]').val();
-            
+            alert(data.result.msg);
         },
-    }).on('fileuploadadd', function (e, data) {
-        data.context = $('<div/>').appendTo('#files');
-        $.each(data.files, function (index, file) {
-            var node = $('<p/>')
-                    .append($('<span/>').text(file.name));
-                    alert(1111);
-            if (!index) {
-                node
-                    .append('<br>')
-                    .append(uploadButton.clone(true).data(data));
-            }
-            node.appendTo(data.context);
-        });
+        fail:function(e, data){
+            alert('上传失败');
+        }
     }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
-
+    
+    
+    
     $("#multipleupload").fileupload({
         url:UPLOAD_URL,
         multiple:true,
         fileName:"myfile",
         done: function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                $('#files').html('');
-                var text = '<p><img style="margin:5px; float: left" src="'+IMAGE_URL+file.link+'"><d class="close"></d><input type="hidden" name="avatar" value="'+file.link+'"></p>';
-                $('#files').append(text);
+            console.log(data.result);
+            $.each(data.result.files, function (index, file) {                
+                var text = '<tr><td><img style="margin:5px; float: left; width:30px;" src="'+IMAGE_URL+file.link+'"></td><td>'+file.name+'</td><td><d class="close"></d></td></tr>';
+                $('.avatarfiles').append(text);
             });
         },
     }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');

@@ -226,6 +226,47 @@
     margin-right: 15px;
 }
 
-
-
-
+/*编辑推荐*/
+.best-route{
+   background: #ffffff;
+}
+.best-route ul{
+    overflow: hidden;
+    padding:0 10px 10px;
+}
+.best-route ul li{
+    width: 210px;
+    float: left;
+    padding: 10px;
+    margin-right: 10px;
+    border:1px solid #D2D2D2;
+}
+.best-route ul li:last-child{
+    margin-right: 0;
+}
+.best-route ul li .side{
+    width: 210px;
+    height: 210px;
+    line-height: 210px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+.best-route ul li .side img{
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+}
+.best-route ul li .tit{
+    width: 100%;
+    height: 40px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    font-size: 14px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.best-route ul li .tit a:hover{
+    color: #CE4D40;
+}
