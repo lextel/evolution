@@ -45,7 +45,7 @@
                         <td><div class="img-box img-sm"><?php echo Html::anchor("w/".$win->id, Html::img($win->image)); ?></div></td>
                         <td>（第<?php echo $win->phase_id;?>期）<?php echo $win->title;?></td>
                         <td>已经揭晓</td>
-                        <td><?php echo $win->code_count;?>人次</td>
+                        <td><?php echo $win->code_count;?>金币</td>
                         <td><?php echo $win->code; ?></td>
                         
                         <td><?php $status = intval($getShipping($win->id)); ?>

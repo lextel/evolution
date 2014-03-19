@@ -36,8 +36,8 @@
                                     <span class="fl r"><?php echo $phase->joined;?></span>
                                     <span class="fr b"><?php echo $phase->remain;?></span>
                                 <li>
-                                    <span class="fl">已参与人次</span>
-                                    <span class="fr">剩余人次</span>
+                                    <span class="fl">已攒金币</span>
+                                    <span class="fr">还需金币</span>
                                 </li>
                             </ol>
                         <?php }else{ ?>

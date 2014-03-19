@@ -9,7 +9,7 @@
                 <div class="signature2"> 个性签名：<?php echo $current_user->bio;?></div>
             </li>
             <li>
-                <span class="price fl">帐户积分： <b><?php echo $current_user->points;?>点</b> </span>
+                <span class="price fl">财富： <b><?php echo \Helper\Coins::showCoins($current_user->points);?></b> </span>
                 <?php echo Html::anchor('u/getrecharge', '充值', ['class'=>'btn-topUp btn-y']);?>
             </li>
         </ul>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="buy-record fl">
                     <h4 class="title-lg">(第<?php echo $phase->phase_id;?>期)<?php echo Html::anchor('/m/'.$item->phase_id, $getItemInfo($phase->item_id)->title, ['class'=>'chance']);?></h4>
-                    <div class="price">价值：￥<b><?php echo $phase->amount;?>.00</b></div>
+                    <div class="price">价值：￥<b><?php echo sprintf( '%.2f',$phase->amount);?></b></div>
                     <?php if ($getProgress($phase) != 100) { ?>
                     <dl class="progress-side">
                         <dd>
@@ -41,8 +41,8 @@
                             <span class="fl r"><?php echo $phase->joined;?></span>
                             <span class="fr b"><?php echo $phase->remain;?></span>
                         <dd>
-                            <span class="fl">已参与人次</span>
-                            <span class="fr">剩余人次</span>
+                            <span class="fl">已攒金币</span>
+                            <span class="fr">还需金币</span>
                         </dd>
                     </dl>                    
                     <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="btn-topUp btn-red">去乐拍</button>');?>
