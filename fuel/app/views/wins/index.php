@@ -103,7 +103,7 @@
             endif;
             endforeach;
             else:
-                echo '<p style="mrgin-top: 20px; mrgin-left: 10px">暂时还没有人中奖.</p>';
+                echo '<p style="margin-top: 20px; margin-left: 10px">暂时还没有人中奖.</p>';
             endif;
             ?>
         </ul>
