@@ -16,6 +16,8 @@ return array(
     'newpwd' => 'center/newpassword',
     'sendok'=> 'center/sendok',
 
+    'invit' => 'invit/index',
+
     'emailok'=>'member/emailok',
     'u/checkemail' => 'member/checkemail',
     'u/(\d+)' => 'home/index/$1',
