@@ -52,8 +52,10 @@ class Model_Order extends \Classes\Model
         $orderIds = [0];
 
         Config::load('common');
-        $memberHelper = new \Helper\Member();
-        $ip = $memberHelper->getIp();
+        //$memberHelper = new \Helper\Member();
+        //$ip = $memberHelper->getIp();
+        $member = Model_Member::find($memberId);
+        $ip = $member->ip;
 
         $ip2area = new \Classes\Ip2area(APPPATH . 'qqwry.dat');
         $location = $ip2area->getlocation($ip);
@@ -87,14 +89,35 @@ class Model_Order extends \Classes\Model
             // 写消费日志
             $perPoint = count($fetchCodes) * Config::get('point');
             Model_Member_Moneylog::buy_log($memberId, $perPoint, $phaseId, count($fetchCodes));
-            
+
         }
 
         // 更新用户积分
         $point = $quantity * Config::get('point');
-        $member = Model_Member::find($memberId);
         $member->points = $member->points - $point;
         $member->save();
+
+        // 写邀请佣金
+        $invit = Model_Member_Invit::find('first', ['where' => ['invit_id' => $memberId]]);
+        if(!empty($invit)) { // 如果是邀请的
+
+            // 更新邀请者财富
+            $invitPoints = $point * Config::get('invitPercent') / 100;
+            $inviter = Model_Member::find($invit->member_id);
+            $inviter->points = $inviter->points + $invitPoints;
+            $inviter->save();
+
+            // 写佣金日志
+            $brokerage = [
+                'type_id' => 2,
+                'member_id' => $invit->member_id,
+                'target_id' => $memberId,
+                'points' => $invitPoints,
+                ];
+            $brokerageModel = new Model_Member_Brokerage($brokerage);
+            $brokerageModel->save();
+
+        }
 
         return $orderIds;
     }

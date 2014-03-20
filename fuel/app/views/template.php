@@ -41,6 +41,7 @@
             <div class="collection fl" style="CURSOR: hand" onClick="window.external.addFavorite('http://www.lltao.com')" title="乐乐淘">
                  <a href="javascript:;">收藏乐乐淘</a>
             </div>
+            <?php echo Html::anchor('invit', '邀请好友赢元宝', array('class' => 'b fr'));?>
             <span class="online">
                 <a href="javascript:void(0);">在线客服<span class="icon icon-qq"></span></a>
             </span>
