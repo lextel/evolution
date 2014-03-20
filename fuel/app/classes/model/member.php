@@ -456,6 +456,7 @@ class Model_Member extends \Classes\Model
                $member->is_disable = 0;
                $member->is_delete = 0;
                $member->profile_fields = '';
+               $member->is_mobile = 0;
                
                $member->save();
                Model_Log::add('增加马甲 #' . $member->id);
