@@ -35,7 +35,7 @@ echo Asset::js(
         <div class="form-group">
             <?php echo Form::label('', 'avatar', array('class'=>'control-label col-sm-2')); ?>
             <div class="col-sm-6">
-                图片名字不要重复，否则会发生图片覆盖
+                图片名字不要重复，否则会发生图片覆盖，统一为JPG格式
                 <table class="table table-striped avatarfiles">
                 
                 </table>
@@ -50,8 +50,6 @@ echo Asset::js(
                       <input id="csvUpload" type="file" name="csv" multiple>
                 </span>
             </div>
-            <!--<span class="help-block"></span>
-            <div class="control-label col-sm-1"></div>-->
         </div>
         <div class="form-group">
             <?php echo Form::label('', 'csv', array('class'=>'control-label col-sm-2')); ?>
@@ -59,9 +57,14 @@ echo Asset::js(
                 需要CSV输入格式：用户邮箱，用户昵称，用户头像，用户签名
                 <br />
                 文件名不要带符号 数字+字母
+                用户头像为空着默认头像
                 <br />
-                CSV 前2行留空
+                CSV 前1行留空
+                <br />
+                <br />
+                下载CSV范例   <?php echo Html::anchor('/download/csv/model.csv', '点击下载', ['class' => 'btn btn-info']);?>
             </div>
+            
         </div>
         <div class="form-group">
             <label class='control-label col-sm-1'>&nbsp;</label>
