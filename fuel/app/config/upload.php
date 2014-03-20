@@ -31,9 +31,15 @@ return [
 		    'savePath'   => 'updateSavePath(["upload"]);',
     ],
     'mutil' => [
-        'path' => DOCROOT.'upload'.DS.'mutil',
+        'path' => DOCROOT.'upload'.DS.'multi',
         'randomize' => false,
-        'ext_whitelist' => ['csv', 'img', 'jpg', 'jpeg', 'png'],
+        'ext_whitelist' => ['jpg'],
+        'auto_rename' => false,
+    ],
+    'csv' => [
+        'path' => DOCROOT.'upload'.DS.'csv',
+        'randomize' => false,
+        'ext_whitelist' => ['csv'],
         'auto_rename' => false,
     ],
     'upload' => [

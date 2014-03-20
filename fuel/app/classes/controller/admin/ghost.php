@@ -21,9 +21,9 @@ class Controller_Admin_Ghost extends Controller_Admin{
         $memberModel = new Model_Member();
         $total = $memberModel->countGhost($get);
         $page = new \Helper\Page();
-        $url = Uri::create('admin/ghost', 
-                ['member_id' => Input::get('member_id'), 'nickname' => Input::get('nickname'), 'email' => Input::get('email')], 
-                ['user_id' => ':user_id', 'nickname' => ':nickname', 'email' => ':email']);
+        $url = Uri::create('admin/ghost/lists', 
+                ['member_id' => Input::get('member_id'), 'nickname' => Input::get('nickname')], 
+                ['user_id' => '', 'nickname' => ':nickname']);
 
         $config = $page->setConfig($url, $total, 'page');
         $pagination = Pagination::forge('mypagination', $config);
@@ -441,19 +441,22 @@ class Controller_Admin_Ghost extends Controller_Admin{
     {
         $response = new Response();
         $response->set_header('Content-Type', 'application/json');
-        $files = Model_Member::uploadmulti();
+        $files = Model_Member::uploadcsv();
         if (!$files){
             return $response->body(json_encode(['files' => $files, 'msg'=>'格式错误']));
         }
         $csvfile = Model_Member::readcsv($files[0]['path']);
         $res = [];
+        
         foreach($csvfile as $key=>$row){
-            if (($key > 0) && Model_Member::checkCsv($row)){
+            if (Model_Member::checkCsv($row)){
+                
                 if (Model_Member::ADDghost($row)){
                    $res[] = $row[1];
                 }
+                
             }
         }
-        return $response->body(json_encode(['files' => $files, 'msg'=>'上传成功', 'res'=>$res]));
+        return $response->body(json_encode(['files' => $files, 'msg'=>'上传成功'.count($res).'个', 'res'=>$res]));
     }
 }
