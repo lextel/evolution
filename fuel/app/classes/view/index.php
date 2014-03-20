@@ -60,6 +60,23 @@ class View_Index extends Viewmodel {
            $member = Model_Member::find_by_id($member_id);
            return $member;
        };
+
+        // 编辑推荐
+        $this->getRecommends = function() {
+
+            $select = ['title', 'image', 'cost', 'remain', 'joined', 'amount', 'status'];
+            $where = [
+                'opentime'  => \Helper\Item::NOT_OPEN, 
+                'is_delete' => \Helper\Item::NOT_DELETE, 
+                'status'    => \Helper\Item::IS_CHECK,
+                'is_recommend' => 1
+                ];
+
+            $phases = Model_Phase::find('all', ['select' => $select, 'where' => $where, 'order_by' => ['sort' => 'desc'], 'limit' => 4]);
+
+            return $phases;
+        };
+
    }
 
    public function set_view(){
