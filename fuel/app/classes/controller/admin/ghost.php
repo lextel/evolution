@@ -71,7 +71,6 @@ class Controller_Admin_Ghost extends Controller_Admin{
             $avatar = Input::post('avatar');
             $bio = Input::post('bio');
             $created_at = Input::post('created_at');
-            $ip = Input::post('ip');
             try {
                 $member = new Model_Member();
                 $member->username = $username;
@@ -82,13 +81,15 @@ class Controller_Admin_Ghost extends Controller_Admin{
                 $member->mobile = '';
                 $member->bio = $bio;
                 $member->created_at = $created_at;
-                $member->ip = $ip;
+                $chip = new  Classes\RandCHIp;
+                $member->ip = $chip->randomCHIp();
                 $member->type = 1;
                 $member->points = 0;
                 $member->last_login = 0;
                 $member->login_hash = 0;
                 $member->is_disable = 0;
                 $member->is_delete = 0;
+                $member->is_mobile = 0;
                 $member->profile_fields = '';
                 $member->save();
                 $user_id = $member->id;
