@@ -18,8 +18,7 @@ class Coins {
             $coins .= $gold . \Config::get('unit');
 
         $silver = $points%$point;
-        if(!empty($silver))
-            $coins .= $silver . \Config::get('unit2');
+        $coins .= $silver . \Config::get('unit2');
 
         return $coins;
     }

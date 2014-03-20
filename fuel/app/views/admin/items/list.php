@@ -60,6 +60,7 @@ echo Asset::js(['admin/items/list.js']);
             <th width="45%">标题</th>
             <th>价格</th>
             <th>进度</th>
+            <th>推荐</th>
             <th>状态</th>
             <th>是否删除</th>
             <th>操作</th>
@@ -73,6 +74,7 @@ echo Asset::js(['admin/items/list.js']);
             <td><a href="<?php echo Uri::create('m/'.$item->id); ?>" target="_blank"><?php echo '(第'.$item->phase_id.'期)'.$item->title; ?></a></td>
             <td><?php echo '￥' . sprintf('%.2f', $item->cost/Config::get('point')); ?></td>
             <td><?php echo $item->joined, '/', $item->amount; ?></td>
+            <td><a href="javascript:;" class="recommend" data-id="<?php echo $item->item_id; ?>"><?php echo $item->is_recommend == 1 ? '是' : '否';  ?></a></td>
             <td><?php echo $getStatus($item->status);  ?></td>
             <td><?php echo $item->is_delete == 1 ? '<span style="color:red">是</span>':'否';  ?></td>
             <td>
@@ -84,6 +86,29 @@ echo Asset::js(['admin/items/list.js']);
 </table>
 <script>
   OPERATE_URL = '<?php echo Uri::base() . 'admin/items/operate'?>';
+
+  $(function(){
+      $('.recommend').click(function(){
+          var obj = $(this);
+          var id = obj.attr('data-id');
+          $.ajax({
+                url: '<?php echo Uri::create('admin/items/isRecommend/');?>' + id,
+                type: 'get',
+                dataType: 'json',
+                success: function(data) {
+                    if(data.code == 0) {
+                        var str = obj.html() == '是' ? '否' : '是';
+                        obj.html(str);
+                    } else {
+                        alert(data.msg)
+                    }
+                },
+                error: function() {
+                    alert('请求失败');
+                }
+          });
+      });
+  })
 </script>
 <?php else: ?>
 <p style='text-align:center; padding: 40px'>还没有商品.</p>

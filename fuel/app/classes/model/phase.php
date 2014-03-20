@@ -25,6 +25,7 @@ class Model_Phase extends \Classes\Model {
             'status',
             'total',
             'results',
+            'is_recommend',
             'is_delete',
             'opentime',
             'status',
