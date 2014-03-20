@@ -298,6 +298,16 @@ class Model_Member extends \Classes\Model
         }
         return $rs;
     }
+    
+    public static function  uploadcsv() {
+        $upload  = new Classes\Upload('csv');
+        $success = $upload->upload();
+        $rs = [];
+        if($success) {
+            $rs =  $upload->getFiles();
+        }
+        return $rs;
+    }
 
     /**
      * 冻结用户
@@ -402,13 +412,13 @@ class Model_Member extends \Classes\Model
     *
     */
     public static function checkCsv($row){
-        if (count($row) < 4){
+        if (count($row) != 4){
             return false;
         }
-        if (self::checkNickname($row[1])){
+        if (!self::checkNickname($row[1])){
             return false;
         }
-        if (self::checkUsername($row[0])){
+        if (!self::checkUsername($row[0])){
             return false;
         }
         return true;
@@ -421,8 +431,9 @@ class Model_Member extends \Classes\Model
        if (!$row){
           return false;
        }
-      
+
        $avatar = self::CopyAvatar($row[2]);
+
        if (!$avatar){
             return false;
        }
@@ -432,10 +443,11 @@ class Model_Member extends \Classes\Model
                $member->avatar = $avatar;
                $member->bio = $row[3];
                $member->password = '';
-               $member->email = $row[0];
+               $member->email = '';
                $member->mobile = '';
                $member->created_at = '';
-               $member->ip = '127.0.0.1';
+               $chip = new  Classes\RandCHIp;
+               $member->ip = $chip->randomCHIp();
                $member->type = 1;
                $member->points = 0;
                $member->last_login = 0;
@@ -445,14 +457,52 @@ class Model_Member extends \Classes\Model
                $member->profile_fields = '';
                
                $member->save();
+               Model_Log::add('增加马甲 #' . $member->id);
        return true;
+    }
+    
+    /*
+    *遍历文件夹
+    */
+    public static function listdir($base){
+        $filter = [
+        '\.jpg$' => 'file',
+        ];
+
+        $files = File::read_dir($base,0,$filter);
+        if (is_null($files)){
+            return [];
+        }
+        $res = [];
+        foreach($files as $key=>$row){
+             
+            foreach($row as $k=>$rs){
+                if (is_array($rs)){              
+                    foreach($rs as $r){
+                        $res[] = $r;
+                    }
+                }else{
+                    $res[] = $rs;
+                }
+            }
+        }
+        return $res;
     }
     
     /*
     * 先检测图片是否存在，然后修改图片名路径，然后拷贝到用户头像区
     */ 
-    public static function CopyAvatar($image){
-        $base = DOCROOT.'upload'.DS.'mutil';
+    public static function CopyAvatar($image=''){
+        $base = DOCROOT.'upload'.DS.'multi';
+        //要随即取图片
+        if ($image == ''){
+            $fs = self::listdir($base);
+            if (!$fs){
+               return 'upload/avatar/header.png';
+            }
+            $image = $fs[array_rand($fs, 1)];
+        }
+        
         $path1 = '/'.$image[0].'/'.$image[1].'/';
         $path = $base.$path1.$image;
         if(!file_exists($path)){
@@ -463,12 +513,19 @@ class Model_Member extends \Classes\Model
         $path1 = '/'.$newimage[0].'/'.$newimage[1].'/';
         
         $newpath = DOCROOT.'upload'.DS.'avatar'.$path1.$newimage.'.'.$is[1];
+        
         if (file_exists($newpath)){
             return 'upload'.DS.'avatar'.$path1.$newimage.'.'.$is[1];  
         }
+        $newpath1 = DOCROOT.'upload'.DS.'avatar'.$path1;
+        if(!file_exists($newpath1)) {
+            mkdir($newpath1, 0755, true);
+        }
+        
         if (!File::copy($path, $newpath)) {
             return false;
         }
+        File::delete($path);
         return 'upload'.DS.'avatar'.$path1.$newimage.'.'.$is[1];
     }
     

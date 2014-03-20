@@ -28,6 +28,7 @@
     <thead>
         <tr>
             <th>#ID</th>
+            <th class="text-center">头像</th>
             <th class="text-center">昵称</th>
             <th class="text-center">所用IP</th>
             <th class="text-center">所在地区</th>
@@ -38,11 +39,13 @@
     <tbody>
         <?php foreach ($members as $item): ?>
         <tr>
-            <?php $ips = new \Classes\Ip2area();?>
+      
             <td><?php echo $item->id; ?></td>
+            <td class="text-center"><?php echo Html::img($item->avatar, ['style'=>'width:30px;height: 30px;']); ?></td>
             <td class="text-center"><?php echo Html::anchor('admin/ghost/forcelogin/'.$item->id, $item->nickname, ['target'=>'blank']); ?></td>
             <td class="text-center"><?php echo $item->ip; ?></td>
-            <td class="text-center"><?php echo $ips->getlocation($item->ip); ?></td>
+            
+            <td class="text-center"><?php echo \Helper\Ip2area::toarea($item->ip); ?></td>
             <th class="text-center"><?php echo $item->is_delete ? '已删除' : ($item->is_disable ? '已冻结' : '正常'); ?></th>
             <td class="text-center">               
                 <?php echo Html::anchor('admin/ghost/getedit/'.$item->id, '编辑', ['class'=>'btn btn-success']); ?> |

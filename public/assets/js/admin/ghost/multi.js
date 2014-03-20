@@ -30,6 +30,9 @@ $(function() {
                 $('.avatarfiles').append(text);
             });
         },
+        fail:function(e, data){
+            alert('图片上传失败');
+        }
     }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
     // 删除图片
     $(document).on('click', '.close', function(){
