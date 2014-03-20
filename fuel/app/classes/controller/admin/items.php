@@ -122,6 +122,7 @@ class Controller_Admin_Items extends Controller_Admin {
         Response::redirect('admin/items/create');
     }
 
+
     // 编辑商品
     public function action_edit($id = null, $resell = '') {
 
@@ -333,6 +334,21 @@ class Controller_Admin_Items extends Controller_Admin {
 
 
         Response::redirect_back();
+    }
+
+    // 商品推荐
+    public function action_isRecommend($id = 0) {
+
+        if(empty($id)) return json_encode(['code' => 1, 'msg' => '参数错误']);
+
+        $result = ['code' => 1, 'msg' => '操作失败'];
+
+        $itemModel = new Model_Item();
+        if($itemModel->recommend($id)) {
+            $result = ['code' => 0];
+        }
+
+        return json_encode($result);
     }
 
     // test
