@@ -13,7 +13,10 @@ class Coins {
         $point = \Config::get('point');
         $gold = floor($points/$point);
 
-        $coins = $gold . \Config::get('unit');
+        $coins = '';
+        if(!empty($gold))
+            $coins .= $gold . \Config::get('unit');
+
         $silver = $points%$point;
         if(!empty($silver))
             $coins .= $silver . \Config::get('unit2');

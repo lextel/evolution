@@ -18,6 +18,12 @@ return [
     'unit2'    => '银币',
 
     /**
+     * 邀请佣金
+     */
+    'invitPoints' => 0.6,  // 金币数量
+    'invitPercent' => 7,   // 消费回扣百分比  7 = 7%
+
+    /**
      * 是否开启邀请码
      */
     'openInvitCode' => true,

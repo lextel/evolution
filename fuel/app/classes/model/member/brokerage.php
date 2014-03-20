@@ -1,11 +1,13 @@
 <?php
 
-class Model_Member_Invit extends \Classes\Model
+class Model_Member_Brokerage extends \Classes\Model
 {
 	protected static $_properties = array(
 		'id',
+		'type_id',
 		'member_id',
-		'invit_id',
+		'target_id',
+		'points',
 		'created_at',
 		'updated_at',
 	);
@@ -20,6 +22,6 @@ class Model_Member_Invit extends \Classes\Model
 			'mysql_timestamp' => false,
 		),
 	);
-	protected static $_table_name = 'member_invits';
+	protected static $_table_name = 'member_brokerages';
 
 }
