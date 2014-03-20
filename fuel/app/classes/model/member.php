@@ -16,6 +16,7 @@ class Model_Member extends \Classes\Model
         'email',
         'login_hash',
         'profile_fields',
+        'is_mobile',
         'is_disable',
         'is_delete',
         'created_at',

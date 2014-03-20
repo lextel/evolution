@@ -85,8 +85,8 @@
                                 <span class="fr b"><?php echo $phase->remain;?></span>
                             </dd>
                             <dd>
-                                <span class="fl c9">已攒金币</span>
-                                <span class="fr c9">还需金币</span>
+                                <span class="fl c9">已攒元宝</span>
+                                <span class="fr c9">还需元宝</span>
                             </dd>
                         </dl>
                         <div class="btn-group tc">
@@ -146,8 +146,8 @@
                         <span class="fr b"><?php echo $phase->remain;?></span>
                     </dd>
                     <dd>
-                        <span class="fl c9">已攒金币</span>
-                        <span class="fr c9">还需金币</span>
+                        <span class="fl c9">已攒元宝</span>
+                        <span class="fr c9">还需元宝</span>
                     </dd>
                 </dl>
                 <div class="btn-group tc">

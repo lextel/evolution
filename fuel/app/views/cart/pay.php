@@ -16,7 +16,7 @@
                     <tr>
                         <th style="display:none"></th>
                         <th>商品名称</th>
-                        <th>总金币</th>
+                        <th>总元宝</th>
                         <th>单价</th>
                         <th>数量</th>
                         <th>小计</th>
@@ -40,7 +40,7 @@
                                 <h4>
                                     <a href="<?php echo Uri::create('/m/'.$item->get_id()); ?>"><?php echo $info->title; ?></a>
                                 </h4>
-                                <div class="remain">还需<b class="red"><?php echo $info->phase->remain; ?></b>金币</div>
+                                <div class="remain">还需<b class="red"><?php echo $info->phase->remain; ?></b>元宝</div>
                             </div>
                         </td>
                         <td><s><?php echo \Helper\Coins::showCoins($info->phase->cost); ?></s></td>
@@ -55,16 +55,16 @@
             </form>
             <div class="cart-footer">
                 <a class="btn btn-sx btn-gy fl" style="margin-left: 0px" href="<?php echo Uri::create('cart/list'); ?>"> < 返回修改订单</a>
-                <div class="all-price fr">总金币：<b id="total" total="<?php echo $subTotal*Config::get('point'); ?>"><?php echo \Helper\Coins::showCoins($subTotal * Config::get('point')); ?></b></div>
+                <div class="all-price fr">总元宝：<b id="total" total="<?php echo $subTotal*Config::get('point'); ?>"><?php echo \Helper\Coins::showCoins($subTotal * Config::get('point')); ?></b></div>
             </div>
         </div>
     </div>
-    <div class="pay-row"><label><input type="checkbox" id="goldPay">使用金币支付，您有：<?php echo \Helper\Coins::showCoins($current_user->points);?></label><b id="money" money="<?php echo $current_user->points; ?>" style="display:none"></b></div>
+    <div class="pay-row"><label><input type="checkbox" id="goldPay">使用元宝支付，您有：<?php echo \Helper\Coins::showCoins($current_user->points);?></label><b id="money" money="<?php echo $current_user->points; ?>" style="display:none"></b></div>
     <!--选择支付方式开始-->
     <div class="prepaid-box">
                 <!--选择支付方式开始-->
                 <div class="pay-way">
-                    <div class="caption" style="margin-bottom: 8px">金币不足？请选择下面方式购买</div>
+                    <div class="caption" style="margin-bottom: 8px">元宝不足？请选择下面方式购买</div>
                     <dl>
                         <dt>第三方平台</dt>
                         <dd>
@@ -139,7 +139,7 @@
                                    <h4 class="modal-title" id="mySmallModalLabel">温馨提示</h4>
                               </div>
                               <div class="modal-body">
-                                  您的金币不足，请使用在线支付进行购买。</a>
+                                  您的元宝不足，请使用在线支付进行购买。</a>
                                 </div>
                               </div>
                          </div>

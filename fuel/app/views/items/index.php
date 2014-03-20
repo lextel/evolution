@@ -66,7 +66,7 @@
                     </div>
                     <div class="img-box img-lg">
                         <a href="<?php echo Uri::create('/m/'.$topItem->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('/image/400x400/' . $topItem->image); ?>" alt=""></a>
-                        <div class="sheng-yi2">还需 <b><?php echo $topItem->remain ?></b>金币！</div>
+                        <div class="sheng-yi2">还需 <b><?php echo $topItem->remain ?></b>元宝！</div>
                     </div>
                     <input name="id" value="<?php echo $topItem->id;?>" type="hidden"/>
                     <input name="qty" value="1" type="hidden"/>
@@ -106,8 +106,8 @@
                                             <span class="fr b"><?php echo $item->remain; ?></span>
                                         </dd>
                                         <dd>
-                                            <span class="fl c9">已攒金币</span>
-                                            <span class="fr c9">还需金币</span>
+                                            <span class="fl c9">已攒元宝</span>
+                                            <span class="fr c9">还需元宝</span>
                                         </dd>
                                     </dl>
                                     <?php if($item->status == \Helper\Item::IS_CHECK): ?>
@@ -116,7 +116,7 @@
                                         <a class="add btn-jian" href="javascript:void(0);">-</a>
                                         <input type="text" value="1" name="qty" remain="<?php echo $item->remain; ?>"/>
                                         <a class="add btn-jia" href="javascript:void(0);">+</a>
-                                        <span class="right">金币</span>
+                                        <span class="right">元宝</span>
                                     </div>
                                     <div class="btn-group">
                                         <input name="id" value="<?php echo $item->id; ?>" type="hidden">

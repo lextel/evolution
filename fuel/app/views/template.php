@@ -41,6 +41,7 @@
             <div class="collection fl" style="CURSOR: hand" onClick="window.external.addFavorite('http://www.lltao.com')" title="乐乐淘">
                  <a href="javascript:;">收藏乐乐淘</a>
             </div>
+            <?php echo Html::anchor('invit', '邀请好友赢元宝', array('class' => 'b fr'));?>
             <span class="online">
                 <a href="javascript:void(0);">在线客服<span class="icon icon-qq"></span></a>
             </span>
@@ -94,6 +95,7 @@
             <li><a href="<?php echo Uri::create('/m'); ?>">所有商品</a></li>
             <li><a href="<?php echo Uri::create('/w'); ?>">最新揭晓</a></li>
             <li><?php echo Html::anchor('p', '晒单分享'); ?></li>
+            <li style="width: 85px"><?php echo Html::anchor('invit', '邀请', ['style' => 'width: 85px']); ?></li>
             <li><a href="<?php echo Uri::create('/h'); ?>">新手指南</a></li>
         </ul>
     </div>

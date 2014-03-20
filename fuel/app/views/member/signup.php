@@ -21,7 +21,7 @@
                 <li>
                    <?php echo Form::label('用户邮箱'); ?>
                    <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'datatype'=>'e',
-                         'name'=>'username','errorms'=>'邮箱帐号格式不正确','nullmsg'=>'请输入邮箱帐号')); ?>
+                         'name'=>'username','errorms'=>'邮箱帐号格式不正确','nullmsg'=>'请输入邮箱帐号', 'sucmsg'=>'　')); ?>
                    <?php if (Session::get_flash('usernameError', null)) { ?>
                    <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('usernameError');?></span>
                    <?php }else{?>
@@ -31,12 +31,12 @@
                 <li>
                    <?php echo Form::label('输入密码'); ?>
                    <?php echo Form::input('password', '', ['type'=>"password",'class' => 'inputxt', 
-                       'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'请输入6-18位密码','nullmsg'=>'请输入6-18位密码']); ?>
+                       'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'请输入6-18位密码','nullmsg'=>'请输入6-18位密码', 'sucmsg'=>'　']); ?>
                    <span class="Validform_checktip"></span>
                 </li>
                 <li>
                    <?php echo Form::label('确认密码'); ?>
-                   <input type="password" value="" name="userpassword2" class="inputxt" datatype="*6-18" recheck="password">
+                   <input type="password" value="" name="userpassword2" class="inputxt" datatype="*6-18" recheck="password", sucmsg="　"/>
                    <span class="Validform_checktip"></span>
                 </li>
                 <?php
@@ -44,8 +44,8 @@
                     if(Config::get('openInvitCode')):
                 ?>
                 <li>
-                   <?php echo Form::label('邀请码'); ?>
-                   <input type="text" value="" name="invitcode" class="inputxt" datatype="s" ajaxurl="<?php echo Uri::create('/checkInvitcode');?>" sucmsg="邀请码可用！" nullmsg="请输入邀请码！" errormsg="邀请码不正确或已经使用！"> 
+                   <?php echo Form::label('邀请码[可选]'); ?>
+                   <input type="text" value="" name="invitcode" class="inputxt" datatype="s" ajaxurl="<?php echo Uri::create('/checkInvitcode');?>" sucmsg="邀请码可用！" ignore="ignore" errormsg="邀请码不正确或已经使用！"> 
                    <span class="Validform_checktip"></span>
                 </li>
                 <?php endif;?>
