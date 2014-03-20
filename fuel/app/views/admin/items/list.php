@@ -74,7 +74,7 @@ echo Asset::js(['admin/items/list.js']);
             <td><a href="<?php echo Uri::create('m/'.$item->id); ?>" target="_blank"><?php echo '(第'.$item->phase_id.'期)'.$item->title; ?></a></td>
             <td><?php echo '￥' . sprintf('%.2f', $item->cost/Config::get('point')); ?></td>
             <td><?php echo $item->joined, '/', $item->amount; ?></td>
-            <td><a href="javascript:;" class="recommend" data-id="<?php echo $item->item_id; ?>"><?php echo $item->is_recommend == 1 ? '是' : '否';  ?></a></td>
+            <td title="点击即可修改"><a href="javascript:;" class="recommend" data-id="<?php echo $item->item_id; ?>"><?php echo $item->is_recommend == 1 ? '是' : '否';  ?></a></td>
             <td><?php echo $getStatus($item->status);  ?></td>
             <td><?php echo $item->is_delete == 1 ? '<span style="color:red">是</span>':'否';  ?></td>
             <td>
