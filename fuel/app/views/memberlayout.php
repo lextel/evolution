@@ -25,7 +25,7 @@
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="javascript:void(null)">邀请管理</a>
+                <a href="javascript:void(null)">邀请管理<span class="icon-arrow"></span></a>
                 <ul class="dropdown-menu">
                     <li><?php echo Html::anchor('u/invit', '邀请好友');?></li>
                     <li><?php echo Html::anchor('u/brokerage', '佣金明细');?></li>

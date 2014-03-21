@@ -22,7 +22,7 @@ $(function(){
         </div>
         <!--修改资料-->
         <ul class="edit-data">
-            <?php echo Form::open(['action' => 'u/profile', 'method' => 'post', 'class'=>'form-profile demoform']); ?>
+            <?php echo Form::open(['action' => 'u/profile', 'method' => 'post', 'class'=>'form-profile validForm']); ?>
             <li>
             <?php if (Session::get_flash('success')): ?>
                  <?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
@@ -64,8 +64,8 @@ $(function(){
 </div>
 <script>
 $(function(){
-	$(".demoform").Validform({
-	tiptype:4,
+	$(".validForm").Validform({
+	tiptype:4
 	});
 });
 </script>

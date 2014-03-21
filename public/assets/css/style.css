@@ -44,22 +44,26 @@
      margin:20px 20px 0 ;
  }
 .loginForm .title{
+    width: 280px;
     background: #AF2812;
     color: #fff;
 }
 .loginForm .loginBar li{
     width: 260px;
     overflow: hidden;
+}
+.loginForm .loginBar li .item{
+    height: 67px;
+    overflow: hidden;
     position: relative;
 }
 .loginForm .loginBar li input{
-    position: relative;
     display:inline-block;
-    padding: 0 0 0 28px;
+    padding-left: 28px;
     height: 35px;
     line-height: 35px;
     border: 1px solid #d2d2d2;
-    width: 230px;
+    width: 228px;
  }
 .loginForm .loginBar li span{
     height: 30px;
@@ -372,7 +376,7 @@
 .dropdown-menu{
     background: #ffffff;
     overflow: hidden;
-    display: none;
+    display: block;
 }
 .dropdown-menu li{
     text-indent: 30px;
@@ -561,7 +565,7 @@
     margin-right: 10px;
 }
 .time-choose{
-    height:30px;
+    height:33px;
     vertical-align: middle;
     display: inline-block;
     zoom:1;
@@ -938,11 +942,20 @@
     height: 41px;
     margin-left: 120px;
     overflow: hidden;
+    position: relative;
     background: url("../images/icon.png") no-repeat 0 -318px;
 }
 .edit-data li .file-img input{
+    width: 159px;
+    height: 41px;
+    display: block;
+    background: none;
+    position: absolute;
     cursor: pointer;
     opacity: 0;
+    filter:alpha(opacity=0);
+    top: 0;
+    left: 0;
 }
 .editAddress{
     overflow: hidden;
@@ -1232,7 +1245,6 @@
     color: #4CAFFF;
     font-size: 13px;
 }
-
 .buyListdiv{
     width: 230px;
     height:390px;
@@ -1242,9 +1254,28 @@
     left: 0;
     margin: 0 auto;
 }
-
 .buyList li{
         line-height:29px;
 
 }
-
+.noData{
+    width: 40%;
+    height: 22px;
+    line-height: 22px;
+    margin: 30px auto 0;
+}
+.noData{
+    width: 40%;
+    height: 22px;
+    text-align: center;
+    line-height: 22px;
+    margin: 30px auto 0;
+}
+.selectWarp{
+    width: 100%;
+    background: #eee;
+    height: 33px;
+    overflow: hidden;
+    padding: 6px;
+    margin-bottom: 20px;
+}
