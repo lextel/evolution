@@ -20,14 +20,16 @@ $(function(){
     //进入提交晒单
     $(".btn-addpost").click(function(){
         var id = $(this).attr('id');
+        //var text = $('.showForm').html();
         $("#postid").val(id);
-        $(".showForm").show();
+        //$("#showForm" + id).html(text);
+        $("#showForm" + id).show();
     });
     //取消晒单
     $(".chance").click(function(){
         var id = $(this).attr('id');
         $("#postid").val('');
-        $(".show-form").hide();
+        $(".showForm").hide();
     });
     //删除图片
     $("body").on('click', '.delete', function(){
@@ -36,8 +38,8 @@ $(function(){
     //上传图片
     $("body").on('click', '#postUpload', function(){
     var imgs = $(".postimg dd").length;
-    if (imgs >= 5){
-        alert('您上传的图片超过了5张');
+    if (imgs >= 10){
+        alert('您上传的图片超过了10张');
         return false;
     }
     $('#postUpload').fileupload({
@@ -92,14 +94,15 @@ $(function(){
                             <div class="number">幸运乐拍码：<span class="r"><?php echo $phase->code;?></span></div>
                             <div class="datetime">揭晓时间：<?php echo Date("Y-m-d H:i:s", $phase->opentime);?></div>
                         </td>
-                        <td><a href="#add1" class="btn btn-sx btn-red btn-addpost" id=<?php echo $phase->id;?>>去晒单</a></td>
+                        <td><a href="#add1" class="btn btn-sx btn-red btn-addpost" id="<?php echo $phase->id;?>" >去晒单</a></td>
+                        
                     </tr>
                     <?php } ?>
                     </tbody>
                 </table>
-                <div class="showForm">
+                <div class="showForm" style="display:none">
                 <?php echo Form::open(['action' => 'u/posts/add', 'method' => 'post', 'class'=>'demoform']);?>
-                    <ul class="edit-data" style="display:none"><a name="add1"></a>
+                    <ul class="edit-data showForm" >
                         <li>
                             <label for="">标题</label>
                             <?php echo Form::input('title', '', ['class' =>'form-control', 'name'=>'', 'datatype'=>'*', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>'已填写']);?>
@@ -129,8 +132,8 @@ $(function(){
                         </li>
                         <li><button type="text" class="btn btn-red tj">发布</button><a href="javascript:;" class="btn  chance">取消</a></li>
                     </ul>
-                </div>
-                <?php echo Form::close();?>
+                    <?php echo Form::close();?>
+                </div>               
                 <button class="icon-close"></button>
             <?php echo Pagination::instance('postspage')->render(); ?>
         </div>
