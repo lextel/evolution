@@ -10,23 +10,23 @@
         <ul class="left-nav">
             <li><?php echo Html::anchor('u', '我的主页');?></li>
             <li class="dropdown">
-                <a href="javascript:void(null)" class="active">我的乐拍<span class="icon-arrow icon-arrow-down"></span><s></s></a>
-                <ul class="dropdown-menu" style="display:block">
+                <a href="javascript:void(null)" class="active">我的乐拍<span class="icon-arrow"></span><s></s></a>
+                <ul class="dropdown-menu">
                     <li><?php echo Html::anchor('u/orders', '乐拍记录');?></li>
                     <li><?php echo Html::anchor('u/wins', '获得的商品');?></li>
                     <li><?php echo Html::anchor('u/posts', '晒单');?></li>
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="javascript:void(null)">帐户管理<span class="icon-arrow icon-arrow-down"></span></a>
-                <ul class="dropdown-menu" style="display:block">
+                <a href="javascript:void(null)">帐户管理<span class="icon-arrow"></span></a>
+                <ul class="dropdown-menu">
                     <li><?php echo Html::anchor('u/getrecharge', '充值');?></li>
                     <li><?php echo Html::anchor('u/moneylog', '账户明细');?></li>
                 </ul>
             </li>
             <li class="dropdown">
                 <a href="javascript:void(null)">邀请管理</a>
-                <ul class="dropdown-menu" style="display:block">
+                <ul class="dropdown-menu">
                     <li><?php echo Html::anchor('u/invit', '邀请好友');?></li>
                     <li><?php echo Html::anchor('u/brokerage', '佣金明细');?></li>
                 </ul>
