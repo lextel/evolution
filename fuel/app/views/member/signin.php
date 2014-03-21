@@ -20,9 +20,9 @@
 <!--中间内容开始-->
 <div class="w">
     <div class="login-hd">
-        <a href="" class="b fr">返回首页</a>
+        <a href="/" class="b fr">返回首页</a>
         <span class="fr">|</span>
-        <a href="" class="b fr">帮助中心</a>
+        <a href="/h" class="b fr">帮助中心</a>
     </div>
     <div class="login-bd">
     <div class="left-side fl">
