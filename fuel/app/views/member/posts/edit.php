@@ -59,23 +59,27 @@ $(function(){
         <!--晒单开始-->
         <div class="show-box">
             <!--查看晒单详情-->
-            <div class="show-c" >
                 <?php echo Form::open(['action' => 'u/posts/edit/'.$post->id, 'class'=>'demoform']);?>
-                <ul class="show-form">
+                <ul class="edit-data">
                     <li>
-                        <label for="">标题</label>                        
-                        <?php echo Form::input('title', $post->title, ['class' =>'form-control', 'name'=>'', 'datatype'=>'*', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>'已填写']);?>
+                        <label for="">标题：</label>
+                        <?php echo Form::input('title', $post->title, ['class' =>'txt', 'name'=>'', 'datatype'=>'*', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>'已填写']);?>
+                    </li>
+                    <li>
+                        <label for="" class="body-label">正文：</label>
+                        <?php echo Form::textarea('desc', $post->desc, ['class' => 'txt', 'name'=>'',
+                                           'datatype'=>'*', 'rows'=>'15', 'cols'=>'20', 'nullmsg'=>'请输入', 'sucmsg'=>'已填写']);?>
                         <span class="Validform_checktip"></span>
                     </li>
                     <li>
-                        <label for="" class="body-label">正文</label>
-                        <?php echo Form::textarea('desc', $post->desc, ['class' => 'form-control', 'name'=>'', 
-                                           'datatype'=>'*', 'rows'=>'15', 'cols'=>'70', 'nullmsg'=>'请输入', 'sucmsg'=>'已填写']);?>
-                        <span class="Validform_checktip"></span>
-                    </li>
-                    <li>
-                        <label for="" class="body-label">图片</label>
-                        <div class="destItem">
+                       <div class="destItem">
+                        <div class="title">
+                             <h4 class="fl">晒单图片，可以上传<s class="red">10</s>张</h4>
+                             <div class="add-images" title="上传图片">
+                                    上传图片
+                                   <input id="postUpload" type="file" name="post" multiple="上传图片" class="add-images2">
+                              </div>
+                         </div>
                         <dl class="postimg">
                             <?php foreach(unserialize($post->images) as $img) { ?>
                             <dd class="img-box">
@@ -85,18 +89,14 @@ $(function(){
                             </dd>
                             <?php } ?>
                         </dl>
-                        <span class="add-images" title="上传图片">
-                           <input id="postUpload" type="file" name="post" multiple class="add-images2">
-                         </span>
-                         </div>
+                        </div>
                     </li>             
                     <li>
-                        <button class="btn btn-red tj">发布</button>
-                        <a href="/u/posts" class="btn">返回</a>
+                        <button class="btn-red  btn-address">发布</button>
+                        <a href="/u/posts" class="btn-sx btn-cancel">返回</a>
                     </li>
                 </ul>
                 <?php echo Form::close();?>
-            </div>
         </div>
 </div>
 <script>

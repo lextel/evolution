@@ -1,10 +1,60 @@
 <?php echo Asset::js(['admin/Chart.min.js']); ?>
+<script>
+var newopts = {
+      animation:false,
+      inGraphDataShow : true,
+      datasetFill : true,
+      canvasBorders : true,
+      canvasBordersWidth : 0,
+      canvasBordersColor : "black",
+      legend : false,
+      legendFontFamily : "'Arial'",
+      legendFontSize : 12,
+      legendFontStyle : "normal",
+      legendFontColor : "#666",
+      legendBlockSize : 12,
+      legendBorders : false,
+      legendBordersWidth : 1,
+      legendBordersColors : "#666",
+      yAxisLeft : true,
+      yAxisRight : false,
+      xAxisBottom : true,
+      xAxisTop : false,
+      yAxisUnit : "数量",
+      yAxisUnitFontFamily : "'Arial'",
+      yAxisUnitFontSize : 8,
+      yAxisUnitFontStyle : "normal",
+      yAxisUnitFontColor : "#666",
+      annotateDisplay : false, 
+      spaceTop : 0,
+      spaceBottom : 0,
+      spaceLeft : 0,
+      spaceRight : 0,
+      logarithmic: false,
+      rotateLabels : "smart",
+      xAxisSpaceOver : 0,
+      xAxisSpaceUnder : 0,
+      xAxisLabelSpaceAfter : 0,
+      xAxisLabelSpaceBefore : 0,
+      legendBordersSpaceBefore : 0,
+      legendBordersSpaceAfter : 0,
+      footNoteSpaceBefore : 0,
+      footNoteSpaceAfter : 0, 
+      dynamicDisplay :false,
+      startAngle : 0,
+      scaleLabel: "<%=value%>",
+      scaleFontSize : 10,
+      scaleOverride: true,
+      scaleSteps: 10,
+      scaleStartValue:0
+}
+</script>
 <div style="margin: 10px">
     <div class="row">
         <div class="col-md-6">
             <h4 style="border-left: 3px solid #428bca;padding-left: 10px; margin-left: 30px">会员注册统计(一周)</h4>
             <div class="row" style="padding:10px">
-                <canvas id="member" height="200" width="576"></canvas>
+                <canvas id="member" height="300" width="576"></canvas>
                 <?php
                     $d = 7;
                     $dates = [];
@@ -23,7 +73,6 @@
                 
                 ?>
                 <script>
-                    var steps = 10;
                     var max = <?php echo $max;?>;
                     var lineChartData = {
                         labels : <?php echo json_encode($dates);?>,
@@ -38,14 +87,15 @@
                         ]
                         
                     }
-                var myLine = new Chart(document.getElementById("member").getContext("2d")).Line(lineChartData,{animation: false, scaleOverride: true, scaleSteps: steps, scaleStepWidth: Math.ceil(max / steps), scaleStartValue:0});
+                newopts.scaleStepWidth = Math.ceil(max/newopts.scaleSteps);
+                var myLine = new Chart(document.getElementById("member").getContext("2d")).Line(lineChartData, newopts);
                 </script>
             </div>
         </div>
         <div class="col-md-6">
             <h4 style="border-left: 3px solid #428bca;padding-left: 10px; margin-left: 30px">会员订单统计(一周)</h4>
             <div class="row" style="padding:10px">
-                <canvas id="order" height="200" width="576"></canvas>
+                <canvas id="order" height="300" width="576"></canvas>
                 <?php
                     $d = 7;
                     $dates = [];
@@ -88,8 +138,8 @@
                         ]
                         
                     }
-                var max = <?php echo $max;?>;
-                var orderLine = new Chart(document.getElementById("order").getContext("2d")).Line(orderData, {animation: false, scaleOverride: true, scaleSteps: steps, scaleStepWidth: Math.ceil(max / steps), scaleStartValue:0});
+                newopts.scaleStepWidth = Math.ceil(max/newopts.scaleSteps);
+                var orderLine = new Chart(document.getElementById("order").getContext("2d")).Line(orderData, newopts);
                 </script>
             </div>
         </div>
@@ -98,7 +148,7 @@
         <div class="col-md-12">
             <h4 style="border-left: 3px solid #428bca;padding-left: 10px; margin-left: 30px">元宝消费统计(半个月)</h4>
             <div class="row" style="padding:10px">
-                <canvas id="sell" height="200" width="1152"></canvas>
+                <canvas id="sell" height="300" width="1152"></canvas>
                 <?php
                     $d = 15;
                     $dates = [];
@@ -128,6 +178,7 @@
                     }
                 ?>
                 <script>
+                    var max = <?php echo $max?>;
                     var sellData = {
                         labels : <?php echo json_encode($dates);?>,
                         datasets : [
@@ -141,8 +192,8 @@
                         ]
                         
                     }
-                var max = <?php echo $max;?>;
-                var sellLine = new Chart(document.getElementById("sell").getContext("2d")).Line(sellData, {animation: false, scaleOverride: true, scaleSteps: steps, scaleStepWidth: Math.ceil(max / steps), scaleStartValue:0});
+                newopts.scaleStepWidth = Math.ceil(max/newopts.scaleSteps);
+                var sellLine = new Chart(document.getElementById("sell").getContext("2d")).Line(sellData, newopts);
                 </script>
 
             </div>

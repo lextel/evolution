@@ -61,18 +61,15 @@ $(function(){
 <div class="content-inner">
     <!--晒单开始-->
     <div class="lead">晒单</div>
-    <div class="remind ">
-          乐拍提醒：你总共晒单<s class="red"><?php echo $postscount;?></s>
-          件商品，还有<s class="red"> <?php echo $nopostscount;?></s>件商品等待您晒单。
-    </div>
     <div class="show-box">
+        <div class="remind ">
+             乐拍提醒：你总共晒单<s class="red"><?php echo $postscount;?></s>
+             件商品，还有<s class="red"> <?php echo $nopostscount;?></s>件商品等待您晒单。
+        </div>
         <div class="toggles">
            <?php echo Html::anchor('u/posts', '已晒单', ['class'=>'first-child']); ?>
            <?php echo Html::anchor('u/noposts', '未晒单', ['class'=>'last-child active']); ?>
         </div>
-
-        <div class="show-c">
-
             <table>
                     <thead>
                     <tr>
@@ -136,7 +133,6 @@ $(function(){
                 </div>               
                 <button class="icon-close"></button>
             <?php echo Pagination::instance('postspage')->render(); ?>
-        </div>
     </div>
     <!--获晒单结束-->
 </div>
