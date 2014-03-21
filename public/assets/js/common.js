@@ -13,11 +13,11 @@ $(function(){
  *顶部设置鼠标滑过效果
  */
 $(function(){
-    $(".divide-line>.info-wide").hover(
+    $(".divide-line .info-wide").hover(
         function(){
-            $(this).next(".head-set").css({display:"block"})},
+            $(this).children(".head-set").css({display:"block"})},
         function(){
-            $(this).next(".head-set").css({display:"none"})}
+            $(this).children(".head-set").css({display:"none"})}
 
     );
 });

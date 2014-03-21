@@ -51,17 +51,18 @@
                  <i>/</i>
                  <a href="<?php echo Uri::create('/signup'); ?>">注册</a>
             <?php }else {?>
-                 <a class="info-wide" href="<?php echo Uri::create('/u'); ?>">
+                 <div class="info-wide" href="<?php echo Uri::create('/u'); ?>">
                      <?php echo Html::img($current_user->avatar);?>
-                     <span class="top-name"><?php echo $current_user->nickname;?></span>
-                 </a>
-                 <ul class="head-set">
-                      <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐拍记录</a></li>
-                      <li><a href="<?php echo Uri::create('/u/wins'); ?>">获得的商品</a></li>
-                      <li><a href="<?php echo Uri::create('/u/getrecharge'); ?>">账户管理</a></li>
-                      <li><a href="<?php echo Uri::create('/u/profile'); ?>">个人设置</a></li>
-                  </ul>
-                 <span>可用乐淘币<s class="r"><?php echo $current_user->points;?>点</s></span>
+                     <s class="top-name"><?php echo $current_user->nickname;?></s>
+                     <ul class="head-set">
+                          <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐拍记录</a></li>
+                          <li><a href="<?php echo Uri::create('/u/wins'); ?>">获得的商品</a></li>
+                          <li><a href="<?php echo Uri::create('/u/getrecharge'); ?>">账户管理</a></li>
+                          <li><a href="<?php echo Uri::create('/u/profile'); ?>">个人设置</a></li>
+                      </ul>
+                 </div>
+
+                 <span>可用乐淘币<s class="r"><?php echo $current_user->points;?></s>元宝</span>
                  <span>消息(<s class="r"><?php echo $isnew? $isnew : 0;?></s>)</span>
                  <?php echo Html::anchor('signout', '[退出]', ['class'=>'logout'])?>
             <?php }?>

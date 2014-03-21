@@ -2,232 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/0/3/030d7e8e966169ab4c7f67c291c333f4.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/0/3/032b2cc936860b03048302d991c3498f.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/0/3/038ff576637951c3c847e4cf38ec8d19.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/0/4/04ede86431ee5e655cad956398bfbf8f.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/0/5/0553b36db6d9587049ca37ff694f0ac5.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/0/8/080ecb7b5adcd188277b1930b7a9dccd.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/0/e/0e6082083c29a2b46b756d56ffa5b38d.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/1/2/125c5fe6d246e076c933f4a3ad0109bc.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/1/2/129e458698c4745a32d44582161b51d8.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/1/3/134ce63057f068a219a0df338fb0b723.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/1/5/156005c5baf40ff51a327f1c34f2975b.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/1/8/1888fdbf45904828763f0377182cd0dc.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/1/8/18e2999891374a475d0687ca9f989d83.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/1/9/19d5605c2b241c57650d1b2d95e2dca6.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/1/a/1a200a550a9aa15d05628c9ddf19407e.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/1/f/1f9ffafcc4c0bbc70331f044b842b7fc.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/2/1/21f83a570c0699caafab8475acb311ae.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/2/3/239495569b984da152bcccd5c8836655.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/2/4/248b337149e5981cd3a63b7641dd1d33.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/2/8/286ecd81e267c80e1440d02804ee7a5b.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/2/8/28f8c36b83106c0ae6feb103ffc47fc3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/2/9/294d01a7d9414e9e8f99f82beaaf5a02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/2/c/2c6c5ae0a42420615d531da5d08bb4b8.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/2/e/2e4547f1d404ea39e4d844d8013c75db.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/3/0/30e62fddc14c05988b44e7c02788e187.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/3/2/3279b9bccd1346cda467351613b69f0e.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/3/2/32a03ccfe376e30cb0a7f869918353e8.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/3/4/347c37afc098fe3174dd5f3e514f9f30.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/3/6/36b99b599263347b0be5bef3306f57f6.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/3/8/38a095949b7bd22f097ad2bc3b232561.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/3/9/39b733bfe6ef063d09b9214fff4c5d82.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/3/d/3d8e16cd40df0ddcb466d1a9cd96ddef.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/4/1/41a6add8172d198d542392ac34ff380f.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/4/2/42e4fc620b571930aaa698fb13bf0a65.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/4/5/4586a68ac2031f5db047538cc6846942.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/4/7/474d09911a447b751fdaa471209248ba.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/4/8/48b6d69b6a509027708af92c37994212.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/4/9/49b3ac758f186d0c0a05e7f79d1aa48e.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/4/a/4acf3a3272669eab178cb7b7111c8d5a.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/4/b/4bed0be16b16ebfce8c230686bcc0da3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/4/d/4dd287207095af4bbcd670e1c3663f48.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/4/f/4f7fcc45033f46b53db98b6c7db082d7.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/5/1/519c20bc0af753229291207ff528d7d5.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/5/5/550319b866c18a57d557d61167728919.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/5/5/55e572a1930a34536d3bf579057e3287.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/5/6/56c87fdae16541edee50c25932a32925.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/5/b/5bde1007d6d57b04bec0c2f62f992520.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/6/2/62bf1edb36141f114521ec4bb4175579.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/6/4/648b9906a614a4bb30c20591243c65ec.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/6/4/64b8299d1597b8a5c7b9cb9c88642f6c.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/6/5/653d973ff27903b07cab81ce662011ed.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/6/7/678cbfbfc74c4225e3259a1dad3ccca7.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/6/8/68ba2ad4b7771c09d9bb1a477e35a4e3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/6/a/6afed5c918961256d32885eeb4a09edf.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/6/c/6c79dcc40fed78c9fdb7633299bdbe65.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/6/d/6db489c474b8cdef6c848333ae885d48.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/6/f/6fa19ea7ae7b94d0c9043daeec5a4f36.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/7/2/7287d4c38a82060aafcba89ee50fc591.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/7/9/799bad5a3b514f096e69bbc4a7896cd9.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/7/9/79b032a04117dd5b317cfb2c3014cf75.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/8/0/80f48f4b1227f188925c5c1a996955dd.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/8/1/8186c90894f63171286f6c0a026bcdf7.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/8/2/8243753ad2c00c63879bb1fe41fa72da.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/8/2/82ce4d4a4a802bae0952ff4b6fff0057.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/8/5/853b031a43495200d111d6f5239398a3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/8/5/85558285db17b017cdf14b70bf3da540.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/8/5/85b6f89b41cae26786ac72365fff771b.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/8/6/869e9c8a89daaa0bf2583faef068ee54.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/8/7/87deb327dde4bd077d8ffa4725671468.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/8/9/894f18aecf66bbf272571e67e1653c49.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/8/c/8cda81fc7ad906927144235dda5fdf15.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/8/d/8dd0f6da19112a078a4f790d19b94914.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/8/d/8df7b73a7820f4aef47864f2a6c5fccf.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/8/e/8e8a69db6dc70b1290ef3a67d676cdce.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/9/2/92b89e971b218d92af8a1722369ab20d.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/9/3/9371882dcce45ee625a0ce0ba5d0b81d.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/9/4/9405e1e2fbe3b81575dd1f0d8c24735e.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/9/4/9414a8f5b810972c3c9a0e2860c07532.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/9/5/959542fb7f2d9948d9f625513254c9f9.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/9/5/95e2bf2e40c53593f9cd90d1b0f0fa06.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/9/7/97f3c0f38354793d614379f855d50c3b.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/9/8/9876c9a3f300f29c8ee619765c1ad768.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/9/b/9b5a05a3911bacf0745640a5d84d393a.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/9/b/9bca1653601cfed0253482a381c1ad63.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ZeroClipboard.swf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/a/1/a1b00b856636e53346a7cc87687f8ba0.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/a/2/a269962fe1424e1ca3e68c328b9fed61.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/a/5/a599eab5caa1da8d998337ef6a0849db.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/a/6/a62e9f615eb1546f6c2fc1e1c1f71011.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/a/8/a8101c884c5c1db8d2bc806c91de5318.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/a/8/a87f15cbbbb64515f69f82573d3ce788.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/a/a/aaf378b0cd6354715da125526e0ea193.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/a/c/acad632a522378e6e8249fae88504841.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/a/d/adaf0ad2e085c835a82b2f021fe236ae.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/a/e/ae566253288191ce5d879e51dae1d8c3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/b/2/b21f0bedce1dfeee7e158f1a8888beab.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/b/2/b23be8f16c3b64c34968a8addb62c6e6.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/b/2/b241da9913cc47a13520f344e699f661.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/b/4/b4d38f018a9190c1c573410297efce59.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/b/5/b5460bb91a2adbb3a0617a0ee1b3da5b.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/b/9/b9eac5a0f8ee8923430c61793336f03b.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/b/b/bb957018bcf2b8d04a2ac0b0b8cbb509.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/b/e/be8e841d488de7a2e8ff958c4d1a2383.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/b/f/bf5a1d8d9a7aa233eb7c3412880d3bb8.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/b/f/bf7471512c76ab0ef52f9a45591b2f43.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/c/4/c4d0e2f22f8a649d3514820272f2d5fa.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/c/5/c5b6c14d6566b1d6a86e232814bcfb11.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/c/6/c689ab260b647012b0f84beff0e34b81.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/c/7/c7588853d975607658e9c3a1aa5a0dc0.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/c/a/ca538c343179bf0fbdfab6cd10469afd.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/c/a/ca9d0ab7a0c1d44bc554637fb5f1cfed.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/c/d/cd0d165e9302c73978d21d8cbf01c48a.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/c/f/cf5793938b321b67b3b667655b375703.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/c/f/cf5d3c0bfc6069452f2473d6904da38b.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/d/0/d0096ec6c83575373e3a21d129ff8fef.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/d/1/d19611268b488d71f0abf83d769f0124.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/d/2/d2c6ae221712ad5bf47b744fa631dfc6.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/d/5/d583ad338f6aede06db0b8864bc4bb03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/d/6/d6ddbd128b732bc25bc8d3b2727bb1d3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/d/7/d72ba12f5bcccce290dae907b83435fe.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/d/9/d99692e48dba88d5645e7bc8b94b0f83.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/d/9/d9a378778fe103694c792c09763ebbe7.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/d/a/daa79432b242c16e82493597a4d8c41f.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/d/b/db3a17f7bcac837ecc1fe2bc630a5473.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/0/e07d0efc51f2b2dd6ad62e9925957bc3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/0/e0e28452229af52e70f87dd03c3a30c2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/2/e25418821200a0f7c8f9f81b22d21691.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/2/e28c9a92742bdf83d147954cd0b8020e.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/2/e28c9a92742bdf83d147954cd0b8020e" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/2/e28c9a92742bdf83d147954cd0b8020ejpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/3/e3e6f22244e557f1758d397a98734145.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/6/e63c193fc51602875ea52adb2fdf19a7.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/8/e89666feb714ab9c3946f28f00c5d8c4.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/9/e92e1777d4dfd38b461fcff17e5c2096.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/a/ea30d07c62a62d002dd9570f94ab9e9b.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/a/ea38dd22d18379eec19a5b8fe7ac280e.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/a/ea970e2fb36c426b6b1be6672f539f7b.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/b/eb21bbb01f2f27c4b89e059ac2faa09b.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/b/eb935669c45405844c35aafbd5fe43d7.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/d/edab7ba7e203cd7576d1200465194ea8.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/e/e/ee783fc088d49c08f018d732d1edf517.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/f/0/f045be56c9530d76777f9024d318466a.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/f/0/f057603aa32b2557610ba06dc224cb8d.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/f/0/f0d0b070be593820651230120b0374be.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/f/2/f2ffb3ff470326c87cf21d9fee756f38.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/f/3/f38ed5ceacc937a533d54d38b22a407e.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/f/3/f3ccdd27d2000e3f9255a7e3e2c48800.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/f/4/f47454d1d3644127f42070181a8b9afc.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/f/5/f5731dbe248e261db0e914202e12d6f4.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/f/5/f5b20faa90e0b52d5640b984df9a705b.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/f/6/f6d5e1d14090fe4dafe60e74863570a7.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/f/d/fd03e4696c4bd2239690051a76f379b8.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/f/d/fd107bec4a5eaaed6441a46280dcc929.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/f/e/fe5df232cafa4c4e0f1a0294418e5660.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/avatar/f/e/fed1da6da79ca8f0cba2aa0c88e14d9e.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/migrations/021_create_member_mobiles.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/migrations/023_create_member_invits.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/migrations/024_create_member_brokerages.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/member/brokerage.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/classes/model/member/brokerage.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/config/chips.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/classes/helper/coins.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/classes/classes/csv.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/views/invit/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/views/member/brokerage/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/views/member/invit/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/invit.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/member/invit.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/classes/model/member/invit.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/views/index/invit.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/classes/helper/ip2area.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/jquery.zclip.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/classes/model/member/mobile.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/download/csv/model.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/classes/classes/randchip.php" />
-      <change type="DELETED" beforePath="D:\www\evolution\public\upload\csv\0\9\096e5ad032a1a24a7480e62a1c5bc462.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:\www\evolution\public\upload\csv\3\9\39a349f2ebb0ee0410fe51f8fa0859d6.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:\www\evolution\public\upload\csv\f\6\f6f1e834e350317430f152674ed5ea9c.csv" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/qqwry.dat" afterPath="$PROJECT_DIR$/fuel/app/qqwry.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/admin/ghost/_form.php" afterPath="$PROJECT_DIR$/fuel/app/views/admin/ghost/_form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/cart/cart.js" afterPath="$PROJECT_DIR$/public/assets/js/cart/cart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/center.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/center.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/common.js" afterPath="$PROJECT_DIR$/public/assets/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/config/common.php" afterPath="$PROJECT_DIR$/fuel/app/config/common.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/email/emailok.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/email/emailok.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/admin/ghost/form.js" afterPath="$PROJECT_DIR$/public/assets/js/admin/ghost/form.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/admin/ghost.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/admin/ghost.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/header.css" afterPath="$PROJECT_DIR$/public/assets/css/header.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/index/home.php" afterPath="$PROJECT_DIR$/fuel/app/views/index/home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/index/home_orders.php" afterPath="$PROJECT_DIR$/fuel/app/views/index/home_orders.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/view/index.php" afterPath="$PROJECT_DIR$/fuel/app/classes/view/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/admin/ghost/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/admin/ghost/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/index/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/index/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/items/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/items/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/wins/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/wins/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/moneylog/index_buy.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/moneylog/index_buy.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/moneylog/index_recharge.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/moneylog/index_recharge.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/classes/ip2area.php" afterPath="$PROJECT_DIR$/fuel/app/classes/classes/ip2area.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/model/item.php" afterPath="$PROJECT_DIR$/fuel/app/classes/model/item.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/admin/items.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/admin/items.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/admin/items/list.php" afterPath="$PROJECT_DIR$/fuel/app/views/admin/items/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/cart/list.php" afterPath="$PROJECT_DIR$/fuel/app/views/cart/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/model/member.php" afterPath="$PROJECT_DIR$/fuel/app/classes/model/member.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/posts/edit.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/posts/edit.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/memberlayout.php" afterPath="$PROJECT_DIR$/fuel/app/views/memberlayout.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/money.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/money.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/admin/ghost/multi.js" afterPath="$PROJECT_DIR$/public/assets/js/admin/ghost/multi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/admin/ghost/multi.php" afterPath="$PROJECT_DIR$/fuel/app/views/admin/ghost/multi.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/myorders.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/myorders.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/mywins.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/mywins.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/nickname.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/nickname.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/model/order.php" afterPath="$PROJECT_DIR$/fuel/app/classes/model/order.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/cart/pay.php" afterPath="$PROJECT_DIR$/fuel/app/views/cart/pay.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/model/phase.php" afterPath="$PROJECT_DIR$/fuel/app/classes/model/phase.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/cart/result.php" afterPath="$PROJECT_DIR$/fuel/app/views/cart/result.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/config/routes.php" afterPath="$PROJECT_DIR$/fuel/app/config/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/items/search.php" afterPath="$PROJECT_DIR$/fuel/app/views/items/search.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/signup.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/signup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style.css" afterPath="$PROJECT_DIR$/public/assets/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/template.php" afterPath="$PROJECT_DIR$/fuel/app/views/template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/classes/upload.php" afterPath="$PROJECT_DIR$/fuel/app/classes/classes/upload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/config/upload.php" afterPath="$PROJECT_DIR$/fuel/app/config/upload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/items/view.php" afterPath="$PROJECT_DIR$/fuel/app/views/items/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/posts/view.php" afterPath="$PROJECT_DIR$/fuel/app/views/posts/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/wins/view.php" afterPath="$PROJECT_DIR$/fuel/app/views/wins/view.php" />
     </list>
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -250,57 +30,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="642" column="28" selection-start="11634" selection-end="11634" vertical-scroll-proportion="-23.36" vertical-offset="11614" max-vertical-offset="23579">
+            <state line="882" column="22" selection-start="16073" selection-end="16073" vertical-scroll-proportion="0.42911392" vertical-offset="16419" max-vertical-offset="23864">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
+      <file leaf-file-name="edit.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/member/posts/edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="305" column="23" selection-start="4975" selection-end="4975" vertical-scroll-proportion="-231.8" vertical-offset="0" max-vertical-offset="34732">
-              <folding>
-                <marker date="1395371663003" expanded="true" signature="542:566" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signup.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signup.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="19" selection-start="1499" selection-end="1499" vertical-scroll-proportion="0.0" vertical-offset="38" max-vertical-offset="1292">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="template.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="61" selection-start="4300" selection-end="4300" vertical-scroll-proportion="2.2506235" vertical-offset="0" max-vertical-offset="3781">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mynoposts.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/member/mynoposts.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="32" selection-start="5121" selection-end="5159" vertical-scroll-proportion="0.0" vertical-offset="2007" max-vertical-offset="2888">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nickname.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/member/nickname.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="19" selection-start="939" selection-end="939" vertical-scroll-proportion="0.0" vertical-offset="164" max-vertical-offset="988">
+            <state line="70" column="84" selection-start="2430" selection-end="2430" vertical-scroll-proportion="0.0" vertical-offset="1026" max-vertical-offset="2166">
               <folding />
             </state>
           </provider>
@@ -309,29 +51,73 @@
       <file leaf-file-name="usercener-show.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/html/usercener-show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="24" selection-start="2800" selection-end="2800" vertical-scroll-proportion="-0.60714287" vertical-offset="1142" max-vertical-offset="2147">
+            <state line="97" column="55" selection-start="4675" selection-end="4692" vertical-scroll-proportion="-18.928572" vertical-offset="1313" max-vertical-offset="2147">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signin.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signin.php">
+      <file leaf-file-name="common.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/js/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="28" selection-start="2392" selection-end="2392" vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="1881">
+            <state line="18" column="19" selection-start="520" selection-end="520" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="13794">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/js/address/index.js">
+      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="30" selection-start="1625" selection-end="1625" vertical-scroll-proportion="0.0" vertical-offset="38" max-vertical-offset="1558">
+            <state line="964" column="26" selection-start="16372" selection-end="16372" vertical-scroll-proportion="-20.68" vertical-offset="17799" max-vertical-offset="34732">
               <folding>
-                <element signature="e#2674#2769#0" expanded="false" />
-                <element signature="e#2807#3105#0" expanded="false" />
+                <marker date="1395383224901" expanded="true" signature="542:566" placeholder="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signup.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signup.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="19" selection-start="1499" selection-end="1499" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="1292">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/header.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="16" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5567">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="template.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="54" column="67" selection-start="2007" selection-end="2007" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="3800">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="memberlayout.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/memberlayout.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="21" selection-start="1568" selection-end="1568" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="950">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mynoposts.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/member/mynoposts.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="6" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2812">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -354,22 +140,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/fuel/app/classes/controller/center.php" />
-        <option value="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
-        <option value="$PROJECT_DIR$/fuel/app/views/member/index.php" />
-        <option value="$PROJECT_DIR$/fuel/app/views/member/avatar.php" />
-        <option value="$PROJECT_DIR$/public/assets/js/common.js" />
-        <option value="$PROJECT_DIR$/fuel/app/views/member/passwd.php" />
         <option value="$PROJECT_DIR$/public/assets/js/address/index.js" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/myaddress.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/myposts.php" />
         <option value="$PROJECT_DIR$/public/html/usercener-show.html" />
-        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/fuel/app/views/member/mynoposts.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/nickname.php" />
-        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/signup.php" />
+        <option value="$PROJECT_DIR$/public/html/findPwd.html" />
+        <option value="$PROJECT_DIR$/public/html/findPwd-mail.html" />
+        <option value="$PROJECT_DIR$/public/assets/css/header.css" />
+        <option value="$PROJECT_DIR$/fuel/app/views/member/mynoposts.php" />
+        <option value="$PROJECT_DIR$/public/assets/js/common.js" />
+        <option value="$PROJECT_DIR$/fuel/app/views/memberlayout.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/template.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
+        <option value="$PROJECT_DIR$/fuel/app/views/member/posts/edit.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
       </list>
     </option>
   </component>
@@ -527,28 +313,6 @@
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -569,32 +333,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="member" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -675,6 +413,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="member" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fuel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="member" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="posts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -852,7 +620,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32816228" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24978466" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23480242" sideWeight="0.67080045" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23480242" sideWeight="0.67080045" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31914893" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -902,48 +670,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/avatar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="50" selection-start="2742" selection-end="2742" vertical-scroll-proportion="0.0" vertical-offset="873" max-vertical-offset="1710">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/profile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="131" selection-start="2104" selection-end="2134" vertical-scroll-proportion="0.0" vertical-offset="456" max-vertical-offset="1463">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/findpwd.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.2797546" vertical-offset="228" max-vertical-offset="1178">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="3" selection-start="359" selection-end="359" vertical-scroll-proportion="-0.92921495" vertical-offset="969" max-vertical-offset="13794">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/passwd.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="58" selection-start="2040" selection-end="2040" vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="1862">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/myaddress.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="60" selection-start="3660" selection-end="3660" vertical-scroll-proportion="0.0" vertical-offset="667" max-vertical-offset="1482">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/member/myposts.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="14" selection-start="110" selection-end="288" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1254">
@@ -968,53 +694,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
+    <entry file="file://$PROJECT_DIR$/public/html/findPwd.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="642" column="28" selection-start="11634" selection-end="11634" vertical-scroll-proportion="-23.36" vertical-offset="11614" max-vertical-offset="23579">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/usercener-show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="24" selection-start="2800" selection-end="2800" vertical-scroll-proportion="-0.60714287" vertical-offset="1142" max-vertical-offset="2147">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/mynoposts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="32" selection-start="5121" selection-end="5159" vertical-scroll-proportion="0.0" vertical-offset="2007" max-vertical-offset="2888">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/nickname.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="19" selection-start="939" selection-end="939" vertical-scroll-proportion="0.0" vertical-offset="164" max-vertical-offset="988">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="305" column="23" selection-start="4975" selection-end="4975" vertical-scroll-proportion="-231.8" vertical-offset="0" max-vertical-offset="34732">
+        <state line="42" column="16" selection-start="1503" selection-end="1503" vertical-scroll-proportion="-12.892858" vertical-offset="0" max-vertical-offset="608">
           <folding>
-            <marker date="1395371663003" expanded="true" signature="542:566" placeholder="{...}" />
+            <element signature="tag#script#2;tag#head#0;tag#html#0" expanded="false" />
+            <element signature="tag#script#3;tag#head#0;tag#html#0" expanded="false" />
+            <element signature="tag#ul#0;tag#form#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/findPwd-mail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="50" selection-start="1560" selection-end="1561" vertical-scroll-proportion="-10.792453" vertical-offset="245" max-vertical-offset="1007">
+          <folding>
+            <element signature="tag#form#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+            <element signature="tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="19" selection-start="1499" selection-end="1499" vertical-scroll-proportion="0.0" vertical-offset="38" max-vertical-offset="1292">
+        <state line="31" column="19" selection-start="1499" selection-end="1499" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="1292">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/header.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="16" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5567">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/nickname.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="19" selection-start="939" selection-end="939" vertical-scroll-proportion="0.38778055" vertical-offset="164" max-vertical-offset="988">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/mynoposts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="6" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2812">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="19" selection-start="520" selection-end="520" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="13794">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/memberlayout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="21" selection-start="1568" selection-end="1568" vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="950">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="61" selection-start="4300" selection-end="4300" vertical-scroll-proportion="2.2506235" vertical-offset="0" max-vertical-offset="3781">
+        <state line="54" column="67" selection-start="2007" selection-end="2007" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="3800">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="964" column="26" selection-start="16372" selection-end="16372" vertical-scroll-proportion="-20.68" vertical-offset="17799" max-vertical-offset="34732">
+          <folding>
+            <marker date="1395383224901" expanded="true" signature="542:566" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/usercener-show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="55" selection-start="4675" selection-end="4692" vertical-scroll-proportion="-18.928572" vertical-offset="1313" max-vertical-offset="2147">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/posts/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="84" selection-start="2430" selection-end="2430" vertical-scroll-proportion="0.0" vertical-offset="1026" max-vertical-offset="2166">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="882" column="22" selection-start="16073" selection-end="16073" vertical-scroll-proportion="0.42911392" vertical-offset="16419" max-vertical-offset="23864">
           <folding />
         </state>
       </provider>
