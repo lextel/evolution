@@ -62,7 +62,7 @@
                       </ul>
                  </div>
 
-                 <span>可用乐淘币<s class="r"><?php echo $current_user->points;?></s>元宝</span>
+                 <span>财富(<s class="r"><?php echo \Helper\Coins::showCoins($current_user->points);?></s>)</span>
                  <span>消息(<s class="r"><?php echo $isnew? $isnew : 0;?></s>)</span>
                  <?php echo Html::anchor('signout', '[退出]', ['class'=>'logout'])?>
             <?php }?>
@@ -95,7 +95,7 @@
             <li><a href="<?php echo Uri::create('/m'); ?>">所有商品</a></li>
             <li><a href="<?php echo Uri::create('/w'); ?>">最新揭晓</a></li>
             <li><?php echo Html::anchor('p', '晒单分享'); ?></li>
-            <li><a href="#">邀请</a></li>
+            <li><a href="<?php echo Uri::create('/invit'); ?>">邀请</a></li>
             <li><a href="<?php echo Uri::create('/h'); ?>">新手指南</a></li>
         </ul>
     </div>
@@ -138,6 +138,16 @@
                 <li><a href="javascript:void(0);">合作专区</a></li>
                 <li class="lastest"><a href="javascript:void(0);">联系我们</a></li>
             </ul>
+             <div>
+            <div class="flink">
+            <span style="">友情链接:</span>
+                <ul style="float:left">
+                    <li><a href="http://www.xda.cn">XDA</a></li>
+                    <li><a href="http://www.wanggouchao.com">网购潮</a></li>
+                    <li><a href="http://www.kd100.com">快递100</a></li>
+                    <li>...</li>
+                </ul>
+            </div>
             <P>版权所有</P>
             <div class="log">乐拍，快乐抢拍你的人生！</div>
              <ul class="safety">
