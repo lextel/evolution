@@ -9,9 +9,14 @@
     background: #FFFFFF;
     width: 740px;
 }
+<<<<<<< HEAD
+.announced-news .title h3,.recommended .title h3{
+    font-size: 16px;
+=======
 .announced-news .title h3,.recommended .title h3, .editor .title h3{
     font-size: 18px;
     font-weight: normal;
+>>>>>>> 7db719ba914c670669d26339a2c1ca77795fbec7
 }
 .announced-news ul{
     overflow: hidden;

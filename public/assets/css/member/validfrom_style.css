@@ -282,21 +282,40 @@
 .questionlist p{margin:8px 0;}
 /*==========浠ヤ笅閮ㄥ垎鏄疺alidform蹇呴』鐨�===========*/
 .Validform_checktip{
-    margin-left:8px;
 	height:20px;
 	overflow:hidden;
 	color:#999;
-    text-indent: 20px;
     display: inline-block;
-    text-indent: 2em;
+    position: relative;
 }
 .Validform_right{
 	color:#71b83d;
+    padding-left: 22px;
+}
+.Validform_right:before{
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    position:absolute;
+    left: 0;
+    top: 20%;
     background:url("../../images/icon-02.png") no-repeat -0px -100px;
 }
+
 .Validform_wrong{
 	color:red;
+    padding-left: 22px;
 	white-space:nowrap;
+}
+.Validform_wrong:before{
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    position:absolute;
+    left: 0;
+    top: 20%;
     background:url("../../images/icon-02.png") no-repeat -0px -142px;
 }
 .Validform_loading{

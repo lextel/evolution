@@ -18,7 +18,7 @@
         <?php foreach($orders as $item) { ?>
         <?php $phase = $phases[$item->phase_id];?>
         <ul class="buy-menu">
-            <li>在<b><?php echo \Helper\Timer::friendlyDate($item->ordered_at);?></b>乐拍了 </li>
+            <li>在<?php echo \Helper\Timer::friendlyDate($item->ordered_at);?>乐拍了 </li>
             <li class="right-box">
                 <div class="img-box img-md fl">
                     <?php echo Html::anchor('/m/'.$item->phase_id, Html::img($getItemInfo($phase->item_id)->image));?>

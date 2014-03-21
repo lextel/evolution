@@ -14,6 +14,9 @@ body{
 .o{
     color: #f60;
 }
+.green{
+    color:#4BBA1E;
+}
 .total{
     font-size: 14px;
 }
@@ -330,7 +333,7 @@ textarea:focus,input:focus{
     color:#B92C00 ;
 }
 .btn-gy{
-     background: #f1f1f1;
+    background: #f1f1f1;
     font-size: 12px;
 }
 .btn-rg{
@@ -340,6 +343,11 @@ textarea:focus,input:focus{
     text-align: center;
     display: block;
     border-radius: 3px;
+}
+.btn-invite{
+    padding: 13px 25px;
+    font-size: 16px;
+    box-shadow: 0px 3px 1px 1px #852608;
 }
 .btn-modal{
     width: 100px;
@@ -368,13 +376,17 @@ textarea:focus,input:focus{
 .btn-sx{
     height: 30px;
     line-height: 30px;
-    padding:0px 12px;
+    padding:0px 20px;
 }
 .btn-sm{
     height: 16px;
-    line-height: 16px;
     padding:3px 9px;
     font-size: 12px;
+}
+.btn-state{
+    background: #DDDDDD;
+    border: 1px solid #D2D2D2;
+    border-radius: 3px;
 }
 .btn-lg{
     width: 135px;
@@ -388,6 +400,14 @@ textarea:focus,input:focus{
     text-align: center;
     padding: 0;
 }
+.btn-code{
+    width: 120px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border: 1px solid #D2D2D2;
+    background: #DDDDDD;
+}
 .btn-topUp {
     width: 90px;
     height: 26px;
@@ -399,18 +419,23 @@ textarea:focus,input:focus{
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
 }
-.edit-data li .btn-cancel{
-    width: 78px;
-    height: 31px;
-    line-height: 31px;
+.btn-cancel{
+    height: 30px;
+    line-height: 30px;
     text-align: center;
-    padding: 0;
+    padding: 0px 20px;
     border: 1px solid #d2d2d2;
     margin-left: 20px;
     background: #e3e3e3;
     display: inline-block;
     cursor: pointer;
     border-radius: 3px;
+}
+.btn-address{
+    width: 68px;
+    height: 30px;
+    border-radius: 3px;
+    line-height: 30px;
 }
 .btn-comment{
     padding: 6px 15px;
@@ -532,12 +557,6 @@ table td p.tl{
      vertical-align: middle;
      background-position:0px -41px;
  }
-.icon-qq{
-    width: 19px;
-    height:23px;
-    vertical-align: middle;
-    background-position:-89px -45px;
-}
 .icon-like{
     width: 18px;
     height: 18px;
@@ -845,7 +864,7 @@ table td p.tl{
 }
 .toggles{
     overflow: hidden;
-    margin-bottom: 10px;
+    margin-bottom:20px;
     white-space: nowrap;
     vertical-align: middle;
 }
@@ -930,21 +949,55 @@ table td p.tl{
     padding-left: 20px;
     background: url("../images/collection.png") no-repeat 0 2px;
 }
-
-.top-menu span.login-bar{
-    min-width: 65px;
+.divide-line{
+    overflow: hidden;
     float: right;
-}
-.top-menu span.online{
-    float: right;
-    margin-left: 20px;
-    width: 70px;
-}
-.top-portrait{
-    display: inline-block;
+    height: 30px;
+    max-width:300px;
     position: relative;
 }
-.head-setting{
+.divide-line span{
+    display: inline-block;
+    overflow: hidden;
+    height: 30px;
+}
+.divide-line .info-wide{
+    display: inline-block;
+    height: 30px;
+    overflow: hidden;
+}
+.divide-line .info-wide img{
+    height: 22px;
+    width: 22px;
+    overflow: hidden;
+    margin-top: 3px;
+    vertical-align: top;
+    border-radius: 3px;
+}
+.divide-line .logout{
+    display: inline-block;
+    height: 30px;
+    overflow: hidden;
+}
+.top-menu span.online{
+    display:block;
+    height: 30px;
+    line-height: 30px;
+    float: right;
+    margin-left: 10px;
+    position: relative;
+    padding-right: 20px;
+}
+.top-menu span.online::after{
+    content:"";
+    width: 19px;
+    height: 23px;
+    background: url("../images/icon.png") no-repeat -89px -45px;
+    position: absolute;
+    top: 7px;
+    right: 0;
+}
+.head-set{
     position: absolute;
     top: 20px;
     left: 0px;
@@ -953,12 +1006,12 @@ table td p.tl{
     padding-top: 10px;
     display: none;
 }
-.head-setting li{
+.head-set li{
     text-align: center;
     background: #E5E5E5;
     border: 1px solid #d2d2d2;
 }
-.head-setting li a{
+.head-set li a{
      display: block;
      width: 95px;
      height: 30px;
@@ -967,7 +1020,7 @@ table td p.tl{
      text-align: center;
      border-top:1px solid #d2d2d2;
  }
-.head-setting li a:hover{
+.head-set li a:hover{
     color: #cd1212;
 }
 .logo-box{
@@ -1088,7 +1141,7 @@ table td p.tl{
 .navbar{
     width: 100%;
     background:#af2812 ;
-    height: 38px;
+    height: 40px;
     margin-bottom: 10px;
 }
 .navbar ul{
@@ -1097,19 +1150,17 @@ table td p.tl{
     overflow: hidden;
 }
 .navbar ul li{
-    height: 36px;
+    height: 40px;
     line-height: 40px;
     text-align: center;
     float: left;
-    width: 179px;
+    width: 163px;
 }
 .navbar ul li a.active{
     background: #cd2d14;
 }
 .navbar ul li a{
     display: block;
-    width: 179px;
-    height: 37px;
     color: white;
     font-size: 14px;
 }
@@ -1119,17 +1170,17 @@ table td p.tl{
 /*头部结束*/
 /*底部开始*/
 .footer-wrapper{
+    width: 980px;
     overflow: hidden;
-    margin-top: 10px;
+    margin: 10px auto 0;
+    padding: 20px 0;
+    background: #ffffff;
 }
 .help-bg{
     width: 100%;
 }
 .footer-help {
     overflow: hidden;
-    padding: 20px 0 55px;
-    background: #ffffff;
-
 }
 .footer-help dl{
     float: left;
@@ -1149,10 +1200,8 @@ table td p.tl{
     padding:5px 0  5px 15px;
     font-size: 14px;
 }
-
 .footer{
     text-align: center;
-    padding-bottom: 20px;
     background: #FFFFFF;
 }
 .bottom-nav{
@@ -1175,7 +1224,7 @@ table td p.tl{
 .footer .log{
     color: #b92c00;
     font-size: 18px;
-    margin-top: 30px;
+    margin: 15px 0;
 }
 .kf{
     display: block;
@@ -1190,7 +1239,7 @@ table td p.tl{
 .safety{
     overflow: hidden;
     width: 450px;
-    margin: 40px auto 0;
+    margin:0 auto;
 }
 .safety li{
     float: left;
@@ -1687,3 +1736,87 @@ table td p.tl{
     margin: 0 8px;
     text-indent:1em;
 }
+/*邀请*/
+.invite .content{
+    border: 2px solid #af2812;
+    padding: 20px;
+    min-height: 400px;
+}
+.invite .content .item{
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.invite .content .btn-row{
+    margin-top: 80px;
+    padding: 20px;
+    overflow: hidden;
+}
+.invite .content .tit{
+    font-size: 22px;
+    font-weight: 600;
+    color: #af2812;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #D2D2D2;
+    margin-bottom: 20px;
+}
+.sycee{
+    width: 300px;
+    background: #f1f1f1;
+    padding: 20px;
+    margin-right: 20px;
+    height: 80px;
+}
+.gift-tit{
+    font-size: 16px;
+    color: #af2812;
+    margin-bottom: 10px;
+}
+.integral{
+    height: 80px;
+    width: 305px;
+    background: #f1f1f1;
+    padding: 20px;
+}
+.invite .right-side{
+    width: 198px;
+    padding:10px;
+    border: 1px solid #D2D2D2;
+    background: #ffffff;
+}
+.invite .right-side .tit{
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #D2D2D2;
+}
+.row{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+/*.icon-sycee{
+    width: 80px;
+    height: 80px;
+    background:url("../images/common.png") no-repeat 0 0;
+}
+.icon-integral{
+    width: 80px;
+    height: 80px;
+    background:url("../images/common.png") no-repeat -0px -0px;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+>>>>>>> 7db719ba914c670669d26339a2c1ca77795fbec7
