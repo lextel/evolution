@@ -171,7 +171,8 @@ class Controller_Center extends Controller_Frontend
     public function action_getforgot()
     {
         Session::set_flash('error', null);
-        return Response::forge(View::forge('member/forgot'));
+        $this->template->title = '用户找回密码';
+        $this->template->layout = View::forge('member/forgot', [], false);
     }
 
     /**

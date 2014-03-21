@@ -1,57 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>找回密码</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <?php echo Asset::css('/member/bootstrap.min.css');?>
-    <?php echo Asset::css('member/comme.css');?>
-    <?php echo Asset::css('member/font-awesome.min.css');?>
-    <?php echo Asset::js(array('jquery.min.js', 'bootstrap.min.js', 'common.js', 'holder.js'));?>
-    <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
-    <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <![endif]-->
-    <script type="text/javascript">
+<div class="w">
 
-    </script>
-</head>
-<body>
-<!--导航开始-->
-<!--导航结束-->
-<!--中间内容开始-->
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-primary ">
-                <div class="panel-heading">找回密码</div>
-                <div class="panel-body">
-                    <?php echo Session::get_flash('error');?>
-                    <?php echo Form::open(['action'=>'forgotemail','class'=>'col-md-5 col-md-offset-3']);?>
-                        <div class="form-group">
-                            <label for="" class="control-label">请输入您要找回密码的注册邮箱</label>
-                            <input type="text" name="email" class="form-control"/>
-                        </div>
-                        <!--<div class="form-group">
-                            <label for="" class="control-label">请输入您绑定的邮箱</label>
-                            <input type="text" type="text" class="form-control"/>
-                        </div>
-                        -->
-                        <button class="btn btn-primary">发送邮件</button>
-                    <?php echo Form::close();?>
-                </div>
-                <!-- <div class="panel-body">
-                    <div for="" class="col-md-offset-3">发送成功！<a href="">点击查看邮箱</a></div>
-                </div> -->
-            </div>
+    <?php echo Asset::css(['style.css', 'member/validfrom_style.css']);?>
+    <?php echo Asset::js('Validform_v5.3.2_min.js');?>
+    <div class="register w">
+        <div class="title">
+            忘记密码？不用急，您可以通过一下方式找回密码。
+        </div>
+         <?php echo Session::get_flash('error');?>
+         <?php echo Form::open(['action'=>'forgotemail','class'=>'register-form demoform']);?>
+            <ul>
+                <li>
+                    <label>邮箱:</label>
+                    <input type="text" class="inputxt Validform_error" name="email" datatype="e" errorms="请输入6-18位密码" nullmsg="请输入6-18位密码" value="" id="form_password">
+                    <span class="Validform_checktip Validform_wrong">请输入6-18位密码</span>
+                </li>
+                <li>
+                    <input class="btn btn-red" name="submit" value="提交" type="submit" id="form_submit">
+                </li>
+            </ul>
+        <?php echo Form::close();?>
+        <div class="help-tool">
+            <p style="font-weight: bold">没有收到验证邮件？</p>
+            <p>1.您若忘记注册时所用的手机号或邮箱建议您重新注册账号， <?php echo Html::anchor('signup', '立即注册', ['class'=>'b']);?></p>
+            <p>2.若有任何疑问或需要帮助请您进入帮助中心,也可以点击在线客服进行咨询或拨打服务热线 <span class="r">400 685 9800</span></p>
         </div>
     </div>
 </div>
-<!--中间内容结束-->
-</body>
-</html>
