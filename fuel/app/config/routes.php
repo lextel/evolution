@@ -82,6 +82,8 @@ return array(
     'u/follow' => 'friends/follow',
     'u/unfollow' => 'friends/unfollow',
 
+    'm/search/:title/p/:page' => 'items/search',
+    'm/search/:title' => 'items/search',
     'm/(\d+)' => 'items/view/$1',
     'm' => 'items/index',
     'm/p/:page' => 'items/index',
@@ -95,7 +97,6 @@ return array(
     'm/c/:cate_id/b/:brand_id' => 'items/index',
     'm/c/:cate_id/p/:page' => 'items/index',
     'm/c/:cate_id' => 'items/index',
-    'm/search/:title' => 'items/search',
 
     'p' => 'posts/index',
     'p/up/(\d+)' => 'posts/up/$1',
