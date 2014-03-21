@@ -85,6 +85,7 @@ class Model_Phase extends \Classes\Model {
                 'codes'            => serialize($codes),
                 'code_count'       => 0,
                 'sort'             => $item->sort,
+                'is_recommend'     => $item->is_recommend,
                 'is_delete'        => $item->is_delete,
                 'opentime'         => 0,
                 'total'            => 0,
