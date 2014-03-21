@@ -15,21 +15,22 @@
             </div>
         </div>
 
-        <?php echo Form::open(array("class"=>"demoform")); ?>
+        <?php echo Form::open(array("class"=>"validForm")); ?>
             <ul class="registerForm">
                 <li>
                    <?php echo Form::label('邮箱'); ?>
                    <?php echo Form::input('username', Session::get_flash('username', ''), array('class' => 'txt','type'=>"text",'datatype'=>'e',
-                         'name'=>'username','errorms'=>'邮箱帐号格式不正确','nullmsg'=>'请输入邮箱帐号')); ?>
+                         'name'=>'username','errorms'=>'邮箱格式不正确','nullmsg'=>'请输入邮箱帐号')); ?>
                    <?php if (Session::get_flash('usernameError', null)) { ?>
-                   <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('usernameError');?></span>
+                   <span class="Validform_checktip"><?php echo Session::get_flash('usernameError');?></span>
                    <?php }else{?>
                    <?php } ?>
                 </li>
                 <li>
                    <?php echo Form::label('密码'); ?>
                    <?php echo Form::input('password', '', ['type'=>"password",'class' => 'txt',
-                    'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'请输入6-18位密码','nullmsg'=>'请输入6-18位密码']); ?>
+                    'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'密码格式不正确','nullmsg'=>'请输入6-18位密码']); ?>
+                    <span class="Validform_checktip"></span>
                 </li>
                 <?php
                     Config::load('common');
@@ -55,8 +56,8 @@
     </div>
 <script type="text/javascript">
 $(function(){
-        $(".demoform").Validform({
-        tiptype:4,
+        $(".validForm").Validform({
+        tiptype:4
         });
 });  
 </script>

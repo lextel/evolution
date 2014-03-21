@@ -1,83 +1,70 @@
-<!DOCTYPE html>
-<html>
 <head>
     <meta charset="utf-8">
-    <title>登录</title>
-    <link rel="stylesheet" href="../assets/css/common.css"/>
-    <link rel="stylesheet" href="../assets/css/style.css"/>
-    <script type="text/javascript" src="../assets/js/jquery-1.10.1.min.js"></script>
+    <title>用户登录</title>
+    <link type="text/css" rel="stylesheet" href="http://www.llt.com/assets/css/common.css?1395383224">
+
+    <link type="text/css" rel="stylesheet" href="http://www.llt.com/assets/css/style.css?1395384601">
+
+    <script type="text/javascript" src="http://www.llt.com/assets/js/jquery.min.js?1388384558"></script>
+    <link type="text/css" rel="stylesheet" href="http://www.llt.com/assets/css/member/validfrom_style.css?1395289929">
+    <script type="text/javascript" src="http://www.llt.com/assets/js/Validform_v5.3.2_min.js?1388629166"></script>
 </head>
-<body>
+<body style="">
 <div class="logo-wrapper">
     <div class="logo w">
-        <a href="">乐乐淘logo</a>
+        <a href="/"><img src="/assets/images/logo.png" alt="乐乐淘首页"></a>
     </div>
 </div>
 <!--中间内容开始-->
-<div class="content w">
-    <div class="left-side fl">
-        广告图
+<div class="w">
+    <div class="login-hd">
+        <a href="/" class="b fr">返回首页</a>
+        <span class="fr">|</span>
+        <a href="/h" class="b fr">帮助中心</a>
     </div>
-    <div class="login-form fr">
-        <form action="">
-            <div class="title">
-                <h4>乐拍用户登录</h4>
+    <div class="login-bd">
+        <div class="left-side fl">
+            广告图
+        </div>
+        <div class="loginForm fr">
+            <form action="/signin" method="post" class="demoform">
+                <div class="title">
+                    <h3>乐拍用户登录</h3>
+                </div>
+                <ul class="loginBar">
+                    <li>
+                        <input type="text" name="username" datatype="e"  nullmsg="请输入邮箱账号！" errormsg="请输入邮箱帐号" placeholder="输入邮箱帐号" value="" id="form_username">
+                        <s class="icon-user"></s>
+                        <span class="Validform_checktip"></span>
+                    </li>
+                    <li>
+                        <input type="password" placeholder="输入密码" name="password" datatype="*6-18" errormsg="密码范围在6~18位之间！"  id="form_password">
+                        <s class="icon-password"></s>
+                        <span class="Validform_checktip"></span>
+                    </li>
+                    <li><a class="fr" href="http://www.llt.com/forgot">忘记密码?</a></li>
+                    <li><button class="login btn-l" type="submit">登录</button></li>
+                </ul>
+            </form>
+            <div class="register-box">
+                <p>还不是乐拍用户？马上注册吧</p>
+                <a class="btn-r signup" href="http://www.llt.com/signup">快速注册</a>
             </div>
-            <ul class="loginBar">
-                <li><input type="text" value="输入邮箱地址"/></li>
-                <li><label class="error"></label></li>
-                <li><input type="password" value=""/></li>
-                <li><a href="" class="fr">忘记密码？</a></li>
-                <li><button class="login">登录</button></li>
-            </ul>
-        </form>
-        <div class="register-box">
-            <p>还不是乐拍用户？马上注册</p>
-            <button class="registered">快速注册</button>
         </div>
     </div>
 </div>
 <!--中间内容结束-->
-<!--底部开始-->
-<div class="footer-wrapper">
-    <div class="help-bg">
-        <div class="footer-help w">
-            <dl>
-                <dt><a href="">帮助中心</a></dt>
-                <dd><a href="">新手指南</a></dd>
-                <dd><a href="">乐拍保障</a></dd>
-                <dd><a href="">商品配送</a></dd>
-            </dl>
-            <dl>
-                <dt><a href="">关注我们</a></dt>
-                <dd><a href="">新浪微博</a></dd>
-                <dd><a href="">官方微信</a></dd>
-                <dd><a href="">官方QQ群：10000000</a></dd>
-                <dd><a href="">官方QQ群:100000000</a></dd>
-            </dl>
-            <dl>
-                <dt>联系我们</dt>
-                <dd><h2 class="red"><span class="icon icon-phone"></span>4008123123</h2></dd>
-                <dd>仅收市话费，周一至周日8.00-18.00</dd>
-                <dd><button class="kf">24小时在线客服</button></dd>
-            </dl>
-            <dl>
-                <dt><a href="">二维码</a></dt>
-            </dl>
-        </div>
-    </div>
-    <div class="footer w">
-        <ul class="bottom-nav">
-            <li><a href="">首页</a></li>
-            <li><a href="">关于乐拍</a></li>
-            <li><a href="">隐私声明</a></li>
-            <li><a href="">合作专区</a></li>
-            <li><a href="">联系我们</a></li>
-        </ul>
-        <P>版权所有</P>
-        <span>乐拍，快乐抢拍你的人生！</span>
-    </div>
-</div>
-<!--底部结束-->
+<script type="text/javascript">
+
+    $(function(){
+        //$(".registerform").Validform();  //就这一行代码！;
+
+        $(".demoform").Validform({
+            tiptype:3
+        });
+    })
+
+</script>
+
+
 </body>
-</html>
