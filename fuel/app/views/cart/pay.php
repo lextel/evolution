@@ -16,9 +16,9 @@
                     <tr>
                         <th style="display:none"></th>
                         <th>商品名称</th>
-                        <th>总积分</th>
+                        <th>总元宝</th>
                         <th>单价</th>
-                        <th>购买数量</th>
+                        <th>数量</th>
                         <th>小计</th>
                         <th>操作</th>
                     </tr>
@@ -40,57 +40,31 @@
                                 <h4>
                                     <a href="<?php echo Uri::create('/m/'.$item->get_id()); ?>"><?php echo $info->title; ?></a>
                                 </h4>
-                                <div class="remain">剩余<b class="red"><?php echo $info->phase->remain; ?></b>人次</div>
+                                <div class="remain">还需<b class="red"><?php echo $info->phase->remain; ?></b>元宝</div>
                             </div>
                         </td>
-                        <td><s><?php echo $info->phase->cost.Config::get('unit'); ?></s></td>
-                        <td><s class="r"><?php echo Config::get('point').Config::get('unit'); ?></s></td>
+                        <td><s><?php echo \Helper\Coins::showCoins($info->phase->cost); ?></s></td>
+                        <td><s><?php echo \Helper\Coins::showCoins(Config::get('point')); ?></s></td>
                         <td><?php echo $item->get_qty(); ?></td>
-                        <td><s><?php echo $item->get_qty() * Config::get('point') . Config::get('unit'); ?></s></td>
-                        <td><sutton class="btn btn-default btn-sx" action="delete">删除</button></td>
+                        <td><s><?php echo \Helper\Coins::showCoins($item->get_qty() * Config::get('point')); ?></s></td>
+                        <td><a class="btn btn-default btn-sx" action="delete" href="javascript:;">删除</a></td>
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
                 </table>
             </form>
             <div class="cart-footer">
-                <a class="btn btn-sx btn-gy fl" href="<?php echo Uri::create('cart/list'); ?>"><返回修改订单</a>
-                <div class="all-price fr">总积分：<b id="total" total="<?php echo $subTotal*Config::get('point'); ?>"><?php echo $subTotal * Config::get('point'); ?></b><?php echo Config::get('unit');?></div>
+                <a class="btn btn-sx btn-gy fl" style="margin-left: 0px" href="<?php echo Uri::create('cart/list'); ?>"> < 返回修改订单</a>
+                <div class="all-price fr">总元宝：<b id="total" total="<?php echo $subTotal*Config::get('point'); ?>"><?php echo \Helper\Coins::showCoins($subTotal * Config::get('point')); ?></b></div>
             </div>
         </div>
     </div>
-    <div class="pay-row"><label><input type="checkbox" action="selectAll">使用账户余额支付,账户余额：00.00元</label></div>
+    <div class="pay-row"><label><input type="checkbox" id="goldPay">使用元宝支付，您有：<?php echo \Helper\Coins::showCoins($current_user->points);?></label><b id="money" money="<?php echo $current_user->points; ?>" style="display:none"></b></div>
     <!--选择支付方式开始-->
     <div class="prepaid-box">
-                <dl class="pay-money">
-                    <dt>请选择充值金额</dt>
-                    <dd>
-                        <label for="money1">
-                            <input type="radio" name="money1" id="money1" value="10">
-                            <span>10元</span>
-                        </label>
-                    </dd>
-                    <dd>
-                        <label for="money2">
-                            <input type="radio" name="money1" id="money2" value="50">
-                            <span>50元</span>
-                        </label>
-                    </dd>
-                    <dd>
-                        <label for="money3">
-                            <input type="radio" name="money1" id="money3" value="100">
-                            <span>100元</span>
-                        </label>
-                    </dd>
-                    <dd>
-                        <span class="else">其他金额<input type="text" name="money2" id="money2" value="">元</span>
-                        <span>(1元=10乐淘币)</span>
-                    </dd>
-                </dl>
-
                 <!--选择支付方式开始-->
                 <div class="pay-way">
-                    <div class="caption">选择付款方式</div>
+                    <div class="caption" style="margin-bottom: 8px">元宝不足？请选择下面方式购买</div>
                     <dl>
                         <dt>第三方平台</dt>
                         <dd>
@@ -157,7 +131,7 @@
                     </dl>
                 </div>
                 <!--选择支付方式结束-->
-                <div id="payModal" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div id="payModal" style="top: 200px" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                      <div class="modal-dialog modal-sm">
                          <div class="modal-content">
                               <div class="modal-header">
@@ -165,14 +139,14 @@
                                    <h4 class="modal-title" id="mySmallModalLabel">温馨提示</h4>
                               </div>
                               <div class="modal-body">
-                                  您的积分不足，请先充值。<a class="btn" href="<?php echo Uri::create('u/getrecharge'); ?>">充值积分</a>
+                                  您的元宝不足，请使用在线支付进行购买。</a>
                                 </div>
                               </div>
                          </div>
                      </div>
             </div>
     </div>
-    <div class="pay-row"><a href="" class="btn btn-red btn-md fr" id="doOrder">确认支付</a></div>
+    <div class="pay-row"><a href="javascript:;" class="btn btn-red btn-md fr" id="doBuy">确认支付</a></div>
     <!--选择支付方式结束-->
         <dl class="pay-help w">
             <dt>购买遇到问题</dt>

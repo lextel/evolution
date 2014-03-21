@@ -66,15 +66,40 @@ $(function(){
     // 购买 
     $('#doBuy').click(function() {
 
-        var money = $('#money').attr('money');
-        var total = $('#total').attr('total');
-        if(parseInt(money) < parseInt(total)) {
-            $('#payModal').modal('show');
-            return false;
-        }
+        // 如果是元宝支付
+        if($('#goldPay').is(':checked')) {
+            var money = $('#money').attr('money');
+            var total = $('#total').attr('total');
+            if(parseInt(money) < parseInt(total)) {
+                $('#payModal').modal('show');
+            } else {
+                window.location.href=BASE_URL+"/cart/complete";
+            }
+        } else {
+            // 是否选择银行
+            if($('input:radio[name="account"]').is(':checked')) {
+                alert('等待对接');
+            } else {
+                alert('请选择支付方式');
+            }
 
-        return true;
+        }
     });
+
+    // 选择元宝
+    $('#goldPay').click(function(){
+        if($(this).is(':checked')) {
+            $('input:radio[name="account"]').attr('checked', false);
+        }
+    });
+
+    // 选择银行
+    $('input:radio[name="account"]').click(function() {
+        if($(this).is(':checked')) {
+            $('#goldPay').attr('checked', false);
+        }
+    });
+    
 });
 
 /**
@@ -86,7 +111,8 @@ function updateTotal() {
         total = total + parseInt($(this).val());
     });
 
-    $('#total').html(total*POINT + UNIT);
+
+    $('#total').html(showCoins(total*POINT));
 }
 
 /**
@@ -97,5 +123,5 @@ function updateSubtotal(obj) {
     var target = obj.parent().parent().next();
 
     var subtotal = parseInt(val) * parseInt(POINT);
-    target.html('<span class="price"><b>' +subtotal + UNIT+'</b></span>');
+    target.html('<span class="price"><b>' +showCoins(subtotal)+'</b></span>');
 }

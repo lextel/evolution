@@ -59,34 +59,34 @@
                 <span>本商品已有 <b class="blue"><?php echo $postsCount($item->id); ?></b>位幸运者晒单，<b class="blue"><?php echo $commentCount($item->id); ?></b>评论</span>
             </div>
             <div class="middle">
-              <div class="price"><strong>价值:￥<?php echo sprintf('%.2f', $item->price); ?></strong></div>
+              <div class="price" style="margin-left: 57px"><strong>价值:￥<?php echo sprintf('%.2f', $item->price); ?></strong></div>
             <?php if(!empty($item->phase->remain) && $item->status == \Helper\Item::IS_CHECK): ?>
               <dl class="progress-side">
                   <dd>
                       <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->phase->joined/$item->phase->amount*100); ?>%"></div></div>
                   </dd>
                   <dd>
-                      <span class="fl red"><?php echo $item->phase->joined; ?></span>
-                      <span class="fr blue"><?php echo $item->phase->remain; ?></span>
+                      <span class="fl r"><?php echo $item->phase->joined; ?></span>
+                      <span class="fr b"><?php echo $item->phase->remain; ?></span>
                   </dd>
                   <dd>
-                      <span class="fl">已参与人次</span>
-                      <span class="fr">剩余人次</span>
+                      <span class="fl">已攒元宝</span>
+                      <span class="fr">还需元宝</span>
                   </dd>
               </dl>
               <form action="<?php echo Uri::create('/cart/add'); ?>" method="post">
-                  <div class="btn-menu">
-                      <span class="left">购买数量：</span>
-                      <a class="add btn-jian" href="javascript:void(0);">-</a>
-                      <input type="text" value="1" name="qty" amount="<?php echo $item->phase->amount; ?>" remain="<?php echo $item->phase->remain; ?>">
-                      <a class="add btn-jia" href="javascript:void(0);">+</a>
-                      <span class="right">(剩余<?php echo $item->phase->remain; ?>人次)</span>
-                      <span class="chance fl">获得几率：<s class="red" id="percent"><?php echo sprintf('%.2f', 1/$item->phase->amount*100); ?>%</s> </span>
+                  <div class="btn-menu" style="margin-left: 57px; margin-top: 7px">
+                      <span class="left" style="height: 30px; font-size: 14px;line-height: 30px">购买数量：</span>
+                      <a class="add btn-jian" href="javascript:void(0);" style="height: 30px;line-height: 30px;width:30px">-</a>
+                      <input style="margin: 0;border: 1px solid #e5e5e5;font-size: 14px;height:28px" type="text" value="1" name="qty" amount="<?php echo $item->phase->amount; ?>" remain="<?php echo $item->phase->remain; ?>">
+                      <a class="add btn-jia" style="height: 30px; font-size: 14px; line-height: 30px" href="javascript:void(0);">+</a>
+                      <span class="right" style="line-height: 30px">(还需<?php echo $item->phase->remain; ?>元宝)</span>
+                      <span class="chance fl" style="line-height: 30px">获得几率：<s class="red" id="percent"><?php echo sprintf('%.2f', 1/$item->phase->amount*100); ?>%</s> </span>
                   </div>
-                  <div class="btn-group">
+                  <div class="btn-group" style="margin-left: 57px">
                       <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>
-                      <button type="submit" class="btn btn-red btn-w">立即一元乐淘</button>
-                      <a class="btn btn-y btn-w doAddCart" href="javascript:void(0);" phaseId="<?php echo $item->phase->id; ?>">加入购物车</a>
+                      <button type="submit" class="btn btn-red btn-w" style="margin: 8px 0; height: 40px; line-height: 40px; width: 158px;font-size: 18px">立即一元乐淘</button>
+                      <a class="btn btn-y btn-w doAddCart" style="margin-left: 28px; height: 40px; line-height: 40px; width: 158px;font-size: 18px" href="javascript:void(0);" phaseId="<?php echo $item->phase->id; ?>">加入购物车</a>
                   </div>
               </form>
               <?php elseif($item->status == \Helper\Item::IS_CHECK): ?>
@@ -100,7 +100,7 @@
                    <h2>即将开拍</h2>
               </div>
                <?php endif; ?>
-              <ul class="security-list">
+              <ul class="security-list" style="width: 83%">
                   <li><a href="<?php echo Uri::create('/h/safeguard'); ?>" class="01">100%公平公正</a></li>
                   <li><a href="<?php echo Uri::create('/h/promise'); ?>" class="02">100%正品保证</a></li>
                   <li><a href="<?php echo Uri::create('/h/expressinfo'); ?>" class="03">全国免费配送</a></li>
@@ -127,7 +127,7 @@
                                         <td><div class="head-sm"><a href="<?php echo Uri::create('u/'.$member->id); ?>"><img src="<?php echo Uri::create($member->avatar); ?>" alt=""></a></div></td>
                                         <td><?php echo $member->nickname; ?></td>
                                         <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($newOrder->created_at); ?></b></td>
-                                        <td>乐拍了<s><?php echo $newOrder->code_count; ?></s>次</td>
+                                        <td>乐拍了<s><?php echo $newOrder->code_count; ?></s>元宝</td>
                                     </tr>
                                 <?php
                                         endforeach;
@@ -150,7 +150,7 @@
                                         <td><div class="head-sm"><a href="<?php echo Uri::create('u/'.$current_user->id); ?>"><img src="<?php echo Uri::create($current_user->avatar); ?>" alt=""></a></div></td>
                                         <td><?php echo $current_user->nickname; ?></td>
                                         <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($myOrder->created_at); ?></b></td>
-                                        <td>乐拍了<s><?php echo $myOrder->code_count; ?></s>次</td>
+                                        <td>乐拍了<s><?php echo $myOrder->code_count; ?></s>元宝</td>
                                     </tr>
                                 <?php
                                         endforeach;
@@ -181,11 +181,11 @@
                         </table>
                     </div>
                     <div class="tab-pane" id="help">
-                        <p>乐乐淘是指只需10乐淘币就有机会买到想要的商品。即每件商品被平分成若干“等份”出售，每份10乐淘币，
+                        <p>乐乐淘是指只需1元宝就有机会买到想要的商品。即每件商品被平分成若干“等份”出售，每份1元宝，
                          当一件商品所有“等份”售出后，根据云购规则产生一名幸运者，该幸运者即可获得此商品。
                         </p>
                         <p>
-                       乐乐淘以“快乐云淘，惊喜无限”为宗旨，力求打造一个100%公平公正、100%正品保障、寄娱乐与购物一体化的新型购物网站。
+                            乐乐淘以“快乐云淘，惊喜无限”为宗旨，力求打造一个100%公平公正、100%正品保障、寄娱乐与购物一体化的新型购物网站。
                         </p>
                         <div class="tr"><a href="<?php echo Uri::create('h/new'); ?>" class="link">更多详情></a></div>
                     </div>

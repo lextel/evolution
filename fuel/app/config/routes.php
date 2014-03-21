@@ -16,6 +16,9 @@ return array(
     'newpwd' => 'center/newpassword',
     'sendok'=> 'center/sendok',
 
+    'invit/:id' => 'invit/invit',
+    'invit' => 'invit/index',
+
     'emailok'=>'member/emailok',
     'u/checkemail' => 'member/checkemail',
     'u/(\d+)' => 'home/index/$1',
@@ -58,6 +61,11 @@ return array(
     'u/posts/getedit/(\d+)' => 'member/posts/getedit/$1',
     'u/posts/edit/(\d+)' => 'member/posts/edit/$1',
     'u/posts/delete/(\d+)' => 'member/posts/delete/$1',
+
+    'u/invit' => 'member/invit/index',
+    'u/invit/p/(\d+)' => 'member/invit/index/$1',
+    'u/brokerage' => 'member/brokerage/index',
+    'u/brokerage/p/(\d+)' => 'member/brokerage/index/$1',
 
     'u/orders' => 'member/orders/my',
     'u/orders/p/(\d+)' => 'member/orders/my/$1',

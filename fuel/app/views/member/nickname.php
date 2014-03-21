@@ -14,15 +14,17 @@ $(function(){
 <div class="register-warp">
     <div class="title">
           <h3 class="fl">新用户注册</h3>
-          <ul class="fl crumbs">
-              <li><s>1</s>填写注册信息</li>
-              <li>&gt;</li>
-              <li class="active"><s>2</s>完成注册</li>
-          </ul>
-          <div class="link fr">
-                已经是会员，直接
-                <?php echo Html::anchor('signin', '登录', array('class' => 'blue'));?>
-          </div>
+              <ul class="fl crumbs">
+                  <li><s>1</s><a href="javascript:;">填写注册信息</a></li>
+                  <li><b>></b><li>
+                  <li class="active"><s>2</s><a href="javascript:;">完成注册</a></li>
+                  <li><a href="javascript:;"></a></li>
+              </ul>
+              <div class="link fr">
+                   <?php echo Html::anchor('invit', '邀请好友赢元宝', array('class' => 'btn btn-red b', 'style' => 'margin-right: 10px; padding:5px 10px'));?>
+                        已经是会员，直接
+                   <?php echo Html::anchor('signin', '登录', array('class' => 'blue'));?>
+              </div>
     </div>
         <form action="/u/nickname" class="addnickname" method="POST">
         <ul class="succeedForm">

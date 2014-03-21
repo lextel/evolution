@@ -18,6 +18,7 @@ class Model_Item extends \Classes\Model {
         'phase',
         'status',
         'reason',
+        'is_recommend',
         'is_delete',
         'created_at',
         'updated_at',
@@ -292,6 +293,32 @@ class Model_Item extends \Classes\Model {
 
         return $rs;
     }
+
+    /**
+     * 标识推荐
+     *
+     * @param $id integer 商品ID
+     *
+     * @return 是否成功
+     */
+    public function recommend($id) {
+        $item = Model_Item::find($id);
+
+        $recommend = $item->is_recommend == 1 ? 0 : 1;
+        $str = $item->is_recommend == 1 ? '不推荐' : '推荐';
+
+        $item->is_recommend = $recommend;
+        $rs = $item->save();
+
+        Model_Log::add('商品编辑推荐设置为：'.$str.' #' . $item->id);
+
+        DB::update('phases')->value('is_recommend', $recommend)
+                            ->where('item_id', $item->id)
+                            ->execute();
+
+        return $rs;
+    }
+
 
     /**
      * 标识完成

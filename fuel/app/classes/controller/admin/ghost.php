@@ -21,9 +21,9 @@ class Controller_Admin_Ghost extends Controller_Admin{
         $memberModel = new Model_Member();
         $total = $memberModel->countGhost($get);
         $page = new \Helper\Page();
-        $url = Uri::create('admin/ghost', 
-                ['member_id' => Input::get('member_id'), 'nickname' => Input::get('nickname'), 'email' => Input::get('email')], 
-                ['user_id' => ':user_id', 'nickname' => ':nickname', 'email' => ':email']);
+        $url = Uri::create('admin/ghost/lists', 
+                ['member_id' => Input::get('member_id'), 'nickname' => Input::get('nickname')], 
+                ['user_id' => '', 'nickname' => ':nickname']);
 
         $config = $page->setConfig($url, $total, 'page');
         $pagination = Pagination::forge('mypagination', $config);
@@ -71,7 +71,6 @@ class Controller_Admin_Ghost extends Controller_Admin{
             $avatar = Input::post('avatar');
             $bio = Input::post('bio');
             $created_at = Input::post('created_at');
-            $ip = Input::post('ip');
             try {
                 $member = new Model_Member();
                 $member->username = $username;
@@ -82,13 +81,15 @@ class Controller_Admin_Ghost extends Controller_Admin{
                 $member->mobile = '';
                 $member->bio = $bio;
                 $member->created_at = $created_at;
-                $member->ip = $ip;
+                $chip = new  Classes\RandCHIp;
+                $member->ip = $chip->randomCHIp();
                 $member->type = 1;
                 $member->points = 0;
                 $member->last_login = 0;
                 $member->login_hash = 0;
                 $member->is_disable = 0;
                 $member->is_delete = 0;
+                $member->is_mobile = 0;
                 $member->profile_fields = '';
                 $member->save();
                 $user_id = $member->id;
@@ -185,7 +186,7 @@ class Controller_Admin_Ghost extends Controller_Admin{
                 Model_Log::add('修改马甲 #' . $user_id);
                 Response::redirect('admin/ghost/lists');
             } catch (Exception $e) {
-                Log::error($e);
+                Model_Log::error($e);
                 Session::set_flash('error', e('修改失败'));
             }
         } else {
@@ -430,14 +431,33 @@ class Controller_Admin_Ghost extends Controller_Admin{
     // 批量上传图片
     public function action_multiUpload()
     {
-        $files = Model_Member::uploadcsv();
-        return json_encode(['files' => $files]);
+        $response = new Response();
+        $response->set_header('Content-Type', 'application/json');
+        $files = Model_Member::uploadmulti();
+        return $response->body(json_encode(['files' => $files]));
     }
     
     // 导入CSV表格文件
     public function action_csvUpload()
     {
+        $response = new Response();
+        $response->set_header('Content-Type', 'application/json');
         $files = Model_Member::uploadcsv();
-        return json_encode(['files' => $files]);
+        if (!$files){
+            return $response->body(json_encode(['files' => $files, 'msg'=>'格式错误']));
+        }
+        $csvfile = Model_Member::readcsv($files[0]['path']);
+        $res = [];
+        
+        foreach($csvfile as $key=>$row){
+            if (Model_Member::checkCsv($row)){
+                
+                if (Model_Member::ADDghost($row)){
+                   $res[] = $row[1];
+                }
+                
+            }
+        }
+        return $response->body(json_encode(['files' => $files, 'msg'=>'上传成功'.count($res).'个', 'res'=>$res]));
     }
 }

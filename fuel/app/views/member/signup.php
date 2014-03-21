@@ -29,7 +29,7 @@
                 <li>
                    <?php echo Form::label('密码'); ?>
                    <?php echo Form::input('password', '', ['type'=>"password",'class' => 'txt',
-                       'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'请输入6-18位密码','nullmsg'=>'请输入6-18位密码']); ?>
+                    'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'请输入6-18位密码','nullmsg'=>'请输入6-18位密码']); ?>
                 </li>
                 <?php
                     Config::load('common');

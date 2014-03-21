@@ -41,6 +41,7 @@
             <div class="collection fl" style="CURSOR: hand" onClick="window.external.addFavorite('http://www.lltao.com')" title="乐乐淘">
                  <a href="javascript:;">收藏乐乐淘</a>
             </div>
+            <?php echo Html::anchor('invit', '邀请好友赢元宝', array('class' => 'b fr'));?>
             <span class="online">
                 <a href="javascript:void(0);">在线客服</a>
             </span>
@@ -165,10 +166,24 @@
             Config::load('common');
             $point = Config::get('point');
             $unit  = Config::get('unit');
+            $unit2 = Config::get('unit2');
         ?>
         BASE_URL = '<?php echo Uri::base(); ?>';
         POINT    = '<?php echo $point; ?>';
         UNIT     = '<?php echo $unit; ?>';
+        UNIT2    = '<?php echo $unit2?>';
+
+        function showCoins(point) {
+            var gold = parseInt(point/POINT);
+            var silver = point%POINT;
+
+            var unit = gold + UNIT;
+            if(silver > 0) {
+                unit += silver + UNIT2;
+            }
+
+            return unit;
+        }
     </script>
     <script type="text/javascript">
     // var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");

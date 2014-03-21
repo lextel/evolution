@@ -9,8 +9,14 @@
     background: #FFFFFF;
     width: 740px;
 }
+<<<<<<< HEAD
 .announced-news .title h3,.recommended .title h3{
     font-size: 16px;
+=======
+.announced-news .title h3,.recommended .title h3, .editor .title h3{
+    font-size: 18px;
+    font-weight: normal;
+>>>>>>> 7db719ba914c670669d26339a2c1ca77795fbec7
 }
 .announced-news ul{
     overflow: hidden;
@@ -84,22 +90,38 @@
     padding:0 10px;
     width: 719px;
 }
-.recommended ul{
+
+.editor {
+    overflow: hidden;
+    background: #FFFFFF;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.recommended ul, .editor ul{
     margin-right: -10px;
     overflow: hidden;
     background: #FFFFFF;
     padding: 10 0px;
 }
+
+.editor ul{
+    margin-left: 10px;
+}
+
 .recommended .price{
     text-align: right;
 }
-.recommended ul li{
+.recommended ul li, .editor ul li{
     float: left;
     width: 230px;
     overflow: hidden;
     padding-bottom: 10px;
     margin-right: 10px;
     border: 1px solid #d2d2d2;
+}
+
+.editor .title {
+    padding: 10px;
 }
 .second ul{
     overflow: hidden;

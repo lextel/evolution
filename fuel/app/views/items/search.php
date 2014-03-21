@@ -36,12 +36,12 @@
                         <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->joined/$item->amount*100)?>%"></div></div>
                     </dd>
                     <dd>
-                        <span class="fl"><?php echo $item->joined; ?></span>
-                        <span class="fr"><?php echo $item->remain; ?></span>
+                        <span class="fl r"><?php echo $item->joined; ?></span>
+                        <span class="fr b"><?php echo $item->remain; ?></span>
                     </dd>
                     <dd>
-                        <span class="fl c9">已参与人次</span>
-                        <span class="fr c9">剩余人次</span>
+                        <span class="fl c9">已攒元宝</span>
+                        <span class="fr c9">还需元宝</span>
                     </dd>
                 </dl>
                 <?php if($item->status == \Helper\Item::IS_CHECK): ?>
@@ -50,7 +50,7 @@
                     <a class="add btn-jian" href="javascript:void(0);">-</a>
                     <input type="text" value="1" name="qty" remain="<?php echo $item->remain; ?>"/>
                     <a class="add btn-jia" href="javascript:void(0);">+</a>
-                    <span class="right">人次</span>
+                    <span class="right">元宝</span>
                 </div>
                 <div class="btn-group">
                     <input name="id" value="<?php echo $item->id; ?>" type="hidden">

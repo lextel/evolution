@@ -57,7 +57,7 @@
                             <?php } ?>
                         </td>
                         <td><?php echo ($phase->member_id !=0) ? "已经揭晓": "进行中";?></td>
-                        <td><?php echo $order->code_count;?>人次</td>
+                        <td><?php echo $order->code_count;?>元宝</td>
                         <td><div class="toolbox">
                            <a class="tooltip" href="javascript:void(0)">乐拍码</a>
                            <div class="num-list">
