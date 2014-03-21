@@ -22,12 +22,13 @@ echo Asset::js(
     <fieldset>
         <div class="form-group">
             <?php echo Form::label('批量头像', 'avatars', array('class'=>'control-label col-sm-2')); ?>
-            <div class="col-sm-2">
+            <div class="col-sm-5">
                 <span class="btn btn-success fileinput-button">
                       <i class="glyphicon glyphicon-plus"></i>
                       <span>选择图片...</span>
                       <input id="multipleupload" type="file" name="avatars" multiple>
                 </span>
+                <span class="jpgloader" style="display:none;">上传中...<?php echo Html::img('assets/images/bx_loader.gif', ['style'=>'width:30px']);?></span>
             </div>
             <!--<span class="help-block"></span>
             <div class="control-label col-sm-1"></div>-->
@@ -43,12 +44,14 @@ echo Asset::js(
         </div>
         <div class="form-group">
             <?php echo Form::label('批量CSV导入', 'csv', array('class'=>'control-label col-sm-2')); ?>
-            <div class="col-sm-2">
+            <div class="col-sm-5">
                 <span class="btn btn-success fileinput-button">
                       <i class="glyphicon glyphicon-plus"></i>
                       <span>选择文件...</span>
                       <input id="csvUpload" type="file" name="csv" multiple>
+                      
                 </span>
+                <span class="csvloader" style="display:none;">上传中...<?php echo Html::img('assets/images/bx_loader.gif', ['style'=>'width:30px']);?></span>
             </div>
         </div>
         <div class="form-group">

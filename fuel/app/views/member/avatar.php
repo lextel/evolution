@@ -77,7 +77,7 @@ $(function(){
                 <input type="hidden" value="" name="avatar" id="avatar">
             </li>
             <li>
-                 <button class="btn btn-red btn-sx" type="submit">保存</button>
+                 <button class="btn btn-red btn-md" type="submit">保存</button>
             </li>
             <?php echo Form::close(); ?>
         </ul>
