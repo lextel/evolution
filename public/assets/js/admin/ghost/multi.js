@@ -9,7 +9,11 @@ $(function() {
     $('#csvUpload').fileupload({
         url: '/admin/ghost/csvUpload',
         dataType: 'json',
+        send: function (e, data) {
+            $(".csvloader").show();
+        },
         done: function (e, data) {
+            $(".csvloader").hide();
             alert(data.result.msg);
         },
         fail:function(e, data){
@@ -23,8 +27,11 @@ $(function() {
         url:UPLOAD_URL,
         multiple:true,
         fileName:"myfile",
+        send: function (e, data) {
+            $(".jpgloader").show();
+        },
         done: function (e, data) {
-            console.log(data.result);
+            $(".jpgloader").hide();
             $.each(data.result.files, function (index, file) {                
                 var text = '<tr><td><img style="margin:5px; float: left; width:30px;" src="'+IMAGE_URL+file.link+'"></td><td>'+file.name+'</td><td><d class="close"></d></td></tr>';
                 $('.avatarfiles').append(text);

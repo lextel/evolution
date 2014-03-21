@@ -24,12 +24,12 @@
             </li>
             <li>
                 <label>旧密码：</label>
-                <input type="password" value="" name="oldpassword" class="inputxt" datatype="*6-20">
+                <input type="password" value="" class="txt" name="oldpassword" class="inputxt" datatype="*6-20">
                 <span class="Validform_checktip"></span>
             </li>
             <li>
                 <label>新密码：</label>
-                <input type="password" value="" name="newpassword" class="inputxt" datatype="*6-20">
+                <input type="password" value="" class="txt" name="newpassword" class="inputxt" datatype="*6-20">
                 <span class="Validform_checktip"></span>
                 <div class="passwordStrength" style="display:none;">
                     <b>密码强度：</b>
@@ -40,7 +40,7 @@
             </li>
             <li>
                 <label>确认密码：</label>
-               <input type="password" value="" name="newpassword2" class="inputxt" datatype="*6-20" recheck="newpassword">
+               <input type="password" value="" class="txt" name="newpassword2" class="inputxt" datatype="*6-20" recheck="newpassword">
                 <span class="Validform_checktip"></span>
             </li>
             <li>

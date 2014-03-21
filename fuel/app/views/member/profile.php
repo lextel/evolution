@@ -32,28 +32,28 @@ $(function(){
             <?php endif; ?>
             </li>
             <li>
-                <label>邮箱：</label>
-                <?php echo Form::input('username', Input::post('username', $member->email), array('type'=>"text",'name'=>'username',
-                'datatype'=>'e','errorms'=>'请输入邮箱帐号', 'style'=>'border: 0;', 'readonly')); ?>
+                <label>*邮箱：</label>
+                <span class="email">mhtang@163.com</span>
                 <?php if (!Model_Member_Email::check_emailok($member->email)) {  ?>
-                <a href="javascript:;" class="btn btn-red btn-checkemail" style="margin-left: 0px;margin-top: -5px;">验证</a>
+                <span class="red">（未验证）</span>
+                <a href="javascript:;" class="btn-sm btn-state fl">去验证</a>
                 <?php }else{ ?>
-                <a href="javascript:;" class="btn  btn-email" style="margin-left: 0px;margin-top: -5px;">已验证</a>
+                 <span class="green">（已验证）</span>
                 <?php }?>
             </li>
             <li>
-                <label>昵称：</label>
-                <?php echo Form::input('nickname', Input::post('nickname', $member->nickname), array('class' => 'form-control','name'=>'username','datatype'=>'*2-8','errorms'=>'请输入昵称 2~8个字'));?>
-                <span class="Validform_checktip"></span>
-            </li>
+                 <label>*手机：</label>
+                 <span class="red">（未绑定）</span>
+                 <a href="javascript:;" class="btn-sm btn-state fl">去绑定</a>
+             </li>
             <li>
-                <label>手机号码：</label>
-                <?php echo Form::input('mobile', Input::post('mobile', $member->mobile), array('class' => 'form-control','name'=>'','datatype'=>'m','errorms'=>'请输入手机号码'));?>
+                <label>*昵称：</label>
+                <?php echo Form::input('nickname', Input::post('nickname', $member->nickname), array('class' => 'form-control txt','name'=>'username','datatype'=>'*2-8','errorms'=>'请输入昵称 2~8个字'));?>
                 <span class="Validform_checktip"></span>
             </li>
             <li>
                 <label class="align">个性签名：</label>
-                <?php echo Form::textarea('bio', Input::post('bio', $member->bio), array('class' => 'form-control','rows'=>'3'));?>
+                <?php echo Form::textarea('bio', Input::post('bio', $member->bio), array('class' => 'form-control txtarea','rows'=>'3'));?>
                 <span class="Validform_checktip"></span>
             </li>
             <li>

@@ -33,27 +33,26 @@
     width: 500px;
     height: 310px;
 }
-.login-form{
+.loginForm{
     width: 300px;
     min-height: 310px;
     border: 1px solid #d2d2d2;
     background: #FFFFFF;
 }
-.login-form .loginBar{
+.loginForm .loginBar{
     overflow: hidden;
      margin:20px 20px 0 ;
  }
-.login-form .title{
+.loginForm .title{
     background: #AF2812;
     color: #fff;
 }
-.login-form .loginBar li{
+.loginForm .loginBar li{
     width: 260px;
     overflow: hidden;
-    margin-bottom:5px;
     position: relative;
 }
-.login-form .loginBar li input{
+.loginForm .loginBar li input{
     position: relative;
     display:inline-block;
     padding: 0 0 0 28px;
@@ -62,11 +61,13 @@
     border: 1px solid #d2d2d2;
     width: 230px;
  }
-.login-form .loginBar li span{
-    display: inline-block;
-    line-height: 24px;
+.loginForm .loginBar li span{
+    height: 30px;
+    line-height: 30px;
 }
 .btn-l{
+    display: block;
+    margin: 0 auto;
     width: 125px;
     height: 25px;
     line-height: 25px;
@@ -76,13 +77,14 @@
     background: #af2812;
 }
 .btn-r{
+    display: block;
+    margin: 10px auto 0;
     width: 125px;
     height: 25px;
     line-height: 25px;
     border-radius: 3px;
     text-align: center;
     color: #333;
-    display: inline-block;
     background: #d9d9d9;
 }
 .register-box{
@@ -98,99 +100,96 @@
     margin-top: 20px;
 }
 /*注册*/
-.register{
+.register-warp{
     border: 1px  solid #d2d2d2;
     background: #FFFFFF;
+    width: 978px;
+    overflow: hidden;
 }
-.register .title{
+.register-warp .title{
     border-bottom: 1px  solid #d2d2d2;
     background: #f1f1f1;
 }
 .crumbs li{
     float: left;
     margin:0 5px;
-}
-.crumbs li s{
-    width: 20px;
     height: 20px;
     line-height: 20px;
+    font-size: 14px;
+}
+.crumbs li s{
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
     text-align: center;
     border: 1px solid #606060;
     border-radius: 50%;
-    padding: 0;
-    display: block;
+    display:block;
     margin: 0 5px;
     position: relative;
-    overflow: visible;
     float: left;
-}
-.crumbs li a{
-    display: block;
-    float: left;
-}
-.crumbs li b{
-    height: 20px;
-    line-height: 20px;
-    font-size: 18px;
+    vertical-align: middle;
 }
 .crumbs li.active s{
     background: #ffffff;
     border: 1px solid #af2812;
 }
-.crumbs li a{
-    font-size: 14px;
-}
-.crumbs li.active a{
+.crumbs li.active{
     color:#af2812 ;
 }
 .link{
     font-size: 14px;
 }
-.register-form{
-    margin: 50px 0 0 100px;
+.registerForm{
+    margin: 30px 0 0 100px;
     overflow: hidden;
+    width: 600px;
 }
-.register-form ul li{
+.registerForm li,.succeedForm li{
+    overflow: hidden;
     margin-bottom: 15px;
     line-height: 26px;
+    font-size: 14px;
 }
- .register-form ul li label{
+ .registerForm li label,.succeedForm li label{
      text-align: right;
-     height: 26px;
-     line-height: 26px;
-     width: 160px;
+     height: 33px;
+     line-height: 33px;
+     width: 80px;
      display: inline-block;
+     float: left;
  }
-.register-form ul li input{
-    border: 1px solid #d2d2d2;
-    text-indent: 10px;
-    height: 26px;
-    line-height: 26px;
+.registerForm li span,.succeedForm li span{
+    height: 33px;
+    line-height: 33px;
+    display: inline-block;
+    float: left;
+}
+.registerForm li input.txt,.succeedForm li input.txt{
     width: 230px;
+    padding: 8px 10px;
+    border: 1px solid #d2d2d2;
     display: inline-block;
     margin: 0 10px;
+    float: left;
 }
-.register-form ul li input#form_submit{
-    padding: 0;
+.registerForm li .btn,.succeedForm li .btn{
+    margin-left: 90px;
     width: 130px;
-    text-align: center;
-    margin-left: 180px;
-    border: none;
-
 }
-.register-help{
-    width: 475px;
+.protocol{
+    width: 600px;
     height: 120px;
-    margin: 20px 0 20px 201px;
+    line-height: 22px;
+    margin: 0 0 30px 190px;
     border: 1px solid #D2D2D2;
     padding: 10px;
+    overflow-y:auto;
 }
-.addnickname{
-    margin: 30px auto;
-}
-.register-wrap{
-    width: 600px;
-    height: 300px;
+.succeedForm{
+    width: 510px;
+    height: 250px;
+    overflow: hidden;
     margin: 30px auto;
 }
 /*个人主页*/
@@ -336,7 +335,6 @@
     margin-bottom: -1px;
     text-indent: 20px;
     font-size: 14px;
-    position: relative;
     border-bottom: 1px solid #ffffff;
 }
 .icon-arrow{
@@ -351,9 +349,20 @@
     background: url("../images/icon-02.png") no-repeat -212px 0;
 }
 .left-nav li a{
+    height: 35px;
     display: block;
     color: #af2812;
     font-weight: bold;
+    position: relative;
+}
+.left-nav li a.active s{
+    width: 60px;
+    display: inline-block;
+    height:2px;
+    background:#af2812 ;
+    position: absolute;
+    left: 20px;
+    bottom: 0;
 }
 .dropdown-menu{
     background: #ffffff;
@@ -481,7 +490,7 @@
     width: 763px;
     float: right;
     overflow: hidden;
-    padding:15px 20px 10px;
+    padding:15px 20px 20px;
     border: 1px solid #d2d2d2;
     background: #FFFFFF;
 }
@@ -588,85 +597,75 @@
     border-radius: 3px;
     cursor: pointer;
 }
-.show-form,.not-form{
+.show-box{
+    overflow: hidden;
+}
+.show-box .remind{
+    margin-bottom: 20px;
+}
+.showForm,.not-form{
     margin-top: 20px;
     border: 1px solid #d2d2d2;
-    padding: 10px 0 0 0;
-    width: 746px;
+    padding: 20px;
     position: relative;
-}
-.show-form li{
-    margin:0 10px 10px 20px;
-}
-.show-form li label{
-    width: 80px;
-    text-align: right;
-    height: 30px;
-    display: inline-block;
-}
-.show-form li label.body-label{
-    vertical-align: top;
-}
-.show-form li label.error{
-    color: red;
-}
-.show-form li input{
-    width:350px;
-    height: 28px;
-    border: 1px solid #d2d2d2;
-    text-indent: 10px;
-    margin: 0 10px;
-}
-.show-form li textarea{
-    border: 1px solid #d2d2d2;
-    text-indent: 10px;
-    margin: 0 10px;
-    width: 500px;
-}
-.show-form li button{
-    vertical-align: top;
-}
-.show-form li .tj{
-    margin-left:90px;
-}
-.show-form li dl{
-    margin-left: 10px;
-    float: left;
-}
-.show-form li dl dd{
     overflow: hidden;
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
-    margin-right: 10px;
-    overflow: hidden;
-    border:4px solid #0093D0;
-    position: relative;
-    float: left;
-
 }
 .destItem{
-    display: inline-block;
-    width: 540px;
+    width: 442px;
+    max-height: 300px;
     overflow: hidden;
+    float: left;
+    margin-left: 120px;
+    background: #f4f4f4;
+}
+.destItem .title{
+    border-bottom: 1px solid #DDDDDD;
+}
+.destItem .title h4{
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
 }
 .add-images{
-    float: left;
-    width: 70px;
-    height: 70px;
-    border:4px solid #d2d2d2;
-    background: url("../images/bg.png") no-repeat -138px -650px;
+    float: right;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #af2812;
+    color: #fff;
+    position: relative;
 }
-.add-images:hover{
-    border:4px solid #e7594b;
-    background: url("../images/bg.png") no-repeat -28px -650px;
-}
-.show-form li .add-images2{
-    width: 70px;
-    height: 70px;
+.add-images2{
+    width: 100px;
+    height: 30px;
     opacity:0;
+    filter:alpha(opacity:0);
     display: block;
+    z-index: 999;
     cursor: pointer;
+    background: #0000ff;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.postimg{
+    overflow: hidden;
+    padding: 10px 0 0 10px;
+}
+.postimg dd{
+    width: 74px;
+    height: 74px;
+    float: left;
+    border: 1px solid #D2D2D2;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 10px 10px 0;
+}
+.postimg dd img{
+    max-width: 100%;
+    height:auto;
+    vertical-align: middle;
 }
 .delete{
     width: 18px;
@@ -677,11 +676,6 @@
     right: 0;
     cursor: pointer;
     background: url("../images/icon.png") no-repeat -38px -116px;
-}
-.show-form li dl dd.img-box img{
-    max-width: 70px;
-    height: auto;
-    vertical-align: middle;
 }
 .account-box{
     overflow: hidden;
@@ -718,7 +712,7 @@
     border-top:none;
     float: right;
     background: #FFFFFF;
-    min-height: 450px;
+    min-height: 500px;
     padding:15px 20px;
 }
 .navbar-inner{
@@ -742,62 +736,171 @@
 .navbar-inner ul li a{
     display:block;
 }
+/*手机验证*/
+.verify-wrap .content{
+    width: 768px;
+    min-height: 400px;
+    float: left;
+    margin-left: 10px;
+    padding:15px 20px 20px;
+}
+.verify-wrap .content .tit-bar{
+    overflow: hidden;
+    border-bottom: 1px solid #D2D2D2;
+    padding-bottom: 10px;
+    margin-bottom:20px;
+}
+.verify-wrap .content .tit-bar h4{
+    font-size: 14px;
+    font-weight: bold;
+    width: 100px;
+    float: left;
+}
+.verify-wrap .content .prompt-bar{
+    padding: 7px 0 7px 30px;
+    overflow: hidden;
+    color: #f60;
+    background: #fffce2;
+    border: #fd9 1px solid;
+    position: relative;
+    margin-bottom: 20px;
+}
+.prompt-bar .icon-plaint{
+    position: absolute;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url("../images/icon-02.png") no-repeat 0 -1px;
+    top: 5px;
+    left: 5px;
+}
+.verifyForm{
+    overflow: hidden;
+    width: 600px;
+    margin: 0 auto;
+    font-size: 14px;
+}
+.verifyForm label{
+    height: 28px;
+    line-height: 28px;
+    width: 100px;
+    text-align: right;
+}
+.verifyForm .phone_num{
+    height: 28px;
+    line-height: 28px;
+}
+.verifyForm .txt{
+    padding:6px 0 6px 10px;
+    width: 180px;
+    border: 1px solid #D2D2D2;
+}
+.verifyForm .btn{
+    margin-left: 100px;
+}
+.verification{
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+}
+.verifyForm .verification{
+    margin-left: 10px;
+}
+.error{
+    position: relative;
+    padding-left: 20px;
+}
+.error:before{
+    content:"";
+    width: 20px;
+    height: 20px;
+    background: url("../images/icon-02.png") no-repeat -55px 0px;
+    position: absolute;
+    top: 15%;
+    left: 0;
+}
+.sure{
+    position: relative;
+    padding-left: 20px;
+}
+.sure:before{
+    content:"";
+    width: 20px;
+    height: 20px;
+    background :url("../images/icon-02.png") no-repeat -0px -99px;
+    position: absolute;
+    top: 15%;
+    left: 0;
+}
 /*表单*/
 .edit-data{
-    padding:15px 20px;
     overflow: hidden;
+    padding: 20px 15px 10px;
 }
 .edit-data li{
     overflow: hidden;
     margin-bottom: 15px;
-    position: relative;
+}
+.edit-data li:last-child{
+    margin-bottom: 0px;
 }
 .edit-data li label{
+    height: 33px;
+    line-height: 33px;
     display: inline-block;
     text-align: right;
     width: 120px;
     font-size: 14px;
+    float: left;
 }
-.edit-data li label.align{
-    vertical-align: top;
-}
-.edit-data li input{
+.edit-data li input.txt{
     display: inline-block;
-    width: 230px;
+    width: 160px;
     font-size: 14px;
     border: 1px solid #d2d2d2;
     padding: 8px;
-}
-
-.edit-data li span{
-    display: inline-block;
-    min-width:18px;
-    padding: 5px 0;
-    height: 17px;
-    vertical-align: middle;
-}
-.edit-data li span.align{
-    vertical-align: top;
+    float: left;
 }
 .edit-data li textarea{
     border: 1px solid #d2d2d2;
     padding: 5px;
     width: 428px;
     display: inline-block;
+    float: left;
 }
-.edit-data li select{
+.edit-data li span{
+    display: inline-block;
+    overflow: hidden;
+    height: 33px;
+    line-height: 33px;
+    float: left;
+}
+.edit-data li span.email{
+
+    font-size: 14px;
+}
+.edit-data li span.align{
+    vertical-align: top;
+}
+
+.edit-data li #datas select{
     display: inline-block;
     width: 110px;
     font-size: 14px;
     border: 1px solid #d2d2d2;
     padding:5px;
 }
+.edit-data li .btn-state{
+    margin-top: 4px;
+}
+
+.edit-data li .btn-address {
+    margin-left: 120px;
+}
 .edit-data li b{
     margin: 0 10px;
     font-size: 14px;
-}
-.edit-data li #datas{
-    display: inline-block;
 }
 .edit-data li #datas s{
     margin: 0 10px;
@@ -815,12 +918,6 @@
     max-width: 100%;
     vertical-align: middle;
 }
-.edit-data li .btn{
-    text-align: center;
-    width: 80px;
-    margin-left: 123px;
-    padding: 0;
-}
 .edit-data li .file-img{
     width: 159px;
     height: 41px;
@@ -832,39 +929,25 @@
     cursor: pointer;
     opacity: 0;
 }
-.address{
-    border: 1px solid #d2d2d2;
-    margin-top:20px;
-    width: 705px;
-    padding: 10px;
-    position: relative;
+.editAddress{
+    overflow: hidden;
+    margin-top: 20px;
 }
-.address .icon-upward{
+.editAddress .edit-data{
+    position: relative;
+    border: 1px solid #D2D2D2;
+    display: none;
+}
+.editAddress .icon-upward{
     position: absolute;
     left: 40px;
 }
-.address li input.btn,.address li input.btn-cancel{
-    float: left;
-    display: block;
-}
-.address li h4{
+.editAddress li h4{
     font-weight: bold;
     color: #333333;
     font-size: 14px;
 }
-.show-form li .file-img{
-    width: 159px;
-    height: 41px;
-    display: inline-block;
-    overflow: hidden;
-    background: url("../images/icon.png") no-repeat 0 -318px;
-}
-.show-form li .file-img input{
-    cursor: pointer;
-    opacity: 0;
-    width: 150px;
-    height: 41px;
-}
+
 /*晒单分享*/
 .share-list{
     overflow: hidden;

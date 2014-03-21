@@ -13,11 +13,11 @@ $(function(){
  *顶部设置鼠标滑过效果
  */
 $(function(){
-    $(".top-portrait").hover(
+    $(".divide-line>.info-wide").hover(
         function(){
-            $(this).children(".head-setting").css({display:"block"})},
+            $(this).next(".head-set").css({display:"block"})},
         function(){
-            $(this).children(".head-setting").css({display:"none"})}
+            $(this).next(".head-set").css({display:"none"})}
 
     );
 });
@@ -54,8 +54,8 @@ $(function(){
     $(".num-list .icon-close").click(function(){
         $(this).parents(".num-list").fadeOut();
     });
-    $(".address .icon-close").click(function(){
-        $(this).parents(".address").fadeOut();
+    $(".edit-data .icon-close").click(function(){
+        $(this).parents(".edit-data").fadeOut();
     });
 });
 /*用户中心折叠效果*/
