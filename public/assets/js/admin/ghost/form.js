@@ -21,7 +21,7 @@ $(function() {
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
                 $('#files').html('');
-                var text = '<p><img style="margin:5px; float: left" src="'+IMAGE_URL+file.link+'"><d class="close"></d><input type="hidden" name="avatar" value="'+file.link+'"></p>';
+                var text = '<p><img style="margin:5px; float: left; width=80px;" src="'+IMAGE_URL+file.link+'"><d class="close"></d><input type="hidden" name="avatar" value="'+file.link+'"></p>';
                 $('#files').append(text);
             });
         },

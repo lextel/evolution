@@ -77,6 +77,7 @@ class Controller_Center extends Controller_Frontend
 
     public function action_signup()
     {
+
         $this->auth->check() and Response::redirect('/u');
         if (Input::method() == 'POST')
         {
@@ -92,8 +93,46 @@ class Controller_Center extends Controller_Frontend
                     {
                         $current_user = Model_Member::find_by_username($this->auth->get_screen_name());
                         Config::load('common');
+
+                        $memberHelper = new \Helper\Member();
+                        $ip = $memberHelper->getIp();
                         $current_user -> avatar = Config::get('default_headico');
+                        $current_user->ip = $ip;
                         $current_user -> save();
+
+                        // 邀请注册处理  ------ start ------------
+                        $invit_id = intval(Session::get('invit_id')); 
+                        if(!empty($invit_id)) {
+
+                            // 保存关系
+                            $invit = [
+                                'member_id' => $invit_id,
+                                'invit_id'  => $current_user->id,
+                                ];
+
+                            $invitModel = new Model_Member_Invit($invit);
+                            $invitModel->save();
+
+                            $points = Config::get('point') * Config::get('invitPoints');
+
+                            // 更新余额
+                            $member = Model_Member::find($invit_id);
+                            $member->points = $member->points + $points;
+                            $member->save();
+
+                            // 写佣金记录
+                            $brokerage = [
+                                'type_id' => 1,
+                                'member_id' => $invit_id,
+                                'target_id' => $current_user->id,
+                                'points' => $points,
+                                ];
+                            $brokerageModel = new Model_Member_Brokerage($brokerage);
+                            $brokerageModel->save();
+
+                            Session::set('invit_id', '');
+                        }
+                        //  邀请注册 --------------end -------------
 
                         // 邀请码处理
                         if(Config::get('openInvitCode')) {

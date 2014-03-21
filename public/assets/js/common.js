@@ -182,14 +182,14 @@ $(function(){
 
         val = parseInt(val);
         if(val < 1) {
-            alert('数量不能小于1。');
+            alert('数量不能小于1元宝');
             val = 1;
             $(this).select();
         }
 
         var remain = $(this).attr('remain');
         if(val > parseInt(remain)) {
-            alert('数量不能大于剩余人次');
+            alert('数量不能大于还需元宝');
             val = remain;
             $(this).select();
         }
@@ -209,7 +209,7 @@ $(function(){
         var max = input.attr('remain');
         var val = parseInt(input.val());
         if(val + 1 > parseInt(max)) {
-            alert('购买数量不能大于剩余数量');
+            alert('购买数量不能大于还需元宝');
         } else {
             var qty = val + 1;
             countPercent(qty, input);
@@ -226,7 +226,7 @@ $(function(){
         var val = parseInt(input.val());
 
         if(val -1 < parseInt(min)) {
-            alert('购买数量不能小于1');
+            alert('购买数量不能小于1元宝');
         } else {
             var qty = val - 1;
             countPercent(qty, input);
@@ -346,7 +346,7 @@ $(function(){
                         html += '<a href="'+BASE_URL + 'm/' + data[i].id +'"><img src="'+BASE_URL + data[i].image+'" alt=""></a>';
                         html += '</div><div class="info-side fl"><div class="title-md">';
                         html += '<a href="'+BASE_URL + 'm/' + data[i].id +'">'+data[i].title+'</a>';
-                        html += '</div><div class="price tl">'+data[i].point+ data[i].unit +' x <b class="y">'+data[i].qty+'</b></div>';
+                        html += '</div><div class="price tl">'+showCoins(100) +' x <b class="y">'+data[i].qty+'</b></div>';
                         html += '<a href="javascript:void(0);" class="cartRemove btn-delete" rowId="'+data[i].rowId+'">删除</a></div></li>';
                     }
                     html += '<div class="btn-group tr"><a href="'+BASE_URL + 'cart/list' + '" class="btn-red underway fr btn">查看购物车</a></div>';
@@ -525,7 +525,7 @@ function phases(page) {
 // 渲染参与记录
 function handleJoined(data) {
     if(!jQuery.isEmptyObject(data.orders)) {
-        var html = '<table><thead><tr><th>会员帐号</th><th>数量/人次</th><th>时间</th><tr></thead><tbody>';
+        var html = '<table><thead><tr><th>会员帐号</th><th>元宝数量</th><th>时间</th><tr></thead><tbody>';
         for(var i in data.orders) {
             html += '<tr>' +
                     '    <td>'+
@@ -587,9 +587,9 @@ function handlePosts(data) {
 function handlePhases(data) {
 
     if(!jQuery.isEmptyObject(data.phases)) {
-        var html = '<table><thead><tr><th>期数</th><th>幸运乐拍码</th><th>幸运获奖者</th><th>揭晓时间</th><th>购买数量</th><tr></thead><tbody>';
+        var html = '<table><thead><tr><th>期数</th><th>幸运乐拍码</th><th>幸运获奖者</th><th>揭晓时间</th><th>元宝数量</th><tr></thead><tbody>';
         for(var i in data.phases) {
-            var code = typeof(data.phases[i].code) == 'undefined' ? '进行中...' : data.phases[i].code;
+            var code = typeof(data.phases[i].code) == 'undefined' ? '<span class="r">进行中...</span>' : data.phases[i].code;
             var member = typeof(data.phases[i].member) == 'undefined' ? '' : data.phases[i].member;
             var opentime = typeof(data.phases[i].opentime) == 'undefined' ? '' : data.phases[i].opentime;
             var total = typeof(data.phases[i].total) == 'undefined' ? '' : data.phases[i].total;

@@ -85,8 +85,8 @@
                                 <span class="fr b"><?php echo $phase->remain;?></span>
                             </dd>
                             <dd>
-                                <span class="fl c9">已参与人次</span>
-                                <span class="fr c9">剩余人次</span>
+                                <span class="fl c9">已攒元宝</span>
+                                <span class="fr c9">还需元宝</span>
                             </dd>
                         </dl>
                         <div class="btn-group tc">
@@ -146,8 +146,48 @@
                         <span class="fr b"><?php echo $phase->remain;?></span>
                     </dd>
                     <dd>
-                        <span class="fl c9">已参与人次</span>
-                        <span class="fr c9">剩余人次</span>
+                        <span class="fl c9">已攒元宝</span>
+                        <span class="fr c9">还需元宝</span>
+                    </dd>
+                </dl>
+                <div class="btn-group tc">
+                    <?php if($phase->status == \Helper\Item::IS_CHECK):?>
+                        <?php echo Html::anchor('m/'.$phase->id, '立即一元乐淘', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                    <?php else: ?>
+                        <?php echo Html::anchor('m/'.$phase->id, '即将开拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                    <?php endif;?>
+                </div>
+            </li>
+            <?php } ?>
+        </ul>
+    </div>
+
+    <!--编辑推荐-->
+    <div class="editor w">
+		    <div class="title">
+            <h3>编辑推荐</h3>
+        </div>
+        <ul>
+            <?php foreach($getRecommends() as $phase) { ?>
+            <li>
+                <div class="title-box">
+                    <h3 class="title-md"><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h3>
+                    <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
+                </div>
+                <div class="img-box img-lg">
+                    <?php echo Html::anchor('m/'.$phase->id, Html::img('image/400x400/'.$phase->image), ['rel' => 'nofollow']);?>
+                </div>
+                <dl class="progress-side">
+                    <dd>
+                        <div class="progress"><div class="progress-bar" style="width:<?php echo $phase->joined/$phase->amount * 100;?>%"></div></div>
+                    </dd>
+                    <dd>
+                        <span class="fl r"><?php echo $phase->joined;?></span>
+                        <span class="fr b"><?php echo $phase->remain;?></span>
+                    </dd>
+                    <dd>
+                        <span class="fl c9">已攒元宝</span>
+                        <span class="fr c9">还需元宝</span>
                     </dd>
                 </dl>
                 <div class="btn-group tc">

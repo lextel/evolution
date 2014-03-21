@@ -16,6 +16,7 @@ class Model_Member extends \Classes\Model
         'email',
         'login_hash',
         'profile_fields',
+        'is_mobile',
         'is_disable',
         'is_delete',
         'created_at',
@@ -205,11 +206,8 @@ class Model_Member extends \Classes\Model
         $val->add_callable(new \Classes\MyRules());
         $val->add_field('username', '用户邮箱', 'required|valid_email|max_length[256]|unique[members.username]');
         $val->add_field('nickname', '用户昵称', 'required|max_length[25]|min_length[3]|unique[members.nickname]');
-        $val->add_field('password', '用户密码', 'required|max_length[255]|min_length[6]');        
         $val->add_field('avatar', '用户头像', 'required');
         $val->add_field('bio', '用户签名', 'required');
-        $val->add_field('created_at', '用户注册日期', 'required');
-        $val->add_field('ip', '用户注册IP', 'required');
         return $val;
     }
     
@@ -220,13 +218,12 @@ class Model_Member extends \Classes\Model
     {
         $val = Validation::forge($factory);
         $val->add_callable(new \Classes\MyRules());
-        $val->add_field('password', '用户密码', 'required|max_length[255]|min_length[6]');        
         $val->add_field('avatar', '用户头像', 'required');
         $val->add_field('bio', '用户签名', 'required');
-        $val->add_field('created_at', '用户注册日期', 'required');
-        $val->add_field('ip', '用户注册IP', 'required');
         return $val;
     }
+    
+    
     
     /*
     *add money points
@@ -256,6 +253,19 @@ class Model_Member extends \Classes\Model
         return false;
     }
 
+    /*
+    *检测用户名
+    */
+    public static function checkUsername($username)
+    {
+        $member = Model_Member::find_by_username($username);
+        if (!$member)
+        {
+            return true;
+        }
+        return false;
+    }
+    
     /**
      * 上传用户图片
      *
@@ -272,17 +282,16 @@ class Model_Member extends \Classes\Model
         }
         return $rs;
     }
-
+    
     /**
-     * 上传CSV
+     * 上传用户图片
      *
      * @param $file $_FILES数组
      *
      * @reutrn array 上传的文件数组
-
      */
-    public static function  uploadcsv() {
-        $upload  = new Classes\Upload('mutilcsv');
+    public static function  uploadmulti() {
+        $upload  = new Classes\Upload('mutil');
         $success = $upload->upload();
         $rs = [];
         if($success) {
@@ -291,6 +300,16 @@ class Model_Member extends \Classes\Model
         return $rs;
     }
     
+    public static function  uploadcsv() {
+        $upload  = new Classes\Upload('csv');
+        $success = $upload->upload();
+        $rs = [];
+        if($success) {
+            $rs =  $upload->getFiles();
+        }
+        return $rs;
+    }
+
     /**
      * 冻结用户
      *
@@ -378,6 +397,138 @@ class Model_Member extends \Classes\Model
     public static function des64($input) {
         $output = base64_decode($input);
         return $output;
+    }
+    
+    /*
+    * 读取CSV文件
+    */
+    public static function readcsv($filename){
+        $csv = new Classes\Csv;
+        $csv->auto($filename);
+        $datas = $csv->data;
+        return $datas;    
+    }
+    
+    /*
+    *
+    */
+    public static function checkCsv($row){
+        if (count($row) != 4){
+            return false;
+        }
+        if (!self::checkNickname($row[1])){
+            return false;
+        }
+        if (!self::checkUsername($row[0])){
+            return false;
+        }
+        return true;
+    }
+    
+    /*
+    * 验证过后的数据插入到数据库
+    */
+    public static function ADDghost($row){
+       if (!$row){
+          return false;
+       }
+
+       $avatar = self::CopyAvatar($row[2]);
+
+       if (!$avatar){
+            return false;
+       }
+               $member = new Model_Member();
+               $member->username = $row[0];
+               $member->nickname = $row[1];              
+               $member->avatar = $avatar;
+               $member->bio = $row[3];
+               $member->password = '';
+               $member->email = '';
+               $member->mobile = '';
+               $member->created_at = '';
+               $chip = new  Classes\RandCHIp;
+               $member->ip = $chip->randomCHIp();
+               $member->type = 1;
+               $member->points = 0;
+               $member->last_login = 0;
+               $member->login_hash = 0;
+               $member->is_disable = 0;
+               $member->is_delete = 0;
+               $member->profile_fields = '';
+               $member->is_mobile = 0;
+               
+               $member->save();
+               Model_Log::add('增加马甲 #' . $member->id);
+       return true;
+    }
+    
+    /*
+    *遍历文件夹
+    */
+    public static function listdir($base){
+        $filter = [
+        '\.jpg$' => 'file',
+        ];
+
+        $files = File::read_dir($base,0,$filter);
+        if (is_null($files)){
+            return [];
+        }
+        $res = [];
+        foreach($files as $key=>$row){
+             
+            foreach($row as $k=>$rs){
+                if (is_array($rs)){              
+                    foreach($rs as $r){
+                        $res[] = $r;
+                    }
+                }else{
+                    $res[] = $rs;
+                }
+            }
+        }
+        return $res;
+    }
+    
+    /*
+    * 先检测图片是否存在，然后修改图片名路径，然后拷贝到用户头像区
+    */ 
+    public static function CopyAvatar($image=''){
+        $base = DOCROOT.'upload'.DS.'multi';
+        //要随即取图片
+        if ($image == ''){
+            $fs = self::listdir($base);
+            if (!$fs){
+               return 'upload/avatar/header.png';
+            }
+            $image = $fs[array_rand($fs, 1)];
+        }
+        
+        $path1 = '/'.$image[0].'/'.$image[1].'/';
+        $path = $base.$path1.$image;
+        if(!file_exists($path)){
+            return false;  
+        }
+        $newimage = md5($image);
+        $is = explode(".",$image);
+        $path1 = '/'.$newimage[0].'/'.$newimage[1].'/';
+        
+        $newpath = DOCROOT.'upload'.DS.'avatar'.$path1.$newimage.'.'.$is[1];
+        
+        if (file_exists($newpath)){
+            return 'upload'.DS.'avatar'.$path1.$newimage.'.'.$is[1];  
+        }
+        $newpath1 = DOCROOT.'upload'.DS.'avatar'.$path1;
+        if(!file_exists($newpath1)) {
+            mkdir($newpath1, 0755, true);
+        }
+        
+        if (!File::copy($path, $newpath)) {
+            return false;
+        }
+        File::delete($path);
+        return 'upload'.DS.'avatar'.$path1.$newimage.'.'.$is[1];
     }
     
 }
