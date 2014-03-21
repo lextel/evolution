@@ -8,7 +8,6 @@ function modifyAddress(id){
       $.get('/u/address/'+id, function(data){
          if (data.code == 0){
              var address = data.address;
-             $(".address").show();
              $("#datas").html('');
              $("#datas").ProvinceCity(address.address[0], address.address[1]);
              $("#datas select").eq(0).val(address.address[0]);
@@ -43,7 +42,6 @@ function toAddress(url){
           }
     }
 }
-
 $(function(){
     $(".btn-address").click(function(){
         var id = $("input[name='addressid']").val();
@@ -55,14 +53,14 @@ $(function(){
         }
     });
 
-    $(".btn-addAddress").click(function(){
-        $(".address").show();
+    $("#editAddress").click(function(){
+        $(this).parents(".row").next(".edit-data").show();
         $("#datas").html('');
         $("#datas").ProvinceCity('', '');
     });
 
-    $(".btn-addressChance").click(function(){
-        $(".address").hide();
+    $(".btn-cancel").click(function(){
+        $(this).parents(".edit-data").hide();
         $("#datas select").eq(0).val('请选择');
         $("#datas select").eq(1).val('请选择');
         $("#datas select").eq(2).val('请选择');
@@ -72,7 +70,7 @@ $(function(){
         $("input[name='phone']").val('');
     });
 
-    $(".registerform").Validform({
+    $(".editAddress>.edit-data").Validform({
        tiptype:3,
        label:".label",
        showAllError:true,
