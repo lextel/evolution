@@ -21,7 +21,7 @@ $(function(){
     $(".btn-addpost").click(function(){
         var id = $(this).attr('id');
         $("#postid").val(id);
-        $(".show-form").show();
+        $(".showForm").show();
     });
     //取消晒单
     $(".chance").click(function(){
@@ -59,8 +59,10 @@ $(function(){
 <div class="content-inner">
     <!--晒单开始-->
     <div class="lead">晒单</div>
-    <div class="remind ">乐拍提醒：你总共晒单<?php echo $postscount;?>件商品，还有 <?php echo $nopostscount;?>件商品等待您晒单。</div>
-    <br />
+    <div class="remind ">
+          乐拍提醒：你总共晒单<s class="red"><?php echo $postscount;?></s>
+          件商品，还有<s class="red"> <?php echo $nopostscount;?></s>件商品等待您晒单。
+    </div>
     <div class="show-box">
         <div class="toggles">
            <?php echo Html::anchor('u/posts', '已晒单', ['class'=>'first-child']); ?>
@@ -94,41 +96,42 @@ $(function(){
                     </tr>
                     <?php } ?>
                     </tbody>
-                     
                 </table>
-                
-                <ul class="show-form" style="display:none"><a name="add1"></a>
-                    <?php echo Form::open(['action' => 'u/posts/add', 'method' => 'post', 'class'=>'demoform']);?>
-                    <li>
-                        <label for="">标题</label>
-                        <?php echo Form::input('title', '', ['class' =>'form-control', 'name'=>'', 'datatype'=>'*', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>'已填写']);?>
-                        <span class="Validform_checktip"></span>
-                    </li>
-                    <li>
-                        <label for="" class="body-label">正文</label>
-                        <?php echo Form::textarea('desc', '', ['class' => 'form-control', 'name'=>'', 
+                <div class="showForm">
+                <?php echo Form::open(['action' => 'u/posts/add', 'method' => 'post', 'class'=>'demoform']);?>
+                    <ul class="edit-data" style="display:none"><a name="add1"></a>
+                        <li>
+                            <label for="">标题</label>
+                            <?php echo Form::input('title', '', ['class' =>'form-control', 'name'=>'', 'datatype'=>'*', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>'已填写']);?>
+                            <span class="Validform_checktip"></span>
+                        </li>
+                        <li>
+                            <label for="" class="body-label">正文</label>
+                            <?php echo Form::textarea('desc', '', ['class' => 'form-control', 'name'=>'',
                                            'datatype'=>'*', 'rows'=>'6', 'cols'=>'70', 'nullmsg'=>'请输入', 'sucmsg'=>'已填写']);?>
-                        <span class="Validform_checktip"></span>
-                    </li>
-                    <li>
-                        <label for="" class="body-label">图片</label>
-                        <div class="destItem" style="margin: 0 10px;">
-                        <dl class="postimg">
-                         
-                        </dl>
-                        <span class="add-images" title="上传图片">
-                           <input id="postUpload" type="file" name="post" multiple class="add-images2">
-                         </span>
-                         </div>
-                    </li>
-                    <li>
-                        <input id="postid" name="phase_id" type="hidden" value="" />
-                    </li>
-                    <li><button type="text" class="btn btn-red tj">发布</button><a href="javascript:;" class="btn  chance">取消</a></li>
-                    <?php echo Form::close();?>
-                    <span class="icon-upward"></span>
-                    <button class="icon-close"></button>
-                </ul>
+                            <span class="Validform_checktip"></span>
+                        </li>
+                        <li>
+                           <div class="destItem" >
+                                <div class="title">
+                                     <h4 class="fl">晒单图片，可以上传<s class="red">10</s>张</h4>
+                                     <div class="add-images" title="上传图片">
+                                          上传图片
+                                          <input id="postUpload" type="file" name="post" multiple="上传图片" class="add-images2">
+                                     </div>
+                                </div>
+                                <dl class="postimg">
+                                </dl>
+                          </div>
+                        </li>
+                        <li>
+                            <input id="postid" name="phase_id" type="hidden" value="" />
+                        </li>
+                        <li><button type="text" class="btn btn-red tj">发布</button><a href="javascript:;" class="btn  chance">取消</a></li>
+                    </ul>
+                </div>
+                <?php echo Form::close();?>
+                <button class="icon-close"></button>
             <?php echo Pagination::instance('postspage')->render(); ?>
         </div>
     </div>

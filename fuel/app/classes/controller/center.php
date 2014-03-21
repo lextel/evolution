@@ -81,11 +81,11 @@ class Controller_Center extends Controller_Frontend
         if (Input::method() == 'POST')
         {
             $val = Model_Member::validateSignin('signup');
-
+            $username = Input::post('username');
+            $password = Input::post('password');
             if ($val->run())
             {
-                $username = Input::post('username');
-                $password = Input::post('password');
+
                 try{
                     $user = $this->auth->create_user($username, $password, $username);
                     if ($this->auth->check() or $user)

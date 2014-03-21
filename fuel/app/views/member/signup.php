@@ -1,14 +1,13 @@
     <?php echo Asset::css('style.css');?>
     <?php echo Asset::css('member/validfrom_style.css'); ?>
     <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
-    <div class="register w">
+    <div class="register-warp">
         <div class="title">
             <h3 class="fl">新用户注册</h3>
             <ul class="fl crumbs">
-                <li class="active"><s>1</s><a href="javascript:;">填写注册信息</a></li>
-                <li><b>></b><li>
-                <li><s>2</s><a href="javascript:;">完成注册</a></li>
-                <li><a href="javascript:;"></a></li>
+                <li class="active"><s>1</s>填写注册信息</li>
+                <li>&gt;</li>
+                <li><s>2</s>完成注册</li>
             </ul>
             <div class="link fr">
                 已经是会员，直接
@@ -16,28 +15,21 @@
             </div>
         </div>
 
-        <?php echo Form::open(array("class"=>"register-form demoform")); ?>
-            <ul>
+        <?php echo Form::open(array("class"=>"demoform")); ?>
+            <ul class="registerForm">
                 <li>
-                   <?php echo Form::label('用户邮箱'); ?>
-                   <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'datatype'=>'e',
+                   <?php echo Form::label('邮箱'); ?>
+                   <?php echo Form::input('username', Session::get_flash('username', ''), array('class' => 'txt','type'=>"text",'datatype'=>'e',
                          'name'=>'username','errorms'=>'邮箱帐号格式不正确','nullmsg'=>'请输入邮箱帐号')); ?>
                    <?php if (Session::get_flash('usernameError', null)) { ?>
                    <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('usernameError');?></span>
                    <?php }else{?>
-                   <span class="Validform_checktip"></span>
                    <?php } ?>
                 </li>
                 <li>
-                   <?php echo Form::label('输入密码'); ?>
-                   <?php echo Form::input('password', '', ['type'=>"password",'class' => 'inputxt', 
+                   <?php echo Form::label('密码'); ?>
+                   <?php echo Form::input('password', '', ['type'=>"password",'class' => 'txt',
                        'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'请输入6-18位密码','nullmsg'=>'请输入6-18位密码']); ?>
-                   <span class="Validform_checktip"></span>
-                </li>
-                <li>
-                   <?php echo Form::label('确认密码'); ?>
-                   <input type="password" value="" name="userpassword2" class="inputxt" datatype="*6-18" recheck="password">
-                   <span class="Validform_checktip"></span>
                 </li>
                 <?php
                     Config::load('common');
@@ -45,17 +37,20 @@
                 ?>
                 <li>
                    <?php echo Form::label('邀请码'); ?>
-                   <input type="text" value="" name="invitcode" class="inputxt" datatype="s" ajaxurl="<?php echo Uri::create('/checkInvitcode');?>" sucmsg="邀请码可用！" nullmsg="请输入邀请码！" errormsg="邀请码不正确或已经使用！"> 
-                   <span class="Validform_checktip"></span>
+                   <input type="text" value="" name="invitcode" class="txt">
                 </li>
                 <?php endif;?>
                 <li>
-                   <?php echo Form::submit('submit', '同意协议并注册', array('class' => 'btn btn-red')); ?>
+                   <?php echo Form::submit('submit', '同意协议并注册', array('class' => 'btn btn-md btn-red')); ?>
                 </li>
             </ul>
         <?php echo Form::close(); ?>
-        <div class="register-help">
-            欢迎你访问并使用
+        <div class="protocol">
+            <b>服务协议</b><br/>
+            欢迎您访问并使用充满互动乐趣的购物网站--乐乐淘，为用户提供全新、有趣购物模式.
+            乐乐淘通过在线网站为您提供各项相关服务,当使用乐乐淘的各项具体服务时，您和 乐乐淘都将受到本服务协议所产生的制约.
+            乐乐淘会不断推出新的服务,因此所有服务都将受此服务条款的制约.请您在注册前务必认真阅读此服务协议的内容并确认,如有任何疑问,
+            应向乐乐淘咨询.一旦您确认本服务协议后,本服务协议即在用户和乐乐淘之间产生法律效力.
         </div>
     </div>
 <script type="text/javascript">

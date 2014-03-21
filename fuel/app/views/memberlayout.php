@@ -10,21 +10,19 @@
         <ul class="left-nav">
             <li><?php echo Html::anchor('u', '我的主页');?></li>
             <li class="dropdown">
-                <a href="javascript:void(null)">我的乐拍</a>
+                <a href="javascript:void(null)" class="active">我的乐拍<span class="icon-arrow icon-arrow-down"></span><s></s></a>
                 <ul class="dropdown-menu" style="display:block">
                     <li><?php echo Html::anchor('u/orders', '乐拍记录');?></li>
                     <li><?php echo Html::anchor('u/wins', '获得的商品');?></li>
                     <li><?php echo Html::anchor('u/posts', '晒单');?></li>
                 </ul>
-                <span class="icon-arrow icon-arrow-down"></span>
             </li>
             <li class="dropdown">
-                <a href="javascript:void(null)">帐户管理</a>
+                <a href="javascript:void(null)">帐户管理<span class="icon-arrow icon-arrow-down"></span></a>
                 <ul class="dropdown-menu" style="display:block">
                     <li><?php echo Html::anchor('u/getrecharge', '充值');?></li>
                     <li><?php echo Html::anchor('u/moneylog', '账户明细');?></li>
                 </ul>
-                <span class="icon-arrow icon-arrow-down"></span>
             </li>
             <li><?php echo Html::anchor('u/message', '消息管理');?>
             <?php if ($isnew) { ?>
