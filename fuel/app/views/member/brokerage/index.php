@@ -14,7 +14,7 @@
                 </thead>
                 <tbody>
                 <?php if(!isset($brokerages) || empty($brokerages)) {
-                        echo '<tr><td colspan="4" style="text-align:center">亲，还没有您的邀请好友哦！</td></tr>';
+                        echo '<tr><td colspan="4" style="text-align:center">亲，还没有佣金记录哦！</td></tr>';
                 } else {?>
                 <?php foreach($brokerages as $brokerage) { ?>
                 <tr>
