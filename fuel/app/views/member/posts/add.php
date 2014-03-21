@@ -37,8 +37,8 @@ $(function(){
     //上传图片
     $("body").on('click', '#postUpload', function(){
     var imgs = $(".postimg dd").length;
-    if (imgs >= 5){
-        alert('您上传的图片超过了5张');
+    if (imgs >= 10){
+        alert('您上传的图片超过了10张');
         return false;
     }
     $('#postUpload').fileupload({
@@ -63,11 +63,11 @@ $(function(){
                 <ul class="edit-data">
                     <li>
                         <label for="">标题：</label>
-                        <?php echo Form::input('title', $post->title, ['class' =>'txt', 'name'=>'', 'datatype'=>'*', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>'已填写']);?>
+                        <?php echo Form::input('title', Input::get('title'), ['class' =>'txt', 'name'=>'', 'datatype'=>'*', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>'已填写']);?>
                     </li>
                     <li>
                         <label for="" class="body-label">正文：</label>
-                        <?php echo Form::textarea('desc', $post->desc, ['class' => 'txt', 'name'=>'',
+                        <?php echo Form::textarea('desc', Input::get('desc'), ['class' => 'txt', 'name'=>'',
                                            'datatype'=>'*', 'rows'=>'15', 'cols'=>'20', 'nullmsg'=>'请输入', 'sucmsg'=>'已填写']);?>
                         <span class="Validform_checktip"></span>
                     </li>
@@ -81,7 +81,7 @@ $(function(){
                               </div>
                          </div>
                         <dl class="postimg">
-                            <?php foreach(unserialize($post->images) as $img) { ?>
+                            <?php foreach(Input::get('images') as $img) { ?>
                             <dd class="img-box">
                                 <?php echo Html::img($img);?>
                                 <input type="hidden" name="images[]" value="<?php echo $img;?>">
