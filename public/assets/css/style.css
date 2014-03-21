@@ -101,13 +101,16 @@
 }
 /*注册*/
 .register-warp{
+    width: 978px;
+    min-height: 350px;
     border: 1px  solid #d2d2d2;
     background: #FFFFFF;
-    width: 978px;
     overflow: hidden;
+    margin: 0 auto;
 }
 .register-warp .title{
-    border-bottom: 1px  solid #d2d2d2;
+    font-size: 14px;
+    border-bottom: 1px solid #d2d2d2;
     background: #f1f1f1;
 }
 .crumbs li{
@@ -331,29 +334,31 @@
     background: #f1f1f1;
 }
 .left-nav li{
-    line-height: 35px;
     margin-bottom: -1px;
     text-indent: 20px;
     font-size: 14px;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid #D2D2D2;
 }
-.icon-arrow{
+.left-nav .icon-arrow{
     width: 22px;
     height: 22px;
     position: absolute;
-    top: 4px;
-    right: 15px;
+    top: 10px;
+    right: 10px;
     background: url("../images/icon-02.png") no-repeat -184px 0;
 }
-.icon-arrow-down{
+.left-nav .icon-arrow-down{
     background: url("../images/icon-02.png") no-repeat -212px 0;
 }
 .left-nav li a{
-    height: 35px;
+    height: 38px;
+    line-height: 38px;
     display: block;
-    color: #af2812;
     font-weight: bold;
     position: relative;
+}
+.left-nav li a.active{
+    color: #af2812;
 }
 .left-nav li a.active s{
     width: 60px;
@@ -370,14 +375,15 @@
     display: none;
 }
 .dropdown-menu li{
-    border: none;
     text-indent: 30px;
-    height: 30px;
-    line-height: 30px;
     font-size: 12px;
+    border: 0;
 }
 .dropdown-menu li a{
+    height: 35px;
+    line-height: 35px;
     font-size: 14px;
+    display: block;
     font-weight: normal;
     color: #333333;
 }
@@ -600,6 +606,11 @@
 .show-box{
     overflow: hidden;
 }
+.show-box .text-content{
+    border: 0;
+    width: 450px;
+}
+
 .show-box .remind{
     margin-bottom: 20px;
 }
@@ -854,6 +865,9 @@
     font-size: 14px;
     float: left;
 }
+.edit-data li button.btn{
+    margin-left: 120px;
+}
 .edit-data li input.txt{
     display: inline-block;
     width: 160px;
@@ -866,6 +880,7 @@
     border: 1px solid #d2d2d2;
     padding: 5px;
     width: 428px;
+    max-height: 200px;
     display: inline-block;
     float: left;
 }

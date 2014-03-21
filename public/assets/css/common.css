@@ -950,21 +950,25 @@ table td p.tl{
     background: url("../images/collection.png") no-repeat 0 2px;
 }
 .divide-line{
-    overflow: hidden;
     float: right;
     height: 30px;
-    max-width:300px;
-    position: relative;
+    max-width: 350px;
 }
 .divide-line span{
     display: inline-block;
     overflow: hidden;
     height: 30px;
+    float: left;
+    margin: 0 5px;
+}
+.top-name{
+    display: inline-block;
 }
 .divide-line .info-wide{
-    display: inline-block;
+    float: left;
     height: 30px;
-    overflow: hidden;
+    position: relative;
+    cursor: pointer;
 }
 .divide-line .info-wide img{
     height: 22px;
@@ -978,6 +982,7 @@ table td p.tl{
     display: inline-block;
     height: 30px;
     overflow: hidden;
+    float: left;
 }
 .top-menu span.online{
     display:block;
@@ -1018,7 +1023,6 @@ table td p.tl{
      margin: -1px auto 0;
      line-height: 30px;
      text-align: center;
-     border-top:1px solid #d2d2d2;
  }
 .head-set li a:hover{
     color: #cd1212;
@@ -1318,6 +1322,9 @@ table td p.tl{
     position: relative;
     background-position: 0 0;
 }
+.short-cut a.item-cart:hover{
+    background-position: -58px 0;
+}
 .short-cut a.item-cart s{
     display: inline-block;
     width:18px;
@@ -1333,11 +1340,20 @@ table td p.tl{
 .short-cut a.item-qq{
     background-position: -0px -59px;
 }
+.short-cut a.item-qq:hover{
+    background-position: -58px -59px;
+}
 .short-cut a.item-love{
     background-position: -0px -118px;
 }
+.short-cut a.item-love:hover{
+    background-position: -58px -118px;
+}
 .short-cut a.item-gotTop{
     background-position: -0px -177px;
+}
+.short-cut a.item-gotTop:hover{
+    background-position: -58px -177px;
 }
 /*底部结束*/
 /*弹出登录*/
@@ -1670,7 +1686,7 @@ table td p.tl{
     margin: 0;
     padding-left: 33px;
     border: 1px solid #d2d2d2;
-    background:url("../images/inner-login.png") no-repeat 4px 4px;
+    background:url("") no-repeat 4px 4px;
 }
 .inner-login dd input.password{
     width: 257px;
@@ -1679,7 +1695,7 @@ table td p.tl{
     margin: 0;
     padding-left: 33px;
     border: 1px solid #d2d2d2;
-    background:url("../images/inner-pwd.png") no-repeat  4px 4px;
+    background:url("") no-repeat  4px 4px;
 }
 .inner-login dd .btn-rg{
     float: left;
@@ -1804,19 +1820,3 @@ table td p.tl{
     background:url("../images/common.png") no-repeat -0px -0px;
 }
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> 7db719ba914c670669d26339a2c1ca77795fbec7
