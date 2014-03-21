@@ -48,91 +48,57 @@
                 <a href="javascript:void(0)" class="last-child">已晒单</a>
             </div>
             <!--未晒单-->
-            <div class="show-c" >
-                <table>
-                    <thead>
-                    <tr>
-                        <th>编号</th>
-                        <th>商品图片</th>
-                        <th>商品信息</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""/></a></div></td>
-                        <td>
-                            <div class="text-title">（第539期）苹果Iphone 5s 16G版 3G手机</div>
-                            <div class="number">幸运乐拍码：10000121</div>
-                            <div class="datetime">揭晓时间：2013-12-33 10:00:00</div>
-                        </td>
-                        <td><a href="" class=" btn btn-default btn-sx">晒单</a></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <ul class="show-form">
+            <div class="showForm">
+                <form action="http://www.llt.com/u/posts/add" method="post" class="demoform" accept-charset="utf-8">
+                <ul class="edit-data">
                     <li>
-                        <label for="">标题</label>
-                        <input type="text"/><span></span>
-                        <label for="" class="error"></label>
+                        <label for="">标题：</label>
+                        <input name="title" class="txt" datatype="*" nullmsg="请输入标题内容" sucmsg="已填写" value="" type="text" id="form_title">                            <span class="Validform_checktip"></span>
                     </li>
                     <li>
-                        <label for="" class="body-label">正文</label>
-                        <textarea name="" id="" cols="70" rows="6"></textarea>
-                        <label for="" class="error"></label>
+                        <label for="">正文：</label>
+                        <textarea class="form-control" name="desc" datatype="*" rows="6" cols="70" nullmsg="请输入" sucmsg="已填写" id="form_desc"></textarea>                            <span class="Validform_checktip"></span>
                     </li>
                     <li>
-                        <label for="" class="body-label">图片</label>
-                        <dl>
-                            <dd class="img-box">
-                                <img src="img/54359.jpg" alt=""/>
-                                <button class="delete"></button>
-                            </dd>
-                            <dd class="img-box">
-                                <img src="img/54359.jpg" alt=""/>
-                                <button class="delete"></button>
-                            </dd>
-                            <dd class="img-box">
-                                <img src="img/54359.jpg" alt=""/>
-                                <button class="delete"></button>
-                            </dd>
-                        </dl>
-                        <button class="btn btn-default">上传图片</button>
-                        <label for="" class="error"></label>
+                        <div class="destItem" >
+                            <div class="title">
+                                <h4 class="fl">晒单图片，可以上传<s class="red">10</s>张</h4>
+                                <div class="add-images" title="上传图片">
+                                    上传图片
+                                    <input id="postUpload" type="file" name="post" multiple="上传图片" class="add-images2">
+                                </div>
+                            </div>
+                            <dl class="postimg">
+                               <dd>
+                                   <img src="../assets/img/96515277.jpg" alt="">
+                               </dd>
+                                <dd>
+                                    <img src="../assets/img/96515277.jpg" alt="">
+                                </dd>
+                                <dd>
+                                    <img src="../assets/img/96515277.jpg" alt="">
+                                </dd>
+                                <dd>
+                                    <img src="../assets/img/96515277.jpg" alt="">
+                                </dd>
+                                <dd>
+                                    <img src="../assets/img/96515277.jpg" alt="">
+                                </dd>
+                                <dd>
+                                    <img src="../assets/img/96515277.jpg" alt="">
+                                </dd>
+                                <dd>
+                                    <img src="../assets/img/96515277.jpg" alt="">
+                                </dd>
+                            </dl>
+                        </div>
                     </li>
-                    <li><button class="btn btn-red tj">发布</button></li>
+                    <li>
+                        <input class=" btn-red  btn-address fl" type="submit" value="保存">
+                        <input class="btn-sx btn-cancel fl" type="submit" value="取消">
+                    </li>
                 </ul>
-            </div>
-            <!--已晒单-->
-            <div class="show-c">
-                <table>
-                    <thead>
-                    <tr>
-                        <th>编号</th>
-                        <th>晒单图片</th>
-                        <th>晒单信息</th>
-                        <th>晒单状态</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><div class="img-box"><a href=""><img src="img/54359.jpg" alt=""/></a></div></td>
-                        <td>
-                            <div class="text-title">（第539期）苹果Iphone 5s 16G版 3G手机</div>
-                            <div class="text-content">揭晓时间：2013-12-33 10:00:00</div>
-                        </td>
-                        <td>等待审核</td>
-                        <td>
-                            <a href="" class=" btn btn-sx btn-link btn-block">查看</a>
-                            <a href="" class=" btn btn-sx btn-link btn-block">编辑</a>
-                            <a href="" class=" btn btn-sx btn-link  btn-block">删除</a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                </form>
             </div>
         </div>
         <!--获晒单结束-->

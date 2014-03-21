@@ -42,30 +42,29 @@
                  <a href="javascript:;">收藏乐乐淘</a>
             </div>
             <span class="online">
-                <a href="javascript:void(0);">在线客服<span class="icon icon-qq"></span></a>
+                <a href="javascript:void(0);">在线客服</a>
             </span>
-            <span class="login-bar">
+            <div class="divide-line">
             <?php if (!isset($current_user)) { ?>
                  <a href="<?php echo Uri::create('/signin'); ?>">登录</a>
                  <i>/</i>
                  <a href="<?php echo Uri::create('/signup'); ?>">注册</a>
             <?php }else {?>
-                 <span class="top-portrait">
-                 <a href="<?php echo Uri::create('/u'); ?>" ><?php echo Html::img($current_user->avatar, ['width'=>'15px']);?><?php echo $current_user->nickname;?>
+                 <a class="info-wide" href="<?php echo Uri::create('/u'); ?>">
+                     <?php echo Html::img($current_user->avatar);?>
+                     <span class="top-name"><?php echo $current_user->nickname;?></span>
                  </a>
-                 <ul class="head-setting">
-                                         <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐拍记录</a></li>
-                                         <li><a href="<?php echo Uri::create('/u/wins'); ?>">获得的商品</a></li>
-                                         <li><a href="<?php echo Uri::create('/u/getrecharge'); ?>">账户管理</a></li>
-                                         <li><a href="<?php echo Uri::create('/u/profile'); ?>">个人设置</a></li>
-                                     </ul>
-                 </span>
-                 &nbsp;
-                 <span>可用乐淘币<b class="r"><?php echo $current_user->points;?>点</b></span>&nbsp;
-                 <span>消息(<b class="r"><?php echo $isnew? $isnew : 0;?></b >)</span>&nbsp;
-                 <?php echo Html::anchor('signout', '[退出]', ['class'=>'navbar-link'])?>
+                 <ul class="head-set">
+                      <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐拍记录</a></li>
+                      <li><a href="<?php echo Uri::create('/u/wins'); ?>">获得的商品</a></li>
+                      <li><a href="<?php echo Uri::create('/u/getrecharge'); ?>">账户管理</a></li>
+                      <li><a href="<?php echo Uri::create('/u/profile'); ?>">个人设置</a></li>
+                  </ul>
+                 <span>可用乐淘币<s class="r"><?php echo $current_user->points;?>点</s></span>
+                 <span>消息(<s class="r"><?php echo $isnew? $isnew : 0;?></s>)</span>
+                 <?php echo Html::anchor('signout', '[退出]', ['class'=>'logout'])?>
             <?php }?>
-            </span>
+            </div>
         </div>
     </div>
     <div class="logo-box">
@@ -94,6 +93,7 @@
             <li><a href="<?php echo Uri::create('/m'); ?>">所有商品</a></li>
             <li><a href="<?php echo Uri::create('/w'); ?>">最新揭晓</a></li>
             <li><?php echo Html::anchor('p', '晒单分享'); ?></li>
+            <li><a href="#">邀请</a></li>
             <li><a href="<?php echo Uri::create('/h'); ?>">新手指南</a></li>
         </ul>
     </div>
