@@ -347,7 +347,7 @@
     right: 10px;
     background: url("../images/icon-02.png") no-repeat -184px 0;
 }
-.icon-arrow-down{
+.left-nav .icon-arrow-down{
     background: url("../images/icon-02.png") no-repeat -212px 0;
 }
 .left-nav li a{
@@ -606,6 +606,11 @@
 .show-box{
     overflow: hidden;
 }
+.show-box .text-content{
+    border: 0;
+    width: 450px;
+}
+
 .show-box .remind{
     margin-bottom: 20px;
 }
@@ -875,6 +880,7 @@
     border: 1px solid #d2d2d2;
     padding: 5px;
     width: 428px;
+    max-height: 200px;
     display: inline-block;
     float: left;
 }

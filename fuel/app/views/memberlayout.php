@@ -30,7 +30,6 @@
                     <li><?php echo Html::anchor('u/invit', '邀请好友');?></li>
                     <li><?php echo Html::anchor('u/brokerage', '佣金明细');?></li>
                 </ul>
-                <span class="icon-arrow icon-arrow-down"></span>
             </li>
             <li><?php echo Html::anchor('u/message', '消息管理');?>
             <?php if ($isnew) { ?>
