@@ -421,6 +421,23 @@ class Model_Item extends \Classes\Model {
     }
 
     /**
+     *
+     */
+    public function handleSearchUrl($options) {
+        $url = '/m/search';
+
+        foreach($options as $key => $val) {
+            if(!empty($val)) {
+                if($key == 'title')  {
+                    $url .= '/'.$val;
+                }
+            }
+        }
+
+        return $url;
+    }
+
+    /**
      * 统计前台url参数个数
      *
      * @param $options array 筛选条件

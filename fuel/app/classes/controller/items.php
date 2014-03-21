@@ -85,7 +85,7 @@ class Controller_Items extends Controller_Frontend {
 
         $itemModel = new Model_Item();
 
-        $url        = $itemModel->handleUrl($options) . '/p';
+        $url        = $itemModel->handleSearchUrl($options) . '/p';
         $total      = $itemModel->countItem($options, true);
         $paramCount = $itemModel->countParam($options);
 
