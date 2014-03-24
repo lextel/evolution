@@ -1822,21 +1822,9 @@ table td p.tl{
 */
 .flink {
     font-size: 12px;
-}
-.flink span{
     line-height: 28px;
-    float:left;
-     margin-left:60px
 }
-.flink ul{
-    padding:0;
-    margin:0;
-}
-.flink li {
-    float:left;
-    margin: 5px;
-}
-
-.flink li a{
+.flink a{
     color: #0093D0;
+    margin: 5px;
 }
