@@ -125,5 +125,4 @@ return array(
     'notice(/\d+)?' => 'notice/index/$1',
 
     'image/:size/:link' => 'image/index',
-
 );
