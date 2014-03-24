@@ -1191,6 +1191,7 @@ table td p.tl{
     width: 100%;
 }
 .footer-help {
+    margin-bottom: 10px;
     overflow: hidden;
 }
 .footer-help dl{
