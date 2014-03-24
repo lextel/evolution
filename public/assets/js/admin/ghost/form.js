@@ -13,7 +13,7 @@ $(function() {
     });
 
      // 广告图上传
-    UPLOAD_URL = "/admin/ghost/avatarUpload";
+    UPLOAD_URL = "/v2admin/ghost/avatarUpload";
     IMAGE_URL  = "/";
     $('#avatarUpload').fileupload({
         url: UPLOAD_URL,
