@@ -138,13 +138,13 @@
                 <li><a href="javascript:void(0);">合作专区</a></li>
                 <li class="lastest"><a href="javascript:void(0);">联系我们</a></li>
             </ul>
-            <P>版权所有 &copy lltao.com 备案：<a href="www.miitbeian.gov.cn">粤ICP备14017463号-1</a></P>
+            <P>版权所有 &copy lltao.com 备案：<a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备14017463号-1</a></P>
             <div class="log">乐拍，快乐抢拍你的人生！</div>
             <div class="flink" style="text-align:center">
                 <span>友情链接:</span>
-                    <a href="http://www.xda.cn">XDA</a>
-                    <a href="http://www.wanggouchao.com">网购潮</a>
-                    <a href="http://www.kd100.com">快递查询</a>
+                    <a href="http://www.xda.cn" target="_blank">XDA</a>
+                    <a href="http://www.wanggouchao.com" target="_blank">网购潮</a>
+                    <a href="http://www.kd100.com" target="_blank">快递查询</a>
             </div>
             <div style="clear:both"></div>
              <ul class="safety">
