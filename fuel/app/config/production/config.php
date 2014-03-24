@@ -319,4 +319,10 @@ return array(
                 'email',
             ),
         ),
+        /**
+         * 图片服务器配置
+         *
+         */
+        'image_server' => 'http://img.lltao.com/',
+
 );
