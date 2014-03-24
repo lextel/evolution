@@ -2,6 +2,14 @@
  * Created by ui-1 on 13-12-23.
  */
 $(function(){
+    $(".recommended  ul li,.second  ul li,.editor ul li").hover(
+        function(){
+            $(this).children(".r-hover").css({display:"block"})},
+        function(){
+            $(this).children(".r-hover").css({display:"none"})}
+    );
+});
+$(function(){
     $(".sub-nav ul li a").click(function(){
         $(".sub-nav ul li a").removeClass("active");
         $(this).addClass("active");
