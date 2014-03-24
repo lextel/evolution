@@ -539,8 +539,8 @@ table td p.tl{
     background:url("../images/icon.png") no-repeat -22px -5px;
 }
 .icon-search:hover{
-    width: 25px;
-    height: 25px;
+    width: 26px;
+    height: 26px;
     margin:0;
     background:#a40000 url("../images/icon.png") no-repeat 0px -5px;
 }
