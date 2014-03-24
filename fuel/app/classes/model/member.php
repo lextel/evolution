@@ -438,29 +438,29 @@ class Model_Member extends \Classes\Model
        if (!$avatar){
             return false;
        }
-               $member = new Model_Member();
-               $member->username = $row[0];
-               $member->nickname = $row[1];              
-               $member->avatar = $avatar;
-               $member->bio = $row[3];
-               $member->password = '';
-               $member->email = '';
-               $member->mobile = '';
-               $member->created_at = '';
-               $chip = new  Classes\RandCHIp;
-               $member->ip = $chip->randomCHIp();
-               $member->type = 1;
-               $member->points = 0;
-               $member->last_login = 0;
-               $member->login_hash = 0;
-               $member->is_disable = 0;
-               $member->is_delete = 0;
-               $member->profile_fields = '';
-               $member->is_mobile = 0;
+       $member = new Model_Member();
+       $member->username = $row[0];
+       $member->nickname = $row[1];              
+       $member->avatar = $avatar;
+       $member->bio = $row[3];
+       $member->password = '';
+       $member->email = '';
+       $member->mobile = '';
+       $member->created_at = '';
+       $chip = new  Classes\RandCHIp;
+       $member->ip = $chip->randomCHIp();
+       $member->type = 1;
+       $member->points = 0;
+       $member->last_login = 0;
+       $member->login_hash = 0;
+       $member->is_disable = 0;
+       $member->is_delete = 0;
+       $member->profile_fields = '';
+       $member->is_mobile = 0;
+       
+       $member->save();
                
-               $member->save();
-               Model_Log::add('增加马甲 #' . $member->id);
-       return true;
+       return $member->id;
     }
     
     /*

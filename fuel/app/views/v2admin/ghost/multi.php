@@ -72,7 +72,7 @@ echo Asset::js(
         <div class="form-group">
             <label class='control-label col-sm-1'>&nbsp;</label>
             <div class="col-sm-3">
-                <a class="btn btn-primary" href="v2admin/ghost">返回</a>
+                <a class="btn btn-primary" href="<?php echo Uri::create('v2admin/ghost');?>">返回</a>
             </div>
         </div>
     </fieldset>
