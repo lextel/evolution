@@ -138,18 +138,15 @@
                 <li><a href="javascript:void(0);">合作专区</a></li>
                 <li class="lastest"><a href="javascript:void(0);">联系我们</a></li>
             </ul>
-             <div>
-            <div class="flink">
-            <span style="">友情链接:</span>
-                <ul style="float:left">
-                    <li><a href="http://www.xda.cn">XDA</a></li>
-                    <li><a href="http://www.wanggouchao.com">网购潮</a></li>
-                    <li><a href="http://www.kd100.com">快递100</a></li>
-                    <li>...</li>
-                </ul>
-            </div>
-            <P>版权所有</P>
+            <P>Copyright © 2014 粤ICP备14017463号-1 <a href="http://www.lltao.com">www.lltao.com</a> 版权所有</P>
             <div class="log">乐拍，快乐抢拍你的人生！</div>
+            <div class="flink" style="text-align:center">
+                <span>友情链接:</span>
+                    <a href="http://www.xda.cn" target="_blank">XDA</a>
+                    <a href="http://www.wanggouchao.com" target="_blank">网购潮</a>
+                    <a href="http://www.kuaidi100.com/all/sf.shtml" target="_blank">顺风快递查询</a>
+            </div>
+            <div style="clear:both"></div>
              <ul class="safety">
                 <li class="safety-01"></li>
                 <li class="safety-02"></li>
