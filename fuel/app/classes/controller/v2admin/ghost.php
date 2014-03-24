@@ -452,10 +452,10 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $logid = ['0', '0'];
         foreach($csvfile as $key=>$row){
             if (Model_Member::checkCsv($row)){
-                $memberId = Model_Member::ADDghost($row)               
+                $memberId = Model_Member::ADDghost($row);               
                 if ($memberId){
                     $res[] = $row[1];
-                    if ($key == 0){
+                    if ($key == 1){
                         $logid[0] = $memberId;
                     }
                     if ($key == count($csvfile)-1){

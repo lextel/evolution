@@ -13,7 +13,7 @@
                         $active = ' active';
                         $bannerIdx = $i;
                     }
-                    echo "<li class='cateNav{$active}'><a href='". Uri::create('/m/c/'. $cate->id) ."'>{$cate->name}</a></li>";
+                    echo "<li class='cateNav{$active}'><a href='". Uri::create('/m/c/'. $cate->id) ."'>{$cate->name}></a></li>";
                     $i++;
                 endforeach;
             ?>
