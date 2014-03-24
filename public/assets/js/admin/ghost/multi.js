@@ -2,12 +2,12 @@
 $(function() {
 
      // 广告图上传
-    UPLOAD_URL = "/admin/ghost/multiUpload";
+    UPLOAD_URL = "/v2admin/ghost/multiUpload";
     IMAGE_URL  = "/";
 
 
     $('#csvUpload').fileupload({
-        url: '/admin/ghost/csvUpload',
+        url: '/v2admin/ghost/csvUpload',
         dataType: 'json',
         send: function (e, data) {
             $(".csvloader").show();

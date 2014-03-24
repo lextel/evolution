@@ -58,9 +58,20 @@ $(function(){
 <div class="content-inner">
         <!--晒单开始-->
         <div class="show-box">
+            
             <!--查看晒单详情-->
-                <?php echo Form::open(['action' => 'u/posts/edit/'.$post->id, 'class'=>'demoform']);?>
+                <?php echo Form::open(['action' => 'u/posts/add/', 'class'=>'demoform']);?>
                 <ul class="edit-data">
+                    <li>
+                        <label for=""></label>
+                        <p style="font-size:14px"><?php echo Html::anchor("/w/".$phase->id, "第(".$phase->phase_id.")期".$phase->title);?>
+                        </p>
+                    </li>
+                    <li>
+                        <label for=""></label>
+                        <p style="font-size:14px"><?php echo Html::img($phase->image, ['style'=>'width:80px']);?>
+                        </p>
+                    </li>
                     <li>
                         <label for="">标题：</label>
                         <?php echo Form::input('title', Input::get('title'), ['class' =>'txt', 'name'=>'', 'datatype'=>'*', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>'已填写']);?>
@@ -81,15 +92,12 @@ $(function(){
                               </div>
                          </div>
                         <dl class="postimg">
-                            <?php foreach(Input::get('images') as $img) { ?>
-                            <dd class="img-box">
-                                <?php echo Html::img($img);?>
-                                <input type="hidden" name="images[]" value="<?php echo $img;?>">
-                                <a href="javascript:;" class="delete"></a>
-                            </dd>
-                            <?php } ?>
+                            
                         </dl>
                         </div>
+                    </li>
+                    <li>
+                        <input id="postid" name="phase_id" type="hidden" value="<?php echo $phase->id;?>" />
                     </li>             
                     <li>
                         <button class="btn-red  btn-address">发布</button>

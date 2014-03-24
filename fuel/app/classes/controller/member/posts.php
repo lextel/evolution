@@ -67,26 +67,41 @@ class Controller_Member_Posts extends Controller_Center
         }
         return json_encode(['files' => $rs]);
     }
+    /*
+    *晒单添加页面
+    */
+    public function action_getadd($phaseid)
+    {
+        is_null($phaseid) and Response::redirect('/u/noposts');
+        $phase = Model_Phase::find($phaseid);
+        is_null($phase) and Response::redirect('/u/noposts');
+        $view = View::forge('member/posts/add');
+        $view->set('phase', $phase);
+        $this->template->title = '用户添加晒单';
+        $this->template->layout->content = $view;
+    }
 
     /*
     *晒单添加
     */
     public function action_add()
     {
+        $phase_id = Input::post('phase_id');
+        is_null($phase_id) and Response::redirect('/u/noposts');
         if(Input::method() == 'POST'){
-        
+            
             $val = Model_Post::validate('edit');
             if ($val->run())
             {
                 $images = Input::post('images');
                 if (count($images) < 1)
                 {
-                    Response::redirect('/u/noposts');
+                    Session::set_flash('error', '添加图片');
+                    return Response::redirect('/u/posts/getadd/'.$phaseid);
                 }
-                $topimage = $images[0];
-                $phase_id = Input::post('phase_id');
+                $topimage = $images[0];                
                 $phase = Model_Phase::find($phase_id);
-                is_null($phase) and Response::redirect('/u/noposts');
+                is_null($phase) and Response::redirect('/u/noposts');                
                 $post = Model_Post::forge([
                     'title' => Input::post('title'),
                     'phase_id' =>$phase_id,
@@ -114,9 +129,7 @@ class Controller_Member_Posts extends Controller_Center
             
         }
         Session::set_flash('error', '添加晒单失败');
-        $view = View::forge('member/posts/add');
-        $this->template->title = '用户晒单';
-        $this->template->layout->content = $view;
+        return Response::redirect('/u/posts/getadd/'.$phaseid);
     }
 
     //晒单获得单个
@@ -124,9 +137,10 @@ class Controller_Member_Posts extends Controller_Center
     {
         is_null($id) and Response::redirect('/u/posts');
         $post = Model_Post::find($id , ['where'=>['member_id'=>$this->current_user->id]]);
-
+        $phase = Model_Phase::find($post->phase_id);
         !$post and Response::redirect('/u/posts');
         $view = View::forge('member/posts/edit');
+        $view->set('phase', $phase, false);
         $view->set('post', $post, false);
         $this->template->title = '用户晒单编辑';
         $this->template->layout->content = $view;
