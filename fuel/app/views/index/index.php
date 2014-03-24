@@ -75,7 +75,7 @@
                             <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
                         </div>
                         <div class="img-box img-lg">
-                            <?php echo Html::anchor('m/'.$phase->id, Html::img('image/400x400/'.$phase->image), ['rel' => 'nofollow']);?>
+                            <a href="<?php echo Uri::create('m/'.$phase->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($phase->image, '400x400');?>"/></a>
                         </div>
                         <dl class="progress-side">
                             <dd>
@@ -111,7 +111,7 @@
                     ?>
                     <li>
                         <div class="img-box img-sm fl">
-                            <?php echo Html::anchor('m/'.$order->phase_id, Html::img('image/80x80/'.$data['phases'][$order->phase_id]->image), ['rel' => 'nofollow']);?>
+                            <a href="<?php echo Uri::create('m/'.$order->phase_id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($data['phases'][$order->phase_id]->image, '80x80');?>"/></a>
                         </div>
                         <div class="info-side">
                             <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $data['members'][$order->member_id]->nickname, ['class'=>'b']);?>
@@ -137,7 +137,7 @@
                     <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
                 </div>
                 <div class="img-box img-lg">
-                    <?php echo Html::anchor('m/'.$phase->id, Html::img('image/400x400/'.$phase->image), ['rel' => 'nofollow']);?>
+                    <a href="<?php echo Uri::create('m/'.$phase->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($phase->image, '400x400');?>"/></a>
                 </div>
                 <dl class="progress-side">
                     <dd>
@@ -178,7 +178,7 @@
                     <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
                 </div>
                 <div class="img-box img-lg">
-                    <?php echo Html::anchor('m/'.$phase->id, Html::img('image/400x400/'.$phase->image), ['rel' => 'nofollow']);?>
+                    <a href="<?php echo Uri::create('m/'.$phase->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($phase->image, '400x400');?>"/></a>
                 </div>
                 <dl class="progress-side">
                     <dd>
