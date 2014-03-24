@@ -12,7 +12,7 @@
             </ul>
         </div>
         <!--修改密码-->
-        <?php echo Form::open(['action' => 'u/passwd', 'method' => 'post', 'class'=>'form-password registerform']); ?>
+        <?php echo Form::open(['action' => 'u/passwd', 'method' => 'post', 'class'=>'form-password validForm']); ?>
         <ul class="edit-data">
             <li>
             <?php if (Session::get_flash('info')): ?>
@@ -24,19 +24,13 @@
             </li>
             <li>
                 <label>旧密码：</label>
-                <input type="password" value="" class="txt" name="oldpassword" class="inputxt" datatype="*6-20">
+                <input type="password"  class="txt" name="oldpassword" class="inputxt" datatype="*6-20" errorms="密码格式不正确" nullmsg="请输入6-18位密码">
                 <span class="Validform_checktip"></span>
             </li>
             <li>
                 <label>新密码：</label>
-                <input type="password" value="" class="txt" name="newpassword" class="inputxt" datatype="*6-20">
+                <input type="password"  class="txt" name="newpassword" class="inputxt" datatype="*6-20" errorms="密码格式不正确" nullmsg="请输入6-18位密码">
                 <span class="Validform_checktip"></span>
-                <div class="passwordStrength" style="display:none;">
-                    <b>密码强度：</b>
-                    <span class="bgStrength">弱</span>
-                    <span>中</span>
-                    <span class="last">强</span>
-                </div>
             </li>
             <li>
                 <label>确认密码：</label>
@@ -50,43 +44,9 @@
          <?php echo Form::close(); ?>
 </div>
 <script type="text/javascript">
-
 $(function(){
-	//$(".registerform").Validform();  //就这一行代码！;
-	var demo=$(".registerform").Validform({
-		tiptype:4,
-		label:".label",
-		showAllError:true,
-		datatype:{
-			"zh1-6":/^[\u4E00-\u9FA5\uf900-\ufa2d]{1,6}$/
-		},
-		ajaxPost:false,
-	});
-	demo.addRule([{
-		ele:".inputxt:eq(0)",
-		datatype:"*6-20"
-	},
-	{
-		ele:".inputxt:eq(1)",
-		datatype:"*6-20"
-	},
-	{
-		ele:".inputxt:eq(2)",
-		datatype:"*6-20",
-		recheck:"newpassword"
-	},
-	{
-		ele:"select",
-		datatype:"*"
-	},
-	{
-		ele:":radio:first",
-		datatype:"*"
-	},
-	{
-		ele:":checkbox:first",
-		datatype:"*"
-	}]);
-
-})
+        $(".validForm").Validform({
+        tiptype:4
+        });
+});
 </script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>佣金明细</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/css/common.css"/>
+    <link rel="stylesheet" href="../assets/css/style.css"/>
+    <link rel="stylesheet" href="../assets/css/header.css"/>
+    <link rel="stylesheet" href="../assets/css/member/jquery-ui.css"/>
+    <script type="text/javascript" src="../assets/js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="../assets/js/common.js"></script>
+
+</head>
+<body>
+<div class="wrapper w">
+    <!--左边内容开始-->
+    <div class="left-sidebar fl">
+        <div class="img-box">
+            <a href=""><img src="img/54359.jpg" alt=""/></a>
+        </div>
+        <ul class="left-nav">
+            <li><a href="">我的主页</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(null)">我的乐拍</a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:void(null)">乐拍记录</a></li>
+                    <li><a href="javascript:void(null)">获得的商品</a></li>
+                    <li><a href="javascript:void(null)">晒单</a></li>
+                </ul>
+                <span class="icon-arrow"></span>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(null)">帐户管理</a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:void(null)">帐户明细</a></li>
+                    <li><a href="javascript:void(null)">帐号充值</a></li>
+                </ul>
+                <span class="icon-arrow"></span>
+            </li>
+            <li><a href="">消息管理</a></li>
+            <li><a href="">个人设置</a></li>
+        </ul>
+    </div>
+    <!--右左边内容结束-->
+    <div class="content-inner">
+        <div class="selectWarp">
+            <ul class="time-choose">
+                <li>选择时间段：</li>
+                <li><input id="datepicker" type="text" placeholder="输入起始时间" class="hasDatepicker"></li>
+                <li><input id="datepicker1" type="text" placeholder="输入结束时间" class="hasDatepicker"></li>
+                <li><a class="btn btn-red btn-sx allorders-date-search" href="javascript:;">搜索</a></li>
+            </ul>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>用户</th>
+                <th>时间</th>
+                <th>描述</th>
+                <th>云购金额</th>
+                <th>佣金（元宝）</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>王尼玛</td>
+                <td>
+                    <s class="datetime">2013-12-33 10:00:00</s>
+                </td>
+                <td>这是描述</td>
+                <td>10086</td>
+                <td>100元宝</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="noData"><s class="icon-warm"></s>您还没有邀请谁哦</div>
+    </div>
+</div>
+</body>
+</html>
