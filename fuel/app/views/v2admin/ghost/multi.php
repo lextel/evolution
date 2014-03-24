@@ -2,7 +2,7 @@
 echo Asset::css(
     [
         'jquery.fileupload.css', 
-        'v2admin/items/form.css', 
+        'admin/items/form.css', 
         'member/jquery-ui.css',
         ]
     );
