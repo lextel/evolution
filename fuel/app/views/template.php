@@ -58,12 +58,13 @@
                           <li><a href="<?php echo Uri::create('/u/wins'); ?>">获得的商品</a></li>
                           <li><a href="<?php echo Uri::create('/u/getrecharge'); ?>">账户管理</a></li>
                           <li><a href="<?php echo Uri::create('/u/profile'); ?>">个人设置</a></li>
+                          <li><?php echo Html::anchor('/signout', '退出', ['class'=>'logout'])?></li>
                       </ul>
                  </div>
 
                  <span>财富(<s class="r"><?php echo \Helper\Coins::showCoins($current_user->points);?></s>)</span>
                  <span>消息(<s class="r"><?php echo $isnew? $isnew : 0;?></s>)</span>
-                 <?php echo Html::anchor('signout', '[退出]', ['class'=>'logout'])?>
+                 
             <?php }?>
             </div>
         </div>
@@ -143,7 +144,7 @@
                 <span>友情链接:</span>
                     <a href="http://www.xda.cn" target="_blank">XDA</a>
                     <a href="http://www.wanggouchao.com" target="_blank">网购潮</a>
-                    <a href="http://www.kd100.com" target="_blank">快递查询</a>
+                    <a href="http://www.kuaidi100.com/all/sf.shtml" target="_blank">顺风快递查询</a>
             </div>
             <div style="clear:both"></div>
              <ul class="safety">

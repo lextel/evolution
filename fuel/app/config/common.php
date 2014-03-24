@@ -20,7 +20,7 @@ return [
     /**
      * 邀请佣金
      */
-    'invitPoints' => 0.6,  // 金币数量
+    'invitPoints' => 0.6,  // 元宝数量
     'invitPercent' => 7,   // 消费回扣百分比  7 = 7%
 
     /**
