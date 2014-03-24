@@ -381,6 +381,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $ip2area = new \Classes\Ip2area(APPPATH . 'qqwry.dat');
         $location = $ip2area->getlocation($member->ip);
         $location['area'] = iconv('GB2312','UTF-8//IGNORE', $location['area']);
+        if(empty($fetchCodes)) return json_encode(['code' => 1, 'msg' => '本期已卖完']);
 
         $phase = Model_Phase::find($id);
             $data = [
