@@ -60,7 +60,7 @@ $(function(){
 });
 /*用户中心折叠效果*/
 $(function(){
-    $(".dropdown>a").click(function(){
+    $(".dropdown a").click(function(){
         var menu=$(this).next("ul");
         if(menu.css("display")=="none")
         {
