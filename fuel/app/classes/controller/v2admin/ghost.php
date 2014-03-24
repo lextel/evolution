@@ -449,16 +449,22 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         }
         $csvfile = Model_Member::readcsv($files[0]['path']);
         $res = [];
-        
+        $logid = ['0', '0'];
         foreach($csvfile as $key=>$row){
             if (Model_Member::checkCsv($row)){
-                
-                if (Model_Member::ADDghost($row)){
-                   $res[] = $row[1];
-                }
-                
-            }
+                $memberId = Model_Member::ADDghost($row)               
+                if ($memberId){
+                    $res[] = $row[1];
+                    if ($key == 0){
+                        $logid[0] = $memberId;
+                    }
+                    if ($key == count($csvfile)-1){
+                        $logid[1] = $memberId;
+                    }
+                }              
+            }       
         }
+        Model_Log::add('增加马甲 #'.$logid[0].'...'.' #'.$logid[1]);
         return $response->body(json_encode(['files' => $files, 'msg'=>'上传成功'.count($res).'个', 'res'=>$res]));
     }
 }
