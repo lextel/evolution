@@ -64,6 +64,7 @@ $(function(){
                     <li>
                         <label for="">标题：</label>
                         <?php echo Form::input('title', $post->title, ['class' =>'txt', 'name'=>'', 'datatype'=>'*', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>'已填写']);?>
+
                     </li>
                     <li>
                         <label for="" class="body-label">正文：</label>
@@ -102,7 +103,7 @@ $(function(){
 <script>
 $(function(){
 	$(".demoform").Validform({
-	tiptype:4,
+	tiptype:4
 	});
 });
 </script>

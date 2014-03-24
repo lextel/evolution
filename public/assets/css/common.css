@@ -595,6 +595,13 @@ table td p.tl{
     vertical-align: middle;
     background-position:0 -226px;
 }
+.icon-warm{
+    display: inline-block;
+    vertical-align: middle;
+    width: 22px;
+    height: 22px;
+    background: url("../images/icon-02.png") 0 0;
+}
 .icon-user,.icon-password{
     width: 18px;
     height: 16px;
@@ -1184,6 +1191,7 @@ table td p.tl{
     width: 100%;
 }
 .footer-help {
+    margin-bottom: 10px;
     overflow: hidden;
 }
 .footer-help dl{
@@ -1461,8 +1469,9 @@ table td p.tl{
 }
 .pay-way dl dd{
     float: left;
+    width: 150px;
+    height: 31px;
     margin:0 40px 20px 0;
-    overflow: hidden;
 }
 .pay-way dl dd input{
     display:block;
@@ -1775,6 +1784,10 @@ table td p.tl{
     border-bottom: 1px solid #D2D2D2;
     margin-bottom: 20px;
 }
+.invite-tit{
+    font-size: 14px;
+    margin-bottom: 20px;
+}
 .sycee{
     width: 300px;
     background: #f1f1f1;
@@ -1809,20 +1822,92 @@ table td p.tl{
     overflow: hidden;
     margin-bottom: 10px;
 }
-/*.icon-sycee{
-    width: 80px;
-    height: 80px;
-    background:url("../images/common.png") no-repeat 0 0;
+.Invitation-t {
+    border-bottom: 1px solid #EDEDED;
+    font-size: 14px;
+    height: 30px;
+    font-weight: bold;
+    text-indent: 0.5em;
+    margin-bottom:20px;
 }
-.icon-integral{
-    width: 80px;
-    height: 80px;
-    background:url("../images/common.png") no-repeat -0px -0px;
+.Invitation-C1,.Invitation-C2 {
+    overflow: hidden;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border-bottom: 1px dashed #D2D2D2;
 }
-*/
-.flink {
-    font-size: 12px;
-    line-height: 28px;
+.Invitation-C1 p {
+    padding-bottom: 15px;
+    color: #686868;
+}
+.Invitation-C1 .shareText {
+    display: block;
+    width: 683px;
+    height: 50px;
+    padding: 5px 10px;
+    line-height: 22px;
+    font-size: 14px;
+    border: 1px solid #DDD;
+    color: #333;
+    background: #F7F7F7;
+    margin-bottom: 20px;
+}
+#btnCopy {
+    display: block;
+    width: 91px;
+    height: 33px;
+    cursor: pointer;
+    font-size: 14px;
+    border: 1px solid #BA2111;
+    border-radius: 3px;
+    color: white;
+    background: #B92C00;
+}
+.Invitation-C2 p {
+    padding-bottom: 20px;
+}
+#bdshare {
+    overflow: hidden;
+    padding-bottom: 2px;
+    font-size: 14px;
+    text-align: left;
+    zoom: 1;
+}
+.Invitation-C3 ul {
+    overflow: hidden;
+}
+.Invitation-C3 li {
+     overflow: hidden;
+     float: left;
+     margin-right: 16px;
+ }
+.Invitation-C3 li:last-child{
+    margin-right: 0px;
+}
+.Invitation-C3 li a{
+    width: 87px;
+    height: 35px;
+    display: block;
+    background: url("../images/shareIcon.png") no-repeat;
+}
+.Invitation-C3 li a.M163{
+    background-position: -96px -0px;
+ }
+.Invitation-C3 li a.Mmsn{
+    background-position: -192px -0px;
+}
+.Invitation-C3 li a.Msohu{
+    background-position: -287px -0px;
+}
+.Invitation-C3 li a.Mgmail{
+    background-position: -384px -0px;
+}
+.Invitation-C3 li a.Msina{
+    background-position: -478px -0px;
+}
+.Invitation-C3 li a.Myahoo{
+    background-position: -575px -0px;
 }
 .flink a{
     color: #0093D0;
