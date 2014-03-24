@@ -55,7 +55,7 @@ return array(
     'u/posts/p/(\d+)' => 'member/posts/index/$1',
     'u/noposts/p/(\d+)' => 'member/posts/noposts/$1',
     'u/posts/view/(\d+)' => 'member/posts/view',
-    'u/posts/getadd' => 'member/posts/getadd',
+    'u/posts/getadd/(\d+)' => 'member/posts/getadd/$1',
     'u/posts/upload' => 'member/posts/upload',
     'u/posts/add' => 'member/posts/add',
     'u/posts/getedit/(\d+)' => 'member/posts/getedit/$1',

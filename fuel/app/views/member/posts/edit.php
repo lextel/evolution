@@ -62,6 +62,16 @@ $(function(){
                 <?php echo Form::open(['action' => 'u/posts/edit/'.$post->id, 'class'=>'demoform']);?>
                 <ul class="edit-data">
                     <li>
+                        <label for=""></label>
+                        <p style="font-size:14px"><?php echo Html::anchor("/w/".$post->phase_id, "第(".$phase->phase_id.")期".$phase->title);?>
+                        </p>
+                    </li>
+                    <li>
+                        <label for=""></label>
+                        <p style="font-size:14px"><?php echo Html::img($phase->image, ['style'=>'width:80px']);?>
+                        </p>
+                    </li>
+                    <li>
                         <label for="">标题：</label>
                         <?php echo Form::input('title', $post->title, ['class' =>'txt', 'name'=>'', 'datatype'=>'*', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>'已填写']);?>
 
