@@ -691,6 +691,9 @@
 .new-buyer .new-buyer-header ul li:last-child{
     border-right:0;
 }
+.new-buyer .new-buyer-header ul li.last{
+    border-right:0;
+}
 .new-buyer .new-buyer-header ul li a{
     display: block;
     width: 100%;
@@ -891,11 +894,15 @@
 .look-bak .pagination{
     margin-right: 10px;
 }
+.record table thead,.look-bak table thead{
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+}
 .record table thead th,.look-bak table thead th{
     padding:5px;
     border: 1px solid #EEEEEE;
     line-height: 22px;
-    background: #EEEEEE;
+    background: #f1f1f1;
 }
 .record table tbody tr td,.look-bak table tbody tr td{
     padding:5px;
