@@ -227,10 +227,13 @@
     border-left: none;
 }
 .sub-menu  dl dt{
+    font-size: 13px;
     line-height: 26px;
     font-weight: bold;
 }
 .sub-menu  dl dd{
+    height: 26px;
+    font-size: 13px;
     line-height: 26px;
 }
 .sub_banner{
@@ -249,15 +252,17 @@
 .product-hot{
     background: #FFFFFF;
     width: 265px;
-    height: 327px;
+    height: 296px;
     border: 2px solid #f8b551;
     position: relative;
     margin-bottom: 10px;
     padding-bottom: 10px;
 }
 .product-hot .img-box{
+    width: 200px;
+    height: 200px;
     display: block;
-    margin:0px auto 10px;
+    padding: 0 32px;
 }
 .product-hot .title-box{
     background: url("../images/bg.png") repeat-x -9px -366px;
@@ -284,13 +289,14 @@
     color: #FFFFFF;
     font-size: 14px;
     top: -10px;
-    left: -19px;
+    left: -1px;
 }
 .sheng-yi2 b{
     font-size: 18px;
     font-weight: normal;
 }
 .list_sort{
+    font-size: 14px;
     overflow: hidden;
     margin-bottom: 10px;
     background: #FFFFFF;
@@ -396,14 +402,29 @@
     filter: Alpha(opacity=60)
 }
 .date-hot ul li .caption{
+    color: #2c2c2c;
     font-weight: normal;
     overflow: hidden;
+    white-space: normal;
     word-wrap: break-word;
     word-break: break-all;
     line-height: 22px;
     height: 44px;
 }
-
+.l-wide{
+    float: left;
+    overflow: hidden;
+}
+.r-wide{
+    margin-left: 10px;
+    float: left;
+    width: 269px;
+    overflow: hidden;
+}
+.r-wide .hot-tit{
+    font-size: 18px;
+    margin-bottom: 8px;
+}
 /*购物车列表*/
 .pay-prompt{
     overflow: hidden;
