@@ -37,6 +37,7 @@
         <tbody>
         <?php $phaselist = $getPhaseInfo($list);?>
         <?php foreach ($list as $item): ?>
+             <?php if (isset($phaselist[$item->phase_id])) { ?>
              <tr>
                 <td style="text-align: left;"><?php echo '第('.$item->phase_id.')期 '.$phaselist[$item->phase_id]->title; ?></td>
                 <td><?php echo $item->total; ?></td>
@@ -44,6 +45,7 @@
                 <td><?php echo \Helper\Coins::showCoins($item->sum); ?></td>
 
             </tr>
+            <?php } ?>
         <?php endforeach; ?>
         </tbody>
     </table>

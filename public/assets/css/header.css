@@ -52,8 +52,11 @@
     background: #FFFFFF;
     margin-bottom: 10px;
 }
-.sort-list .title,.buying-box .title,.notice  .title{
-    background:url("../images/bg.png")  -5px -185px;
+.notice  .title{
+    background:url("../images/title_03.png")  no-repeat;
+}
+.sort-list .title,.buying-box .title{
+    background:url("../images/tit-bg.png")  no-repeat;
 }
 .notice ul{
     overflow: hidden;
@@ -77,6 +80,10 @@
 .notice ul li a{
     font-size: 14px;
 }
+.notice .title h3{
+    overflow: hidden;
+    margin-right: 5px;
+}
 /*人气推荐开始*/
 .recommended{
     overflow: hidden;
@@ -96,6 +103,7 @@
     overflow: hidden;
     background: #FFFFFF;
     padding: 10 0px;
+    position: relative;
 }
 
 .editor ul{
@@ -109,11 +117,21 @@
     float: left;
     width: 230px;
     overflow: hidden;
+    position: relative;
     padding-bottom: 10px;
     margin-right: 10px;
     border: 1px solid #d2d2d2;
 }
-
+.r-hover{
+    width: 226px;
+    height: 387px;
+    z-index: 999;
+    display: none;
+    border: 2px solid #b5b5b5;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 .editor .title {
     padding: 10px;
 }
@@ -126,6 +144,7 @@
 .second ul li{
     float: left;
     width: 230px;
+    position: relative;
     overflow: hidden;
     padding-bottom: 10px;
     margin-left: 10px;
@@ -189,10 +208,6 @@
     padding: 10px;
     border: 1px solid #d2d2d2;
 }
-.bask-wrapper .title h3{
-    font-size: 18px;
-    font-weight: normal;
-}
 .bask .bask-info{
     width: 305px;
     background: #edf1f4;
@@ -202,12 +217,21 @@
     position: relative;
 }
 .bask .bask-title{
-    height: 24px;
+    min-height: 24px;
     line-height: 24px;
     overflow: hidden;
     border-bottom: 1px solid #959595;
     padding-bottom: 7px;
     margin-bottom: 10px;
+}
+.bask .bask-title .title-md{
+    width: 175px;
+}
+.bask .bask-title a:hover{
+    text-decoration: underline;
+}
+.bask .bask-title .username{
+    margin-top: 3px;
 }
 .bask-info::before{
     content: "";
@@ -240,7 +264,9 @@
     overflow: hidden;
     margin-right: 15px;
 }
-
+.bask-list .title-02{
+    max-height: 40px;
+}
 /*编辑推荐*/
 .best-route{
    background: #ffffff;

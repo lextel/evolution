@@ -48,7 +48,7 @@
             </div>
 		<!--公告-->
         <div class="notice fr">
-                <div class="title"><h3>乐拍公告 <span class="icon icon-horn"></span></h3></div>
+                <div class="title"><h3 fl>乐拍公告</h3><span class="icon icon-horn fl"></span></div>
                 <ul>
                     <?php foreach($notices() as $notice) { ?>
                     <li><i></i><?php echo Html::anchor('/notice', $notice->title); ?></li>
@@ -69,6 +69,7 @@
                         foreach($topHotItems() as $phase) { 
                     ?>
                     <li>
+                        <div class="r-hover"></div>
                         <div class="title-box">
                             <h3 class="title-md"><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h3>
                             <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
@@ -130,6 +131,7 @@
         <ul>
             <?php foreach($hotItems() as $phase) { ?>
             <li>
+                <div class="r-hover"></div>
                 <div class="title-box">
                     <h3 class="title-md"><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h3>
                     <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
@@ -170,6 +172,7 @@
         <ul>
             <?php foreach($getRecommends() as $phase) { ?>
             <li>
+                <div class="r-hover"></div>
                 <div class="title-box">
                     <h3 class="title-md"><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h3>
                     <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
