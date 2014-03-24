@@ -25,10 +25,10 @@ return [
         'ext_whitelist' => ['img', 'jpg', 'jpeg', 'png'],
     ],
     'editor' => [
-        'path' => DOCROOT.'upload',
+        'path' => DOCROOT.'upload'.DS.'item'.DS.'desc',
         'randomize' => true,
         'ext_whitelist' => ['jpg', 'jpeg', 'gif', 'png'],
-		    'savePath'   => 'updateSavePath(["upload"]);',
+		    'savePath'   => 'updateSavePath(["upload'.DS.'item'.DS.'desc'.'"]);',
     ],
     'mutil' => [
         'path' => DOCROOT.'upload'.DS.'multi',

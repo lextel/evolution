@@ -29,14 +29,14 @@
                         <th>乐拍状态</th>
                         <th>购买数量</th>
                         <th>幸运乐拍码</th>
-                        <th> 快递状态 </th>
+                        <th>快递状态</th>
                         <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php
                        if(empty($list)) {
-                       echo '<tr><td colspan="5" style="text-align:center">亲，您还没有中过奖，请再努力点哦！</td></tr>';
+                       echo '<tr><td colspan="7" style="text-align:center">亲，您还没有中过奖，请再努力点哦！</td></tr>';
                        }
                      ?>
                     <?php foreach($list as $win) { ?>

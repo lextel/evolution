@@ -38,7 +38,7 @@
                     </thead>
                     <tbody>
                     <?php if(empty($orders)) {
-                      echo '<tr><td colspan="5" style="text-align:center">亲，您还没有购买过商品哦！</td></tr>';
+                      echo '<tr><td colspan="6" style="text-align:center">亲，您还没有购买过商品哦！</td></tr>';
                     }
                     ?>
                     <?php foreach($orders as $order) { ?>

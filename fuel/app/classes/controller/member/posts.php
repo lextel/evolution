@@ -73,45 +73,50 @@ class Controller_Member_Posts extends Controller_Center
     */
     public function action_add()
     {
-        !Input::method() == 'POST' and Response::redirect('/u/noposts');
-        $val = Model_Post::validate('edit');
-        if ($val->run())
-        {
-            $images = Input::post('images');
-            if (count($images) < 1)
+        if(Input::method() == 'POST'){
+        
+            $val = Model_Post::validate('edit');
+            if ($val->run())
             {
-                Response::redirect('/u/noposts');
+                $images = Input::post('images');
+                if (count($images) < 1)
+                {
+                    Response::redirect('/u/noposts');
+                }
+                $topimage = $images[0];
+                $phase_id = Input::post('phase_id');
+                $phase = Model_Phase::find($phase_id);
+                is_null($phase) and Response::redirect('/u/noposts');
+                $post = Model_Post::forge([
+                    'title' => Input::post('title'),
+                    'phase_id' =>$phase_id,
+                    'desc' => Input::post('desc'),
+                    'images'=>serialize($images),
+                    'lottery_id' => '',
+                    'item_id' => $phase->item_id,
+                    'member_id' => $this->current_user->id,
+                    'topimage' => $topimage,
+                    'type_id' => 0,
+                    'is_delete'=>0,
+                    'status'=>0,
+                    'up'=>0,
+                    'comment_count'=>0,
+                    'comment_top'=>'',
+                ]);
+                if ($post->save())
+                {
+                    $phase->post_id = $post->id;
+                    $phase->save();
+                    Session::set_flash('success', '添加晒单成功');
+                    return Response::redirect('/u/posts');
+                }
             }
-            $topimage = $images[0];
-            $phase_id = Input::post('phase_id');
-            $phase = Model_Phase::find($phase_id);
-            is_null($phase) and Response::redirect('/u/noposts');
-            $post = Model_Post::forge([
-                'title' => Input::post('title'),
-                'phase_id' =>$phase_id,
-                'desc' => Input::post('desc'),
-                'images'=>serialize($images),
-                'lottery_id' => '',
-                'item_id' => $phase->item_id,
-                'member_id' => $this->current_user->id,
-                'topimage' => $topimage,
-                'type_id' => 0,
-                'is_delete'=>0,
-                'status'=>0,
-                'up'=>0,
-                'comment_count'=>0,
-                'comment_top'=>'',
-            ]);
-            if ($post->save())
-            {
-                $phase->post_id = $post->id;
-                $phase->save();
-                Session::set_flash('success', '添加晒单成功');
-                Response::redirect('/u/posts');
-            }
+            
         }
         Session::set_flash('error', '添加晒单失败');
-        Response::redirect('/u/noposts');
+        $view = View::forge('member/posts/add');
+        $this->template->title = '用户晒单';
+        $this->template->layout->content = $view;
     }
 
     //晒单获得单个
