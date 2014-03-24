@@ -31,7 +31,7 @@
         <tr>
             <th>#ID</th>
             <th class="text-center">昵称</th>
-            <td class="text-center">积分</td>
+            <td class="text-center">财富</td>
             <th class="text-center">邮箱</th>
             <th class="text-center">注册时间</th>
             <th class="text-center">登陆时间</th>
@@ -44,7 +44,7 @@
         <tr>
             <td><?php echo $item->id; ?></td>
             <td class="text-center"><?php echo $item->nickname; ?></td>
-            <td class="text-center"><?php echo $item->points; ?></td>
+            <td class="text-center"><?php echo \Helper\Coins::showCoins($item->points); ?></td>
             <td class="text-center"><?php echo $item->email; ?></td>
             <td class="text-center"><?php echo !empty($item->created_at) ? date('Y-m-d H:i:s', $item->created_at) : ''; ?></td>
             <td class="text-center"><?php echo !empty($item->last_login) ? date('Y-m-d H:i:s', $item->last_login) : ''; ?></td>

@@ -7,7 +7,7 @@ class Controller_V2admin_Moneylog extends Controller_V2admin{
         
         $count = Model_Member_Moneylog::count(['where'=>$where]);
         $page = new \Helper\Page();
-        $url = Uri::create('/admin/moneylog/buy');
+        $url = Uri::create('/v2admin/moneylog/buy');
         $config = $page->setConfig($url, $count, 'page');
         $pagination = Pagination::forge('alogspage', $config);
         $logs = Model_Member_Moneylog::find('all', [
@@ -32,7 +32,7 @@ class Controller_V2admin_Moneylog extends Controller_V2admin{
         
         $count = Model_Member_Moneylog::count(['where'=>$where]);
         $page = new \Helper\Page();
-        $url = Uri::create('/admin/moneylog/recharge');
+        $url = Uri::create('/v2admin/moneylog/recharge');
         $config = $page->setConfig($url, $count, 'page');
         $pagination = Pagination::forge('alogspage', $config);
         $logs = Model_Member_Moneylog::find('all', [

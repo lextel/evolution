@@ -9,7 +9,7 @@
     <input type="text" class="form-control" name="nickname" value="<?php echo Input::get('nickname'); ?>" placeholder="结束时间">
   </div>
   <button type="submit" class="btn btn-default">搜索</button>
-  <a href="<?php echo Uri::create('admin/members'); ?>" class="btn btn-default">重置</a>
+  <a href="<?php echo Uri::create('v2admin/members'); ?>" class="btn btn-default">重置</a>
 </form>
 
 <?php if ($logs): ?>
@@ -20,8 +20,8 @@
             <th>用户ID</th>
             <th>用户邮箱</th>
             <th>充值时间</th>
-            <th>充值渠道</th>
             <th>充值额度</th>
+            <th>充值渠道</th>
             <th>操作</th>
         </tr>
     </thead>
@@ -32,7 +32,7 @@
             <td><?php echo $item->member_id; ?></td>
             <td><?php echo $getuser($item->member_id); ?></td>  
             <td class="col-sm-1"><?php echo date('Y-m-d H:i:s', $item->created_at); ?></td>
-            <td class="col-sm-1"><?php echo $item->sum; ?></td>
+            <td class="col-sm-1"><?php echo \Helper\Coins::showCoins($item->sum, true); ?></td>
             <td class="col-sm-1"><?php echo $item->source; ?></td>
             <td><?php echo '详情'; ?></td>
         </tr>

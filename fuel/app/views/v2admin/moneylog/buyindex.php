@@ -1,5 +1,3 @@
-
-
 <?php if ($logs): ?>
 <table class="table table-striped">
     <thead>
@@ -27,7 +25,7 @@
             <td><?php echo $getStatus($item); ?></td>            
             <td class="col-sm-1"><?php echo date('Y-m-d H:i:s', $item->created_at); ?></td>
             <td class="col-sm-1"><?php echo $item->total; ?></td>
-            <td class="col-sm-1"><?php echo $item->sum; ?></td>
+            <td class="col-sm-1"><?php echo \Helper\Coins::showCoins($item->sum, true); ?></td>
             <td><?php echo '详情'; ?></td>
         </tr>
     <?php endforeach; ?>
