@@ -2,9 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/addimage.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/alldeletebtnhoverskin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/alldeletebtnupskin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/background.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/button.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/copy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/deletedisable.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/deleteenable.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/imglabel.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/listbackground.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/localimage.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/music.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/rotateleftdisable.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/rotateleftenable.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/rotaterightdisable.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/rotaterightenable.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/lang/en/images/upload.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/third-party/video-js/font/vjs.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/third-party/video-js/font/vjs.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/third-party/video-js/font/vjs.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/views/member/posts/add.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/ueditor/third-party/video-js/font/vjs.svg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/model/item.php" afterPath="$PROJECT_DIR$/fuel/app/classes/model/item.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/items.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/items.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/memberlayout.php" afterPath="$PROJECT_DIR$/fuel/app/views/memberlayout.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/mynoposts.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/mynoposts.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/myorders.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/myorders.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/mywins.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/mywins.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/model/phase.php" afterPath="$PROJECT_DIR$/fuel/app/classes/model/phase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/member/posts.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/member/posts.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/config/routes.php" afterPath="$PROJECT_DIR$/fuel/app/config/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/template.php" afterPath="$PROJECT_DIR$/fuel/app/views/template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/config/upload.php" afterPath="$PROJECT_DIR$/fuel/app/config/upload.php" />
     </list>
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,9 +88,9 @@
       <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1193" column="24" selection-start="20491" selection-end="20491" vertical-scroll-proportion="0.35696203" vertical-offset="22385" max-vertical-offset="36423">
+            <state line="1914" column="1" selection-start="34154" selection-end="34154" vertical-scroll-proportion="6.0265822" vertical-offset="31605" max-vertical-offset="36499">
               <folding>
-                <marker date="1395629536460" expanded="true" signature="542:566" placeholder="{...}" />
+                <marker date="1395630746851" expanded="true" signature="542:566" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -86,7 +117,16 @@
       <file leaf-file-name="template.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="140" column="91" selection-start="6315" selection-end="6315" vertical-scroll-proportion="0.0" vertical-offset="2257" max-vertical-offset="3800">
+            <state line="139" column="17" selection-start="6281" selection-end="6281" vertical-scroll-proportion="0.0" vertical-offset="2713" max-vertical-offset="3933">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="memberlayout.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/memberlayout.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="17" selection-start="1945" selection-end="1945" vertical-scroll-proportion="0.0" vertical-offset="401" max-vertical-offset="1216">
               <folding />
             </state>
           </provider>
@@ -128,7 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/fuel/app/views/memberlayout.php" />
         <option value="$PROJECT_DIR$/public/assets/js/common.js" />
         <option value="$PROJECT_DIR$/public/html/login.html" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/posts/edit.php" />
@@ -143,6 +182,7 @@
         <option value="$PROJECT_DIR$/public/assets/css/member/jquery-ui.css" />
         <option value="$PROJECT_DIR$/public/html/invite.html" />
         <option value="$PROJECT_DIR$/fuel/app/views/template.php" />
+        <option value="$PROJECT_DIR$/fuel/app/views/memberlayout.php" />
         <option value="$PROJECT_DIR$/public/assets/css/common.css" />
       </list>
     </option>
@@ -677,13 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/memberlayout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="84" selection-start="1377" selection-end="1377" vertical-scroll-proportion="0.6294479" vertical-offset="0" max-vertical-offset="950">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/html/brokerage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="67" selection-start="366" selection-end="366" vertical-scroll-proportion="0.0" vertical-offset="152" max-vertical-offset="1615">
@@ -693,16 +726,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="91" selection-start="6315" selection-end="6315" vertical-scroll-proportion="0.0" vertical-offset="2257" max-vertical-offset="3800">
+        <state line="139" column="17" selection-start="6281" selection-end="6281" vertical-scroll-proportion="0.0" vertical-offset="2713" max-vertical-offset="3933">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/memberlayout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="17" selection-start="1945" selection-end="1945" vertical-scroll-proportion="0.0" vertical-offset="401" max-vertical-offset="1216">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1193" column="24" selection-start="20491" selection-end="20491" vertical-scroll-proportion="0.35696203" vertical-offset="22385" max-vertical-offset="36423">
+        <state line="1914" column="1" selection-start="34154" selection-end="34154" vertical-scroll-proportion="6.0265822" vertical-offset="31605" max-vertical-offset="36499">
           <folding>
-            <marker date="1395629536460" expanded="true" signature="542:566" placeholder="{...}" />
+            <marker date="1395630746851" expanded="true" signature="542:566" placeholder="{...}" />
           </folding>
         </state>
       </provider>
