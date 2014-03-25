@@ -9,7 +9,7 @@
                 <div class="signature2"> 个性签名：<?php echo $current_user->bio;?></div>
             </li>
             <li>
-                <span class="price fl">财富： <b><?php echo \Helper\Coins::showCoins($current_user->points);?></b> </span>
+                <span class="wealth fl">财富：<?php echo \Helper\Coins::showCoins($current_user->points);?></span>
                 <?php echo Html::anchor('u/getrecharge', '充值', ['class'=>'btn-topUp btn-y']);?>
             </li>
         </ul>
