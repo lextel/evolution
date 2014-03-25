@@ -33,10 +33,10 @@ $(function(){
             </li>
             <li>
                 <label>*邮箱：</label>
-                <span class="email">mhtang@163.com</span>
+                <span class="email"><?php echo $member->email;?></span>
                 <?php if (!Model_Member_Email::check_emailok($member->email)) {  ?>
                 <span class="red">（未验证）</span>
-                <a href="javascript:;" class="btn-sm btn-state fl">去验证</a>
+                <a href="javascript:;" class="btn-sm btn-state fl btn-checkemail">去验证</a>
                 <?php }else{ ?>
                  <span class="green">（已验证）</span>
                 <?php }?>
