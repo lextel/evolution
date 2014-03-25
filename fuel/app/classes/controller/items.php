@@ -35,6 +35,7 @@ class Controller_Items extends Controller_Frontend {
         $view = ViewModel::forge('items/index');
         $view->set('items', $items);
         $view->set('cateId', $cateId);
+        $view->set('brandId', $this->param('brand_id'));
         $view->set('pagination', $pagination);
         $this->template->title = $title;
         $this->template->layout = $view;
