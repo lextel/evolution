@@ -6,7 +6,8 @@
                 <!--<button class="edit fl">编辑</button>-->
             </li>
             <li>
-                <div class="signature2"> 个性签名：<?php echo $current_user->bio;?></div>
+                <div class="signature2 fl"> 个性签名：<?php echo $current_user->bio;?></div>
+                <a href="" class="btn-topUp btn-state fl">编辑</a>
             </li>
             <li>
                 <span class="wealth fl">财富：<?php echo \Helper\Coins::showCoins($current_user->points);?></span>
