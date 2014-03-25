@@ -1,6 +1,5 @@
 <?php echo Asset::css('member/jquery-ui.css'); ?>
 <?php echo Asset::js(['jquery-ui.js', 'member/index.js']); ?>
-
     <div class="content-inner">
         <!--获得的商品开始-->
         <div class="lead">获得的商品</div>
@@ -51,10 +50,11 @@
                         <?php echo $getShippingStatus($status);?>
                         <?php if ($status < 100) { ?>
                            <div class="toolbox">
-                           <a class="tooltip" href="javascript:void(0)" style="padding: 2px 2px;">查看快递</a>
+                           <a class="tooltip" href="javascript:void(0)">查看快递</a>
                         
                            <div class="num-list">
                                 <div class="icon-arrow"></div>
+                                <div class="item">
                                 <table>
                                     <tbody>
                                     <?php foreach($getShippingData($win->id) as $row) { ?>
@@ -64,6 +64,8 @@
                                       <?php } ?>
                                       </tbody>                                 
                                 </table>
+                                </div>
+                                <button class="icon-close"></button>
                             </div>
                             </div>
                         <?php }?>                        
