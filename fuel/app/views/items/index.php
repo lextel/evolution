@@ -50,7 +50,7 @@
                     $style = ($i == $bannerIdx) ? '' : 'display:none';
                 ?>
                 <a style="<?php echo $style;?>" href="<?php echo Uri::create($ad->link); ?>" title="<?php echo $ad->title?>" alt="<?php echo $ad->title?>">
-                    <img src="<?php echo \Helper\Image::showImage($ad->image, '450x350');?>"/>
+                    <img src="<?php echo \Helper\Image::showImage($ad->image);?>"/>
                 </a>
                 <?php
                     $i++;

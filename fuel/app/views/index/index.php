@@ -6,7 +6,7 @@
             <?php foreach($ads() as $ad) { ?>
             <li>
                 <a href="<?php echo Uri::create($ad->link); ?>" title="<?php echo $ad->title?>" target="_blank">
-                    <img src="<?php echo \Helper\Image::showImage($ad->image, '980x350');?>"/>
+                    <img src="<?php echo \Helper\Image::showImage($ad->image);?>"/>
                 </a>
             </li>
             <?php } ?>
