@@ -4,7 +4,7 @@
     <?php echo Asset::js('Validform_v5.3.2_min.js');?>
     <div class="register w">
         <div class="title">
-            忘记密码？不用急，您可以通过一下方式找回密码。
+            忘记密码？不用急，您可以通过以下方式找回密码。
         </div>
          <?php echo Session::get_flash('error');?>
          <?php echo Form::open(['action'=>'forgotemail','class'=>'register-form demoform']);?>
