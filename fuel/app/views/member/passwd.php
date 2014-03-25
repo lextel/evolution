@@ -1,5 +1,5 @@
 <?php echo Asset::css(['member/validfrom_style.css']); ?>
-<?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
+    <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
 
 <div class="set-wrap">
         <div class="lead">个人设置</div>
@@ -24,17 +24,21 @@
             </li>
             <li>
                 <label>旧密码：</label>
+
+                <input id="oldpassword" type="password" value="" class="txt" name="oldpassword" class="inputxt" datatype="*6-20" nullmsg="请输入旧密码" errormsg="请输入正确的旧密码" sucmsg=" "/>
+
                 <input type="password"  class="txt" name="oldpassword" class="inputxt" datatype="*6-20" errorms="密码格式不正确" nullmsg="请输入6-18位密码">
                 <span class="Validform_checktip"></span>
             </li>
             <li>
                 <label>新密码：</label>
+                <input type="password" value="" class="txt" name="newpassword" class="inputxt" datatype="*6-20" nullmsg="请输入新密码" errormsg="请输入6-20位新密码" sucmsg=" "/>
                 <input type="password"  class="txt" name="newpassword" class="inputxt" datatype="*6-20" errorms="密码格式不正确" nullmsg="请输入6-18位密码">
                 <span class="Validform_checktip"></span>
             </li>
             <li>
                 <label>确认密码：</label>
-               <input type="password" value="" class="txt" name="newpassword2" class="inputxt" datatype="*6-20" recheck="newpassword">
+               <input type="password" value="" class="txt" name="newpassword2" class="inputxt"  datatype="*" recheck="newpassword" nullmsg="请输入确认密码" errormsg="两次密码输入不一致" sucmsg=" ">
                 <span class="Validform_checktip"></span>
             </li>
             <li>
@@ -45,8 +49,28 @@
 </div>
 <script type="text/javascript">
 $(function(){
-        $(".validForm").Validform({
-        tiptype:4
-        });
-});
-</script>
+
+	$(".registerform").Validform({
+		tiptype:4,
+        datatype:{
+            "oldpassword": $(this).keyup(function (gets,obj,curform,regxp){
+                var oldpassword = $("#oldpassword").val();
+                //alert(1);
+                //var reg=/^[\w.]{6,20}$/;
+                //if(reg.test(oldpassword)|| reg.test(oldpassword)){
+                if(oldpassword.length<6|| oldpassword.length>20){
+                    //alert(1);
+                    //return false;
+                }
+                //return true;
+            })
+            
+            //function(gets,obj,curform,regxp){
+            //参数gets是获取到的表单元素值，obj为当前表单元素，curform为当前验证的表单，regxp为内置的一些正则表达式的引用;           
+ 
+            //}
+        }
+	});
+
+
+})

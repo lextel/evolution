@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,6 +33,17 @@
             </div>
             <ul class="loginBar">
                 <li>
+                   <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'name'=>'username',
+                      'datatype'=>'e','nullmsg'=>'请输入注册邮箱','sucmsg'=>' ','errormsg'=>'请输入注册邮箱','placeholder'=>'输入邮箱帐号')); ?>
+                   <?php if (Session::get_flash('signError', null)) { ?>
+                   <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('signError');?></span>
+                   <?php }else{?>
+                   <?php } ?>
+                   <s class="icon-user"></s>
+                   <span class="Validform_checktip"></span>
+                </li>
+                <li><?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'输入密码',
+                    'name'=>'userpassword','datatype'=>'*','sucmsg'=>' ','nullmsg'=>'请输入密码' )); ?>
                     <div class="item">
                         <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'name'=>'username',
                          'datatype'=>'e','errorms'=>'邮箱帐号格式不正确！','nullmsg'=>'请输入邮箱帐号！','placeholder'=>'输入邮箱帐号')); ?>

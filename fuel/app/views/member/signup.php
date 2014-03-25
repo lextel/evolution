@@ -15,22 +15,21 @@
             </div>
         </div>
 
-        <?php echo Form::open(array("class"=>"validForm")); ?>
+        <?php echo Form::open(array("class"=>"demoform")); ?>
             <ul class="registerForm">
                 <li>
                    <?php echo Form::label('邮箱'); ?>
                    <?php echo Form::input('username', Session::get_flash('username', ''), array('class' => 'txt','type'=>"text",'datatype'=>'e',
-                         'name'=>'username','errorms'=>'邮箱格式不正确','nullmsg'=>'请输入邮箱帐号')); ?>
+                         'name'=>'username','errorms'=>'邮箱帐号格式不正确','nullmsg'=>'请输入邮箱帐号','sucmsg'=>'　')); ?>
                    <?php if (Session::get_flash('usernameError', null)) { ?>
-                   <span class="Validform_checktip"><?php echo Session::get_flash('usernameError');?></span>
+                   <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('usernameError');?></span>
                    <?php }else{?>
                    <?php } ?>
                 </li>
                 <li>
                    <?php echo Form::label('密码'); ?>
                    <?php echo Form::input('password', '', ['type'=>"password",'class' => 'txt',
-                    'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'密码格式不正确','nullmsg'=>'请输入6-18位密码']); ?>
-                    <span class="Validform_checktip"></span>
+                    'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'请输入6-18位密码','nullmsg'=>'请输入6-18位密码','sucmsg'=>'　']); ?>
                 </li>
                 <?php
                     Config::load('common');
@@ -38,7 +37,8 @@
                 ?>
                 <li>
                    <?php echo Form::label('邀请码'); ?>
-                   <input type="text" value="" name="invitcode" class="txt">
+                   <input id="xp" type="text" value="" id="invitcode" name="invitcode" class="txt" datatype="s" ajaxurl="<?php echo Uri::create('/checkInvitcode');?>" sucmsg="邀请码可用！" errormsg="邀请码不正确或已经使用！" ignore="ignore"/> 
+                   <span class="Validform_checktip">可选填</span>
                 </li>
                 <?php endif;?>
                 <li>
@@ -56,8 +56,8 @@
     </div>
 <script type="text/javascript">
 $(function(){
-        $(".validForm").Validform({
-        tiptype:4
+        $(".demoform").Validform({
+            tiptype:4
         });
 });  
 </script>
