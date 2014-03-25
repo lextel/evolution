@@ -41,6 +41,7 @@
         <!--修改地址-->
         <div class="editAddress">
             <div class="row"><button class="btn btn-red btn-sx" id="editAddress">添加新地址</button></div>
+            <form >
             <ul class="edit-data">
                         <li>
                             <label>*所在地区：</label>
@@ -68,5 +69,14 @@
                         </li>
                         <button class="icon-close"></button>
             </ul>
+            </form>
         </div>
 </div>
+
+<script type="text/javascript">
+$(function(){
+  $(".registerform").Validform({
+    tiptype:4,
+  });
+})
+</script>
