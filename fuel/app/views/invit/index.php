@@ -14,7 +14,7 @@
                     <dl><img src="assets/images/pic_02.png"></dl>
                     <dl>
                         <h3>二重礼 7%的元宝提成</h3>
-                        经您邀请的所有好友，成功参与乐拍<br>后，您都可以获得7%的元宝奖<br>赏，并且永久有效。
+                        经您邀请的所有好友，成功参与乐淘<br>后，您都可以获得7%的元宝奖<br>赏，并且永久有效。
                     </dl>
                 </div>
             </div>
@@ -113,7 +113,7 @@
             <h4>温馨提示</h4>
             <div class="rig_con">
                 <ul>
-                    <li><h5>1、在哪里可以看到我的佣金？</h5><p>在【<a href="<?php echo Uri::create('/u'); ?>" target="_blank">用户中心</a>】的【<a href="<?php echo Uri::create('u/brokerage'); ?>" target="_blank">佣金明细</a>】里可看到您的每次返佣记录。佣金满100即会自动转成元宝，立即可以参与乐拍。</p></li>
+                    <li><h5>1、在哪里可以看到我的佣金？</h5><p>在【<a href="<?php echo Uri::create('/u'); ?>" target="_blank">用户中心</a>】的【<a href="<?php echo Uri::create('u/brokerage'); ?>" target="_blank">佣金明细</a>】里可看到您的每次返佣记录。佣金满100即会自动转成元宝，立即可以参与乐淘。</p></li>
                     <li><h5>2、哪些情况会导致佣金失效？</h5><p>借助网站及其他平台，恶意获取佣金，一经查实，扣除一切佣金，清除账户且封号。</p></li>
                     <li><h5>3、自己邀请自己也能获得佣金吗？</h5><p>不可以。我们会人工核查，对于查实的作弊行为，扣除一切佣金，取消邀请佣金的资格并清除您的账户。</p></li>
                     <li class="none"><h5>4、如何知道我有没有邀请成功</h5><p>您可以在【<a href="<?php echo Uri::create('/u'); ?>" target="_blank">用户中心</a>】的【<a href="<?php echo Uri::create('u/invit'); ?>" target="_blank">邀请好友</a>】里面查看。</p></li>

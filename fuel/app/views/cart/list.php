@@ -48,7 +48,7 @@
                             <td><span class="price"><b><?php echo \Helper\Coins::showCoins($info->phase->cost, true); ?></b></span></td>
                             <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point'), true); ?></b></span></td>
                             <td>
-                                <div class="btn-menu">
+                                <div class="btn-menu inner-b-m">
                                     <a class="add btn-jian" href="javascript:void(0);">-</a>
                                     <input type="text" value="<?php echo $item->get_qty(); ?>" class="qty" name="qty" rowId="<?php echo $item->get_rowid(); ?>" remain="<?php echo $info->phase->remain?>">
                                     <a class="add btn-jia" href="javascript:void(0);">+</a>
@@ -72,13 +72,12 @@
                     </table>
                     <div class="cart-footer">
                         <label class="fl"><input type="checkbox" action="selectAll"/>全选</label>
-                        <button class="btn btn-sx fl" action="batchDelete">批量删除</button>
                         <div class="total fr">总元宝：<b id="total"><?php echo \Helper\Coins::showCoins($subTotal * Config::get('point'), true); ?></b></div>
                     </div>
                 </div>
             </form>
             <div class="btn-group tr">
-                <a href="<?php echo Uri::base(); ?>" class="btn btn-y btn-md doCart">< 返回首页</a>
+                <a href="<?php echo Uri::base(); ?>" class="btn btn-y btn-md doCart"><继续乐淘</a>
                 <a href="<?php echo Uri::create('cart/pay'); ?>" class="btn btn-red btn-md" id="doOrder">提交订单</a>
             </div>
         </div>
@@ -110,7 +109,7 @@
         <!--登陆框-->
         <!--今日热门开始-->
         <div class="unveiled w">
-            <div class="caption">以下商品即将揭晓,快去乐拍吧~</div>
+            <div class="caption">以下商品即将揭晓,快去乐淘吧~</div>
             <ul>
                 <?php
                 $remains = $getRemains();

@@ -37,14 +37,14 @@
                             </div>
                         </div>
                         <div class="p-info">
-                            <div class="number">本期乐拍：<b><?php echo $win->code_count; ?></b>元宝</div>
+                            <div class="number">本期乐淘：<b><?php echo $win->code_count; ?></b>元宝</div>
                             <div class="datetime">揭晓时间：<?php echo date('Y-m-d H:i:s', $win->opentime);?></div>
                         </div>
                     </div>
                 </div>
                 <div class="item-footer">
                     <div class="lucky-code fl">
-                        <b>幸运乐拍码:</b><s class="r"><?php echo $win->code?></s>
+                        <b>幸运乐淘码:</b><s class="r"><?php echo $win->code?></s>
                     </div>
                     <?php echo Html::anchor('w/'.$win->id, '查看详情', ['class'=>'btn btn-red latest-btn fr']); ?>
                 </div>
@@ -112,9 +112,9 @@
     <!--左边内容右边-->
     <!--右边内容开始-->
     <div class="right-box fr">
-        <!--大家正在乐拍内容开始-->
+        <!--大家正在乐淘内容开始-->
         <div class="buying-box box2">
-            <div class="title"><h3>大家正在乐拍</h3></div>
+            <div class="title"><h3>大家正在乐淘</h3></div>
             <div class="buyListdiv" >
                 <ul class="buyList">
                 <?php $orders1 = $orders();
@@ -126,7 +126,7 @@
                             <?php echo Html::anchor('m/'.$order->phase_id, Html::img('image/80x80/'.$phaseByOrders[$order->phase_id]->image), ['rel' => 'nofollow']);?>
                         </div>
                         <div class="info-side">
-                            <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $members[$order->member_id]->nickname, ['class'=>'bule']);?> 刚刚乐拍了</div>
+                            <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $members[$order->member_id]->nickname, ['class'=>'bule']);?> 刚刚乐淘了</div>
                             <h4 class="title-br"><?php echo Html::anchor('m/'.$order->phase_id, $phaseByOrders[$order->phase_id]->title);?></h4>
                         </div>
                     </li>
@@ -134,7 +134,7 @@
             </ul>
             </div>
         </div>
-        <!--大家正在乐拍内容结束-->
+        <!--大家正在乐淘内容结束-->
         <!--人气排行内容开始-->
         <div class="sort-list">
             <div class="title"><h3>人气排行</h3></div>

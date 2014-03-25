@@ -9,7 +9,7 @@
                     <th width="60%">商品名称</th>
                     <th>购买时间</th>
                     <th>数量</th>
-                    <th>乐拍码</th>
+                    <th>乐淘码</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,11 +48,11 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <a class="btn btn-red btn-atc" href="<?php echo Uri::base(); ?>">继续购物</a>
+            <a class="btn btn-red btn-atc" href="<?php echo Uri::base(); ?>">继续乐淘</a>
         </div>
         <!--今日热门开始-->
         <div class="unveiled w">
-            <h3>以下商品即将揭晓,快去乐拍吧~</h3>
+            <h3>以下商品即将揭晓,快去乐淘吧~</h3>
             <ul>
                 <?php
                 $remains = $getRemains();
