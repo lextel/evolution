@@ -45,7 +45,18 @@
             <div class="form-group">
               <?php echo Form::label('货物详情:', 'title', array('class'=>'control-label col-sm-1')); ?>
               <div class="col-sm-8">
-                <p class="form-control-static"><?php echo $ship->exdesc ? $ship->exdesc : '无'; ?></p>
+                <ul class="form-control-static">
+                    <?php 
+                        if($ship->exdesc){
+                            $desc = json_decode(html_entity_decode($ship->exdesc),true);
+                            foreach($desc as $data) {
+                                echo '<li>'.$data['context']. '<span style="margin-left: 10px">'.$data['time']. '</span></li>';
+                            }
+                        }else{
+                            echo '<li>还没有物流信息</li>';
+                        }
+                    ?>
+                 </ul>
               </div>
             </div>
             <div class="form-group">
