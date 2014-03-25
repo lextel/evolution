@@ -592,7 +592,7 @@
     height: 31px;
     border: 1px solid #d2d2d2;
 }
-.select input,.select button{
+.select button{
     height: 31px;
     border: 1px solid #d2d2d2;
     display: inline-block;
@@ -600,7 +600,10 @@
 }
 .select input{
     width: 300px;
-    text-indent: 10px;
+    display: inline-block;
+    border: 1px solid #d2d2d2;
+    height: 18px;
+    padding: 6px 0 6px 10px;
 }
 .select button{
     width: 80px;
