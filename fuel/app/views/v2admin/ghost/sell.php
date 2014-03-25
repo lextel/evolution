@@ -23,7 +23,7 @@
             <th>图片</th>
             <th width="55%">标题</th>
             <th>已参加/总人次</th>
-            <th>操作(ID为空时随机马甲乐拍)</th>
+            <th>操作(ID为空时随机马甲乐淘)</th>
         </tr>
     </thead>
     <tbody>
@@ -36,7 +36,7 @@
             <td>
                 <input class="form-control orderNum<?php echo $item->id?>" placeholder="次数" style="width: 100px;float: left; margin-right: 15px">
                 <input class="form-control orderMid<?php echo $item->id?>" placeholder="马甲ID" style="width: 120px; float:left;">
-                <a class="btn btn-success pull-right ghostOrder" data-id="<?php echo $item->id?>" href="javascript:;">乐拍</a>
+                <a class="btn btn-success pull-right ghostOrder" data-id="<?php echo $item->id?>" href="javascript:;">乐淘</a>
                 <div class="clearfix"></div>
             </td>
         </tr>

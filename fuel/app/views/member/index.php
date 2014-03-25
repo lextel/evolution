@@ -9,7 +9,7 @@
                 <div class="signature2"> 个性签名：<?php echo $current_user->bio;?></div>
             </li>
             <li>
-                <span class="price fl">财富： <b><?php echo \Helper\Coins::showCoins($current_user->points);?></b> </span>
+                <span class="wealth fl">财富：<?php echo \Helper\Coins::showCoins($current_user->points);?></span>
                 <?php echo Html::anchor('u/getrecharge', '充值', ['class'=>'btn-topUp btn-y']);?>
             </li>
         </ul>
@@ -18,7 +18,7 @@
         <?php foreach($orders as $item) { ?>
         <?php $phase = $phases[$item->phase_id];?>
         <ul class="buy-menu">
-            <li>在<?php echo \Helper\Timer::friendlyDate($item->ordered_at);?>乐拍了 </li>
+            <li>在<?php echo \Helper\Timer::friendlyDate($item->ordered_at);?>乐淘了 </li>
             <li class="right-box">
                 <div class="img-box img-md fl">
                     <?php echo Html::anchor('/m/'.$item->phase_id, Html::img($getItemInfo($phase->item_id)->image));?>
@@ -45,9 +45,9 @@
                             <span class="fr">还需元宝</span>
                         </dd>
                     </dl>                    
-                    <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="btn-topUp btn-red">去乐拍</button>');?>
+                    <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="btn-topUp btn-red">去乐淘</button>');?>
                     <?php }else{ ?>
-                    <div class="number">幸运乐拍码：<b class="y"><?php echo $phase->code;?></b></div>
+                    <div class="number">幸运乐淘码：<b class="y"><?php echo $phase->code;?></b></div>
                     <div class="datetime">揭晓时间：<?php echo date("Y-m-d H:i:s", $phase->opentime);?></div>
                     <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="btn-topUp btn-red">去揭晓</button>');?>
                     <?php } ?>

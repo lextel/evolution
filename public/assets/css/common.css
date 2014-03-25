@@ -665,8 +665,10 @@ table td p.tl{
     margin-bottom: 10px;
 }
 .img-lg{
-    width: 230px;
-    height: 230px;
+    margin: 10px;
+    width: 210px;
+    height: 210px;
+    z-index: 100;
 }
 .img-md{
     width: 120px;
@@ -1201,8 +1203,14 @@ table td p.tl{
     width: 980px;
     overflow: hidden;
     margin: 10px auto 0;
-    padding: 35px 0;
     background: #ffffff;
+}
+.footerWrap{
+    width: 980px;
+    overflow: hidden;
+    margin: 10px auto 0;
+    background: #ffffff;
+    padding-top: 30px;
 }
 .help-bg{
     width: 100%;
@@ -1220,7 +1228,7 @@ table td p.tl{
     font-size: 13px;
 }
 .footer-help .dl01{
-    margin-left: 100px;
+    margin-left: 240px;
 }
 .footer-help .dl02{
     margin-left: 120px;
@@ -1259,15 +1267,11 @@ table td p.tl{
 }
 .bottom-nav li{
      float: left;
-     padding:0px 10px;
+     padding:0px 5px;
      text-align: center;
-     border-right: 1px solid #5b5b5b;
  }
 .bottom-nav li a{
     color: #5b5b5b;
-}
-.bottom-nav li.lastest{
-    border: none;
 }
 .footer p{
     line-height: 18px;
@@ -2008,4 +2012,22 @@ a.Myahoo {
 }
 .flink a{
     color: #5b5b5b;
+}
+/*面包屑*/
+.bread{
+    width: 980px;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+.bread ul li{
+    float: left;
+    margin-right: 5px;
+    color: #999999;
+    font-size: 14px;
+}
+.bread ul li em{
+    font-style: normal;
+    list-style: none;
 }

@@ -28,18 +28,20 @@ $(function(){
     </div>
         <form action="/u/nickname" class="addnickname" method="POST">
         <ul class="succeedForm">
-            <li><h2>恭喜你成为乐拍会员，输入您的昵称马上开始乐拍！</h2><li/>
+            <li><h2>恭喜你成为乐淘会员，输入您的昵称马上开始乐淘！</h2><li/>
             <li>
                 <label>昵称：</label>
-                <?php echo Form::input('nickname', Session::get_flash('nickname', ''), array('class' => 'txt','type'=>"text",'name'=>'nickname', 'datatype'=>'*3-8', 'errormsg'=>'请输入3-8个字符')); ?>
+                <?php echo Form::input('nickname', Session::get_flash('nickname', ''), array('class' => 'txt','type'=>"text",'name'=>'nickname', 'datatype'=>'*3-12
+
+                ', 'errormsg'=>'请输入3-8个字符')); ?>
                 <?php if (Session::get_flash('error', null)) { ?>
                    <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('error');?></span>
                 <?php }else{?>
-                   <span class="Validform_checktip">请输入3-8个字符</span>
+                   <span class="Validform_checktip">请输入3-12个字符</span>
                 <?php } ?>
             </li>
             <li>
-                <a href="javascript:void(0);" class="btn btn-red btn-md nickname">开始乐拍</a>
+                <a href="javascript:void(0);" class="btn btn-red btn-md nickname">开始乐淘</a>
             </li>
         </ul>
         </form>

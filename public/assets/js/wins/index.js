@@ -38,12 +38,12 @@ $(function() {
         html += '    </div>';       
         html += ' </div>';
         html += ' <div class="p-info">';
-        html += '   <div class="number">当前乐拍:<b>'+data.count+'</b>人次</div>';
+        html += '   <div class="number">当前乐淘:<b>'+data.count+'</b>人次</div>';
         html += '   <div class="datetime">揭晓时间：'+data.opentime+'</div>';
         html += ' </div>';
         html += '</div></div>';
         html += '<div class="item-footer"><div class="lucky-code fl">';
-        html += '幸运乐拍码:<b>'+data.code+'</b></div>';
+        html += '幸运乐淘码:<b>'+data.code+'</b></div>';
         html += '<a class="btn btn-red fr" href="'+data.link+'">查看详情</a></div>';
 
         $('#win' + id + ' .item-head').after(html);
