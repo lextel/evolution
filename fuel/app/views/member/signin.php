@@ -29,7 +29,7 @@
     <div class="loginForm fr">
         <form action="/signin" method="post" class="demoform">
             <div class="title">
-                <h3>乐拍用户登录</h3>
+                <h3>乐淘用户登录</h3>
             </div>
             <ul class="loginBar">
                 <li>
@@ -56,7 +56,7 @@
             </ul>
         </form>
         <div class="register-box">
-            <p>还不是乐拍用户？马上注册吧</p>
+            <p>还不是乐淘用户？马上注册吧</p>
             <?php echo Html::anchor('signup', '快速注册', array('class'=>'btn-r signup'));?>
         </div>
     </div>
@@ -68,13 +68,17 @@
         <div class="footer w">
             <ul class="bottom-nav">
                 <li><a href="http://www.llt.com/">首页</a></li>
-                <li><a href="http://www.llt.com/h/about">关于乐拍</a></li>
+                <li>|</li>
+                <li><a href="http://www.llt.com/h/about">关于乐淘</a></li>
+                <li>|</li>
                 <li><a href="http://www.llt.com/h/privacy">隐私声明</a></li>
+                <li>|</li>
                 <li><a href="javascript:void(0);">合作专区</a></li>
+                <li>|</li>
                 <li class="lastest"><a href="javascript:void(0);">联系我们</a></li>
             </ul>
             <p style="color:#5b5b5b">Copyright © 2014 粤ICP备14017463号-1 <a href="www.lltao.com">www.lltao.com</a> 版权所有</p>
-            <div class="log">乐拍，快乐抢拍你的人生！</div>
+            <div class="log">乐淘，快乐抢拍你的人生！</div>
         </div>
     </div>
 <!--底部结束-->

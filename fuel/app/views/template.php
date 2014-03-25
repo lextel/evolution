@@ -51,7 +51,7 @@
                      <?php echo Html::img($current_user->avatar);?>
                      <s class="top-name"><?php echo $current_user->nickname;?></s>
                      <ul class="head-set">
-                          <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐拍记录</a></li>
+                          <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐淘记录</a></li>
                           <li><a href="<?php echo Uri::create('/u/wins'); ?>">获得的商品</a></li>
                           <li><a href="<?php echo Uri::create('/u/getrecharge'); ?>">账户管理</a></li>
                           <li><a href="<?php echo Uri::create('/u/profile'); ?>">个人设置</a></li>
@@ -81,7 +81,7 @@
                           <ul class="dropdown-list" style="display:none"></ul>
                     </div>
                     <div class="all">
-                        <a href="/l">当前乐拍人数<b id="totalbuy"><?php echo $count;?></b></a>
+                        <a href="/l">当前乐淘人数<b id="totalbuy"><?php echo $count;?></b></a>
                     </div>
                 </div>
          </div>
@@ -131,14 +131,18 @@
         </div>
         <div class="footer w">
             <ul class="bottom-nav">
-                <li><a href="<?php echo Uri::base(); ?>">首页</a></li>
-                <li><?php echo Html::anchor('h/about', '关于乐拍'); ?></li>
-                <li><?php echo Html::anchor('h/privacy', '隐私声明'); ?></li>
+                <li><a href="http://www.llt.com/">首页</a></li>
+                <li>|</li>
+                <li><a href="http://www.llt.com/h/about">关于乐淘</a></li>
+                <li>|</li>
+                <li><a href="http://www.llt.com/h/privacy">隐私声明</a></li>
+                <li>|</li>
                 <li><a href="javascript:void(0);">合作专区</a></li>
+                <li>|</li>
                 <li class="lastest"><a href="javascript:void(0);">联系我们</a></li>
             </ul>
             <P style="color:#5b5b5b">Copyright © 2014 粤ICP备14017463号-1 <a href="www.lltao.com">www.lltao.com</a> 版权所有</P>
-            <div class="log">乐拍，快乐抢拍你的人生！</div>
+            <div class="log">乐淘，快乐抢拍你的人生！</div>
             <div class="flink" style="text-align:center">
                 <span>友情链接:</span>
                     <a href="http://www.xda.cn" target="_blank">XDA</a>

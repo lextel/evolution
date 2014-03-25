@@ -237,7 +237,7 @@ class Model_Order extends \Classes\Model
     }
 
     /**
-     * 最新乐拍记录
+     * 最新乐淘记录
      *
      * @param $phaseId integer 期数ID
      * @param $len     integer 调用条数
@@ -256,7 +256,7 @@ class Model_Order extends \Classes\Model
     }
 
     /**
-     * 我的乐拍记录
+     * 我的乐淘记录
      *
      * @param $memberId integer 会员ID
      * @param $phaseId  integer 期数ID

@@ -46,8 +46,8 @@ return [
     'shipping_key' => '',
 
     'helppages' => [
-              'about'=>['title'=>'关于乐拍', 'page'=>'help/about'],
-              'new'=>['title'=>'了解乐拍', 'page'=>'help/new'],
+              'about'=>['title'=>'关于乐淘', 'page'=>'help/about'],
+              'new'=>['title'=>'了解乐淘', 'page'=>'help/new'],
               'examine'=>['title'=>'商品验货与签收', 'page'=>'help/examine'],
               'shipping'=>['title'=>'配送费用', 'page'=>'help/expressCost'],
               'expressinfo'=>['title'=>'商品配送', 'page'=>'help/expressInfo'],
@@ -56,7 +56,7 @@ return [
               'privacy'=>['title'=>'隐私声明', 'page'=>'help/privacy'],
               'promise'=>['title'=>'正品承诺', 'page'=>'help/promise'],
               'question'=>['title'=>'常见问题', 'page'=>'help/question'],
-              'safeguard'=>['title'=>'乐拍保障体系', 'page'=>'help/safeguard'],
+              'safeguard'=>['title'=>'乐淘保障体系', 'page'=>'help/safeguard'],
               'serve'=>['title'=>'服务协议', 'page'=>'help/serve'],
               'suggest'=>['title'=>'投诉与建议', 'page'=>'help/suggest'],
     ]

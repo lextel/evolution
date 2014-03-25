@@ -46,7 +46,7 @@
                 </dl>
                 <?php if($item->status == \Helper\Item::IS_CHECK): ?>
                 <div class="btn-menu">
-                    <span class="left">我要乐拍</span>
+                    <span class="left">我要乐淘</span>
                     <a class="add btn-jian" href="javascript:void(0);">-</a>
                     <input type="text" value="1" name="qty" remain="<?php echo $item->remain; ?>"/>
                     <a class="add btn-jia" href="javascript:void(0);">+</a>
