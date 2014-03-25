@@ -2,13 +2,14 @@
     <div class="center-main fl">
         <ul class="center-info">
             <li>
-                <div class="winner fl"><h1>昵称：<a href="u"><?php echo $current_user->nickname;?></a></h1></div>
+                <div class="winner fl"><h1>昵称：<a href="<?php echo Uri::create('u');?>"><?php echo $current_user->nickname;?></a></h1></div>
+                <a href="<?php echo Uri::create('u/getprofile'); ?>" class="btn-topUp btn-state fl" style="margin-left:20px;">编辑</a>
             </li>
             <li>
-                <div class="signature2"> 个性签名：<?php echo $current_user->bio;?></div>
+                <div class="signature2 fl"> 个性签名：<?php echo $current_user->bio;?></div>
             </li>
             <li>
-                <span class="wealth fl">财富：<?php echo \Helper\Coins::showCoins($current_user->points);?></span>
+                <span class="wealth fl">余额：<?php echo \Helper\Coins::showCoins($current_user->points);?></span>
                 <?php echo Html::anchor('u/getrecharge', '充值', ['class'=>'btn-topUp btn-y']);?>
             </li>
         </ul>
@@ -46,11 +47,11 @@
                             <span class="fr">还需元宝</span>
                         </dd>
                     </dl>                    
-                    <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="btn-topUp btn-red">去乐淘</button>');?>
+                    <?php echo Html::anchor('m/'.$item->phase_id, '<button class="btn-topUp btn-red">去乐淘</button>');?>
                     <?php }else{ ?>
                     <div class="number">幸运乐淘码：<b class="y"><?php echo $phase->code;?></b></div>
                     <div class="datetime">揭晓时间：<?php echo date("Y-m-d H:i:s", $phase->opentime);?></div>
-                    <?php echo Html::anchor('/m/'.$item->phase_id, '<button class="btn-topUp btn-red">去揭晓</button>');?>
+                    <?php echo Html::anchor('m/'.$item->phase_id, '<button class="btn-topUp btn-red">去揭晓</button>');?>
                     <?php } ?>
                 </div>
             </li>

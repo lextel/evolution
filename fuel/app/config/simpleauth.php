@@ -116,11 +116,12 @@ return array(
 		 * Global allow by assigning true to a role (use with care!):
 		 *   'super' => true,
 		 */
-		 '管理员' => [],
-		 '组长' => [],
+		 '管理员' => true,
+		 '组长' => ['ghost'=>['update', 'delete', 'create', 'read'],
+		           ],
 		 '员工'  => [],
 		 '编辑' => [],
-		 '外部人员' => [],
+		 '外部人员' => false,
 	),
 
 	/**
