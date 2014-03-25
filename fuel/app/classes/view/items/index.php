@@ -111,5 +111,28 @@ class View_Items_index extends Viewmodel {
 
             return $phases;
         };
+
+        // 面包屑
+        $this->getBread = function($cateId, $brandId) {
+            $bread = '<li>首页</li><li><em>&gt;</em></li><li>所有商品</li>';
+
+            $ids = [0];
+            if(!empty($cateId)) {
+                $ids[] = $cateId;
+                if(!empty($brandId)) {
+                    $ids[] = $brandId;
+                }
+            }
+
+            $select = ['name'];
+            $cates = Model_Cate::find('all', ['select' => $select, 'where' => [['id', 'in', $ids]]]);
+
+            $sp = '<li><em>&gt;</em></li>';
+            foreach($cates as $cate) {
+                $bread .= $sp .'<li>' . $cate->name . '</li>';
+            }
+
+            return $bread;
+        };
     }
 }

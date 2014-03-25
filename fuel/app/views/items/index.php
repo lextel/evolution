@@ -1,5 +1,10 @@
 <?php echo Asset::css('product.css'); ?>
 <?php echo Asset::js(['Xslider.js', 'item/index.js']); ?>
+ <div class="bread">
+     <ul>
+     <?php echo $getBread($cateId, $brandId)?>
+     </ul>
+</div>
 <div class="l-wide">
         <ul class="product-nav fl">
             <div class="header">商品分类</div>
