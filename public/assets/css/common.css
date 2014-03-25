@@ -294,6 +294,15 @@ textarea:focus,input:focus{
     cursor: pointer;
     background: #dbdbdb;
 }
+.inner-b-m{
+    margin: 0;
+}
+.inner-b-m span{
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+}
+
 .btn-group{
     margin: 0 auto;
     text-align: center;
