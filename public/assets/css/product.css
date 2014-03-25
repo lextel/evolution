@@ -1154,8 +1154,12 @@
     height: 38px;
     overflow: hidden;
     width: 978px;
+    margin-bottom: 10px;
     border: 1px solid #dddddd;
     background: #FFFFFF;
+}
+.select-result h2 small{
+   font-weight: normal;
 }
 .select-result h2{
     text-indent: 2em;
