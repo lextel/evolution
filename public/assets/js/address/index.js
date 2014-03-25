@@ -71,6 +71,13 @@ $(function(){
         $("input[name='phone']").val('');
     });
 
+    $(".editAddress>.edit-data").Validform({
+       tiptype:3,
+       label:".label",
+       showAllError:true,
+       ajaxPost:true
+    });
+
     $(".setFlag").click(function(){
        var data = $(this).attr('data');
        var rate = $(this).attr('rate');
@@ -82,12 +89,4 @@ $(function(){
            setDefaultFlag(url);
        }
     });
-    /*
-   $(".editAddress>.edit-data").Validform({
-       tiptype:3,
-       label:".label",
-       showAllError:true,
-       ajaxPost:true
-    });
-*/
 });
