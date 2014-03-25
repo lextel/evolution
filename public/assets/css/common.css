@@ -294,6 +294,15 @@ textarea:focus,input:focus{
     cursor: pointer;
     background: #dbdbdb;
 }
+.inner-b-m{
+    margin: 0;
+}
+.inner-b-m span{
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+}
+
 .btn-group{
     margin: 0 auto;
     text-align: center;
@@ -1459,8 +1468,8 @@ table td p.tl{
     display:block;
 }
 .login2-body li .Validform_checktip{
-    line-height: 22px;
-    height: 22px;
+    line-height: 30px;
+    max-height:30px;
 }
 .register-bar{
     margin-top: 15px;
@@ -1644,23 +1653,37 @@ table td p.tl{
     position: relative;
 }
 .tooltip{
-    width: 60px;
+    width: 50px;
     height: 22px;
     color: #333;
+    padding-right: 20px;
     display: inline-block;
-    text-align: left;
+    text-align: center;
     color: #333333;
-    background:url("../images/icon-02.png") no-repeat -45px -300px;
+    background:url("../images/icon-02.png") no-repeat -37px -300px;
 }
 .num-list{
     position: absolute;
-    top:18px;
-    right: -10px;
+    top:30px;
+    right: -25px;
     z-index: 999;
     display: none;
+    width: 282px;
 }
+.num-list .item{
+    width: 100%;
+    overflow-y: auto;
+    max-height: 200px;
+}
+.num-list table{
+    background: #ECF0F5;
+}
+.num-list table tbody tr td{
+    text-align: left;
+}
+
 .num-list ul{
-    border: 1px solid #d2d2d2;
+
     background: #ECF0F5;
     padding: 10px;
     max-height: 200px;
@@ -1741,7 +1764,7 @@ table td p.tl{
     margin: 0;
     padding-left: 33px;
     border: 1px solid #d2d2d2;
-    background:url("") no-repeat 4px 4px;
+    background:url("../images/user-icon.png") no-repeat 4px 4px;
 }
 .inner-login dd input.password{
     width: 257px;
@@ -1750,7 +1773,7 @@ table td p.tl{
     margin: 0;
     padding-left: 33px;
     border: 1px solid #d2d2d2;
-    background:url("") no-repeat  4px 4px;
+    background:url("../images/user-pwd.png") no-repeat  4px 4px;
 }
 .inner-login dd .btn-rg{
     float: left;

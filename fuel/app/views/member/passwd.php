@@ -56,9 +56,9 @@ $(function(){
                 //if(reg.test(oldpassword)|| reg.test(oldpassword)){
                 if(oldpassword.length<6|| oldpassword.length>20){
                     //alert(1);
-                    //return false;
+                    return false;
                 }
-                //return true;
+                return true;
             })
             
             //function(gets,obj,curform,regxp){
