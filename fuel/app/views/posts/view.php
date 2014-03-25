@@ -1,4 +1,3 @@
-
 <?php echo Asset::css(['product.css', 'style.css']);?>
 <?php echo Asset::js(['jquery.cookie.js', 'post/postup.js']);?>
 <?php echo Asset::css('member/validfrom_style.css'); ?>
@@ -12,7 +11,9 @@
        <ul class="pane-hd">
            <li>
                <div class="head-img fl">
-                   <?php echo Html::anchor('u/'.$post->member_id, Html::img($getUser($post->member_id)->avatar));?>
+                  <a href="<?php echo Uri::create('u/'.$post->member_id); ?>">
+                    <img src="<?php echo \Helper\Image::showImage($getUser($post->member_id)->avatar, '60x60');?>"/>
+                  </a>
                </div>
                <div class="info fl">
                    <span class="username">幸运获奖者：<?php echo Html::anchor('u/'.$post->member_id, $getUser($post->member_id)->nickname, ['class'=>'blue']);?></span>
@@ -23,7 +24,9 @@
            </li>
            <li>
                <div class="img-box img-sm fl">
-                   <?php echo Html::anchor('m/'.$post->phase_id, Html::img($getItem($post->item_id)->image));?>
+                    <a href="<?php echo Uri::create('m/'.$post->phase_id); ?>" rel="nofollow">
+                        <img src="<?php echo \Helper\Image::showImage($getItem($post->item_id)->image, '80x80');?>"/>
+                    </a>
                </div>
                <div class="info fl">
                    <span class="title-sm">
@@ -41,7 +44,7 @@
        <p><?php echo $post->desc; ?>
        </p>
        <?php foreach(unserialize($post->images) as $img) { ?>
-           <?php echo Html::img($img); ?>
+           <img src="<?php echo \Helper\Image::showImage($img);?>"/>
        <?php } ?>
        </div>
        <div class="btn-group sns-bar">
@@ -60,7 +63,9 @@
             <?php foreach($lwins as $lwin){?>
             <li>
                 <div class="head-img fl">
-                    <?php echo Html::anchor('u/'.$lwin->member_id, Html::img($members[$lwin->member_id]->avatar));?>
+                  <a href="<?php echo Uri::create('u/'.$lwin->member_id); ?>">
+                    <img src="<?php echo \Helper\Image::showImage($members[$lwin->member_id]->avatar, '60x60');?>"/>
+                  </a>
                 </div>
                 <div class="info-side">
                         <div class="username"><?php echo Html::anchor('u/'.$lwin->member_id, $members[$lwin->member_id]->nickname, ['class'=>'blue']);?></div>
@@ -95,7 +100,9 @@
                     <a href="<?php echo Uri::create('p/'.$npost->id)?>">
                     <?php foreach(unserialize($npost->images) as $v=>$img1) { ?>
                     <?php if ($v < 3) { ?>
-                    <dd><?php echo Html::img($img1); ?></dd>
+                    <dd>
+                        <img src="<?php echo \Helper\Image::showImage($img1, '70x70');?>"/>
+                    </dd>
                     <?php } ?>
                     <?php } ?>
                     </a>

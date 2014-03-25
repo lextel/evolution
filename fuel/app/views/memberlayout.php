@@ -17,7 +17,9 @@
     <!--获得的商品开始-->
     <div class="left-sidebar fl">
         <div class="img-box">
-            <?php echo Html::anchor('u', Html::img($current_user->avatar));?></a>
+            <a href="<?php echo Uri::create('u/getavatar'); ?>">
+              <img src="<?php echo \Helper\Image::showImage($current_user->avatar, '160x160');?>"/>
+            </a>
         </div>
         <ul class="left-nav">
             <li><?php echo Html::anchor('u', '我的主页<s></s>', ['style'=>'color: #af2812;']);?></li>

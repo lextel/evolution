@@ -35,7 +35,7 @@
                     <?php 
                         $images = unserialize($item->images);
                         foreach($images as $image) {
-                            echo '<img src="'.Uri::create('/image/80x80/' . $image).'" style="margin: 10px; border: 1px #ccc solid; padding:3px">';
+                            echo '<img src="'.\Helper\Image::showImage($image, '80x80').'" style="margin: 10px; border: 1px #ccc solid; padding:3px">';
                         }
                     ?>
                 </p>

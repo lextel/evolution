@@ -2,8 +2,7 @@
     <div class="center-main fl">
         <ul class="center-info">
             <li>
-                <div class="winner fl"><h1>昵称：<a href="/u"><?php echo $current_user->nickname;?></a></h1></div>
-                <!--<button class="edit fl">编辑</button>-->
+                <div class="winner fl"><h1>昵称：<a href="u"><?php echo $current_user->nickname;?></a></h1></div>
             </li>
             <li>
                 <div class="signature2"> 个性签名：<?php echo $current_user->bio;?></div>
@@ -21,7 +20,9 @@
             <li>在<?php echo \Helper\Timer::friendlyDate($item->ordered_at);?>乐淘了 </li>
             <li class="right-box">
                 <div class="img-box img-md fl">
-                    <?php echo Html::anchor('/m/'.$item->phase_id, Html::img($getItemInfo($phase->item_id)->image));?>
+                    <a href="<?php echo Uri::create('m/'.$item->phase_id); ?>" rel="nofollow">
+                        <img src="<?php echo \Helper\Image::showImage($getItemInfo($phase->item_id)->image, '200x200');?>"/>
+                    </a>
                     <?php if ($phase->code != '') { ?>
                              <span class="icon-jx">已揭晓</span>
                             <?php } ?>
