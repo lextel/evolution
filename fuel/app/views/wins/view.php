@@ -81,7 +81,7 @@
                         <tr>
                             <th>乐拍时间</th>
                             <th>会员帐号</th>
-                            <th>元宝数量</th>
+                            <th>购买数量</th>
                             <th>商品名称</th>
                         </tr>
                         </thead>
@@ -100,6 +100,7 @@
 
                                 foreach($results as $result):
                                     $times = explode('.', $result['ordered_at']);
+                                    if (isset($phases[$result['phase_id']])):
                             ?>
                             <tr>
                                 <td><s><?php echo date('Y-m-d', $times[0]);?></s><?php echo date('H:i:s', $times[0]); ?>.<?php echo $times[1]; ?></td>
@@ -112,6 +113,7 @@
                                 </td>
                             </tr>
                             <?php 
+                                endif;
                                 endforeach;
                             endif;
                             ?>

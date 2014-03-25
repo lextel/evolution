@@ -27,7 +27,7 @@
         广告图
     </div>
     <div class="loginForm fr">
-        <form action="/signin" method="post" class="demoform">
+        <form action="/signin" method="post" class="validForm">
             <div class="title">
                 <h3>乐拍用户登录</h3>
             </div>
@@ -44,8 +44,24 @@
                 </li>
                 <li><?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'输入密码',
                     'name'=>'userpassword','datatype'=>'*','sucmsg'=>' ','nullmsg'=>'请输入密码' )); ?>
+                    <div class="item">
+                        <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'name'=>'username',
+                         'datatype'=>'e','errorms'=>'邮箱帐号格式不正确！','nullmsg'=>'请输入邮箱帐号！','placeholder'=>'输入邮箱帐号')); ?>
+                        <?php if (Session::get_flash('signError', null)) { ?>
+                        <span class="Validform_checktip"><?php echo Session::get_flash('signError');?></span>
+                        <?php }else{?>
+                        <?php } ?>
+                        <s class="icon-user"></s>
+                        <span class="Validform_checktip"></span>
+                   </div>
+                </li>
+                <li>
+                <div class="item">
+                <?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'输入账号密码',
+                    'name'=>'userpassword','datatype'=>'*6-18','errormsg'=>'密码为6~18位数！','nullmsg'=>'请输入密码!')); ?>
                    <s class="icon-password"></s>
                    <span class="Validform_checktip"></span>
+                 </div>
                 </li>
                 <li><?php echo Html::anchor('forgot', '忘记密码?', array('class' => 'fr'));?></li>
                 <li><button class="login btn-l" type="submit">登录</button></li>
@@ -80,10 +96,9 @@
     </div>
 <!--底部结束-->
 <script type="text/javascript">
-
 $(function(){
-        $(".demoform").Validform({
-        tiptype:4,
+        $(".validForm").Validform({
+            tiptype:4
         });
 });
 </script>

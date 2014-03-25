@@ -23,7 +23,7 @@
     overflow: hidden;
     line-height: 15px;
     font-size: 14px;
-    background: url("../images/bg.png") no-repeat -5px -183px;
+    background: url("../images/bg.png") no-repeat -3px -182px;
 }
 .state-heading .blue{
     color: #af2812;
@@ -62,7 +62,7 @@
 }
 .result-box .right-box {
     overflow: hidden;
-    width: 450px;
+    width: 438px;
 }
 
 .result-box .right-box h2 {
@@ -71,23 +71,24 @@
     font-size: 40px;
     text-indent: 10px;
     color: #AF2812;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #D2D2D2;
     margin: 10px 0;
 }
 
-.right-box result-info {
-    border: 1px solid #EEEEEE;
+.right-box .result-info {
+    border: 1px solid #D2D2D2;
     padding: 10px;
     overflow: hidden;
+
 }
 .result-info .row{
     overflow: hidden;
     margin-bottom: 10px;
 }
 .win-number {
-    width: 426px;
-    height: 147px;
-    border: 1px solid #EEEEEE;
+    overflow: hidden;
+    height: 124px;
+    border: 1px solid #D2D2D2;
 }
 .win-number .left{
     width: 80px;
@@ -98,9 +99,9 @@
 }
 .win-number dl{
     float: right;
-    width: 305px;
+    width: 294px;
     overflow: auto;
-    height: 115px;
+    height: 105px;
     padding: 10px;
 }
 .win-number dl dd{
@@ -130,7 +131,7 @@
 
 .calculation-list table{
     width: 100%;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #D2D2D2;
     border-collapse: collapse;
     border-spacing: 0;
 }
@@ -141,7 +142,7 @@
     padding: 8px;
     line-height: 1.38462;
     text-align: left;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #D2D2D2;
 }
 .calculation-list table tbody tr td h4{
     background: #f7f7f7;
@@ -227,10 +228,13 @@
     border-left: none;
 }
 .sub-menu  dl dt{
+    font-size: 13px;
     line-height: 26px;
     font-weight: bold;
 }
 .sub-menu  dl dd{
+    height: 26px;
+    font-size: 13px;
     line-height: 26px;
 }
 .sub_banner{
@@ -249,15 +253,17 @@
 .product-hot{
     background: #FFFFFF;
     width: 265px;
-    height: 327px;
+    height: 296px;
     border: 2px solid #f8b551;
     position: relative;
     margin-bottom: 10px;
     padding-bottom: 10px;
 }
 .product-hot .img-box{
+    width: 200px;
+    height: 200px;
     display: block;
-    margin:0px auto 10px;
+    padding: 0 32px;
 }
 .product-hot .title-box{
     background: url("../images/bg.png") repeat-x -9px -366px;
@@ -284,13 +290,14 @@
     color: #FFFFFF;
     font-size: 14px;
     top: -10px;
-    left: -19px;
+    left: -1px;
 }
 .sheng-yi2 b{
     font-size: 18px;
     font-weight: normal;
 }
 .list_sort{
+    font-size: 14px;
     overflow: hidden;
     margin-bottom: 10px;
     background: #FFFFFF;
@@ -396,14 +403,29 @@
     filter: Alpha(opacity=60)
 }
 .date-hot ul li .caption{
+    color: #2c2c2c;
     font-weight: normal;
     overflow: hidden;
+    white-space: normal;
     word-wrap: break-word;
     word-break: break-all;
     line-height: 22px;
     height: 44px;
 }
-
+.l-wide{
+    float: left;
+    overflow: hidden;
+}
+.r-wide{
+    margin-left: 10px;
+    float: left;
+    width: 269px;
+    overflow: hidden;
+}
+.r-wide .hot-tit{
+    font-size: 18px;
+    margin-bottom: 8px;
+}
 /*购物车列表*/
 .pay-prompt{
     overflow: hidden;
@@ -537,18 +559,15 @@
 /*商品详情*/
 /*幻灯片开始*/
 .results-img{
-    width: 410px;
-    height: 410px;
+    width: 390px;
+    height: 390px;
+    text-align:  center;
     background: #ffffff;
-    position: relative;
+    padding: 10px;
 }
 .results-img img{
+    border: 1px solid #DDDDDD;
     max-width: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
 .lantern-slide{
     overflow: hidden;

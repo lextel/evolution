@@ -91,7 +91,7 @@ $(function(){
                             <div class="number">幸运乐拍码：<span class="r"><?php echo $phase->code;?></span></div>
                             <div class="datetime">揭晓时间：<?php echo Date("Y-m-d H:i:s", $phase->opentime);?></div>
                         </td>
-                        <td><a href="#add1" class="btn btn-sx btn-red btn-addpost" id="<?php echo $phase->id;?>" >去晒单</a></td>
+                        <td><a href="/u/posts/getadd/<?php echo $phase->id;?>" class="btn btn-sx btn-red btn-addpost">去晒单</a></td>
                         
                     </tr>
                     <?php } ?>
