@@ -86,10 +86,12 @@ return array(
 		 * 50   => array('name' => 'Moderators', 'roles' => array('user', 'moderator')),
 		 * 100  => array('name' => 'Administrators', 'roles' => array('user', 'moderator', 'admin')),
 		 */
-		
-		1    => array('name' => '编辑', 'roles' => array('user')),
-		50   => array('name' => '组长', 'roles' => array('user', 'moderator')),
-		100  => array('name' => '管理员', 'roles' => array('user', 'moderator', 'admin')),
+		 -1  => array('name' => '冻结', 'roles' => array('冻结')),
+		0    => array('name' => '外部人员', 'roles' => array('外部人员')),
+		1    => array('name' => '员工', 'roles' => array('员工')),
+		10   => array('name' => '编辑', 'roles' => array('编辑')),
+		50   => array('name' => '组长', 'roles' => array('员工', '编辑', '组长')),
+		100  => array('name' => '管理员', 'roles' => array('员工', '编辑', '组长', '管理员')),
 	),
 
 	/**
@@ -114,6 +116,11 @@ return array(
 		 * Global allow by assigning true to a role (use with care!):
 		 *   'super' => true,
 		 */
+		 '管理员' => [],
+		 '组长' => [],
+		 '员工'  => [],
+		 '编辑' => [],
+		 '外部人员' => [],
 	),
 
 	/**

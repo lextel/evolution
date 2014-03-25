@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>FuelPHP Framework</title>
-	<style type="text/css">
-		* { margin: 0; padding: 0; }
-		body { background-color: #EEE; font-family: sans-serif; font-size: 16px; line-height: 20px; margin: 40px; }
-		#wrapper { padding: 30px; background: #fff; color: #333; margin: 0 auto; width: 800px; }
-		h1 { color: #000; font-size: 55px; padding: 0 0 25px; line-height: 1em; }
-		.intro { font-size: 22px; line-height: 30px; font-family: georgia, serif; color: #555; padding: 29px 0 20px; border-top: 1px solid #CCC; }
-		p { margin: 0 0 15px; line-height: 22px;}
-	</style>
-</head>
-<body>
-	<div id="wrapper">
-		<h1>Oops!</h1>
-		<p class="intro">An unexpected error has occurred.</p>
-	</div>
-</body>
+    <head>
+        <title>500</title>
+        <meta charset="utf-8">
+        <?php echo Asset::css(['common.css', 'style.css']); ?>
+    </head>
+    <body>
+        <div class="w">
+            <div class="error-box">
+                <img src="<?php echo Uri::base(); ?>assets/img/500.png" alt=""/>
+                <p>服务器在打瞌睡了</p>
+                <p>1、您可以 <a href="<?php echo Uri::base(); ?>">返回首页</a></p>
+                <p>2、您可以 <a href="<?php echo Uri::current()?>">尝试刷新</a></p>
+                <p>如你浏览本站时，多次出现此页面，请与管理员联系，QQ：888888</p>
+            </div>
+        </div>
+    </body>
 </html>

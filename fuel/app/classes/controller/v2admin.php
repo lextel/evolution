@@ -12,7 +12,7 @@ class Controller_V2admin extends Controller_Baseend
             $this -> admincheck();
         }
     }
-
+    
     private function admincheck()
     {
         if ($this->auth->check())
