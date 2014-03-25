@@ -125,7 +125,7 @@
 .r-hover{
     width: 226px;
     height: 387px;
-    z-index: 999;
+    z-index: -999;
     display: none;
     border: 2px solid #b5b5b5;
     position: absolute;

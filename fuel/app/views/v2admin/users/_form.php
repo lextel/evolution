@@ -29,7 +29,7 @@
         <div class="form-group">
             <?php echo Form::label('权限', 'group', array('class'=>'control-label col-sm-1')); ?>
             <div class="col-sm-2">
-                <?php echo Form::select('group', isset($user) ? $user->group : 'none', array(100=>'管理员', 50=>'组长', 1=>'编辑'), array('class' => 'form-control')); ?>
+                <?php echo Form::select('group', isset($user) ? $user->group : 'none',  $keys, array('class' => 'form-control')); ?>
             </div>
         </div>
         <div class="form-group">
