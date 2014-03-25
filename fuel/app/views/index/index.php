@@ -175,7 +175,7 @@
                 <div class="r-hover"></div>
                 <div class="title-box">
                     <h3 class="title-md"><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h3>
-                    <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
+                    <span class="price fr">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
                 </div>
                 <div class="img-box img-lg">
                     <a href="<?php echo Uri::create('m/'.$phase->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($phase->image, '400x400');?>"/></a>
