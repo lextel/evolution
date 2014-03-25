@@ -29,6 +29,13 @@ class View_Wins_My extends Viewmodel {
                      }
                      return $shipping->status;
              };
+             $this->getShippingData = function($phase_id){
+                     $shipping = Model_Shipping::find_by_phase_id($phase_id);
+                     if (!$shipping){
+                        return [];
+                     }
+                     return json_decode($shipping->exdesc);
+             };
             $this->getShippingStatus = function($input){
                      Config::load('shipping');
                      $status = Config::get('status');
