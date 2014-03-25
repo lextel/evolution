@@ -1,6 +1,7 @@
+<?php echo Asset::js('jquery.provincesCity.js',"utf-8"); ?>
 <?php echo Asset::css(['member/validfrom_style.css']); ?>
 <?php echo Asset::js(['provincesdata.js','Validform_v5.3.2_min.js', 'address/index.js']); ?>
-<?php echo Asset::js('jquery.provincesCity.js',"utf-8"); ?>
+
 
 <div class="set-wrap">
         <div class="lead">个人设置</div>
@@ -41,6 +42,7 @@
         </table>
         <!--修改地址-->
         <div class="editAddress">
+
             <div class="row"><button class="btn btn-red btn-sx" id="editAddress">添加新地址</button></div>
             <ul class="edit-data">
                         <li>
@@ -66,7 +68,8 @@
                              <input value="" class="txt" name="postcode" datatype="p" nullmsg="请输入邮政编码!" errormsg="请输入正确的邮政编码！" sucmsg=" " />
                         </li>
                         <li>
-                            <input class=" btn-red  btn-address fl" type="submit" value="保存"/>
+                            <input name="addressid" id="addressid" type="hidden" val=""/>
+                            <input class="btn-red  btn-address fl" type="submit" value="保存"/>
                             <input class="btn-sx btn-cancel fl" type="submit" value="取消"/>
                         </li>
                         <button class="icon-close"></button>

@@ -80,7 +80,7 @@ $(function() {
                 </dd>
                 <dd>
                     <span class="else">其他金额<input type="text" name="money2" id="money2" value="" />元</span>
-                    <span>(1元=<?php echo \Helper\Coins::showCoins(Config::get('point'));?>)</span>
+                    <span>(1元=1元宝)</span>
                 </dd>
             </dl>
             
@@ -126,7 +126,7 @@ $(function() {
                             <span class="gsh"></span>
                         </label>
                     </dd>
-                    <dd>
+                    <dd style="margin-right: 0;">
                         <input type="radio" id="zhg" name="account"/>
                         <label for="zhg">
                             <span class="zhg"></span>
@@ -172,8 +172,8 @@ $(function() {
                     <p>完成付款后根据您的个人情况完成此操作 </p>
                     <div class="register-bar">
                         <div class="btn-group">
-                             <?php echo Html::anchor('/u/moneylog', '查看充值记录', ['class'=>'btn btn-red']);?>
-                             <?php echo Html::anchor('/u/getrecharge', '返回充值页面', ['class'=>'btn']);?>
+                             <?php echo Html::anchor('/u/moneylog', '查看充值记录', ['class'=>'btn btn-red btn-sm']);?>
+                             <?php echo Html::anchor('/u/getrecharge', '返回充值页面', ['class'=>'btn btn-sm btn-state']);?>
                           </div>
                     </div>
                  </ul>
