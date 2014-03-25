@@ -232,9 +232,10 @@
     margin-top: 5px;
 }
 .signature2{
+    max-width: 130px;
     background: #ffffff;
-    max-height: 40px;
-    line-height: 18px;
+    height: 26px;
+    line-height:26px;
     overflow: hidden;
     font-size: 12px;
 }
@@ -592,7 +593,7 @@
     height: 31px;
     border: 1px solid #d2d2d2;
 }
-.select input,.select button{
+.select button{
     height: 31px;
     border: 1px solid #d2d2d2;
     display: inline-block;
@@ -600,7 +601,10 @@
 }
 .select input{
     width: 300px;
-    text-indent: 10px;
+    display: inline-block;
+    border: 1px solid #d2d2d2;
+    height: 18px;
+    padding: 6px 0 6px 10px;
 }
 .select button{
     width: 80px;
