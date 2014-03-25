@@ -101,7 +101,7 @@ $(function(){
                     </li>             
                     <li>
                         <button class="btn-red  btn-address">发布</button>
-                        <a href="/u/posts" class="btn-sx btn-cancel">返回</a>
+                        <a href="/u/noposts" class="btn-sx btn-cancel">返回</a>
                     </li>
                 </ul>
                 <?php echo Form::close();?>

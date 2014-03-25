@@ -26,11 +26,20 @@ class Controller_V2admin_Users extends Controller_V2admin{
                 ['name' => '管理员列表', 'href' => Uri::create('v2admin/users')],
                 ['name' => '添加管理员'],
             ];
-
+        $group = Auth::group()->groups();
+        $keys = [];
+        list($driver, $groupid) = $this->auth->get_groups();
+        foreach($group as $k){
+             if ($k > $groupid){
+                 continue;
+             }
+             $keys[$k] = Auth::group()->get_name($k);
+        }
         $view = View::forge('v2admin/users/create');
         $breadcrumb = new Helper\Breadcrumb();
         $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $view->set_global('url', Uri::create('v2admin/users/add'));
+        $view->set_global('keys', $keys);
         $this->template->title = "添加管理员";
         $this->template->content = $view;
     }
@@ -74,7 +83,15 @@ class Controller_V2admin_Users extends Controller_V2admin{
                 ['name' => '管理员列表', 'href' => Uri::create('v2admin/users')],
                 ['name' => '编辑管理员'],
             ];
-
+        $group = Auth::group()->groups();
+        $keys = [];
+        list($driver, $groupid) = $this->auth->get_groups();
+        foreach($group as $k){
+             if ($k > $groupid){
+                 continue;
+             }
+             $keys[$k] = Auth::group()->get_name($k);
+        }
         $user = Model_User::find($id);
 
         $view = View::forge('v2admin/users/edit');
@@ -82,6 +99,7 @@ class Controller_V2admin_Users extends Controller_V2admin{
         $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $view->set_global('url', Uri::create('v2admin/users/update/'.$id));
         $view->set_global('user', $user);
+        $view->set_global('keys', $keys);
         $this->template->title = "编辑管理员 > 管理员管理";
         $this->template->content = $view;
     }
