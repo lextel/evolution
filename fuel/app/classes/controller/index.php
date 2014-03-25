@@ -20,7 +20,7 @@ class Controller_Index extends Controller_Frontend {
             $memberIds = array_merge($memberIds, $mids);
         }
 
-        // 正在乐拍
+        // 正在乐淘
         $orderModel = new Model_Order();
         $data['orders'] = $orderModel->newOrders(0, 8);
         if($data['orders']) {

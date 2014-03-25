@@ -2,12 +2,12 @@
 <div class="home-navbar">
         <ul>
             <li><?php echo Html::anchor('u/'.$member->id, '主页');?></li>
-            <li class="active"><?php echo Html::anchor('u/'.$member->id.'/orders', '乐拍记录');?></li>
+            <li class="active"><?php echo Html::anchor('u/'.$member->id.'/orders', '乐淘记录');?></li>
             <li><?php echo Html::anchor('u/'.$member->id.'/wins', '获得的商品');?></li>
             <li><?php echo Html::anchor('u/'.$member->id.'/posts', '晒单');?></li>
         </ul>
 </div>
-<!--乐拍记录-->
+<!--乐淘记录-->
         <div class="home-c">
             <?php if($orders) { ?>
             <?php $phases = $getPhaseInfos($orders);?>
@@ -41,7 +41,7 @@
                                 </li>
                             </ol>
                         <?php }else{ ?>
-                            <div class="number">幸运乐拍码：<b class="y"><?php echo $phase->code;?></b></div>
+                            <div class="number">幸运乐淘码：<b class="y"><?php echo $phase->code;?></b></div>
                             <div class="datetime">揭晓时间：<?php echo date("Y-m-d H:i:s", $phase->opentime);?></div>
                         <?php } ?>
                     </div>

@@ -28,7 +28,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th width="60%">乐拍商品</th>
+                <th width="60%">乐淘商品</th>
                 <th>购买数量</th>
                 <th>购买时间</th>
                 <th>消费元宝</th>
