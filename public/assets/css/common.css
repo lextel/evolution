@@ -1267,15 +1267,11 @@ table td p.tl{
 }
 .bottom-nav li{
      float: left;
-     padding:0px 10px;
+     padding:0px 5px;
      text-align: center;
-     border-right: 1px solid #5b5b5b;
  }
 .bottom-nav li a{
     color: #5b5b5b;
-}
-.bottom-nav li.lastest{
-    border: none;
 }
 .footer p{
     line-height: 18px;

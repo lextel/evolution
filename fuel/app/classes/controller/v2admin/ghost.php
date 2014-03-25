@@ -402,10 +402,10 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
                 $perPoint = count($fetchCodes) * Config::get('point');
                 Model_Member_Moneylog::buy_log($mid, $perPoint, $id, count($fetchCodes));
 
-                return json_encode(['code' => 0, 'msg' => '乐拍成功', 'data' => ['joined' => $phase->joined], 'codeNum' => count($fetchCodes), 'points' => $perPoint]);
+                return json_encode(['code' => 0, 'msg' => '乐淘成功', 'data' => ['joined' => $phase->joined], 'codeNum' => count($fetchCodes), 'points' => $perPoint]);
             }
 
-            return json_encode(['code' => 1, 'msg' => '乐拍失败']);
+            return json_encode(['code' => 1, 'msg' => '乐淘失败']);
     }
     
     // 上传头像图片

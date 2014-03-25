@@ -1,10 +1,10 @@
 <?php echo Asset::css('member/jquery-ui.css'); ?>
 <?php echo Asset::js(['jquery-ui.js', 'member/index.js']); ?>
 <div class="content-inner">
-        <!--乐拍记录开始-->
-        <div class="lead">乐拍记录</div>
+        <!--乐淘记录开始-->
+        <div class="lead">乐淘记录</div>
         <div class="record-box">
-            <div class="remind ">乐拍提醒：
+            <div class="remind ">乐淘提醒：
                 <?php $ordercount = $countOrder($myorders);?>
                 <span>即将揭晓商品（<s class="r"><?php echo $ordercount['winstart']; ?></s>）件</span>
                 <span>进行中的商品（<s class="r"><?php echo $ordercount['buy']; ?></s>）件</span>
@@ -30,9 +30,9 @@
 
                         <th>商品图片</th>
                         <th>商品名称</th>
-                        <th>乐拍状态</th>
+                        <th>乐淘状态</th>
                         <th>购买数量</th>
-                        <th>乐拍码</th>
+                        <th>乐淘码</th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -50,7 +50,7 @@
                             <div class="title-lg">（第<?php echo $phase->phase_id;?>期）<?php echo $phase->title;?></div>
                             <?php if ($getPhaseInfo($order->phase_id)->member_id !=0) {?>
                             <div class="username">获得者：<span class="b"><?php echo $getUser($phase->member_id)->nickname;?></span></div>
-                            <div class="number">幸运乐拍码：<span class="r"><?php echo $phase->code;?></span></div>
+                            <div class="number">幸运乐淘码：<span class="r"><?php echo $phase->code;?></span></div>
                             <div class="datetime">揭晓时间：<?php echo Date("Y-m-d H:i:s", $phase->opentime);?></div>
                             <?php }else{ ?>
                             
@@ -59,7 +59,7 @@
                         <td><?php echo ($phase->member_id !=0) ? "已经揭晓": "进行中";?></td>
                         <td><?php echo $order->code_count;?>元宝</td>
                         <td><div class="toolbox">
-                           <a class="tooltip" href="javascript:void(0)">乐拍码</a>
+                           <a class="tooltip" href="javascript:void(0)">乐淘码</a>
                            <div class="num-list">
                                 <div class="icon-arrow"></div>
                                 <ul>
@@ -82,6 +82,6 @@
                 <?php echo Pagination::instance('uorderpage')->render(); ?>
             </div>
         </div>
-        <!--乐拍记录结束-->
+        <!--乐淘记录结束-->
     </div>
 </div>

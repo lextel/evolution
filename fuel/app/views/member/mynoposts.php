@@ -63,7 +63,7 @@ $(function(){
     <div class="lead">晒单</div>
     <div class="show-box">
         <div class="remind ">
-             乐拍提醒：你总共晒单<s class="red"><?php echo $postscount;?></s>
+             乐淘提醒：你总共晒单<s class="red"><?php echo $postscount;?></s>
              件商品，还有<s class="red"> <?php echo $nopostscount;?></s>件商品等待您晒单。
         </div>
         <div class="toggles">
@@ -88,7 +88,7 @@ $(function(){
                         <td><div class="img-box img-sm"><?php echo Html::anchor('/w/'.$phase->id, Html::img($getItem($phase->item_id)->image));?></div></td>
                         <td>
                             <div class="text-title">（第<?php echo $phase->phase_id;?>期）<?php echo $phase->title;?></div>
-                            <div class="number">幸运乐拍码：<span class="r"><?php echo $phase->code;?></span></div>
+                            <div class="number">幸运乐淘码：<span class="r"><?php echo $phase->code;?></span></div>
                             <div class="datetime">揭晓时间：<?php echo Date("Y-m-d H:i:s", $phase->opentime);?></div>
                         </td>
                         <td><a href="/u/posts/getadd/<?php echo $phase->id;?>" class="btn btn-sx btn-red btn-addpost">去晒单</a></td>

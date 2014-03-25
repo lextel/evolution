@@ -110,7 +110,7 @@
         <!--登陆框-->
         <!--今日热门开始-->
         <div class="unveiled w">
-            <div class="caption">以下商品即将揭晓,快去乐拍吧~</div>
+            <div class="caption">以下商品即将揭晓,快去乐淘吧~</div>
             <ul>
                 <?php
                 $remains = $getRemains();

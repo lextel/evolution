@@ -42,7 +42,7 @@
                 <div class="info-side fl">
                     <div class="username">获得者：<a href="<?php Uri::create('u/'.$winner->id); ?>"><b><?php echo $winner->nickname; ?></b></a></div>
                     <span class="datetime">揭晓时间：<b><?php echo date('Y-m-d H:i:s', $prevWinner->opentime); ?></b></span>
-                    <span class="datetime">乐拍时间：<b><?php echo date('Y-m-d H:i:s', $prevWinner->order_created_at); ?></b></span>
+                    <span class="datetime">乐淘时间：<b><?php echo date('Y-m-d H:i:s', $prevWinner->order_created_at); ?></b></span>
                     <span class="number">幸运码：<b class="red"><?php echo $prevWinner->code; ?></b></span>
                 </div>
             </div>
@@ -109,9 +109,9 @@
             <div class="new-buyer">
                 <div class="new-buyer-header">
                     <ul class="tab">
-                        <li class="active"><a href="#buy" data-toggle="tab">最新乐拍记录</a></li>
-                        <li><a href="#myBuy" data-toggle="tab">我的乐拍记录</a></li>
-                        <li class="last"><a href="#help" data-toggle="tab">如何乐拍</a></li>
+                        <li class="active"><a href="#buy" data-toggle="tab">最新乐淘记录</a></li>
+                        <li><a href="#myBuy" data-toggle="tab">我的乐淘记录</a></li>
+                        <li class="last"><a href="#help" data-toggle="tab">如何乐淘</a></li>
                     </ul>
                  </div>
                 <div class="new-buyer-body tab-content">
@@ -127,12 +127,12 @@
                                         <td><div class="head-sm"><a href="<?php echo Uri::create('u/'.$member->id); ?>"><img src="<?php echo Uri::create($member->avatar); ?>" alt=""></a></div></td>
                                         <td><?php echo $member->nickname; ?></td>
                                         <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($newOrder->created_at); ?></b></td>
-                                        <td>乐拍了<s><?php echo $newOrder->code_count; ?></s>元宝</td>
+                                        <td>乐淘了<s><?php echo $newOrder->code_count; ?></s>元宝</td>
                                     </tr>
                                 <?php
                                         endforeach;
                                     else:
-                                    echo '<tr><td>暂时没有乐拍记录.</td></tr>';
+                                    echo '<tr><td>暂时没有乐淘记录.</td></tr>';
                                     endif;
                                 ?>
                             </tbody>
@@ -150,12 +150,12 @@
                                         <td><div class="head-sm"><a href="<?php echo Uri::create('u/'.$current_user->id); ?>"><img src="<?php echo Uri::create($current_user->avatar); ?>" alt=""></a></div></td>
                                         <td><?php echo $current_user->nickname; ?></td>
                                         <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($myOrder->created_at); ?></b></td>
-                                        <td>乐拍了<s><?php echo $myOrder->code_count; ?></s>元宝</td>
+                                        <td>乐淘了<s><?php echo $myOrder->code_count; ?></s>元宝</td>
                                     </tr>
                                 <?php
                                         endforeach;
                                     else:
-                                    echo '<tr><td>暂时没有乐拍记录.</td></tr>';
+                                    echo '<tr><td>暂时没有乐淘记录.</td></tr>';
                                     endif;
                                     else:
                                 ?>

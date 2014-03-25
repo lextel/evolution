@@ -28,7 +28,7 @@ $(function(){
     </div>
         <form action="/u/nickname" class="addnickname" method="POST">
         <ul class="succeedForm">
-            <li><h2>恭喜你成为乐拍会员，输入您的昵称马上开始乐拍！</h2><li/>
+            <li><h2>恭喜你成为乐淘会员，输入您的昵称马上开始乐淘！</h2><li/>
             <li>
                 <label>昵称：</label>
                 <?php echo Form::input('nickname', Session::get_flash('nickname', ''), array('class' => 'txt','type'=>"text",'name'=>'nickname', 'datatype'=>'*3-12

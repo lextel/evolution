@@ -48,7 +48,7 @@
             </div>
 		<!--公告-->
         <div class="notice fr">
-                <div class="title"><h3 fl>乐拍公告</h3><span class="icon icon-horn fl"></span></div>
+                <div class="title"><h3 fl>乐淘公告</h3><span class="icon icon-horn fl"></span></div>
                 <ul>
                     <?php foreach($notices() as $notice) { ?>
                     <li><i></i><?php echo Html::anchor('/notice', $notice->title); ?></li>
@@ -101,9 +101,9 @@
                     <?php } ?>
                 </ul>
         </div>
-        <!--大家正在乐拍 -->
+        <!--大家正在乐淘 -->
         <div class="buying-box fr" >
-                <div class="title"><h3>大家正在乐拍</h3></div>
+                <div class="title"><h3>大家正在乐淘</h3></div>
                 <div class="buyListdiv" >
                 <ul class="buyList">
                     <?php 
@@ -115,7 +115,7 @@
                         </div>
                         <div class="info-side">
                             <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $data['members'][$order->member_id]->nickname, ['class'=>'b']);?>
-                             <?php echo \Helper\Timer::friendlyDate($order->created_at);?>乐拍了</div>
+                             <?php echo \Helper\Timer::friendlyDate($order->created_at);?>乐淘了</div>
                             <h4 class="title-br"><?php echo Html::anchor('m/'.$order->phase_id, $data['phases'][$order->phase_id]->title);?></h4>
                         </div>
 
