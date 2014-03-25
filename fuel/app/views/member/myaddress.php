@@ -41,14 +41,12 @@
         </table>
         <!--修改地址-->
         <div class="editAddress">
-        <?php echo Form::open(['method' => 'post', 'class'=>'form-password validForm']); ?>
-        
+        <?php echo Form::open(['method' => 'post', 'class'=>'validForm']); ?>
             <div class="row"><button class="btn btn-red btn-sx" id="editAddress">添加新地址</button></div>
             <ul class="edit-data">
                         <li>
                             <label>*所在地区：</label>
-                            <div id="datas" class="fl"><span class="Validform_checktip"></span></div>
-                            
+                            <div id="datas" class="fl"></div>
                         </li>
                         <li>
                             <label class="align">*街道地址：</label>
@@ -57,7 +55,7 @@
                         </li>
                         <li>
                             <label>*收货人：</label>
-                            <input value="" class="txt" id="name" name="name" datatype="zh2-6"  sucmsg=" " />
+                            <input value="" class="txt" id="name" name="name" sucmsg=" " />
                         </li>
                         <li>
                             <label>*联系电话：</label>
@@ -89,6 +87,5 @@ $(function(){
               errormsg:"请输入2到6个中文字符!"
             }
         ]);
-
 });
 </script>

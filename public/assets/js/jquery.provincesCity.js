@@ -12,13 +12,14 @@ $.fn.ProvinceCity = function(province, city1){
 	_self.data("city1",["请选择", "请选择"]);
 	_self.data("city2",["请选择", "请选择"]);
 	//插入3个空的下拉框
-	_self.append("<select id='xp1' name='xp1' datatype= '*' nullmsg='请选择省'></select><span class='Validform_checktip'></span><s>省</s>");
-	_self.append("<select id='xp2' name='xp2'></select><s>市</s>");
-	_self.append("<select id='xp3' name='xp3'></select><s>县</s>");
+	_self.append("<select></select><s>省</s>");
+	_self.append("<select></select><s>市</s>");
+	_self.append("<select></select><s>县</s>");
 	//分别获取3个下拉框
 	var $sel1 = _self.find("select").eq(0);
 	var $sel2 = _self.find("select").eq(1);
 	var $sel3 = _self.find("select").eq(2);
+	
 	
 	var indexp1 = -1;
 	var indexp2 = -1;
@@ -26,14 +27,13 @@ $.fn.ProvinceCity = function(province, city1){
 	var index2 = "" ;
 	//默认省级下拉
 	if(_self.data("province")){
-		$sel1.append("<option value=''>"+_self.data("province")[0]+"</option>");
+		$sel1.append("<option value='"+_self.data("province")[1]+"'>"+_self.data("province")[0]+"</option>");
 	}
 	$.each( GP , function(index,data){
 	    if (data == province){
 	       indexp1 = index;
 	       index1 = index + 1;
 	    }
-
 		$sel1.append("<option value='"+data+"'>"+data+"</option>");
 	});
 	//默认的1级城市下拉
@@ -87,6 +87,8 @@ $.fn.ProvinceCity = function(province, city1){
 		$sel3[0].options.length=0;
 		
 		index2 = this.selectedIndex;
+		console.log(index2);
+        console.log(index1);
 		$.each( GC[index1-1][index2] , function(index,data){
 			$sel3.append("<option value='"+data+"'>"+data+"</option>");
 		})
