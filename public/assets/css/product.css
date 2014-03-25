@@ -567,6 +567,9 @@
 .pay-panel table{
     margin-bottom: 10px;
 }
+.pay-panel table tbody tr td{
+    text-align: left;
+}
 .panel-head p{
     line-height: 24px;
 }

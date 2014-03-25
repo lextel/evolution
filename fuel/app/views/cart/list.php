@@ -77,7 +77,7 @@
                 </div>
             </form>
             <div class="btn-group tr">
-                <a href="<?php echo Uri::base(); ?>" class="btn btn-y btn-md doCart">< 返回首页</a>
+                <a href="<?php echo Uri::base(); ?>" class="btn btn-y btn-md doCart"><继续乐淘</a>
                 <a href="<?php echo Uri::create('cart/pay'); ?>" class="btn btn-red btn-md" id="doOrder">提交订单</a>
             </div>
         </div>
