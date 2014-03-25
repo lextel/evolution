@@ -165,10 +165,10 @@
                                <dl class="inner-login" style="display: block;">
                                     <dt>请先登录</dt>
                                     <dd>
-                                          <input type="text" class="text" name="username">
+                                          <input type="text"  placeholder="请输入注册邮箱" class="text" name="username">
                                     </dd>
                                     <dd>
-                                          <input type="password" class="password" name="password">
+                                          <input type="password"   placeholder="请输入密码" class="password" name="password">
                                     </dd>
                                     <dd class="last">
                                           <button type="submit" class="btn-rg btn-red">登录</button>

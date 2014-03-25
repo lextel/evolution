@@ -1750,7 +1750,7 @@ table td p.tl{
     margin: 0;
     padding-left: 33px;
     border: 1px solid #d2d2d2;
-    background:url("") no-repeat 4px 4px;
+    background:url("../images/user-icon.png") no-repeat 4px 4px;
 }
 .inner-login dd input.password{
     width: 257px;
@@ -1759,7 +1759,7 @@ table td p.tl{
     margin: 0;
     padding-left: 33px;
     border: 1px solid #d2d2d2;
-    background:url("") no-repeat  4px 4px;
+    background:url("../images/user-pwd.png") no-repeat  4px 4px;
 }
 .inner-login dd .btn-rg{
     float: left;
