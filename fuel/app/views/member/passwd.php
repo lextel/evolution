@@ -1,5 +1,5 @@
 <?php echo Asset::css(['member/validfrom_style.css']); ?>
-<?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
+    <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
 
 <div class="set-wrap">
         <div class="lead">个人设置</div>
@@ -24,12 +24,12 @@
             </li>
             <li>
                 <label>旧密码：</label>
-                <input type="password" value="" class="txt" name="oldpassword" class="inputxt" datatype="*6-20">
+                <input id="oldpassword" type="password" value="" class="txt" name="oldpassword" class="inputxt" datatype="*6-20" nullmsg="请输入旧密码" errormsg="请输入正确的旧密码" sucmsg=" "/>
                 <span class="Validform_checktip"></span>
             </li>
             <li>
                 <label>新密码：</label>
-                <input type="password" value="" class="txt" name="newpassword" class="inputxt" datatype="*6-20">
+                <input type="password" value="" class="txt" name="newpassword" class="inputxt" datatype="*6-20" nullmsg="请输入新密码" errormsg="请输入6-20位新密码" sucmsg=" "/>
                 <span class="Validform_checktip"></span>
                 <div class="passwordStrength" style="display:none;">
                     <b>密码强度：</b>
@@ -40,7 +40,7 @@
             </li>
             <li>
                 <label>确认密码：</label>
-               <input type="password" value="" class="txt" name="newpassword2" class="inputxt" datatype="*6-20" recheck="newpassword">
+               <input type="password" value="" class="txt" name="newpassword2" class="inputxt"  datatype="*" recheck="newpassword" nullmsg="请输入确认密码" errormsg="两次密码输入不一致" sucmsg=" ">
                 <span class="Validform_checktip"></span>
             </li>
             <li>
@@ -50,43 +50,29 @@
          <?php echo Form::close(); ?>
 </div>
 <script type="text/javascript">
-
 $(function(){
-	//$(".registerform").Validform();  //就这一行代码！;
-	var demo=$(".registerform").Validform({
+	$(".registerform").Validform({
 		tiptype:4,
-		label:".label",
-		showAllError:true,
-		datatype:{
-			"zh1-6":/^[\u4E00-\u9FA5\uf900-\ufa2d]{1,6}$/
-		},
-		ajaxPost:false,
+        datatype:{
+            "oldpassword": $(this).keyup(function (gets,obj,curform,regxp){
+                var oldpassword = $("#oldpassword").val();
+                //alert(1);
+                //var reg=/^[\w.]{6,20}$/;
+                //if(reg.test(oldpassword)|| reg.test(oldpassword)){
+                if(oldpassword.length<6|| oldpassword.length>20){
+                    //alert(1);
+                    //return false;
+                }
+                //return true;
+            })
+            
+            //function(gets,obj,curform,regxp){
+            //参数gets是获取到的表单元素值，obj为当前表单元素，curform为当前验证的表单，regxp为内置的一些正则表达式的引用;           
+ 
+            //}
+        }
 	});
-	demo.addRule([{
-		ele:".inputxt:eq(0)",
-		datatype:"*6-20"
-	},
-	{
-		ele:".inputxt:eq(1)",
-		datatype:"*6-20"
-	},
-	{
-		ele:".inputxt:eq(2)",
-		datatype:"*6-20",
-		recheck:"newpassword"
-	},
-	{
-		ele:"select",
-		datatype:"*"
-	},
-	{
-		ele:":radio:first",
-		datatype:"*"
-	},
-	{
-		ele:":checkbox:first",
-		datatype:"*"
-	}]);
+
 
 })
 </script>
