@@ -1,6 +1,6 @@
 <div class="w">
     <dl class="announcement">
-        <dt>乐拍公告</dt>
+        <dt>乐淘公告</dt>
         <?php if ($notices) { ?>
         <?php foreach ($notices as $item) { ?>	
         <dd>

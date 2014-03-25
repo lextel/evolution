@@ -22,9 +22,9 @@
         <ul class="left-nav">
             <li><?php echo Html::anchor('u', '我的主页<s></s>', ['style'=>'color: #af2812;']);?></li>
             <li class="dropdown">
-                <a href="javascript:void(null)" style="color: #af2812;" class="ali">我的乐拍<span class="icon-arrow"></span><s></s></a>
+                <a href="javascript:void(null)" style="color: #af2812;" class="ali">我的乐淘<span class="icon-arrow"></span><s></s></a>
                 <ul class="dropdown-menu" style="display:block">
-                    <li><?php echo Html::anchor('u/orders', '乐拍记录');?></li>
+                    <li><?php echo Html::anchor('u/orders', '乐淘记录');?></li>
                     <li><?php echo Html::anchor('u/wins', '获得的商品');?></li>
                     <li><?php echo Html::anchor('u/posts', '晒单');?></li>
                 </ul>

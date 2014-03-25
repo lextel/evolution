@@ -9,7 +9,7 @@ class View_Wins_Index extends Viewmodel {
            return $user;
        };
 
-       //获得最新乐拍记录
+       //获得最新乐淘记录
        $this->orders = function() {
            $orders = Model_Order::find('all', [
                      'order_by'=>['id'=>'desc'],

@@ -1,7 +1,7 @@
 <div class="home-navbar">
         <ul>
             <li><?php echo Html::anchor('u/'.$member->id, '主页');?></li>
-            <li><?php echo Html::anchor('u/'.$member->id.'/orders', '乐拍记录');?></li>
+            <li><?php echo Html::anchor('u/'.$member->id.'/orders', '乐淘记录');?></li>
             <li><?php echo Html::anchor('u/'.$member->id.'/wins', '获得的商品');?></li>
             <li class="active"><?php echo Html::anchor('u/'.$member->id.'/posts', '晒单');?></li>
         </ul>
