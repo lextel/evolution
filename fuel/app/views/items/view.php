@@ -111,7 +111,7 @@
                     <ul class="tab">
                         <li class="active"><a href="#buy" data-toggle="tab">最新乐拍记录</a></li>
                         <li><a href="#myBuy" data-toggle="tab">我的乐拍记录</a></li>
-                        <li><a href="#help" data-toggle="tab">如何乐拍</a></li>
+                        <li class="last"><a href="#help" data-toggle="tab">如何乐拍</a></li>
                     </ul>
                  </div>
                 <div class="new-buyer-body tab-content">

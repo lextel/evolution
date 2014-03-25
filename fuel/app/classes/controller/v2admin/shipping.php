@@ -78,6 +78,7 @@ class Controller_V2admin_Shipping extends Controller_V2admin
 
     public function action_save($id = null) {
 
+
         $ship = Model_Shipping::find($id);
         $ship->name = Input::post('name');
         $ship->address = Input::post('address');
@@ -87,6 +88,15 @@ class Controller_V2admin_Shipping extends Controller_V2admin
         $ship->excode = Input::post('excode');
         $ship->status = 99;
         $ship->admin_id = $this->current_user->id;
+
+        if($ship->exname == 'shunfeng' && !preg_match('/^[0-9]{12}$/', $ship->excode)) {
+            Session::set_flash('error', e('运单号错误 #' . $id));
+            Response::redirect('v2admin/shipping');
+        } else if($ship->exname == 'yuantong' && !preg_match('/^[0-9]{10}$/', $ship->excode)) {
+            Session::set_flash('error', e('运单号错误 #' . $id));
+            Response::redirect('v2admin/shipping');
+        }
+
         if($ship->save()) {
             Model_Log::add('发货操作 #' . $id);
             Session::set_flash('success', e('发货成功 #' . $id));

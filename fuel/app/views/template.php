@@ -38,9 +38,6 @@
     <!--头部开始-->
     <div class="top-nav">
         <div class="top-menu">
-            <div class="collection fl" style="CURSOR: hand" onClick="window.external.addFavorite('http://www.lltao.com')" title="乐乐淘">
-                 <a href="javascript:;">收藏乐乐淘</a>
-            </div>
             <span class="online">
                 <a href="javascript:void(0);">在线客服</a>
             </span>
@@ -110,7 +107,7 @@
                 <dl class="dl01">
                     <dt><a href="<?php echo Uri::create('/h'); ?>">帮助中心</a></dt>
                     <dd><a href="<?php echo Uri::create('/h/new'); ?>">新手指南</a></dd>
-                    <dd><a href="<?php echo Uri::create('/h/safeguard'); ?>">乐拍保障</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/safeguard'); ?>">乐淘保障</a></dd>
                     <dd><a href="<?php echo Uri::create('/h/shipping'); ?>">商品配送</a></dd>
                 </dl>
                 <dl class="dl02">
@@ -119,12 +116,14 @@
                     <dd><a href="javascript:;">官方微信</a></dd>
                     <dd>官方QQ群：10000000</dd>
                 </dl>
+                <!--
                 <dl class="three">
                     <dt>联系我们</dt>
                     <dd><p class="r" style="font-size:22px;"><span class="icon icon-phone"></span>4008123123</p></dd>
                     <dd><p class="pl-01">仅收市话费，周一至周日8.00-18.00</p></dd>
                     <dd><span class="kf"><i class="icon icon-online"></i>24小时在线客服</span></dd>
                 </dl>
+                -->
                 <dl class="dl04">
                     <dt><a href="javascript:;">二维码</a></dt>
                 </dl>
@@ -146,12 +145,14 @@
                     <a href="http://www.wanggouchao.com" target="_blank">网购潮</a>
                     <a href="http://www.kuaidi100.com/all/sf.shtml" target="_blank">顺风快递查询</a>
             </div>
+            <!--
             <div style="clear:both"></div>
              <ul class="safety">
                 <li class="safety-01"></li>
                 <li class="safety-02"></li>
                 <li class="safety-03"></li>
               </ul>
+             -->
         </div>
     </div>
     <!--底部结束-->

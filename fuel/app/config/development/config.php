@@ -44,7 +44,7 @@ return array(
      */
     // 'index_file' => false,
 
-     'profiling'  => true,
+     'profiling'  => false,
 
     /**
      * Default location for the file cache
@@ -319,4 +319,9 @@ return array(
                 'email',
             ),
         ),
+        /**
+         * 图片服务器配置
+         *
+         */
+        'image_server' => 'http://dev_img.lltao.com/',
 );

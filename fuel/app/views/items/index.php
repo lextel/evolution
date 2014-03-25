@@ -92,6 +92,7 @@
                             foreach($items as $item):
                             ?>
                             <li>
+                                <div class="r-hover"></div>
                                 <form class="xpxp" id="xpxp" action="<?php echo Uri::create('cart/add'); ?>" method="post">
                                     <div class="title-box">
                                         <h3 class="title-md"><a href="<?php echo Uri::create('/m/'.$item->id); ?>"><?php echo $item->title; ?></a></h3>
