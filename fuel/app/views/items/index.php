@@ -1,5 +1,10 @@
 <?php echo Asset::css('product.css'); ?>
 <?php echo Asset::js(['Xslider.js', 'item/index.js']); ?>
+ <div class="bread">
+     <ul>
+     <?php echo $getBread($cateId, $brandId)?>
+     </ul>
+</div>
 <div class="l-wide">
         <ul class="product-nav fl">
             <div class="header">商品分类</div>
@@ -69,7 +74,8 @@
                         </div>
                         <div class="img-box img-lg">
                             <a href="<?php echo Uri::create('/m/'.$topItem->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('/image/400x400/' . $topItem->image); ?>" alt=""></a>
-                            <div class="sheng-yi2">还需 <b><?php echo $topItem->remain ?></b>元宝！</div>
+                            <!--<div class="sheng-yi2">还需 <b><?php echo $topItem->remain ?></b>元宝！</div>-->
+                            <div class="sheng-yi2">热门推荐</div>
                         </div>
                         <input name="id" value="<?php echo $topItem->id;?>" type="hidden"/>
                         <input name="qty" value="1" type="hidden"/>
@@ -116,7 +122,7 @@
                                     </dl>
                                     <?php if($item->status == \Helper\Item::IS_CHECK): ?>
                                     <div class="btn-menu">
-                                        <span class="left">我要乐拍</span>
+                                        <span class="left">我要乐淘</span>
                                         <a class="add btn-jian" href="javascript:void(0);">-</a>
                                         <input type="text" value="1" name="qty" remain="<?php echo $item->remain; ?>"/>
                                         <a class="add btn-jia" href="javascript:void(0);">+</a>

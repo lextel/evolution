@@ -16,8 +16,8 @@
                </div>
                <div class="info fl">
                    <span class="username">幸运获奖者：<?php echo Html::anchor('u/'.$post->member_id, $getUser($post->member_id)->nickname, ['class'=>'blue']);?></span>
-                   <span class="number">共乐拍：<b><?php echo $getPhase($post->phase_id)->code_count;?></b> 元宝</span>
-                   <span class="number">幸运乐拍码：<b><?php echo $getPhase($post->phase_id)->code;?></b></span>
+                   <span class="number">共乐淘：<b><?php echo $getPhase($post->phase_id)->code_count;?></b> 元宝</span>
+                   <span class="number">幸运乐淘码：<b><?php echo $getPhase($post->phase_id)->code;?></b></span>
                    <span class="datetime">揭晓时间：<s><?php echo date('Y-m-d H:i:s', $getPhase($post->phase_id)->opentime);?></s></span>
                </div>
            </li>
@@ -127,18 +127,20 @@
           <h3>用户登录</h3>
            <button class="close" id="close"></button>
         </div>
-        <label for="" class="error"></label>
+        <label for="" class="error2"></label>
         <ul class="login2-body">
             <li>
-                <input name="username" type="text" value="" placeholder="用户邮箱" datatype="e" errorms="请输入邮箱帐号" id="form_username" class="Validform_error"/>
+                <input name="username" type="text" value="" placeholder="用户邮箱" datatype="e" errorms="请输入邮箱帐号" />
                 <span class="icon-user"></span>
+                 <span class="Validform_checktip"></span>
             </li>
             <li>
-                <input name="password"  type="password" value="" placeholder="用户密码"  datatype="*6-18" errorms="密码范围在6-18位之间" id="form_username" class="Validform_error" />
+                <input name="password"  type="password" value="" placeholder="用户密码"  datatype="*6-18" errorms="密码范围在6-18位之间" />
                 <span class="icon-password"></span>
+                <span class="Validform_checktip"></span>
             </li>
             <li>
-                <span class="Validform_checktip">请填写信息！</span>             
+
                 <button class="btn btn-red btn-modal fl">登录</button>
                 <a href="/forgot" class="fr">忘记密码？</a>
             </li>
@@ -149,7 +151,7 @@
 <script type="text/javascript">
     $(function(){
     	$(".demoform").Validform({
-    	tiptype:4,
+    	tiptype:4
     	});
     });
 </script>

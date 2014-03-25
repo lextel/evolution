@@ -1,7 +1,7 @@
 <div class="home-navbar">
      <ul>
          <li class="active"><?php echo Html::anchor('u/'.$member->id, '主页');?></li>
-         <li><?php echo Html::anchor('u/'.$member->id.'/orders', '乐拍记录');?></li>
+         <li><?php echo Html::anchor('u/'.$member->id.'/orders', '乐淘记录');?></li>
          <li><?php echo Html::anchor('u/'.$member->id.'/wins', '获得的商品');?></li>
          <li><?php echo Html::anchor('u/'.$member->id.'/posts', '晒单');?></li>
      </ul>
@@ -12,7 +12,7 @@
                     <?php $phases = $getPhaseInfos($orders); ?>
                     <?php foreach($orders as $oitem) { ?>
                     <?php $phase = $phases[$oitem->phase_id];?>
-                    <dt><b><?php echo \Helper\Timer::friendlyDate($oitem->created_at);?></b>乐拍了 </dt>
+                    <dt><b><?php echo \Helper\Timer::friendlyDate($oitem->created_at);?></b>乐淘了 </dt>
                     <dd class="right-box">
                         <div class="img-box img-md fl">
                             <?php echo Html::anchor('m/'.$oitem->phase_id, Html::img($phase->image));?>
@@ -39,9 +39,9 @@
                                     <span class="fr">还需元宝</span>
                                 </dd>
                                 </dl>
-                                <?php echo Html::anchor('m/'.$oitem->phase_id, '<button class="btn-red btn-topUp">去乐拍</button>');?>
+                                <?php echo Html::anchor('m/'.$oitem->phase_id, '<button class="btn-red btn-topUp">去乐淘</button>');?>
                             <?php }else{ ?>
-                                <div class="number">幸运乐拍码：<b class="y"><?php echo $phase->code;?></b></div>
+                                <div class="number">幸运乐淘码：<b class="y"><?php echo $phase->code;?></b></div>
                                 <div class="datetime">揭晓时间：<?php echo date("Y-m-d H:i:s", $phase->opentime);?></div>
                                 <?php echo Html::anchor('w/'.$oitem->phase_id, '<button class="btn-topUp btn-y">查看详情</button>');?>
                             <?php } ?>

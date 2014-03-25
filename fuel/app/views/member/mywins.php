@@ -1,11 +1,10 @@
 <?php echo Asset::css('member/jquery-ui.css'); ?>
 <?php echo Asset::js(['jquery-ui.js', 'member/index.js']); ?>
-
     <div class="content-inner">
         <!--获得的商品开始-->
         <div class="lead">获得的商品</div>
         <div class="acquire-box">
-            <div class="remind ">乐拍提醒：你总共乐购获得商品（<?php echo $wincount;?>)件</div>
+            <div class="remind ">乐淘提醒：你总共乐购获得商品（<?php echo $wincount;?>)件</div>
             <div class="select-box">
             <label for=""><?php echo Html::anchor('/u/wins', '全部商品', ['class'=>'b']);?></label>
             <span class="time-choose">选择时间段：                 
@@ -23,12 +22,11 @@
                 <table>
                     <thead>
                     <tr>
-
                         <th>商品图片</th>
                         <th>商品名称</th>
-                        <th>乐拍状态</th>
+                        <th>乐淘状态</th>
                         <th>购买数量</th>
-                        <th>幸运乐拍码</th>
+                        <th>幸运乐淘码</th>
                         <th>快递状态</th>
                         <th>操作</th>
                     </tr>
@@ -52,13 +50,22 @@
                         <?php echo $getShippingStatus($status);?>
                         <?php if ($status < 100) { ?>
                            <div class="toolbox">
-                           <a class="tooltip" href="javascript:void(0)" style="padding: 2px 2px;">查看快递</a>
+                           <a class="tooltip" href="javascript:void(0)">查看快递</a>
                         
                            <div class="num-list">
                                 <div class="icon-arrow"></div>
-                                <ul>
-                                    
-                                 </ul>
+                                <div class="item">
+                                <table>
+                                    <tbody>
+                                    <?php foreach($getShippingData($win->id) as $row) { ?>
+                                          <tr>
+                                          <td><?php echo $row->context;?></td><td><?php echo $row->time;?></td>  
+                                          </tr>
+                                      <?php } ?>
+                                      </tbody>                                 
+                                </table>
+                                </div>
+                                <button class="icon-close"></button>
                             </div>
                             </div>
                         <?php }?>                        

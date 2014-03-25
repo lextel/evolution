@@ -23,6 +23,7 @@
                 foreach($items as $item):
             ?>
             <li>
+               <div class="r-hover"></div>
               <form class="xpxp" id="xpxp" action="<?php echo Uri::create('cart/add'); ?>" method="post">
                 <div class="title-box">
                     <h4 class="title-md"><a href="<?php echo Uri::create('m/' . $item->id); ?>"><?php echo $item->title; ?></a></h4>
@@ -46,7 +47,7 @@
                 </dl>
                 <?php if($item->status == \Helper\Item::IS_CHECK): ?>
                 <div class="btn-menu">
-                    <span class="left">我要乐拍</span>
+                    <span class="left">我要乐淘</span>
                     <a class="add btn-jian" href="javascript:void(0);">-</a>
                     <input type="text" value="1" name="qty" remain="<?php echo $item->remain; ?>"/>
                     <a class="add btn-jia" href="javascript:void(0);">+</a>
