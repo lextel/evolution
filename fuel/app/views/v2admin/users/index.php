@@ -18,7 +18,7 @@
             <tr>
                 <td class="text-center"><?php echo $item->username; ?></td>
                 <td class="text-center"><?php echo $item->email; ?></td>
-                <td class="text-center"><?php echo Auth::group('Simplegroup')->get_name($item->group); ?></td>
+                <td class="text-center"><?php echo Auth::group()->get_name($item->group); ?></td>
                 <td class="text-center">
                     <?php echo Html::anchor('v2admin/users/edit/'.$item->id, '编辑'); ?> |
                     <?php echo Html::anchor('v2admin/users/delete/'.$item->id, '删除', array('onclick' => "return confirm('确定要删除?')")); ?>
