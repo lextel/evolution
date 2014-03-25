@@ -472,7 +472,23 @@
     overflow: hidden;
     margin: 20px 0;
 }
-
+.cart-list table {
+    border: 0;
+}
+.cart-list table thead tr th{
+    border: 0;
+    background-color: #ffffff;
+    border-right: 1px solid #D2D2D2;
+}
+.cart-list table thead tr th:last-child{
+    border-right: none;
+}
+.cart-list table tbody tr td{
+    border-left: none;
+}
+.cart-list table tbody tr td:last-child{
+    border-right: none;
+}
 .cart-list table .info-side{
     margin: 10px 0 0 10px;
     text-align: left;
@@ -480,7 +496,6 @@
     overflow: hidden;
 }
 .cart-list .cart-footer{
-    border: 1px solid #EEEEEE;
     overflow: hidden;
     margin-top: -1px;
     padding: 5px 10px;
