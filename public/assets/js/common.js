@@ -2,7 +2,7 @@
  * Created by ui-1 on 13-12-23.
  */
 $(function(){
-    $(".recommended  ul li,.second  ul li,.editor ul li").hover(
+    $(".recommended  ul li,.second  ul li,.editor ul li,.product-list ul li").hover(
         function(){
             $(this).children(".r-hover").css({display:"block"})},
         function(){
