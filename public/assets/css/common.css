@@ -665,8 +665,10 @@ table td p.tl{
     margin-bottom: 10px;
 }
 .img-lg{
-    width: 230px;
-    height: 230px;
+    margin: 10px;
+    width: 210px;
+    height: 210px;
+    z-index: 100;
 }
 .img-md{
     width: 120px;
