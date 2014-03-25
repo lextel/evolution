@@ -12,7 +12,7 @@
             </ul>
         </div>
         <!--修改密码-->
-        <?php echo Form::open(['action' => 'u/passwd', 'method' => 'post', 'class'=>'form-password registerform']); ?>
+        <?php echo Form::open(['action' => 'u/passwd', 'method' => 'post', 'class'=>'form-password validForm']); ?>
         <ul class="edit-data">
             <li>
             <?php if (Session::get_flash('info')): ?>
@@ -24,19 +24,17 @@
             </li>
             <li>
                 <label>旧密码：</label>
+
                 <input id="oldpassword" type="password" value="" class="txt" name="oldpassword" class="inputxt" datatype="*6-20" nullmsg="请输入旧密码" errormsg="请输入正确的旧密码" sucmsg=" "/>
+
+                <input type="password"  class="txt" name="oldpassword" class="inputxt" datatype="*6-20" errorms="密码格式不正确" nullmsg="请输入6-18位密码">
                 <span class="Validform_checktip"></span>
             </li>
             <li>
                 <label>新密码：</label>
                 <input type="password" value="" class="txt" name="newpassword" class="inputxt" datatype="*6-20" nullmsg="请输入新密码" errormsg="请输入6-20位新密码" sucmsg=" "/>
+                <input type="password"  class="txt" name="newpassword" class="inputxt" datatype="*6-20" errorms="密码格式不正确" nullmsg="请输入6-18位密码">
                 <span class="Validform_checktip"></span>
-                <div class="passwordStrength" style="display:none;">
-                    <b>密码强度：</b>
-                    <span class="bgStrength">弱</span>
-                    <span>中</span>
-                    <span class="last">强</span>
-                </div>
             </li>
             <li>
                 <label>确认密码：</label>
@@ -51,6 +49,7 @@
 </div>
 <script type="text/javascript">
 $(function(){
+
 	$(".registerform").Validform({
 		tiptype:4,
         datatype:{
@@ -75,4 +74,3 @@ $(function(){
 
 
 })
-</script>

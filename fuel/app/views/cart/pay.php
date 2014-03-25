@@ -43,10 +43,10 @@
                                 <div class="remain">还需<b class="red"><?php echo $info->phase->remain; ?></b>元宝</div>
                             </div>
                         </td>
-                        <td><s><?php echo \Helper\Coins::showCoins($info->phase->cost); ?></s></td>
-                        <td><s><?php echo \Helper\Coins::showCoins(Config::get('point')); ?></s></td>
+                        <td><s><?php echo \Helper\Coins::showCoins($info->phase->cost, true); ?></s></td>
+                        <td><s><?php echo \Helper\Coins::showCoins(Config::get('point'), true); ?></s></td>
                         <td><?php echo $item->get_qty(); ?></td>
-                        <td><s><?php echo \Helper\Coins::showCoins($item->get_qty() * Config::get('point')); ?></s></td>
+                        <td><s><?php echo \Helper\Coins::showCoins($item->get_qty() * Config::get('point'), true); ?></s></td>
                         <td><a class="btn btn-default btn-sx" action="delete" href="javascript:;">删除</a></td>
                     </tr>
                     <?php endforeach; ?>
@@ -55,7 +55,7 @@
             </form>
             <div class="cart-footer">
                 <a class="btn btn-sx btn-gy fl" style="margin-left: 0px" href="<?php echo Uri::create('cart/list'); ?>"> < 返回修改订单</a>
-                <div class="all-price fr">总元宝：<b id="total" total="<?php echo $subTotal*Config::get('point'); ?>"><?php echo \Helper\Coins::showCoins($subTotal * Config::get('point')); ?></b></div>
+                <div class="all-price fr">总元宝：<b id="total" total="<?php echo $subTotal*Config::get('point'); ?>"><?php echo \Helper\Coins::showCoins($subTotal * Config::get('point'), true); ?></b></div>
             </div>
         </div>
     </div>

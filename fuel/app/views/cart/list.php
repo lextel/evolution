@@ -45,8 +45,8 @@
                                     <div class="remain">还需<b class="o"><?php echo $info->phase->remain; ?></b>元宝</div>
                                 </div>
                             </td>
-                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins($info->phase->cost); ?></b></span></td>
-                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point')); ?></b></span></td>
+                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins($info->phase->cost, true); ?></b></span></td>
+                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point'), true); ?></b></span></td>
                             <td>
                                 <div class="btn-menu">
                                     <a class="add btn-jian" href="javascript:void(0);">-</a>
@@ -55,7 +55,7 @@
                                     <span>元宝</span>
                                 </div>
                             </td>
-                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point') * $item->get_qty()); ?></b></span></td>
+                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point') * $item->get_qty(), true); ?></b></span></td>
                             <td><a href="javascript:void(0)" action="delete">删除</a></td>
                         </tr>
                         <?php
@@ -73,7 +73,7 @@
                     <div class="cart-footer">
                         <label class="fl"><input type="checkbox" action="selectAll"/>全选</label>
                         <button class="btn btn-sx fl" action="batchDelete">批量删除</button>
-                        <div class="total fr">总元宝：<b id="total"><?php echo \Helper\Coins::showCoins($subTotal * Config::get('point')); ?></b></div>
+                        <div class="total fr">总元宝：<b id="total"><?php echo \Helper\Coins::showCoins($subTotal * Config::get('point'), true); ?></b></div>
                     </div>
                 </div>
             </form>
