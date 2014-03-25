@@ -38,15 +38,22 @@
                         foreach($navs as $key => $nav) {
                             if($key != 'admin') {
                                 if(isset($nav['childs'])) {
+
+                                    list($driver, $groupid) =$groups;
                                     $subli = '';
                                     foreach($nav['childs'] as $child) {
-                                        $subli .= "<li><a href='{$child['href']}'>{$child['name']}</a></li>";
+                                        if ($child['group'] <= $groupid){
+                                            $subli .= "<li><a href='{$child['href']}'>{$child['name']}</a></li>";
+                                        }
                                     }
-                                    echo '<li class="dropdown">'.
+                                    if ($subli){
+                                        echo '<li class="dropdown">'.
                                             '<a data-toggle="dropdown" class="dropdown-toggle"  href="javascript:void(0);">'.$nav['name'].'<b class="caret"></b></a>'.
                                             '<ul class="dropdown-menu">'. $subli . '</ul>'.
                                          '</li>';
+                                    }
                                 } else {
+                                    
                                     echo '<li class=""><a href="'.$nav['href'].'">'.$nav['name'].'</a></li>';
                                 }
                             }
