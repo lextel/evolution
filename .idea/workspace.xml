@@ -2,9 +2,202 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/tasks/cookie.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/classes/helper/image.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fuel/app/tasks/ship.php" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\css\combined.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\fonts\BebasNeue-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\fonts\BebasNeue-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\fonts\BebasNeue-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\fonts\BebasNeue-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\fonts\DroidSans-Bold-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\fonts\DroidSans-Bold-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\fonts\DroidSans-Bold-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\fonts\DroidSans-Bold-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\img\clear.gif" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\img\fuel.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\img\h-split.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\img\handle.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\img\header-bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\img\nestedset.gif" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\img\nestedset2.gif" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\img\point.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\img\profiler.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\img\v-split.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\assets\js\combined.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\agent\config.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\agent\usage.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\arr.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\asset\advanced.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\asset\config.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\asset\usage.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\autoloader.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\cache\advanced.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\cache\config.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\cache\usage.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\cli.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\config.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\cookie.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\crypt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\database\db.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\database\dbutil.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\database\introduction.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\database\qb.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\database\qb_delete.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\database\qb_insert.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\database\qb_select.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\database\qb_update.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\database\qb_where.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\database\usage.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\date.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\debug.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\event.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\fieldset\field.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\fieldset\fieldset.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\file\advanced.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\file\handlers.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\file\intro.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\file\usage.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\finder.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\form.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\format.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\ftp.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\fuel.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\html.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\image.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\inflector.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\input.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\lang.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\log.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\markdown.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\migrate.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\model_crud\introduction.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\model_crud\methods.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\module.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\mongo\introduction.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\mongo\methods.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\num.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\package.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\pagination.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\profiler.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\redis.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\request\curl.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\request\request.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\request\soap.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\response.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\router.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\security.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\session\advanced.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\session\config.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\session\usage.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\str.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\theme\advanced.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\theme\introduction.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\theme\methods.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\upload\config.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\upload\usage.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\uri.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\validation\errors.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\validation\methods.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\validation\validation.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\classes\view.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\contribute.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\credits.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\favicon.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\classes.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\coding_standards.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\configuration.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\constants.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\controllers\base.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\controllers\hybrid.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\controllers\rest.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\controllers\template.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\environments.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\error.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\extending_core.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\hmvc.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\migrations.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\models.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\modules.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\mvc.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\packages.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\profiling.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\routing.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\security.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\tasks.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\unit_testing.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\viewmodels.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\general\views.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\installation\download.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\installation\instructions.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\installation\troubleshooting.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\installation\tutorials.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\installation\upgrade.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\license.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\auth\drivers.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\auth\examples\auth.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\auth\examples\opauth.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\auth\intro.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\auth\opauth\intro.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\auth\opauth\usage.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\auth\ormauth\intro.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\auth\ormauth\usage.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\auth\simpleauth\intro.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\auth\simpleauth\usage.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\auth\types\acl.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\auth\types\group.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\auth\types\login.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\email\introduction.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\email\methods.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\email\troubleshooting.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\email\usage.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\oil\console.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\oil\generate.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\oil\intro.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\oil\package.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\oil\refine.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\oil\test.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\orm\creating_models.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\orm\crud.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\orm\eav.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\orm\intro.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\orm\model\nestedset.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\orm\model\soft.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\orm\model\temporal.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\orm\observers\creating.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\orm\observers\included.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\orm\observers\intro.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\orm\relations\belongs_to.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\orm\relations\has_many.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\orm\relations\has_one.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\orm\relations\intro.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\orm\relations\many_many.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\packages\parser\intro.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\requirements.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\templates\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\toc.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\vendor\htmlawed.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\vendor\intro.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\vendor\markdown.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\vendor\phpquickprofiler.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\vendor\phpseclib.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\docs\vendor\spyc.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\www\evolution\fuel\app\tasks\test.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/product-list.html" afterPath="$PROJECT_DIR$/public/html/product-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/config/development/config.php" afterPath="$PROJECT_DIR$/fuel/app/config/development/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/config/production/config.php" afterPath="$PROJECT_DIR$/fuel/app/config/production/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/view/index.php" afterPath="$PROJECT_DIR$/fuel/app/classes/view/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/index/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/index/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/myaddress.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/myaddress.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/passwd.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/passwd.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/core/views/errors/production.php" afterPath="$PROJECT_DIR$/fuel/core/views/errors/production.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/v2admin/shipping.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/v2admin/shipping.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/config/shipping.php" afterPath="$PROJECT_DIR$/fuel/app/config/shipping.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/signin.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/v2admin/shipping/view.php" afterPath="$PROJECT_DIR$/fuel/app/views/v2admin/shipping/view.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fuel/core/views/errors/production.php" afterPath="$PROJECT_DIR$/fuel/core/views/errors/production_bak.php" />
     </list>
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,9 +223,9 @@
       <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2025" column="20" selection-start="35902" selection-end="35902" vertical-scroll-proportion="0.73544306" vertical-offset="37894" max-vertical-offset="38741">
+            <state line="2034" column="23" selection-start="36045" selection-end="36045" vertical-scroll-proportion="0.87974685" vertical-offset="37951" max-vertical-offset="38798">
               <folding>
-                <marker date="1395726265086" expanded="true" signature="624:648" placeholder="{...}" />
+                <marker date="1395726530068" expanded="true" signature="624:648" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -95,7 +288,7 @@
       <file leaf-file-name="signin.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="121" selection-start="3153" selection-end="3153" vertical-scroll-proportion="0.0" vertical-offset="1009" max-vertical-offset="1824">
+            <state line="49" column="113" selection-start="1981" selection-end="1981" vertical-scroll-proportion="0.0" vertical-offset="496" max-vertical-offset="1824">
               <folding />
             </state>
           </provider>
@@ -148,10 +341,10 @@
         <option value="$PROJECT_DIR$/public/assets/css/product.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/nickname.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/items/index.php" />
-        <option value="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/index.php" />
         <option value="$PROJECT_DIR$/public/assets/css/style.css" />
         <option value="$PROJECT_DIR$/public/html/product-list.html" />
+        <option value="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
         <option value="$PROJECT_DIR$/public/assets/css/common.css" />
       </list>
     </option>
@@ -816,13 +1009,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="121" selection-start="3153" selection-end="3153" vertical-scroll-proportion="0.0" vertical-offset="1009" max-vertical-offset="1824">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/member/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="35" selection-start="453" selection-end="459" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1235">
@@ -844,11 +1030,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="113" selection-start="1981" selection-end="1981" vertical-scroll-proportion="0.0" vertical-offset="496" max-vertical-offset="1824">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2025" column="20" selection-start="35902" selection-end="35902" vertical-scroll-proportion="0.73544306" vertical-offset="37894" max-vertical-offset="38741">
+        <state line="2034" column="23" selection-start="36045" selection-end="36045" vertical-scroll-proportion="0.87974685" vertical-offset="37951" max-vertical-offset="38798">
           <folding>
-            <marker date="1395726265086" expanded="true" signature="624:648" placeholder="{...}" />
+            <marker date="1395726530068" expanded="true" signature="624:648" placeholder="{...}" />
           </folding>
         </state>
       </provider>
