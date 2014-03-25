@@ -23,7 +23,6 @@
                 <table>
                     <thead>
                     <tr>
-
                         <th>商品图片</th>
                         <th>商品名称</th>
                         <th>乐拍状态</th>
@@ -56,9 +55,15 @@
                         
                            <div class="num-list">
                                 <div class="icon-arrow"></div>
-                                <ul>
-                                    
-                                 </ul>
+                                <table>
+                                    <tbody>
+                                    <?php foreach($getShippingData($win->id) as $row) { ?>
+                                          <tr>
+                                          <td><?php echo $row->context;?></td><td><?php echo $row->time;?></td>  
+                                          </tr>
+                                      <?php } ?>
+                                      </tbody>                                 
+                                </table>
                             </div>
                             </div>
                         <?php }?>                        
