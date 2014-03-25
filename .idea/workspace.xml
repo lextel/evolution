@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/index/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/index/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/money.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/money.php" />
     </list>
     <ignored path="evolution.iws" />
@@ -30,7 +28,7 @@
       <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1528" column="14" selection-start="26682" selection-end="26682" vertical-scroll-proportion="-13.56" vertical-offset="28693" max-vertical-offset="39159">
+            <state line="398" column="10" selection-start="6404" selection-end="6413" vertical-scroll-proportion="-16.6" vertical-offset="7147" max-vertical-offset="39159">
               <folding>
                 <marker date="1395739435555" expanded="true" signature="624:648" placeholder="{...}" />
               </folding>
@@ -50,7 +48,7 @@
       <file leaf-file-name="money.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/member/money.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="128" column="47" selection-start="4524" selection-end="4524" vertical-scroll-proportion="0.7460123" vertical-offset="1824" max-vertical-offset="3553">
+            <state line="175" column="112" selection-start="6509" selection-end="6509" vertical-scroll-proportion="0.7202454" vertical-offset="2738" max-vertical-offset="3553">
               <folding />
             </state>
           </provider>
@@ -844,7 +842,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1528" column="14" selection-start="26682" selection-end="26682" vertical-scroll-proportion="-13.56" vertical-offset="28693" max-vertical-offset="39159">
+        <state line="398" column="10" selection-start="6404" selection-end="6413" vertical-scroll-proportion="-16.6" vertical-offset="7147" max-vertical-offset="39159">
           <folding>
             <marker date="1395739435555" expanded="true" signature="624:648" placeholder="{...}" />
           </folding>
@@ -853,7 +851,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/member/money.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="47" selection-start="4524" selection-end="4524" vertical-scroll-proportion="0.7460123" vertical-offset="1824" max-vertical-offset="3553">
+        <state line="175" column="112" selection-start="6509" selection-end="6509" vertical-scroll-proportion="0.7202454" vertical-offset="2738" max-vertical-offset="3553">
           <folding />
         </state>
       </provider>

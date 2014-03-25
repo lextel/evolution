@@ -172,8 +172,8 @@ $(function() {
                     <p>完成付款后根据您的个人情况完成此操作 </p>
                     <div class="register-bar">
                         <div class="btn-group">
-                             <?php echo Html::anchor('/u/moneylog', '查看充值记录', ['class'=>'btn btn-red']);?>
-                             <?php echo Html::anchor('/u/getrecharge', '返回充值页面', ['class'=>'btn']);?>
+                             <?php echo Html::anchor('/u/moneylog', '查看充值记录', ['class'=>'btn btn-red btn-sm']);?>
+                             <?php echo Html::anchor('/u/getrecharge', '返回充值页面', ['class'=>'btn btn-sm btn-state']);?>
                           </div>
                     </div>
                  </ul>
