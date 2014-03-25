@@ -10,7 +10,7 @@
 
             </li>
             <li>
-                <span class="wealth fl">财富：<?php echo \Helper\Coins::showCoins($current_user->points);?></span>
+                <span class="wealth fl">余额：<?php echo \Helper\Coins::showCoins($current_user->points);?></span>
                 <?php echo Html::anchor('u/getrecharge', '充值', ['class'=>'btn-topUp btn-y']);?>
             </li>
         </ul>

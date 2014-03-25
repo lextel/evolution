@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style.css" afterPath="$PROJECT_DIR$/public/assets/css/style.css" />
     </list>
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,10 +36,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="239" column="20" selection-start="4409" selection-end="4409" vertical-scroll-proportion="0.51970446" vertical-offset="4119" max-vertical-offset="24567">
+            <state line="225" column="21" selection-start="4128" selection-end="4128" vertical-scroll-proportion="-6.24" vertical-offset="4119" max-vertical-offset="24567">
               <folding />
             </state>
           </provider>
@@ -50,6 +49,15 @@
         <entry file="file://$PROJECT_DIR$/fuel/app/views/member/mywins.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="6" column="43" selection-start="282" selection-end="282" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1691">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="money.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/member/money.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="175" column="112" selection-start="6509" selection-end="6509" vertical-scroll-proportion="0.8399044" vertical-offset="2622" max-vertical-offset="3553">
               <folding />
             </state>
           </provider>
@@ -67,7 +75,7 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/member/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="81" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1254">
+            <state line="12" column="42" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1254">
               <folding />
             </state>
           </provider>
@@ -132,8 +140,8 @@
         <option value="$PROJECT_DIR$/fuel/app/views/index/index.php" />
         <option value="$PROJECT_DIR$/public/assets/css/common.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/money.php" />
-        <option value="$PROJECT_DIR$/fuel/app/views/member/index.php" />
         <option value="$PROJECT_DIR$/public/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/fuel/app/views/member/index.php" />
       </list>
     </option>
   </component>
@@ -774,23 +782,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/mywins.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="43" selection-start="282" selection-end="282" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1691">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/index/invit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="815">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/money.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="175" column="112" selection-start="6509" selection-end="6509" vertical-scroll-proportion="1.1398773" vertical-offset="2396" max-vertical-offset="3553">
           <folding />
         </state>
       </provider>
@@ -825,16 +819,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/index.php">
+    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="81" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1254">
+        <state line="225" column="21" selection-start="4128" selection-end="4128" vertical-scroll-proportion="-6.24" vertical-offset="4119" max-vertical-offset="24567">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="239" column="20" selection-start="4409" selection-end="4409" vertical-scroll-proportion="0.51970446" vertical-offset="4119" max-vertical-offset="24567">
+        <state line="12" column="42" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1254">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/mywins.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="43" selection-start="282" selection-end="282" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1691">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/money.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="175" column="112" selection-start="6509" selection-end="6509" vertical-scroll-proportion="0.8399044" vertical-offset="2622" max-vertical-offset="3553">
           <folding />
         </state>
       </provider>
