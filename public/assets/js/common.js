@@ -561,7 +561,9 @@ function handlePosts(data) {
         for(var i in data.posts) {
             images = '';
             for(var j in data.posts[i].images) {
-                images += '<dd class="img-box img-md"><a href="'+BASE_URL+ data.posts[i].images[j]+'" target="_blank"><img src="'+BASE_URL+ data.posts[i].images[j]+'" alt=""></a></dd>';
+                var oimage = data.posts[i].images[j].replace('120x120/', '');
+                oimage = oimage.replace('post', 'upload/post');
+                images += '<dd class="img-box img-md"><a href="'+oimage+'" target="_blank"><img src="'+data.posts[i].images[j]+'" alt=""></a></dd>';
             }
 
             html += '<li>' +

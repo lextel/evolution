@@ -48,7 +48,7 @@
                  <a href="<?php echo Uri::create('/signup'); ?>">注册</a>
             <?php }else {?>
                  <div class="info-wide" href="<?php echo Uri::create('/u'); ?>">
-                     <?php echo Html::img($current_user->avatar);?>
+                     <img src="<?php echo \Helper\Image::showImage($current_user->avatar, '60x60');?>"/>
                      <s class="top-name"><?php echo $current_user->nickname;?></s>
                      <ul class="head-set">
                           <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐淘记录</a></li>
@@ -131,11 +131,11 @@
         </div>
         <div class="footer w">
             <ul class="bottom-nav">
-                <li><a href="http://www.llt.com/">首页</a></li>
+                <li><a href="<?php echo Uri::create('/');?>">首页</a></li>
                 <li>|</li>
-                <li><a href="http://www.llt.com/h/about">关于乐淘</a></li>
+                <li><a href="<?php echo Uri::create('h/about');?>">关于乐淘</a></li>
                 <li>|</li>
-                <li><a href="http://www.llt.com/h/privacy">隐私声明</a></li>
+                <li><a href="<?php echo Uri::create('h/privacy');?>">隐私声明</a></li>
                 <li>|</li>
                 <li><a href="javascript:void(0);">合作专区</a></li>
                 <li>|</li>
@@ -145,6 +145,7 @@
             <div class="log">乐淘，快乐抢拍你的人生！</div>
             <div class="flink" style="text-align:center">
                 <span>友情链接:</span>
+                    <a href="http://bbs.anzhi.com" target="_blank">安智论坛</a>
                     <a href="http://www.xda.cn" target="_blank">XDA</a>
                     <a href="http://www.wanggouchao.com" target="_blank">网购潮</a>
                     <a href="http://www.kuaidi100.com/all/sf.shtml" target="_blank">顺风快递查询</a>

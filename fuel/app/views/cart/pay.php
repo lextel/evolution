@@ -34,7 +34,10 @@
                     <tr>
                         <td style="display:none"><input type="checkbox" name="ids[]" value="<?php echo $item->get_id(); ?>"/></td>
                         <td>
-                            <div class="img-sm fl"><a href="<?php echo Uri::create('/m/'.$item->get_id()); ?>"><img src="<?php echo Uri::create('/image/80x80/' . $info->image); ?>" alt=""></a>
+                            <div class="img-sm fl">
+                                <a href="<?php echo Uri::create('/m/'.$item->get_id()); ?>">
+                                    <img src="<?php echo \Helper\Image::showImage($info->image, '80x80');?>"/>
+                                </a>
                             </div>
                             <div class="info-side fl">
                                 <h4>
