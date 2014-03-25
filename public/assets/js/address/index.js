@@ -9,7 +9,6 @@ function modifyAddress(id){
          if (data.code == 0){
              var address = data.address;
              $("#datas").html('');
-             alert(address.address[0]);
              $("#datas").ProvinceCity(address.address[0], address.address[1]);
              $("#datas select").eq(0).val(address.address[0]);
              $("#datas select").eq(1).val(address.address[1]);
@@ -31,6 +30,7 @@ function toAddress(url){
     var postcode = $("input[name='postcode']").val();
     var name = $("input[name='name']").val();
     var phone = $("input[name='phone']").val();
+    alert(1111);
     if ((province != '请选择' || province != '') && (city != '请选择' || city != '') && (county != '请选择' || county != '')){
           if (address !='' && postcode !='' && name !='' && phone !=''){
              $.post(url,
@@ -45,6 +45,7 @@ function toAddress(url){
 }
 $(function(){
     $(".btn-address").click(function(){
+        
         var id = $("input[name='addressid']").val();
         if (id){
            toAddress('/u/address/'+id+'/update');
