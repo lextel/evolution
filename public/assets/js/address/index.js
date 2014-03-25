@@ -5,6 +5,7 @@ function setDefaultFlag(url){
 }
 
 function modifyAddress(id){
+  alert(1);
       $.get('/u/address/'+id, function(data){
          if (data.code == 0){
              var address = data.address;
