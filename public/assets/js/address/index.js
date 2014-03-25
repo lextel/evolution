@@ -31,8 +31,8 @@ function toAddress(url){
     var postcode = $("input[name='postcode']").val();
     var name = $("input[name='name']").val();
     var phone = $("input[name='phone']").val();
-
     if ((province != '请选择' && province != '') && (city != '请选择' && city != '') && (county != '请选择' && county != '')){
+    if ((province != '请选择' || province != '') && (city != '请选择' || city != '') && (county != '请选择' || county != '')){
           if (address !='' && postcode !='' && name !='' && phone !=''){
              $.post(url,
              {province:province, city:city, county:county, address:address, postcode:postcode, name:name, phone:phone},
@@ -48,6 +48,7 @@ function toAddress(url){
 }
 $(function(){
     $(".btn-address").click(function(){
+        
         var id = $("input[name='addressid']").val();
         if (id){
            toAddress('/u/address/'+id+'/update');
