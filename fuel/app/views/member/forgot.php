@@ -1,21 +1,20 @@
 <div class="w">
-
     <?php echo Asset::css(['style.css', 'member/validfrom_style.css']);?>
     <?php echo Asset::js('Validform_v5.3.2_min.js');?>
-    <div class="register w">
+    <div class="register-warp">
         <div class="title">
             忘记密码？不用急，您可以通过一下方式找回密码。
         </div>
          <?php echo Session::get_flash('error');?>
-         <?php echo Form::open(['action'=>'forgotemail','class'=>'register-form demoform']);?>
-            <ul>
+         <?php echo Form::open(['action'=>'forgotemail','class'=> 'demoform']);?>
+            <ul class="registerForm">
                 <li>
                     <label>邮箱:</label>
-                    <input type="text" class="inputxt Validform_error" name="email" datatype="e" errorms="请输入6-18位密码" nullmsg="请输入6-18位密码" value="" id="form_password">
-                    <span class="Validform_checktip Validform_wrong">请输入6-18位密码</span>
+                    <input type="text" class="txt" name="email" datatype="e" errorms="请输入6-18位密码" nullmsg="请输入6-18位密码" value="" id="form_password">
+                    <span class="Validform_checktip">请输入6-18位密码</span>
                 </li>
                 <li>
-                    <input class="btn btn-red" name="submit" value="提交" type="submit" id="form_submit">
+                    <input class="btn btn-red btn-md" name="submit" value="提交" type="submit" id="form_submit">
                 </li>
             </ul>
         <?php echo Form::close();?>

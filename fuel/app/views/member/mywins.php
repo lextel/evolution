@@ -4,7 +4,7 @@
         <!--获得的商品开始-->
         <div class="lead">获得的商品</div>
         <div class="acquire-box">
-            <div class="remind ">乐淘提醒：你总共乐购获得商品（<?php echo $wincount;?>)件</div>
+            <div class="remind ">乐淘提醒：你总共乐淘获得商品（<?php echo $wincount;?>)件</div>
             <div class="select-box">
             <label for=""><?php echo Html::anchor('/u/wins', '全部商品', ['class'=>'b']);?></label>
             <span class="time-choose">选择时间段：                 
