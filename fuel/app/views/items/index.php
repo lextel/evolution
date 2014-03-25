@@ -1,6 +1,6 @@
 <?php echo Asset::css('product.css'); ?>
 <?php echo Asset::js(['Xslider.js', 'item/index.js']); ?>
-<div class="w">
+<div class="l-wide">
         <ul class="product-nav fl">
             <div class="header">商品分类</div>
             <?php
@@ -55,27 +55,30 @@
             $topItem = $getTopItem();
             Config::load('common');
         ?>
-        <div class="product-hot fr">
-            <?php
-                if(!empty($topItem)) {
-            ?>
-                <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
-                    <div class="title-box">
-                        <h3 class="caption"><a href="<?php echo Uri::create('/m/'.$topItem->id); ?>"><?php echo $topItem->title; ?></a></h3>
-                        <span class="price tr">价值<b>￥<?php echo sprintf('%.2f', $topItem->cost / Config::get('point')); ?></b></span>
-                    </div>
-                    <div class="img-box img-lg">
-                        <a href="<?php echo Uri::create('/m/'.$topItem->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('/image/400x400/' . $topItem->image); ?>" alt=""></a>
-                        <div class="sheng-yi2">还需 <b><?php echo $topItem->remain ?></b>元宝！</div>
-                    </div>
-                    <input name="id" value="<?php echo $topItem->id;?>" type="hidden"/>
-                    <input name="qty" value="1" type="hidden"/>
-                    <div class="btn-group tc"><button class="btn btn-red btn-hot" type="submit">立即一元乐淘</button></div>
-                </form>
-            <?php
-                }
-            ?>
-        </div>
+</div>
+<div class="r-wide">
+    <div class="hot-tit">即将揭晓</div>
+    <div class="product-hot">
+                <?php
+                    if(!empty($topItem)) {
+                ?>
+                    <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
+                        <div class="title-box">
+                            <h3 class="caption"><a href="<?php echo Uri::create('/m/'.$topItem->id); ?>"><?php echo $topItem->title; ?></a></h3>
+                            <span class="price tr">价值<b>￥<?php echo sprintf('%.2f', $topItem->cost / Config::get('point')); ?></b></span>
+                        </div>
+                        <div class="img-box img-lg">
+                            <a href="<?php echo Uri::create('/m/'.$topItem->id); ?>" rel="nofollow"><img src="<?php echo Uri::create('/image/400x400/' . $topItem->image); ?>" alt=""></a>
+                            <div class="sheng-yi2">还需 <b><?php echo $topItem->remain ?></b>元宝！</div>
+                        </div>
+                        <input name="id" value="<?php echo $topItem->id;?>" type="hidden"/>
+                        <input name="qty" value="1" type="hidden"/>
+                        <div class="btn-group tc"><button class="btn btn-red btn-hot" type="submit">立即一元乐淘</button></div>
+                    </form>
+                <?php
+                    }
+                ?>
+            </div>
 </div>
 <!--产品列表开始-->
 <div class="w">

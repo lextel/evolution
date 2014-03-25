@@ -2,6 +2,14 @@
  * Created by ui-1 on 13-12-23.
  */
 $(function(){
+    $(".recommended  ul li,.second  ul li,.editor ul li").hover(
+        function(){
+            $(this).children(".r-hover").css({display:"block"})},
+        function(){
+            $(this).children(".r-hover").css({display:"none"})}
+    );
+});
+$(function(){
     $(".sub-nav ul li a").click(function(){
         $(".sub-nav ul li a").removeClass("active");
         $(this).addClass("active");
@@ -525,7 +533,7 @@ function phases(page) {
 // 渲染参与记录
 function handleJoined(data) {
     if(!jQuery.isEmptyObject(data.orders)) {
-        var html = '<table><thead><tr><th>会员帐号</th><th>元宝数量</th><th>时间</th><tr></thead><tbody>';
+        var html = '<table><thead><tr><th>会员帐号</th><th>购买数量</th><th>时间</th><tr></thead><tbody>';
         for(var i in data.orders) {
             html += '<tr>' +
                     '    <td>'+
@@ -587,7 +595,7 @@ function handlePosts(data) {
 function handlePhases(data) {
 
     if(!jQuery.isEmptyObject(data.phases)) {
-        var html = '<table><thead><tr><th>期数</th><th>幸运乐拍码</th><th>幸运获奖者</th><th>揭晓时间</th><th>元宝数量</th><tr></thead><tbody>';
+        var html = '<table><thead><tr><th>期数</th><th>幸运乐拍码</th><th>幸运获奖者</th><th>揭晓时间</th><th>购买数量</th><tr></thead><tbody>';
         for(var i in data.phases) {
             var code = typeof(data.phases[i].code) == 'undefined' ? '<span class="r">进行中...</span>' : data.phases[i].code;
             var member = typeof(data.phases[i].member) == 'undefined' ? '' : data.phases[i].member;
