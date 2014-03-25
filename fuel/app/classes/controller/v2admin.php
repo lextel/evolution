@@ -3,7 +3,7 @@
 class Controller_V2admin extends Controller_Baseend
 {
     public $template = 'v2admin/template';
-
+   
     public function before()
     {
         parent::before();

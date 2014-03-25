@@ -19,5 +19,6 @@ class Controller_Baseend extends Controller_Template {
 
         // Set a global variable so views can use it
         View::set_global('current_user', $this->current_user);
+        View::set_global('groups', $this->auth->get_groups());
     }
 }

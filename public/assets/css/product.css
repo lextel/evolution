@@ -472,7 +472,23 @@
     overflow: hidden;
     margin: 20px 0;
 }
-
+.cart-list table {
+    border: 0;
+}
+.cart-list table thead tr th{
+    border: 0;
+    background-color: #ffffff;
+    border-right: 1px solid #D2D2D2;
+}
+.cart-list table thead tr th:last-child{
+    border-right: none;
+}
+.cart-list table tbody tr td{
+    border-left: none;
+}
+.cart-list table tbody tr td:last-child{
+    border-right: none;
+}
 .cart-list table .info-side{
     margin: 10px 0 0 10px;
     text-align: left;
@@ -480,7 +496,6 @@
     overflow: hidden;
 }
 .cart-list .cart-footer{
-    border: 1px solid #EEEEEE;
     overflow: hidden;
     margin-top: -1px;
     padding: 5px 10px;
@@ -505,11 +520,10 @@
     color: #C10101;
     background: #ffffff;
 }
-.unveiled .img-lg img{
-    width: 200px;
-    height: 200px;
-    margin:20px auto 15px;
-    border:1px solid #D2D2D2;
+.unveiled .img-lg{
+    padding: 0 10px;
+    margin: 0;
+    text-align: center;
 }
 
 .unveiled ul {
@@ -533,7 +547,7 @@
     width: 230px;
     overflow: hidden;
     padding-bottom: 10px;
-    margin: 0 10px 10px 0;
+    margin: 0 10px 0px 0;
     border: 1px solid #F8B551;
 }
 .pay-panel{
@@ -552,6 +566,9 @@
 }
 .pay-panel table{
     margin-bottom: 10px;
+}
+.pay-panel table tbody tr td{
+    text-align: left;
 }
 .panel-head p{
     line-height: 24px;
@@ -672,7 +689,7 @@
     line-height: 118px;
 }
 .new-buyer{
-    min-height: 214px;
+    min-height: 307px;
     overflow: hidden;
     margin-top: 10px;
     background: #ffffff;
@@ -682,16 +699,14 @@
 }
 .new-buyer .new-buyer-header ul{
     overflow: hidden;
-    border-top: 3px solid #ffffff;
 }
 .new-buyer .new-buyer-header ul li{
-    width: 187px;
-    height: 34px;
+    width: 190px;
+    height:40px;
     text-align: center;
     float: left;
-    line-height: 33px;
-    background: #f1f1f1;
-    border-right: 3px solid #ffffff;
+    line-height: 40px;
+    background:url("../images/tabs-bg.png") no-repeat;
 }
 .new-buyer .new-buyer-header ul li:last-child{
     border-right:0;
@@ -708,9 +723,7 @@
     float: left;
 }
 .new-buyer .new-buyer-header ul li.active{
-    width: 190px;
     background: #FFFFFF;
-    border-bottom: none;
 }
 .new-buyer .new-buyer-header ul li.active a{
     color: #333333;
@@ -742,10 +755,9 @@
     font-size: 13px;
 }
 .previous-box{
-    width: 377px;
+    width: 379px;
     overflow: hidden;
     padding:0 10px 10px;
-    border: 1px solid #dddddd;
     background:#FFFFFF;
     margin-top: 10px;
 }
@@ -755,7 +767,6 @@
 
 .product-details{
     padding: 20px;
-    border: 1px solid #ddd;
 }
 .pin-wrapper{
     width: 980px;
@@ -767,7 +778,6 @@
     background: #ffffff;
     z-index: 999;
     width: 978px;
-    border: 1px solid #d2d2d2;
 }
 .sub-nav ul {
     overflow: hidden;
@@ -898,10 +908,6 @@
 }
 .look-bak .pagination{
     margin-right: 10px;
-}
-.record table thead,.look-bak table thead{
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
 }
 .record table thead th,.look-bak table thead th{
     padding:5px;
@@ -1148,8 +1154,12 @@
     height: 38px;
     overflow: hidden;
     width: 978px;
+    margin-bottom: 10px;
     border: 1px solid #dddddd;
     background: #FFFFFF;
+}
+.select-result h2 small{
+   font-weight: normal;
 }
 .select-result h2{
     text-indent: 2em;

@@ -134,18 +134,20 @@
           <h3>用户登录</h3>
            <button class="close" id="close"></button>
         </div>
-        <label for="" class="error"></label>
+        <label for="" class="error2"></label>
         <ul class="login2-body">
             <li>
-                <input name="username" type="text" value="" placeholder="用户邮箱" datatype="e" errorms="请输入邮箱帐号" id="form_username" class="Validform_error"/>
+                <input name="username" type="text" value="" placeholder="用户邮箱" datatype="e" errorms="请输入邮箱帐号" />
                 <span class="icon-user"></span>
+                 <span class="Validform_checktip"></span>
             </li>
             <li>
-                <input name="password"  type="password" value="" placeholder="用户密码"  datatype="*6-18" errorms="密码范围在6-18位之间" id="form_username" class="Validform_error" />
+                <input name="password"  type="password" value="" placeholder="用户密码"  datatype="*6-18" errorms="密码范围在6-18位之间" />
                 <span class="icon-password"></span>
+                <span class="Validform_checktip"></span>
             </li>
             <li>
-                <span class="Validform_checktip">请填写信息！</span>             
+
                 <button class="btn btn-red btn-modal fl">登录</button>
                 <a href="/forgot" class="fr">忘记密码？</a>
             </li>
@@ -156,7 +158,7 @@
 <script type="text/javascript">
     $(function(){
     	$(".demoform").Validform({
-    	tiptype:4,
+    	tiptype:4
     	});
     });
 </script>

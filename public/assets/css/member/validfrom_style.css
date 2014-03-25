@@ -286,6 +286,7 @@
 	overflow:hidden;
 	color:#999;
     display: inline-block;
+    margin-left: 3px;
     position: relative;
 }
 .Validform_right{

@@ -1,13 +1,8 @@
 <?php echo Asset::js('jquery.provincesCity.js',"utf-8"); ?>
 <?php echo Asset::css(['member/validfrom_style.css']); ?>
 <?php echo Asset::js(['provincesdata.js','Validform_v5.3.2_min.js', 'address/index.js']); ?>
-<script type="text/javascript">
-$(function(){
-        $(".validForm").Validform({
-            tiptype:4
-        });
-});
-</script>
+
+
 <div class="set-wrap">
         <div class="lead">个人设置</div>
         <div class="navbar-inner">
@@ -47,37 +42,37 @@ $(function(){
         </table>
         <!--修改地址-->
         <div class="editAddress">
-        <?php echo Form::open(['action' => '', 'method' => 'post', 'class'=>'form-password validForm']); ?>
-        
+
             <div class="row"><button class="btn btn-red btn-sx" id="editAddress">添加新地址</button></div>
             <ul class="edit-data">
                         <li>
                             <label>*所在地区：</label>
                             <div id="datas" class="fl"></div>
+                            <span id="xperror"></span>
                         </li>
                         <li>
                             <label class="align">*街道地址：</label>
-                            <textarea name="address" cols="50" rows="3" datatype="*" sucmsg="验证通过！" nullmsg="请输入街道地址!" errormsg="请输入街道地址！" sucmsg=" " ></textarea>
+                            <input name="address" class="txt" datatype="*" style="width:380px;" nullmsg="请输入街道地址!" errormsg="请输入街道地址！" sucmsg=" " />
+                            <span class="Validform_checktip"></span>
                         </li>
                         <li>
                             <label>*收货人：</label>
-                            <input type="text" value="" class="txt" name="name" datatype="zh2-6" sucmsg="验证通过！" nullmsg="请输入收货人!" errormsg="请输入2到6个中文字符！" sucmsg=" " />
+                            <input value="" class="txt" id="name" name="name" sucmsg=" " />
                         </li>
                         <li>
                             <label>*联系电话：</label>
-                            <input type="text" value="" class="txt" name="phone" datatype="m" sucmsg="验证通过！" nullmsg="请输入联系电话!" errormsg="请输入正确的联系电话！" sucmsg=" " />
+                            <input value="" class="txt" name="phone" datatype="m" nullmsg="请输入联系电话!" errormsg="请输入正确的联系电话！" sucmsg=" " />
                         </li>
                         <li>
                              <label>邮政编码：</label>
-                             <input type="text" value="" class="txt" name="postcode" datatype="p" sucmsg="验证通过！" nullmsg="请输入邮政编码!" errormsg="请输入正确的邮政编码！" sucmsg=" " />
+                             <input value="" class="txt" name="postcode" datatype="p" nullmsg="请输入邮政编码!" errormsg="请输入正确的邮政编码！" sucmsg=" " />
                         </li>
                         <li>
-                            <input class=" btn-red  btn-address fl" type="submit" value="保存"/>
+                            <input name="addressid" id="addressid" type="hidden" val=""/>
+                            <input class="btn-red  btn-address fl" type="submit" value="保存"/>
                             <input class="btn-sx btn-cancel fl" type="submit" value="取消"/>
                         </li>
                         <button class="icon-close"></button>
             </ul>
-        <?php echo Form::close(); ?>
         </div>
 </div>
-

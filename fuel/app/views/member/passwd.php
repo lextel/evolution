@@ -48,24 +48,6 @@ $(function(){
 
 	$(".validForm").Validform({
 		tiptype:4,
-        datatype:{
-            "oldpassword": $(this).keyup(function (gets,obj,curform,regxp){
-                var oldpassword = $("#oldpassword").val();
-                //alert(1);
-                //var reg=/^[\w.]{6,20}$/;
-                //if(reg.test(oldpassword)|| reg.test(oldpassword)){
-                if(oldpassword.length<6|| oldpassword.length>20){
-                    //alert(1);
-                    //return false;
-                }
-                //return true;
-            })
-            
-            //function(gets,obj,curform,regxp){
-            //参数gets是获取到的表单元素值，obj为当前表单元素，curform为当前验证的表单，regxp为内置的一些正则表达式的引用;           
- 
-            //}
-        }
-	});
+      	});
 });
 </script>

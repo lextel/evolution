@@ -5,7 +5,7 @@ function setDefaultFlag(url){
 }
 
 function modifyAddress(id){
-  alert(1);
+  $(".edit-data").show();
       $.get('/u/address/'+id, function(data){
          if (data.code == 0){
              var address = data.address;
@@ -14,7 +14,7 @@ function modifyAddress(id){
              $("#datas select").eq(0).val(address.address[0]);
              $("#datas select").eq(1).val(address.address[1]);
              $("#datas select").eq(2).val(address.address[2]);
-             $("textarea[name='address']").val(address.address[3]);
+             $("input[name='address']").val(address.address[3]);
              $("input[name='postcode']").val(address.postcode);
              $("input[name='name']").val(address.name);
              $("input[name='phone']").val(address.mobile);
@@ -27,10 +27,11 @@ function toAddress(url){
     var province = $("#datas select").eq(0).val();
     var city = $("#datas select").eq(1).val();
     var county = $("#datas select").eq(2).val();
-    var address = $("textarea[name='address']").val();
+    var address = $("input[name='address']").val();
     var postcode = $("input[name='postcode']").val();
     var name = $("input[name='name']").val();
     var phone = $("input[name='phone']").val();
+    if ((province != '请选择' && province != '') && (city != '请选择' && city != '') && (county != '请选择' && county != '')){
     if ((province != '请选择' || province != '') && (city != '请选择' || city != '') && (county != '请选择' || county != '')){
           if (address !='' && postcode !='' && name !='' && phone !=''){
              $.post(url,
@@ -41,10 +42,13 @@ function toAddress(url){
              'html'
              );
           }
+    }else{
+       $("#xperror").html("<span class='Validform_checktip Validform_wrong'>请选择地区</span>");
     }
 }
 $(function(){
     $(".btn-address").click(function(){
+        
         var id = $("input[name='addressid']").val();
         if (id){
            toAddress('/u/address/'+id+'/update');
@@ -65,18 +69,26 @@ $(function(){
         $("#datas select").eq(0).val('请选择');
         $("#datas select").eq(1).val('请选择');
         $("#datas select").eq(2).val('请选择');
-        $("textarea[name='address']").val('');
+        $("input[name='address']").val('');
         $("input[name='postcode']").val('');
         $("input[name='name']").val('');
         $("input[name='phone']").val('');
     });
 
-    $(".editAddress>.edit-data").Validform({
+    var from = $(".editAddress>.edit-data").Validform({
        tiptype:3,
        label:".label",
        showAllError:true,
        ajaxPost:true
     });
+    from.addRule([
+            {
+              ele:"#name",
+              datatype:/^[\u4e00-\u9fa5]{2,6}$/ ,
+              nullmsg:"请输入收货人!",
+              errormsg:"请输入2到6个中文字符!"
+            }
+        ]);
 
     $(".setFlag").click(function(){
        var data = $(this).attr('data');

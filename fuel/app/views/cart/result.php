@@ -48,7 +48,7 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <a class="btn btn-red btn-atc" href="<?php echo Uri::base(); ?>">继续购物</a>
+            <a class="btn btn-red btn-atc" href="<?php echo Uri::base(); ?>">继续乐淘</a>
         </div>
         <!--今日热门开始-->
         <div class="unveiled w">

@@ -10,8 +10,9 @@ class Controller_V2admin_Users extends Controller_V2admin{
             ];
 
         $view = View::forge('v2admin/users/index');
+        list($driver, $groupid) = $this->auth->get_groups();
         $breadcrumb = new Helper\Breadcrumb();
-        $users = Model_User::find('all');
+        $users = Model_User::find('all', ['where'=>[['group', '<=', $groupid]]]);
         $view->set('users', $users);
         $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $this->template->title = "管理员列表 > 用户管理";
