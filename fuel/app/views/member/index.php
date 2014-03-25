@@ -3,11 +3,11 @@
         <ul class="center-info">
             <li>
                 <div class="winner fl"><h1>昵称：<a href="/u"><?php echo $current_user->nickname;?></a></h1></div>
-                <!--<button class="edit fl">编辑</button>-->
+               <a href="" class="btn-topUp btn-state fl" style="margin-left:20px;">编辑</a>
             </li>
             <li>
                 <div class="signature2 fl"> 个性签名：<?php echo $current_user->bio;?></div>
-                <a href="" class="btn-topUp btn-state fl">编辑</a>
+
             </li>
             <li>
                 <span class="wealth fl">财富：<?php echo \Helper\Coins::showCoins($current_user->points);?></span>
