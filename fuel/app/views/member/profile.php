@@ -48,7 +48,7 @@ $(function(){
              </li>
             <li>
                 <label>*昵称：</label>
-                <?php echo Form::input('nickname', Input::post('nickname', $member->nickname), array('class' => 'form-control txt','name'=>'username','datatype'=>'*2-8','errorms'=>'请输入昵称 2~8个字'));?>
+                <?php echo Form::input('nickname', Input::post('nickname', $member->nickname), array('class' => 'form-control txt','name'=>'username','datatype'=>'*2-8','errorms'=>'请输入昵称 2~8个字','sucmsg'=>' '));?>
                 <span class="Validform_checktip"></span>
             </li>
             <li>
