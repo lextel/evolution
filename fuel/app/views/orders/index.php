@@ -5,7 +5,7 @@
 <?php echo Asset::js(['jquery-ui.js', 'member/index.js']); ?>
 <div class="history">
     <div class="title">
-        <span class="icon-history"></span>  历史乐拍记录
+        <span class="icon-history"></span>  历史乐淘记录
     </div>
     <div class="history-content">
         <div class="select-box time-box">
@@ -19,7 +19,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>乐拍时间</th>
+                    <th>乐淘时间</th>
                     <th>会员帐号</th>
                     <th>商品名称</th>
                     <th>购买数量</th>

@@ -5,7 +5,7 @@
         <!--获得的商品开始-->
         <div class="lead">获得的商品</div>
         <div class="acquire-box">
-            <div class="remind ">乐拍提醒：你总共乐购获得商品（<?php echo $wincount;?>)件</div>
+            <div class="remind ">乐淘提醒：你总共乐购获得商品（<?php echo $wincount;?>)件</div>
             <div class="select-box">
             <label for=""><?php echo Html::anchor('/u/wins', '全部商品', ['class'=>'b']);?></label>
             <span class="time-choose">选择时间段：                 
@@ -26,9 +26,9 @@
 
                         <th>商品图片</th>
                         <th>商品名称</th>
-                        <th>乐拍状态</th>
+                        <th>乐淘状态</th>
                         <th>购买数量</th>
-                        <th>幸运乐拍码</th>
+                        <th>幸运乐淘码</th>
                         <th>快递状态</th>
                         <th>操作</th>
                     </tr>
