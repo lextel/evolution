@@ -68,7 +68,7 @@ class View_Index extends Viewmodel {
             $where = [
                 'opentime'  => \Helper\Item::NOT_OPEN, 
                 'is_delete' => \Helper\Item::NOT_DELETE, 
-                'status'    => \Helper\Item::IS_CHECK,
+                ['status', 'in', [\Helper\Item::IS_CHECK, \Helper\Item::IS_SHOW]],
                 'is_recommend' => 1
                 ];
 
