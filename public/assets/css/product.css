@@ -671,7 +671,7 @@
     line-height: 118px;
 }
 .new-buyer{
-    min-height: 214px;
+    min-height: 307px;
     overflow: hidden;
     margin-top: 10px;
     background: #ffffff;
@@ -737,10 +737,9 @@
     font-size: 13px;
 }
 .previous-box{
-    width: 377px;
+    width: 379px;
     overflow: hidden;
     padding:0 10px 10px;
-    border: 1px solid #dddddd;
     background:#FFFFFF;
     margin-top: 10px;
 }
