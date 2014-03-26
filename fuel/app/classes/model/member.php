@@ -500,7 +500,8 @@ class Model_Member extends \Classes\Model
         if ($image == ''){
             $fs = self::listdir($base);
             if (!$fs){
-               return 'upload/avatar/header.png';
+               Config::load('common');
+               return Config::get('default_headico');;
             }
             $image = $fs[array_rand($fs, 1)];
         }
