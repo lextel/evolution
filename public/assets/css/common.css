@@ -30,7 +30,7 @@ body{
     color: #212121;
 }
 .bx-controls{
-    height: 350px;
+    max-height: 350px;
 }
 .row{
     overflow: hidden;
