@@ -43,9 +43,10 @@ $(function() {
         html += ' </div>';
         html += '</div></div>';
         html += '<div class="item-footer"><div class="lucky-code fl">';
-        html += '幸运乐淘码:<b>'+data.code+'</b></div>';
-        html += '<a class="btn btn-red fr" href="'+data.link+'">查看详情</a></div>';
+        html += '<b>幸运乐淘码:</b><s class="r">'+data.code+'</></div>';
+        html += '<a class="btn btn-red latest-btn fr" href="'+data.link+'">查看详情</a></div>';
 
+        $('#win' + id).removeClass('active');
         $('#win' + id + ' .item-head').after(html);
     }
 
