@@ -678,11 +678,12 @@ class Model_Item extends \Classes\Model {
 
             // 编辑期同步更新期数信息 =============begins=================
             // 已经揭晓
+            Config::load('common');
             DB::update('phases')->value('title', $post['title'])
                                 ->value('cate_id', $post['cate_id'])
                                 ->value('brand_id', $post['brand_id'])
                                 ->value('image', $image)
-                                ->value('cost', $post['price'])
+                                ->value('cost', $post['price'] * Config::get('point'))
                                 ->value('amount', $post['price'])
                                 ->where('item_id', $item->id)
                                 ->execute();
