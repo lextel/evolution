@@ -16,7 +16,9 @@
                 <?php $phase = $phases[$item->phase_id]; ?>
                 <dd>
                     <div class="img-box">
-                        <?php echo Html::anchor('m/'.$item->phase_id, Html::img($phase->image));?>
+                        <a href="<?php echo Uri::create('m/'.$item->phase_id); ?>" rel="nofollow">
+                            <img src="<?php echo \Helper\Image::showImage($phase->image, '200x200');?>"/>
+                        </a>
                         <?php if ($phase->code != '') { ?>
                              <span class="icon-jx">已揭晓</span>
                             <?php } ?>
