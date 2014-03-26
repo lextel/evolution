@@ -359,11 +359,12 @@ class Controller_V2admin_Items extends Controller_V2admin {
     }
 
     // test
+    /*
     public function action_test() {
 
         $phaseModel = new Model_Phase();
         return json_encode($phaseModel->add(1));
-    }
+    }*/
 
 
 }

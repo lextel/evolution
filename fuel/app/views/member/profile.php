@@ -52,6 +52,11 @@ $(function(){
                 <span class="Validform_checktip"></span>
             </li>
             <li>
+                <label>邀请码：</label>
+                <input class="txt" name="" value=""/>
+                <span class="Validform_checktip"></span>
+            </li>
+            <li>
                 <label class="align">个性签名：</label>
                 <?php echo Form::textarea('bio', Input::post('bio', $member->bio), array('class' => 'form-control txtarea','rows'=>'3'));?>
                 <span class="Validform_checktip"></span>

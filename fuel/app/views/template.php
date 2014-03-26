@@ -11,7 +11,7 @@
         <script type="text/javascript">
             $(function() {
                 if (window.PIE) {
-                    $(".btn,.progress,.crumbs li s").each(function() {
+                    $(".btn,.progress,.crumbs li s,.product-list li,.list-hover li").each(function() {
                         PIE.attach(this);
                     });
                 }

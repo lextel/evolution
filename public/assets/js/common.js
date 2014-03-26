@@ -1,21 +1,10 @@
 /**
- * Created by ui-1 on 13-12-23.
- */
+ * 期数展开箭头切换*
+ **/
 $(function(){
-    $(".recommended  ul li,.second  ul li,.editor ul li,.product-list ul li").hover(
-        function(){
-            $(this).children(".r-hover").css({display:"block"})},
-        function(){
-            $(this).children(".r-hover").css({display:"none"})}
-    );
-});
-$(function(){
-    $(".sub-nav ul li a").click(function(){
-        $(".sub-nav ul li a").removeClass("active");
-        $(this).addClass("active");
-        $(".product-side>div").addClass("d-n");
-        $(".product-side>div").eq($(".sub-nav ul li a").index($(this))).removeClass("d-n");
-    });
+    $(".btn-periods").click(function(){
+        $(this).toggleClass("open");
+    })
 });
 /**
  *顶部设置鼠标滑过效果
