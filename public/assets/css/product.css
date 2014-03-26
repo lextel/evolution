@@ -233,9 +233,24 @@
     font-weight: bold;
 }
 .sub-menu  dl dd{
-    height: 26px;
-    font-size: 13px;
-    line-height: 26px;
+     height: 35px;
+     line-height: 35px;
+     margin: 5px 0;
+     overflow: hidden;
+ }
+.sub-menu  dl dd a{
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.sub-menu  dl dd a img{
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    vertical-align: middle;
 }
 .sub_banner{
     width: 442px;
