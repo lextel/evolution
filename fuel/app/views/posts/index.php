@@ -16,17 +16,19 @@
         <?php $members = $getMembersByPosts($posts);?>
         <?php foreach ([0,1,2,3] as $li){?>
         <li>
-            
                 <?php foreach ($posts as $v=>$item){ ?>
-                 
                             <?php if (array_search($v, array_keys($posts)) % 4 == $li){?>
                                  <div class="product-item">
                                  <div class="img-box">
-                                     <?php echo Html::anchor('/p/'.$item->id, Html::img($item->topimage));?>
+                                      <a href="<?php echo Uri::create('p/'.$item->id); ?>">
+                                        <img src="<?php echo \Helper\Image::showImage($item->topimage, '235x0');?>"/>
+                                      </a>
                                  </div>
                                  <div class="item-head">
                                       <div class="head-img fl">
-                                           <?php echo Html::anchor('u/'.$item->member_id, Html::img($members[$item->member_id]->avatar));?>
+                                          <a href="<?php echo Uri::create('u/'.$item->member_id); ?>">
+                                            <img src="<?php echo \Helper\Image::showImage($members[$item->member_id]->avatar, '60x60');?>"/>
+                                          </a>
                                       </div>
                                       <div class="info-side fl">
                                             <div class="username"><?php echo Html::anchor('u/'.$item->member_id, $members[$item->member_id]->nickname);?></div>

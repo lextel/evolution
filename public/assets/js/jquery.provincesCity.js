@@ -14,7 +14,7 @@ $.fn.ProvinceCity = function(province, city1){
 	//插入3个空的下拉框
 	_self.append("<select></select><s>省</s>");
 	_self.append("<select></select><s>市</s>");
-	_self.append("<select></select><s>县</s>");
+	_self.append("<select></select><s>县/区</s>");
 	//分别获取3个下拉框
 	var $sel1 = _self.find("select").eq(0);
 	var $sel2 = _self.find("select").eq(1);
@@ -80,6 +80,12 @@ $.fn.ProvinceCity = function(province, city1){
 				$sel3.append("<option value='"+data+"'>"+data+"</option>");
 			})
 		}
+		if('请选择' != this.options[index1].value){
+			$("#xperror").html("<span class='Validform_checktip Validform_right'></span>");
+		}else{
+			$("#xperror").html("<span class='Validform_checktip Validform_wrong'>请选择地区</span>");
+		}
+		
 	}).change();
 	//1级城市联动 控制
 	

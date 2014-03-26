@@ -4,7 +4,11 @@
     <div class="banner">
         <ul class="rslides f426x240 bxslider">
             <?php foreach($ads() as $ad) { ?>
-            <li><?php echo Html::anchor($ad->link, Html::img($ad->image), ['target'=>'_blank', 'title' => $ad->title]);?></li>
+            <li>
+                <a href="<?php echo Uri::create($ad->link); ?>" title="<?php echo $ad->title?>" target="_blank">
+                    <img src="<?php echo \Helper\Image::showImage($ad->image);?>"/>
+                </a>
+            </li>
             <?php } ?>
         </ul>
     </div>
@@ -178,7 +182,9 @@
                     <span class="price fr">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
                 </div>
                 <div class="img-box img-lg">
-                    <a href="<?php echo Uri::create('m/'.$phase->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($phase->image, '400x400');?>"/></a>
+                    <a href="<?php echo Uri::create('m/'.$phase->id); ?>" rel="nofollow">
+                        <img src="<?php echo \Helper\Image::showImage($phase->image, '400x400');?>"/>
+                    </a>
                 </div>
                 <dl class="progress-side">
                     <dd>
@@ -218,7 +224,9 @@
             ?>
             <div class="bask fl">
                 <div class="img-box img-md fl">
-                    <?php echo Html::anchor('p/'.$post->id, Html::img($post->topimage), ['rel' => 'nofollow']);?>
+                    <a href="<?php echo Uri::create('p/'.$post->id); ?>" rel="nofollow">
+                        <img src="<?php echo \Helper\Image::showImage($post->topimage, '120x120');?>"/>
+                    </a>
                 </div>
                 <div class="bask-info fr">
                     <div class="bask-title">
@@ -235,7 +243,9 @@
                     <?php foreach($data['posts'] as $post) { ?>
                     <li>
                         <div class="img-box img-md">
-                            <?php echo Html::anchor('p/'.$post->id, Html::img($post->topimage));?>
+                            <a href="<?php echo Uri::create('p/'.$post->id); ?>" rel="nofollow">
+                                <img src="<?php echo \Helper\Image::showImage($post->topimage, '120x120');?>"/>
+                            </a>
                         </div>
                         <h4 class="title-02"><?php echo Html::anchor('p/'.$post->id, $post->title);?></h4>
                         <div class="username">获得者：<b><?php echo Html::anchor('u/'.$post->member_id, $data['members'][$post->member_id]->nickname);?></b></div>

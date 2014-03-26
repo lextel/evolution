@@ -12,7 +12,7 @@
             </h2>
         </div>
         <div class="results-img fl">
-            <img src="<?php echo Uri::create('image/400x400/'.$itemInfo->image); ?>" alt="">
+            <img src="<?php echo \Helper\Image::showImage($itemInfo->image, '400x400');?>"/>
         </div>
         <div class="state-column fr">
             <div class="state-heading">
@@ -28,7 +28,9 @@
                     <div class="result-info">
                          <div class="row">
                          <div class="head-img fl">
-                              <a href="<?php echo Uri::create('u/'.$memberInfo->id); ?>"><img src="<?php echo Uri::create($memberInfo->avatar); ?>" alt=""></a>
+                              <a href="<?php echo Uri::create('u/'.$memberInfo->id); ?>">
+                                <img src="<?php echo \Helper\Image::showImage($memberInfo->avatar, '60x60');?>"/>
+                              </a>
                          </div>
                          <div class="info-side fl">
                               <div class="username">获得者：<a href="<?php echo Uri::create('u/'.$memberInfo->id); ?>"><b><?php echo $memberInfo->nickname; ?></b></a></div>
@@ -40,14 +42,14 @@
                         <div class="win-number">
                             <div class="left"><?php echo date('Y-m-d', $win->order_created_at); ?><br><?php echo date('H:i:s', $win->order_created_at); ?></div>
                                     <dl>
-                                    	<?php
-                                    		foreach($orderCodes as $code) {
-                                    			if($win->code == $code) 
-                                    				echo '<dd style="color:red; font-weight: bold">'.$code.'</dd>';
-                                    			else
-                                    				echo '<dd>'.$code.'</dd>';
-                                    		}
-                                    	?>
+                                        <?php
+                                            foreach($orderCodes as $code) {
+                                                if($win->code == $code) 
+                                                    echo '<dd style="color:red; font-weight: bold">'.$code.'</dd>';
+                                                else
+                                                    echo '<dd>'.$code.'</dd>';
+                                            }
+                                        ?>
                                     </dl>
                             </div>
                     </div>
@@ -58,7 +60,7 @@
         </div>
     </div>
     <div class="bd w">
-		<div class="sub-nav w" id="bigNav">
+        <div class="sub-nav w" id="bigNav">
         <ul>
             <li><a href="#result" class="active" data-toggle="tab">计算结果</a></li>
             <li><a href="#buylog" phaseId="<?php echo $win->id; ?>"  data-toggle="tab">所有参与纪录(<s class="r"><?php echo $orderCount; ?></s>)</a></li>
@@ -66,7 +68,7 @@
             <li><a href="#phase" itemId="<?php echo $itemInfo->id; ?>" data-toggle="tab">往期回顾(<s class="r"><?php echo $phaseCount; ?></s>)</a></li>
         </ul>
         </div>
-		<div class="tab-content">
+        <div class="tab-content">
         <!--计算结果开始-->
         <div class="tab-pane active" id="result">
             <div class="calculation-box">
@@ -146,7 +148,7 @@
         <!--往期回顾开始-->
         <div  class="look-bak d-n tab-pane" id="phase"></div>
         <!--往期回顾结束-->
-	</div>
+    </div>
 </div>
 <script>
     BUYLOG_URL   = '<?php echo Uri::create('l/joined'); ?>';
