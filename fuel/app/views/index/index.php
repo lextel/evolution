@@ -223,7 +223,7 @@
                 $post = array_shift($data['posts']);
             ?>
             <div class="bask fl">
-                <div class="img-box img-md fl">
+                <div class="img-wide fl">
                     <a href="<?php echo Uri::create('p/'.$post->id); ?>" rel="nofollow">
                         <img src="<?php echo \Helper\Image::showImage($post->topimage, '120x120');?>"/>
                     </a>
