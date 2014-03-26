@@ -29,7 +29,7 @@ class Controller_Comment extends Controller_Rest{
                 $data['list'][] = ["member"=>[
                     'id'=>$c->id,
                     'userid'=>$c->member_id,
-                    'avatar'=>$member->avatar,
+                    'avatar'=> \Helper\Image::showImage($member->avatar, '60x60'),
                     'nickname'=>$member->nickname,
                     'text'=>htmlentities($c->text),
                     'date'=>\Helper\Timer::friendlyDate($c->created_at)]

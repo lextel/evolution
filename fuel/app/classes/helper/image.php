@@ -20,6 +20,8 @@ class Image {
         if(!empty($size)) {
             $sizes = [$size];
             array_splice($paths, 1, 0, $sizes);
+        } else {
+            array_splice($paths, 0, 0, ['upload']);
         }
 
         $path = implode('/', $paths);

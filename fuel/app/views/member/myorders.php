@@ -45,7 +45,13 @@
                     <?php $phase = $getPhaseInfo($order->phase_id);?>
                     <tr>
                            
-                        <td><div class="img-box img-sm"><?php echo Html::anchor('/m/'.$order->phase_id, Html::img($phase->image));?></div></td>
+                        <td>
+                            <div class="img-box img-sm">
+                                <a href="<?php echo Uri::create('m/'.$order->phase_id); ?>" rel="nofollow">
+                                    <img src="<?php echo \Helper\Image::showImage($phase->image, '80x80');?>"/>
+                                </a>
+                            </div>
+                        </td>
                         <td>
                             <div class="title-lg">（第<?php echo $phase->phase_id;?>期）<?php echo $phase->title;?></div>
                             <?php if ($getPhaseInfo($order->phase_id)->member_id !=0) {?>

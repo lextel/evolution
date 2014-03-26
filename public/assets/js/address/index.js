@@ -5,6 +5,7 @@ function setDefaultFlag(url){
 }
 
 function modifyAddress(id){
+  $(".edit-data").show();
       $.get('/u/address/'+id, function(data){
          if (data.code == 0){
              var address = data.address;
@@ -30,7 +31,8 @@ function toAddress(url){
     var postcode = $("input[name='postcode']").val();
     var name = $("input[name='name']").val();
     var phone = $("input[name='phone']").val();
-    if ((province != '请选择' || province != '') && (city != '请选择' || city != '') && (county != '请选择' || county != '')){
+
+    if ((province != '请选择' && province != '') && (city != '请选择' && city != '') && (county != '请选择' && county != '')){
           if (address !='' && postcode !='' && name !='' && phone !=''){
              $.post(url,
              {province:province, city:city, county:county, address:address, postcode:postcode, name:name, phone:phone},
@@ -40,6 +42,8 @@ function toAddress(url){
              'html'
              );
           }
+    }else{
+       $("#xperror").html("<span class='Validform_checktip Validform_wrong'>请选择地区</span>");
     }
 }
 $(function(){
@@ -71,12 +75,20 @@ $(function(){
         $("input[name='phone']").val('');
     });
 
-    $(".editAddress>.edit-data").Validform({
+    var from = $(".editAddress>.edit-data").Validform({
        tiptype:3,
        label:".label",
        showAllError:true,
        ajaxPost:true
     });
+    from.addRule([
+            {
+              ele:"#name",
+              datatype:/^[\u4e00-\u9fa5]{2,6}$/ ,
+              nullmsg:"请输入收货人!",
+              errormsg:"请输入2到6个中文字符!"
+            }
+        ]);
 
     $(".setFlag").click(function(){
        var data = $(this).attr('data');

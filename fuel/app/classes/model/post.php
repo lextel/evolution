@@ -111,16 +111,23 @@ class Model_Post extends \Classes\Model
 
         $data = [];
         foreach($posts as $post) {
+
+            $newImages = [];
+            $images = unserialize($post->images);
+            foreach($images as $image) {
+                $newImages[] = \Helper\Image::showImage($image, '120x120');
+
+            }
             $data[] = [
                     'id'    => $post->id,
                     'title' => $post->title,
                     'desc'  => $post->desc,
-                    'images' => unserialize($post->images),
+                    'images' => $newImages,
                     'phase'  => $phaseInfo[$post->phase_id]->phase_id,
                     'up' => $post->up,
                     'count' => $post->comment_count,
                     'member_id' => $post->member_id,
-                    'avatar' => Uri::create($memberInfo[$post->member_id]->avatar),
+                    'avatar' => \Helper\Image::showImage($memberInfo[$post->member_id]->avatar, '100x100'),
                     'nickname' => $memberInfo[$post->member_id]->nickname,
                     'created_at' => date('Y-m-d H:i:s', $post->created_at),
                 ];
