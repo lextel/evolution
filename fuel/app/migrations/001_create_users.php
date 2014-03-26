@@ -17,7 +17,8 @@ class Create_users
             'profile_fields' => array('type' => 'text'),
             'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
             'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
-
+            'is_delete'=>array('constraint' => 2, 'type' => 'int', 'null' => true,'default'=>0),
+            'mobile'=>array('constraint' =>12, 'type' => 'int', 'null' => true, 'default'=>0),
         ), array('id'));
     }
 
