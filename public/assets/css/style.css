@@ -402,7 +402,6 @@
     width: 765px;
     overflow: hidden;
     margin-left: 10px;
-    border: 1px solid #d2d2d2;
     background: #FFFFFF;
     min-height: 450px;
     padding: 20px;
@@ -728,7 +727,7 @@
 }
 /*个人设置*/
 .set-wrap{
-    width: 765px;
+    width: 768px;
     overflow: hidden;
     border: 1px solid #EEEEEE;
     border-top:none;
