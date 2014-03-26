@@ -103,7 +103,14 @@ class Controller_V2admin_Items extends Controller_V2admin {
     public function action_add() {
 
         $val = Model_Item::validate('create');
+
         if($val->run()) {
+
+            if(Input::post('price') > 50000) {
+               Session::set_flash('error', e('商品价格过大，如果需要添加限制请联系技术'));
+               Response::redirect_back();
+            }
+
             $itemModel = new Model_Item();
             $rs = $itemModel->add(Input::post());
             if($rs) {
