@@ -55,10 +55,12 @@ class Model_Shipping extends \Classes\Model
     public function handleWhere($options) {
 
         $where = [];
-        if(isset($options['status']) && $options['status'] !== '') {
+        if(isset($options['status']) && $options['status']  >= 0) {
             $where += ['status' => $options['status']];
-        } else {
-            $where += ['status' => 100];
+        }
+
+        if(isset($options['excode']) && $options['excode'] != '') {
+            $where += ['excode' => $options['excode']];
         }
 
         return $where;

@@ -2,6 +2,12 @@
     <form class="navbar-form navbar-left" role="search" action="" method="get">
         <div class="col-sm-3">
             <div class="input-group">
+              <span class="input-group-addon">物流单号</span>
+              <input type="text" class="form-control" value="<?php echo !empty(Input::get('excode')) ? Input::get('excode') : ''; ?>" name="excode" placeholder="物流编号">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="input-group">
               <span class="input-group-addon">状态</span>
               <select class="form-control" name="status" id="form_cate_id">
                   <?php
@@ -10,7 +16,7 @@
                       $current_status = Input::get('status');
                       foreach($status as $key => $val):
                           $select = '';
-                          if($current_status === $key):
+                          if($current_status === (String)$key):
                               $select = 'selected="selected"';
                           endif;
                           echo '<option value="'.$key.'" ' .$select . '>'.$val.'</option>';
@@ -20,7 +26,7 @@
             </div>
         </div>
         <button type="submit" class="btn btn-primary">搜索</button>
-        <a type="submit" class="btn btn-default" href="<?php echo Uri::create('admin/shipping'); ?>">重置</a>
+        <a type="submit" class="btn btn-default" href="<?php echo Uri::create('v2admin/shipping'); ?>">重置</a>
         </form>
     <div class="clearfix"></div>
 </div>
