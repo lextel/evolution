@@ -6,6 +6,15 @@ $(function () {
         url: UPLOAD_URL,
         dataType: 'json',
         limitMultiFileUploads: 5,
+        add: function (e, data) {
+            // 限制5张图片
+            var num = $("#files div a img").length + data.originalFiles.length;
+            if(5 < data.originalFiles.length || 5 < num){
+                alert("不能超过5张图片");
+                return false;
+            }
+            data.submit();
+        },
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
                 var idx = $('#files').find('a').length;
