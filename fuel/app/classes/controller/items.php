@@ -48,9 +48,11 @@ class Controller_Items extends Controller_Frontend {
         $itemModel = new Model_Item();
         $item = $itemModel->view($id);
 
+        if(empty($item)) return Response::redirect('m');
+
         // 如果还没揭晓
         if($item->phase->code_count != 0) {
-            Response::redirect('w/'.$id);
+            return Response::redirect('w/'.$id);
         }
 
         $prevWinner = $itemModel->prevWinner($item);

@@ -232,8 +232,9 @@ class Model_Order extends \Classes\Model
     public function userCodesByPhaseId($memberId, $phaseId, $code) {
         $like = '%'.$code.'%';
         $order = Model_Order::find('first',['where' => ['phase_id' => $phaseId, 'member_id' => $memberId, ['codes', 'LIKE', $like]]]);
+        $count = strlen($order->codes);
 
-        return unserialize($order->codes) ? unserialize($order->codes) : [];
+        return $count < 65535 ? unserialize($order->codes) : ['幸运码过多无法正常显示'];
     }
 
     /**
