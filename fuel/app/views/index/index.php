@@ -30,7 +30,7 @@
                             <div class="img-box img-md">
                                 <a href="<?php echo Uri::create('w/'.$win->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($win->image, '200x200');?>"/></a>
                             </div>
-                            <h4 clsss="title-br"><?php echo Html::anchor('m/'.$win->id, $win->title);?></h4>
+                            <h4 class="title-br"><?php echo Html::anchor('m/'.$win->id, $win->title);?></h4>
                             <div id="win<?php echo $win->id; ?>" class="news-count countdown" endtime="<?php echo date('M d, Y H:i:s', $win->opentime);?>" phaseId="<?php echo $win->id; ?>"></div>
                             <div style="display: none" class="news-count" >计算中...</div>
                             </li>

@@ -20,7 +20,7 @@
         </div>
         <button type="submit" class="btn btn-primary">搜索</button>
         <a href="<?php echo Uri::create('v2admin/members'); ?>" class="btn btn-default">重置</a>
-        <?php echo Html::anchor('v2admin/members/create', '添加会员', array('class' => 'btn btn-success pull-right')); ?>
+        <?php echo Html::anchor('v2admin/ghost/create', '添加会员', array('class' => 'btn btn-success pull-right')); ?>
     </form>
     <div class="clearfix"></div>
 </div>

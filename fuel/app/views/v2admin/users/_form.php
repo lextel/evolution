@@ -35,7 +35,9 @@
         <div class="form-group">
             <label class='control-label col-sm-1'>&nbsp;</label>
             <div class="col-sm-2">
-            <?php echo Form::submit('submit', '保存', array('class' => 'btn btn-primary')); ?>        </div>
+            <?php echo Form::submit('submit', '保存', array('class' => 'btn btn-primary')); ?> 
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <?php echo Html::anchor('/v2admin/users', '返回', array('class' => 'btn btn-info')); ?></div>
             </div>
     </fieldset>
 <?php echo Form::close(); ?>

@@ -35,7 +35,7 @@
                                 <div class="icon-arrow"></div>
                                 <ul>
                                      <?php 
-                                        $codes = unserialize($item->codes);
+                                        $codes = \Helper\Codes::getArray($item->codes);
                                         foreach($codes as $code) {
                                             echo "<li>{$code}</li>";
                                         }
