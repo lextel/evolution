@@ -98,7 +98,7 @@
     padding-bottom: 10px;
     margin-bottom: 10px;
 }
-.recommended ul, .editor ul{
+.recommended ul{
     margin-right: -10px;
     overflow: hidden;
     background: #FFFFFF;
@@ -107,13 +107,21 @@
 }
 
 .editor ul{
-    margin-left: 10px;
+    overflow: hidden;
 }
-
+.editor ul li{
+    float: left;
+    width: 230px;
+    height: 383px;
+    position: relative;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    border: 1px solid #d2d2d2;
+}
 .recommended .price{
     text-align: right;
 }
-.recommended ul li, .editor ul li{
+.recommended ul li{
     float: left;
     width: 230px;
     height: 383px;
