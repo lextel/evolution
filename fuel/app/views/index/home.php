@@ -15,7 +15,9 @@
                     <dt><b><?php echo \Helper\Timer::friendlyDate($oitem->created_at);?></b>乐淘了 </dt>
                     <dd class="right-box">
                         <div class="img-box img-md fl">
-                            <?php echo Html::anchor('m/'.$oitem->phase_id, Html::img($phase->image));?>
+                            <a href="<?php echo Uri::create('m/'.$oitem->phase_id); ?>" rel="nofollow">
+                                <img src="<?php echo \Helper\Image::showImage($phase->image, '200x200');?>"/>
+                            </a>
                             <?php if ($getProgress($phase) == 100) { ?>
                              <span class="icon-jx">已揭晓</span>
                             <?php } ?>

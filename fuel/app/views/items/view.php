@@ -9,11 +9,11 @@
             </h2>
         </div>
         <div class="img-wide fl">
-            <!--幻灯片开始-->
+            <!--商品图片切换开始-->
             <div class="lantern-slide">
                 <div class="slide-img">
-                    <a href="<?php echo Uri::create('/image/600x600/' .$item->image); ?>" class="jqzoom" rel="zoom">
-                        <img src="<?php echo Uri::create('/image/400x400/' . $item->image); ?>" alt=""/>
+                    <a href="<?php echo \Helper\Image::showImage($item->image, '600x600');?>" class="jqzoom" rel="zoom">
+                        <img src="<?php echo \Helper\Image::showImage($item->image, '400x400');?>"/>
                     </a>
                 </div>
                 <ul class="slide-list" id="thumblist">
@@ -23,14 +23,14 @@
                     ?>
                     <li>
                         <a class="<?php echo $image == $item->image ? 'zoomThumbActive' : ''; ?>" rel='<?php echo str_replace('\/', '/', $getZoom($image));?>'>
-                            <img src="<?php echo Uri::create('/image/80x80/' . $image); ?>" alt=""/>
+                            <img src="<?php echo \Helper\Image::showImage($image, '80x80');?>"/>
                             <span></span>
                         </a>
                     </li>
                     <?php endforeach; ?>
                 </ul>
             </div>
-            <!--幻灯片结束-->
+            <!--商品图片切换结束-->
             <?php
                 if($prevWinner):
                 $winner = $getMember($prevWinner->member_id);
@@ -38,7 +38,11 @@
             <!--获奖者开始-->
             <div class="previous-box">
                 <div class="title"><h3>上期获奖者</h3></div>
-                <div class="head-img fl"><a href="<?php Uri::create('u/'.$winner->id); ?>"><img src="<?php echo Uri::create($winner->avatar); ?>" alt=""></a></div>
+                <div class="head-img fl">
+                    <a href="<?php Uri::create('u/'.$winner->id); ?>">
+                        <img src="<?php echo \Helper\Image::showImage($winner->avatar, '60x60');?>"/>
+                    </a>
+                </div>
                 <div class="info-side fl">
                     <div class="username">获得者：<a href="<?php Uri::create('u/'.$winner->id); ?>"><b><?php echo $winner->nickname; ?></b></a></div>
                     <span class="datetime">揭晓时间：<b><?php echo date('Y-m-d H:i:s', $prevWinner->opentime); ?></b></span>
@@ -124,7 +128,13 @@
                                         $member = $getMember($newOrder->member_id);
                                     ?>
                                     <tr>
-                                        <td><div class="head-sm"><a href="<?php echo Uri::create('u/'.$member->id); ?>"><img src="<?php echo Uri::create($member->avatar); ?>" alt=""></a></div></td>
+                                        <td>
+                                            <div class="head-sm">
+                                                <a href="<?php echo Uri::create('u/'.$member->id); ?>">
+                                                    <img src="<?php echo \Helper\Image::showImage($member->avatar, '60x60');?>"/>
+                                                </a>
+                                            </div>
+                                         </td>
                                         <td><?php echo $member->nickname; ?></td>
                                         <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($newOrder->created_at); ?></b></td>
                                         <td>乐淘了<s><?php echo $newOrder->code_count; ?></s>元宝</td>
@@ -147,7 +157,13 @@
                                         foreach($myOrders as $myOrder):
                                     ?>
                                     <tr>
-                                        <td><div class="head-sm"><a href="<?php echo Uri::create('u/'.$current_user->id); ?>"><img src="<?php echo Uri::create($current_user->avatar); ?>" alt=""></a></div></td>
+                                        <td>
+                                            <div class="head-sm">
+                                                <a href="<?php echo Uri::create('u/'.$current_user->id); ?>">
+                                                    <img src="<?php echo \Helper\Image::showImage($current_user->avatar, '60x60');?>"/>
+                                                </a>
+                                            </div>
+                                        </td>
                                         <td><?php echo $current_user->nickname; ?></td>
                                         <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($myOrder->created_at); ?></b></td>
                                         <td>乐淘了<s><?php echo $myOrder->code_count; ?></s>元宝</td>
@@ -238,7 +254,7 @@
                       <li>
                           <div class="img-box img-md">
                             <a href="<?php echo Uri::create('/m/'.$item->id); ?>" rel="nofollow">
-                                <img src="<?php echo Uri::create('/image/200x200/'.$item->image); ?>" alt="">
+                                <img src="<?php echo \Helper\Image::showImage($item->image, '200x200');?>"/>
                              </a>
                              <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->cost / Config::get('point')); ?></b></div>
                           </div>

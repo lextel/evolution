@@ -42,12 +42,13 @@
         </table>
         <!--修改地址-->
         <div class="editAddress">
-        
+
             <div class="row"><button class="btn btn-red btn-sx" id="editAddress">添加新地址</button></div>
             <ul class="edit-data">
                         <li>
                             <label>*所在地区：</label>
                             <div id="datas" class="fl"></div>
+                            <span id="xperror"></span>
                         </li>
                         <li>
                             <label class="align">*街道地址：</label>
@@ -73,21 +74,5 @@
                         </li>
                         <button class="icon-close"></button>
             </ul>
-        
         </div>
 </div>
-<script type="text/javascript">
-$(function(){
-        var from = $(".validForm").Validform({
-            tiptype:4
-        });
-        from.addRule([
-            {
-              ele:"#name",
-              datatype:/^[\u4e00-\u9fa5]{2,6}$/ ,
-              nullmsg:"请输入收货人!",
-              errormsg:"请输入2到6个中文字符!"
-            }
-        ]);
-});
-</script>
