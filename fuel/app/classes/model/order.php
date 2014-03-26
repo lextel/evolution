@@ -234,7 +234,7 @@ class Model_Order extends \Classes\Model
         $order = Model_Order::find('first',['where' => ['phase_id' => $phaseId, 'member_id' => $memberId, ['codes', 'LIKE', $like]]]);
         $count = strlen($order->codes);
 
-        return $count < 65535 ? unserialize($order->codes) : ['幸运码过多无法正常显示'];
+        return $count < 65535 ? unserialize($order->codes) : ['幸运码过多不予显示'];
     }
 
     /**
