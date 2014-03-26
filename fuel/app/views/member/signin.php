@@ -86,7 +86,7 @@
 
 $(function(){
         $(".demoform").Validform({
-        tiptype:4,
+        tiptype:4
         });
 });
 </script>
