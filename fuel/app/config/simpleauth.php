@@ -86,7 +86,7 @@ return array(
 		 * 50   => array('name' => 'Moderators', 'roles' => array('user', 'moderator')),
 		 * 100  => array('name' => 'Administrators', 'roles' => array('user', 'moderator', 'admin')),
 		 */
-		 -1  => array('name' => '冻结', 'roles' => array('冻结')),
+		// -1  => array('name' => '冻结', 'roles' => array('冻结')),
 		0    => array('name' => '外部人员', 'roles' => array('外部人员')),
 		1    => array('name' => '员工', 'roles' => array('员工')),
 		10   => array('name' => '编辑', 'roles' => array('编辑')),

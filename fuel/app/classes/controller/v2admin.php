@@ -11,25 +11,49 @@ class Controller_V2admin extends Controller_Baseend
         {
             $this -> admincheck();
         }
-        //var_dump(Request::active()->action);
-        //var_dump(Request::active()->controller);
+        list($driver, $groupid) = $this->auth->get_groups();
+        $this->groupid = $groupid;
     }
     
     private function admincheck()
     {
-        if ($this->auth->check())
-        {
-            $admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
-            if ( Request::active()->controller == 'Controller_Admin_Users' and ! $this->auth->member($admin_group_id))
-            {
-                Session::set_flash('error', e('您没有权限'));
-                Response::redirect('v2admin');
-            }
-        }
-        else
+        if (!$this->auth->check())
         {
             Response::redirect('v2admin/login');
         }
+        $admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
+        $group = Auth::group()->groups();
+        list($driver, $groupid) = $this->auth->get_groups();
+        $contorller = Request::active()->controller;
+        Config::load('admin');
+        $rights = Config::get('rights');
+        if (is_null($rights)){
+            Session::set_flash('error', e('无权限配置文件'));
+            Response::redirect('v2admin');
+        }
+        $actions = [];
+        foreach($rights as $row){
+            
+            if ($row['controller'] == Request::active()->controller){
+                $actions = $row['action'];
+            }         
+        }
+       
+        if (!$actions){
+            Session::set_flash('error', e('无controller '.Request::active()->controller));
+            Response::redirect('v2admin');      
+        }
+        if (!array_key_exists(Request::active()->action, $actions)){
+            Session::set_flash('error', e('无action '.Request::active()->controller.'.'.Request::active()->action));
+            Response::redirect('v2admin');
+        }
+        $group = $actions[Request::active()->action];
+        if ($group > $groupid){
+            Session::set_flash('error', e('您没有权限操作'));
+            Response::redirect('v2admin');    
+        }
+            
+        
     }
 
     public function action_login()
