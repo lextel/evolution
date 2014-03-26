@@ -18,27 +18,27 @@
         <?php echo Form::open(array("class"=>"demoform")); ?>
             <ul class="registerForm">
                 <li>
-                   <?php echo Form::label('邮箱'); ?>
+                   <?php echo Form::label('手机/邮箱'); ?>
                    <?php echo Form::input('username', Session::get_flash('username', ''), array('class' => 'txt','type'=>"text",'datatype'=>'e',
-                         'name'=>'username','errorms'=>'邮箱帐号格式不正确','nullmsg'=>'请输入邮箱帐号','sucmsg'=>'　')); ?>
+                         'name'=>'username','errorms'=>'邮箱帐号格式不正确','nullmsg'=>'请输入邮箱帐号','sucmsg'=>'设置成功')); ?>
                    <?php if (Session::get_flash('usernameError', null)) { ?>
-                   <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('usernameError');?></span>
+                   <span class="Validform_checktip"><?php echo Session::get_flash('usernameError');?></span>
                    <?php }else{?>
                    <?php } ?>
                 </li>
                 <li>
                    <?php echo Form::label('密码'); ?>
                    <?php echo Form::input('password', '', ['type'=>"password",'class' => 'txt',
-                    'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'请输入6-18位密码','nullmsg'=>'请输入6-18位密码','sucmsg'=>'　']); ?>
+                    'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'请输入6-18位密码','nullmsg'=>'请输入6-18位密码','sucmsg'=>'设置成功']); ?>
                 </li>
                 <?php
                     Config::load('common');
                     if(Config::get('openInvitCode')):
                 ?>
                 <li>
-                   <?php echo Form::label('邀请码'); ?>
-                   <input id="xp" type="text" value="" id="invitcode" name="invitcode" class="txt" datatype="s" ajaxurl="<?php echo Uri::create('/checkInvitcode');?>" sucmsg="邀请码可用！" errormsg="邀请码不正确或已经使用！" ignore="ignore"/> 
-                   <span class="Validform_checktip">可选填</span>
+                   <?php echo Form::label('确认密码'); ?>
+                   <input id="xp" type="password"  name="password2" recheck="password" errorms=“请在次输入一次密码"  nullmsg="请确认密码" class="txt" datatype="*6-18"/>
+                   <span class="Validform_checktip"></span>
                 </li>
                 <?php endif;?>
                 <li>
