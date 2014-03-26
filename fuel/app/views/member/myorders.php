@@ -70,7 +70,7 @@
                                 <div class="icon-arrow"></div>
                                 <ul>
                                      <?php 
-                                        $codes = unserialize($order->codes);
+                                        $codes = \Helper\Codes::getArray($order->codes);
                                         foreach($codes as $code) {
                                             echo "<li>{$code}</li>";
                                         }

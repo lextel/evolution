@@ -64,7 +64,7 @@ echo Asset::js(
             <div class="col-sm-2">
             <?php echo Form::input('price', Input::post('price', isset($item) ? $item->price : ''), array('class' => 'form-control', 'placeholder'=>'商品价值')); ?>
             </div>
-            <span class="help-block">请输入整数</span>
+            <span class="help-block">请输入小于5万的整数</span>
         </div>
         <div class="form-group">
           <?php 

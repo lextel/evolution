@@ -578,11 +578,14 @@ class Model_Item extends \Classes\Model {
     public function view($phaseId) {
 
         $phase = Model_Phase::find($phaseId);
-        $itemModel = new Model_Item();
-        $item = $itemModel->itemInfo($phase);
+        $item = [];
+        if($phase) {
+            $itemModel = new Model_Item();
+            $item = $itemModel->itemInfo($phase);
 
-        $phase->hots = $phase->hots+1;
-        $phase->save();
+            $phase->hots = $phase->hots+1;
+            $phase->save();
+        }
 
         return $item;
     }
