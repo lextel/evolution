@@ -67,13 +67,12 @@
                     <h3>人气推荐</h3>
                     <?php echo Html::anchor('m', '更多>>', ['class'=>'more']);?>
                 </div>
-             <ul>
+             <ul class="list-hover">
                     <?php 
                         Config::load('common');
                         foreach($topHotItems() as $phase) { 
                     ?>
                     <li>
-                        <div class="r-hover"></div>
                         <div class="title-box">
                             <h3 class="title-md"><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h3>
                             <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
@@ -132,10 +131,9 @@
     </div>
     <!--人气推荐2开始-->
     <div class="second w">
-        <ul>
+        <ul class="list-hover">
             <?php foreach($hotItems() as $phase) { ?>
             <li>
-                <div class="r-hover"></div>
                 <div class="title-box">
                     <h3 class="title-md"><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h3>
                     <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
@@ -173,10 +171,9 @@
 		    <div class="title">
             <h3>编辑推荐</h3>
         </div>
-        <ul>
+        <ul class="list-hover">
             <?php foreach($getRecommends() as $phase) { ?>
             <li>
-                <div class="r-hover"></div>
                 <div class="title-box">
                     <h3 class="title-md"><?php echo Html::anchor('m/'.$phase->id, $phase->title);?></h3>
                     <span class="price fr">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
@@ -223,7 +220,7 @@
                 $post = array_shift($data['posts']);
             ?>
             <div class="bask fl">
-                <div class="img-box img-md fl">
+                <div class="img-wide fl">
                     <a href="<?php echo Uri::create('p/'.$post->id); ?>" rel="nofollow">
                         <img src="<?php echo \Helper\Image::showImage($post->topimage, '120x120');?>"/>
                     </a>
