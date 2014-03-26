@@ -80,9 +80,9 @@ class Controller_Wins extends Controller_Frontend{
             $member = Model_Member::find($win->member_id);
                 $data['data'] = [
                         'member_id' => $member->id,
-                        'avatar'    => Uri::create($member->avatar),
+                        'avatar'    => \Helper\Image::showImage($member->avatar, '60x60'),
                         'nickname'  => $member->nickname,
-                        'image'     => $item->image,
+                        'image'     => \Helper\Image::showImage($item->image, '200x200'),
                         'title'     => '(第'.$win->phase_id.'期)'.$win->title,
                         'link'      => Uri::create('w/'.$win->id),
                         'userlink'  => Uri::create('u/'.$member->id),
