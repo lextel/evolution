@@ -11,6 +11,8 @@ class Controller_V2admin extends Controller_Baseend
         {
             $this -> admincheck();
         }
+        //var_dump(Request::active()->action);
+        //var_dump(Request::active()->controller);
     }
     
     private function admincheck()
