@@ -22,7 +22,7 @@ function getCommentList(page){
 //总增加评论区
 function comment(member){
     var text = '<dd>'
-    text += '<div class="head-img fl"><a href="/u/'+member.userid+'"><img src="/'+member.avatar+'" alt=""/></a></div>'
+    text += '<div class="head-img fl"><a href="/u/'+member.userid+'"><img src="'+member.avatar+'" alt=""/></a></div>'
     text += '<div class="info-side"><span><a href="/u/'+member.userid+'" class="username">'+member.nickname+'</a>' +
      '&nbsp;&nbsp;<s class="datetime">'+member.date+'</s></span>'
     text += '<div class="comment-text">'+member.text+'</div>'

@@ -18,7 +18,7 @@ $(function(){
             var data = $(this).attr('rel');
             jsonData = eval('('+data+')');
 
-            $('.jqzoom > img').attr('src', BASE_URL + jsonData.smallimage);
+            $('.jqzoom > img').attr('src', jsonData.smallimage);
             $(this).parent().css('border', '1px solid #af2812');
         }, function() {
             $(this).parent().css('border', '1px solid #DBDBDB');

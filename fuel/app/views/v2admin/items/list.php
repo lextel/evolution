@@ -70,7 +70,7 @@ echo Asset::js(['admin/items/list.js']);
         <?php Config::load('common'); ?>
         <?php foreach ($items as $item): ?>
           <tr>
-            <td><img src="<?php echo Uri::create('image/80x80/' . $item->image); ?>" style="width: 40px; height: 40px"/></td>
+            <td><img src="<?php echo \Helper\Image::showImage($item->image, '80x80'); ?>" style="width: 40px; height: 40px"/></td>
             <td><a href="<?php echo Uri::create('m/'.$item->id); ?>" target="_blank"><?php echo '(第'.$item->phase_id.'期)'.$item->title; ?></a></td>
             <td><?php echo '￥' . sprintf('%.2f', $item->cost/Config::get('point')); ?></td>
             <td><?php echo $item->joined, '/', $item->amount; ?></td>

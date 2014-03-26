@@ -2,7 +2,9 @@
 <div class="wrapper w">
         <div class="left-sidebar fl">
             <div class="img-box">
-                <?php echo Html::anchor('u/'.$member->id, Html::img($member->avatar));?>
+                  <a href="<?php echo Uri::create('u/'.$member->id); ?>">
+                    <img src="<?php echo \Helper\Image::showImage($member->avatar, '160x160');?>"/>
+                  </a>
             </div>
             <div class="home-mu">
                 <div class="name"><?php echo Html::anchor('u/'.$member->id, $member->nickname);?></div>
