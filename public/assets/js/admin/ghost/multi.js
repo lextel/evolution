@@ -17,7 +17,8 @@ $(function() {
             alert(data.result.msg);
         },
         fail:function(e, data){
-            alert('上传失败');
+            $(".csvloader").hide();
+            alert('上传失败');        
         }
     }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
     
@@ -38,6 +39,7 @@ $(function() {
             });
         },
         fail:function(e, data){
+            $(".jpgloader").hide();
             alert('图片上传失败');
         }
     }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');

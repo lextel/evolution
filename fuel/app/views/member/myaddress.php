@@ -65,7 +65,7 @@
                         </li>
                         <li>
                              <label>邮政编码：</label>
-                             <input value="" class="txt" name="postcode" datatype="p" nullmsg="请输入邮政编码!" errormsg="请输入正确的邮政编码！" sucmsg=" " />
+                             <input value="" class="txt" name="postcode" datatype="p" nullmsg="请输入邮政编码!" errormsg="请输入正确的邮政编码！" sucmsg=" " ignore="ignore"/>
                         </li>
                         <li>
                             <input name="addressid" id="addressid" type="hidden" val=""/>
