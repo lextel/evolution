@@ -30,7 +30,6 @@ function toAddress(url){
     var postcode = $("input[name='postcode']").val();
     var name = $("input[name='name']").val();
     var phone = $("input[name='phone']").val();
-    alert(1111);
     if ((province != '请选择' || province != '') && (city != '请选择' || city != '') && (county != '请选择' || county != '')){
           if (address !='' && postcode !='' && name !='' && phone !=''){
              $.post(url,
