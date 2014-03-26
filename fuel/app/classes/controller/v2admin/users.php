@@ -10,9 +10,10 @@ class Controller_V2admin_Users extends Controller_V2admin{
             ];
 
         $view = View::forge('v2admin/users/index');
-        list($driver, $groupid) = $this->auth->get_groups();
+        
         $breadcrumb = new Helper\Breadcrumb();
-        $users = Model_User::find('all', ['where'=>[['group', '<=', $groupid]]]);
+        
+        $users = Model_User::find('all', ['where'=>[['group', '<=', $this->groupid], ['is_delete', '=', 0]]]);
         $view->set('users', $users);
         $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $this->template->title = "管理员列表 > 用户管理";
@@ -29,9 +30,8 @@ class Controller_V2admin_Users extends Controller_V2admin{
             ];
         $group = Auth::group()->groups();
         $keys = [];
-        list($driver, $groupid) = $this->auth->get_groups();
         foreach($group as $k){
-             if ($k > $groupid){
+             if ($k > $this->groupid){
                  continue;
              }
              $keys[$k] = Auth::group()->get_name($k);
@@ -56,7 +56,11 @@ class Controller_V2admin_Users extends Controller_V2admin{
             $username = Input::post('username');
             $password = Input::post('password');
             $email = Input::post('email');
-            $group = Input::post('group');
+            $group = Input::post('group', 0);
+            if ($this->groupid < intval($group)){
+                Session::set_flash('error', e('无权限操作'));
+                Response::redirect('v2admin');
+            }
             try {
                 $user_id = $this->auth->create_user($username, $password, $email, $group);
                 Session::set_flash('success', e('添加成功 #'.$user_id.'.'));
@@ -86,15 +90,16 @@ class Controller_V2admin_Users extends Controller_V2admin{
             ];
         $group = Auth::group()->groups();
         $keys = [];
-        list($driver, $groupid) = $this->auth->get_groups();
         foreach($group as $k){
-             if ($k > $groupid){
+             if ($k > $this->groupid){
                  continue;
              }
              $keys[$k] = Auth::group()->get_name($k);
         }
-        $user = Model_User::find($id);
-
+        $user = Model_User::find($id,  ['where'=>[['group', '<=', $this->groupid], ['is_delete', '=', 0]]]);
+        if (is_null($user)){
+             Response::redirect('_404_'); 
+        }
         $view = View::forge('v2admin/users/edit');
         $breadcrumb = new Helper\Breadcrumb();
         $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
@@ -108,7 +113,10 @@ class Controller_V2admin_Users extends Controller_V2admin{
     // 更新管理员
     public function action_update($id = null) {
 
-        $user = Model_User::find($id);
+        $user = Model_User::find($id,  ['where'=>[['group', '<=', $this->groupid], ['is_delete', '=', 0]]]);
+        if (is_null($user)){
+             Response::redirect('_404_'); 
+        }
         $val = Model_User::validate('edit');
         $val->add('password', '密码')->add_rule('min_length', 6)->add_rule('max_length', 20);
 
@@ -121,9 +129,12 @@ class Controller_V2admin_Users extends Controller_V2admin{
             }
 
             unset($post['submit']);
-
+            if ($this->groupid < intval($post['group'])){
+                Session::set_flash('error', e('无权限操作'));
+                Response::redirect('v2admin');
+            }
             $userModel = new Model_User();
-
+            
             if ($userModel->edit($id, $post)) {
                 Session::set_flash('success', e('更新成功 #' . $id));
                 Response::redirect('v2admin/users');
@@ -145,8 +156,15 @@ class Controller_V2admin_Users extends Controller_V2admin{
     // 删除管理员
     public function action_delete($id = null) {
 
-        if ($user = Model_User::find($id)) {
-            $this->auth->delete_user($user->username);
+        if ($user = Model_User::find($id, ['where'=>[['group', '<=', $this->groupid], ['is_delete', '=', 0]]])) {
+            if ($this->groupid < intval($user->group)){
+                Session::set_flash('error', e('无权限操作'));
+                Response::redirect('v2admin');
+            }
+            $user->is_delete=1;
+            $user->last_login = time();
+            $user->save();
+            //$this->auth->delete_user($user->username);
             Model_Log::add('删除管理员 #' . $id);
             Session::set_flash('success', e('删除成功 #'.$id));
         } else {

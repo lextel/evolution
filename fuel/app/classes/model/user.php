@@ -15,6 +15,8 @@ class Model_User extends \Classes\Model
         'profile_fields',
         'created_at',
         'updated_at',
+        'is_delete',
+        'mobile',
     );
 
     protected static $_observers = array(
@@ -26,10 +28,11 @@ class Model_User extends \Classes\Model
             'events' => array('before_update'),
             'mysql_timestamp' => false,
         ),
+        /*
         'Orm\Observer_LastLogin' => array(
             'events' => array('before_update'),
             'mysql_timestamp' => false,
-        ),
+        ),*/
     );
 
 
