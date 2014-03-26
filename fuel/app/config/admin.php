@@ -92,6 +92,9 @@ return [
     #使用权限设置 action=>group
     # 0 外部人员 1 员工 10 编辑  50 组长  100 管理员
     'rights' =>[
+        ['controller'=>'Controller_V2admin',
+         'action'=>['index'=>0],
+        ],
         ['controller'=>'Controller_V2admin_Ads',
          'action'=>[
             'index'=>1, 
