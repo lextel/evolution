@@ -298,7 +298,7 @@ class Model_Order extends \Classes\Model
         foreach($orders as  $order) {
             $data[] = [
                     'link' => Uri::create('u/'.$members[$order->member_id]->id),
-                    'avatar' => Uri::create($members[$order->member_id]->avatar),
+                    'avatar' => \Helper\Image::showImage($members[$order->member_id]->avatar, '60x60'),
                     'nickname' => $members[$order->member_id]->nickname,
                     'count' => $order->code_count,
                     'ip'    => $order->ip,

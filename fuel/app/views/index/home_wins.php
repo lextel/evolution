@@ -13,7 +13,9 @@
                     <?php foreach($wins as $item) { ?>
                     <dd>
                         <div class="img-box">
-                            <?php echo Html::anchor('m/'.$item->id, Html::img($item->image));?>
+                            <a href="<?php echo Uri::create('m/'.$item->id); ?>" rel="nofollow">
+                                <img src="<?php echo \Helper\Image::showImage($item->image, '200x200');?>"/>
+                            </a>
                         </div>
                         <div class="title-box">
                             <h3 class="title-sm"><?php echo Html::anchor('m/'.$item->id, '第('.$item->phase_id.')期 '.$item->title);?></h3>

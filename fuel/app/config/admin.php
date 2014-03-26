@@ -1,5 +1,6 @@
 <?php
 return [
+    # 0 外部人员 1 员工 10 编辑  50 组长  100 管理员
     'navs' => [
         ['name' => '管理首页', 'href' => Uri::create('/v2admin'), 'group'=>0],
         [
@@ -87,5 +88,59 @@ return [
             ],
         ],
 
+    ],
+    #使用权限设置 action=>group
+    # 0 外部人员 1 员工 10 编辑  50 组长  100 管理员
+    'right' =>[
+        ['controller'=>'Controller_V2admin_Ads',
+         'action'=>[
+            'index'=>1, 
+            'create'=>10,
+            'upload'=>10,
+            'add'=>10,
+            'edit'=>10,
+            'update'=>10,
+            'delete'=>10,         
+          ]
+        ],
+        
+        ['controller'=>'Controller_V2admin_Cates',
+         'action'=>[
+            'cate'=>1, 
+            'brand'=>1,
+            'brands'=>1,
+            'createBrand'=>10,
+            'edit'=>10,
+            'delete'=>10,         
+          ]
+        ],
+        ['controller'=>'Controller_V2admin_Ghost',
+         'action'=>[
+            'index'=>1, 
+            'lists'=>1,
+            'create'=>10,
+            'add'=>10, 
+            'getedit'=>10,
+            'edit'=>10,
+            'win'=>1,
+            'forcelogin'=>10,
+            'gopost'=>10,
+            'delete'=>10,
+            'sell'=>1,
+            'order'=>10,
+            'avatarUpload'=>10,
+            'multiUpload'=>10,
+            'csvUpload'=>10,       
+          ]
+        ],
+        ['controller'=>'',
+         'action'=>[
+            ''=>100, 
+            ''=>100,
+            ''=>100,
+            ''=>100,         
+          ]
+        ],
     ]
+    
 ];

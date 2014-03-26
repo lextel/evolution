@@ -40,7 +40,13 @@
                     <?php foreach($list as $win) { ?>
                     <tr>
 
-                        <td><div class="img-box img-sm"><?php echo Html::anchor("w/".$win->id, Html::img($win->image)); ?></div></td>
+                        <td>
+                            <div class="img-box img-sm">
+                                <a href="<?php echo Uri::create('w/'.$win->id); ?>" rel="nofollow">
+                                    <img src="<?php echo \Helper\Image::showImage($win->image, '80x80');?>"/>
+                                </a>
+                            </div>
+                        </td>
                         <td>（第<?php echo $win->phase_id;?>期）<?php echo $win->title;?></td>
                         <td>已经揭晓</td>
                         <td><?php echo $win->code_count;?>元宝</td>

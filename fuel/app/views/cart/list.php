@@ -36,7 +36,9 @@
                             <td><input type="checkbox" name="ids[]" value="<?php echo $item->get_id(); ?>"/></td>
                             <td>
                                 <div class="img-sm fl">
-                                    <a href="<?php echo Uri::create('/m/'. $item->get_id()); ?>"><img src="<?php echo Uri::create('/image/80x80/' . $info->image); ?>" alt=""></a>
+                                    <a href="<?php echo Uri::create('m/'. $item->get_id()); ?>">
+                                        <img src="<?php echo \Helper\Image::showImage($info->image, '80x80');?>"/>
+                                    </a>
                                 </div>
                                 <div class="info-side fl">
                                     <div class="title-row">
@@ -122,7 +124,9 @@
                             <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $remain->price); ?></b></div>
                         </div>
                         <div class="img-box img-lg">
-                            <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/' . $remain->image); ?>" alt=""></a>
+                            <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>">
+                                <img src="<?php echo \Helper\Image::showImage($remain->image, '200x200');?>"/>
+                            </a>
                             <div class="sheng-yi">
                                 还需 <s style="font-size:18px;font-weight: normal;"><?php echo $remain->phase->remain; ?></s>元宝！
                             </div>

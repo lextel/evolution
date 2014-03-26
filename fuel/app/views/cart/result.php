@@ -18,7 +18,7 @@
                         $info = $getInfo($item->phase_id);
                     ?>
                     <tr>
-                        <td>(第<?php echo $info->phase->phase_id; ?>期)<?php echo $info->phase->title; ?></td>
+                        <td style="text-align: left">(第<?php echo $info->phase->phase_id; ?>期)<?php echo $info->phase->title; ?></td>
                         <td>
                             <?php
                                 $ordered_at = $item->ordered_at;
@@ -65,7 +65,9 @@
                             <div class="price">价值<b>￥<?php echo sprintf('%.2f', $remain->price); ?></b></div>
                         </div>
                         <div class="img-box">
-                            <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>"><img src="<?php echo Uri::create('/image/200x200/' . $remain->image); ?>" alt=""></a>
+                            <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>">
+                                <img src="<?php echo \Helper\Image::showImage($remain->image, '200x200');?>"/>
+                            </a>
                             <div class="sheng-yi">
                                 还需 <b class="red"><?php echo $remain->phase->remain; ?></b>元宝！
                             </div>
