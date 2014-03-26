@@ -1261,14 +1261,15 @@
      line-height: 35px;
      text-align: center;
  }
-.periodList ul li.active a{
-    color: #ffffff;
-    background: #AF2812;
-}
+
 .periodList ul li.doing a{
     font-size: 14px;
     font-weight: bold;
     color: #AF2812;
+}
+.periodList ul li.active a{
+    color: #ffffff;
+    background: #AF2812;
 }
 .periodList ul li.doing a i{
     display: inline-block;
