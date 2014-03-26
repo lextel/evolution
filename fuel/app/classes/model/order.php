@@ -231,10 +231,11 @@ class Model_Order extends \Classes\Model
      */
     public function userCodesByPhaseId($memberId, $phaseId, $code) {
         $like = '%'.$code.'%';
-        $order = Model_Order::find('first',['where' => ['phase_id' => $phaseId, 'member_id' => $memberId, ['codes', 'LIKE', $like]]]);
+        $order = Model_Order::find('first',['select' => ['codes'], 'where' => ['phase_id' => $phaseId, 'member_id' => $memberId, ['codes', 'LIKE', $like]]]);
 
-        return unserialize($order->codes) ? unserialize($order->codes) : [];
+        return \Helper\Codes::getArray($order->codes);
     }
+
 
     /**
      * 最新乐淘记录
