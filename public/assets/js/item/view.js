@@ -35,7 +35,7 @@ $(function(){
     // 添加购物车效果
     $('.doAddCart').click(function () {
         var cart = $('.item-cart');
-        var imgtodrag = $('.jqzoom').eq(0);
+        var imgtodrag = $('.jqzoom img');
         var id = $(this).attr('phaseId');
         var qty = $(this).parent().prev().find('input').val();
         if (imgtodrag) {
