@@ -31,17 +31,6 @@ echo Asset::js(
                 <?php endif; ?>
             </div>
         </div>
-        <!--
-        <div class="form-group">
-            <?php echo Form::label('密码', 'password', array('class'=>'control-label col-sm-1')); ?>
-            <div class="col-sm-4">
-            <?php echo Form::input('password', Input::post('password', isset($user) ? $user->password : ''), array('class' => 'form-control', 'placeholder'=>'登录密码')); ?>
-            <?php if(isset($user)) : ?>
-            <span class="help-block">不修改请留空</span>
-            <?php endif; ?>
-            </div>
-        </div>
-        -->
         <div class="form-group">
             <?php echo Form::label('昵称', 'nickname', array('class'=>'control-label col-sm-1')); ?>
             <div class="col-sm-4">
@@ -58,8 +47,7 @@ echo Asset::js(
                       <input id="avatarUpload" type="file" name="avatar" multiple>
                 </span>
             </div>
-            <!--<span class="help-block"></span>
-            <div class="control-label col-sm-1"></div>-->
+          
         </div>
         <div class="form-group">
             <?php echo Form::label('', 'avatar', array('class'=>'control-label col-sm-1')); ?>
@@ -83,24 +71,17 @@ echo Asset::js(
             <?php echo Form::textarea('bio', Input::post('bio', isset($user) ? $user->bio : ''), array('class' => 'form-control', 'placeholder'=>'签名')); ?>
             </div>
         </div>
-<!--
         <div class="form-group">
-            <?php echo Form::label('注册时间', 'created_at', array('class'=>'control-label col-sm-1')); ?>
+            <?php echo Form::label('注册地区', 'area', array('class'=>'control-label col-sm-1')); ?>
             <div class="col-sm-2">
-            <?php echo Form::input('created_at', Input::post('created_at', isset($user) ? $user->created_at : ''), array('class' => 'form-control', 'placeholder'=>'注册时间')); ?>
+            <?php echo Form::select('area', isset($user) ? \Helper\Ip2area::toarea($user->ip) : 'none',  $areas, array('class' => 'form-control', 'placeholder'=>'注册地区')); ?>
             </div>
         </div>
-        <div class="form-group">
-            <?php echo Form::label('注册IP', 'ip', array('class'=>'control-label col-sm-1')); ?>
-            <div class="col-sm-2">
-            <?php echo Form::input('ip', Input::post('ip', isset($user) ? $user->ip : ''), array('class' => 'form-control', 'placeholder'=>'注册IP')); ?>
-            </div>
-        </div>
-        -->
         <div class="form-group">
             <label class='control-label col-sm-1'>&nbsp;</label>
             <div class="col-sm-2">
-            <?php echo Form::submit('submit', '保存', array('class' => 'btn btn-primary')); ?>        </div>
+            <?php echo Form::submit('submit', '保存', array('class' => 'btn btn-primary')); ?>        
+            <?php echo Html::anchor('/v2admin/ghost', '返回', array('class' => 'btn btn-info')); ?></div>
             </div>
     </fieldset>
 <?php echo Form::close(); ?>
