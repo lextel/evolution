@@ -55,6 +55,9 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $breadcrumb = new Helper\Breadcrumb();
         $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $view->set_global('url', Uri::create('v2admin/ghost/add'));
+        $chip = new  Classes\RandCHIp;
+        $areas = $chip->getCity();
+        $view->set_global('areas', $areas);
         $this->template->title = "添加马甲";
         $this->template->content = $view;
     }
@@ -70,7 +73,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
             $nickname = Input::post('nickname');
             $avatar = Input::post('avatar');
             $bio = Input::post('bio');
-            $created_at = Input::post('created_at');
+            $area = Input::post('area');
             try {
                 $member = new Model_Member();
                 $member->username = $username;
@@ -80,9 +83,11 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
                 $member->avatar = $avatar;
                 $member->mobile = '';
                 $member->bio = $bio;
-                $member->created_at = $created_at;
-                $chip = new  Classes\RandCHIp;
-                $member->ip = $chip->randomCHIp();
+                $member->created_at = time();
+                $chip = new Classes\RandCHIp;
+                
+                $member->ip = $chip->area2ip($area);
+                echo $member->ip;
                 $member->type = 1;
                 $member->points = 0;
                 $member->last_login = 0;
@@ -117,6 +122,9 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $view = View::forge('v2admin/ghost/create');
         $breadcrumb = new Helper\Breadcrumb();
         $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $chip = new  Classes\RandCHIp;
+        $areas = $chip->getCity();
+        $view->set_global('areas', $areas);
         $view->set_global('url', Uri::create('v2admin/ghost/add'));
         $this->template->title = "添加马甲";
         $this->template->content = $view;
@@ -144,6 +152,9 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $view->set_global('url', Uri::create('v2admin/ghost/edit/'.$member->id));
         $view->set_global('user', $member);
+        $chip = new  Classes\RandCHIp;
+        $areas = $chip->getCity();
+        $view->set_global('areas', $areas);
         $this->template->title = "修改马甲";
         $this->template->content = $view;
     }
@@ -171,15 +182,16 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
             $password = trim(Input::post('password'));          
             $avatar = trim(Input::post('avatar'));
             $bio = trim(Input::post('bio'));
-            $created_at = trim(Input::post('created_at'));
-            $ip = trim(Input::post('ip'));
+            $area = trim(Input::post('area'));
             try {
                 $member->password = Model_Member::aes64($password);
                 $member->nickname = $nickname;
                 $member->avatar = $avatar;
                 $member->bio = $bio;
-                $member->created_at = $created_at;
-                $member->ip = $ip;
+                $chip = new Classes\RandCHIp;
+                
+                $member->ip = $chip->area2ip($area);
+                echo $member->ip;
                 $member->save();
                 $user_id = $member->id;
                 Session::set_flash('success', e('修改成功 #'.$user_id.'.'));
@@ -208,6 +220,9 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
         $view->set_global('url', Uri::create('v2admin/ghost/edit/'.$member->id));
         $view->set_global('user', $member);
+        $chip = new  Classes\RandCHIp;
+        $areas = $chip->getCity();
+        $view->set_global('areas', $areas);
         $this->template->title = "修改马甲";
         $this->template->content = $view;
     }
