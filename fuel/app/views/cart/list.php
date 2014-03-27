@@ -93,11 +93,11 @@
                 <label for="" class="error"></label>
                 <ul class="login2-body">
                     <li>
-                        <input type="text" name="username" placeholder="输入邮箱"  datatype="e" errorms="请输入邮箱帐号" id="form_username" class="Validform_error"/>
+                        <input type="text" name="username" placeholder="输入邮箱"  datatype="e" errorms="请输入邮箱帐号" sucmsg=" " id="form_username" class="Validform_error"/>
                         <span class="icon-user"></span>
                     </li>
                     <li>
-                        <input type="password" value="" name="password" placeholder="输入密码"   datatype="*6-15" errorms="密码范围在6-18位之间" id="form_username" class="Validform_error"/>
+                        <input type="password" value="" name="password" placeholder="输入密码"   datatype="*6-18" sucmsg=" " errorms="密码范围在6-18位之间" id="form_username" class="Validform_error"/>
                         <span class="icon-password"></span>
                     </li>
                     <li>

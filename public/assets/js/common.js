@@ -388,8 +388,8 @@ $(function(){
     // 添加购物车效果
     $('.doCart').click(function () {
         var cart = $('.item-cart');
-        var imgtodrag = $(this).parent().prev().prev().prev().find("a").eq(0);
-
+        var imgtodrag = $(this).parent().prev().prev().prev().find("a img");
+        //console.log(imgtodrag);
         var id = $(this).attr('phaseId');
         var qty = $(this).parent().prev().find('input').val();
         if (imgtodrag) {
@@ -409,13 +409,13 @@ $(function(){
             .animate({
                 'top': cart.offset().top,
                 'left': cart.offset().left,
-                'width': 59,
-                'height':59
+                'width': 57,
+                'height':57
             }, 1000);
             imgclone.animate({
                 'opacity': '0',
-                'width': 59,
-                'height': 59
+                'width': 57,
+                'height': 57
             }, function () {
                 $(this).detach()
                 // 提交到后台
