@@ -4,6 +4,25 @@
         $itemInfo = $getItem($win->item_id);
         $memberInfo = $getUser($win->member_id);
     ?>
+<div class="bread">
+     <ul>
+     <?php echo $getBread($win);?>
+     </ul>
+</div>
+<div class="periodList">
+<?php 
+$phasesList =$phases($item); 
+if(is_array($phasesList)) {
+    echo '<ul>';
+    foreach($phasesList as $list) {
+       echo '<li class="'.$list['class'].'"><a href="'.Uri::create('m/'.$list['id']).'">第'.$list['phase'].'期</a></li>';
+    }
+    echo '</ul>';
+}
+?>
+    <!--a href="javascript:void(0)" class="btn-periods">展开<i></i></a-->
+</div>
+
     <div class="panel">
         <div class="title">
             <h2>
@@ -89,7 +108,7 @@
                         </thead>
                         <tbody>
                             <?php 
-                                $results = unserialize($win->results);
+                                $results = unserialize(html_entity_decode($win->results));
                                 if(!empty($results) && is_array($results)):
                                 $memberIds = [];
                                 $phaseIds  = [];
