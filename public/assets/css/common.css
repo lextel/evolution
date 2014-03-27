@@ -563,7 +563,8 @@ table td p.tl{
 .icon-clock{
     width: 18px;
     height: 18px;
-    background-position: -50px -7px;
+    margin-right: 8px;
+    background-position: -50px -9px;
 }
 .icon-horn{
     width: 25px;
