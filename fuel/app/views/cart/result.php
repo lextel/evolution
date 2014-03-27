@@ -31,16 +31,17 @@
                         <td>
                         <div class="toolbox">
                             <a class="tooltip" href="javascript:void(0)">查看</a>
-                            <div class="num-list">
-                                <div class="icon-arrow"></div>
-                                <ul>
+                            <div class="codeList">
+                                <dl>
+                                     <dt>所有乐淘码</dt>
                                      <?php 
                                         $codes = \Helper\Codes::getArray($item->codes);
                                         foreach($codes as $code) {
-                                            echo "<li>{$code}</li>";
+                                            echo "<dd>{$code}</dd>";
                                         }
                                      ?>
-                                 </ul>
+                                 </dl>
+                                 <span class="icon icon-shut"></span>
                             </div>
                          </div>
                         </td>

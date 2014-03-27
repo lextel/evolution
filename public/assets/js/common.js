@@ -677,10 +677,12 @@ $(function(){
         $("a").focus(function(){this.blur();});
     }
 })
-/**/
+/**
+* 显示所有乐淘码
+**/
 $(function(){
     $(".tooltip").click(function(){
-          var num_list=$(this).next(".num-list");
+          var num_list=$(this).next(".codeList");
            if(num_list.css("display")=="none"){
               num_list.css({display:"block"});
            }
@@ -689,7 +691,11 @@ $(function(){
            }
       });
 });
-
+$(function(){
+    $(".icon-shut").click(function(){
+        $(this).parent().hide();
+    });
+});
 // 收藏
 function addFavorite(sURL, sTitle)
 {
