@@ -1,12 +1,4 @@
 /**
- * 期数展开箭头切换*
- **/
-$(function(){
-    $(".btn-periods").click(function(){
-        $(this).toggleClass("open");
-    })
-});
-/**
  *顶部设置鼠标滑过效果
  */
 $(function(){
@@ -388,8 +380,8 @@ $(function(){
     // 添加购物车效果
     $('.doCart').click(function () {
         var cart = $('.item-cart');
-        var imgtodrag = $(this).parent().prev().prev().prev().find("a").eq(0);
-
+        var imgtodrag = $(this).parent().prev().prev().prev().find("a img");
+        //console.log(imgtodrag);
         var id = $(this).attr('phaseId');
         var qty = $(this).parent().prev().find('input').val();
         if (imgtodrag) {
@@ -409,13 +401,13 @@ $(function(){
             .animate({
                 'top': cart.offset().top,
                 'left': cart.offset().left,
-                'width': 59,
-                'height':59
+                'width': 57,
+                'height':57
             }, 1000);
             imgclone.animate({
                 'opacity': '0',
-                'width': 59,
-                'height': 59
+                'width': 57,
+                'height': 57
             }, function () {
                 $(this).detach()
                 // 提交到后台
@@ -685,10 +677,12 @@ $(function(){
         $("a").focus(function(){this.blur();});
     }
 })
-/**/
+/**
+* 显示所有乐淘码
+**/
 $(function(){
     $(".tooltip").click(function(){
-          var num_list=$(this).next(".num-list");
+          var num_list=$(this).next(".codeList");
            if(num_list.css("display")=="none"){
               num_list.css({display:"block"});
            }
@@ -697,7 +691,11 @@ $(function(){
            }
       });
 });
-
+$(function(){
+    $(".icon-shut").click(function(){
+        $(this).parent().hide();
+    });
+});
 // 收藏
 function addFavorite(sURL, sTitle)
 {
@@ -717,3 +715,27 @@ function addFavorite(sURL, sTitle)
         }
     }
 }
+
+
+$(function (){
+    //隐藏期数
+    if(24 < $(".periodList ul").find("li").length){
+        var phase = $(".periodList ul").find("li").eq(23);
+        phase.nextAll().hide();
+        $(".btn-periods").show();
+
+        //单击展开
+    $(".btn-periods").bind("click",function (){
+
+        //期数展开箭头切换*
+        $(this).toggleClass("open");
+        if("展开" == $(this).text()){
+            $(this).html("收起<i></i>");
+            phase.nextAll().show(); 
+        }else{
+            $(this).html("展开<i></i>");
+            phase.nextAll().hide();
+        }
+    });
+    }
+});

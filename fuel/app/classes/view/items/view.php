@@ -61,5 +61,52 @@ class View_Items_view extends Viewmodel {
 
             return $phases;
         };
+
+        // 所有期数
+        $this->phases = function($item) {
+
+            $select = ['phase_id', 'opentime', 'id'];
+            $phases = Model_Phase::find('all', ['select' => $select, 'where' => ['item_id' => $item->id], 'order_by' => ['id' => 'desc']]);
+
+            $ids = [];
+            $i = 0;
+            foreach($phases as $phase) {
+                $i++;
+                $class = '';
+                if($phase->opentime == 0) {
+                    $class = 'doing';
+                }
+
+                if($phase->id == $item->phase->id) {
+                    $class .= ' active';
+                }
+
+                $ids[] = ['id' => $phase->id, 'phase' => $phase->phase_id, 'class' => $class, 'sp' => $i%8];
+            }
+
+            return $ids;
+        };
+
+        // 面包屑
+        $this->getBread = function($phase) {
+            $ids[] = $phase->cate_id;
+            $ids[] = $phase->brand_id;
+
+            $select = ['name', 'id'];
+            $cates = Model_Cate::find('all', ['select' => $select, 'where' => [['id', 'in', $ids]]]);
+            
+            $bread = '<li><a href="'.Uri::create('/').'">首页</a></li><li><em>&gt;</em></li><li><a href="'.Uri::create('m').'">所有商品</a></li>';
+
+            $sp = '<li><em>&gt;</em></li>';
+            $pre = 'c/';
+            foreach($cates as $cate) {
+                $bread .= $sp .'<li><a href="'.Uri::create('m/'.$pre.$cate->id).'">' . $cate->name . '</a></li>';
+                $pre .= $cate->id . '/b/';
+            }
+
+            $bread .= $sp . $phase->title;
+
+            return $bread;
+        };
     }
 }

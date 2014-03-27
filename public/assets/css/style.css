@@ -1033,12 +1033,12 @@
     margin-right: 10px;
 }
 .pane-hd li{
-    width: 332px;
+    width: 337px;
     float: left;
     height: 82px;
     border: 1px solid #d2d2d2;
     border-right: none;
-    margin-right: -1px;
+    margin-left: -1px;
     padding: 10px;
 }
 .pane-bd{
@@ -1099,6 +1099,7 @@
     padding: 5px;
     line-height: 40px;
     border: 1px solid #d2d2d2;
+    border-top: 0;
 }
 
 .comment-footer .btn{

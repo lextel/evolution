@@ -29,9 +29,11 @@
                 <tr>
                     <td><div class="img-box img-sm">
                     <?php if ($post->status == 1) { ?>
-                    <?php echo Html::anchor('u/p'.$post->id, Html::img($post->topimage ? $post->topimage : '')); ?>
+                        <a href="<?php echo Uri::create('p/'.$post->id)?>">
+                            <img src="<?php echo \Helper\Image::showImage($post->topimage, '70x70');?>"/>
+                        </a>
                     <?php } else { ?>
-                    <?php echo Html::img($post->topimage); ?>
+                        <img src="<?php echo \Helper\Image::showImage($post->topimage, '70x70');?>"/>
                     <?php }?>
                     </div></td>
                     <td>
