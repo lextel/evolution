@@ -55,6 +55,10 @@
     <div class="sidebar fr">
         <div class="title-red">
             <h3>往期获得者</h3>
+            <div class="arrow-menu">
+                <a href="javascript:void(0)" class="arrow-on"></a>
+                <a href="javascript:void(0)" class="arrow-up"></a>
+            </div>
         </div>
         <ul class="before">
             <?php $lwins = $getLastWins($post->item_id);?>

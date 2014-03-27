@@ -36,14 +36,19 @@ $(function(){
     });
     //上传图片
     $("body").on('click', '#postUpload', function(){
-    var imgs = $(".postimg dd").length;
-    if (imgs >= 10){
-        alert('您上传的图片超过了10张');
-        return false;
-    }
+    
     $('#postUpload').fileupload({
         url: UPLOAD_URL,
         dataType: 'json',
+        add: function (e, data) {
+            // 限制5张图片
+            var num = $(".postimg dd img").length + data.originalFiles.length;
+            if(10 < data.originalFiles.length || 10 < num){
+                alert("不能超过10张图片");
+                return false;
+            }
+            data.submit();
+        },
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
                 var text = '<dd class="img-box"><img src="/'+file.link+'" alt="" /><input type="hidden" name="images[]" value="'+file.link+'"><a href="javascript:;" class="delete"></a></dd>';
@@ -74,12 +79,12 @@ $(function(){
                     </li>
                     <li>
                         <label for="">标题：</label>
-                        <?php echo Form::input('title', Input::get('title'), ['class' =>'txt', 'name'=>'', 'datatype'=>'*', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>'已填写']);?>
+                        <?php echo Form::input('title', Input::get('title'), ['class' =>'txt', 'name'=>'', 'datatype'=>'*', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>' ']);?>
                     </li>
                     <li>
                         <label for="" class="body-label">正文：</label>
                         <?php echo Form::textarea('desc', Input::get('desc'), ['class' => 'txt', 'name'=>'',
-                                           'datatype'=>'*', 'rows'=>'15', 'cols'=>'20', 'nullmsg'=>'请输入', 'sucmsg'=>'已填写']);?>
+                                           'datatype'=>'*', 'rows'=>'15', 'cols'=>'20', 'nullmsg'=>'请输入正文', 'sucmsg'=>' ']);?>
                         <span class="Validform_checktip"></span>
                     </li>
                     <li>

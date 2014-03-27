@@ -18,9 +18,9 @@
         <?php echo Form::open(array("class"=>"demoform")); ?>
             <ul class="registerForm">
                 <li>
-                   <?php echo Form::label('手机/邮箱'); ?>
-                   <?php echo Form::input('username', Session::get_flash('username', ''), array('class' => 'txt','type'=>"text",'datatype'=>'e',
-                         'name'=>'username','errorms'=>'邮箱帐号格式不正确','nullmsg'=>'请输入邮箱帐号','sucmsg'=>'设置成功')); ?>
+                   <?php echo Form::label('手机/邮箱'); ?> 
+                   <?php echo Form::input('username', Session::get_flash('username', ''), array('class' => 'txt','type'=>"text",'datatype'=>'em',
+                   'id'=>'username', 'name'=>'username','errorms'=>'手机/邮箱格式不正确','nullmsg'=>'请输入手机/邮箱','sucmsg'=>' ')); ?>
                    <?php if (Session::get_flash('usernameError', null)) { ?>
                    <span class="Validform_checktip"><?php echo Session::get_flash('usernameError');?></span>
                    <?php }else{?>
@@ -29,7 +29,7 @@
                 <li>
                    <?php echo Form::label('密码'); ?>
                    <?php echo Form::input('password', '', ['type'=>"password",'class' => 'txt',
-                    'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'请输入6-18位密码','nullmsg'=>'请输入6-18位密码','sucmsg'=>'设置成功']); ?>
+                    'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'请输入6-18位密码','nullmsg'=>'请输入6-18位密码','sucmsg'=>' ']); ?>
                 </li>
                 <?php
                     Config::load('common');
@@ -37,7 +37,7 @@
                 ?>
                 <li>
                    <?php echo Form::label('确认密码'); ?>
-                   <input id="xp" type="password"  name="password2" recheck="password" errorms=“请在次输入一次密码"  nullmsg="请确认密码" class="txt" datatype="*6-18"/>
+                   <input id="xp" type="password"  name="password2" recheck="password" errorms="请在次输入一次密码"  nullmsg="请确认密码" class="txt" datatype="*6-18"/>
                    <span class="Validform_checktip"></span>
                 </li>
                 <?php endif;?>
@@ -57,7 +57,17 @@
 <script type="text/javascript">
 $(function(){
         $(".demoform").Validform({
-            tiptype:4
+            tiptype:4,
+            datatype:{
+              'em': function (gets,obj,curform,regxp){
+                var m = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
+                var e = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                if(m.test(gets) || e.test(gets)){
+                   return true;
+                }
+                return "手机/邮箱格式不正确";
+              }
+            }
         });
 });  
 </script>
