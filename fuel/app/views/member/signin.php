@@ -35,7 +35,7 @@
                 <li>
                     <div class="item">
                         <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'name'=>'username',
-                         'datatype'=>'e','errorms'=>'邮箱帐号格式不正确！','nullmsg'=>'请输入注册邮箱！','placeholder'=>'请输入注册邮箱','sucmsg'=>' ')); ?>
+                         'datatype'=>'em','errorms'=>'手机/邮箱格式不正确！','nullmsg'=>'请输入注册手机/邮箱！','placeholder'=>'请输入手机/邮箱','sucmsg'=>' ')); ?>
                         <?php if (Session::get_flash('signError', null)) { ?>
                         <span class="Validform_checktip"><?php echo Session::get_flash('signError');?></span>
                         <?php }else{?>
@@ -86,7 +86,17 @@
 
 $(function(){
         $(".demoform").Validform({
-        tiptype:4
+        tiptype:4,
+        datatype:{
+              'em': function (gets,obj,curform,regxp){
+                var m = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
+                var e = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                if(m.test(gets) || e.test(gets)){
+                   return true;
+                }
+                return "手机/邮箱格式不正确";
+              }
+            }
         });
 });
 </script>
