@@ -44,7 +44,6 @@
             <td class="text-center"><?php echo Html::img($item->avatar, ['style'=>'width:30px;height: 30px;']); ?></td>
             <td class="text-center"><?php echo Html::anchor('v2admin/ghost/forcelogin/'.$item->id, $item->nickname, ['target'=>'blank']); ?></td>
             <td class="text-center"><?php echo $item->ip; ?></td>
-            
             <td class="text-center"><?php echo \Helper\Ip2area::toarea($item->ip); ?></td>
             <th class="text-center"><?php echo $item->is_delete ? '已删除' : ($item->is_disable ? '已冻结' : '正常'); ?></th>
             <td class="text-center">               
