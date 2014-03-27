@@ -114,7 +114,7 @@ class View_Items_index extends Viewmodel {
 
         // 面包屑
         $this->getBread = function($cateId, $brandId) {
-            $bread = '<li>首页</li><li><em>&gt;</em></li><li>所有商品</li>';
+            $bread = '<li><a href="'.Uri::create('/').'">首页</a></li><li><em>&gt;</em></li><li><a href="'.Uri::create('m').'">所有商品</a></li>';
 
             $ids = [0];
             if(!empty($cateId)) {
@@ -124,12 +124,14 @@ class View_Items_index extends Viewmodel {
                 }
             }
 
-            $select = ['name'];
+            $select = ['name', 'id'];
             $cates = Model_Cate::find('all', ['select' => $select, 'where' => [['id', 'in', $ids]]]);
 
             $sp = '<li><em>&gt;</em></li>';
+            $pre = 'c/';
             foreach($cates as $cate) {
-                $bread .= $sp .'<li>' . $cate->name . '</li>';
+                $bread .= $sp .'<li><a href="'.Uri::create('m/'.$pre.$cate->id).'">' . $cate->name . '</a></li>';
+                $pre .= $cate->id . '/b/';
             }
 
             return $bread;

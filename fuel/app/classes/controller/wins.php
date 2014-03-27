@@ -52,11 +52,16 @@ class Controller_Wins extends Controller_Frontend{
 
         $view = ViewModel::forge('wins/view');
 
+
+        $itemModel = new Model_Item();
+        $item = $itemModel->itemInfo($win);
+
         $view->set('orderCount', $orderCount);
         $view->set('orderCodes', $orderCodes);
         $view->set('postCount', $postCount);
         $view->set('phaseCount', $phaseCount);
-        $view->set('win', $win , false);
+        $view->set('win', $win);
+        $view->set('item', $item);
         $this->template->title = "晒单详情页";
         $this->template->layout = $view;
     }
