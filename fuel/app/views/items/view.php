@@ -1,5 +1,23 @@
 <?php echo Asset::css(['product.css', 'jquery.jqzoom.css', 'customBootstrap.css', 'style.css']); ?>
 <?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js','jquery.pin.js', 'item/view.js', 'Xslider.js']); ?>
+ <div class="bread">
+     <ul>
+     <?php echo $getBread($item->phase);?>
+     </ul>
+</div>
+<div class="periodList">
+<?php 
+$phasesList =$phases($item); 
+if(is_array($phasesList)) {
+    echo '<ul>';
+    foreach($phasesList as $list) {
+       echo '<li class="'.$list['class'].'"><a href="'.Uri::create('m/'.$list['id']).'">第'.$list['phase'].'期</a></li>';
+    }
+    echo '</ul>';
+}
+?>
+    <!--a href="javascript:void(0)" class="btn-periods">展开<i></i></a-->
+</div>
 <?php $this->title = '(第' . $item->phase->phase_id .'期)' . $item->title; ?>
 <div class="panel w">
         <div class="title">
