@@ -148,7 +148,7 @@
                     <a href="http://bbs.anzhi.com" target="_blank">安智论坛</a>
                     <a href="http://www.xda.cn" target="_blank">XDA</a>
                     <a href="http://www.wanggouchao.com" target="_blank">网购潮</a>
-                    <a href="http://www.kuaidi100.com/all/sf.shtml" target="_blank">顺风快递查询</a>
+                    <a href="http://www.kuaidi100.com/all/sf.shtml" target="_blank">顺丰快递查询</a>
             </div>
             <!--
             <div style="clear:both"></div>
