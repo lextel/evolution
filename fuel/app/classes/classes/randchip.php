@@ -9,7 +9,7 @@ use \Exception;
 use Fuel\Core\Log;
 use Fuel\Core\Config;
 
-//require(APPPATH.'config/'."chareaip.php");
+
 
 class RandCHIp{
     private $_config=[];

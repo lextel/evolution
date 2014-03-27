@@ -35,7 +35,7 @@
                 <li>
                     <div class="item">
                         <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'name'=>'username',
-                         'datatype'=>'e','errorms'=>'邮箱帐号格式不正确！','nullmsg'=>'请输入注册邮箱！','placeholder'=>'请输入注册邮箱','sucmsg'=>' ')); ?>
+                         'datatype'=>'e','errorms'=>'邮箱帐号格式不正确！','nullmsg'=>'请输入注册邮箱！','placeholder'=>'手机号/邮箱','sucmsg'=>' ')); ?>
                         <?php if (Session::get_flash('signError', null)) { ?>
                         <span class="Validform_checktip"><?php echo Session::get_flash('signError');?></span>
                         <?php }else{?>
@@ -46,7 +46,7 @@
                 </li>
                 <li>
                 <div class="item">
-                <?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'输入账号密码',
+                <?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'账号密码',
                     'name'=>'userpassword','datatype'=>'*6-18','errormsg'=>'密码为6~18位数！','nullmsg'=>'请输入密码!','sucmsg'=>' ')); ?>
                    <s class="icon-password"></s>
                    <span class="Validform_checktip"></span>

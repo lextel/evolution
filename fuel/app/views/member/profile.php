@@ -4,6 +4,7 @@ $(function(){
         $(".form-profile").submit();
     });
     $(".btn-checkemail").click(function(){
+        //需要个加载的图
         $.get("/u/checkemail", '', function(data){          
             alert(data.msg);
         });
@@ -25,11 +26,21 @@ $(function(){
             <?php echo Form::open(['action' => 'u/profile', 'method' => 'post', 'class'=>'form-profile validForm']); ?>
             <li>
             <?php if (Session::get_flash('success')): ?>
-                 <?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
-            <?php endif; ?>
-            <?php if (Session::get_flash('error')): ?>
-                 <?php echo implode('</p><p>', (array) Session::get_flash('error')); ?>
-            <?php endif; ?>
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <p>
+                    <?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
+                    </p>
+                </div>
+                <?php endif; ?>
+                <?php if (Session::get_flash('error')): ?>
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <p>
+                    <?php echo implode('</p><p>', (array) Session::get_flash('error')); ?>
+                    </p>
+                </div>
+                <?php endif; ?>
             </li>
             <li>
                 <label>*邮箱：</label>
@@ -43,6 +54,7 @@ $(function(){
             </li>
             <li>
                  <label>*手机：</label>
+                 <span class="mobile"><?php echo $member->mobile;?></span>
                  <span class="red">（未绑定）</span>
                  <a href="javascript:;" class="btn-sm btn-state fl">去绑定</a>
              </li>
@@ -53,7 +65,7 @@ $(function(){
             </li>
             <li>
                 <label>邀请码：</label>
-                <input class="txt" name="" value=""/>
+                <input class="txt" name="invitecode" value=""/>
                 <span class="Validform_checktip"></span>
             </li>
             <li>

@@ -29,6 +29,7 @@
                     <li><?php echo Html::anchor('u/orders', '乐淘记录');?></li>
                     <li><?php echo Html::anchor('u/wins', '获得的商品');?></li>
                     <li><?php echo Html::anchor('u/posts', '晒单');?></li>
+                    <li><?php echo Html::anchor('u/noposts', '未晒单', ['style'=>'display:none']);?></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -36,6 +37,7 @@
                 <ul class="dropdown-menu" style="display:block">
                     <li><?php echo Html::anchor('u/getrecharge', '充值');?></li>
                     <li><?php echo Html::anchor('u/moneylog', '账户明细');?></li>
+                    <li><?php echo Html::anchor('u/moneylog/b/1', '消费记录', ['style'=>'display:none']);?></li>
                 </ul>
             </li>
             <li class="dropdown">
