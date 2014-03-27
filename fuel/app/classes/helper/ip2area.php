@@ -6,6 +6,9 @@ use Fuel\Core\Config;
 class Ip2area {
    
    static function toarea($ip){
+        if (empty($ip)){
+            return '未知';
+        }
         Config::load('common');
         $ip2area = new \Classes\Ip2area(APPPATH . 'qqwry.dat');
         $locate = $ip2area->getlocation($ip);
