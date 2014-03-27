@@ -691,6 +691,11 @@ table td p.tl{
     line-height: 70px;
     overflow: hidden;
 }
+.img-sm img{
+    max-width: 100%;
+    vertical-align: middle;
+    height: auto;
+}
 .img-box img{
     max-width: 100%;
     vertical-align: middle;
@@ -700,9 +705,8 @@ table td p.tl{
     text-align: center;
     width: 50px;
     height: 50px;
-    margin-right: 10px;
-    border-radius: 5px;
-    border: 1px solid #d2d2d2;
+    overflow: hidden;
+    margin-right: 10px
 }
 .head-sm{
     width: 22px;
@@ -796,13 +800,16 @@ table td p.tl{
     text-overflow: ellipsis;
 }
 .title-red{
-    width: 120px;
-    padding: 5px 15px;
-    background: #AF2812;
     margin: 10px 0;
-    color: #FFFFFF;
+    position: relative;
     overflow: hidden;
-    white-space: nowrap;
+}
+.title-red h3{
+    padding: 5px 15px;
+    float: left;
+    width: 120px;
+    background: #AF2812;
+    color: #FFFFFF;
 }
 .title-md h4{
     color: #FFFFFF;
@@ -1263,7 +1270,9 @@ table td p.tl{
 }
 .bottom-nav{
     margin: 0 auto 5px;
-    width: 330px;
+    width: 340px;
+    width: 34
+    0px;
     overflow: hidden;
 }
 .bottom-nav li{
