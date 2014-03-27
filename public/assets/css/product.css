@@ -445,7 +445,7 @@
 .r-wide{
     margin-left: 10px;
     float: left;
-    width: 269px;
+    width: 268px;
     overflow: hidden;
 }
 .r-wide .hot-tit{
@@ -494,7 +494,7 @@
     margin: 20px 0;
 }
 .cart-list table {
-    border: 0;
+    border: 1px solid #E7E7E7;
 }
 .cart-list table thead tr th{
     border: 0;
@@ -1240,7 +1240,7 @@
     margin-bottom: 10px;
     position: relative;
     border-top: 1px solid #D2D2D2;
-    border-right: 1px solid #D2D2D2;
+    border-left: 1px solid #D2D2D2;
 }
 .periodList ul{
     overflow: hidden;
@@ -1251,7 +1251,7 @@
     width: 12.39%;
     position: relative;
     background: #EEEEEE;
-    border-left: 1px solid #D2D2D2;
+    border-right: 1px solid #D2D2D2;
     border-bottom: 1px solid #D2D2D2;
 }
 .periodList ul li a{
@@ -1301,7 +1301,26 @@
 .open i{
     background-position:-10px 7px;
 }
-
+.arrow-menu{
+    height: 28px;
+    width:48px;
+    float: right;
+}
+.arrow-menu .arrow-on{
+    width: 20px;
+    height: 30px;
+    float: left;
+    display: inline-block;
+    background: url("../images/headicon.png") no-repeat -0px -112px;
+}
+.arrow-menu .arrow-up{
+    width: 20px;
+    height: 30px;
+    float: left;
+    display: inline-block;
+    margin-left: 5px;
+    background: url("../images/headicon.png") no-repeat -0px -142px;
+}
 
 
 
