@@ -21,7 +21,7 @@ if(is_array($phasesList)) {
     echo '</ul>';
 }
 ?>
-    <!--a href="javascript:void(0)" class="btn-periods">展开<i></i></a-->
+    <a href="javascript:void(0)" class="btn-periods open">展开<i></i></a>
 </div>
 
     <div class="panel">

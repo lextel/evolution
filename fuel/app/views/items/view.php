@@ -1,5 +1,5 @@
 <?php echo Asset::css(['product.css', 'jquery.jqzoom.css', 'customBootstrap.css', 'style.css']); ?>
-<?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js','jquery.pin.js', 'item/view.js', 'Xslider.js']); ?>
+<?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js','jquery.pin.js', 'Xslider.js' , 'item/view.js']); ?>
 <div class="bread">
      <ul>
      <?php echo $getBread($item->phase);?>
@@ -17,7 +17,7 @@ if(is_array($phasesList)) {
     echo '</ul>';
 }
 ?>
-    <!--a href="javascript:void(0)" class="btn-periods">展开<i></i></a-->
+    <a href="javascript:void(0)" style="display:none;" class="btn-periods open">展开<i></i></a>
 </div>
 <?php $this->title = '(第' . $item->phase->phase_id .'期)' . $item->title; ?>
 <div class="panel w">
