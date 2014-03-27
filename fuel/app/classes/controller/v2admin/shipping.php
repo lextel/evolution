@@ -14,8 +14,8 @@ class Controller_V2admin_Shipping extends Controller_V2admin
 
         $page = new \Helper\Page();
         $url = Uri::create('v2admin/shipping', 
-                ['status' => Input::get('status'), 'start_at' => Input::get('start_at'), 'end_at' => Input::get('end_at')], 
-                ['status' => ':status', 'start_at' => ':start_at', 'end_at' => ':end_at']);
+                ['status' => Input::get('status', '-1'), 'excode' => Input::get('excode')], 
+                ['status' => ':status', 'excode' => ':excode']);
         $config = $page->setCofigPage($url, $total, 10, 'page');
         $pagination = Pagination::forge('mypagination', $config);
 

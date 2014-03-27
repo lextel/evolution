@@ -93,7 +93,7 @@
                 <label for="" class="error"></label>
                 <ul class="login2-body">
                     <li>
-                        <input type="text" name="username" placeholder="输入邮箱"  datatype="e" errorms="请输入邮箱帐号" sucmsg=" " id="form_username" class="Validform_error"/>
+                        <input type="text" name="username" placeholder="请输入手机/邮箱"  datatype="em" errorms="请输入手机/邮箱" sucmsg=" " id="form_username" class="Validform_error"/>
                         <span class="icon-user"></span>
                     </li>
                     <li>
@@ -148,6 +148,16 @@
     $(function(){
     	$(".login2-body").Validform({
     	tiptype:4,
+        datatype:{
+              'em': function (gets,obj,curform,regxp){
+                var m = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
+                var e = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                if(m.test(gets) || e.test(gets)){
+                   return true;
+                }
+                return "手机/邮箱格式不正确";
+              }
+            }
     	});
     });
     </script>
