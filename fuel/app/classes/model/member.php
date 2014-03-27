@@ -165,9 +165,9 @@ class Model_Member extends \Classes\Model
     public static function validateProfile($factory)
     {
         $val = Validation::forge($factory);
-        $val->add_field('nickname', '', 'required');
-        $val->add_field('mobile', '', '');
-        $val->add_field('bio', '', '');
+        $val->add_field('nickname', '', 'required|min_length[2]|max_length[18]');
+        //$val->add_field('mobile', '', '');
+        //$val->add_field('bio', '', '');
         return $val;
     }
 
@@ -181,7 +181,7 @@ class Model_Member extends \Classes\Model
     public static function validateNickname($factory)
     {
         $val = Validation::forge($factory);
-        $val->add_field('nickname', '', 'required|min_length[3]|max_length[18]');
+        $val->add_field('nickname', '', 'required|min_length[2]|max_length[18]');
         return $val;
     }
     
