@@ -1289,7 +1289,8 @@
     display: inline-block;
     position: absolute;
     right: 1px;
-    bottom: 1px;
+    bottom: 0px;
+    border: 1px solid #EEEEEE;
 }
 .btn-periods i{
     display: inline-block;

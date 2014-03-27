@@ -721,7 +721,7 @@ $(function (){
     //隐藏期数
     if(24 < $(".periodList ul").find("li").length){
         var phase = $(".periodList ul").find("li").eq(23);
-        phase.next().hide();
+        phase.nextAll().hide();
         $(".btn-periods").show();
 
         //单击展开
@@ -731,10 +731,10 @@ $(function (){
         $(this).toggleClass("open");
         if("展开" == $(this).text()){
             $(this).html("收起<i></i>");
-            phase.next().show(); 
+            phase.nextAll().show(); 
         }else{
             $(this).html("展开<i></i>");
-            phase.next().hide();
+            phase.nextAll().hide();
         }
     });
     }
