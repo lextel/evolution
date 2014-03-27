@@ -1,6 +1,6 @@
 <?php echo Asset::css(['product.css', 'jquery.jqzoom.css', 'customBootstrap.css', 'style.css']); ?>
 <?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js','jquery.pin.js', 'item/view.js', 'Xslider.js']); ?>
- <div class="bread">
+<div class="bread">
      <ul>
      <?php echo $getBread($item->phase);?>
      </ul>
@@ -11,7 +11,8 @@ $phasesList =$phases($item);
 if(is_array($phasesList)) {
     echo '<ul>';
     foreach($phasesList as $list) {
-       echo '<li class="'.$list['class'].'"><a href="'.Uri::create('m/'.$list['id']).'">第'.$list['phase'].'期</a></li>';
+       $ing = $list['class'] == 'doing active' ? '<i></i>' : '';
+       echo '<li class="'.$list['class'].'"><a href="'.Uri::create('m/'.$list['id']).'">第'.$list['phase'].'期'.$ing.'</a></li>';
     }
     echo '</ul>';
 }
