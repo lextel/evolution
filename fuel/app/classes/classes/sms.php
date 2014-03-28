@@ -37,9 +37,9 @@ class Sms {
     $res = sendSMS($uid,$pwd,$mobile,$content,$time);
     echo $res;
     --------------------------------*/
-    private $http = 'http://api.sms.cn/mt/';
-    private $uid  = 'test';
-    private $pwd  = 'test';
+    private $http = 'http://api.sms.cn/mtutf8/';
+    private $uid  = 'lltao2014';
+    private $pwd  = 'llt83210266';
     
     /**
      * 发送短信
@@ -52,7 +52,7 @@ class Sms {
     public function send($mobile, $content) {
         $code = 168000;
         $res = $this->sendSMS($this->http, $this->uid, $this->pwd, $mobile, $content, $mobile.$code);
-        echo $res;
+        return $res;
     }
 
     /**
@@ -69,7 +69,7 @@ class Sms {
             'content'=>$content,            //内容
             'mobileids'=>$mobileids,
             'time'=>$time,                    //定时发送
-            'encode' => 'utf8',
+            //'encode' => 'utf8',
             );
         $re= $this->postSMS($http,$data);            //POST方式提交
         if( trim($re) == '100' )

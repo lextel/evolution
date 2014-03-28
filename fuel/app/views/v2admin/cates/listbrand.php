@@ -1,6 +1,17 @@
 <?php
-    echo Asset::js(['jquery.validate.js', 'admin/cates/listCate.js']);
+    echo Asset::js([
+            'jquery.validate.js', 
+            'jquery.ui.widget.js',
+            'jquery.iframe-transport.js',
+            'jquery.fileupload.js',
+            'admin/cates/listCate.js',
+            ]);
+    echo Asset::css(['jquery.fileupload.css']);
 ?>
+<script>
+    UPLOAD_URL = '<?php echo Uri::create('v2admin/cates/upload'); ?>';
+    IMAGE_URL  = '<?php echo Uri::create('/'); ?>';
+</script>
 <div class="panel panel-default" style="padding: 10px 0">
     <form class="navbar-form navbar-left" id="addCate" role="search" id="addBrand" method="post" action="<?php echo Uri::create('v2admin/cates/createBrand'); ?>">
         <div class="col-sm-3">
@@ -21,6 +32,13 @@
               <input type="text" class="form-control" name="name" value="" placeholder="品牌名称">
             </div>
         </div>
+        <div class="col-sm-2">
+          <span class="btn btn-success fileinput-button">
+              <i class="glyphicon glyphicon-plus"></i>
+              <span>添加图标</span>
+              <input class="uploadField" type="file" name="file">
+          </span>
+        </div>
         <button id="addCateSubmit" class="btn btn-primary">添加</button>
     </form>
     <div class="clearfix"></div>
@@ -33,6 +51,7 @@
             <th>#ID</th>
             <th>分类</th>
             <th>品牌</th>
+            <th>图标</th>
             <th>最后更新时间</th>
             <th>操作</th>
         </tr>
@@ -43,11 +62,12 @@
             <td><?php echo $item->id; ?></td>
             <td><?php echo $cates[$item->parent_id]; ?></td>
             <td class="editItem"><?php echo $item->name; ?></td>
+            <td class='editIcon'><?php echo !empty($item->thumb) ? '<img data="'.$item->thumb.'" src="' . Uri::create($item->thumb) .'" style="width: 34px;height: 34px"/>' : '无'; ?></td>
             <td><?php echo date('Y-m-d', $item->updated_at); ?></td>
             <td>
                 <div class="editing">
                     <?php echo Html::anchor('javascript:void(0);', '保存', ['action' => 'save', 'data-id'=>$item->id]); ?> |
-                    <?php echo Html::anchor('javascript:void(0);', '取消', ['action' => 'cancel']); ?>
+                    <?php echo Html::anchor('javascript:location.reload()', '取消', ['action' => 'cancel']); ?>
                 </div>
                 <div class="edit">
                     <?php echo Html::anchor('javascript:void(0);', '编辑', ['action' => 'edit', 'data-id'=>$item->id]); ?> |

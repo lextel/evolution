@@ -553,15 +553,24 @@ class Model_Item extends \Classes\Model {
             $sorts = Config::get('item');
 
             $sortArr = [];
+            $sort = explode('_', $sort);
+            $current_sort = [];
             foreach($sorts as $val) {
                 $key = isset($val['alias']) ? $val['alias'] : $val['field'];
                 $sortArr[$key] = $val['field'];
+
+                if($key == $sort[0]) {
+                    $current_sort = $val;
+                }
             }
 
-            $sort = explode('_', $sort);
-            $orders = ['asc', 'desc'];
-            if(isset($sort[1]) && in_array($sort[1], $orders)) {
-                $orderBy = [$sortArr[$sort[0]] => $sort[1]];
+            if(in_array($sort[0], array_keys($sortArr))) {
+                $orders = ['asc', 'desc'];
+                if(isset($sort[1]) && in_array($sort[1], $orders)) {
+                    $orderBy = [$sortArr[$sort[0]] => $sort[1]];
+                } else {
+                    $orderBy = [$sortArr[$sort[0]] => $current_sort['order'][0]];
+                }
             }
         }
 

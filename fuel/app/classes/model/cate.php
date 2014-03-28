@@ -8,6 +8,7 @@ class Model_Cate extends \Orm\Model
         'id',
         'parent_id',
         'name',
+        'thumb',
         'is_delete',
         'created_at',
         'updated_at',
@@ -167,6 +168,7 @@ class Model_Cate extends \Orm\Model
         $data = [
             'parent_id' => self::NO_PARENT,
             'name'      => $post['name'],
+            'thumb'     => $post['icon'],
             'is_delete' => self::NOT_DELETE,
             ];
 
@@ -193,6 +195,7 @@ class Model_Cate extends \Orm\Model
         $data = [
                 'parent_id' => $post['parent_id'],
                 'name'      => $post['name'],
+                'thumb'     => $post['icon'],
                 'is_delete' => self::NOT_DELETE,
             ];
 
@@ -216,6 +219,27 @@ class Model_Cate extends \Orm\Model
         $cate = Model_Cate::find($cateId);
 
         return $cate->name;
+    }
+
+    /**
+     * 上传分类图标
+     *
+     * @param $file $_FILES数组
+     *
+     * @reutrn array 上传的文件数组
+     */
+    public function upload() {
+
+        $upload  = new Classes\Upload('icon');
+        $success = $upload->upload();
+
+        $rs = [];
+        if($success) {
+            $rs =  $upload->getFiles();
+            Model_Log::add('上传分类图标 ' . $rs[0]['name']);
+        }
+
+        return $rs;
     }
 
 

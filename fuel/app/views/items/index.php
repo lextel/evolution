@@ -18,7 +18,7 @@
                         $active = ' active';
                         $bannerIdx = $i;
                     }
-                    echo "<li class='cateNav{$active}'><a href='". Uri::create('/m/c/'. $cate->id) ."'>{$cate->name}></a></li>";
+                    echo "<li class='cateNav{$active}'><a href='". Uri::create('m/c/'. $cate->id) ."'>{$cate->name}></a></li>";
                     $i++;
                 endforeach;
             ?>
@@ -34,7 +34,12 @@
                 <dt>品牌</dt>
                 <?php
                     foreach($brand as $val) {
-                        echo "<dd><a href='" . Uri::create('/m/c/'. $k . '/b/'. $val->id) . "'>{$val->name}</a></dd>";
+                        $icon = '';
+                        if(isset($val['thumb']) && !empty($val['thumb'])) {
+                            $icon = '<img src="'.Uri::create($val['thumb']).'"/>';
+                        }
+                        $bactive = ($brandId == $val['id']) ? 'color: #af2812' : '';
+                        echo "<dd><a style='{$bactive}' href='" . Uri::create('m/c/'. $k . '/b/'. $val['id']) . "'>{$icon}{$val['name']}</a></dd>";
                     } 
                 ?>
             </dl>
@@ -89,6 +94,24 @@
             </div>
 </div>
 <!--产品列表开始-->
+<style>
+    .list_sort a i {
+        margin-left: 2px;
+        width: 13px;
+        height: 12px;
+        display: inline-block;
+        background: url('<?php echo Uri::create('assets/images/arrow_up.png')?>');
+    }
+
+    .list_sort a s {
+        margin-left: 2px;
+        width: 13px;
+        height: 12px;
+        display: inline-block;
+        background: url('<?php echo Uri::create('assets/images/arrow_down.png')?>');
+    }
+</style>
+<a id="list"></a>
 <div class="w">
         <div class="list_sort">
             <label>排序</label>
