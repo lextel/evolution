@@ -7,162 +7,181 @@
     <link rel="stylesheet" href="../assets/css/style.css"/>
     <link rel="stylesheet" href="../assets/css/product.css"/>
     <script type="text/javascript" src="../assets/js/jquery-1.10.1.min.js"></script>
-    <script type="text/javascript" src="../assets/js/common.js"></script>
     <script type="text/javascript">
-        $(function(){
-            $(".comment-box textarea").focus(function(){
-                var length=$(".comment-box textarea").val().length;
-                $(".comment-footer span s").text(200-length);
-            });
+        (function($){
+            $.fn.extend({
+                Scroll:function(opt,callback){
+                    //参数初始化
+                    if(!opt) var opt={};
+                    var _btnUp = $("#"+ opt.up);//Shawphy:向上按钮
+                    var _btnDown = $("#"+ opt.down);//Shawphy:向下按钮
+                    var timerID;
+                    var _this=this.eq(0).find("ul:first");
+                    var     lineH=_this.find("li:first").height(), //获取行高
+                            line=opt.line?parseInt(opt.line,10):parseInt(this.height()/lineH,10), //每次滚动的行数，默认为一屏，即父容器高度
+                            speed=opt.speed?parseInt(opt.speed,10):500; //卷动速度，数值越大，速度越慢（毫秒）
+                    timer=opt.timer //?parseInt(opt.timer,10):3000; //滚动的时间间隔（毫秒）
+                    if(line==0) line=1;
+                    var upHeight=0-line*lineH;
+                    //滚动函数
+                    var scrollUp=function(){
+                        _btnUp.unbind("click",scrollUp); //Shawphy:取消向上按钮的函数绑定
+                        _this.animate({
+                            marginTop:upHeight
+                        },speed,function(){
+                            for(i=1;i<=line;i++){
+                                _this.find("li:first").appendTo(_this);
+                            }
+                            _this.css({marginTop:0});
+                            _btnUp.bind("click",scrollUp); //Shawphy:绑定向上按钮的点击事件
+                        });
+
+
+                    }
+                    //Shawphy:向下翻页函数
+                    var scrollDown=function(){
+                        _btnDown.unbind("click",scrollDown);
+                        for(i=1;i<=line;i++){
+                            _this.find("li:last").show().prependTo(_this);
+                        }
+                        _this.css({marginTop:upHeight});
+                        _this.animate({
+                            marginTop:0
+                        },speed,function(){
+                            _btnDown.bind("click",scrollDown);
+                        });
+                    }
+                    //Shawphy:自动播放
+                    var autoPlay = function(){
+                        if(timer)timerID = window.setInterval(scrollUp,timer);
+                    };
+                    var autoStop = function(){
+                        if(timer)window.clearInterval(timerID);
+                    };
+                    //鼠标事件绑定
+                    _this.hover(autoStop,autoPlay).mouseout();
+                    _btnUp.css("cursor","pointer").click( scrollUp ).hover(autoStop,autoPlay);//Shawphy:向上向下鼠标事件绑定
+                    _btnDown.css("cursor","pointer").click( scrollDown ).hover(autoStop,autoPlay);
+                }
+            })
+        })(jQuery);
+        $(document).ready(function(){
+            $("#scrollDiv").Scroll({line:3,speed:500,timer:3000,up:"prev",down:"next"});
         });
     </script>
+    <script type="text/javascript" src="../assets/js/common.js"></script>
 </head>
 <body>
 <div class="share-details w">
-   <div class="left-content">
-       <div class="content-title">
-           <h3>ipad mini2收到</h3>
-           <div class="datetime">晒单时间：2013-12-17 10:44</div>
-       </div>
-       <ul class="content-nav">
-           <li>
-               <div class="head-img fl">
-                   <a href=""><img src="img/96515277.jpg" alt=""/></a>
-               </div>
-               <div class="info fl">
-                   <span class="text-title blue">幸运获奖者：<a href="">终于中奖了</a></span>
-                   <span>共乐淘：<b>1</b> 人次</span>
-                   <span>幸运乐淘码：<b>1000000</b></span>
-                   <span class="datetime">揭晓时间：<s>2013-11-22 22:10:10</s></span>
-               </div>
-           </li>
-           <li>
-               <div class="head-img fl">
-                   <a href=""><img src="img/96515277.jpg" alt=""/></a>
-               </div>
-               <div class="info fl">
-                   <span class="text-title blue">
-                       (第22期)<a href="">苹果苹果苹果苹果苹果苹果苹果苹果</a>
-                   </span>
-                   <span class="price">价值<b>￥3188.00</b></span>
-                   <a href="" class="btn btn-default btn-sx">第48期进行中...</a>
-               </div>
-           </li>
-       </ul>
-       <div class="content">
-       </div>
-       <div class="btn-group love-box">
-           <button class="btn-link">
-               <span class="icon icon-like"></span>
-               喜欢(<s>0</s>)
-               <div class="love"><span class="icon icon-love"></span>喜欢+1</div>
-           </button>
-           <a href="" class="btn-link">
-               <span class="icon icon-comment"></span>评论<s>(0)</s>
-           </a>
-       </div>
-       <!--评论-->
-       <div class="comment-panel">
-           <div class="comment-box">
-               <textarea name="" rows="4" class="btn-block"></textarea>
-               <div class="comment-footer">
-                   <div class="expression fl"><span class="icon icon-expression"></span>表情</div>
-                   <button class="fr btn btn-red">发表</button>
-                   <span class="fr"><s>0</s>/200字</span>
-               </div>
-           </div>
-           <dl class="comment-list">
-               <dt><h4>全部评论</h4></dt>
-               <dd>
-                   <div class="head-img fl">
-                       <a href=""><img src="img/portrait.jpg" alt=""/></a>
-                   </div>
-                   <div class="info-side">
-                       <div class="info-side-head">
-                           <span class="name blue">幸运获奖者</span>
-                           <span class="datetime">55分钟前</span>
-                       </div>
-                       <div class="comment-text">
-                           我也想中一个！
-                       </div>
-                       <button class="btn btn-link blue">回复</button>
-                       <div class="comment-box">
-                           <textarea name="" id="" cols="30" rows="3"></textarea>
-                           <div class="comment-footer">
-                               <div class="expression fl"><span class="icon icon-expression"></span>表情</div>
-                               <button class="fr btn btn-red">发表</button>
-                               <span class="fr"><s>0</s>/200字</span>
-                           </div>
-                       </div>
-                   </div>
-               </dd>
-           </dl>
-       </div>
-   </div>
-    <div class="content-right fr">
-        <div class="title">
-            <h4 class="fl">往期获得者</h4>
+<div class="sidebar fr">
+    <div class="title-red">
+        <h3>往期获得者</h3>
+        <div class="arrow-menu">
+            <span class="arrow-on" id="prev"></span>
+            <span class="arrow-up" id="next"></span>
         </div>
-        <ul class="before">
+    </div>
+    <div class="overdueList" id="scrollDiv">
+        <ul class="before ">
             <li>
                 <div class="head-img fl">
-                    <a href=""><img src="img/96515277.jpg" alt=""/></a>
+                    <a href="http://www.llt.com/u/2">
+                        <img src="http://dev_img.lltao.com/avatar/60x60/9/2/92ece4d3b01cd2d32af8c0afdf9dfb52.jpg">
+                    </a>
                 </div>
-                <div class="info-side">
-                    <div class="info-side-head">
-                        <span class="name blue">幸运获奖者</span>
-                        <span class="datetime">获得了第30期</span>
-                    </div>
-                    <p>暂未晒单</p>
+                <div class="info-side fl">
+                    <div class="username"><a class="blue" href="http://www.llt.com/u/2">我是猴子派来</a></div>
+                    <div class="datetime">获得了第3期</div>
+                    <div class="no-show">暂未晒单</div>
                 </div>
             </li>
             <li>
                 <div class="head-img fl">
-                    <a href=""><img src="img/96515277.jpg" alt=""/></a>
+                    <a href="http://www.llt.com/u/2">
+                        <img src="http://dev_img.lltao.com/avatar/60x60/9/2/92ece4d3b01cd2d32af8c0afdf9dfb52.jpg">
+                    </a>
                 </div>
-                <div class="info-side">
-                    <div class="info-side-head">
-                        <span class="name blue">幸运获奖者</span>
-                        <span class="datetime">获得了第30期</span>
-                    </div>
-                    <p>暂未晒单</p>
+                <div class="info-side fl">
+                    <div class="username"><a class="blue" href="http://www.llt.com/u/2">我是猴子派来</a></div>
+                    <div class="datetime">获得了第3期</div>
+                    <div class="no-show">暂未晒单</div>
                 </div>
             </li>
             <li>
                 <div class="head-img fl">
-                    <a href=""><img src="img/96515277.jpg" alt=""/></a>
+                    <a href="http://www.llt.com/u/2">
+                        <img src="http://dev_img.lltao.com/avatar/60x60/9/2/92ece4d3b01cd2d32af8c0afdf9dfb52.jpg">
+                    </a>
                 </div>
-                <div class="info-side">
-                    <div class="info-side-head">
-                        <span class="name blue">幸运获奖者</span>
-                        <span class="datetime">获得了第30期</span>
-                    </div>
-                    <p>暂未晒单</p>
+                <div class="info-side fl">
+                    <div class="username"><a class="blue" href="http://www.llt.com/u/2">我是猴子派来</a></div>
+                    <div class="datetime">获得了第3期</div>
+                    <div class="no-show">暂未晒单</div>
                 </div>
             </li>
-        </ul>
-        <div class="title">
-            <h4 class="fl">最新晒单</h4>
-        </div>
-        <ul class="news">
             <li>
-                <div class="info-side">
-                    <div class="info-side-head">
-                        <span class="name blue">幸运获奖者</span>
-                        <span class="datetime">今天 14:32</span>
-                    </div>
-                    <div class="new-text">
-                        今天终于中奖了今天终于中奖了今天终于中奖了今天终于中奖了今天终于中奖了今天终于中奖了今天终于中奖了今天终于中奖了
-                    </div>
-                    <dl class="images-list">
-                        <dd><a href=""><img src="img/96515277.jpg" alt=""/></a></dd>
-                        <dd><a href=""><img src="img/96515277.jpg" alt=""/></a></dd>
-                        <dd><a href=""><img src="img/96515277.jpg" alt=""/></a></dd>
-                    </dl>
+                <div class="head-img fl">
+                    <a href="http://www.llt.com/u/1">
+                        <img src="http://dev_img.lltao.com/avatar/60x60/7/6/760f2008b44fd7d35a544a14200b08dc.jpg">
+                    </a>
+                </div>
+                <div class="info-side fl">
+                    <div class="username"><a class="blue" href="http://www.llt.com/u/1">ABC</a></div>
+                    <div class="datetime">获得了第2期</div>
+                    <p><a class="btn-sm btn-y" href="http://www.llt.com/p/13">晒单详情</a></p>
+                </div>
+            </li>
+            <li>
+                <div class="head-img fl">
+                    <a href="http://www.llt.com/u/3">
+                        <img src="http://dev_img.lltao.com/avatar/60x60/0/0/noavatar.jpg">
+                    </a>
+                </div>
+                <div class="info-side fl">
+                    <div class="username"><a class="blue" href="http://www.llt.com/u/3">乔布斯弟弟</a></div>
+                    <div class="datetime">获得了第1期</div>
+                    <div class="no-show">暂未晒单</div>
+                </div>
+            </li>
+            <li>
+                <div class="head-img fl">
+                    <a href="http://www.llt.com/u/2">
+                        <img src="http://dev_img.lltao.com/avatar/60x60/9/2/92ece4d3b01cd2d32af8c0afdf9dfb52.jpg">
+                    </a>
+                </div>
+                <div class="info-side fl">
+                    <div class="username"><a class="blue" href="http://www.llt.com/u/2">我是猴子派来</a></div>
+                    <div class="datetime">获得了第3期</div>
+                    <div class="no-show">暂未晒单</div>
+                </div>
+            </li>
+            <li>
+                <div class="head-img fl">
+                    <a href="http://www.llt.com/u/1">
+                        <img src="http://dev_img.lltao.com/avatar/60x60/7/6/760f2008b44fd7d35a544a14200b08dc.jpg">
+                    </a>
+                </div>
+                <div class="info-side fl">
+                    <div class="username"><a class="blue" href="http://www.llt.com/u/1">ABC</a></div>
+                    <div class="datetime">获得了第2期</div>
+                    <p><a class="btn-sm btn-y" href="http://www.llt.com/p/13">晒单详情</a></p>
+                </div>
+            </li>
+            <li>
+                <div class="head-img fl">
+                    <a href="http://www.llt.com/u/3">
+                        <img src="http://dev_img.lltao.com/avatar/60x60/0/0/noavatar.jpg">
+                    </a>
+                </div>
+                <div class="info-side fl">
+                    <div class="username"><a class="blue" href="http://www.llt.com/u/3">乔布斯弟弟</a></div>
+                    <div class="datetime">获得了第1期</div>
+                    <div class="no-show">暂未晒单</div>
                 </div>
             </li>
         </ul>
     </div>
+</div>
 </div>
 </body>
 </html>

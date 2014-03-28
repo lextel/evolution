@@ -56,10 +56,11 @@
         <div class="title-red">
             <h3>往期获得者</h3>
             <div class="arrow-menu">
-                <a href="javascript:void(0)" class="arrow-on"></a>
-                <a href="javascript:void(0)" class="arrow-up"></a>
+                <a href="javascript:void(0)" class="arrow-on" id="prev"></a>
+                <a href="javascript:void(0)" class="arrow-up" id="next"></a>
             </div>
         </div>
+        <div class="overdueList" id="scrollDiv">
         <ul class="before">
             <?php $lwins = $getLastWins($post->item_id);?>
             <?php if ($lwins) { ?>
@@ -72,8 +73,10 @@
                   </a>
                 </div>
                 <div class="info-side">
-                        <div class="username"><?php echo Html::anchor('u/'.$lwin->member_id, $members[$lwin->member_id]->nickname, ['class'=>'blue']);?></div>
-                        <div class="datetime"><?php echo '获得了第'.$lwin->phase_id.'期';?></div>
+                        <div class="username">
+                            <?php echo Html::anchor('u/'.$lwin->member_id, $members[$lwin->member_id]->nickname, ['class'=>'blue']);?>
+                            <s class="datetime"><?php echo '获得了第'.$lwin->phase_id.'期';?></s>
+                        </div>
                     <?php if($lwin->post_id == 0){?>
                         <div class="no-show">暂未晒单</div>
                     <?php }else{?>
@@ -84,6 +87,7 @@
             <?php }?>
             <?php }?>
         </ul>
+        </div>
         <div class="title-red">
             <h3 class="fl">最新晒单</h3>
         </div>
