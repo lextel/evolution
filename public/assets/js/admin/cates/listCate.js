@@ -118,7 +118,11 @@ $(function(){
             success: function(data){
                     if(data.status == 'success') {
                         item.html(val);
-                        icon.html('<img data="'+iconVal+'" src="'+IMAGE_URL+iconVal+'" style="width: 34px; height:34px"/>');
+                        if(icon.find('span.withclose > input').length > 0) {
+                            icon.html('<img data="'+iconVal+'" src="'+IMAGE_URL+iconVal+'" style="width: 34px; height:34px"/>');
+                        } else {
+                            icon.html('无');
+                        }
                         $this.parent().next().show();
                         $this.parent().hide();
                     } else {
@@ -129,20 +133,5 @@ $(function(){
                 alert('保存失败');
             }
             });
-    });
-
-    // 取消保存
-    $('a[action="cancel"]').click(function(){
-
-        var $this = $(this);
-        var tr = $this.parent().parent().parent();
-        var item = tr.find('.editItem');
-        var val = item.find('input').attr('bak');
-        item.html(val);
-        var icon = tr.find('.editIcon');
-        var iconVal = icon.find('span.withclose > input').val();
-        icon.html('<img data="'+iconVal+'" src="'+IMAGE_URL+iconVal+'" style="width: 34px; height:34px"/>');
-        $this.parent().next().show();
-        $this.parent().hide();
     });
 });
