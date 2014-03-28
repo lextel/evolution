@@ -61,7 +61,7 @@ $(document).ready(function(){
 });
 /**
 * 期数展开箭头切换*
- **/
+ */
 $(function(){
     $(".btn-periods").click(function(){
         $(this).toggleClass("open");
@@ -784,3 +784,27 @@ function addFavorite(sURL, sTitle)
         }
     }
 }
+
+
+$(function (){
+    //隐藏期数
+    if(24 < $(".periodList ul").find("li").length){
+        var phase = $(".periodList ul").find("li").eq(23);
+        phase.nextAll().hide();
+        $(".btn-periods").show();
+
+        //单击展开
+    $(".btn-periods").bind("click",function (){
+
+        //期数展开箭头切换*
+        $(this).toggleClass("open");
+        if("展开" == $(this).text()){
+            $(this).html("收起<i></i>");
+            phase.nextAll().show(); 
+        }else{
+            $(this).html("展开<i></i>");
+            phase.nextAll().hide();
+        }
+    });
+    }
+});

@@ -113,6 +113,7 @@ return [
             'brand'=>10,
             'brands'=>10,
             'createBrand'=>10,
+            'createCate'=>10,
             'edit'=>10,
             'delete'=>10,         
           ]
@@ -122,6 +123,7 @@ return [
             'index'=>50, 
             'lists'=>50,
             'create'=>50,
+            'multi'=>50, 
             'add'=>50, 
             'getedit'=>50,
             'edit'=>50,
