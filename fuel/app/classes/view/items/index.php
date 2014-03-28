@@ -36,6 +36,7 @@ class View_Items_index extends Viewmodel {
                 $brand = DB::select('id','name','thumb')->from('cates')
                                                          ->where('parent_id', $cate->id)
                                                          ->where('is_delete', self::NOT_DELETE)
+                                                         ->limit(7)
                                                          ->execute();
                 $brands[$cate->id] = $brand->as_array(); 
             }
@@ -75,6 +76,7 @@ class View_Items_index extends Viewmodel {
         // 排序处理
         $this->sort = function() {
             $active = Request::active();
+
             $sort = explode('_', $active->param('sort'));
             $options = [
                     'cateId'  => $active->param('cate_id'),
@@ -86,16 +88,30 @@ class View_Items_index extends Viewmodel {
 
             $list = '';
             $itemModel = new Model_Item();
+            $flag = '';
             foreach($sorts as $val) {
+                
                 $url = $itemModel->handleUrl($options);
-                $param = isset($val['alias']) ? $val['alias'] : $val['field'];
-                if($sort[0] == $param && isset($sort[1])) {
+                $field = isset($val['alias']) ? $val['alias'] : $val['field'];
+
+                $active = '';
+                if($field == $sort[0]) $active = 'border: 1px solid #AF2812;';
+
+                // 如果url带 order
+                if($sort[0] == $field && isset($sort[1])) {
                     $order = $sort[1] == 'asc' ? 'desc' : 'asc';
-                    $orderBy = $param . '_' . $order;
+                    $flag = $sort[1] == 'asc' ? '<i></i>' : '<s></s>';
+                    $orderBy = $field . '_' . $order;
                 } else {
-                    $orderBy = $param . '_asc';
+                    // 如果支持 order
+                    if(count($val['order']) > 1) {
+                        $orderBy = $field.'_'.$val['order'][0];
+                        $flag = $val['order'][0] == 'asc' ? '<i></i>' : '<s></s>';
+                    } else {
+                        $orderBy = $field;
+                    }
                 }
-                $list .= '<a href="'.$url . '/s/'. $orderBy .'#list" class="">'.$val['name'].'</a>';
+                $list .= '<a href="'.$url . '/s/'. $orderBy .'#list" style="'.$active.'">'.$val['name'].$flag.'</a>';
             }
 
             return $list;

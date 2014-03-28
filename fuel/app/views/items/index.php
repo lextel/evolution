@@ -94,6 +94,24 @@
             </div>
 </div>
 <!--产品列表开始-->
+<style>
+    .list_sort a i {
+        margin-left: 2px;
+        width: 13px;
+        height: 12px;
+        display: inline-block;
+        background: url('<?php echo Uri::create('assets/images/arrow_up.png')?>');
+    }
+
+    .list_sort a s {
+        margin-left: 2px;
+        width: 13px;
+        height: 12px;
+        display: inline-block;
+        background: url('<?php echo Uri::create('assets/images/arrow_down.png')?>');
+    }
+</style>
+<a id="list"></a>
 <div class="w">
         <div class="list_sort">
             <label>排序</label>
