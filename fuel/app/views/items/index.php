@@ -18,7 +18,7 @@
                         $active = ' active';
                         $bannerIdx = $i;
                     }
-                    echo "<li class='cateNav{$active}'><a href='". Uri::create('/m/c/'. $cate->id) ."'>{$cate->name}></a></li>";
+                    echo "<li class='cateNav{$active}'><a href='". Uri::create('m/c/'. $cate->id) ."'>{$cate->name}></a></li>";
                     $i++;
                 endforeach;
             ?>
@@ -35,10 +35,11 @@
                 <?php
                     foreach($brand as $val) {
                         $icon = '';
-                        if(!empty($val->thumb)) {
-                            $icon = '<img src="'.Uri::create($val->thumb).'"/>';
+                        if(isset($val['thumb']) && !empty($val['thumb'])) {
+                            $icon = '<img src="'.Uri::create($val['thumb']).'"/>';
                         }
-                        echo "<dd><a href='" . Uri::create('/m/c/'. $k . '/b/'. $val->id) . "'>{$icon}{$val->name}</a></dd>";
+                        $bactive = ($brandId == $val['id']) ? 'color: #af2812' : '';
+                        echo "<dd><a style='{$bactive}' href='" . Uri::create('m/c/'. $k . '/b/'. $val['id']) . "'>{$icon}{$val['name']}</a></dd>";
                     } 
                 ?>
             </dl>

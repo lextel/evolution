@@ -29,11 +29,15 @@ class View_Items_index extends Viewmodel {
 
         // 品牌列表
         $this->getBrands = function($cates) {
+
             $brands = [];
+            $brandModel = new Model_Cate();
             foreach($cates as $cate) {
-                $brands[$cate->id] = Model_Cate::query()->where('parent_id', $cate->id)
-                                                        ->where('is_delete', self::NOT_DELETE)
-                                                        ->get();
+                $brand = DB::select('id','name','thumb')->from('cates')
+                                                         ->where('parent_id', $cate->id)
+                                                         ->where('is_delete', self::NOT_DELETE)
+                                                         ->execute();
+                $brands[$cate->id] = $brand->as_array(); 
             }
 
             return $brands;
