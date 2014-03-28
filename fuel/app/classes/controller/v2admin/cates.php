@@ -127,6 +127,7 @@ class Controller_V2admin_Cates extends Controller_V2admin{
         $result = ['status' => 'fail'];
         if ($val->run()) {
             $cate->name = Input::post('name');
+            $cate->thumb = Input::post('icon');
 
             if ($cate->save()) {
                 Model_Log::add('修改分类/品牌 #' . $id);
@@ -161,6 +162,16 @@ class Controller_V2admin_Cates extends Controller_V2admin{
         } else {
             Response::redirect('v2admin/cates/brand');
         }
+    }
+
+    // 上传图标
+    public function action_upload() {
+        $files = [];
+
+        $cateModel = new Model_Cate();
+        $files = $cateModel->upload();
+
+        return json_encode(['files' => $files]);
     }
 
 
