@@ -34,7 +34,11 @@
                 <dt>品牌</dt>
                 <?php
                     foreach($brand as $val) {
-                        echo "<dd><a href='" . Uri::create('/m/c/'. $k . '/b/'. $val->id) . "'>{$val->name}</a></dd>";
+                        $icon = '';
+                        if(!empty($val->thumb)) {
+                            $icon = '<img src="'.Uri::create($val->thumb).'"/>';
+                        }
+                        echo "<dd><a href='" . Uri::create('/m/c/'. $k . '/b/'. $val->id) . "'>{$icon}{$val->name}</a></dd>";
                     } 
                 ?>
             </dl>
