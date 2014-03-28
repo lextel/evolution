@@ -59,14 +59,7 @@
 $(document).ready(function(){
     $("#scrollDiv").Scroll({line:1,speed:500,timer:3000,up:"prev",down:"next"});
 });
-/**
-* 期数展开箭头切换*
- */
-$(function(){
-    $(".btn-periods").click(function(){
-        $(this).toggleClass("open");
-    })
-});
+
 /**
  *顶部设置鼠标滑过效果
  */
