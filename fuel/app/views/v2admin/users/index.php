@@ -9,6 +9,7 @@
             <tr>
                 <th class="text-center">用户名</th>
                 <th class="text-center">用户邮箱</th>
+                <th class="text-center">用户手机</th>
                 <th class="text-center">用户组</th>
                 <th class="text-center">操作</th>
             </tr>
@@ -18,6 +19,7 @@
             <tr>
                 <td class="text-center"><?php echo $item->username; ?></td>
                 <td class="text-center"><?php echo $item->email; ?></td>
+                <td class="text-center"><?php echo $item->mobile; ?></td>
                 <td class="text-center"><?php echo Auth::group()->get_name($item->group); ?></td>
                 <td class="text-center">
                     <?php echo Html::anchor('v2admin/users/edit/'.$item->id, '编辑'); ?> |

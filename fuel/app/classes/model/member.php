@@ -196,6 +196,7 @@ class Model_Member extends \Classes\Model
         $val = Validation::forge($factory);
         $val->add_callable(new \Classes\MyRules());
         if ($factory == 'signup'){
+            // 手机/邮箱 需要分别判断
             $val->add_field('username', '手机/邮箱', 'required|unique[members.username]');          
         }else{
             $val->add_field('username', '手机/邮箱', 'required');

@@ -1,7 +1,7 @@
 <?php echo Form::open(array("class"=>"form-horizontal", 'action' => $url)); ?>
     <fieldset>
         <div class="form-group">
-            <?php echo Form::label('账号', 'username', array('class'=>'control-label col-sm-1')); ?>
+            <?php echo Form::label('用户名', 'username', array('class'=>'control-label col-sm-1')); ?>
             <div class="col-sm-4">
                 <?php if(isset($user)) : ?>
                 <p class="form-control-static"><?php echo isset($user) ? $user->username : '';?></p>
@@ -24,6 +24,12 @@
             <?php echo Form::label('邮箱', 'email', array('class'=>'control-label col-sm-1')); ?>
             <div class="col-sm-4">
             <?php echo Form::input('email', Input::post('email', isset($user) ? $user->email : ''), array('class' => 'form-control', 'placeholder'=>'邮箱')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <?php echo Form::label('手机号码', 'mobile', array('class'=>'control-label col-sm-1')); ?>
+            <div class="col-sm-4">
+            <?php echo Form::input('mobile', Input::post('mobile', isset($user) ? $user->mobile : ''), array('class' => 'form-control', 'placeholder'=>'手机号码')); ?>
             </div>
         </div>
         <div class="form-group">
