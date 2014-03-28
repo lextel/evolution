@@ -19,7 +19,7 @@ class Controller_Items extends Controller_Frontend {
         $paramCount = $itemModel->countParam($options);
 
         $page = new \Helper\Page();
-        $config = $page->setConfig($url, $total, $paramCount);
+        $config = $page->setListConfig($url, $total, $paramCount);
         $pagination = Pagination::forge('mypagination', $config);
 
         $items = $itemModel->index($options);
