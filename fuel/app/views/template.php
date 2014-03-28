@@ -47,9 +47,9 @@
                  <i>/</i>
                  <a href="<?php echo Uri::create('/signup'); ?>">注册</a>
             <?php }else {?>
-                 <div class="info-wide" href="<?php echo Uri::create('/u'); ?>">
+                 <div class="info-wide">
                      <img src="<?php echo \Helper\Image::showImage($current_user->avatar, '60x60');?>"/>
-                     <s class="top-name"><?php echo $current_user->nickname;?></s>
+                     <s class="top-name"><?php echo Html::anchor('/u', $current_user->nickname);?></s>
                      <ul class="head-set">
                           <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐淘记录</a></li>
                           <li><a href="<?php echo Uri::create('/u/wins'); ?>">获得的商品</a></li>

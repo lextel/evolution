@@ -69,9 +69,7 @@ class View_Items_view extends Viewmodel {
             $phases = Model_Phase::find('all', ['select' => $select, 'where' => ['item_id' => $item->id], 'order_by' => ['id' => 'desc']]);
 
             $ids = [];
-            $i = 0;
             foreach($phases as $phase) {
-                $i++;
                 $class = '';
                 if($phase->opentime == 0) {
                     $class = 'doing';
@@ -81,7 +79,7 @@ class View_Items_view extends Viewmodel {
                     $class .= ' active';
                 }
 
-                $ids[] = ['id' => $phase->id, 'phase' => $phase->phase_id, 'class' => $class, 'sp' => $i%8];
+                $ids[] = ['id' => $phase->id, 'phase' => $phase->phase_id, 'class' => $class];
             }
 
             return $ids;
