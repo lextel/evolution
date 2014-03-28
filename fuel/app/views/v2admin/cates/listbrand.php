@@ -67,7 +67,7 @@
             <td>
                 <div class="editing">
                     <?php echo Html::anchor('javascript:void(0);', '保存', ['action' => 'save', 'data-id'=>$item->id]); ?> |
-                    <?php echo Html::anchor('javascript:void(0);', '取消', ['action' => 'cancel']); ?>
+                    <?php echo Html::anchor('javascript:location.reload()', '取消', ['action' => 'cancel']); ?>
                 </div>
                 <div class="edit">
                     <?php echo Html::anchor('javascript:void(0);', '编辑', ['action' => 'edit', 'data-id'=>$item->id]); ?> |
