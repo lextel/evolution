@@ -332,7 +332,7 @@ $(function(){
                 if(data.length > 0) {
                     for(var i in data) {
                         html += '<li><div class="img-box img-sm fl">';
-                        html += '<a href="'+BASE_URL + 'm/' + data[i].id +'"><img src="'+BASE_URL + data[i].image+'" alt=""></a>';
+                        html += '<a href="'+BASE_URL + 'm/' + data[i].id +'"><img src="'+ data[i].image+'" alt=""></a>';
                         html += '</div><div class="info-side fl"><div class="title-md">';
                         html += '<a href="'+BASE_URL + 'm/' + data[i].id +'">'+data[i].title+'</a>';
                         html += '</div><div class="price tl">'+showCoins(100) +' x <b class="y">'+data[i].qty+'</b></div>';

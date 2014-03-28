@@ -92,7 +92,8 @@ class View_V2admin_Items_List extends ViewModel
                     }
                     break;
                 case 'all':
-                    $operate = Html::anchor('v2admin/items/view/'.$id.'/'.$phaseId, '详情');
+                    $operate = Html::anchor('v2admin/items/view/'.$id.'/'.$phaseId, '详情') . ' | ' .
+                               Html::anchor('v2admin/items/edit/'.$id, '编辑');
                     break;
                 default:
                     $operate = '';
