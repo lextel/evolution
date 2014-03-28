@@ -115,7 +115,8 @@ return [
             'createBrand'=>10,
             'createCate'=>10,
             'edit'=>10,
-            'delete'=>10,         
+            'delete'=>10,
+            'upload'=>10,
           ]
         ],
         ['controller'=>'Controller_V2admin_Ghost',

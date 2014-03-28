@@ -30,6 +30,11 @@ return [
         'ext_whitelist' => ['jpg', 'jpeg', 'gif', 'png'],
 		    'savePath'   => 'updateSavePath(["upload'.DS.'item'.DS.'desc'.'"]);',
     ],
+    'icon' => [
+        'path' => DOCROOT.'upload'.DS.'icon',
+        'randomize' => true,
+        'ext_whitelist' => ['jpg', 'jpeg', 'png'],
+    ],
     'mutil' => [
         'path' => DOCROOT.'upload'.DS.'multi',
         'randomize' => false,
