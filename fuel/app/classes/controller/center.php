@@ -7,7 +7,7 @@ class Controller_Center extends Controller_Frontend
     public function before()
     {
         parent::before();
-        if (! in_array(Request::active()->action, ['signin', 'signup', 'findpassword', 'newpassword', 'forgotemail', 'getforgot', 'sendok']))
+        if (! in_array(Request::active()->action, ['signin', 'signup', 'findpassword', 'newpassword', 'forgotemail', 'getforgot', 'sendok', 'checkname']))
         {
             $this -> membercheck();
         }
@@ -288,5 +288,25 @@ class Controller_Center extends Controller_Frontend
            //return Response::forge(json_encode(['error'=>'key 错误']),200, $header);
         }
         return Response::forge(View::forge('member/findpwd'));
+    }
+    
+    /*
+    * 验证手机号码或者邮箱是否存在
+    */
+    public function action_checkname()
+    {
+        $res = ['code'=>1];
+        $username = Input::post('name');
+        if (is_null($username)){
+            return json_encode($res);
+        }
+        $check = Model_Member::count(['where'=>[
+                           ['username', '=', $username],
+                           'or'=>[['mobile', '=', $username]]
+                           ]]);
+        if ($check == 0){
+            $res['code'] = 0;
+        }
+        return json_encode($res);
     }
 }
