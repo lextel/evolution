@@ -60,8 +60,9 @@
                  </div>
 
                  <span>财富(<s class="r"><?php echo \Helper\Coins::showCoins($current_user->points);?></s>)</span>
-                 <span>消息(<s class="r"><?php echo $isnew? $isnew : 0;?></s>)</span>
-                 
+                 <?php if ($isnew) { ?>
+                    <span><a href="<?php echo Uri::create('/u/message'); ?>">消息(<s class="r"><?php echo $isnew;?></s>)</a></span>
+                 <?php } ?>
             <?php }?>
             </div>
         </div>

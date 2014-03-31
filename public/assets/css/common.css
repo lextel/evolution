@@ -649,7 +649,7 @@ table td p.tl{
     position: absolute;
     top: 105px;
     right: 40px;
-    background: url("../images/bg.png") no-repeat -96px -260px;
+    background: url("../images/bg.png") no-repeat -99px -260px;
 }
 .icon-new{
     width: 54px;
@@ -1070,7 +1070,7 @@ table td p.tl{
 }
 .logo-box .logo{
     width: 150px;
-    height: 60px;
+    height: 80px;
     float: left;
     margin: 5px 0 0 10px;
 }
@@ -2050,6 +2050,7 @@ a.Myahoo {
 .bread{
     width: 980px;
     height: 30px;
+    color: #bbbbbb;
     line-height: 30px;
     overflow: hidden;
     margin-bottom: 5px;
@@ -2057,8 +2058,9 @@ a.Myahoo {
 .bread ul li{
     float: left;
     margin-right: 5px;
-    color: #999999;
-    font-size: 14px;
+}
+.bread ul li a{
+    color: #bbbbbb;
 }
 .bread ul li em{
     font-style: normal;
@@ -2075,6 +2077,7 @@ a.Myahoo {
     top: 30px;
     right:10px;
 }
+
 .codeList:before{
     content: "";
     border-style: solid;
