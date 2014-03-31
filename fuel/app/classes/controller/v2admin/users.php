@@ -53,16 +53,19 @@ class Controller_V2admin_Users extends Controller_V2admin{
         $val->add('password', '密码')->add_rule('required')->add_rule('min_length', 6)->add_rule('max_length', 20);
 
         if ($val->run()) {
-            $username = Input::post('username');
-            $password = Input::post('password');
-            $email = Input::post('email');
-            $group = Input::post('group', 0);
+            $username = trim(Input::post('username'));
+            $password = trim(Input::post('password'));
+            $email = trim(Input::post('email'));
+            $group = trim(Input::post('group', 0));
+            
+            $mobile = trim(Input::post('mobile', 0));
             if ($this->groupid < intval($group)){
                 Session::set_flash('error', e('无权限操作'));
                 Response::redirect('v2admin');
             }
             try {
                 $user_id = $this->auth->create_user($username, $password, $email, $group);
+                $this->auth->update_user(['mobile'=>$mobile]);
                 Session::set_flash('success', e('添加成功 #'.$user_id.'.'));
                 Model_Log::add('添加管理员 #' . $user_id);
                 Response::redirect('v2admin/users');
@@ -73,11 +76,13 @@ class Controller_V2admin_Users extends Controller_V2admin{
         } else {
             $val->set_message('required', ':label 为必填项.');
             $val->set_message('min_length', ':label 不能少于:param:1个字符.');
-            $val->set_message('max_length', ':label 不能超过:param:1个字符.');
+            $val->set_message('is_mobile', ':label 必须为手机号码格式.');
+            $val->set_message('valid_email', ':label 必须为邮箱格式.');
+            $val->set_message('unique', ':label 重复了.');
             Session::set_flash('error', $val->show_errors());
         }
 
-        Response::redirect('v2admin/users/create');
+        return $this->action_create();
     }
 
     // 编辑管理员
@@ -119,7 +124,14 @@ class Controller_V2admin_Users extends Controller_V2admin{
         }
         $val = Model_User::validate('edit');
         $val->add('password', '密码')->add_rule('min_length', 6)->add_rule('max_length', 20);
-
+        $email = trim(Input::post('email'));
+        $mobile = trim(Input::post('mobile'));
+        if ($email != $user->email){
+            $val->add_field('email', '邮箱', 'required|valid_email|unique[members.email]');
+        }
+        if ($mobile != $user->mobile){
+            $val->add_field('mobile', '手机', 'required|is_mobile|unique[members.nickname]');
+        }
         if ($val->run()) {
             $post = Input::post();
             if(!empty($post['password'])) {
@@ -144,12 +156,14 @@ class Controller_V2admin_Users extends Controller_V2admin{
         } else {
             $val->set_message('required', ':label 为必填项.');
             $val->set_message('min_length', ':label 不能少于:param:1个字符.');
-            $val->set_message('max_length', ':label 不能超过:param:1个字符.');
+            $val->set_message('is_mobile', ':label 必须为手机号码格式.');
+            $val->set_message('valid_email', ':label 必须为邮箱格式.');
+            $val->set_message('unique', ':label 重复了.');
             Session::set_flash('error', $val->show_errors());
         }
 
 
-        Response::redirect('v2admin/users/edit/' .$id);
+        return $this->action_edit($id);
 
     }
 

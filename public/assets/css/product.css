@@ -966,7 +966,7 @@
 .left-content .item-group li{
     float: left;
     width: 342px;
-    height: 207px;
+    height: 203px;
     margin: 0 10px 10px 0;
     background: #ffffff;
     border: 1px solid #F5F7FA;
@@ -991,7 +991,7 @@
 .item-group li .item-body{
     overflow: hidden;
     padding: 10px 10px 0;
-    height: 122px;
+    height: 118px;
     position: relative;
 }
 .icon-jxiao{

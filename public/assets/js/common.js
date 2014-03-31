@@ -1,4 +1,6 @@
-
+/**
+ * 往期晒单滚动效果
+ */
 (function($){
     $.fn.extend({
         Scroll:function(opt,callback){
@@ -322,7 +324,6 @@ $(function(){
             }
         }
     });
-
 });
 /**
  * 选择充值方式
