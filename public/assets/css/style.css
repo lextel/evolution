@@ -943,15 +943,15 @@
     max-width: 100%;
     vertical-align: middle;
 }
-.edit-data li .file-img{
+.file-img{
     width: 159px;
     height: 41px;
-    margin-left: 120px;
     overflow: hidden;
+    margin-bottom: 10px;
     position: relative;
     background: url("../images/icon.png") no-repeat 0 -318px;
 }
-.edit-data li .file-img input{
+.file-img input{
     width: 159px;
     height: 41px;
     display: block;
