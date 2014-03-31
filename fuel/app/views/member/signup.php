@@ -37,7 +37,7 @@
                 ?>
                 <li>
                    <?php echo Form::label('确认密码'); ?>
-                   <input id="xp" type="password"  name="password2" recheck="password" errorms="请在次输入一次密码"  nullmsg="请确认密码" class="txt" datatype="*6-18"/>
+                   <input id="xp" type="password"  name="password2" recheck="password" errorms="请在次输入一次密码"  nullmsg="请确认密码" class="txt" datatype="*6-18" sucmsg=" "/>
                    <span class="Validform_checktip"></span>
                 </li>
                 <?php endif;?>
@@ -56,18 +56,26 @@
     </div>
 <script type="text/javascript">
 $(function(){
-        $(".demoform").Validform({
+        var from = $(".demoform").Validform({
             tiptype:4,
             datatype:{
               'em': function (gets,obj,curform,regxp){
                 var m = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
                 var e = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
                 if(m.test(gets) || e.test(gets)){
-                   return true;
+                   $.get(BASE_URL+"checkname/"+gets, function(data){
+                      if(0 == data.code){
+                          return true;
+                      }else{
+                        return "手机/邮箱注册已存在";
+                      }
+                   });
                 }
                 return "手机/邮箱格式不正确";
               }
             }
         });
+
+
 });  
 </script>
