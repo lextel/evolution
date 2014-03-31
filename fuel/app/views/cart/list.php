@@ -116,7 +116,7 @@
                     </table>
                     <div class="cart-footer">
                         <label class="fl"><input type="checkbox" action="selectAll" checked="true"/>全选/取消</label>
-                        <div class="total fr">总元宝：<b id="total"><?php echo \Helper\Coins::showCoins($subTotal * Config::get('point'), true); ?></b></div>
+                        <div class="total fr">总元宝：<b id="total"><?php echo $subTotal ? \Helper\Coins::showCoins($subTotal * Config::get('point'), true) : $subTotal . Config::get('unit'); ?></b></div>
                     </div>
                 </div>
                 <div class="btn-group tr">
