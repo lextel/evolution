@@ -63,6 +63,13 @@ class Model_Order extends \Classes\Model
 
         foreach($carts as $cart) {
 
+            $items = Cart::items();
+            foreach($items as $item) {
+                if($cart->get_id() == $item->get_id()) {
+                    $item->delete();
+                }
+            }
+
             $phaseId = $cart->get_id();
             $fetchCodes = $this->buy($phaseId, $cart->get_qty());
 

@@ -9,7 +9,7 @@
                 <li><span>4</span><a href="">揭晓获奖者></a></li>
                 <li><span>5</span><a href="">晒单分享></a></li>
             </ol>
-            <form action="<?php echo Uri::create('cart/remove'); ?>" method="post" id="cartForm">
+            <form action="<?php echo Uri::create('cart/pay'); ?>" method="post" id="cartForm">
                 <div class="cart-list">
                     <table>
                         <thead>
@@ -27,42 +27,84 @@
                         <?php
                             $subTotal = 0;
                             Config::load('common');
-                            if(!empty($items)) :
-                            foreach($items as $item) :
-                                $info = $getInfo($item->get_id());
-                                $subTotal += $item->get_qty();
+                            if(!empty($items)):
+                                list($normalList, $overdueList) = $getList($items);
+                            endif;
+                            if(isset($normalList) && !empty($normalList)):
+                                foreach($normalList as $item):
+                                $subTotal += $item['qty'];
                         ?>
                         <tr>
-                            <td><input type="checkbox" name="ids[]" value="<?php echo $item->get_id(); ?>"/></td>
+                            <td><input type="checkbox" name="ids[]" checked="true" value="<?php echo $item['rowid'];?>"/></td>
                             <td>
                                 <div class="img-sm fl">
-                                    <a href="<?php echo Uri::create('m/'. $item->get_id()); ?>">
-                                        <img src="<?php echo \Helper\Image::showImage($info->image, '80x80');?>"/>
+                                    <a href="<?php echo Uri::create('m/'. $item['id']); ?>">
+                                        <img src="<?php echo \Helper\Image::showImage($item['image'], '80x80');?>"/>
                                     </a>
                                 </div>
                                 <div class="info-side fl">
                                     <div class="title-row">
-                                         <a href="<?php echo Uri::create('/m/'. $item->get_id()); ?>"><?php echo $info->title; ?></a>
+                                         <a href="<?php echo Uri::create('m/'. $item['id']); ?>"><?php echo $item['title']; ?></a>
                                     </div>
-                                    <div class="remain">还需<b class="o"><?php echo $info->phase->remain; ?></b>元宝</div>
+                                    <div class="remain">还需<b class="o"><?php echo $item['remain']; ?></b>元宝</div>
                                 </div>
                             </td>
-                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins($info->phase->cost, true); ?></b></span></td>
+                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins($item['cost'], true); ?></b></span></td>
                             <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point'), true); ?></b></span></td>
                             <td>
                                 <div class="btn-menu inner-b-m">
                                     <a class="add btn-jian" href="javascript:void(0);">-</a>
-                                    <input type="text" value="<?php echo $item->get_qty(); ?>" class="qty" name="qty" rowId="<?php echo $item->get_rowid(); ?>" remain="<?php echo $info->phase->remain?>">
+                                    <input type="text" value="<?php echo $item['qty']; ?>" class="qty" name="qty" rowId="<?php echo $item['rowid']; ?>" remain="<?php echo $item['remain'];?>">
                                     <a class="add btn-jia" href="javascript:void(0);">+</a>
                                     <span>元宝</span>
                                 </div>
                             </td>
-                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point') * $item->get_qty(), true); ?></b></span></td>
-                            <td><a href="javascript:void(0)" action="delete">删除</a></td>
+                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point') * $item['qty'], true); ?></b></span></td>
+                            <td><a href="javascript:void(0)" action="delete" rowId="<?php echo $item['rowid'];?>">删除</a></td>
+                        </tr>
+                        <?php 
+                                endforeach;
+                            endif;
+                            if(isset($overdueList) && !empty($overdueList)):
+                        ?>
+                        <tr>
+                            <td colspan="7" style="background:#eee">以下商品已经过期，将不参与结算</td>
+                        </tr>
+                        <?php
+                            foreach($overdueList as $item):
+                        ?>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                <div class="img-sm fl">
+                                    <a href="<?php echo Uri::create('m/'. $item['id']); ?>">
+                                        <img src="<?php echo \Helper\Image::showImage($item['image'], '80x80');?>"/>
+                                    </a>
+                                </div>
+                                <div class="info-side fl">
+                                    <div class="title-row">
+                                         <a href="<?php echo Uri::create('m/'. $item['id']); ?>"><?php echo $item['title']; ?></a>
+                                    </div>
+                                    <div class="remain">还需<b class="o"><?php echo $item['remain']; ?></b>元宝</div>
+                                </div>
+                            </td>
+                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins($item['cost'], true); ?></b></span></td>
+                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point'), true); ?></b></span></td>
+                            <td>
+                                <div class="btn-menu inner-b-m">
+                                    <?php echo $item['qty']; ?>
+                                    <span>元宝</span>
+                                </div>
+                            </td>
+                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point') * $item['qty'], true); ?></b></span></td>
+                            <td><a href="javascript:void(0)" action="delete" rowId="<?php echo $item['rowid'];?>">删除</a></td>
                         </tr>
                         <?php
                             endforeach;
-                            else:
+                            endif;
+                        ?>
+                        <?php 
+                            if(empty($normalList) && empty($overdueList)):
                                 if(!is_null($current_user)):
                                 echo "<tr><td colspan='7' style='line-height: 50px'>暂时没有商品 <a href='".Uri::base()."'>去购买</a></td></tr>";
                                 else:
@@ -73,15 +115,15 @@
                         </tbody>
                     </table>
                     <div class="cart-footer">
-                        <label class="fl"><input type="checkbox" action="selectAll"/>全选</label>
+                        <label class="fl"><input type="checkbox" action="selectAll" checked="true"/>全选/取消</label>
                         <div class="total fr">总元宝：<b id="total"><?php echo \Helper\Coins::showCoins($subTotal * Config::get('point'), true); ?></b></div>
                     </div>
                 </div>
+                <div class="btn-group tr">
+                    <a href="<?php echo Uri::base(); ?>" class="btn btn-y btn-md doCart"><继续乐淘</a>
+                    <button type="submit" class="btn btn-red btn-md" id="doOrder">提交订单</button>
+                </div>
             </form>
-            <div class="btn-group tr">
-                <a href="<?php echo Uri::base(); ?>" class="btn btn-y btn-md doCart"><继续乐淘</a>
-                <a href="<?php echo Uri::create('cart/pay'); ?>" class="btn btn-red btn-md" id="doOrder">提交订单</a>
-            </div>
         </div>
         <!--弹出登录框-->
         <div class="login2">
