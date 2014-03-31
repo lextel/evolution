@@ -947,23 +947,21 @@ table td p.tl{
     background: #fff;
     line-height: 26px;
 }
-.pagination span a{
-    display: block;
-}
-.pagination span a:hover{
-}
-/*
 .pagination span.active{
-    background:#D9534F ;
     color: #ffffff;
+    background: #AF2812;
 }
-
 .pagination span.active a{
     color: #ffffff;
 }
-*/
+.pagination span a{
+    display: block;
+}
 .pagination span.previous-inactive{
     width:60px;
+    color: #999;
+    background: #EEEEEE;
+    cursor:not-allowed;
 }
 .pagination span.next{
     margin-right: 0;
@@ -974,6 +972,9 @@ table td p.tl{
 }
 .pagination span.next-inactive{
     width:60px;
+    color: #999;
+    background: #EEEEEE;
+    cursor:not-allowed;
 }
 /*头部开始*/
 .top-nav{
