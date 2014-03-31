@@ -73,30 +73,31 @@ class Model_Order extends \Classes\Model
             $phaseId = $cart->get_id();
             $fetchCodes = $this->buy($phaseId, $cart->get_qty());
 
-            $phase = Model_Phase::find($phaseId);
-            $data = [
-                'title'      => $phase->title,
-                'phase_id'   => $phaseId,
-                'member_id'  => $memberId,
-                'codes'      => serialize($fetchCodes),
-                'code_count' => count($fetchCodes),
-                'ip'         => $ip,
-                'area'       => $location['area'],
-                'ordered_at' => $timer->millitime(),
-                ];
+            if(!empty($fetchCodes)) {
+                $phase = Model_Phase::find($phaseId);
+                $data = [
+                    'title'      => $phase->title,
+                    'phase_id'   => $phaseId,
+                    'member_id'  => $memberId,
+                    'codes'      => serialize($fetchCodes),
+                    'code_count' => count($fetchCodes),
+                    'ip'         => $ip,
+                    'area'       => $location['area'],
+                    'ordered_at' => $timer->millitime(),
+                    ];
 
-            $orderModel = new Model_Order($data);
-            if($orderModel->save()) {
-                $cart->delete();
+                $orderModel = new Model_Order($data);
+                if($orderModel->save()) {
+                    $cart->delete();
 
-                $quantity += count($fetchCodes);
-                $orderIds[] = $orderModel->id;
+                    $quantity += count($fetchCodes);
+                    $orderIds[] = $orderModel->id;
+                }
+
+                // 写消费日志
+                $perPoint = count($fetchCodes) * Config::get('point');
+                Model_Member_Moneylog::buy_log($memberId, $perPoint, $phaseId, count($fetchCodes));
             }
-
-            // 写消费日志
-            $perPoint = count($fetchCodes) * Config::get('point');
-            Model_Member_Moneylog::buy_log($memberId, $perPoint, $phaseId, count($fetchCodes));
-
         }
 
         // 更新用户积分
