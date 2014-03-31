@@ -52,7 +52,12 @@
         </div>
         <!--修改资头像-->
         <div class="portWarp">
+            <!--选择图片-->
             <div class="portrait_left">
+                <p>支持jpg、png、gif格式，可以在大照片中剪裁满意的部分</p>
+                <div class="file-img">
+                    <input id="avatarUpload" type="file" name="avatar" multiple="">
+                </div>
                 <div id="picture">
                     <img id="avatar" alt="请上传头像" src="../assets/img/96515277.jpg">
                 </div>
@@ -70,7 +75,7 @@
                 </div>
                 <div class="setup_but">
                     <button class="btn btn-md btn-red" onClick="submit_avatar();"><s class="rotate-left"></s>确定</button>
-                    <button class="btn btn-md btn-gr" onClick="submit_avatar();"><s class="rotate-right"></s>取消</button>
+                    <button class="btn btn-md btn-gy" onClick="submit_avatar();"><s class="rotate-right"></s>取消</button>
                 </div>
             </div>
             <div class="portrait_right">
