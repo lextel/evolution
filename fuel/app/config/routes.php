@@ -15,6 +15,7 @@ return array(
     'findpwd' => 'center/findpassword',
     'newpwd' => 'center/newpassword',
     'sendok'=> 'center/sendok',
+    'checkname'=> 'center/checkname',
 
     'invit/:id' => 'invit/invit',
     'invit' => 'invit/index',
@@ -78,10 +79,11 @@ return array(
     'u/moneylog/b/(\d+)' => 'member/moneylog/buyIndex/$1',
     'u/moneylog/b' => 'member/moneylog/buyIndex',
 
+/*
     'u/friends' => 'friends/my',
     'u/follow' => 'friends/follow',
     'u/unfollow' => 'friends/unfollow',
-
+*/
     'm/search/:title/p/:page' => 'items/search',
     'm/search/:title' => 'items/search',
     'm/(\d+)' => 'items/view/$1',

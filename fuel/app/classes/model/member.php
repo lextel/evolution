@@ -33,25 +33,7 @@ class Model_Member extends \Classes\Model
             'mysql_timestamp' => false,
         ),
     );
-
-
-    public static function validate($factory)
-    {
-        $val = Validation::forge($factory);
-        $val->add_field('username', 'Username', 'required|max_length[255]');
-        $val->add_field('password', 'Password', 'required|max_length[255]');
-        $val->add_field('nickname', 'Nickname', 'required|max_length[255]');
-        $val->add_field('avatar', 'Avatar', 'required|max_length[255]');
-        $val->add_field('bio', 'Bio', 'required|max_length[255]');
-        $val->add_field('mobile', 'Mobile', 'required|max_length[255]');
-        $val->add_field('points', 'Points', 'required|valid_string[numeric]');
-        $val->add_field('last_login', 'Last Login', 'required|valid_string[numeric]');
-        $val->add_field('email', 'Email', 'required|valid_email|max_length[255]');
-        $val->add_field('login_hash', 'Login Hash', 'required|max_length[255]');
-        $val->add_field('profile_fields', 'Profile Fields', 'required');
-        return $val;
-    }
-
+    
     /**
      * 会员列表
      *
@@ -195,13 +177,33 @@ class Model_Member extends \Classes\Model
     {
         $val = Validation::forge($factory);
         $val->add_callable(new \Classes\MyRules());
+        $username = Input::post('username', '');
+        
         if ($factory == 'signup'){
-            // 手机/邮箱 需要分别判断
-            $val->add_field('username', '手机/邮箱', 'required|unique[members.username]');          
+            if (strpos($username, '@') > 0){ 
+                $val->add_field('username', '用户名', 'required|valid_email|unique[members.username]'); 
+            }else{
+                $val->add_field('username', '用户名', 'required|is_mobile|unique[members.mobile]');
+            }
         }else{
-            $val->add_field('username', '手机/邮箱', 'required');
-        }  
+            if (strpos($username, '@') > 0){ 
+                $val->add_field('username', '用户名', 'required|valid_email'); 
+            }else{
+                $val->add_field('username', '用户名', 'required|is_mobile');
+            }
+        }           
         $val->add_field('password', '用户密码', 'required|min_length[6]|max_length[18]');
+        return $val;
+    }
+    
+    /*
+    * 检测用户名
+    */
+    public static function validateUsername($factory, $username)
+    {
+        if (strpos('@', $username)){ 
+        }else{
+        }
         return $val;
     }
     
