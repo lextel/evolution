@@ -165,7 +165,8 @@ class Model_Member extends \Classes\Model
     public static function validateProfile($factory)
     {
         $val = Validation::forge($factory);
-        $val->add_field('nickname', '', 'required|min_length[2]|max_length[18]');
+        $val->add_callable(new \Classes\MyRules());
+        $val->add_field('nickname', '', 'required|min_length[2]|max_length[18]|unique[members.nickname]');
         //$val->add_field('mobile', '', '');
         //$val->add_field('bio', '', '');
         return $val;
@@ -181,7 +182,8 @@ class Model_Member extends \Classes\Model
     public static function validateNickname($factory)
     {
         $val = Validation::forge($factory);
-        $val->add_field('nickname', '', 'required|min_length[2]|max_length[18]');
+        $val->add_callable(new \Classes\MyRules());
+        $val->add_field('nickname', '', 'required|min_length[2]|max_length[18]|unique[members.nickname]');
         return $val;
     }
     
@@ -192,7 +194,13 @@ class Model_Member extends \Classes\Model
     public static function validateSignin($factory)
     {
         $val = Validation::forge($factory);
-        $val->add_field('username', '用户名|邮箱', 'required|valid_email');            
+        $val->add_callable(new \Classes\MyRules());
+        if ($factory == 'signup'){
+            // 手机/邮箱 需要分别判断
+            $val->add_field('username', '手机/邮箱', 'required|unique[members.username]');          
+        }else{
+            $val->add_field('username', '手机/邮箱', 'required');
+        }  
         $val->add_field('password', '用户密码', 'required|min_length[6]|max_length[18]');
         return $val;
     }

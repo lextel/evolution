@@ -4,6 +4,9 @@
 <script>
     $(function() {
     var location_url = window.location.href;
+    var patten = new RegExp(/http:\/\/[^\/]+\/u(\/\w+|)/);
+    var location_url = patten.exec(location_url)[0];
+    
     if ($('.left-nav > li > a[href="' + location_url + '"]')){
         $('.left-nav > li > a[href="' + location_url + '"]').addClass('active');
     }
@@ -37,7 +40,7 @@
                 <ul class="dropdown-menu" style="display:block">
                     <li><?php echo Html::anchor('u/getrecharge', '充值');?></li>
                     <li><?php echo Html::anchor('u/moneylog', '账户明细');?></li>
-                    <li><?php echo Html::anchor('u/moneylog/b/1', '消费记录', ['style'=>'display:none']);?></li>
+                    <li><?php echo Html::anchor('u/moneylog', '消费记录', ['style'=>'display:none']);?></li>
                 </ul>
             </li>
             <li class="dropdown">
