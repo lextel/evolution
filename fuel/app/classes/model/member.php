@@ -178,17 +178,18 @@ class Model_Member extends \Classes\Model
         $val = Validation::forge($factory);
         $val->add_callable(new \Classes\MyRules());
         $username = Input::post('username', '');
-        if ($facetory == 'signup'){
-            if (strpos('@', $username)){ 
-                $val->add_field('username', '邮箱', 'required|valid_email|unique[members.username]'); 
+        
+        if ($factory == 'signup'){
+            if (strpos($username, '@') > 0){ 
+                $val->add_field('username', '用户名', 'required|valid_email|unique[members.username]'); 
             }else{
-                $val->add_field('username', '手机', 'required|is_mobile|unique[members.mobile]');
+                $val->add_field('username', '用户名', 'required|is_mobile|unique[members.mobile]');
             }
         }else{
-            if (strpos('@', $username)){ 
-                $val->add_field('username', '邮箱', 'required|valid_email'); 
+            if (strpos($username, '@') > 0){ 
+                $val->add_field('username', '用户名', 'required|valid_email'); 
             }else{
-                $val->add_field('username', '手机', 'required|is_mobile');
+                $val->add_field('username', '用户名', 'required|is_mobile');
             }
         }           
         $val->add_field('password', '用户密码', 'required|min_length[6]|max_length[18]');

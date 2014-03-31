@@ -5,7 +5,9 @@ $(function(){
     });
     $(".btn-checkemail").click(function(){
         //需要个加载的图
-        $.get("/u/checkemail", '', function(data){          
+        $(".load").show();
+        $.get("/u/checkemail", '', function(data){   
+            $(".load").hide();    
             alert(data.msg);
         });
     });
@@ -47,8 +49,9 @@ $(function(){
                 <span class="email"><?php echo $member->email;?></span>
                 <?php if (!Model_Member_Email::check_emailok($member->email)) {  ?>
                 <span class="red">（未验证）</span>
+                <span class="load" style="display:none"><?php echo Html::img('assets/images/bx_loader.gif', ['style'=>'width:30px']);?></span>
                 <a href="javascript:;" class="btn-sm btn-state fl btn-checkemail">去验证</a>
-                <?php }else{ ?>
+                <?php }else{ ?>                
                  <span class="green">（已验证）</span>
                 <?php }?>
             </li>
