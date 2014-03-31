@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/header.css" afterPath="$PROJECT_DIR$/public/assets/css/header.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style.css" afterPath="$PROJECT_DIR$/public/assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/usercenter-set.html" afterPath="$PROJECT_DIR$/public/html/usercenter-set.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,12 +57,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="386" column="23" selection-start="6258" selection-end="6258" vertical-scroll-proportion="-51.08" vertical-offset="6057" max-vertical-offset="40736">
+            <state line="976" column="23" selection-start="16651" selection-end="16651" vertical-scroll-proportion="0.87068963" vertical-offset="17837" max-vertical-offset="40755">
               <folding>
-                <marker date="1395990407139" expanded="true" signature="628:652" placeholder="{...}" />
+                <marker date="1396246460764" expanded="true" signature="628:652" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -79,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="usercenter-set.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="usercenter-set.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/html/usercenter-set.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="52" selection-start="3456" selection-end="3456" vertical-scroll-proportion="0.55377007" vertical-offset="1015" max-vertical-offset="1824">
+            <state line="77" column="52" selection-start="3456" selection-end="3456" vertical-scroll-proportion="-16.0" vertical-offset="1015" max-vertical-offset="1824">
               <folding>
                 <element signature="tag#div#1;tag#div#1;tag#div#1;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
                 <element signature="tag#script#0;tag#body#0;tag#html#0" expanded="false" />
@@ -103,7 +101,7 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="949" column="23" selection-start="17249" selection-end="17249" vertical-scroll-proportion="-14.6" vertical-offset="17666" max-vertical-offset="26885">
+            <state line="1188" column="17" selection-start="21419" selection-end="21419" vertical-scroll-proportion="-10.8" vertical-offset="22302" max-vertical-offset="26961">
               <folding />
             </state>
           </provider>
@@ -155,12 +153,12 @@
         <option value="$PROJECT_DIR$/public/html/share-details.html" />
         <option value="$PROJECT_DIR$/fuel/app/views/posts/view.php" />
         <option value="$PROJECT_DIR$/public/assets/css/product.css" />
-        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
         <option value="$PROJECT_DIR$/public/assets/css/member/jquery-ui.css" />
         <option value="$PROJECT_DIR$/public/assets/js/common.js" />
         <option value="$PROJECT_DIR$/public/assets/css/header.css" />
-        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
         <option value="$PROJECT_DIR$/public/html/usercenter-set.html" />
+        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
       </list>
     </option>
   </component>
@@ -602,28 +600,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/usercenter-set.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="52" selection-start="3456" selection-end="3456" vertical-scroll-proportion="-16.0" vertical-offset="1015" max-vertical-offset="1824">
+          <folding>
+            <element signature="tag#div#1;tag#div#1;tag#div#1;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+            <element signature="tag#script#0;tag#body#0;tag#html#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="949" column="23" selection-start="17249" selection-end="17249" vertical-scroll-proportion="-14.6" vertical-offset="17666" max-vertical-offset="26885">
+        <state line="1188" column="17" selection-start="21419" selection-end="21419" vertical-scroll-proportion="-10.8" vertical-offset="22302" max-vertical-offset="26961">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="386" column="23" selection-start="6258" selection-end="6258" vertical-scroll-proportion="-51.08" vertical-offset="6057" max-vertical-offset="40736">
+        <state line="976" column="23" selection-start="16651" selection-end="16651" vertical-scroll-proportion="0.87068963" vertical-offset="17837" max-vertical-offset="40755">
           <folding>
-            <marker date="1395990407139" expanded="true" signature="628:652" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/usercenter-set.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="52" selection-start="3456" selection-end="3456" vertical-scroll-proportion="0.55377007" vertical-offset="1015" max-vertical-offset="1824">
-          <folding>
-            <element signature="tag#div#1;tag#div#1;tag#div#1;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-            <element signature="tag#script#0;tag#body#0;tag#html#0" expanded="false" />
+            <marker date="1396246460764" expanded="true" signature="628:652" placeholder="{...}" />
           </folding>
         </state>
       </provider>
