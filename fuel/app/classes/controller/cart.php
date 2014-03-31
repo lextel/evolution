@@ -9,6 +9,9 @@ class Controller_Cart extends Controller_Frontend {
         $items = Cart::items();
         $view = ViewModel::forge('cart/list');
 
+        $payCart = Cart::instance('pay');
+        $payCart->clear();
+
         $view->set('items', $items);
         $this->template->title = "我的购物车";
         $this->template->layout = $view;
@@ -57,8 +60,22 @@ class Controller_Cart extends Controller_Frontend {
     // 支付页面
     public function action_pay() {
 
-        if($this->auth->check()) {
+        $ids = Input::post('ids');
+        if(!empty($ids) && $this->auth->check()) {
+
             $items = Cart::items();
+            $payCart = Cart::instance('pay');
+            foreach($items as $item) {
+                if(in_array($item->get_rowid(), $ids)) {
+                    $payCart->add([
+                        'id'  => $item->get_id(),
+                        'qty' => $item->get_qty(),
+                    ]);
+                }
+            }
+
+            $items = $payCart->items();
+
             $view = ViewModel::forge('cart/pay');
 
             $view->set('items', $items);
@@ -70,16 +87,11 @@ class Controller_Cart extends Controller_Frontend {
     }
 
     // 删除商品
-    public function action_remove() {
+    public function action_remove($id = null) {
 
-        $ids = Input::post('ids', [0]);
+        is_null($id) and Response::redirect('cart/list');
 
-        $items = Cart::items();
-        foreach($items as $item) {
-            if(in_array($item->get_id(), $ids)) {
-                $item->delete();
-            }
-        }
+        Cart::remove($id);
 
         Response::redirect('cart/list');
     }
@@ -138,7 +150,9 @@ class Controller_Cart extends Controller_Frontend {
         }
 
         $this->current_user->points;
-        $items = Cart::items();
+
+        $payCart = Cart::instance('pay');
+        $items = $payCart->items();
         $quantity = 0;
         foreach($items as $item) {
             $quantity =+ $item->get_qty();
