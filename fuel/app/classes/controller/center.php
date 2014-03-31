@@ -7,7 +7,7 @@ class Controller_Center extends Controller_Frontend
     public function before()
     {
         parent::before();
-        if (! in_array(Request::active()->action, ['signin', 'signup', 'findpassword', 'newpassword', 'forgotemail', 'getforgot', 'sendok']))
+        if (! in_array(Request::active()->action, ['signin', 'signup', 'findpassword', 'newpassword', 'forgotemail', 'getforgot', 'sendok', 'checkname']))
         {
             $this -> membercheck();
         }
@@ -31,8 +31,7 @@ class Controller_Center extends Controller_Frontend
         if (Input::method() == 'POST')
         {
             $val = Model_Member::validateSignin('signin');
-            Session::set_flash('username', Input::post('username', ''));
-            Session::set_flash('signError', '用户名或者密码格式错误');
+            
             if ($val->run())
             {
                 $username = Input::post('username');
@@ -54,9 +53,9 @@ class Controller_Center extends Controller_Frontend
                     $url = Input::server('HTTP_REFERER', '/u');
                     return Response::redirect($url);
                 }
-
                 Session::set_flash('signError', '用户名或者密码错误');
             }
+            Session::set_flash('signError', '用户名或者密码格式错误');
             return Response::redirect('/signin');
         }
         return Response::forge(View::forge('member/signin', [], false));
@@ -88,7 +87,15 @@ class Controller_Center extends Controller_Frontend
             {
 
                 try{
-                    $user = $this->auth->create_user($username, $password, $username);
+                    $email = $username;
+                    if (!strpos($username, '@')){ 
+                        $user = new Model_Member();
+                        $user->username = $username;
+                        $user->password = $this->auth->hash_password((string) $password);
+                        $user->save();
+                    }else{                                      
+                        $user = $this->auth->create_user($username, $password, $email);
+                    }
                     if ($this->auth->check() or $user)
                     {
                         $current_user = Model_Member::find_by_username($this->auth->get_screen_name());
@@ -98,6 +105,9 @@ class Controller_Center extends Controller_Frontend
                         $ip = $memberHelper->getIp();
                         $current_user -> avatar = Config::get('default_headico');
                         $current_user->ip = $ip;
+                        if (!strpos('@', $username)){ 
+                            $current_user->mobile = $mobile;
+                        }
                         $current_user -> save();
 
                         // 邀请注册处理  ------ start ------------
@@ -152,6 +162,7 @@ class Controller_Center extends Controller_Frontend
                         Session::set_flash('usernameError', e('已经存在用户名了'));
                     }
                 }catch (Exception $e){
+                    echo $e;
                     Session::set_flash('usernameError', e('已经存在用户名了'));
 
                 }
@@ -288,5 +299,26 @@ class Controller_Center extends Controller_Frontend
            //return Response::forge(json_encode(['error'=>'key 错误']),200, $header);
         }
         return Response::forge(View::forge('member/findpwd'));
+    }
+    
+    /*
+    * 验证手机号码或者邮箱是否存在
+    */
+    public function action_checkname()
+    {
+        $res = ['status' => 'n', 'info' => '手机/邮箱已存在'];
+        $username = Input::post('param');
+        if (is_null($username)){
+            return json_encode($res);
+        }
+        $check = Model_Member::count(['where'=>[
+                           ['username', '=', $username],
+                           'or'=>[['mobile', '=', $username]]
+                           ]]);
+        if ($check == 0){
+            $res['status'] = 'y';
+            $res['info'] = ' ';
+        }
+        return json_encode($res);
     }
 }
