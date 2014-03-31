@@ -15,6 +15,7 @@ return array(
     'findpwd' => 'center/findpassword',
     'newpwd' => 'center/newpassword',
     'sendok'=> 'center/sendok',
+    'checkname'=> 'center/checkname',
 
     'invit/:id' => 'invit/invit',
     'invit' => 'invit/index',
