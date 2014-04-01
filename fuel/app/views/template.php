@@ -17,22 +17,6 @@
                 }
             });
         </script>
-    <script type="text/javascript">
-         $(function(){
-            function getTotalBuy(){
-                $.get("/totalbuycount?callback="+ new Date().getTime(), function(data){
-                    if (data.code==0){
-                        $("#totalbuy").html(data.num);
-                    }
-                });
-            }
-            function timer(){
-                getTotalBuy();
-            }
-            setInterval(timer,3000);
-            getTotalBuy();
-         });
-    </script>
 </head>
 <body>
     <!--头部开始-->

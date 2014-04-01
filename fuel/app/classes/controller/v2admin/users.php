@@ -65,7 +65,9 @@ class Controller_V2admin_Users extends Controller_V2admin{
             }
             try {
                 $user_id = $this->auth->create_user($username, $password, $email, $group);
-                $this->auth->update_user(['mobile'=>$mobile]);
+                $user = Model_User::find($user_id);
+                $user->mobile = $mobile;
+                $user->save();
                 Session::set_flash('success', e('添加成功 #'.$user_id.'.'));
                 Model_Log::add('添加管理员 #' . $user_id);
                 Response::redirect('v2admin/users');
@@ -127,10 +129,10 @@ class Controller_V2admin_Users extends Controller_V2admin{
         $email = trim(Input::post('email'));
         $mobile = trim(Input::post('mobile'));
         if ($email != $user->email){
-            $val->add_field('email', '邮箱', 'required|valid_email|unique[members.email]');
+            $val->add_field('email', '邮箱', 'required|valid_email|unique[users.email]');
         }
         if ($mobile != $user->mobile){
-            $val->add_field('mobile', '手机', 'required|is_mobile|unique[members.nickname]');
+            $val->add_field('mobile', '手机', 'required|is_mobile|unique[users.mobile]');
         }
         if ($val->run()) {
             $post = Input::post();

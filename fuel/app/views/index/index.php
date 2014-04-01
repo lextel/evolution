@@ -123,7 +123,6 @@
                              </div>
                             <h4 class="title-br"><?php echo Html::anchor('m/'.$order->phase_id, $data['phases'][$order->phase_id]->title);?></h4>
                         </div>
-
                     </li>
                     <?php } ?>
                 </ul>
