@@ -200,9 +200,14 @@
             return unit;
         }
     </script>
-    <script type="text/javascript">
-    // var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-    // document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F3bcae7d806a59ae00c9c89ef8dbdad49' type='text/javascript'%3E%3C/script%3E"));
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?1e1a26c753085ede05629ae3b73ed2df";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
     </script>
 </body>
 </html>
