@@ -1187,9 +1187,12 @@
     text-align: right;
     text-indent: 20px;
     height: 33px;
-    padding-right: 60px;
     line-height: 33px;
     cursor: pointer;
+}
+.help-center dd a{
+    display: block;
+    padding-right: 60px;
 }
 .help-center dd:hover{
     background: #af2812;
@@ -1197,9 +1200,10 @@
 }
 .help-center dd.active{
     background: #af2812;
-    color: #FFFFFF;
 }
-
+.help-center dd.active a{
+    color: #ffffff;
+}
 .help-main{
     width: 745px;
     float: right;

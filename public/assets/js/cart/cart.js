@@ -16,11 +16,9 @@ $(function(){
 
     // 单个删除
     $('a[action="delete"]').click(function(){
-        var tr = $(this).parent().parent();
-        tr.eq(0).find('input').prop('checked', true);
-        $('#cartForm').submit();
 
-        return false;
+        var rowId = $(this).attr('rowId');;
+        window.location.href = BASE_URL + 'cart/remove/' + rowId;
     });
 
     // 全选/反选
