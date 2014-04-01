@@ -632,9 +632,11 @@ class Model_Item extends \Classes\Model {
     public function add($post) {
 
         $image = $post['images'][$post['index']];
+
+        $desc = str_replace(Uri::create('upload/item/desc'), Config::get('image_server').'upload/item/desc', $post['desc']);
         $data = [
               'title'     => $post['title'],
-              'desc'      => $post['desc'],
+              'desc'      => $desc,
               'price'     => $post['price'],
               'cate_id'   => $post['cate_id'],
               'brand_id'  => $post['brand_id'],
@@ -674,9 +676,10 @@ class Model_Item extends \Classes\Model {
         $item = Model_Item::find($id);
         $oldSort = $item->sort;
 
+        $desc = str_replace(Uri::create('upload/item/desc'), Config::get('image_server').'upload/item/desc', $post['desc']);
         $result = false;
         $item->title    = $post['title'];
-        $item->desc     = $post['desc'];
+        $item->desc     = $desc;
         $item->price    = $post['price'];
         $item->cate_id  = $post['cate_id'];
         $item->brand_id = $post['brand_id'];
