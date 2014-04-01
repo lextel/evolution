@@ -149,4 +149,21 @@ class Controller_V2admin_Notices extends Controller_V2admin{
 
         Response::redirect('v2admin/notices');
     }
+
+    // 编辑器上传图片
+    public function action_editorUpload() {
+
+        $noticeModel = new Model_Notice();
+        $files = $noticeModel->editorUpload();
+
+        $file = array_shift($files);
+        $rs = [
+            'url'      => $file['link'],
+            'original' => $file['name'],
+            'state'    => $file['error'] ? 'FAIL' : 'SUCCESS',
+            ];
+
+        return json_encode($rs);
+    }
+
 }
