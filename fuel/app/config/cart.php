@@ -36,6 +36,7 @@ return array(
 
     'carts' => array(
         'default'    => array(),
+        'pay' => [],
         
         // Add your carts below
         /**
