@@ -150,7 +150,7 @@ class Controller_V2admin extends Controller_Baseend
         // 发送
         $content = "验证码为：".$code;
         $sms = new Classes\Sms;
-        $r = //$sms->send($mobile, $content);
+        $r = 1;//$sms->send($mobile, $content);
         \Log::error(sprintf('短信： %s | %s', $mobile, $content));
         if ($r)
         {

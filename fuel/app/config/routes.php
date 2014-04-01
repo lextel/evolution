@@ -78,7 +78,11 @@ return array(
     'u/moneylog/p/(\d+)' => 'member/moneylog/rechargeIndex/$1',
     'u/moneylog/b/(\d+)' => 'member/moneylog/buyIndex/$1',
     'u/moneylog/b' => 'member/moneylog/buyIndex',
-
+     
+    'u/mobile/first' => 'member/mobile/first',
+    'u/mobile/second/(\d+)' => 'member/mobile/second/$1',
+    'u/mobile/getcode' => '',
+    'u/mobile/check' => '',
 /*
     'u/friends' => 'friends/my',
     'u/follow' => 'friends/follow',
