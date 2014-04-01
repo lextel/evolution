@@ -802,3 +802,29 @@ $(function (){
     });
     }
 });
+
+//当前乐淘人数
+$(function(){
+    getTotalBuy();
+    setInterval(getTotalBuy,3000);
+});
+    
+    function getTotalBuy(){
+        $.get(BASE_URL+"totalbuycount?callback="+ new Date().getTime(), function(data){
+            if (data.code==0){
+                if($("#totalbuy").html() != data.num){
+                    $("#totalbuy").css('backgroundColor', 'red');
+                    $("#totalbuy").animate({
+                         'opacity': '0.4'
+                    },800,function(){
+                         $("#totalbuy").css('backgroundColor', '#FFFFFF');
+                         $("#totalbuy").html(data.num);
+                    });
+
+                    $("#totalbuy").animate({
+                        'opacity': '1'
+                    },100);
+                }
+            }
+        });
+    }
