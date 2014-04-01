@@ -28,7 +28,13 @@ return [
         'path' => DOCROOT.'upload'.DS.'item'.DS.'desc',
         'randomize' => true,
         'ext_whitelist' => ['jpg', 'jpeg', 'gif', 'png'],
-		    'savePath'   => 'updateSavePath(["upload'.DS.'item'.DS.'desc'.'"]);',
+        'savePath'   => 'updateSavePath(["upload'.DS.'item'.DS.'desc"]);',
+    ],
+    'notice' => [
+        'path' => DOCROOT.'upload'.DS.'notice',
+        'randomize' => true,
+        'ext_whitelist' => ['jpg', 'jpeg', 'gif', 'png'],
+        'savePath'   => 'updateSavePath(["upload'.DS.'notice"]);',
     ],
     'icon' => [
         'path' => DOCROOT.'upload'.DS.'icon',

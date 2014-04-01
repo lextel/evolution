@@ -1,3 +1,17 @@
+<script type="text/javascript">
+    EDITOR_URL = '<?php echo Uri::create('v2admin/notices/editorUpload'); ?>';
+    IMAGE_URL  = '<?php echo Uri::create('/'); ?>';
+</script>
+<?php
+echo Asset::js(
+        [
+            'ueditor/ueditor.config.js',
+            'ueditor/ueditor.all.min.js',
+            'ueditor/lang/zh-cn/zh-cn.js',
+            'admin/notice/form.js', 
+            ]
+        ); 
+?>
 <?php echo Form::open(array("class"=>"form-horizontal", 'action' => $url)); ?>
     <fieldset>
         <div class="form-group">
@@ -15,8 +29,8 @@
         </div>
         <div class="form-group">
             <?php echo Form::label('内容', 'desc', array('class'=>'control-label col-sm-1')); ?>
-            <div class="col-sm-8">
-            <?php echo Form::textarea('desc', Input::post('desc', isset($notice) ? $notice->desc : ''), array('class' => 'col-md-8 form-control', 'rows' => 8, 'placeholder'=>'公告内容')); ?>
+            <div class="col-sm-10">
+            <?php echo Form::textarea('desc', Input::post('desc', isset($notice) ? $notice->desc : ''), array('style' => 'height: 400px')); ?>
             </div>
 
         </div>
