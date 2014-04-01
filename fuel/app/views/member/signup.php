@@ -20,7 +20,7 @@
                 <li>
                    <?php echo Form::label('手机/邮箱'); ?> 
                    <?php echo Form::input('username', Session::get_flash('username', ''), array('class' => 'txt','type'=>"text",'datatype'=>'em',
-                   'id'=>'username', 'name'=>'username','errorms'=>'手机/邮箱格式不正确','nullmsg'=>'请输入手机/邮箱','sucmsg'=>' ')); ?>
+                   'id'=>'username', 'name'=>'username','errorms'=>'手机/邮箱格式不正确','nullmsg'=>'请输入手机/邮箱', 'ajaxurl' => Uri::create('checkname'))); ?>
                    <?php if (Session::get_flash('usernameError', null)) { ?>
                    <span class="Validform_checktip"><?php echo Session::get_flash('usernameError');?></span>
                    <?php }else{?>
@@ -56,26 +56,18 @@
     </div>
 <script type="text/javascript">
 $(function(){
-        var from = $(".demoform").Validform({
+        var form = $(".demoform").Validform({
             tiptype:4,
             datatype:{
               'em': function (gets,obj,curform,regxp){
                 var m = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
                 var e = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
                 if(m.test(gets) || e.test(gets)){
-                   $.get(BASE_URL+"checkname/"+gets, function(data){
-                      if(0 == data.code){
-                          return true;
-                      }else{
-                        return "手机/邮箱注册已存在";
-                      }
-                   });
+                   return true;
                 }
                 return "手机/邮箱格式不正确";
               }
             }
         });
-
-
 });  
 </script>
