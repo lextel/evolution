@@ -1187,9 +1187,12 @@
     text-align: right;
     text-indent: 20px;
     height: 33px;
-    padding-right: 60px;
     line-height: 33px;
     cursor: pointer;
+}
+.help-center dd a{
+    display: block;
+    padding-right: 60px;
 }
 .help-center dd:hover{
     background: #af2812;
@@ -1197,9 +1200,10 @@
 }
 .help-center dd.active{
     background: #af2812;
-    color: #FFFFFF;
 }
-
+.help-center dd.active a{
+    color: #ffffff;
+}
 .help-main{
     width: 745px;
     float: right;
@@ -1261,10 +1265,6 @@
     left: 0;
     margin: 0 auto;
 }
-.buyList li{
-        line-height:29px;
-
-}
 .noData{
     width: 40%;
     height: 22px;
@@ -1288,122 +1288,13 @@
 }
 /*修改头像*/
 .portWarp{
-    width: 600px;
+    width: 660px;
     margin: 0 auto;
     overflow: hidden;
 }
-.portrait_left{
-    float: left;
-    height: auto;
-    width: 300px;
-}
-#avatar{
-    height: 280px;
-}
-.setup_but{
-    overflow: hidden;
+.savePre{
+    width: 260px;
+    margin-left: 23px;
+    margin-top: 10px;
     text-align: center;
-}
-.setup_but .btn{
-   margin: 0 5px;
-}
-#picture{
-    width: 300px;
-    height: 300px;
-    text-align: center;
-    border: 1px solid #f1f1f1;
-}
-#picture img{
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-}
-.portrait_right{
-    float: right;
-    font-size: 12px;
-    width: 250px;
-    overflow: hidden;
-}
-.portrait1{
-    overflow: hidden;
-}
-#img_big_preview{
-    height: 180px;
-    margin: 0 auto;
-    width: 180px;
-}
-.img_preview{
-     border: 1px solid #000000;
-    overflow: hidden;
-    position:relative
-;}
-.img_preview img{
-    margin: 0;
-    position: relative;
-}
-.portrait2{
-    overflow: hidden;
- }
-#img_small_preview{
-    height: 49px;
-    margin: 0 auto;
-    width: 49px;
-}.img_preview{
-     border: 1px solid #000000;
-     overflow: hidden;
-     position: relative;
- }
-.revolveMenu{
-    overflow: hidden;
-    margin: 10px 0;
-}
-.revolveMenu a{
-    display: block;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    font-size: 14px;
-    width: 50px;
-    padding-left: 25px;
-    background: url("../images/headicon.png") no-repeat;
-}
-.revolveMenu .revol_left{
-    float: left;
-    background-position:-0px -174px;
-}
-.revolveMenu .revol_right{
-    float: right;
-    background-position:-0px -207px;
-}
-#preview-big{
-    width: 180px;
-    height: 180px;
-    line-height: 180px;
-    text-align: center;
-    border: 1px solid #EEEEEE;
-}
-#preview-small{
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
-    text-align: center;
-    border: 1px solid #EEEEEE;
-}
-#preview-big img,#preview-small img{
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-}
-
-.imgareaselect-handle {
-    background-color: #fff;
-    border: solid 1px #000;
-    filter: alpha(opacity=50);
-    opacity: 0.5;
-}
-
-.imgareaselect-outer {
-    background-color: #000;
-    filter: alpha(opacity=50);
-    opacity: 0.5;
 }
