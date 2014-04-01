@@ -41,6 +41,36 @@ class Page {
     }
 
     /**
+     * 设置分页配置
+     *
+     * @param $url         string  当前网址
+     * @param $total       integer 总记录
+     * @param $uri_segment integer 分页参数
+     * @param $pagesize    integer 页码大小
+     *
+     * @return array 配置数组
+     */
+    public function setPagesizeConfig($url, $total, $uri_segment = 3, $pagesize = 10) {
+
+        return [
+                'pagination_url' => $url,
+                'total_items'    => $total,
+                'per_page'       => $pagesize,
+                'uri_segment'    => $uri_segment,
+                'wrapper'=>'<div class="pagination fr">{pagination}</div>',
+                'regular-link' => "\t\t<a href='{uri}'>{page}</a>\n",
+                'active-link' => "\t\t<a href='{uri}'>{page}</a>\n",
+                'next-link' => "\t\t<a href='{uri}' rel='next'>{page}</a>\n",
+                'previous-link' => "\t\t<a href='{uri}' rel='prev'>{page}</a>\n",
+                'previous-inactive-link' => '<上一页',
+                'next-inactive-link' => '下一页>',
+                'previous-marker'=> "<上一页",
+                'next-marker'    => "下一页>",
+            ];
+
+    }
+
+    /**
      * 设置前端需要跳转到#list配置
      *
      * @param $url         string  当前网址
