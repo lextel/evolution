@@ -847,9 +847,9 @@ table td p.tl{
     height: 40px;
     line-height: 20px;
     font-size: 12px;
-    font-weight:bold;
-    word-wrap:break-word ;
     overflow: hidden;
+    word-wrap:break-word ;
+    word-break: break-all;
     font-weight: normal;
 }
 .more{
