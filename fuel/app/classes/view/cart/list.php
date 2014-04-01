@@ -4,6 +4,36 @@ class View_Cart_List extends Viewmodel {
 
     public function view() {
 
+        // 购物车列表
+        $this->getList = function($items) {
+            $ids = [0];
+            $carts=[];
+            foreach($items as $item) {
+                $ids[] = $item->get_id();
+                $carts[$item->get_id()]['qty'] = $item->get_qty();
+                $carts[$item->get_id()]['rowid'] = $item->get_rowid();
+            }
+
+            $select = ['id','title', 'cost', 'remain', 'phase_id', 'item_id', 'image', 'opentime', 'is_delete'];
+            $phases = Model_Phase::find('all', ['select' => $select, 'where' => [['id', 'in', $ids]]]);
+
+            $normalList  = [];
+            $overdueList = [];
+            foreach($phases as $phase) {
+                $phase = $phase->to_array();
+                $phase['qty'] = $carts[$phase['id']]['qty'];
+                $phase['rowid'] = $carts[$phase['id']]['rowid'];
+
+                if($phase['opentime'] > 0) {
+                    $overdueList[] = $phase;
+                } else {
+                    $normalList[] = $phase;
+                }
+            }
+
+            return [$normalList, $overdueList];
+        };
+
         // 单品详情
         $this->getInfo = function($phaseId) {
 

@@ -317,7 +317,7 @@ class Controller_Center extends Controller_Frontend
                            ]]);
         if ($check == 0){
             $res['status'] = 'y';
-            $res['info'] = '可以使用';
+            $res['info'] = ' ';
         }
         return json_encode($res);
     }
