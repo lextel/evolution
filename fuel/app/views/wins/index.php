@@ -1,6 +1,5 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
 <?php echo Asset::js(['wins/index.js']); ?>
-
 <div class="latest-wrap w">
    <!--左边内容开始-->
     <div class="left-content">
@@ -130,7 +129,7 @@
                 ?>
                 <?php foreach($orders1 as $order) {?>
                     <li>
-                        <div class="img-box img-sm fl">
+                        <div class="img-wide fl">
                             <a href="<?php echo Uri::create('m/'.$order->phase_id); ?>" rel="nofollow">
                                 <img src="<?php echo \Helper\Image::showImage($phaseByOrders[$order->phase_id]->image, '80x80');?>"/>
                             </a>
