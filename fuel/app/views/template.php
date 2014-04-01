@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title><?php echo $title?></title>
     <?php echo Asset::css(['common.css', 'header.css']); ?>
-    <!--<?php echo Asset::js(['jquery.min.js', 'common.js']); ?>-->
+    <?php echo Asset::js(['jquery.min.js', 'common.js']); ?>
     <!--[if lt IE 10]>
     <?php echo Asset::js(['PIE.js']); ?>
     <![endif]-->
