@@ -124,7 +124,9 @@ return array(
     'h' => 'help/page',
     'h/(\w+)' => 'help/page/$1',
 
-    'notice(/\d+)?' => 'notice/index/$1',
+    'notice/p/:page' => 'notice/index',
+    'notice/(\d+)' => 'notice/view/$1',
+    'notice' => 'notice/index',
 
     'image/:size/:link' => 'image/index',
 );

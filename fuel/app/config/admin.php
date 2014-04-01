@@ -197,6 +197,7 @@ return [
             'edit'=>10,
             'update'=>10,
             'delete'=>10,
+            'editorUpload'=>10,
           ]
         ],
         ['controller'=>'Controller_V2admin_Posts',
