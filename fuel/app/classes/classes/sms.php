@@ -41,6 +41,7 @@ class Sms {
     private $uid  = 'lltao2014';
     private $pwd  = 'llt83210266';
     
+    
     /**
      * 发送短信
      *
@@ -51,6 +52,7 @@ class Sms {
      */
     public function send($mobile, $content) {
         $code = 168000;
+        $content .= "【乐乐淘】";
         $res = $this->sendSMS($this->http, $this->uid, $this->pwd, $mobile, $content, $mobile.$code);
         return $res;
     }
@@ -72,6 +74,7 @@ class Sms {
             //'encode' => 'utf8',
             );
         $re= $this->postSMS($http,$data);            //POST方式提交
+
         if( trim($re) == '100' )
         {
             return "发送成功!";
