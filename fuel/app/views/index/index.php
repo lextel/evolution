@@ -14,8 +14,8 @@
     </div>
     <!--banner结束-->
     <!--内容开始-->
-	<div class="w">
-		<!--最新揭晓开始-->
+    <div class="w">
+        <!--最新揭晓开始-->
         <div class="announced-news fl">
                 <div class="title">
                     <h3>最新揭晓</h3>
@@ -50,20 +50,20 @@
                         ?>
                     </ul>
             </div>
-		<!--公告-->
+        <!--公告-->
         <div class="notice fr">
                 <div class="title"><h3 fl>乐淘公告</h3><span class="icon icon-horn fl"></span></div>
                 <ul>
                     <?php foreach($notices() as $notice) { ?>
-                    <li><i></i><?php echo Html::anchor('/notice', $notice->title); ?></li>
+                    <li><i></i><?php echo Html::anchor('notice/'.$notice->id, $notice->title); ?></li>
                     <?php } ?>
                 </ul>
             </div>
-	</div>
+    </div>
     <div class="w">
         <!--人气推荐开始-->
          <div class="recommended fl">
-		    <div class="title">
+            <div class="title">
                     <h3>人气推荐</h3>
                     <?php echo Html::anchor('m', '更多>>', ['class'=>'more']);?>
                 </div>
@@ -169,7 +169,7 @@
 
     <!--编辑推荐-->
     <div class="editor w">
-		    <div class="title">
+            <div class="title">
             <h3>编辑推荐</h3>
         </div>
         <ul class="list-hover">
