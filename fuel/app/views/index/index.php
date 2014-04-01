@@ -113,15 +113,16 @@
                     foreach($data['orders'] as $order) {
                     ?>
                     <li>
-                        <div class="img-box img-sm fl">
+                        <div class="img-wide fl">
                             <a href="<?php echo Uri::create('m/'.$order->phase_id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($data['phases'][$order->phase_id]->image, '80x80');?>"/></a>
                         </div>
-                        <div class="info-side">
-                            <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $data['members'][$order->member_id]->nickname, ['class'=>'b']);?>
-                             <?php echo \Helper\Timer::friendlyDate($order->created_at);?>乐淘了</div>
+                        <div class="info-side fr">
+                            <div class="username">
+                                <?php echo Html::anchor('u/'.$order->member_id, $data['members'][$order->member_id]->nickname, ['class'=>'b']);?>
+                                <?php echo \Helper\Timer::friendlyDate($order->created_at);?>乐淘了
+                             </div>
                             <h4 class="title-br"><?php echo Html::anchor('m/'.$order->phase_id, $data['phases'][$order->phase_id]->title);?></h4>
                         </div>
-
                     </li>
                     <?php } ?>
                 </ul>
