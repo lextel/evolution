@@ -32,7 +32,7 @@
                             $subTotal += $item->get_qty();
                     ?>
                     <tr>
-                        <td style="display:none"><input type="checkbox" name="ids[]" value="<?php echo $item->get_id(); ?>"/></td>
+                        <td style="display:none">&nbsp;</td>
                         <td>
                             <div class="img-sm fl">
                                 <a href="<?php echo Uri::create('/m/'.$item->get_id()); ?>">
@@ -50,7 +50,7 @@
                         <td><s><?php echo \Helper\Coins::showCoins(Config::get('point'), true); ?></s></td>
                         <td><?php echo $item->get_qty(); ?></td>
                         <td><s><?php echo \Helper\Coins::showCoins($item->get_qty() * Config::get('point'), true); ?></s></td>
-                        <td><a class="btn btn-default btn-sx" action="delete" href="javascript:;">删除</a></td>
+                        <td><a class="btn btn-default btn-sx" action="delete" rowId="<?php echo $item->get_rowid();?>" href="javascript:;">删除</a></td>
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
