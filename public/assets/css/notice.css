@@ -1,0 +1,30 @@
+.notice_container {
+    padding: 20px 50px;
+    background: #ffffff;
+    border: 1px solid #d2d2d2;
+}
+
+.notice_title , .notice_time {
+    text-align: center;
+}
+
+.notice_time {
+    padding: 20px;
+    color: #9C9797;
+}
+.notice_time span, .datetime span {
+    color: #2af;
+    margin-right: 10px;
+}
+
+.is_top {
+    color: #fff;
+    background: #af2812; 
+    padding: 3px 6px; 
+    font-size: 13px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-right: 5px
+}
+
