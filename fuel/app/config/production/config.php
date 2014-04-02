@@ -316,6 +316,7 @@ return array(
                 'auth',
                 'orm',
                 'fuel-cart',
+                'captcha',
                 'email',
             ),
         ),

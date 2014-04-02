@@ -1,4 +1,3 @@
-
 <?php
 
 class Controller_Index extends Controller_Frontend {
@@ -31,7 +30,7 @@ class Controller_Index extends Controller_Frontend {
 
         // 晒单分享
         $postModel = new Model_Post();
-        $data['posts'] =$postModel->newPosts(4); 
+        $data['posts'] =$postModel->newPosts(4);
         if($data['posts']) {
         list($mids, $pids) = Model_Post::getIds($data['posts'], ['member_id', 'phase_id']);
         $memberIds = array_merge($memberIds, $mids);
@@ -78,6 +77,10 @@ class Controller_Index extends Controller_Frontend {
 
         $response = new Response();
         return $response->body(json_encode($result));
+    }
+
+    public function action_captcha() {
+        return  Captcha::forge()->image();
     }
 }
 

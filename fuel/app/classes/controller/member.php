@@ -1,4 +1,3 @@
-
 <?php
 class Controller_Member extends Controller_Center{
 
@@ -281,6 +280,43 @@ class Controller_Member extends Controller_Center{
            return Response::forge(json_encode(['email' => 0, 'msg'=>'邮箱已经验证过了']), 200, $header);
        }
     }
+
+    /**
+     * 乐淘码
+     */
+    public function action_code() {
+        $view = View::forge('member/mycode');
+        $this->template->title = '乐淘码';
+        $this->template->layout->content = $view;
+    }
+
+    /**
+     * 使用乐淘码
+     */
+    public function action_usecode(){
+        $code    = Input::post('code');
+        $captcha = Input::post('captcha');
+
+        if(empty($code) || empty($captcha)) {
+            return json_encode(['code' => 1, 'msg' => '乐淘码或者验证码不能为空！']);
+        }
+
+        if(!Captcha::forge()->check()) {
+            return json_encode(['code' => 1, 'msg' => '验证码错误！']);
+        }
+
+        // 乐淘码处理
+        $codeModel = new Model_Invitcode();
+        if($codeModel->check($code)) {
+            $codeModel->used($this->current_user->id, $code);
+
+            return json_encode(['code' => 0]);
+        }
+
+        return json_encode(['code' => 1, 'msg' => '乐淘码不正确或者已使用！']);
+    }
+
+
 
 
 
