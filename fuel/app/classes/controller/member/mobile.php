@@ -15,13 +15,6 @@ class Controller_Member_Mobile extends Controller_Center
     * 下一步验证手机页面
     */
     public function action_second($mobile){
-        //$mobile = trim($this->param['mobile']);;
-        //$val = Validation::forge();
-        //$val->add_callable(new \Classes\MyRules());
-        //$val->add_field('mobile', '手机', 'required|is_mobile');
-        //if (!$val->run()){
-        //    return Response::redirect('u/mobile/first'); 
-        //}
         $view = View::forge('member/mobile/second');
         $view->set('mobile', $mobile);
         $this->template->title = '手机验证';

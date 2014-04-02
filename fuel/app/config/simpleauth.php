@@ -138,4 +138,6 @@ return array(
 	 * $_POST key for login password
 	 */
 	'password_post_key' => 'password',
+
+	'limit_time'=> 10 * 60,
 );

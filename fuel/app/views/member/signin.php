@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>用户登录</title>
-    <?php echo Asset::css('common.css');?> 
-    <?php echo Asset::css('style.css');?>   
+    <?php echo Asset::css('common.css');?>
+    <?php echo Asset::css('style.css');?>
     <?php echo Asset::js('jquery.min.js');?>
     <?php echo Asset::css('member/validfrom_style.css'); ?>
     <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
@@ -68,11 +68,11 @@
 <div class="footerWrap">
         <div class="footer w">
             <ul class="bottom-nav">
-                <li><a href="http://www.llt.com/">首页</a></li>
+                <li><a href="<?php echo Uri::create('/');?>">首页</a></li>
                 <li>|</li>
-                <li><a href="http://www.llt.com/h/about">关于乐淘</a></li>
+                <li><a href="<?php echo Uri::create('h/about');?>">关于乐淘</a></li>
                 <li>|</li>
-                <li><a href="http://www.llt.com/h/privacy">隐私声明</a></li>
+                <li><a href="<?php echo Uri::create('/h/privacy');?>">隐私声明</a></li>
                 <li>|</li>
                 <li><a href="javascript:void(0);">合作专区</a></li>
                 <li>|</li>
