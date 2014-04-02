@@ -125,6 +125,7 @@ var newopts = {
                     }
                 ?>
                 <script>
+                    var max = <?php echo $max?>;
                     var orderData = {
                         labels : <?php echo json_encode($dates);?>,
                         datasets : [
