@@ -1032,15 +1032,16 @@
 }
 .pane-hd .img-box{
     margin-right: 10px;
+    margin-bottom: 0;
 }
 .pane-hd li{
-    width: 337px;
+    width: 317px;
     float: left;
-    height: 82px;
+    height: 75px;
     border: 1px solid #d2d2d2;
     border-right: none;
     margin-left: -1px;
-    padding: 10px;
+    padding: 20px 20px;
 }
 .pane-bd{
     overflow: hidden;
@@ -1474,10 +1475,57 @@
     height: 447px;
     margin-top: -38px;
 }
-
-
-
-
-
-
-
+.guide-bd{
+    width: 100%;
+    height: auto;
+    background: url("../img/guidebg.png") repeat;
+}
+.guide-banner{
+    width: 980px;
+    height: 349px;
+    margin: 0 auto -10px;
+    background:url("../img/guide_bn-bg.png") no-repeat center  center;
+}
+.guide-bd .column01{
+    width: 980px;
+    height: 386px;
+    margin: 0 auto;
+    background: url("../img/guide01.png") no-repeat;
+}
+.guide-bd .column02{
+    width: 980px;
+    height: 450px;
+    margin: 0 auto;
+    background: url("../img/guide02.png") no-repeat;
+}
+.guide-bd .column03{
+    width: 980px;
+    height: 703px;
+    margin: 0 auto;
+    position: relative;
+    background: url("../img/guide03.png") no-repeat;
+}
+.guide-fd{
+    width: 100%;
+    overflow: hidden;
+    background: #ffffff;
+}
+.guide-fd .column{
+    width: 980px;
+    height: 576px;
+    margin: 0 auto;
+}
+.guide-btn-wide{
+    overflow: hidden;
+    margin-top: 25px;
+    text-align: center;
+}
+.guide-btn{
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    background: url("../img/guide-btn.png") no-repeat;
+    position: absolute;
+    left: 40%;
+    bottom: 60px;
+ }

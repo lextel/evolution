@@ -31,13 +31,12 @@ $(function(){
             <li><h2>恭喜你成为乐淘会员，输入您的昵称马上开始乐淘！</h2><li/>
             <li>
                 <label>昵称：</label>
-                <?php echo Form::input('nickname', Session::get_flash('nickname', ''), array('class' => 'txt','type'=>"text",'name'=>'nickname', 'datatype'=>'*3-12
-
-                ', 'errormsg'=>'请输入3-8个字符')); ?>
+                <?php echo Form::input('nickname', Session::get_flash('nickname', ''), array('class' => 'txt','type'=>"text",'name'=>'nickname', 'datatype'=>'zhE',
+                 'nullmsg'=>'请输入昵称' ,'errormsg'=>' ' ,'sucmsg'=>' ' ,'style'=>'width:180px')); ?>
                 <?php if (Session::get_flash('error', null)) { ?>
                    <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('error');?></span>
                 <?php }else{?>
-                   <span class="Validform_checktip">请输入3-12个字符</span>
+                   <span class="Validform_checktip"></span>
                 <?php } ?>
             </li>
             <li>
@@ -46,3 +45,35 @@ $(function(){
         </ul>
         </form>
 </div>
+
+<script>
+$(function (){
+  $(".demoform").Validform({
+        tiptype:4,
+        datatype:{
+              'zhE': function (gets,obj,curform,regxp){
+                var zhE = /^[\u4e00-\u9fa5a-zA-Z0-9]+$/;
+                var zh =/[^\u4e00-\u9fa5].[A-Za-z0-9]/;
+                var E =/[A-Za-z0-9]/;
+                if(zhE.test(gets)){
+                  //如果为中文
+                  if(!zh.test(gets)){
+                     if(gets.length >= 2 && gets.length <= 8){
+                       return true;
+                     }
+                     return "请输入2-8个中文字符";
+                  }
+                  //如果为英文
+                  if(E.test(gets)){
+                     if(gets.length >= 3 && gets.length <= 8){
+                       return true;  
+                     }
+                     return "请输入3-8个英文字符";
+                  }
+                }
+                return "昵称只能为中文，数字，字母";
+              }
+            }
+        });
+})
+</script>
