@@ -1,4 +1,3 @@
-
 <?php
 
 class Controller_Index extends Controller_Frontend {
@@ -78,6 +77,10 @@ class Controller_Index extends Controller_Frontend {
 
         $response = new Response();
         return $response->body(json_encode($result));
+    }
+
+    public function action_captcha() {
+        return  Captcha::forge()->image();
     }
 }
 
