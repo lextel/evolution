@@ -269,6 +269,51 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 	}
 
 	/**
+	 * Create new user
+	 *
+	 * @param   string
+	 * @param   string
+	 * @param   int     group id
+	 * @param   Array
+	 * @return  bool
+	 */
+	public function create_user_by_mobile($username, $password,  $group = 1, Array $profile_fields = array())
+	{
+		$password = trim($password);
+
+		if (empty($username) or empty($password))
+		{
+			throw new \SimpleUserUpdateException('Username, password  is not given, is invalid', 1);
+		}
+
+		$same_users = \DB::select_array(\Config::get('memberauth.table_columns', array('*')))
+			->where('username', '=', $username)
+			->from(\Config::get('memberauth.table_name'))
+			->execute(\Config::get('memberauth.db_connection'));
+
+		if ($same_users->count() > 0)
+		{
+			throw new \SimpleUserUpdateException('Username already exists', 3);
+		}
+
+		$this->user = array(
+			'username'        => (string) $username,
+			'password'        => $this->hash_password((string) $password),
+			'email'           => '',
+			//'group'           => (int) $group,
+			'profile_fields'  => serialize($profile_fields),
+			'last_login'      => 0,
+			'login_hash'      => '',
+			'created_at'      => \Date::forge()->get_timestamp()
+		);
+		$result = \DB::insert(\Config::get('memberauth.table_name'))
+			->set($this->user)
+			->execute(\Config::get('memberauth.db_connection'));
+        \Session::set('membername', $username);
+		\Session::set('member_login_hash', $this->create_login_hash());
+		return ($result[1] > 0) ? $result[0] : false;
+	}
+	/**
 	 * Update a user's properties
 	 * Note: Username cannot be updated, to update password the old password must be passed as old_password
 	 *

@@ -813,11 +813,13 @@ $(function(){
         $.get(BASE_URL+"totalbuycount?callback="+ new Date().getTime(), function(data){
             if (data.code==0){
                 if($("#totalbuy").html() != data.num){
-                    $("#totalbuy").css('backgroundColor', 'red');
+                    $("#totalbuy").css('backgroundColor', '#af2812');
+                    $("#totalbuy").css('color', '#FFF');
                     $("#totalbuy").animate({
                          'opacity': '0.4'
                     },800,function(){
-                         $("#totalbuy").css('backgroundColor', '#FFFFFF');
+                         $("#totalbuy").css('backgroundColor', '#FFF');
+                         $("#totalbuy").css('color', '#2af');
                          $("#totalbuy").html(data.num);
                     });
 

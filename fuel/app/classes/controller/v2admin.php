@@ -56,7 +56,7 @@ class Controller_V2admin extends Controller_Baseend
         
     }
 
-    public function action_login()
+    public function action_login2()
     {
         // Already logged in
         //$this->auth = Auth::instance('Simpleauth');
@@ -150,7 +150,7 @@ class Controller_V2admin extends Controller_Baseend
         // 发送
         $content = "验证码为：".$code;
         $sms = new Classes\Sms;
-        $r = //$sms->send($mobile, $content);
+        $r = $sms->send($mobile, $content);
         \Log::error(sprintf('短信： %s | %s', $mobile, $content));
         if ($r)
         {
@@ -168,7 +168,7 @@ class Controller_V2admin extends Controller_Baseend
     /*
     * 手机快速登陆
     */
-    public function action_login2()
+    public function action_login()
     {
         $this->auth->check() and Response::redirect('v2admin');
         $val = Validation::forge();

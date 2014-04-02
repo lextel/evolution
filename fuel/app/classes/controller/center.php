@@ -30,7 +30,7 @@ class Controller_Center extends Controller_Frontend
         if (Input::method() == 'POST')
         {
             $val = Model_Member::validateSignin('signin');
-            
+
             if ($val->run())
             {
                 $username = Input::post('username');
@@ -84,15 +84,11 @@ class Controller_Center extends Controller_Frontend
             $password = Input::post('password');
             if ($val->run())
             {
-
                 try{
                     $email = $username;
-                    if (!strpos($username, '@')){ 
-                        $user = new Model_Member();
-                        $user->username = $username;
-                        $user->password = $this->auth->hash_password((string) $password);
-                        $user->save();
-                    }else{                                      
+                    if (!strpos($username, '@')){
+                        $user = $this->auth->create_user_by_mobile($username, $password);
+                    }else{
                         $user = $this->auth->create_user($username, $password, $email);
                     }
                     if ($this->auth->check() or $user)
@@ -104,13 +100,13 @@ class Controller_Center extends Controller_Frontend
                         $ip = $memberHelper->getIp();
                         $current_user -> avatar = Config::get('default_headico');
                         $current_user->ip = $ip;
-                        if (!strpos('@', $username)){ 
-                            $current_user->mobile = $mobile;
+                        if (!strpos('@', $username)){
+                            $current_user->mobile = $username;
                         }
                         $current_user -> save();
 
                         // 邀请注册处理  ------ start ------------
-                        $invit_id = intval(Session::get('invit_id')); 
+                        $invit_id = intval(Session::get('invit_id'));
                         if(!empty($invit_id)) {
 
                             // 保存关系
@@ -154,7 +150,7 @@ class Controller_Center extends Controller_Frontend
                         Session::set_flash('usernameError', e('已经存在用户名了'));
                     }
                 }catch (Exception $e){
-                    echo $e;
+                    Log::error($e);
                     Session::set_flash('usernameError', e('已经存在用户名了'));
 
                 }
@@ -292,7 +288,7 @@ class Controller_Center extends Controller_Frontend
         }
         return Response::forge(View::forge('member/findpwd'));
     }
-    
+
     /*
     * 验证手机号码或者邮箱是否存在
     */
