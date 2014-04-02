@@ -2,12 +2,14 @@
 
 class Controller_Member_Mobile extends Controller_Center
 {
-    public $smsPerTime = 60;
+    public $smsPerTime = 70;
     /*
     * 开始验证手机页面
     */
     public function action_first(){
+        $user = $this->current_user;
         $view = View::forge('member/mobile/first');
+        $view->set('user', $user);
         $this->template->title = '手机验证';
         $this->template->layout->content = $view;
     }
@@ -76,7 +78,7 @@ class Controller_Member_Mobile extends Controller_Center
             $mobile = trim(Input::post('mobile'));
             $pwd = trim(Input::post('code'));
             $phone = Session::get('mobile'); 
-            $user = Model_User::find_by_mobile($mobile);
+            $user = Model_Member::find_by_mobile($mobile);
             if ($mobile == Session::get('front_mobile') && $user){
                 $code = Session::get('front_code');
 		        $time = Session::get('front_time');
