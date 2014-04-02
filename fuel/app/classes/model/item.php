@@ -1,4 +1,3 @@
-
 <?php
 class Model_Item extends \Classes\Model {
 
@@ -114,7 +113,7 @@ class Model_Item extends \Classes\Model {
         $offset = ($get['page'] - 1)*\Helper\Page::PAGESIZE;
 
         $where   = ['item_id' => $get['itemId']];
-        $orderBy = ['id' => 'desc']; 
+        $orderBy = ['id' => 'desc'];
 
         $phases = Model_Phase::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::PAGESIZE]);
 
@@ -133,7 +132,7 @@ class Model_Item extends \Classes\Model {
                     ];
             } elseif($phase->opentime) {
                 $data[] = [
-                        'phase' => Html::anchor(Uri::create('m/'.$phase->id), "第{$phase->phase_id}期"), 
+                        'phase' => Html::anchor(Uri::create('m/'.$phase->id), "第{$phase->phase_id}期"),
                         'opentime' =>date('Y-m-d H:i:s', $phase->opentime)
                         ];
             } else {
@@ -163,7 +162,7 @@ class Model_Item extends \Classes\Model {
 
     /**
      * 审核
-     * 
+     *
      * @param $id   integer 商品ID
      * @param $post array post数据
      *
@@ -326,7 +325,7 @@ class Model_Item extends \Classes\Model {
      * 商品已经达到预期期数
      *
      * @param $item 商品对象
-     * 
+     *
      * @return void
      */
     public function finish($item) {
@@ -411,7 +410,7 @@ class Model_Item extends \Classes\Model {
             if($key == 'brandId' && !empty($val)) {
                 $url .= '/b/'.$val;
             }
-            
+
             if($key == 'sort' && !empty($val)) {
                 $url .= '/s/'.$val;
             }
@@ -520,7 +519,7 @@ class Model_Item extends \Classes\Model {
         } else if (isset($options['is_delete']) && $options['is_delete'] !== '') {
             $where += ['is_delete' => $options['is_delete']];
         }
-        
+
         if($isFrontEnd) {
             if(!isset($options['opentime'])) {
                 $where += ['opentime' => \Helper\Item::NOT_OPEN];
@@ -773,7 +772,7 @@ class Model_Item extends \Classes\Model {
      * 编辑器上传图片
      *
      * @param $file $_FILES 一维数组
-     * 
+     *
      * @return array 上传的文件数组
      */
     public function editorUpload() {
