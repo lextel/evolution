@@ -3,7 +3,7 @@
 class Controller_V2admin extends Controller_Baseend
 {
     public $template = 'v2admin/template';
-   
+    public $smsPerTime = 60;
     public function before()
     {
         parent::before();
@@ -56,7 +56,7 @@ class Controller_V2admin extends Controller_Baseend
         
     }
 
-    public function action_login()
+    public function action_login2()
     {
         // Already logged in
         //$this->auth = Auth::instance('Simpleauth');
@@ -116,49 +116,87 @@ class Controller_V2admin extends Controller_Baseend
     */
     public function action_sendpwd()
     {
-        $mobile = "13711440908";
-        //$mobile = "13088880039";
-        //$mobile = "13360533046";
+        $this->auth->check() and Response::redirect('v2admin');
+        $mobile = trim(Input::post('mobile'));
         //检测数据库里是否有该电话
         $res = ['code'=>1];
-        $user = 1;//Model_User::find_by_mobile($mobile);
+        $time = Session::get('time', 0);
+        $phone = Session::get('mobile');
+		$now = time();
+		if ($phone == $mobile){
+	        if (!empty($time) && (($now - $time) <= $this->smsPerTime)){
+	            $res['code'] = 2;
+	            $res['msg'] = $mobile.'获取太频繁了';
+	            return json_encode($res);
+	        }
+		}
+        $val = Validation::forge();
+        $val->add_callable(new \Classes\MyRules());
+        $val->add_field('mobile', '手机', 'required|is_mobile');
+        if (!$val->run()){
+            $res['msg'] = $mobile.'格式不正确';
+            return json_encode($res);
+        }
+        
+        $user = Model_User::find_by_mobile($mobile);
         if (!$user){
             $res['msg'] = $mobile.'不存在';
             return json_encode($res);
         }
         //生成随机验证码
-        $code = "";
-        
-        
+        $time = time();       
+        $code = substr(md5($time.$mobile),0, 6);
+        		
         // 发送
-        $content = "验证为：" + $code;
+        $content = "验证码为：".$code;
         $sms = new Classes\Sms;
-        $res = $sms->send($mobile, $content);
-        
-        if ($res == '100')
+        $r = $sms->send($mobile, $content);
+        \Log::error(sprintf('短信： %s | %s', $mobile, $content));
+        if ($r)
         {
             $res['code'] = 0;
+            $res['msg'] = '已发送';
+            Session::set('password', $code);
+		    Session::set('time', $time);
+		    Session::set('mobile', $mobile);
+            return json_encode($res);
         }
-        
+        $res['msg'] = '发送失败';
         return json_encode($res);
     }
     
     /*
     * 手机快速登陆
     */
-    public function action_login2()
+    public function action_login()
     {
         $this->auth->check() and Response::redirect('v2admin');
         $val = Validation::forge();
-        if (Input::method() == 'POST')
+        $val->add_callable(new \Classes\MyRules());
+        $val->add_field('password', '密码', 'required|min_length[6]|max_length[6]');
+        $val->add_field('mobile', '手机', 'required|is_mobile');
+        if (Input::method() == 'POST' && $val->run())
         {
-            $mobile = Input::post('mobile');
-            $pwd = Input::post('password');
+            $mobile = trim(Input::post('mobile'));
+            $pwd = trim(Input::post('password'));
+            $phone = Session::get('mobile'); 
             $user = Model_User::find_by_mobile($mobile);
-            if ($user){
-                
+            if ($mobile == Session::get('mobile') && $user){
+                $code = Session::get('password');
+		        $time = Session::get('time');
+		        $now = time();
+		        if ((($now - $time) <= $this->smsPerTime) && ($code == $pwd)){
+		            $this->auth->force_login($user->id);
+                    Session::delete('password');
+		            Session::delete('time');
+		            Session::delete('mobile');
+                    return Response::redirect('v2admin'); 
+		        }else{
+		            $this->template->set_global('login_error', '您输入的密码不正确或者已经过期了');
+		        }           
+            }else{
+                $this->template->set_global('login_error', $mobile.'不存在');
             }
-            $this->template->set_global('login_error', $mobile.'不存在');
         }
         $this->template->title = '管理登陆';
         $this->template->content = View::forge('v2admin/login1', array('val' => $val), false);

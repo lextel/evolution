@@ -36,7 +36,7 @@ return [
      */
     'open'    => 5,
 
-    'default_headico' => 'upload/avatar/0/0/noavatar.jpg',
+    'default_headico' => 'upload/avatar/0/0/defaultavatar.jpg',
 
     'email_key' => 'zhujianglong~!@l0l0t0_com',
     'email_deadtime' => 3600 * 24 * 3,

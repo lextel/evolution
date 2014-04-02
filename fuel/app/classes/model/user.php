@@ -42,9 +42,9 @@ class Model_User extends \Classes\Model
         
         $val->add_callable(new \Classes\MyRules());
         if ($factory != 'edit'){
-            $val->add_field('username', '账号', 'required|max_length[255]|unique[members.username]');            
-            $val->add_field('email', '邮箱', 'required|valid_email|unique[members.email]');
-            $val->add_field('mobile', '手机', 'required|is_mobile|unique[members.nickname]');
+            $val->add_field('username', '账号', 'required|max_length[255]|unique[users.username]');            
+            $val->add_field('email', '邮箱', 'required|valid_email|unique[users.email]');
+            $val->add_field('mobile', '手机', 'required|is_mobile|unique[users.mobile]');
         }
         $val->add_field('group', '权限', 'required|valid_string[numeric]');
         return $val;
