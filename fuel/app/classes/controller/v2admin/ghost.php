@@ -6,13 +6,13 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
     public function action_index() {
         Response::redirect('v2admin/ghost/lists');
     }
-    
+
     /*
     * 特殊用户列表
     */
     public function action_lists() {
         $breads = [
-                ['name' => '马甲管理'], 
+                ['name' => '马甲管理'],
                 ['name' => '马甲列表', 'href'=> Uri::create('v2admin/ghost')],
             ];
 
@@ -21,8 +21,8 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $memberModel = new Model_Member();
         $total = $memberModel->countGhost($get);
         $page = new \Helper\Page();
-        $url = Uri::create('v2admin/ghost/lists', 
-                ['member_id' => Input::get('member_id'), 'nickname' => Input::get('nickname')], 
+        $url = Uri::create('v2admin/ghost/lists',
+                ['member_id' => Input::get('member_id'), 'nickname' => Input::get('nickname')],
                 ['user_id' => '', 'nickname' => ':nickname']);
 
         $config = $page->setConfig($url, $total, 'page');
@@ -32,7 +32,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $view = View::forge('v2admin/ghost/index');
         $breadcrumb = new Helper\Breadcrumb();
         $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
-        
+
         $get['offset'] = $pagination->offset;
         $get['limit'] = $pagination->per_page;
         $view->set('members', $memberModel->index($get));
@@ -40,13 +40,13 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $this->template->content = $view;
 
     }
-    
+
     /*
     *添加特殊用户
     */
     public function action_create() {
         $breads = [
-                ['name' => '马甲管理'], 
+                ['name' => '马甲管理'],
                 ['name' => '马甲列表', 'href' => Uri::create('v2admin/ghost')],
                 ['name' => '添加马甲'],
             ];
@@ -61,7 +61,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $this->template->title = "添加马甲";
         $this->template->content = $view;
     }
-    
+
     /*
     *提交添加特殊用户
     */
@@ -85,9 +85,8 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
                 $member->bio = $bio;
                 $member->created_at = time();
                 $chip = new Classes\RandCHIp;
-                
+
                 $member->ip = $chip->area2ip($area);
-                echo $member->ip;
                 $member->type = 1;
                 $member->points = 0;
                 $member->last_login = 0;
@@ -115,7 +114,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         }
 
         $breads = [
-                ['name' => '马甲管理'], 
+                ['name' => '马甲管理'],
                 ['name' => '马甲列表', 'href' => Uri::create('v2admin/ghost')],
                 ['name' => '添加马甲'],
             ];
@@ -129,7 +128,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $this->template->title = "添加马甲";
         $this->template->content = $view;
     }
-    
+
     /*
     *获得修改特殊用户
     */
@@ -142,7 +141,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
            Response::redirect('_404_');
         }
         $breads = [
-                ['name' => '马甲管理'], 
+                ['name' => '马甲管理'],
                 ['name' => '马甲列表', 'href' => Uri::create('v2admin/ghost')],
                 ['name' => '修改马甲'],
             ];
@@ -158,7 +157,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $this->template->title = "修改马甲";
         $this->template->content = $view;
     }
-    
+
     /*
     *提交修改特殊用户
     */
@@ -177,9 +176,9 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         }else{
             $val->add_field('nickname', '用户昵称', 'required|max_length[25]|min_length[3]|unique[members.nickname]');
         }
-        
+
         if ($val->run()) {
-            $password = trim(Input::post('password'));          
+            $password = trim(Input::post('password'));
             $avatar = trim(Input::post('avatar'));
             $bio = trim(Input::post('bio'));
             $area = trim(Input::post('area'));
@@ -189,9 +188,8 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
                 $member->avatar = $avatar;
                 $member->bio = $bio;
                 $chip = new Classes\RandCHIp;
-                
+
                 $member->ip = $chip->area2ip($area);
-                echo $member->ip;
                 $member->save();
                 $user_id = $member->id;
                 Session::set_flash('success', e('修改成功 #'.$user_id.'.'));
@@ -211,7 +209,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         }
 
         $breads = [
-                ['name' => '马甲管理'], 
+                ['name' => '马甲管理'],
                 ['name' => '马甲列表', 'href' => Uri::create('v2admin/ghost')],
                 ['name' => '修改马甲'],
             ];
@@ -226,13 +224,13 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $this->template->title = "修改马甲";
         $this->template->content = $view;
     }
-    
+
     /*
     *特殊用户中奖名单
     */
     public function action_win() {
          $breads = [
-                ['name' => '马甲管理'], 
+                ['name' => '马甲管理'],
                 ['name' => '中奖列表', 'href'=> Uri::create('v2admin/ghost')],
             ];
 
@@ -242,17 +240,17 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $phaseModel = new Model_Phase();
         $members = $memberModel->index($get);
         list($memberIds,) = $memberModel->getIds($members, ['id']);
-        
+
         $members = $memberModel->byIds($memberIds);
         $count = $phaseModel->byWinsIdsCount($memberIds, $get);
         $page = new \Helper\Page();
-        $url = Uri::create('v2admin/ghost/win', 
-                ['member_id' => Input::get('member_id'), 'nickname' => Input::get('nickname'), 'status' => Input::get('status')], 
+        $url = Uri::create('v2admin/ghost/win',
+                ['member_id' => Input::get('member_id'), 'nickname' => Input::get('nickname'), 'status' => Input::get('status')],
                 ['member_id' => ':member_id', 'nickname' => ':nickname', 'status' => ':status']);
 
         $config = $page->setConfig($url, $count, 'page');
         $pagination = Pagination::forge('mypagination', $config);
-        
+
         $view = View::forge('v2admin/ghost/wins');
         $breadcrumb = new Helper\Breadcrumb();
         $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
@@ -264,7 +262,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $this->template->title = "马甲管理 > 中奖列表";
         $this->template->content = $view;
     }
-    
+
     /*
     *强制登录
     */
@@ -276,7 +274,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         if (!$member){
            Response::redirect('_404_');
         }
-        
+
         $auth = Auth::instance('Memberauth');
         if($auth->force_login($id)){
              Response::redirect('u');
@@ -284,7 +282,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         Session::set_flash('error', e('登陆失败 #' . $id));
         Response::redirect('v2admin/ghost/lists');
     }
-    
+
     /*
     *强制跳转到发表晒单列表
     */
@@ -296,7 +294,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         if (!$member){
            Response::redirect('_404_');
         }
-        
+
         $auth = Auth::instance('Memberauth');
         if($auth->force_login($id)){
              Response::redirect('u/noposts');
@@ -304,7 +302,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         Session::set_flash('error', e('登陆失败 #' . $id));
         Response::redirect('v2admin/ghost/lists');
     }
-    
+
     /*
     *特殊用户假删除
     */
@@ -329,7 +327,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
     // 在拍列表
     public function action_sell() {
         $breads = [
-                ['name' => '马甲管理'], 
+                ['name' => '马甲管理'],
                 ['name' => '在拍列表'],
             ];
 
@@ -422,7 +420,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
 
             return json_encode(['code' => 1, 'msg' => '乐淘失败']);
     }
-    
+
     // 上传头像图片
     public function action_avatarUpload()
     {
@@ -433,7 +431,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
     public function action_multi()
     {
         $breads = [
-                ['name' => '马甲管理'], 
+                ['name' => '马甲管理'],
                 ['name' => '批量添加图片'],
             ];
 
@@ -452,7 +450,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $files = Model_Member::uploadmulti();
         return $response->body(json_encode(['files' => $files]));
     }
-    
+
     // 导入CSV表格文件
     public function action_csvUpload()
     {
@@ -467,7 +465,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         $logid = ['0', '0'];
         foreach($csvfile as $key=>$row){
             if (Model_Member::checkCsv($row)){
-                $memberId = Model_Member::ADDghost($row);               
+                $memberId = Model_Member::ADDghost($row);
                 if ($memberId){
                     $res[] = $row[1];
                     if ($key == 1){
@@ -476,8 +474,8 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
                     if ($key == count($csvfile)-1){
                         $logid[1] = $memberId;
                     }
-                }              
-            }       
+                }
+            }
         }
         Model_Log::add('增加马甲 #'.$logid[0].'...'.' #'.$logid[1]);
         return $response->body(json_encode(['files' => $files, 'msg'=>'上传成功'.count($res).'个', 'res'=>$res]));

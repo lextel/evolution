@@ -1,5 +1,5 @@
 <!--右左边内容结束-->
-<div class="varify-wrap">
+<div class="verify-wrap">
     <div class="tit-bar">
         <h4>手机验证</h4>
         <?php echo Html::anchor('u/profile', '<< 返回', ['class'=>'more fr']);?>
