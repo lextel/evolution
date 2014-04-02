@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="修改分页">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/guide.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/images/icon-02.png" afterPath="$PROJECT_DIR$/public/assets/images/icon-02.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style.css" afterPath="$PROJECT_DIR$/public/assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,8 +88,19 @@
       <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1525" column="12" selection-start="27674" selection-end="27674" vertical-scroll-proportion="0.8864994" vertical-offset="28233" max-vertical-offset="29127">
+            <state line="1034" column="20" selection-start="18696" selection-end="18696" vertical-scroll-proportion="0.37931034" vertical-offset="19338" max-vertical-offset="29184">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="815" column="22" selection-start="14022" selection-end="14022" vertical-scroll-proportion="-11.56" vertical-offset="15196" max-vertical-offset="40755">
+              <folding>
+                <marker date="1396439255289" expanded="true" signature="628:652" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,13 +131,13 @@
         <option value="$PROJECT_DIR$/public/assets/css/member/jquery-ui.css" />
         <option value="$PROJECT_DIR$/public/assets/js/common.js" />
         <option value="$PROJECT_DIR$/public/html/usercenter-set.html" />
-        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/index/index.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/wins/index.php" />
         <option value="$PROJECT_DIR$/public/assets/css/header.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/template.php" />
         <option value="$PROJECT_DIR$/public/html/special-lol.html" />
         <option value="$PROJECT_DIR$/public/html/guide.html" />
+        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
         <option value="$PROJECT_DIR$/public/assets/css/style.css" />
       </list>
     </option>
@@ -671,13 +682,6 @@
         <state line="10" column="11" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="1691" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="851" column="26" selection-start="14610" selection-end="14610" vertical-scroll-proportion="0.0" vertical-offset="16169" max-vertical-offset="40717">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/orders/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1102" />
@@ -739,9 +743,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="815" column="22" selection-start="14022" selection-end="14022" vertical-scroll-proportion="-11.56" vertical-offset="15196" max-vertical-offset="40755">
+          <folding>
+            <marker date="1396439255289" expanded="true" signature="628:652" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1525" column="12" selection-start="27674" selection-end="27674" vertical-scroll-proportion="0.8864994" vertical-offset="28233" max-vertical-offset="29127">
+        <state line="1034" column="20" selection-start="18696" selection-end="18696" vertical-scroll-proportion="0.37931034" vertical-offset="19338" max-vertical-offset="29184">
           <folding />
         </state>
       </provider>
