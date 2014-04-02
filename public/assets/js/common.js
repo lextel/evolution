@@ -812,7 +812,7 @@ $(function(){
     function getTotalBuy(){
         $.get(BASE_URL+"totalbuycount?callback="+ new Date().getTime(), function(data){
             if (data.code==0){
-                if($("#totalbuy").html() == data.num){
+                if($("#totalbuy").html() != data.num){
                     $("#totalbuy").css('backgroundColor', '#af2812');
                     $("#totalbuy").css('color', '#FFF');
                     $("#totalbuy").animate({
