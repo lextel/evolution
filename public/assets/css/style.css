@@ -1045,6 +1045,7 @@
 .pane-bd{
     overflow: hidden;
     padding: 10px;
+    min-height: 500px;
 }
 .pane-bd p{
     text-indent: 2em;
