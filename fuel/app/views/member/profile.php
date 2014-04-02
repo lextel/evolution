@@ -59,7 +59,7 @@ $(function(){
                  <label>*手机：</label>
                  <span class="mobile"><?php echo $member->mobile;?></span>
                  <span class="red">（未绑定）</span>
-                 <a href="javascript:;" class="btn-sm btn-state fl">去绑定</a>
+                 <a href="<?php echo Uri::create('u/mobile/first');?>" class="btn-sm btn-state fl">去绑定</a>
              </li>
             <li>
                 <label>*昵称：</label>

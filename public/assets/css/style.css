@@ -758,26 +758,26 @@
     display:block;
 }
 /*手机验证*/
-.verify-wrap .content{
+.verify-wrap{
     width: 768px;
     min-height: 400px;
     float: left;
     margin-left: 10px;
     padding:15px 20px 20px;
 }
-.verify-wrap .content .tit-bar{
+.verify-wrap .tit-bar{
     overflow: hidden;
     border-bottom: 1px solid #D2D2D2;
     padding-bottom: 10px;
     margin-bottom:20px;
 }
-.verify-wrap .content .tit-bar h4{
+.verify-wrap  .tit-bar h4{
     font-size: 14px;
     font-weight: bold;
     width: 100px;
     float: left;
 }
-.verify-wrap .content .prompt-bar{
+.verify-wrap .prompt-bar{
     padding: 7px 0 7px 30px;
     overflow: hidden;
     color: #f60;
@@ -1298,3 +1298,184 @@
     margin-top: 10px;
     text-align: center;
 }
+/*lol专题*/
+.lol-hd{
+    width: 100%;
+    height: 488px;
+    overflow: hidden;
+    background: url("../img/lol-ban-bg.jpg") no-repeat center center;
+}
+.lol-nav{
+    width: 980px;
+    height: 75px;
+    margin: 0 auto;
+}
+.lol-nav ul{
+    width: 380px;
+    height: 75px;
+}
+.lol-nav ul li{
+   float: left;
+}
+.lol-nav ul li a{
+    display: block;
+    width: 170px;
+    height: 75px;
+}
+.lol-nav .one{
+    float: left;
+}
+.lol-nav .two{
+    float: right;
+}
+.lol-nav ul li a.hero{
+    background: url("../img/lol-nav01.png") no-repeat center center;
+}
+.lol-nav ul li a.skin{
+    background: url("../img/lol-nav02.png") no-repeat center center;
+}
+.lol-nav ul li a.peri{
+    background: url("../img/lol-nav03.png") no-repeat center center;
+}
+.lol-nav ul li a.buy{
+    background: url("../img/lol-nav04.png") no-repeat center center;
+}
+.lol-bd{
+    width: 100%;
+    height: 2708px;
+    background:url("../img/lol_bd-bg.jpg") no-repeat center center;
+}
+.column-hero{
+    margin: 0 auto;
+    width: 1016px;
+    overflow: hidden;
+}
+.column-hero dl dt{
+    float: left;
+    width: 1016px;
+    height: 157px;
+    background: url("../img/lol-tit01.png") no-repeat center center;
+}
+.column-hero dl dd{
+    float: left;
+    width: 488px;
+    overflow: hidden;
+    margin: 0 10px 20px ;
+    background: #EEEEEE;
+}
+.column-hero dl dd .imgBox{
+    width: 100%;
+    height: 250px;
+}
+.column-hero dl dd .fd-col{
+    padding: 5px 25px;
+    overflow: hidden;
+    height:30px;
+    background: #ffffff;
+}
+.column-hero dl dd .tit{
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    max-width: 320px;
+    float: left;
+    margin-right: 10px;
+}
+.column-hero dl dd .tit span{
+    margin-left: 10px;
+    color: #af2812;
+}
+.column-hero dl dd .tit span s{
+    color: #af2812;
+    font-size: 18px;
+}
+.lol-btn-sm{
+    display: block;
+    width: 103px;
+    height: 30px;
+    background: url("../img/lol-btn-sm.jpg") no-repeat;
+}
+.column-hero dl dd .fd-col .lol-btn-sm{
+    float: right;
+}
+.column-skin{
+    overflow: hidden;
+    width: 1000px;
+    margin: 0 auto 20px;
+}
+.column-skin dt{
+    float: left;
+    width: 1000px;
+    height: 157px;
+    background: url("../img/lol-tit02.png") no-repeat center center;
+ }
+.column-skin dd{
+    float: left;
+    width: 296px;
+    margin-right: 55px;
+    background: #ffffff;
+}
+.column-skin dd.last{
+    margin-right: 0px;
+}
+.column-skin dd .imgBox{
+    width: 296px;
+    height: 296px;
+    overflow: hidden;
+}
+.column-skin dd .tit{
+    height: 40px;
+    line-height: 40px;
+    text-align:center;
+    font-size: 14px;
+}
+.column-skin dd .fd-col{
+    height: 55px;
+    padding: 0 30px;
+}
+.column-skin dd .fd-col .money{
+    display: block;
+    float: left;
+    font-size: 14px;
+    color: #af2812;
+}
+.column-skin dd .fd-col .money s{
+    font-size: 20px;
+}
+.column-skin dd .fd-col .lol-btn-sm{
+    float: right;
+}
+.column-peri{
+    overflow: hidden;
+    width: 1000px;
+    margin: 0 auto;
+}
+.column-peri dl dt{
+    float: left;
+    width: 1000px;
+    height: 157px;
+    background: url("../img/lol-tit03.png") no-repeat center center;
+}
+.column-peri dl dd{
+    float: left;
+    width: 500px;
+    height: 392px;
+}
+.column-peri dl dd.per_02{
+    height: 447px;
+    margin-top:15px;
+}
+.column-peri dl dd.per_03{
+    margin-top: -55px;
+}
+.column-peri dl dd.per_04{
+    height: 447px;
+    margin-top: -38px;
+}
+
+
+
+
+
+
+

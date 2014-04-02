@@ -59,8 +59,7 @@ $(function(){
 			    //ShowLoading();			    
 			    $('.get_pwd').html(img);
 		    },
-		    success: function(data){
-		        
+		    success: function(data){		        
 			    if (data.code == 0){
 			        $('.get_pwd').attr('disabled', 'disabled');
 			        //$(".get_pwd").html('重新获取密码');
