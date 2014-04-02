@@ -6,6 +6,7 @@ return array(
 
     'totalbuycount' => 'index/totalCount',
     'checkInvitcode' => 'index/checkInvitcode',
+    'captcha'=> 'index/captcha',
 
     'signin' => 'center/signin',
     'signup' => 'center/signup',
@@ -38,6 +39,8 @@ return array(
     'u/avatar/upload' => 'member/avatarUpload',
     'u/getprofile' => 'member/getprofile',
     'u/profile' => 'member/profile',
+    'u/code' => 'member/code',
+    'u/usecode' => 'member/usecode',
     'u/passwd' => 'member/changepassword',
     'u/passwd/forgot' => 'member/forgotpassword',
     'u/message' => 'member/sms/index',

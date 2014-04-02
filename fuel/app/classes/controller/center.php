@@ -1,4 +1,3 @@
-
 <?php
 
 class Controller_Center extends Controller_Frontend
@@ -144,14 +143,7 @@ class Controller_Center extends Controller_Frontend
                         }
                         //  邀请注册 --------------end -------------
 
-                        // 邀请码处理
-                        if(Config::get('openInvitCode')) {
-                            $code = Input::post('invitcode');
-                            $codeModel = new Model_Invitcode();
-                            if($codeModel->check($code)) {
-                                $codeModel->used($current_user->id, $code);
-                            }
-                        }
+
 
 
                         Session::set_flash('success', e('欢迎登陆, '.$current_user->username));

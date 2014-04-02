@@ -1,4 +1,3 @@
-
 <?php
 
 class Controller_Frontend extends Controller_Template {
