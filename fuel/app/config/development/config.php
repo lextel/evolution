@@ -9,8 +9,6 @@
  * @copyright  2010 - 2013 Fuel Development Team
  * @link       http://fuelphp.com
  */
-
-
 return array(
 
     /**
@@ -316,6 +314,7 @@ return array(
                 'auth',
                 'orm',
                 'fuel-cart',
+                'captcha',
                 'email',
             ),
         ),
