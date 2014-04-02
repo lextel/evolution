@@ -2,6 +2,7 @@
 
 class Controller_Member_Mobile extends Controller_Center
 {
+    public $smsPerTime = 60;
     /*
     * 开始验证手机页面
     */
@@ -15,13 +16,6 @@ class Controller_Member_Mobile extends Controller_Center
     * 下一步验证手机页面
     */
     public function action_second($mobile){
-        //$mobile = trim($this->param['mobile']);;
-        //$val = Validation::forge();
-        //$val->add_callable(new \Classes\MyRules());
-        //$val->add_field('mobile', '手机', 'required|is_mobile');
-        //if (!$val->run()){
-        //    return Response::redirect('u/mobile/first'); 
-        //}
         $view = View::forge('member/mobile/second');
         $view->set('mobile', $mobile);
         $this->template->title = '手机验证';
@@ -36,8 +30,8 @@ class Controller_Member_Mobile extends Controller_Center
         $mobile = trim(Input::post('mobile'));
         //检测数据库里是否有该电话
         $res = ['code'=>1];
-        $time = Session::get('time', 0);
-        $phone = Session::get('mobile');
+        $time = Session::get('front_time', 0);
+        $phone = Session::get('front_mobile');
 		$now = time();
 		if ($phone == $mobile){
 	        if (!empty($time) && (($now - $time) <= $this->smsPerTime)){
@@ -60,9 +54,9 @@ class Controller_Member_Mobile extends Controller_Center
         {
             $res['code'] = 0;
             $res['msg'] = '已发送';
-            Session::set('code', $code);
-		    Session::set('time', $time);
-		    Session::set('mobile', $mobile);
+            Session::set('front_code', $code);
+		    Session::set('front_time', $time);
+		    Session::set('front_mobile', $mobile);
             return json_encode($res);
         }
         $res['msg'] = '发送失败';
@@ -83,9 +77,9 @@ class Controller_Member_Mobile extends Controller_Center
             $pwd = trim(Input::post('code'));
             $phone = Session::get('mobile'); 
             $user = Model_User::find_by_mobile($mobile);
-            if ($mobile == Session::get('mmobile') && $user){
-                $code = Session::get('mcode');
-		        $time = Session::get('mtime');
+            if ($mobile == Session::get('front_mobile') && $user){
+                $code = Session::get('front_code');
+		        $time = Session::get('front_time');
 		        $now = time();
 		        if ((($now - $time) <= $this->smsPerTime) && ($code == $pwd)){
 		            $this->auth->force_login($user->id);
