@@ -162,4 +162,26 @@ class Model_Notice extends \Orm\Model
 
         return $where;
     }
+
+    /**
+     * 编辑器上传图片
+     *
+     * @param $file $_FILES 一维数组
+     * 
+     * @return array 上传的文件数组
+     */
+    public function editorUpload() {
+
+        $upload = new Classes\Upload('notice');
+        $success = $upload->upload();
+
+        $rs = [];
+        if($success) {
+            $rs = $upload->getFiles();
+            Model_Log::add('上传公告图片 ' . $rs[0]['name']);
+        }
+
+        return $rs;
+    }
+
 }

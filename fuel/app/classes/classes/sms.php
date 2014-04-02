@@ -83,7 +83,6 @@ class Sms {
         curl_setopt($curl, CURLOPT_TIMEOUT,5);
         $return = curl_exec($curl);
         curl_close($curl);
-
         // 返回： sms&stat=100&message=发送成功
         $status = substr($return, 9, 3);
 
