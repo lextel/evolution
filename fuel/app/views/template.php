@@ -189,7 +189,7 @@
     (function() {
       var hm = document.createElement("script");
       hm.src = "//hm.baidu.com/hm.js?1e1a26c753085ede05629ae3b73ed2df";
-      var s = document.getElementsByTagName("script")[0]; 
+      var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
     </script>

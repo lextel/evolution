@@ -9,8 +9,6 @@
  * @copyright  2010 - 2013 Fuel Development Team
  * @link       http://fuelphp.com
  */
-
-
 return array(
 
     /**
@@ -44,7 +42,7 @@ return array(
      */
     // 'index_file' => false,
 
-     'profiling'  => false,
+     'profiling'  => true,
 
     /**
      * Default location for the file cache
@@ -316,6 +314,7 @@ return array(
                 'auth',
                 'orm',
                 'fuel-cart',
+                'captcha',
                 'email',
             ),
         ),

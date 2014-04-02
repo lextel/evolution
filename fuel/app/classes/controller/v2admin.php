@@ -7,9 +7,14 @@ class Controller_V2admin extends Controller_Baseend
     public function before()
     {
         parent::before();
-        if (! in_array(Request::active()->action, array('login', 'logout', 'sendpwd', 'login2')))
+        if (! in_array(Request::active()->action, array('login', 'logout', 'sendpwd')))
         {
             $this -> admincheck();
+        }else{
+        /*
+            if (in_array(Request::active()->action, ['login2'])){
+                Response::redirect('v2admin');
+            }*/
         }
         list($driver, $groupid) = $this->auth->get_groups();
         $this->groupid = $groupid;
@@ -20,6 +25,13 @@ class Controller_V2admin extends Controller_Baseend
         if (!$this->auth->check())
         {
             Response::redirect('v2admin/login');
+        }
+        $login_time = \Session::get('login_time', 0);
+        $limit_time = \Config::get('simpleauth.limit_time', 10 * 60);
+        \Log::error('time = '.(time() - $login_time));
+        if ((time() - $login_time) > $limit_time){
+            Session::set_flash('login_error', e('超过10分钟没操作了，退出登录,请重新登录'));
+            Response::redirect('v2admin/logout');
         }
         $admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
         $group = Auth::group()->groups();
@@ -32,8 +44,7 @@ class Controller_V2admin extends Controller_Baseend
             Response::redirect('v2admin');
         }
         $actions = [];
-        foreach($rights as $row){
-            
+        foreach($rights as $row){            
             if ($row['controller'] == Request::active()->controller){
                 $actions = $row['action'];
             }         
@@ -55,6 +66,7 @@ class Controller_V2admin extends Controller_Baseend
             
         
     }
+
 
     public function action_login2()
     {
