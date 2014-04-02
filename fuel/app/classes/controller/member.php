@@ -1,4 +1,3 @@
-
 <?php
 class Controller_Member extends Controller_Center{
 

@@ -1,13 +1,16 @@
 <div class="row">
     <div class="col-md-3">
-        <?php echo Form::open(array('')); ?>                  
+        <?php echo Form::open(array('')); ?>
             <div class="form-group <?php echo ! $val->error('email') ?: 'has-error' ?>">
                 <span class="control-label server_error"></span>
                 <label for="email">手机号:</label>
-                <?php echo Form::input('mobile', Input::post('mobile'), array('class' => 'form-control', 'placeholder' => '手机号', 'autofocus')); ?>         
+                <?php echo Form::input('mobile', Input::post('mobile'), array('class' => 'form-control', 'placeholder' => '手机号', 'autofocus')); ?>
                 <span class="control-label check_mobile" style="color:#f00;"><?php echo $val->error('mobile') ? $val->error('mobile')->get_message('请输入手机号'): ''; ?></span>
                 <?php if (isset($login_error)): ?>
                 <div class="error" style="color:#f00;"><?php echo $login_error; ?></div>
+                <?php endif; ?>
+                 <?php if (Session::get_flash('login_error')): ?>
+                <div class="error" style="color:#f00;"><?php echo Session::get_flash('login_error'); ?></div>
                 <?php endif; ?>
                 <p></p>
                 <span class="btn btn-info get_pwd">获取密码</span>
@@ -33,7 +36,7 @@ $(function(){
     var url = "<?php echo Uri::create('/v2admin/sendpwd');?>";
     var img = '<img src="/assets/images/bx_loader.gif" style="width:30px" >';
     function countingDown(){
-        if (curCount == 0) {                
+        if (curCount == 0) {
             window.clearInterval(InterValObj);//停止计时器
             $('input[name=mobile]').removeAttr('readonly');
             $(".get_pwd").removeAttr("disabled");//启用按钮
@@ -44,7 +47,7 @@ $(function(){
             $(".get_pwd").html("请在" + curCount + "秒内输入密码");
         }
     }
-    
+
     $(".get_pwd").click(function(){
         var mobile = $("input[name=mobile]").val();
         if (mobile == '' || mobile.length != 11){
@@ -53,18 +56,18 @@ $(function(){
         $.ajax({
             url:url,
             type:"post",
-		    dataType:"json",
-		    data:{mobile:mobile},
-		    beforeSend: function(){
-			    //ShowLoading();			    
-			    $('.get_pwd').html(img);
-		    },
-		    success: function(data){		        
-			    if (data.code == 0){
-			        $('.get_pwd').attr('disabled', 'disabled');
-			        //$(".get_pwd").html('重新获取密码');
-			        $('input[name=mobile]').attr('readonly', 'readonly');
-			        $(".check_mobile").html(data.msg);
+            dataType:"json",
+            data:{mobile:mobile},
+            beforeSend: function(){
+                //ShowLoading();
+                $('.get_pwd').html(img);
+            },
+            success: function(data){
+                if (data.code == 0){
+                    $('.get_pwd').attr('disabled', 'disabled');
+                    //$(".get_pwd").html('重新获取密码');
+                    $('input[name=mobile]').attr('readonly', 'readonly');
+                    $(".check_mobile").html(data.msg);
                     InterValObj = window.setInterval(countingDown, 1000);
                 }else{
                     if (data.code == 2){
@@ -78,20 +81,20 @@ $(function(){
                        $(".get_pwd").html("重新获取密码");
                     }
                 }
-		    },
-		    complete: function(data){
-			    //HideLoading();
-		    },
-		    error: function(data){
-			    //请求出错处理
-			    $(".server_error").html('服务器或者网络异常');
-		    }
+            },
+            complete: function(data){
+                //HideLoading();
+            },
+            error: function(data){
+                //请求出错处理
+                $(".server_error").html('服务器或者网络异常');
+            }
         });
     });
     $("form").submit(function(e){
         var mobile = $("input[name=mobile]").val();
         var code = $("input[name=password]").val();
-        
+
         if (mobile == undefined || mobile == '' || mobile.length != 11){
             e.preventDefault();
             $(".check_mobile").html("手机号应该11位");
@@ -101,7 +104,7 @@ $(function(){
             $(".check_pwd").html("密码应该6位");
 
         }
-        
+
     });
 });
 </script>
