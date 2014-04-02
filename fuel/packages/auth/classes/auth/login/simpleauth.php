@@ -79,7 +79,7 @@ class Auth_Login_Simpleauth extends \Auth_Login_Driver
 		$username    = \Session::get('username');
 		$login_hash  = \Session::get('login_hash');
 		$login_time = \Session::get('login_time');
-		$limit_time = \Config::get('simpleauth.limit_time', 10 * 60);
+		//$limit_time = \Config::get('simpleauth.limit_time', 10 * 60);
 		// only worth checking if there's both a username and login-hash
 		if ( ! empty($username) and ! empty($login_hash) and !empty($login_time))
 		{
@@ -92,9 +92,10 @@ class Auth_Login_Simpleauth extends \Auth_Login_Driver
 			}
 
 			// return true when login was verified, and either the hash matches or multiple logins are allowed
-			if ($this->user and (\Config::get('simpleauth.multiple_logins', false) or $this->user['login_hash'] === $login_hash) and (time() - $login_time) < $limit_time)
+			//\Log::error('time = '.(time() - $login_time));
+			if ($this->user and (\Config::get('simpleauth.multiple_logins', false) or $this->user['login_hash'] === $login_hash))
 			{
-				\Session::set('login_time', time());
+				//\Session::set('login_time', time());
 				return true;
 			}
 		}

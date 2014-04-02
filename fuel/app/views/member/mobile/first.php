@@ -27,7 +27,7 @@ $(function(){
         var mobile = $("input[name=mobile]").val();
         if (mobile.length == 11){
             url += "/" + mobile;
-            alert(url);
+            //alert(url);
             window.location.href = url;
         }
     });

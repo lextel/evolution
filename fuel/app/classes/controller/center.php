@@ -1,4 +1,3 @@
-
 <?php
 
 class Controller_Center extends Controller_Frontend

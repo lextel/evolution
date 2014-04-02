@@ -1,4 +1,3 @@
-
 <?php
 
 class Controller_Frontend extends Controller_Template {
@@ -19,6 +18,7 @@ class Controller_Frontend extends Controller_Template {
     public function before() {
         parent::before();
         $this->auth = Auth::instance('Memberauth');
+        //\Log::error('time = 1111'.time());
         if (Config::get('auth.driver', 'Memberauth') == 'Ormauth') {
             $this->current_user = $this->auth->check() ? Model\Auth_Member::find_by_username($this->auth->get_screen_name()) : null;
         } else {
