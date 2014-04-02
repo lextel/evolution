@@ -88,10 +88,7 @@ class Controller_Center extends Controller_Frontend
                 try{
                     $email = $username;
                     if (!strpos($username, '@')){
-                        $user = new Model_Member();
-                        $user->username = $username;
-                        $user->password = $this->auth->hash_password((string) $password);
-                        $user->save();
+                        $user = $this->auth->create_user_by_mobile($username, $password);
                     }else{
                         $user = $this->auth->create_user($username, $password, $email);
                     }
