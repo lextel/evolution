@@ -1,5 +1,5 @@
-<?php echo Asset::css('product.css'); ?>
-<?php echo Asset::js(['Xslider.js', 'item/index.js']); ?>
+<?php echo Asset::css(['product.css', 'nivo-slider.css' ,'default.css']); ?>
+<?php echo Asset::js(['Xslider.js', 'item/index.js' ,'jquery.nivo.slider.pack.js']); ?>
  <div class="bread">
      <ul>
      <?php echo $getBread($cateId, $brandId)?>
@@ -47,7 +47,8 @@
                 $i++;
             endforeach; 
             ?>
-            <div class="sub_banner fl">
+
+            <div class="sub_banner fl nivoSlider">
                 <?php 
                     $ads = $getAds();
                     $i = 0;

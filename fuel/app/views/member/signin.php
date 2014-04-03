@@ -83,7 +83,6 @@
         </div>
     </div>
 <!--底部结束-->
-<!--
 <script type="text/javascript">
 $(function(){
         $(".demoform").Validform({
@@ -101,6 +100,5 @@ $(function(){
         });
 });
 </script>
--->
 </body>
 </html>
