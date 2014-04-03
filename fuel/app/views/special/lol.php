@@ -83,10 +83,10 @@
         </dl>
     </div>
     <?php
-    $itemIds = [52, 70, 53, 58];
+    $itemIds = [52, 70, 58, 53];
     $where = ['opentime' => 0, 'is_delete' => 0, ['item_id', 'in', $itemIds]];
     $select= ['id'];
-    $peris = Model_Phase::find('all', ['where' => $where]);
+    $peris = Model_Phase::find('all', ['where' => $where, 'select' => $select, 'orderBy' => ['find_in_set(`item_id`, "'.implode(',', $itemIds).'")']]);
     ?>
     <a id="peridiv"></a>
     <div class="column-peri">
