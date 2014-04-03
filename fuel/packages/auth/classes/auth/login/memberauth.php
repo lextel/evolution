@@ -78,6 +78,8 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 		// fetch the username and login hash from the session
 		$username    = \Session::get('membername');
 		$login_hash  = \Session::get('member_login_hash');
+		//var_dump(\Session::get('membername'));
+		//die;
 		// only worth checking if there's both a username and login-hash
 		if ( ! empty($username) and ! empty($login_hash))
 		{
@@ -207,8 +209,10 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 	public function logout()
 	{
 		$this->user = \Config::get('memberauth.guest_login', true) ? static::$guest_login : false;
+		\Log::error('this is test');
 		\Session::delete('membername');
 		\Session::delete('member_login_hash');
+
 		return true;
 	}
 
@@ -263,7 +267,7 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 		$result = \DB::insert(\Config::get('memberauth.table_name'))
 			->set($this->user)
 			->execute(\Config::get('memberauth.db_connection'));
-        \Session::set('membername', $username);
+		\Session::set('membername', $username);
 		\Session::set('member_login_hash', $this->create_login_hash());
 		return ($result[1] > 0) ? $result[0] : false;
 	}
@@ -309,7 +313,7 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 		$result = \DB::insert(\Config::get('memberauth.table_name'))
 			->set($this->user)
 			->execute(\Config::get('memberauth.db_connection'));
-        \Session::set('membername', $username);
+		\Session::set('membername', $username);
 		\Session::set('member_login_hash', $this->create_login_hash());
 		return ($result[1] > 0) ? $result[0] : false;
 	}
