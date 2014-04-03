@@ -10,30 +10,26 @@ class Controller_V2admin extends Controller_Baseend
         if (! in_array(Request::active()->action, array('login', 'logout', 'sendpwd', 'login2')))
         {
             $this -> admincheck();
-        }else{
-        /*
-            if (in_array(Request::active()->action, ['login2'])){
-                Response::redirect('v2admin');
-            }*/
         }
         list($driver, $groupid) = $this->auth->get_groups();
         $this->groupid = $groupid;
     }
-    
+
     private function admincheck()
     {
         if (!$this->auth->check())
         {
             Response::redirect('v2admin/login');
         }
+        
         $login_time = \Session::get('login_time', 0);
         $limit_time = \Config::get('simpleauth.limit_time', 10 * 60);
-        \Log::error('time = '.(time() - $login_time));
+        //\Log::error('time = '.(time() - $login_time));
         if ((time() - $login_time) > $limit_time){
             Session::set_flash('login_error', e('超过10分钟没操作了，退出登录,请重新登录'));
             Response::redirect('v2admin/logout');
         }
-        $admin_group_id = Config::get('auth.driver', 'Simpleauth') == 'Ormauth' ? 6 : 100;
+        
         $group = Auth::group()->groups();
         list($driver, $groupid) = $this->auth->get_groups();
         $contorller = Request::active()->controller;
@@ -44,15 +40,15 @@ class Controller_V2admin extends Controller_Baseend
             Response::redirect('v2admin');
         }
         $actions = [];
-        foreach($rights as $row){            
+        foreach($rights as $row){
             if ($row['controller'] == Request::active()->controller){
                 $actions = $row['action'];
-            }         
+            }
         }
-       
+
         if (!$actions){
             Session::set_flash('error', e('无controller '.Request::active()->controller));
-            Response::redirect('v2admin');      
+            Response::redirect('v2admin');
         }
         if (!array_key_exists(Request::active()->action, $actions)){
             Session::set_flash('error', e('无action '.Request::active()->controller.'.'.Request::active()->action));
@@ -61,10 +57,10 @@ class Controller_V2admin extends Controller_Baseend
         $group = $actions[Request::active()->action];
         if ($group > $groupid){
             Session::set_flash('error', e('您没有权限操作'));
-            Response::redirect('v2admin');    
+            Response::redirect('v2admin');
         }
-            
-        
+
+
     }
 
 
@@ -149,16 +145,16 @@ class Controller_V2admin extends Controller_Baseend
             $res['msg'] = $mobile.'格式不正确';
             return json_encode($res);
         }
-        
+
         $user = Model_User::find_by_mobile($mobile);
         if (!$user){
             $res['msg'] = $mobile.'不存在';
             return json_encode($res);
         }
         //生成随机验证码
-        $time = time();       
+        $time = time();
         $code = substr(md5($time.$mobile),0, 6);
-        		
+
         // 发送
         $content = "验证码为：".$code;
         $sms = new Classes\Sms;
@@ -176,7 +172,7 @@ class Controller_V2admin extends Controller_Baseend
         $res['msg'] = '发送失败';
         return json_encode($res);
     }
-    
+
     /*
     * 手机快速登陆
     */
@@ -191,7 +187,7 @@ class Controller_V2admin extends Controller_Baseend
         {
             $mobile = trim(Input::post('mobile'));
             $pwd = trim(Input::post('password'));
-            $phone = Session::get('mobile'); 
+            $phone = Session::get('mobile');
             $user = Model_User::find_by_mobile($mobile);
             if ($mobile == Session::get('mobile') && $user){
                 $code = Session::get('password');
@@ -202,10 +198,10 @@ class Controller_V2admin extends Controller_Baseend
                     Session::delete('password');
 		            Session::delete('time');
 		            Session::delete('mobile');
-                    return Response::redirect('v2admin'); 
+                    return Response::redirect('v2admin');
 		        }else{
 		            $this->template->set_global('login_error', '您输入的密码不正确或者已经过期了');
-		        }           
+		        }
             }else{
                 $this->template->set_global('login_error', $mobile.'不存在');
             }

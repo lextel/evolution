@@ -31,18 +31,16 @@ class Controller_Center extends Controller_Frontend
         {
             $val = Model_Member::validateSignin('signin');
 
-            if ($val->run())
-            {
+            if ($val->run()){
                 $username = Input::post('username');
                 $password = Input::post('password');
-                if ($this->auth->check() or $this->auth->login($username, $password))
-                {
-                    if (Config::get('auth.driver', 'Memberauth') == 'Ormauth')
-                    {
+                var_dump($this->auth->check());
+                var_dump($this->auth->login($username, $password));
+
+                if ($this->auth->check() or $this->auth->login($username, $password)){
+                    if (Config::get('auth.driver', 'Memberauth') == 'Ormauth'){
                         $current_user = Model\Auth_Member::find_by_username($this->auth->get_screen_name());
-                    }
-                    else
-                    {
+                    }else{
                         $current_user = Model_Member::find_by_username($this->auth->get_screen_name());
                     }
                     if (!$current_user->nickname){
@@ -138,9 +136,6 @@ class Controller_Center extends Controller_Frontend
                             Session::set('invit_id', '');
                         }
                         //  邀请注册 --------------end -------------
-
-
-
 
                         Session::set_flash('success', e('欢迎登陆, '.$current_user->username));
                         Response::redirect('/u/getnickname');

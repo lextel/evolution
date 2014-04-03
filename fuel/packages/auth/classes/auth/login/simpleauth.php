@@ -78,10 +78,8 @@ class Auth_Login_Simpleauth extends \Auth_Login_Driver
 		// fetch the username and login hash from the session
 		$username    = \Session::get('username');
 		$login_hash  = \Session::get('login_hash');
-		$login_time = \Session::get('login_time');
-		//$limit_time = \Config::get('simpleauth.limit_time', 10 * 60);
 		// only worth checking if there's both a username and login-hash
-		if ( ! empty($username) and ! empty($login_hash) and !empty($login_time))
+		if ( ! empty($username) and ! empty($login_hash))
 		{
 			if (is_null($this->user) or ($this->user['username'] != $username and $this->user != static::$guest_login))
 			{
