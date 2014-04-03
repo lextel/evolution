@@ -7,6 +7,9 @@
 .navbar {
     margin-bottom: 0;
 }
+.column-skin dd {
+    margin-right: 37px;
+}
 </style>
 <div class="lol-hd">
     <div class="lol-nav">
@@ -64,7 +67,7 @@
             <?php foreach($skins as $skin): ?>
             <dd>
                 <div class="imgBox">
-                    <a target="_blank" href="<?php echo Uri::create('m/'.$hero->id)?>"><img src="<?php echo \Helper\Image::showImage($skin->image);?>" alt=""/></a>
+                    <a target="_blank" href="<?php echo Uri::create('m/'.$hero->id)?>"><img style="width: 296px; height: 296px" src="<?php echo \Helper\Image::showImage($skin->image);?>" alt=""/></a>
                 </div>
                 <div class="tit"><?php echo $skin->title; ?></div>
                 <div class="fd-col">
