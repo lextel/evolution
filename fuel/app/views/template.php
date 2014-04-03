@@ -145,6 +145,20 @@
              -->
         </div>
     </div>
+
+    <script>
+    $(function (){
+        var lolUrl = window.location.pathname;
+        function loads(){
+            var url = "/special/lol";
+            if(lolUrl == url){
+                $(".weiXin").css("display","none");
+                $(".short-cut").css("display","none");
+            }
+        }
+        loads();
+    });
+    </script>
     <!--底部结束-->
     <!--二维码开始-->
     <div class="weiXin">
