@@ -12,5 +12,9 @@ $(function(){
         imgDom.find('a').eq(idx).show();
     });
 
-     $('.nivoSlider').nivoSlider();
+     $('.nivoSlider').nivoSlider({
+        prevText:"",           
+        nextText:"",
+        controlNav: false
+     });
 });
