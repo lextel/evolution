@@ -37,7 +37,24 @@ class Controller_Member extends Controller_Center{
         $this->template->title = '添加用户昵称';
         $this->template->layout = View::forge('member/nickname');
     }
-
+    /*
+    * 检测昵称是否存在
+    */
+    public function action_checknickname(){
+        if (Input::method() != 'POST' ){
+            return Response::redirect('/u/getnickname');
+        }
+        $nickname = trim(Input::post('param'));
+        $res = ['status' => 'n', 'info' => $nickname.'已存在'];
+        if (is_null($nickname)){
+            return json_encode($res);
+        }
+        if (Model_Member::checkNickname($nickname)){
+            $res['status'] = 'y';
+            $res['info'] = ' ';
+        }
+        return json_encode($res);
+    }
     /*
     *增加用户名
     */
@@ -48,7 +65,7 @@ class Controller_Member extends Controller_Center{
         if ($val->run())
         {
             $member = Model_Member::find($this->current_user->id);
-            $nickname = Input::post('nickname');
+            $nickname = trim(Input::post('nickname'));
             if (!Model_Member::checkNickname($nickname))
             {
                 Session::set_flash('error', '用户昵称已经存在了');
