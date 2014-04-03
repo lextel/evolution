@@ -33,6 +33,7 @@ return array(
 
     'u' => 'member/index',
     'u/getnickname' => 'member/getnickname' ,
+    'u/checknickname' => 'member/checknickname' ,
     'u/nickname' => 'member/addnickname' ,
     'u/getavatar' => 'member/getavatar',
     'u/avatar' => 'member/avatar',
