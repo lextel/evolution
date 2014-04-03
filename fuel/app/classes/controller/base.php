@@ -1,6 +1,6 @@
 <?php
 class Controller_Base extends Controller_Template {
-    //public 
+    //public
     public $auth;
     public function before()
     {
