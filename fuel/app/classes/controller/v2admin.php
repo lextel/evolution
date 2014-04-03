@@ -7,7 +7,7 @@ class Controller_V2admin extends Controller_Baseend
     public function before()
     {
         parent::before();
-        if (! in_array(Request::active()->action, array('login', 'logout', 'sendpwd')))
+        if (! in_array(Request::active()->action, array('login', 'logout', 'sendpwd', 'login2')))
         {
             $this -> admincheck();
         }else{
