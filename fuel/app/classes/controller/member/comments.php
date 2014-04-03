@@ -17,7 +17,7 @@ class Controller_Member_Comments extends Controller_Center
             $data['msg'] = 'pid is null';
             return $response->body(json_encode($data));
         }
-        
+
         $val = Model_Comment::validateComment('create');
         if ($val->run())
         {
@@ -30,7 +30,7 @@ class Controller_Member_Comments extends Controller_Center
                 'item_id'=>$post->item_id,
             ]);
             if ($comment and $comment->save())
-            {              
+            {
                 $post->comment_count +=1;
                 $post->save();
                 $data['code'] = 0;
@@ -39,7 +39,7 @@ class Controller_Member_Comments extends Controller_Center
                 $data['member']['text'] = Input::post('text');
                 $member = Model_Member::find($this->current_user->id);
                 $data['member']['userid'] = $member->id;
-                $data['member']['avatar'] = $member->avatar;
+                $data['member']['avatar'] =  \Helper\Image::showImage($member->avatar, '60x60');
                 $data['member']['nickname'] = $member->nickname;
                 return $response->body(json_encode($data));
             }
