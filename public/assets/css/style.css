@@ -30,8 +30,9 @@
     margin: 0 5px;
 }
 .left-side{
-    width: 500px;
-    height: 310px;
+    width:590px;
+    height: 350px;
+    overflow: hidden;
 }
 .loginForm{
     width: 300px;
@@ -44,7 +45,8 @@
      margin:20px 20px 0 ;
  }
 .loginForm .title{
-    width: 280px;
+    width: 282px;
+    width: 282px;
     background: #AF2812;
     color: #fff;
 }

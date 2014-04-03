@@ -24,7 +24,7 @@
     </div>
     <div class="login-bd">
     <div class="left-side fl">
-        广告图
+        <a href=""><img src="../assets/images/loginbanner01.jpg" alt=""/></a>
     </div>
     <div class="loginForm fr">
         <form action="/signin" method="post" class="demoform">
