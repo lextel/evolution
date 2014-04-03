@@ -35,14 +35,14 @@
                 <li>
                     <div class="item">
                         <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'name'=>'username',
-                         'datatype'=>'em','errorms'=>'手机/邮箱格式不正确！','nullmsg'=>'请输入注册手机/邮箱！','placeholder'=>'请输入手机/邮箱','sucmsg'=>' ')); ?>
+                         'datatype'=>'em','errorms'=>'手机/邮箱格式不正确！','nullmsg'=>'请输入注册手机/邮箱！','placeholder'=>'请输入手机/邮箱','sucmsg'=>' ' )); ?>
 
                         <?php if (Session::get_flash('signError', null)) { ?>
                         <span class="Validform_checktip"><?php echo Session::get_flash('signError');?></span>
                         <?php }else{?>
                         <?php } ?>
                         <s class="icon-user"></s>
-                        <span class="Validform_checktip"></span>
+                        <!--<span class="Validform_checktip"></span>-->
                    </div>
                 </li>
                 <li>
@@ -50,7 +50,7 @@
                 <?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'账号密码',
                     'name'=>'userpassword','datatype'=>'*6-18','errormsg'=>'密码为6~18位数！','nullmsg'=>'请输入密码!','sucmsg'=>' ')); ?>
                    <s class="icon-password"></s>
-                   <span class="Validform_checktip"></span>
+                   <!--<span class="Validform_checktip"></span>-->
                 </li>
                 <li><?php echo Html::anchor('forgot', '忘记密码?', array('class' => 'fr'));?></li>
                 <li><button class="login btn-l" type="submit">登录</button></li>
@@ -83,8 +83,8 @@
         </div>
     </div>
 <!--底部结束-->
+<!--
 <script type="text/javascript">
-
 $(function(){
         $(".demoform").Validform({
         tiptype:4,
@@ -101,5 +101,6 @@ $(function(){
         });
 });
 </script>
+-->
 </body>
 </html>

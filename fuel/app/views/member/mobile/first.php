@@ -11,8 +11,10 @@
     <?php echo Form::open(['action'=>'', 'class'=>'verifyForm']); ?>
         <div class="row">
             <label for="" class="fl">输入手机号码：</label>
-            <?php echo Form::input('mobile', '', array('class' => 'txt fl', 'placeholder' => '手机号', 'autofocus'));?>
-            <span class="verification sure fl">手机号码格式为11位数字！</span>
+            <?php echo Form::input('mobile', '', array('class' => 'txt fl', 'placeholder' => '手机号', 'autofocus'
+            , 'datatype'=>'m' , 'nullmsg'=>'请输入11位手机号', 'errormsg' => '请输入正确到手机号' ,'sucmsg'=>' '));?>
+            <span class="Validform_checktip">手机号码格式为11位数字！</span>
+            <!--<span class="verification sure fl">手机号码格式为121位数字！</span>-->
         </div>
         <div class="row">
             <a href="javascript:void(0)" class="btn btn-red btn-sx mobile-next">下一步</a>
@@ -22,12 +24,24 @@
 </div>
 <script type="text/javascript">
 $(function(){
+    /*
     var url = "<?php echo Uri::create('u/mobile/second');?>";
     $(".mobile-next").click(function(){
         var mobile = $("input[name=mobile]").val();
         if (mobile.length == 11){
             url += "/" + mobile;
             //alert(url);
+            window.location.href = url;
+        }
+    });
+*/
+
+    $(".row").Validform({
+        btnSubmit:".mobile-next", 
+        tiptype:4,
+        beforeSubmit:function (curform){
+            var url = "<?php echo Uri::create('u/mobile/second');?>";
+            url += "/" + $("#form_mobile").val();
             window.location.href = url;
         }
     });
