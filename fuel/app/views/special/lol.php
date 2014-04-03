@@ -84,9 +84,7 @@
     </div>
     <?php
     $itemIds = [52, 70, 58, 53];
-    $where = ['opentime' => 0, 'is_delete' => 0, ['item_id', 'in', $itemIds]];
-    $select= ['id'];
-    $peris = Model_Phase::find('all', ['where' => $where, 'select' => $select, 'orderBy' => ['find_in_set(`item_id`, "'.implode(',', $itemIds).'")']]);
+    $peris = DB::query('SELECT `id` FROM `phases` WHERE opentime = 0 AND is_delete = 0 AND item_id IN ('.implode(',', $itemIds).') ORDER BY FIND_IN_SET(item_id, "'.implode(',', $itemIds).'")')->execute()->as_array();
     ?>
     <a id="peridiv"></a>
     <div class="column-peri">
@@ -96,7 +94,7 @@
             $i = 1;
             foreach($peris as $peri): 
             ?>
-            <dd class="per_0<?php echo $i;?>"><a target="_blank" href="<?php echo Uri::create('m/'.$peri->id)?>"><img src="/assets/img/per_0<?php echo $i;?>.png"></a></dd>
+            <dd class="per_0<?php echo $i;?>"><a target="_blank" href="<?php echo Uri::create('m/'.$peri['id'])?>"><img src="/assets/img/per_0<?php echo $i;?>.png"></a></dd>
             <?php 
             $i++;
             endforeach;
