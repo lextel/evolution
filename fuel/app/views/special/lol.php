@@ -10,6 +10,10 @@
 .column-skin dd {
     margin-right: 37px;
 }
+.footer-help  {
+    width: 980px !important;
+    overflow: hidden !important;
+}
 </style>
 <div class="lol-hd">
     <div class="lol-nav">
@@ -67,7 +71,7 @@
             <?php foreach($skins as $skin): ?>
             <dd>
                 <div class="imgBox">
-                    <a target="_blank" href="<?php echo Uri::create('m/'.$hero->id)?>"><img style="width: 296px; height: 296px" src="<?php echo \Helper\Image::showImage($skin->image);?>" alt=""/></a>
+                    <a target="_blank" href="<?php echo Uri::create('m/'.$skin->id)?>"><img style="width: 296px; height: 296px" src="<?php echo \Helper\Image::showImage($skin->image);?>" alt=""/></a>
                 </div>
                 <div class="tit"><?php echo $skin->title; ?></div>
                 <div class="fd-col">
@@ -80,9 +84,7 @@
     </div>
     <?php
     $itemIds = [52, 70, 58, 53];
-    $where = ['opentime' => 0, 'is_delete' => 0, ['item_id', 'in', $itemIds]];
-    $select= ['id'];
-    $peris = Model_Phase::find('all', ['where' => $where]);
+    $peris = DB::query('SELECT `id` FROM `phases` WHERE opentime = 0 AND is_delete = 0 AND item_id IN ('.implode(',', $itemIds).') ORDER BY FIND_IN_SET(item_id, "'.implode(',', $itemIds).'")')->execute()->as_array();
     ?>
     <a id="peridiv"></a>
     <div class="column-peri">
@@ -92,7 +94,7 @@
             $i = 1;
             foreach($peris as $peri): 
             ?>
-            <dd class="per_0<?php echo $i;?>"><a target="_blank" href="<?php echo Uri::create('m/'.$peri->id)?>"><img src="/assets/img/per_0<?php echo $i;?>.png"></a></dd>
+            <dd class="per_0<?php echo $i;?>"><a target="_blank" href="<?php echo Uri::create('m/'.$peri['id'])?>"><img src="/assets/img/per_0<?php echo $i;?>.png"></a></dd>
             <?php 
             $i++;
             endforeach;

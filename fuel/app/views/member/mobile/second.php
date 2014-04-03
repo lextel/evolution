@@ -18,21 +18,16 @@
             <span class="verification sure">验证码已发送请查收！</span>
         </div>
         <div class="row">
-            <label for="" class="fl">输入验证码：</label><input type="text" class="txt fl"/>
-            <span class="verification sure fl">手机号码格式为11位数字！</span>
+            <label for="" class="fl">输入验证码：</label><input class="txt fl" datatype="n6-6" nullmsg="请输入6位验证码" errormsg="请输入正确的验证码" sucmsg=" "/>
+            <span class="Validform_checktip"></span>
         </div>
         <div class="row">
-            <a href="" class="btn btn-red btn-sx">提交</a>
+            <a href="" class="btn btn-red btn-sx" id="submitID">提交</a>
         </div>
     </form>
 </div>
 <script type="text/javascript">
-$(function(){
-    var tt = 50;
-    var curCount = tt;
-    var url = "<?php echo Uri::create('/u/mobile/getcode');?>";
-    var img = '<img src="/assets/images/bx_loader.gif" style="width:30px" >';
-    function countingDown(){
+function countingDown(){
         if (curCount == 0) {                
             window.clearInterval(InterValObj);//停止计时器
             $('input[name=mobile]').removeAttr('readonly');
@@ -44,6 +39,12 @@ $(function(){
             $(".get_pwd").html("请在" + curCount + "秒内输入密码");
         }
     }
+
+$(function(){
+    var tt = 50;
+    var curCount = tt;
+    var url = "<?php echo Uri::create('/u/mobile/getcode');?>";
+    var img = '<img src="/assets/images/bx_loader.gif" style="width:30px" >';
     
     $(".get_pwd").click(function(){
         var mobile = $("input[name=mobile]").val();
@@ -88,20 +89,10 @@ $(function(){
 		    }
         });
     });
-    $("form").submit(function(e){
-        var mobile = $("input[name=mobile]").val();
-        var code = $("input[name=password]").val();
-        
-        if (mobile == undefined || mobile == '' || mobile.length != 11){
-            e.preventDefault();
-            $(".check_mobile").html("手机号应该11位");
-        }
-        if (code == undefined || code == '' || code.length != 6){
-            e.preventDefault();
-            $(".check_pwd").html("密码应该6位");
 
-        }
-        
+    $(".verifyForm").Validform({
+        btnSubmit:"#submitID", 
+        tiptype:4
     });
 });
 </script>

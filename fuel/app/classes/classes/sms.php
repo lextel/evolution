@@ -80,9 +80,17 @@ class Sms {
         curl_setopt($curl, CURLOPT_HEADER, false);
         curl_setopt($curl, CURLOPT_HTTPHEADER, ['Content-Type: application/x-www-form-urlencoded']);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_TIMEOUT,30);
+
+        curl_setopt($curl, CURLOPT_TIMEOUT, 10);
         $return = curl_exec($curl);
+        $error = curl_errno($curl);
         curl_close($curl);
+        if($error) {
+            $errorMsg = curl_strerror($error);
+            \Log::error(sprintf('短信： %s | %s | %s', $mobile, $content, 'Curl：'.$errorMsg));
+            return false;
+        }
+
         // 返回： sms&stat=100&message=发送成功
         $status = substr($return, 9, 3);
 
