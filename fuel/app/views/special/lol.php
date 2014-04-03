@@ -71,7 +71,7 @@
             <?php foreach($skins as $skin): ?>
             <dd>
                 <div class="imgBox">
-                    <a target="_blank" href="<?php echo Uri::create('m/'.$hero->id)?>"><img style="width: 296px; height: 296px" src="<?php echo \Helper\Image::showImage($skin->image);?>" alt=""/></a>
+                    <a target="_blank" href="<?php echo Uri::create('m/'.$skin->id)?>"><img style="width: 296px; height: 296px" src="<?php echo \Helper\Image::showImage($skin->image);?>" alt=""/></a>
                 </div>
                 <div class="tit"><?php echo $skin->title; ?></div>
                 <div class="fd-col">
@@ -83,7 +83,7 @@
         </dl>
     </div>
     <?php
-    $itemIds = [52, 70, 58, 53];
+    $itemIds = [52, 70, 53, 58];
     $where = ['opentime' => 0, 'is_delete' => 0, ['item_id', 'in', $itemIds]];
     $select= ['id'];
     $peris = Model_Phase::find('all', ['where' => $where]);
