@@ -10,6 +10,10 @@
 .column-skin dd {
     margin-right: 37px;
 }
+.footer-help  {
+    width: 980px !important;
+    overflow: hidden !important;
+}
 </style>
 <div class="lol-hd">
     <div class="lol-nav">
