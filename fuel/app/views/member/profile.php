@@ -63,7 +63,7 @@ $(function(){
              </li>
             <li>
                 <label>*昵称：</label>
-                <?php echo Form::input('nickname', Input::post('nickname', $member->nickname), array('class' => 'form-control txt','name'=>'username','datatype'=>'*2-8','errorms'=>'请输入昵称 2~8个字','sucmsg'=>' '));?>
+                <?php echo Form::input('nickname', Input::post('nickname', $member->nickname), array('class' => 'form-control txt','name'=>'username','datatype'=>'zhE','errorms'=>'请输入昵称 2~8个字','sucmsg'=>' ','ajaxurl' => Uri::create('checkname')));?>
                 <span class="Validform_checktip"></span>
             </li>
             <li>
@@ -80,7 +80,31 @@ $(function(){
 <script>
 $(function(){
 	$(".validForm").Validform({
-	tiptype:4
+	tiptype:4,
+    datatype:{
+        'zhE': function (gets,obj,curform,regxp){
+                var zhE = /^[\u4e00-\u9fa5a-zA-Z0-9]+$/;
+                var zh = /[^\x00-\xff]/ig;
+                var E =/[A-Za-z0-9]/;
+                if(zhE.test(gets)){
+                  //如果为中文
+                  if(zh.test(gets)){
+                     if(gets.length >= 2 && gets.length <= 8){
+                       return true;
+                     }
+                     return "请输入2-8个中文字符";
+                  }
+                  //如果为英文
+                  if(E.test(gets)){
+                     if(gets.length >= 3 && gets.length <= 8){
+                       return true;  
+                     }
+                     return "请输入3-8个英文字符";
+                  }
+                }
+                return "昵称只能为中文，数字，字母";
+              }
+        }
 	});
 });
 </script>
