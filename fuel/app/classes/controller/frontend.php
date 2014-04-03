@@ -18,12 +18,7 @@ class Controller_Frontend extends Controller_Template {
     public function before() {
         parent::before();
         $this->auth = Auth::instance('Memberauth');
-        //\Log::error('time = 1111'.time());
-        if (Config::get('auth.driver', 'Memberauth') == 'Ormauth') {
-            $this->current_user = $this->auth->check() ? Model\Auth_Member::find_by_username($this->auth->get_screen_name()) : null;
-        } else {
-            $this->current_user = $this->auth->check() ? Model_Member::find_by_username($this->auth->get_screen_name()) : null;
-        }
+        $this->current_user = $this->auth->check() ? Model_Member::find_by_username($this->auth->get_screen_name()) : null;
         if ($this->auth->check()){
             $smscount = Model_Member_Sm::count(['where'=>['owner_id'=>$this->current_user->id, ['status'=>Null, 'or'=>['status'=>0,]]]]);
             if ($smscount > 0) {
@@ -34,9 +29,11 @@ class Controller_Frontend extends Controller_Template {
         }
         $count = Model_Order::totalCountBuy();
         View::set_global('count', $count);
+
         View::set_global('current_user', $this->current_user);
         // 统计购物车数量
-        $cartCount = count(Cart::items());
+        $cartCount = 0;//count(Cart::items());
         View::set_global('cartCount', $cartCount);
+
     }
 }

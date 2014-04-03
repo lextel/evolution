@@ -61,7 +61,7 @@ class Sms {
             ];
     }
 
-    
+
     /**
      * 发送短信
      *
@@ -80,7 +80,7 @@ class Sms {
         curl_setopt($curl, CURLOPT_HEADER, false);
         curl_setopt($curl, CURLOPT_HTTPHEADER, ['Content-Type: application/x-www-form-urlencoded']);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_TIMEOUT,5);
+        curl_setopt($curl, CURLOPT_TIMEOUT,30);
         $return = curl_exec($curl);
         curl_close($curl);
         // 返回： sms&stat=100&message=发送成功
