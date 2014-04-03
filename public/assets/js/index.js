@@ -86,7 +86,7 @@ $(function(){
         autoDorection: 'prev',
         speed:1000,
         pause:5000,
-        controls: false,
+        controls: true,
     });
 });
 
