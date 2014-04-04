@@ -15,6 +15,6 @@ $(function(){
      $('.nivoSlider').nivoSlider({
         prevText:"",           
         nextText:"",
-        controlNav: false
+        controlNav: true
      });
 });

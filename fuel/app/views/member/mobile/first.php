@@ -25,34 +25,22 @@
 </div>
 <script type="text/javascript">
 $(function(){
-    /*
-    var url = "<?php echo Uri::create('u/mobile/second');?>";
-    $(".mobile-next").click(function(){
-        var mobile = $("input[name=mobile]").val();
-        if (mobile.length == 11){
-            url += "/" + mobile;
-            //alert(url);
-            window.location.href = url;
-        }
-    });
-*/
-
     $(".row").Validform({
-        btnSubmit:".mobile-next", 
         tiptype:4,
         datatype:{
             'm':function (gets,obj,curform,regxp){
                 var m = /^1[34578][0-9]{9}$/;
                 if(m.test(gets)){
+                    $(".mobile-next").click(function(){
+                        var mobile = $("input[name=mobile]").val();
+                        var url = "<?php echo Uri::create('u/mobile/second');?>";
+                        url += "/" + mobile;
+                        window.location.href = url;
+                     });
                     return true;
                 }
                 return false;
             }
-        },
-        beforeSubmit:function (curform){
-            var url = "<?php echo Uri::create('u/mobile/second');?>";
-            url += "/" + $("#form_mobile").val();
-            window.location.href = url;
         }
     });
 });
