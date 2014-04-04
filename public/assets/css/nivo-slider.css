@@ -10,7 +10,6 @@
 /* The Nivo Slider styles */
 .nivoSlider {
 	position:relative;
-	height:auto;
 	overflow: hidden;
 }
 .nivoSlider img {
@@ -100,10 +99,6 @@
 	right:0px;
 }
 /* Control nav styles (e.g. 1,2,3...) */
-.nivo-controlNav {
-	text-align:center;
-	padding: 15px 0;
-}
 .nivo-controlNav a {
 	cursor:pointer;
 }
