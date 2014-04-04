@@ -35,7 +35,7 @@
                 <li>
                     <div class="item">
                         <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'name'=>'username',
-                         'datatype'=>'em','errorms'=>'手机/邮箱格式不正确！','nullmsg'=>'请输入注册手机/邮箱！','placeholder'=>'请输入手机/邮箱','sucmsg'=>' ' )); ?>
+                         'datatype'=>'em','errorms'=>'手机/邮箱格式不正确！','nullmsg'=>'请输入注册手机/邮箱！','placeholder'=>'请输入手机/邮箱','sucmsg'=>' ')); ?>
 
                         <?php if (Session::get_flash('signError', null)) { ?>
                         <span class="Validform_checktip"><?php echo Session::get_flash('signError');?></span>
@@ -83,7 +83,6 @@
         </div>
     </div>
 <!--底部结束-->
-<!--
 <script type="text/javascript">
 $(function(){
         $(".demoform").Validform({
@@ -98,9 +97,9 @@ $(function(){
                 return "手机/邮箱格式不正确";
               }
             }
+
         });
 });
 </script>
--->
 </body>
 </html>
