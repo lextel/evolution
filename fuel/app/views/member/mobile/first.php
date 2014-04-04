@@ -50,7 +50,6 @@ $(function(){
             }
         },
         beforeSubmit:function (curform){
-            alert(1);
             var url = "<?php echo Uri::create('u/mobile/second');?>";
             url += "/" + $("#form_mobile").val();
             window.location.href = url;
