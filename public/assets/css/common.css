@@ -307,6 +307,7 @@ textarea:focus,input:focus{
     margin: 0 auto;
     text-align: center;
     overflow: hidden;
+    margin-top:40px;
 }
 .btn{
     display: inline-block;
