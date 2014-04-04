@@ -32,7 +32,7 @@ class Controller_Frontend extends Controller_Template {
 
         View::set_global('current_user', $this->current_user);
         // 统计购物车数量
-        $cartCount = 0;//count(Cart::items());
+        $cartCount = count(Cart::items());
         View::set_global('cartCount', $cartCount);
 
     }
