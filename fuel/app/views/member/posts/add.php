@@ -79,13 +79,14 @@ $(function(){
                     </li>
                     <li>
                         <label for="">标题：</label>
-                        <?php echo Form::input('title', Input::get('title'), ['class' =>'txt', 'name'=>'', 'datatype'=>'*', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>' ']);?>
+                        <?php echo Form::input('title', Input::get('title'), ['class' =>'txt', 'name'=>'', 'datatype'=>'title', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>' ']);?>
+                        <span id="titlemsg" class="Validform_checktip"></span>
                     </li>
                     <li>
                         <label for="" class="body-label">正文：</label>
                         <?php echo Form::textarea('desc', Input::get('desc'), ['class' => 'txt', 'name'=>'',
-                                           'datatype'=>'*', 'rows'=>'15', 'cols'=>'20', 'nullmsg'=>'请输入正文', 'sucmsg'=>' ']);?>
-                        <span class="Validform_checktip"></span>
+                                           'datatype'=>'desc', 'rows'=>'15', 'cols'=>'20', 'nullmsg'=>'请输入正文', 'sucmsg'=>' ']);?>
+                        <div id="descmsg" style="" class="Validform_checktip"></div>
                     </li>
                     <li>
                        <div class="destItem">
@@ -115,7 +116,36 @@ $(function(){
 <script>
 $(function(){
 	$(".demoform").Validform({
-	tiptype:4,
+        tiptype:function(msg,o,cssctl){
+            if(o.obj.attr("id") =="form_title"){
+                var objtip=$("#titlemsg");
+                cssctl(objtip,o.type);
+                objtip.text(msg);
+            }
+            if(o.obj.attr("id") =="form_desc"){
+                var objtip=$("#descmsg");
+                cssctl(objtip,o.type);
+                objtip.text(msg);
+            }
+        },
+        datatype:{
+           'title':function (gets,obj,curform,regxp){
+                if(0!=gets){
+                    obj.next().css("display","none");
+                    return true;
+                }
+                obj.next().css("display","");
+                return false;
+           },
+           'desc':function (gets,obj,curform,regxp){
+                if(0!=gets){
+                    obj.next().css("display","none");
+                    return true;
+                }
+                obj.next().css("display","");
+                return false;
+           }
+        }
 	});
 });
 </script>
