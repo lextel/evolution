@@ -2,7 +2,7 @@
 
 class Controller_Member_Mobile extends Controller_Center
 {
-    public $smsPerTime = 70;
+    public $smsPerTime = 10;
     /*
     * 开始验证手机页面
     */
@@ -19,6 +19,7 @@ class Controller_Member_Mobile extends Controller_Center
     */
     public function action_second($mobile){
         $view = View::forge('member/mobile/second');
+        Session::set('front_mobile', $mobile);
         $view->set('mobile', $mobile);
         $this->template->title = '手机验证';
         $this->template->layout->content = $view;
@@ -29,36 +30,32 @@ class Controller_Member_Mobile extends Controller_Center
     * 输入 手机号码，返回短信验证
     */
     public function action_getcode(){
-        $mobile = trim(Input::post('mobile'));
         //检测数据库里是否有该电话
         $res = ['code'=>1];
         $time = Session::get('front_time', 0);
         $phone = Session::get('front_mobile');
 		$now = time();
-		if ($phone == $mobile){
-	        if (!empty($time) && (($now - $time) <= $this->smsPerTime)){
-	            $res['code'] = 2;
-	            $res['msg'] = $mobile.'获取太频繁了';
-	            return json_encode($res);
-	        }
-		}
+	    if (!empty($time) && (($now - $time) <= $this->smsPerTime)){
+            $res['code'] = 2;
+            $res['msg'] = '获取太频繁了';
+            return json_encode($res);
+	    }
                
         //生成随机验证码
         $time = time();       
-        $code = substr(md5($time.$mobile),0, 6);
+        $code = substr(md5($time.$phone),0, 6);
                 		
         // 发送
         $content = "验证码为：".$code;
         $sms = new Classes\Sms;
         $r = 1;//$sms->send($mobile, $content);
-        \Log::error(sprintf('短信： %s | %s', $mobile, $content));
+        \Log::error(sprintf('短信： %s | %s', $phone, $content));
         if ($r)
         {
             $res['code'] = 0;
             $res['msg'] = '已发送';
             Session::set('front_code', $code);
 		    Session::set('front_time', $time);
-		    Session::set('front_mobile', $mobile);
             return json_encode($res);
         }
         $res['msg'] = '发送失败';

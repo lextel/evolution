@@ -24,7 +24,8 @@
     </div>
     <div class="login-bd">
     <div class="left-side fl">
-        <a href=""><img src="../assets/images/loginbanner01.jpg" alt=""/></a>
+        <!--<a href=""><img src="../assets/images/loginbanner01.jpg" alt=""/></a>-->
+        <?php echo Html::anchor('/invit', Html::img('/assets/images/loginbanner01.jpg'));?>
     </div>
     <div class="loginForm fr">
         <form action="/signin" method="post" class="demoform">
