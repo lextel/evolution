@@ -26,7 +26,7 @@ CREATE TABLE `carts` (
 
 namespace Cart;
 
-class Cart_Auth extends \Cart_Driver {
+class Cart_Mysql extends \Cart_Driver {
 
 	/**
 	 * Get the user's id.
@@ -39,8 +39,11 @@ class Cart_Auth extends \Cart_Driver {
 		{
 			return $this->config['impersonate'];
 		}
-		$user_id = \Auth::instance()->get_user_id();
-		return $user_id[1];
+
+    $auth = \Auth::instance('Memberauth');
+		$user_id = $auth->get_user_id();
+
+		return !empty($user_id) ? $user_id[1] : 0;
 	}
 	
 	/**
