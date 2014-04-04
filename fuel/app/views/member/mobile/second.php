@@ -8,7 +8,7 @@
         <s class="icon-plaint"></s>
         请完成手机验证，验证手机不仅能加强账户安全，快速找回密码，还会在您成功云购到商品后及时通知您！
     </div>
-    <form action="" class="verifyForm">
+    <?php echo Form::open(['action'=>'u/mobile/check', 'class'=>"verifyForm"]);?>
         <div class="row">
             <label for="" class="fl">您的手机号码：</label>
             <span class="phone_num"><?php echo $mobile?></span>
@@ -18,13 +18,13 @@
             <span class="verification"></span>
         </div>
         <div class="row">
-            <label for="" class="fl">输入验证码：</label><input class="txt fl" datatype="n6-6" nullmsg="请输入6位验证码" errormsg="请输入正确的验证码" sucmsg=" "/>
+            <label for="" class="fl">输入验证码：</label><input name="code" class="txt fl" datatype="n6-6" nullmsg="请输入6位验证码" errormsg="请输入正确的验证码" sucmsg=" "/>
             <span class="Validform_checktip"></span>
         </div>
         <div class="row">
-            <a href="" class="btn btn-red btn-sx" id="submitID">提交</a>
+            <a href="javascript:;" class="btn btn-red btn-sx" id="submitID">提交</a>
         </div>
-    </form>
+    <?php echo Form::close();?>
 </div>
 <script type="text/javascript">
 $(function(){
@@ -45,6 +45,10 @@ $(function(){
             $(".verification").html("请在" + curCount + "秒内输入密码");
         }
     }
+    $(".btn-sx").click(function(){
+        $(".verifyForm").submit();
+    });
+    
     
     $(".get_code").click(function(){
         $.ajax({
