@@ -1,12 +1,4 @@
-
 <?php
-
-echo Asset::css(
-    [
-        'jquery.fileupload.css',
-        'admin/items/form.css',
-        ]
-    );
 echo Asset::js(
         [
             //'jquery.validate.js',
@@ -14,6 +6,7 @@ echo Asset::js(
             'jquery.ui.widget.js',
             'jquery.iframe-transport.js',
             'jquery.fileupload.js',
+            'swfobject.js',
             //'ueditor/ueditor.config.js',
             //'ueditor/ueditor.all.min.js',
             //'ueditor/lang/zh-cn/zh-cn.js',
@@ -40,6 +33,34 @@ $(function(){
         },
     }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
 
+    var flashvars = {
+      "jsfunc":"uploadevent",
+      "imgUrl":"<?php echo Uri::create($member->avatar);?>",
+      //"pid":"",
+      "uploadSrc":true,
+      "showBrow":true, //关闭上传按钮
+      "showCame":false, //关闭摄像头
+      "uploadUrl":"<?php echo Uri::create('u/avatar/upload');?>",
+      "pSize":"250|250|160|160|60|60"// 这里可以改尺寸
+    };
+
+    var params = {
+      menu: "false",
+      scale: "noScale",
+      allowFullscreen: "true",
+      allowScriptAccess: "always",
+      wmode:"transparent",
+      bgcolor: "#FFFFFF"
+    };
+
+    var attributes = {
+      id:"FaustCplus"
+    };
+
+    swfobject.embedSWF("<?php echo Uri::create('assets/images/FaustCplus.swf')?>", "avatar", "650", "360", "9.0.0", "expressInstall.swf", flashvars, params, attributes);
+
+
+
 });
 </script>
 <div class="set-wrap">
@@ -53,6 +74,15 @@ $(function(){
             </ul>
         </div>
         <!--修改资头像-->
+        <div class="portWarp">
+            <div id="avatar">
+            </div>
+            <div class="savePre">
+                <input type="button" class="btn btn-red btn-md" onclick="swfobject.getObjectById('FaustCplus').jscall_updateAvatar();" value="保存">
+            </div>
+            <div id="avatar_priview"></div>
+        </div>
+        <!--
         <ul class="edit-data">
             <?php echo Form::open(['action' => 'u/avatar', 'method' => 'post', 'class'=>'form-avatarUpload']); ?>
             <li>
@@ -64,9 +94,9 @@ $(function(){
             <?php endif; ?>
             </li>
             <li>
-				<div class="file-img">
-					<input id="avatarUpload" type="file" name="avatar" multiple>
-				</div>
+                <div class="file-img">
+                    <input id="avatarUpload" type="file" name="avatar" multiple>
+                </div>
             </li>
             <li>
                 <div class="upload-photo">
@@ -81,4 +111,5 @@ $(function(){
             </li>
             <?php echo Form::close(); ?>
         </ul>
+        -->
 </div>
