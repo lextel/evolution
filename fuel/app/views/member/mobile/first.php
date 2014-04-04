@@ -36,24 +36,23 @@ $(function(){
         }
     });
 */
-
     $(".row").Validform({
-        btnSubmit:".mobile-next", 
+        //btnSubmit:".mobile-next", 
         tiptype:4,
         datatype:{
             'm':function (gets,obj,curform,regxp){
                 var m = /^1[34578][0-9]{9}$/;
                 if(m.test(gets)){
+                    $(".mobile-next").click(function(){
+                        var mobile = $("input[name=mobile]").val();
+                        var url = "<?php echo Uri::create('u/mobile/second');?>";
+                        url += "/" + mobile;
+                        window.location.href = url;
+                     });
                     return true;
                 }
                 return false;
             }
-        },
-        beforeSubmit:function (curform){
-            alert(1);
-            var url = "<?php echo Uri::create('u/mobile/second');?>";
-            url += "/" + $("#form_mobile").val();
-            window.location.href = url;
         }
     });
 });
