@@ -47,7 +47,6 @@
                 $i++;
             endforeach; 
             ?>
-
             <div class="sub_banner fl nivoSlider">
                 <?php 
                     $ads = $getAds();
@@ -70,7 +69,6 @@
         ?>
 </div>
 <div class="r-wide">
-    <div class="hot-tit">即将揭晓</div>
     <div class="product-hot">
                 <?php
                     if(!empty($topItem)) {
