@@ -34,8 +34,6 @@ class Controller_Center extends Controller_Frontend
             if ($val->run()){
                 $username = Input::post('username');
                 $password = Input::post('password');
-                var_dump($this->auth->check());
-                var_dump($this->auth->login($username, $password));
 
                 if ($this->auth->check() or $this->auth->login($username, $password)){
                     if (Config::get('auth.driver', 'Memberauth') == 'Ormauth'){
