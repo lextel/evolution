@@ -25,19 +25,7 @@
 </div>
 <script type="text/javascript">
 $(function(){
-    /*
-    var url = "<?php echo Uri::create('u/mobile/second');?>";
-    $(".mobile-next").click(function(){
-        var mobile = $("input[name=mobile]").val();
-        if (mobile.length == 11){
-            url += "/" + mobile;
-            //alert(url);
-            window.location.href = url;
-        }
-    });
-*/
     $(".row").Validform({
-        //btnSubmit:".mobile-next", 
         tiptype:4,
         datatype:{
             'm':function (gets,obj,curform,regxp){
