@@ -35,7 +35,7 @@
                 <li>
                     <div class="item">
                         <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'name'=>'username',
-                         'datatype'=>'em','errorms'=>'手机/邮箱格式不正确！','nullmsg'=>'请输入注册手机/邮箱！','placeholder'=>'请输入手机/邮箱','sucmsg'=>' ' )); ?>
+                         'datatype'=>'em','errorms'=>'手机/邮箱格式不正确！','nullmsg'=>'请输入注册手机/邮箱！','placeholder'=>'请输入手机/邮箱','sucmsg'=>' ')); ?>
 
                         <?php if (Session::get_flash('signError', null)) { ?>
                         <span class="Validform_checktip"><?php echo Session::get_flash('signError');?></span>
@@ -48,7 +48,7 @@
                 <li>
                 <div class="item">
                 <?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'账号密码',
-                    'name'=>'userpassword','datatype'=>'*6-18','errormsg'=>'密码为6~18位数！','nullmsg'=>'请输入密码!','sucmsg'=>' ')); ?>
+                    'name'=>'userpassword','datatype'=>'num','errormsg'=>'密码为6~18位数！','nullmsg'=>'请输入密码!','sucmsg'=>' ')); ?>
                    <s class="icon-password"></s>
                    <!--<span class="Validform_checktip"></span>-->
                 </li>
@@ -83,7 +83,6 @@
         </div>
     </div>
 <!--底部结束-->
-<!--
 <script type="text/javascript">
 $(function(){
         $(".demoform").Validform({
@@ -93,14 +92,24 @@ $(function(){
                 var m = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
                 var e = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
                 if(m.test(gets) || e.test(gets)){
-                   return true;
+                    $("#form_username").next().next().css("display","none");
+                    return true;
                 }
-                return "手机/邮箱格式不正确";
+                $("#form_username").next().next().css("display","");
+                return "手机/邮箱格式不正确!";
+              },
+              'num':function (gets,obj,curform,regxp){
+                var m = /^[\w\W]{6,18}$/;
+                if(m.test(gets)){
+                    $("#form_password").next().next().css("display","none");
+                    return true;
+                }
+                $("#form_password").next().next().css("display","");
+                 return "密码为6~18位数!";
               }
             }
         });
 });
 </script>
--->
 </body>
 </html>
