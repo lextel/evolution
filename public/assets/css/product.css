@@ -223,6 +223,10 @@
    overflow: hidden;
    border: none;
 }
+.slide-nav{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
 .sub-menu  dl{
     height: 321px;
     width: 145px;
@@ -264,25 +268,21 @@
     text-align: center;
     overflow: hidden;
 }
-.sub_banner img{
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-}
 .product-hot{
     background: #FFFFFF;
     width: 265px;
-    height: 332px;
+    overflow: hidden;
     border: 2px solid #f8b551;
     position: relative;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 18px;
+    margin-left: 10px;
+    float: left;
 }
-.product-hot .img-box{
+.product-hot .img-wide{
     width: 205px;
     height: 205px;
     display: block;
-    padding: 0 30px;
+    padding: 15px 30px;
     margin: 0;
 }
 .product-hot .title-box{
@@ -303,14 +303,14 @@
 .sheng-yi2{
     height: 34px;
     line-height: 34px;
-    text-align: center;
+    text-indent: 26px;
     background:url("../images/bg.png") no-repeat -287px -365px;
     position: absolute;
     width:119px;
     color: #FFFFFF;
     font-size: 14px;
-    top: -10px;
-    left: -1px;
+    top:41px;
+    left:0px;
 }
 .sheng-yi2 b{
     font-size: 18px;

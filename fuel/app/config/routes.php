@@ -85,8 +85,8 @@ return array(
      
     'u/mobile/first' => 'member/mobile/first',
     'u/mobile/second/(\d+)' => 'member/mobile/second/$1',
-    'u/mobile/getcode' => '',
-    'u/mobile/check' => '',
+    'u/mobile/getcode' => 'member/mobile/getcode',
+    'u/mobile/check' => 'member/mobile/check',
 /*
     'u/friends' => 'friends/my',
     'u/follow' => 'friends/follow',

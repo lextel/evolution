@@ -14,8 +14,8 @@
             <span class="phone_num"><?php echo $mobile?></span>
         </div>
         <div class="row">
-            <input class="btn btn-code" type="button" value="获取验证码" />
-            <span class="verification sure">验证码已发送请查收！</span>
+            <input class="btn btn-code get_code" type="button" value="获取验证码" />
+            <span class="verification"></span>
         </div>
         <div class="row">
             <label for="" class="fl">输入验证码：</label><input class="txt fl" datatype="n6-6" nullmsg="请输入6位验证码" errormsg="请输入正确的验证码" sucmsg=" "/>
@@ -27,56 +27,49 @@
     </form>
 </div>
 <script type="text/javascript">
-function countingDown(){
-        if (curCount == 0) {                
-            window.clearInterval(InterValObj);//停止计时器
-            $('input[name=mobile]').removeAttr('readonly');
-            $(".get_pwd").removeAttr("disabled");//启用按钮
-            $(".get_pwd").html("重新获取密码");
-        }
-        else {
-            curCount--;
-            $(".get_pwd").html("请在" + curCount + "秒内输入密码");
-        }
-    }
-
 $(function(){
+
     var tt = 50;
     var curCount = tt;
     var url = "<?php echo Uri::create('/u/mobile/getcode');?>";
     var img = '<img src="/assets/images/bx_loader.gif" style="width:30px" >';
-    
-    $(".get_pwd").click(function(){
-        var mobile = $("input[name=mobile]").val();
-        if (mobile == '' || mobile.length != 11){
-            return;
+    function countingDown(){
+        if (curCount == 0) {                
+            window.clearInterval(InterValObj);//停止计时器
+            $(".get_code").removeAttr("disabled");//启用按钮
+            $(".get_code").val("重新获取密码");
+            $(".verification").html('');
         }
+        else {
+            curCount--;
+            $(".verification").html("请在" + curCount + "秒内输入密码");
+        }
+    }
+    
+    $(".get_code").click(function(){
         $.ajax({
             url:url,
-            type:"post",
+            type:"get",
 		    dataType:"json",
-		    data:{mobile:mobile},
 		    beforeSend: function(){
 			    //ShowLoading();			    
-			    $('.get_pwd').html(img);
+			    $('.verification').html(img);
 		    },
 		    success: function(data){		        
 			    if (data.code == 0){
-			        $('.get_pwd').attr('disabled', 'disabled');
+			        $('.get_code').attr('disabled', 'disabled');
 			        //$(".get_pwd").html('重新获取密码');
-			        $('input[name=mobile]').attr('readonly', 'readonly');
-			        $(".check_mobile").html(data.msg);
+			        $(".verification").html(data.msg);
                     InterValObj = window.setInterval(countingDown, 1000);
                 }else{
                     if (data.code == 2){
-                       $('.get_pwd').attr('disabled', 'disabled');
-                       $('input[name=mobile]').attr('readonly', 'readonly');
+                       $('.get_code').attr('disabled', 'disabled');
                        //$(".get_pwd").html("重新获取密码");
-                       $(".check_mobile").html(data.msg);
+                       $(".verification").html(data.msg);
                        InterValObj = window.setInterval(countingDown, 1000);
                     }else{
-                       $(".check_mobile").html(data.msg);
-                       $(".get_pwd").html("重新获取密码");
+                       $(".verification").html(data.msg);
+                       $(".get_code").val("重新获取密码");
                     }
                 }
 		    },
