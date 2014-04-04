@@ -80,6 +80,13 @@ $(function(){
 });
 
 $(function(){
-          $('.bxslider').bxSlider();
+    $('.bxslider').bxSlider({
+        mode : 'horizontal',
+        auto: true,
+        autoDorection: 'prev',
+        speed:1000,
+        pause:5000,
+        controls: true,
+    });
 });
 

@@ -33,7 +33,7 @@
                 </li>
                 <li>
                    <?php echo Form::label('确认密码'); ?>
-                   <input id="xp" type="password"  name="password2" recheck="password" errorms="请在次输入一次密码"  nullmsg="请确认密码" class="txt" datatype="*6-18" sucmsg=" "/>
+                   <input id="xp" type="password"  name="password2" recheck="password" errorms="请确认密码"  nullmsg="请确认密码" class="txt" datatype="*6-18" sucmsg=" "/>
                    <span class="Validform_checktip"></span>
                 </li>
                 <li>
