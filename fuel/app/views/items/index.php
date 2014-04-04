@@ -69,7 +69,6 @@
         ?>
 </div>
 <div class="r-wide">
-    <div class="hot-tit">即将揭晓</div>
     <div class="product-hot">
                 <?php
                     if(!empty($topItem)) {
@@ -79,7 +78,7 @@
                             <h3 class="caption"><a href="<?php echo Uri::create('/m/'.$topItem->id); ?>"><?php echo $topItem->title; ?></a></h3>
                             <span class="price tr">价值<b>￥<?php echo sprintf('%.2f', $topItem->cost / Config::get('point')); ?></b></span>
                         </div>
-                        <div class="img-box img-lg">
+                        <div class="img-wide">
                             <a href="<?php echo Uri::create('m/'.$topItem->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($topItem->image, '400x400');?>"/></a>
                             <!--<div class="sheng-yi2">还需 <b><?php echo $topItem->remain ?></b>元宝！</div>-->
                             <div class="sheng-yi2">热门推荐</div>
