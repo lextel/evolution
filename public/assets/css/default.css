@@ -7,12 +7,13 @@ Author: Gilbert Pellegrom
 Author URI: http://dev7studios.com
 Supports Thumbs: true
 */
-
+.theme-default{
+    position: relative;
+}
 .theme-default .nivoSlider {
 	position:relative;
     width: 100%;
     height: 100%;
-	background:#fff;
 }
 .theme-default .nivoSlider img {
 	position:absolute;
@@ -27,7 +28,11 @@ Supports Thumbs: true
 
 .theme-default .nivo-controlNav {
 	text-align: center;
-	padding: 20px 0;
+    overflow: hidden;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    z-index: 999;
 }
 .theme-default .nivo-controlNav a {
 	display:inline-block;
@@ -45,14 +50,9 @@ Supports Thumbs: true
 	display:block;
 	width:30px;
 	height:30px;
-	background:url(arrows.png) no-repeat;
 	text-indent:-9999px;
 	border:0;
 	opacity: 0;
-	-webkit-transition: all 200ms ease-in-out;
-    -moz-transition: all 200ms ease-in-out;
-    -o-transition: all 200ms ease-in-out;
-    transition: all 200ms ease-in-out;
 }
 .theme-default a.nivo-nextNav {
 	background-position:-30px 0;
