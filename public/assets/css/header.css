@@ -288,8 +288,10 @@
 .bask .bask-content{
     line-height: 21px;
     width: 300px;
-    height: 132px;
+    height: 123px;
     overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 .bask-side .bask-list{
     overflow: hidden;
