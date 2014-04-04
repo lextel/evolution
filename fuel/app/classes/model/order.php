@@ -156,9 +156,12 @@ class Model_Order extends \Classes\Model
         $phase->codes = serialize($remainCodes);
         $phase->remain = $phase->remain - $count;
         $phase->joined = $phase->joined + $count;
-        if($phase->remain == 0) {
-            Config::load('common');
 
+        // 卖完
+        if($total == $count) {
+
+            // 期数开奖时间更新
+            Config::load('common');
             // 如果是4:00 - 4:10之间延长一倍
             if(date('H') == 4 && date('i') < 10) {
                 $time = time() + Config::get('open') * 2 * 60;
@@ -166,12 +169,7 @@ class Model_Order extends \Classes\Model
                 $time = time() + Config::get('open') * 60;
             }
             $phase->opentime = $time;
-        }
 
-        $phase->save();
-
-        // 卖完
-        if($total == $count) {
             $item = Model_Item::find($phase->item_id);
             // 生成新一期
             if($item->status == \Helper\Item::IS_CHECK 
@@ -197,6 +195,8 @@ class Model_Order extends \Classes\Model
             $root = realpath(DOCROOT . '../');
             file_put_contents($dir.$filename, 'sleep '.$sec.' && cd '. $root . ' && php oil refine result ' . $phaseId . "\n");
         }
+
+        $phase->save();
 
         return $fetchCodes;
     }
