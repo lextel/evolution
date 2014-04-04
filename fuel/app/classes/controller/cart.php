@@ -155,7 +155,7 @@ class Controller_Cart extends Controller_Frontend {
         $items = $payCart->items();
         $quantity = 0;
         foreach($items as $item) {
-            $quantity =+ $item->get_qty();
+            $quantity += $item->get_qty();
         }
         
         $config = Config::load('common');
