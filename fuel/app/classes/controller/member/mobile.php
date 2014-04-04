@@ -2,7 +2,7 @@
 
 class Controller_Member_Mobile extends Controller_Center
 {
-    public $smsPerTime = 10;
+    public $smsPerTime = 100;
     /*
     * 开始验证手机页面
     */
@@ -69,30 +69,34 @@ class Controller_Member_Mobile extends Controller_Center
         $val = Validation::forge();
         $val->add_callable(new \Classes\MyRules());
         $val->add_field('code', '密码', 'required|min_length[6]|max_length[6]');
-        $val->add_field('mobile', '手机', 'required|is_mobile');
         if (Input::method() == 'POST' && $val->run())
         {
-            $mobile = trim(Input::post('mobile'));
             $pwd = trim(Input::post('code'));
-            $phone = Session::get('mobile'); 
+            $phone = Session::get('front_mobile'); 
             $user = Model_Member::find_by_mobile($mobile);
-            if ($mobile == Session::get('front_mobile') && $user){
+            //检测是否存在 检测是否已经验证过了
+            if (!$user){
                 $code = Session::get('front_code');
 		        $time = Session::get('front_time');
 		        $now = time();
 		        if ((($now - $time) <= $this->smsPerTime) && ($code == $pwd)){
-		            $this->auth->force_login($user->id);
-                    Session::delete('mcode');
-		            Session::delete('mtime');
-		            Session::delete('mmobile');
+		            if ($user->mobile == ''){
+		                $user->mobile = $phone;
+		            }
+		            $user->is_mobile = 1;
+	                $user->save();
+                    Session::delete('front_code');
+		            Session::delete('front_time');
+		            Session::delete('front_mobile');
                     return Response::redirect('u'); 
 		        }else{
 		            $this->template->set_global('login_error', '您输入的密码不正确或者已经过期了');
 		        }           
             }else{
-                $this->template->set_global('login_error', $mobile.'不存在');
+                $this->template->set_global('login_error', $mobile.'已经存在');
             }
+            return Response::redirect('u/mobile/second'.$phone); 
         }
-        return Response::redirect('u'); 
+        return Response::redirect('u/mobile/first'); 
     }
 }
