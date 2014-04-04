@@ -1,5 +1,5 @@
-<?php echo Asset::css('product.css'); ?>
-<?php echo Asset::js(['Xslider.js', 'item/index.js']); ?>
+<?php echo Asset::css(['product.css', 'nivo-slider.css' ,'default.css']); ?>
+<?php echo Asset::js(['Xslider.js', 'item/index.js' ,'jquery.nivo.slider.pack.js']); ?>
  <div class="bread">
      <ul>
      <?php echo $getBread($cateId, $brandId)?>
@@ -47,22 +47,22 @@
                 $i++;
             endforeach; 
             ?>
-            <div class="sub_banner fl">
-                <?php 
-                    $ads = $getAds();
-                    $i = 0;
-                    foreach($ads as $ad):
-                    $style = ($i == $bannerIdx) ? '' : 'display:none';
-                ?>
-                <a style="<?php echo $style;?>" href="<?php echo Uri::create($ad->link); ?>" title="<?php echo $ad->title?>" alt="<?php echo $ad->title?>">
-                    <img src="<?php echo \Helper\Image::showImage($ad->image);?>"/>
-                </a>
-                <?php
-                    $i++;
-                    endforeach;
-                ?>
-            </div>
         </div>
+        <div class="sub_banner fl nivoSlider">
+                        <?php
+                            $ads = $getAds();
+                            $i = 0;
+                            foreach($ads as $ad):
+                            $style = ($i == $bannerIdx) ? '' : 'display:none';
+                        ?>
+                        <a style="<?php echo $style;?>" href="<?php echo Uri::create($ad->link); ?>" title="<?php echo $ad->title?>" alt="<?php echo $ad->title?>">
+                            <img src="<?php echo \Helper\Image::showImage($ad->image);?>"/>
+                        </a>
+                        <?php
+                            $i++;
+                            endforeach;
+                        ?>
+                    </div>
         <?php 
             $topItem = $getTopItem();
             Config::load('common');
