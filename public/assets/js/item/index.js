@@ -11,7 +11,6 @@ $(function(){
         imgDom.find('a').hide();
         imgDom.find('a').eq(idx).show();
     });
-
      $('.nivoSlider').nivoSlider({
         prevText:"",           
         nextText:"",
