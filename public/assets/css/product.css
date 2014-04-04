@@ -272,17 +272,17 @@
 .product-hot{
     background: #FFFFFF;
     width: 265px;
-    height: 296px;
+    overflow: hidden;
     border: 2px solid #f8b551;
     position: relative;
     margin-bottom: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 18px;
 }
-.product-hot .img-box{
+.product-hot .img-wide{
     width: 205px;
     height: 205px;
     display: block;
-    padding: 0 30px;
+    padding: 15px 30px;
     margin: 0;
 }
 .product-hot .title-box{
@@ -309,8 +309,8 @@
     width:119px;
     color: #FFFFFF;
     font-size: 14px;
-    top: -10px;
-    left: -1px;
+    top:41px;
+    left:0px;
 }
 .sheng-yi2 b{
     font-size: 18px;
