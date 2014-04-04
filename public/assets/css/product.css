@@ -223,6 +223,10 @@
    overflow: hidden;
    border: none;
 }
+.slide-nav{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
 .sub-menu  dl{
     height: 321px;
     width: 145px;
@@ -264,19 +268,15 @@
     text-align: center;
     overflow: hidden;
 }
-.sub_banner img{
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-}
 .product-hot{
     background: #FFFFFF;
     width: 265px;
     overflow: hidden;
     border: 2px solid #f8b551;
     position: relative;
-    margin-bottom: 10px;
     padding-bottom: 18px;
+    margin-left: 10px;
+    float: left;
 }
 .product-hot .img-wide{
     width: 205px;
