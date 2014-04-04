@@ -12,9 +12,10 @@ $(function(){
         imgDom.find('a').eq(idx).show();
     });
 
-     $('.nivoSlider').nivoSlider({
-        prevText:"",           
+    $('.nivoSlider').nivoSlider({
+        prevText:"",
         nextText:"",
         controlNav: true
-     });
+    });
 });
+
