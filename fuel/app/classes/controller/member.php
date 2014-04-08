@@ -310,7 +310,7 @@ class Controller_Member extends Controller_Center{
 
             $member = Model_Member::find($this->current_user->id);
             $member->avatar = $avatar;
-            $status = $member->save() ? 1 ? -2;
+            $status = $member->save() ? 1 : -2;
         } else {
             $unlink($tmpFile);
         }
