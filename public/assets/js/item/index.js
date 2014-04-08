@@ -1,4 +1,16 @@
 $(function(){
+    $('.nivoSlider').nivoSlider({
+        effect:"fold",
+        animSpeed: 500,
+        pauseTime: 4000,
+        startSlide: 0,
+        prevText:"",
+        nextText:"",
+        manualAdvance:false,
+        controlNav: true
+    });
+
+
     $('.cateNav').hover(function() {
         var idx = $(this).index();
         idx = idx-1;
@@ -12,10 +24,6 @@ $(function(){
         imgDom.find('a').eq(idx).show();
     });
 
-    $('.nivoSlider').nivoSlider({
-        prevText:"",
-        nextText:"",
-        controlNav: true
-    });
+
 });
 
