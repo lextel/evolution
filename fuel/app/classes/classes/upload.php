@@ -58,7 +58,7 @@ class Upload {
      *
      * @return void
      */
-    private function _checkDir($path) {
+    public function _checkDir($path) {
         if(!file_exists($path)) {
             mkdir($path, 0755, true);
         }

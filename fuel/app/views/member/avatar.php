@@ -18,23 +18,9 @@ echo Asset::js(
 $(function(){
     UPLOAD_URL = "<?php echo Uri::create('u/avatar/upload'); ?>";
     IMAGE_URL  = "<?php echo Uri::create('/'); ?>";
-    $(".btn-avatarUpload").click(function(){
-        $(".form-avatarUpload").submit();
-    });
-
-    $('#avatarUpload').fileupload({
-        url: UPLOAD_URL,
-        dataType: 'json',
-        done: function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                $('#newavatar').attr('src', IMAGE_URL+file.link);
-                $('#avatar').val(file.link);
-            });
-        },
-    }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
 
     var flashvars = {
-      "jsfunc":"uploadevent",
+      "jsfunc":"upload",
       "imgUrl":"<?php echo Uri::create($member->avatar);?>",
       //"pid":"",
       "uploadSrc":true,
@@ -57,11 +43,33 @@ $(function(){
       id:"FaustCplus"
     };
 
-    swfobject.embedSWF("<?php echo Uri::create('assets/images/FaustCplus.swf')?>", "avatar", "650", "360", "9.0.0", "expressInstall.swf", flashvars, params, attributes);
-
+    swfobject.embedSWF("<?php echo Uri::create('assets/images/FaustCplus.swf')?>", "avatar", "650", "360", "9.0.0", "<?php echo Uri::create('assets/images/expressInstall.swf')?>", flashvars, params, attributes);
 
 
 });
+
+function upload(status){
+     status += '';
+     switch(status){
+
+        case '1': //上传完后的操作。
+            alert('上传成功
+        break;
+        case '2': //这里是js调用提示参数,如果不需要提示，直接 return 1即可
+            return 1;
+        break;
+        case '-1':
+            alert('取消上传!');
+            window.location.href = "#";
+        break;
+        case '-2':
+            alert('上传失败!');
+            window.location.href = "#";
+        break;
+        default:
+            alert(typeof(status) + ' ' + status);
+    } 
+}
 </script>
 <div class="set-wrap">
         <div class="lead">个人设置</div>
@@ -75,41 +83,9 @@ $(function(){
         </div>
         <!--修改资头像-->
         <div class="portWarp">
-            <div id="avatar">
-            </div>
+            <div id="avatar"></div>
             <div class="savePre">
                 <input type="button" class="btn btn-red btn-md" onclick="swfobject.getObjectById('FaustCplus').jscall_updateAvatar();" value="保存">
             </div>
-            <div id="avatar_priview"></div>
         </div>
-        <!--
-        <ul class="edit-data">
-            <?php echo Form::open(['action' => 'u/avatar', 'method' => 'post', 'class'=>'form-avatarUpload']); ?>
-            <li>
-            <?php if (Session::get_flash('success')): ?>
-                 <?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
-            <?php endif; ?>
-            <?php if (Session::get_flash('error')): ?>
-                 <?php echo implode('</p><p>', (array) Session::get_flash('error')); ?>
-            <?php endif; ?>
-            </li>
-            <li>
-                <div class="file-img">
-                    <input id="avatarUpload" type="file" name="avatar" multiple>
-                </div>
-            </li>
-            <li>
-                <div class="upload-photo">
-                    <?php echo Html::img($member->avatar, ['id'=>'newavatar']); ?>
-                </div>
-            </li>
-            <li>
-                <input type="hidden" value="" name="avatar" id="avatar">
-            </li>
-            <li>
-                 <button class="btn btn-red btn-md" type="submit">保存</button>
-            </li>
-            <?php echo Form::close(); ?>
-        </ul>
-        -->
 </div>
