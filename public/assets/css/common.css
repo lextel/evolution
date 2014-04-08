@@ -940,7 +940,7 @@ table td p.tl{
 }
 .pagination span{
     float: left;
-    margin-right: 10px;
+    margin-left: 10px;
     display: block;
     border: 1px #d2d2d2 solid;
     text-align: center;
