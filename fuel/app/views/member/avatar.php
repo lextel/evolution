@@ -53,7 +53,7 @@ function upload(status){
      switch(status){
 
         case '1': //上传完后的操作。
-            alert('上传成功
+            alert('上传成功!');
         break;
         case '2': //这里是js调用提示参数,如果不需要提示，直接 return 1即可
             return 1;
