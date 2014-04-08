@@ -44,7 +44,9 @@
        <p><?php echo $post->desc; ?>
        </p>
        <?php foreach(unserialize($post->images) as $img) { ?>
-           <img src="<?php echo \Helper\Image::showImage($img);?>"/>
+           <p style="text-align: center;text-indent: 0;">
+           <img src="<?php echo \Helper\Image::showImage($img);?>" />
+           </p>
        <?php } ?>
        </div>
        <div class="btn-group sns-bar">
@@ -100,7 +102,7 @@
                <div><?php echo Html::anchor('u/'.$npost->member_id, $npostMembers[$npost->member_id]->nickname, ['class'=>'blue username']);?>
                <s class="datetime"><?php echo \Helper\Timer::friendlyDate($npost->created_at); ?></s>
                </div>
-               
+
                <div class="content-md">
                     <?php echo Html::anchor('p/'.$npost->id, mb_substr($npost->desc, 0, 100,'utf-8')); ?>
                </div>

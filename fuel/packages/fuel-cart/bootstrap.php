@@ -22,4 +22,5 @@ Autoloader::add_classes(array(
 	'Cart\\Cart_Auth'					=> __DIR__.'/classes/cart/auth.php',
 	'Cart\\Cart_Cookie'					=> __DIR__.'/classes/cart/cookie.php',
 	'Cart\\Cart_Session'				=> __DIR__.'/classes/cart/session.php',
+	'Cart\\Cart_Mysql'				=> __DIR__.'/classes/cart/mysql.php',
 ));
