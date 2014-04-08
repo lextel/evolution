@@ -82,11 +82,12 @@ class Controller_Center extends Controller_Frontend
             {
                 try{
                     $email = $username;
-                    if (!strpos($username, '@')){
+                    if (empty(strpos($username, '@'))){
                         $user = $this->auth->create_user_by_mobile($username, $password);
                     }else{
                         $user = $this->auth->create_user($username, $password, $email);
                     }
+
                     if ($this->auth->check() or $user)
                     {
                         $current_user = Model_Member::find_by_username($this->auth->get_screen_name());
@@ -96,7 +97,7 @@ class Controller_Center extends Controller_Frontend
                         $ip = $memberHelper->getIp();
                         $current_user -> avatar = Config::get('default_headico');
                         $current_user->ip = $ip;
-                        if (!strpos('@', $username)){
+                        if (empty(strpos($username, '@'))){
                             $current_user->mobile = $username;
                         }
                         $current_user -> save();
@@ -148,7 +149,12 @@ class Controller_Center extends Controller_Frontend
 
                 }
             }else{
-                Session::set_flash('usernameError', e('用户名格式不对'));
+                $val->set_message('required', ':label 为必填项.');
+                $val->set_message('valid_email', ':label 格式不正确.');
+                $val->set_message('min_length', ':label 不能少于:param:1个字符.');
+                $val->set_message('max_length', ':label 不能超过:param:1个字符.');
+                $val->set_message('unique', ':用户名 已经存在');
+                Session::set_flash('usernameError', $val->show_errors());
             }
             Session::set_flash('username', e($username));
             Response::redirect('/signup');
