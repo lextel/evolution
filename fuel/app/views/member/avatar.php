@@ -59,7 +59,7 @@ function upload(status){
             return 1;
         break;
         case '-1':
-            alert('取消上传!');
+            alert('请上传指定类型图片!');
             window.location.href = "#";
         break;
         case '-2':
