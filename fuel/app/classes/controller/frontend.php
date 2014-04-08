@@ -27,6 +27,7 @@ class Controller_Frontend extends Controller_Template {
                 View::set_global('isnew', false);
             }
         }
+
         $count = Model_Order::totalCountBuy();
         View::set_global('count', $count);
 

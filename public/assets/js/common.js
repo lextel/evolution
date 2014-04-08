@@ -794,7 +794,7 @@ $(function (){
         $(this).toggleClass("open");
         if("展开" == $(this).text()){
             $(this).html("收起<i></i>");
-            phase.nextAll().show(); 
+            phase.nextAll().show();
         }else{
             $(this).html("展开<i></i>");
             phase.nextAll().hide();
@@ -805,10 +805,10 @@ $(function (){
 
 //当前乐淘人数
 $(function(){
-    getTotalBuy();
-    setInterval(getTotalBuy,3000);
+    //getTotalBuy();
+    //setInterval(getTotalBuy,3000);
 });
-    
+
     function getTotalBuy(){
         $.get(BASE_URL+"totalbuycount?callback="+ new Date().getTime(), function(data){
             if (data.code==0){

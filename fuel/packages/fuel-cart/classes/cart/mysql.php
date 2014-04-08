@@ -40,10 +40,13 @@ class Cart_Mysql extends \Cart_Driver {
 			return $this->config['impersonate'];
 		}
 
-    $auth = \Auth::instance('Memberauth');
-		$user_id = $auth->get_user_id();
+        //$auth = \Auth::instance('Memberauth');
+        //list(, $userid) = $auth->get_user_id();
+		//$user_id = $auth->get_user_id();
+		$user_id = \Session::get('memberid', 0);
 
-		return !empty($user_id) ? $user_id[1] : 0;
+		//return $auth->check() ? $userid : 0;
+		return $user_id;
 	}
 	
 	/**
