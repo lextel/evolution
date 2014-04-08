@@ -74,21 +74,17 @@
         <div class="product-hot">
               <?php
                 if(!empty($topItem)) {
-                        ?>
-                            <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
-                                <div class="title-box">
-                                    <h3 class="caption"><a href="<?php echo Uri::create('/m/'.$topItem->id); ?>"><?php echo $topItem->title; ?></a></h3>
-                                    <span class="price tr">价值<b>￥<?php echo sprintf('%.2f', $topItem->cost / Config::get('point')); ?></b></span>
-                                </div>
-                                <div class="img-wide">
-                                    <a href="<?php echo Uri::create('m/'.$topItem->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($topItem->image, '400x400');?>"/></a>
-                                    <!--<div class="sheng-yi2">还需 <b><?php echo $topItem->remain ?></b>元宝！</div>-->
-                                    <div class="sheng-yi2">热门推荐</div>
-                                </div>
-                                <input name="id" value="<?php echo $topItem->id;?>" type="hidden"/>
-                                <input name="qty" value="1" type="hidden"/>
-                                <div class="btn-group tc"><button class="btn btn-red btn-hot" type="submit">立即一元乐淘</button></div>
-                            </form>
+              ?>
+                    <div class="title-box">
+                        <h3 class="caption"><a href="<?php echo Uri::create('/m/'.$topItem->id); ?>"><?php echo $topItem->title; ?></a></h3>
+                        <span class="price tr">价值<b>￥<?php echo sprintf('%.2f', $topItem->cost / Config::get('point')); ?></b></span>
+                    </div>
+                    <div class="img-wide">
+                        <a href="<?php echo Uri::create('m/'.$topItem->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($topItem->image, '400x400');?>"/></a>
+                        <!--<div class="sheng-yi2">还需 <b><?php echo $topItem->remain ?></b>元宝！</div>-->
+                        <div class="sheng-yi2">热门推荐</div>
+                    </div>
+                    <div class="btn-group tc"><a href="<?php echo Uri::create('/m/'.$topItem->id); ?>" class="btn btn-red btn-hot">立即一元乐淘</a></div>
               <?php
                }
               ?>
