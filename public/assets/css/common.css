@@ -791,6 +791,9 @@ table td p.tl{
     line-height: 22px;
     font-weight: bold;
     font-size: 12px;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 .title-md{
     width: 210px;
