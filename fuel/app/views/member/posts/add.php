@@ -86,7 +86,10 @@ $(function(){
                         <label for="" class="body-label">正文：</label>
                         <?php echo Form::textarea('desc', Input::get('desc'), ['class' => 'txt', 'name'=>'',
                                            'datatype'=>'desc', 'rows'=>'15', 'cols'=>'20', 'nullmsg'=>'请输入正文', 'sucmsg'=>' ']);?>
-                        <div id="descmsg" style="" class="Validform_checktip"></div>
+                        
+                    </li>
+                    <li style="height:23px;margin-top:-8px;">
+                        <label for="" class="body-label"></label><span id="descmsg" class="Validform_checktip"></span>
                     </li>
                     <li>
                        <div class="destItem">
@@ -116,6 +119,7 @@ $(function(){
 <script>
 $(function(){
 	$(".demoform").Validform({
+        btnSubmit: ".btn-address",
         tiptype:function(msg,o,cssctl){
             if(o.obj.attr("id") =="form_title"){
                 var objtip=$("#titlemsg");
@@ -139,10 +143,10 @@ $(function(){
            },
            'desc':function (gets,obj,curform,regxp){
                 if(0!=gets){
-                    obj.next().css("display","none");
+                    obj.parent().next().find("span").css("display","none");
                     return true;
                 }
-                obj.next().css("display","");
+                obj.parent().next().find("span").css("display","");
                 return false;
            }
         }
