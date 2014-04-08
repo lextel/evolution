@@ -889,6 +889,15 @@
     padding: 8px;
     float: left;
 }
+.edit-data li .choose{
+    display: inline-block;
+    width: 120px;
+    font-size: 14px;
+    border: 1px solid #d2d2d2;
+    padding: 6px;
+    float: left;
+    cursor: pointer;
+}
 .edit-data li textarea{
     border: 1px solid #d2d2d2;
     padding: 5px;
@@ -905,13 +914,8 @@
     float: left;
 }
 .edit-data li span.email{
-
     font-size: 14px;
 }
-.edit-data li span.align{
-    vertical-align: top;
-}
-
 .edit-data li #datas select{
     display: inline-block;
     width: 110px;
@@ -922,7 +926,6 @@
 .edit-data li .btn-state{
     margin-top: 4px;
 }
-
 .edit-data li .btn-address {
     margin-left: 120px;
 }
@@ -1096,7 +1099,7 @@
 /*评论*/
 .comment-panel{
     overflow: hidden;
-    margin-top: 20px;
+    padding: 20px;
 }
 .comment-footer{
     overflow: hidden;
@@ -1124,7 +1127,7 @@
 .comment-list{
     overflow: hidden;
     margin-top: 15px;
-    width: 716px;
+    overflow: hidden;
 }
 .comment-list dt{
     height:36px;
@@ -1149,13 +1152,13 @@
     width: 90%;
 }
 .comment-box {
-    width: 718px;
+    width: 100%;
     overflow: hidden;
 }
 .comment-box textarea{
     display: block;
     border: 1px solid #d2d2d2;
-    width: 716px;
+    width: 673px;
 }
 .comment-text{
     font-size: 14px;
