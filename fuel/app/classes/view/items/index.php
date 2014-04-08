@@ -64,9 +64,10 @@ class View_Items_index extends Viewmodel {
             $where = [
                 'opentime'  => \Helper\Item::NOT_OPEN, 
                 'is_delete' => \Helper\Item::NOT_DELETE, 
-                'status'    => \Helper\Item::IS_CHECK
+                'is_recommend' => 2,
+                ['status', 'in', [\Helper\Item::IS_CHECK, \Helper\Item::IS_SHOW]],
                 ];
-            $orderBy = ['remain' => 'asc'];
+            $orderBy = ['sort' => 'desc'];
 
             $item = Model_Phase::find('first', ['select' => $select, 'where' => $where, 'order_by' => $orderBy]);
 
