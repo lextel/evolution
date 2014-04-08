@@ -344,14 +344,17 @@ class Controller_V2admin_Items extends Controller_V2admin {
     }
 
     // 商品推荐
-    public function action_isRecommend($id = 0) {
+    public function action_isRecommend() {
 
-        if(empty($id)) return json_encode(['code' => 1, 'msg' => '参数错误']);
+        $id = Input::post('id');
+        $status = Input::post('status');
+
+        if(empty($id) || $status == '') return json_encode(['code' => 1, 'msg' => '参数错误']);
 
         $result = ['code' => 1, 'msg' => '操作失败'];
 
         $itemModel = new Model_Item();
-        if($itemModel->recommend($id)) {
+        if($itemModel->recommend($id, $status)) {
             $result = ['code' => 0];
         }
 

@@ -74,7 +74,17 @@ echo Asset::js(['admin/items/list.js']);
             <td><a href="<?php echo Uri::create('m/'.$item->id); ?>" target="_blank"><?php echo '(第'.$item->phase_id.'期)'.$item->title; ?></a></td>
             <td><?php echo '￥' . sprintf('%.2f', $item->cost/Config::get('point')); ?></td>
             <td><?php echo $item->joined, '/', $item->amount; ?></td>
-            <td title="点击即可修改"><a href="javascript:;" class="recommend" data-id="<?php echo $item->item_id; ?>"><?php echo $item->is_recommend == 1 ? '是' : '否';  ?></a></td>
+            <td title="点击即可修改">
+                <select class="form-control recommend" data-id="<?php echo $item->item_id;?>">
+                  <?php
+                    $recommends = ['否', '首页', '列表'];
+                    foreach($recommends as $k => $recommend) {
+                        $selected = ($k == $item->is_recommend) ? 'selected=true' : '';
+                        echo "<option value='{$k}' {$selected}>{$recommend}</option>";
+                    }
+                  ?>
+                </select>
+            </td>
             <td><?php echo $getStatus($item->status);  ?></td>
             <td><?php echo $item->is_delete == 1 ? '<span style="color:red">是</span>':'否';  ?></td>
             <td>
@@ -88,18 +98,17 @@ echo Asset::js(['admin/items/list.js']);
   OPERATE_URL = '<?php echo Uri::base() . 'v2admin/items/operate'?>';
 
   $(function(){
-      $('.recommend').click(function(){
+      $('.recommend').change(function(){
           var obj = $(this);
           var id = obj.attr('data-id');
+          var state = obj.val();
           $.ajax({
-                url: '<?php echo Uri::create('v2admin/items/isRecommend/');?>' + id,
-                type: 'get',
+                url: '<?php echo Uri::create('v2admin/items/isRecommend');?>',
+                type: 'post',
                 dataType: 'json',
+                data: {id:id, status:state},
                 success: function(data) {
-                    if(data.code == 0) {
-                        var str = obj.html() == '是' ? '否' : '是';
-                        obj.html(str);
-                    } else {
+                    if(data.code != 0) {
                         alert(data.msg)
                     }
                 },

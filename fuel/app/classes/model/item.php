@@ -296,22 +296,22 @@ class Model_Item extends \Classes\Model {
     /**
      * 标识推荐
      *
-     * @param $id integer 商品ID
+     * @param $id     integer 商品ID
+     * @param $status integer 商品推荐状态
      *
      * @return 是否成功
      */
-    public function recommend($id) {
+    public function recommend($id, $status) {
         $item = Model_Item::find($id);
 
-        $recommend = $item->is_recommend == 1 ? 0 : 1;
-        $str = $item->is_recommend == 1 ? '不推荐' : '推荐';
+        $recommends = ['不', '首页', '列表'];
 
-        $item->is_recommend = $recommend;
+        $item->is_recommend = $status;
         $rs = $item->save();
 
-        Model_Log::add('商品编辑推荐设置为：'.$str.' #' . $item->id);
+        Model_Log::add('商品编辑推荐设置为：'.$recommends[$status].'推荐 #' . $item->id);
 
-        DB::update('phases')->value('is_recommend', $recommend)
+        DB::update('phases')->value('is_recommend', $status)
                             ->where('item_id', $item->id)
                             ->execute();
 

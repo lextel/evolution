@@ -20,7 +20,6 @@
                         <th>单价</th>
                         <th>数量</th>
                         <th>小计</th>
-                        <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -50,7 +49,6 @@
                         <td><s><?php echo \Helper\Coins::showCoins(Config::get('point'), true); ?></s></td>
                         <td><?php echo $item->get_qty(); ?></td>
                         <td><s><?php echo \Helper\Coins::showCoins($item->get_qty() * Config::get('point'), true); ?></s></td>
-                        <td><a class="btn btn-default btn-sx" action="delete" rowId="<?php echo $item->get_rowid();?>" href="javascript:;">删除</a></td>
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
