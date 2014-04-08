@@ -269,8 +269,53 @@ class Controller_Member extends Controller_Center{
     // 上传头像图片
     public function action_avatarUpload()
     {
-        $files = Model_Member::upload();
-        return json_encode(['files' => $files]);
+        Config::load('upload');
+        $config = Config::get('avatar');
+
+        $input = file_get_contents('php://input');
+        $data = explode('--------------------', $input);
+        $name = md5(microtime(true));
+        $dir = $config['path'] . DS . $name[0] . DS . $name[1] . DS;
+        if(!file_exists($dir)) {
+            mkdir($dir, 0755, true);
+        }
+
+        $tmpFile = $dir . $name;
+
+        @file_put_contents($tmpFile, $data[0]);
+
+        if(!file_exists($tmpFile)) return json_encode(['status' => -1]);
+
+        $type = exif_imagetype($tmpFile);
+        switch($type){
+            case IMAGETYPE_GIF:
+                $status = 1;
+                break;
+            case IMAGETYPE_JPEG:
+                $status = 1;
+                break;
+            case IMAGETYPE_PNG:
+                $status = 1;
+                break;
+            default:
+                $status = -1;
+        }
+
+        if($status) {
+            $file = $dir . $name . '.jpg';
+            @rename($tmpFile, $file);
+
+            $img = new \Classes\Image();
+            $avatar = $img->path2url($file);
+
+            $member = Model_Member::find($this->current_user->id);
+            $member->avatar = $avatar;
+            $status = $member->save() ? 1 : -2;
+        } else {
+            $unlink($tmpFile);
+        }
+
+        return json_encode(['status' => $status]);
     }
 
 

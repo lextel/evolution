@@ -68,7 +68,7 @@ $(function(){
                     </li>
                     <li>
                         <label for=""></label>
-                        <p style="font-size:14px"><?php echo Html::img($phase->image, ['style'=>'width:80px']);?>
+                        <p style="font-size:14px"><?php echo Html::img(\Helper\Image::showImage($phase->image, '160x160'), ['style'=>'width:80px']);?>
                         </p>
                     </li>
                     <li>
