@@ -5,7 +5,7 @@
         <h2>晒单分享<small>（截止目前共 <b class="r"><?php echo $postscount; ?></b> 个幸运者晒单）</small></h2>
     </div>
     <div class="list_sort">
-        <span>排序</span>
+        <span><b>排序</b></span>
         <?php echo Html::anchor('/p/s/sortnew', '最新晒单', array('class' => ''));?>
         <?php echo Html::anchor('/p/s/sortup', '人气晒单', array('class' => ''));?>
         <?php echo Html::anchor('/p/s/sortcomment', '评论最多', array('class' => ''));?>
