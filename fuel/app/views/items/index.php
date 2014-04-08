@@ -111,7 +111,7 @@
 <a id="list"></a>
 <div class="w">
         <div class="list_sort">
-            <label>排序</label>
+            <label><b>排序</b></label>
             <?php echo $sort(); ?>
         </div>
         <div class="product-list">
