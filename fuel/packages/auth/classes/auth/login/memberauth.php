@@ -76,9 +76,8 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 	protected function perform_check()
 	{
 		// fetch the username and login hash from the session
-		$username    = \Session::get('membername');
+		$username   = \Session::get('membername');
 		$login_hash  = \Session::get('member_login_hash');
-
 		// only worth checking if there's both a username and login-hash
 		if ( ! empty($username) and ! empty($login_hash))
 		{
@@ -102,12 +101,11 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 		{
 			return $this->force_login($user_id);
 		}
-
 		// no valid login when still here, ensure empty session and optionally set guest_login
 		$this->user = \Config::get('memberauth.guest_login', true) ? static::$guest_login : false;
 		\Session::delete('membername');
 		\Session::delete('member_login_hash');
-
+		\Session::delete('memberid');
 		return false;
 	}
 
@@ -154,6 +152,7 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 			$this->user = \Config::get('memberauth.guest_login', true) ? static::$guest_login : false;
 			\Session::delete('membername');
 			\Session::delete('member_login_hash');
+			\Session::delete('memberid');
 			return false;
 		}
 
@@ -162,6 +161,7 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 
 		\Session::set('membername', $this->user['username']);
 		\Session::set('member_login_hash', $this->create_login_hash());
+		\Session::set('memberid', $this->user['id']);
 		\Session::instance()->rotate();
 		return true;
 	}
@@ -197,6 +197,7 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 
 		\Session::set('membername', $this->user['username']);
 		\Session::set('member_login_hash', $this->create_login_hash());
+		\Session::set('memberid', $this->user['id']);
 		return true;
 	}
 
@@ -210,6 +211,7 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 		$this->user = \Config::get('memberauth.guest_login', true) ? static::$guest_login : false;
 		\Session::delete('membername');
 		\Session::delete('member_login_hash');
+		\Session::delete('memberid');
 		return true;
 	}
 
@@ -264,8 +266,12 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 		$result = \DB::insert(\Config::get('memberauth.table_name'))
 			->set($this->user)
 			->execute(\Config::get('memberauth.db_connection'));
-        \Session::set('membername', $username);
+		// register so Auth::logout() can find us
+		Auth::_register_verified($this);
+		\Session::set('membername', $username);
 		\Session::set('member_login_hash', $this->create_login_hash());
+		\Session::set('memberid',  $result[0]);
+		\Session::instance()->rotate();
 		return ($result[1] > 0) ? $result[0] : false;
 	}
 
@@ -310,8 +316,12 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 		$result = \DB::insert(\Config::get('memberauth.table_name'))
 			->set($this->user)
 			->execute(\Config::get('memberauth.db_connection'));
-        \Session::set('membername', $username);
+		// register so Auth::logout() can find us
+		Auth::_register_verified($this);
+		\Session::set('membername', $username);
 		\Session::set('member_login_hash', $this->create_login_hash());
+		\Session::set('memberid',  $result[0]);
+		\Session::instance()->rotate();
 		return ($result[1] > 0) ? $result[0] : false;
 	}
 	/**
