@@ -45,7 +45,7 @@
        </p>
        <?php foreach(unserialize($post->images) as $img) { ?>
            <p style="text-align: center;text-indent: 0;">
-           <img src="<?php echo \Helper\Image::showImage($img);?>" />
+           <img src="/<?php echo $img;?>" />
            </p>
        <?php } ?>
        </div>
