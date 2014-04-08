@@ -1,4 +1,11 @@
 <?php echo Asset::css(['style.css']);?>
+    <div class="bread">
+         <ul>
+            <li><a href="">首页</a></li>
+            <li><em>&gt;</em></li>
+            <li><a href="">帮助中心</a></li>
+         </ul>
+    </div>
     <div class="wrapper w">
         <div class="help-side fl">
             <h2 class="title">帮助中心</h2>
@@ -19,7 +26,6 @@
                <dd><?php echo Html::anchor('h/longTime', '未收到商品问题');?></dd>
            </dl>
         </div>
-        
         <?php echo $content;?>
         </div>
-    </div>
+     </div>
