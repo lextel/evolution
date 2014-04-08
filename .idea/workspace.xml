@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="修改分页">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/help/about.php" afterPath="$PROJECT_DIR$/fuel/app/views/help/about.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/help/layout.php" afterPath="$PROJECT_DIR$/fuel/app/views/help/layout.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/special-game.html" />
+      <change type="DELETED" beforePath="D:\www\evolution\public\assets\img\lol-btn-sm.jpg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style.css" afterPath="$PROJECT_DIR$/public/assets/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="evolution.iws" />
@@ -68,15 +68,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nivo-slider.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/css/nivo-slider.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="40" selection-start="1771" selection-end="1771" vertical-scroll-proportion="0.0" vertical-offset="1316" max-vertical-offset="2128">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="default.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/default.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -86,55 +77,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="about.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/help/about.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="1145" selection-end="1145" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="suggest.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/help/suggest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="serve.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/help/serve.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2242">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/help/layout.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="5" selection-start="1327" selection-end="1327" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="703">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="898" column="19" selection-start="16317" selection-end="16317" vertical-scroll-proportion="0.0" vertical-offset="16533" max-vertical-offset="29298">
+            <state line="1592" column="27" selection-start="29026" selection-end="29026" vertical-scroll-proportion="0.6600985" vertical-offset="29712" max-vertical-offset="31502">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="special-game.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/html/special-game.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="74" column="70" selection-start="2828" selection-end="2828" vertical-scroll-proportion="-21.428572" vertical-offset="806" max-vertical-offset="1729">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1484" column="4" selection-start="26062" selection-end="26062" vertical-scroll-proportion="0.23670886" vertical-offset="28009" max-vertical-offset="40812">
+            <state line="1484" column="4" selection-start="26062" selection-end="26062" vertical-scroll-proportion="8.48" vertical-offset="28408" max-vertical-offset="40812">
               <folding>
                 <marker date="1396949867722" expanded="true" signature="628:652" placeholder="{...}" />
               </folding>
@@ -142,10 +106,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/posts/view.php">
+      <file leaf-file-name="special-lol.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/html/special-lol.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="13" selection-start="5027" selection-end="5027" vertical-scroll-proportion="0.0" vertical-offset="1824" max-vertical-offset="3420">
+            <state line="1" column="42" selection-start="0" selection-end="5531" vertical-scroll-proportion="-0.6785714" vertical-offset="0" max-vertical-offset="2565">
               <folding />
             </state>
           </provider>
@@ -169,7 +133,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/fuel/app/views/member/signup.php" />
         <option value="$PROJECT_DIR$/public/assets/css/header.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/items/index.php" />
         <option value="$PROJECT_DIR$/public/assets/js/item/index.js" />
@@ -179,12 +142,13 @@
         <option value="$PROJECT_DIR$/fuel/app/views/template.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/posts/view.php" />
         <option value="$PROJECT_DIR$/public/assets/css/product.css" />
-        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
         <option value="$PROJECT_DIR$/public/html/helpcenter.html" />
         <option value="$PROJECT_DIR$/fuel/app/views/items/search.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/help/about.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/help/layout.php" />
         <option value="$PROJECT_DIR$/public/assets/css/common.css" />
+        <option value="$PROJECT_DIR$/public/html/special-game.html" />
+        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
       </list>
     </option>
   </component>
@@ -813,37 +777,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/posts/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="13" selection-start="5027" selection-end="5027" vertical-scroll-proportion="0.0" vertical-offset="1161" max-vertical-offset="3420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/usercenter.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.43456164" vertical-offset="342" max-vertical-offset="2090" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="898" column="19" selection-start="16317" selection-end="16317" vertical-scroll-proportion="0.0" vertical-offset="16533" max-vertical-offset="29298">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/helpcenter.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="39" selection-start="481" selection-end="481" vertical-scroll-proportion="0.2515883" vertical-offset="49" max-vertical-offset="1406" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/product.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="376" column="1" selection-start="6988" selection-end="6988" vertical-scroll-proportion="0.0" vertical-offset="6843" max-vertical-offset="25574">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/items/search.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="23" selection-start="122" selection-end="122" vertical-scroll-proportion="0.046625767" vertical-offset="0" max-vertical-offset="2280">
@@ -868,13 +801,6 @@
     <entry file="file://$PROJECT_DIR$/fuel/app/views/memberlayout.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.3655914" vertical-offset="306" max-vertical-offset="1349">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/default.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="16" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="1767">
           <folding />
         </state>
       </provider>
@@ -914,12 +840,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/nivo-slider.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="40" selection-start="1771" selection-end="1771" vertical-scroll-proportion="0.0" vertical-offset="1316" max-vertical-offset="2128">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/posts/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="13" selection-start="5027" selection-end="5027" vertical-scroll-proportion="0.0" vertical-offset="1824" max-vertical-offset="3420">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/special-lol.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="42" selection-start="0" selection-end="5531" vertical-scroll-proportion="-0.6785714" vertical-offset="0" max-vertical-offset="2565">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/default.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="16" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="1767">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/special-game.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="70" selection-start="2828" selection-end="2828" vertical-scroll-proportion="-21.428572" vertical-offset="806" max-vertical-offset="1729">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1484" column="4" selection-start="26062" selection-end="26062" vertical-scroll-proportion="0.23670886" vertical-offset="28009" max-vertical-offset="40812">
+        <state line="1484" column="4" selection-start="26062" selection-end="26062" vertical-scroll-proportion="8.48" vertical-offset="28408" max-vertical-offset="40812">
           <folding>
             <marker date="1396949867722" expanded="true" signature="628:652" placeholder="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1592" column="27" selection-start="29026" selection-end="29026" vertical-scroll-proportion="0.6600985" vertical-offset="29712" max-vertical-offset="31502">
+          <folding />
         </state>
       </provider>
     </entry>
