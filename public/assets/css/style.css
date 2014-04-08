@@ -1096,7 +1096,7 @@
 /*评论*/
 .comment-panel{
     overflow: hidden;
-    margin-top: 20px;
+    padding: 20px;
 }
 .comment-footer{
     overflow: hidden;
@@ -1124,7 +1124,7 @@
 .comment-list{
     overflow: hidden;
     margin-top: 15px;
-    width: 716px;
+    overflow: hidden;
 }
 .comment-list dt{
     height:36px;
@@ -1149,13 +1149,13 @@
     width: 90%;
 }
 .comment-box {
-    width: 718px;
+    width: 100%;
     overflow: hidden;
 }
 .comment-box textarea{
     display: block;
     border: 1px solid #d2d2d2;
-    width: 716px;
+    width: 673px;
 }
 .comment-text{
     font-size: 14px;

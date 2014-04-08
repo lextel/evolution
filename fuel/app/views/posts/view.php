@@ -53,6 +53,48 @@
            <?php echo Html::anchor('javascript:;', '喜欢(<s>'.$post->up.'</s>)', array('class'=>'btn-link sns-love', 'id'=>$post->id));?>
            <span class="btn-link sns-comment"><a href="#comment">评论</a>(<s><?php echo $post->comment_count;?></s>)</span>
        </div>
+       <div class="comment-panel" name="comment">
+           <div class="comment-box">
+               <input id="<?php echo $post->id;?>" type="hidden" class="postid">
+               <textarea name="text" id="comment" cols="30" rows="4"></textarea>
+               <div class="comment-footer">
+                   <!--<div class="expression fl"><span class="icon icon-expression"></span>表情</div>-->
+                   <button class="fr btn btn-default btn-comment">发表评论</button>
+                   <span class="fr comment-count">还可以输入<b>200</b>字</span>
+               </div>
+           </div>
+           <dl class="comment-list">
+               <dt><h4>全部评论</h4></dt>
+           </dl>
+       </div>
+       <!--弹出登录框-->
+       <div class="login2">
+           <form action="/signin" method="POST" class="demoform">
+               <div class="login2-head">
+                 <h3>用户登录</h3>
+                  <button class="close" id="close"></button>
+               </div>
+               <label for="" class="error2"></label>
+               <ul class="login2-body">
+                   <li>
+                       <input name="username" type="text" value="" placeholder="用户邮箱" datatype="e" errorms="请输入邮箱帐号" />
+                       <span class="icon-user"></span>
+                        <span class="Validform_checktip"></span>
+                   </li>
+                   <li>
+                       <input name="password"  type="password" value="" placeholder="用户密码"  datatype="*6-18" errorms="密码范围在6-18位之间" />
+                       <span class="icon-password"></span>
+                       <span class="Validform_checktip"></span>
+                   </li>
+                   <li>
+
+                       <button class="btn btn-red btn-modal fl">登录</button>
+                       <a href="/forgot" class="fr">忘记密码？</a>
+                   </li>
+               </ul>
+               <div class="register-bar">还没有帐号？<a href="/signup" class="register blue">马上注册</a> </div>
+           </form>
+       </div>
    </div>
     <div class="sidebar fr">
         <div class="title-red">
@@ -123,48 +165,6 @@
     </div>
 </div>
 <!--评论-->
-<div class="comment-panel" name="comment">
-    <div class="comment-box">
-        <input id="<?php echo $post->id;?>" type="hidden" class="postid">
-        <textarea name="text" id="comment" cols="30" rows="4"></textarea>
-        <div class="comment-footer">
-            <!--<div class="expression fl"><span class="icon icon-expression"></span>表情</div>-->
-            <button class="fr btn btn-default btn-comment">发表评论</button>
-            <span class="fr comment-count">还可以输入<b>200</b>字</span>
-        </div>
-    </div>
-    <dl class="comment-list">
-        <dt><h4>全部评论</h4></dt>
-    </dl>
-</div>
-<!--弹出登录框-->
-<div class="login2">
-    <form action="/signin" method="POST" class="demoform">
-        <div class="login2-head">
-          <h3>用户登录</h3>
-           <button class="close" id="close"></button>
-        </div>
-        <label for="" class="error2"></label>
-        <ul class="login2-body">
-            <li>
-                <input name="username" type="text" value="" placeholder="用户邮箱" datatype="e" errorms="请输入邮箱帐号" />
-                <span class="icon-user"></span>
-                 <span class="Validform_checktip"></span>
-            </li>
-            <li>
-                <input name="password"  type="password" value="" placeholder="用户密码"  datatype="*6-18" errorms="密码范围在6-18位之间" />
-                <span class="icon-password"></span>
-                <span class="Validform_checktip"></span>
-            </li>
-            <li>
-
-                <button class="btn btn-red btn-modal fl">登录</button>
-                <a href="/forgot" class="fr">忘记密码？</a>
-            </li>
-        </ul>
-        <div class="register-bar">还没有帐号？<a href="/signup" class="register blue">马上注册</a> </div>
-    </form>
-</div>
 <script type="text/javascript">
     $(function(){
     	$(".demoform").Validform({
