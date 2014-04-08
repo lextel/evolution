@@ -1,10 +1,3 @@
-$(function(){
-    $('.nivoSlider').nivoSlider({
-        prevText:"",
-        nextText:"",
-        controlNav: true
-    });
-});
 /**
  * 往期晒单滚动效果
  */
