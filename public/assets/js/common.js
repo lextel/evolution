@@ -805,8 +805,8 @@ $(function (){
 
 //当前乐淘人数
 $(function(){
-    //getTotalBuy();
-    //setInterval(getTotalBuy,3000);
+    getTotalBuy();
+    setInterval(getTotalBuy,3000);
 });
 
     function getTotalBuy(){
