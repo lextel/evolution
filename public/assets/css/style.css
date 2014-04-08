@@ -889,6 +889,15 @@
     padding: 8px;
     float: left;
 }
+.edit-data li .choose{
+    display: inline-block;
+    width: 120px;
+    font-size: 14px;
+    border: 1px solid #d2d2d2;
+    padding: 6px;
+    float: left;
+    cursor: pointer;
+}
 .edit-data li textarea{
     border: 1px solid #d2d2d2;
     padding: 5px;
@@ -905,13 +914,8 @@
     float: left;
 }
 .edit-data li span.email{
-
     font-size: 14px;
 }
-.edit-data li span.align{
-    vertical-align: top;
-}
-
 .edit-data li #datas select{
     display: inline-block;
     width: 110px;
@@ -922,7 +926,6 @@
 .edit-data li .btn-state{
     margin-top: 4px;
 }
-
 .edit-data li .btn-address {
     margin-left: 120px;
 }
