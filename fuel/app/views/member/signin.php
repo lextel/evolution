@@ -39,7 +39,7 @@
                          'datatype'=>'em','errorms'=>'手机/邮箱格式不正确！','nullmsg'=>'请输入注册手机/邮箱！','placeholder'=>'请输入手机/邮箱','sucmsg'=>' ')); ?>
 
                         <?php if (Session::get_flash('signError', null)) { ?>
-                        <span class="Validform_checktip"><?php echo Session::get_flash('signError');?></span>
+                        <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('signError');?></span>
                         <?php }else{?>
                         <?php } ?>
                         <s class="icon-user"></s>

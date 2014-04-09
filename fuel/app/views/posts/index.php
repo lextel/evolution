@@ -1,7 +1,7 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
 <?php echo Asset::js(['jquery.cookie.js', 'post/postup.js']);?>
 <div class="wrapper w">
-    <div class="title">
+    <div class="title titlecontent">
         <h2>晒单分享<small>（截止目前共 <b class="r"><?php echo $postscount; ?></b> 个幸运者晒单）</small></h2>
     </div>
     <div class="list_sort">
@@ -31,7 +31,7 @@
                                           </a>
                                       </div>
                                       <div class="info-side fl">
-                                            <div class="username"><?php echo Html::anchor('u/'.$item->member_id, $members[$item->member_id]->nickname);?></div>
+                                            <div ><?php echo Html::anchor('u/'.$item->member_id, $members[$item->member_id]->nickname);?></div>
                                             <div class="datetime"><?php echo \Helper\Timer::friendlyDate($item->created_at); ?></div>
                                             <h5 class="title-mx"> <?php echo Html::anchor('p/'.$item->id, $item->title);?></h5>
                                       </div>

@@ -3,7 +3,7 @@
 <div class="latest-wrap w">
    <!--左边内容开始-->
     <div class="left-content">
-        <div class="title">
+        <div class="title titlecontent">
             <h3>最新揭晓 <small>(截至目前共揭晓商品 <s class="red"><?php echo $count;?></s>件)</small></h3>
         </div>
         <ul class="item-group">
