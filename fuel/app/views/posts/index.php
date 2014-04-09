@@ -1,11 +1,18 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
 <?php echo Asset::js(['jquery.cookie.js', 'post/postup.js']);?>
 <div class="wrapper w">
+     <div class="bread">
+            <ul>
+                <li>首页</li>
+                <li><em>&gt;</em></li>
+                <li>晒单分享</li>
+            </ul>
+     </div>
     <div class="title">
         <h2>晒单分享<small>（截止目前共 <b class="r"><?php echo $postscount; ?></b> 个幸运者晒单）</small></h2>
     </div>
     <div class="list_sort">
-        <span>排序</span>
+        <span><b>排序</b></span>
         <?php echo Html::anchor('/p/s/sortnew', '最新晒单', array('class' => ''));?>
         <?php echo Html::anchor('/p/s/sortup', '人气晒单', array('class' => ''));?>
         <?php echo Html::anchor('/p/s/sortcomment', '评论最多', array('class' => ''));?>

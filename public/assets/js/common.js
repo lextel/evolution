@@ -288,19 +288,30 @@ $(function(){
         }
     });
 
-   // 参与者拉取
+    //商品详情字体颜色
+    $('a[href="#desc"]').click(function() {
+        $(".fl").find("a").css("color","#666");
+        $(this).css("color","#af2812");
+    });
+    // 参与者拉取
     $('a[href="#buylog"]').click(function() {
         joined(1);
+        $(".fl").find("a").css("color","#666");
+        $(this).css("color","#af2812");
     });
 
     // 晒单拉取
     $('a[href="#posts"]').click(function() {
         posts(1);
+        $(".fl").find("a").css("color","#666");
+        $(this).css("color","#af2812");
     });
 
     // 拉取期数
     $('a[href="#phase"]').click(function() {
         phases(1);
+        $(".fl").find("a").css("color","#666");
+        $(this).css("color","#af2812");
     });
 
 
@@ -794,7 +805,7 @@ $(function (){
         $(this).toggleClass("open");
         if("展开" == $(this).text()){
             $(this).html("收起<i></i>");
-            phase.nextAll().show(); 
+            phase.nextAll().show();
         }else{
             $(this).html("展开<i></i>");
             phase.nextAll().hide();
@@ -808,7 +819,7 @@ $(function(){
     getTotalBuy();
     setInterval(getTotalBuy,3000);
 });
-    
+
     function getTotalBuy(){
         $.get(BASE_URL+"totalbuycount?callback="+ new Date().getTime(), function(data){
             if (data.code==0){

@@ -117,6 +117,7 @@
 }
 .recommended .price{
     text-align: right;
+    color:#848484;
 }
 .recommended ul li{
     float: left;

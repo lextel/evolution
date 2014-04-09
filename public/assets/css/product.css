@@ -194,7 +194,7 @@
     text-align: center;
     font-size: 14px;
     font-weight: bold;
-    color: #000000;
+    color: #757575;
     border-top: 1px solid #d2d2d2;
     background: url("../images/bg.png") no-repeat -9px -542px;
 }
@@ -209,6 +209,7 @@
 .product-nav li a{
     display: block;
     font-size: 14px;
+    color:#666;
 }
 .product-nav li.active{
     background: #FFFFFF;
@@ -238,6 +239,7 @@
 .sub-menu  dl dt{
     font-size: 13px;
     line-height: 26px;
+    color:#757575;
     font-weight: bold;
 }
 .sub-menu  dl dd{
@@ -253,6 +255,7 @@
     overflow: hidden;
     word-wrap: break-word;
     word-break: break-all;
+    color:#848484;
 }
 .sub-menu  dl dd a img{
     width: 35px;
@@ -328,19 +331,20 @@
     padding: 6px;
     vertical-align: middle;
     float: left;
+    color:#757575;
 }
 .list_sort a{
     margin: 0 5px;
     float: left;
     padding: 5px 12px;
     display: block;
-    border: 1px solid #d2d2d2;
+    border: 1px solid #848484;
 }
 .list_sort span{
     float: left;
     padding: 7px;
     display: block;
-    border: 1px solid #fff;
+    color:  #666;
 }
 
 .list_sort a:hover{
@@ -419,7 +423,7 @@
     right:0px;
     bottom: 0px;
     width: 105px;
-    color: #FFFFFF;
+    color: #848484;
     text-align: center;
     height: 24px;
     font-size: 12px;
@@ -429,7 +433,7 @@
     filter: Alpha(opacity=60)
 }
 .date-hot ul li .caption{
-    color: #2c2c2c;
+    color: #666;
     font-weight: normal;
     overflow: hidden;
     white-space: normal;
@@ -1028,7 +1032,9 @@
     vertical-align: middle;
     font-size: 16px;
     padding: 5px 0;
-
+}
+.lucky-code b{
+   color: #757575;
 }
 .user-info{
     overflow: hidden;
