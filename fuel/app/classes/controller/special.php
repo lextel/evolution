@@ -8,4 +8,10 @@ class Controller_Special extends Controller_Frontend
         $this->template->layout = View::forge('special/lol');
     }
 
+    // game专题
+    public function action_game() {
+        $this->template->title = '游戏之旅一元乐购！';
+        $this->template->layout = View::forge('special/game');
+    }
+
 }
