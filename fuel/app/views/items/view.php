@@ -27,7 +27,7 @@ if(is_array($phasesList)) {
                 <?php echo $item->title; ?>
             </h2>
         </div>
-        <div class="img-wide fl">
+        <div class="img-wide fl flsl">
             <!--商品图片切换开始-->
             <div class="lantern-slide">
                 <div class="slide-img">
@@ -76,7 +76,7 @@ if(is_array($phasesList)) {
             Config::load('common');
             $unit = Config::get('unit');
         ?>
-        <div class="product-column fr">
+        <div class="product-column fr columnw">
             <div class="state-heading">
                 <span class="icon icon-horn"></span>
                 <span>本商品已有 <b class="blue"><?php echo $postsCount($item->id); ?></b>位幸运者晒单，<b class="blue"><?php echo $commentCount($item->id); ?></b>评论</span>
@@ -240,7 +240,7 @@ if(is_array($phasesList)) {
             </ul>
             <div class="online-qq fr"><span class="icon icon-qq"></span><a class="chance" href="javaxcript:void(0)">在线客服</a></div>
         </div>
-        <div class="tab-content">
+        <div class="tab-content" id="tab-content">
             <!--商品详情开始-->
             <div class="product-details tab-pane active" id="desc">
                 <?php echo $item->desc; ?>
