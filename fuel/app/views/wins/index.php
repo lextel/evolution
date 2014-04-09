@@ -1,5 +1,12 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
 <?php echo Asset::js(['wins/index.js']); ?>
+ <div class="bread">
+        <ul>
+            <li>首页</li>
+            <li><em>&gt;</em></li>
+            <li>邀请</li>
+        </ul>
+ </div>
 <div class="latest-wrap w">
    <!--左边内容开始-->
     <div class="left-content">

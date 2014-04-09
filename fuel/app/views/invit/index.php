@@ -1,4 +1,11 @@
 <?php echo Asset::js(['jquery.zclip.min.js']); ?>
+ <div class="bread">
+        <ul>
+            <li>首页</li>
+            <li><em>&gt;</em></li>
+            <li>邀请</li>
+        </ul>
+ </div>
 <div class="referrals_box">
         <div class="W-left fl">
             <h4 style="line-height: 40px; font-size: 24px; color:#af2812">邀请有礼</h4>

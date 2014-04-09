@@ -3,6 +3,13 @@
 <?php echo Asset::css('member/validfrom_style.css'); ?>
 <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
 <div class="w">
+     <div class="bread">
+            <ul>
+                <li>首页</li>
+                <li><em>&gt;</em></li>
+                <li>晒单详情</li>
+            </ul>
+     </div>
    <div class="bask-wide">
        <div class="title-bar">
            <h2><?php echo $post->title; ?></h2>
