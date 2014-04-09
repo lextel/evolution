@@ -16,6 +16,7 @@ class Controller_Help extends Controller_Frontend
             Response::redirect('404');
         }
         $pageInfo = $pagesMap[$page];
+        $this->template->set_global('title', $pageInfo['title']);
         $this->template->title = $pageInfo['title'];
         $this->template->layout->content = View::forge($pageInfo['page']);
     }

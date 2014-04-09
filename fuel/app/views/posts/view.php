@@ -4,11 +4,13 @@
 <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
 <div class="w">
      <div class="bread">
-            <ul>
-                <li>首页</li>
-                <li><em>&gt;</em></li>
-                <li>晒单详情</li>
-            </ul>
+        <ul>
+            <li><a href="<?php echo Uri::create('/')?>">首页</a></li>
+            <li><em>&gt;</em></li>
+            <li><a href="<?php echo Uri::create('p')?>">晒单分享</a></li>
+            <li><em>&gt;</em></li>
+            <li><?php echo $post->title;?></li>
+        </ul>
      </div>
    <div class="bask-wide">
        <div class="title-bar">
