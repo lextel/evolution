@@ -2140,9 +2140,17 @@ a.Myahoo {
 .overdueList ul{
     width: 100%;
 }
-
-
-
+.captcha{
+    margin: 0 5px;
+}
+.cap-text{
+    display: inline-block;
+    width: 100px;
+    font-size: 14px;
+    border: 1px solid #D2D2D2;
+    padding: 8px;
+    float: left;
+}
 
 
 
