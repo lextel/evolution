@@ -4,7 +4,7 @@
         <ul>
             <li>首页</li>
             <li><em>&gt;</em></li>
-            <li>邀请</li>
+            <li>最新揭晓</li>
         </ul>
  </div>
 <div class="latest-wrap w">
