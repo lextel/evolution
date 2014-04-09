@@ -27,7 +27,7 @@ body{
     color: #999999;
 }
 .price.black{
-    color: #212121;
+    color: #848484;
 }
 .bx-controls{
     max-height: 350px;
@@ -37,7 +37,7 @@ body{
     margin-bottom: 10px;
 }
 a{
-    color: #2c2c2c;
+    color: #666;
     outline: none;
 }
 a:active{noOutline:expression(this.onFocus=this.blur());}
@@ -57,6 +57,7 @@ h4{
 }
 h3{
     font-size: 14px;
+    color: #666;
 }
 h3 a{
     font-weight: bold;
@@ -72,6 +73,7 @@ h5{
 }
 h2{
     font-size: 18px;
+    color: #757575;
 }
 h1{
     font-size: 16px;
@@ -159,6 +161,7 @@ textarea:focus,input:focus{
     height: 52px;
     text-indent: 2em;
     overflow: hidden;
+    color:#848484;
 }
 .text-content{
     line-height: 18px;
@@ -185,7 +188,7 @@ textarea:focus,input:focus{
 }
 .price{
     display: block;
-    color: #828282;
+    color: #848484;
 }
 .price b{
     padding: 0px 5px;
@@ -214,7 +217,7 @@ textarea:focus,input:focus{
 .username{
      display: inline-block;
      max-width: 150px;
-     color:#333;
+     color:#848484;
      line-height: 18px;
      text-align: left;
      overflow: hidden;
@@ -236,6 +239,10 @@ textarea:focus,input:focus{
 .number,.ip,.price,.datetime,.remain{
     line-height:18px;
     text-align: left;
+    color: #666;
+}
+.datetime{
+    color:#848484;
 }
 .number b,.remain b{
     color: #af2812;
@@ -754,9 +761,15 @@ table td p.tl{
     font-weight: normal;
     font-size: 14px;
 }
+.loginForm .title h3{
+    float: left;
+    font-size: 16px;
+    color:#fff;
+}
 .title h3{
     float: left;
     font-size: 16px;
+    color:#757575;
 }
 .title-lg{
     width: 300px;
@@ -846,6 +859,7 @@ table td p.tl{
 }
 .title-box h3 a{
     font-weight: normal;
+    color:#666;
 }
 .title-br{
     height: 40px;
@@ -1481,8 +1495,8 @@ table td p.tl{
     display:block;
 }
 .login2-body li .Validform_checktip{
-    line-height: 30px;
-    max-height:30px;
+    line-height: 23px;
+    height:23px;
 }
 .register-bar{
     margin-top: 15px;
@@ -2057,7 +2071,7 @@ a.Myahoo {
     color: #bbbbbb;
     line-height: 30px;
     overflow: hidden;
-    margin-bottom: 5px;
+    margin:0 auto 5px;
 }
 .bread ul li{
     float: left;
