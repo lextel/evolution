@@ -2071,7 +2071,7 @@ a.Myahoo {
     color: #bbbbbb;
     line-height: 30px;
     overflow: hidden;
-    margin-bottom: 5px;
+    margin:0 auto 5px;
 }
 .bread ul li{
     float: left;
