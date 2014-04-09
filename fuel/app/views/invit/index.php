@@ -1,9 +1,9 @@
 <?php echo Asset::js(['jquery.zclip.min.js']); ?>
  <div class="bread">
         <ul>
-            <li>首页</li>
+            <li><a href="<?php echo Uri::create('/')?>">首页</a></li>
             <li><em>&gt;</em></li>
-            <li>邀请</li>
+            <li><a href="<?php echo Uri::create('invit')?>">邀请</a></li>
         </ul>
  </div>
 <div class="referrals_box">
