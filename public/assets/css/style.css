@@ -1547,6 +1547,7 @@
     height: 755px;
     margin: 0 auto;
     overflow: hidden;
+    background: url("../img/game-banner.jpg") no-repeat;
 }
 .game-bd{
     width: 1678px;
