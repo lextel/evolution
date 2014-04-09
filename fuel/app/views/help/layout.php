@@ -1,10 +1,14 @@
 <?php echo Asset::css(['style.css']);?>
     <div class="bread">
-         <ul>
-            <li><a href="">首页</a></li>
+        <ul>
+            <li><a href="<?php echo Uri::create('/')?>">首页</a></li>
             <li><em>&gt;</em></li>
-            <li><a href="">帮助中心</a></li>
-         </ul>
+            <li><a href="<?php echo Uri::create('h')?>">帮助中心</a></li>
+            <?php if(isset($title)):?>
+            <li><em>&gt;</em></li>
+            <li><?php echo $title;?></li>
+            <?php endif;?>
+        </ul>
     </div>
     <div class="wrapper w">
         <div class="help-side fl">

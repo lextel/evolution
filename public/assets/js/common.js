@@ -288,19 +288,30 @@ $(function(){
         }
     });
 
-   // 参与者拉取
+    //商品详情字体颜色
+    $('a[href="#desc"]').click(function() {
+        $(".fl").find("a").css("color","#666");
+        $(this).css("color","#af2812");
+    });
+    // 参与者拉取
     $('a[href="#buylog"]').click(function() {
         joined(1);
+        $(".fl").find("a").css("color","#666");
+        $(this).css("color","#af2812");
     });
 
     // 晒单拉取
     $('a[href="#posts"]').click(function() {
         posts(1);
+        $(".fl").find("a").css("color","#666");
+        $(this).css("color","#af2812");
     });
 
     // 拉取期数
     $('a[href="#phase"]').click(function() {
         phases(1);
+        $(".fl").find("a").css("color","#666");
+        $(this).css("color","#af2812");
     });
 
 
