@@ -1540,11 +1540,13 @@
     width: 1678px;
     height: 755px;
     margin: 0 auto;
+    overflow: hidden;
 }
 .game-bd{
     width: 1678px;
     height: 908px;
     margin: 0 auto;
+    overflow: hidden;
     background: url("../img/game-bg.png") no-repeat;
 }
 .game-column{
