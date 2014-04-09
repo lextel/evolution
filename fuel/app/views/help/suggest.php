@@ -43,9 +43,9 @@
             </li>
             <li>
                 <label><font color="#f00">*</font>验证码：</label>
-                <input name="captcha" type="text" class="txt">
+                <input name="captcha" type="cap-text" class="txt">
                 <span class="captcha"><?php echo Html::img('captcha?'.+time());?></span>
-                <span class="recaptcha">看不清？</span>
+                <span class="recaptcha"><a href="javascript:void(0)">看不清？换一张</a></span>
             </li>
             <li>
                 <button class="btn btn-red btn-md">提交信息</button>

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="修改分页" />
+    <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="修改分页">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/help/suggest.php" afterPath="$PROJECT_DIR$/fuel/app/views/help/suggest.php" />
+    </list>
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -84,18 +87,27 @@
       <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1762" column="7" selection-start="31044" selection-end="31050" vertical-scroll-proportion="-11.32" vertical-offset="33195" max-vertical-offset="41078">
+            <state line="2145" column="9" selection-start="38033" selection-end="38041" vertical-scroll-proportion="-21.8" vertical-offset="40210" max-vertical-offset="41230">
               <folding>
-                <marker date="1397013420138" expanded="true" signature="625:649" placeholder="{...}" />
+                <marker date="1397042141833" expanded="true" signature="625:649" placeholder="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="special-lol.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="special-lol.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/html/special-lol.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="6" selection-start="755" selection-end="755" vertical-scroll-proportion="0.49408984" vertical-offset="0" max-vertical-offset="2565">
+            <state line="22" column="6" selection-start="755" selection-end="755" vertical-scroll-proportion="-14.928572" vertical-offset="0" max-vertical-offset="2565">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="suggest.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/help/suggest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="16" selection-start="1700" selection-end="1700" vertical-scroll-proportion="0.45652175" vertical-offset="342" max-vertical-offset="1349">
               <folding />
             </state>
           </provider>
@@ -128,15 +140,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/posts/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="24" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1425">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="view.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/posts/view.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -164,7 +167,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/assets/css/default.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/template.php" />
         <option value="$PROJECT_DIR$/public/html/helpcenter.html" />
         <option value="$PROJECT_DIR$/fuel/app/views/help/about.php" />
@@ -174,12 +176,13 @@
         <option value="$PROJECT_DIR$/fuel/app/views/orders/index.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/posts/index.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/posts/view.php" />
-        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
         <option value="$PROJECT_DIR$/public/assets/css/product.css" />
         <option value="$PROJECT_DIR$/public/html/special-game.html" />
         <option value="$PROJECT_DIR$/fuel/app/views/wins/index.php" />
         <option value="$PROJECT_DIR$/public/assets/css/style.css" />
         <option value="$PROJECT_DIR$/public/assets/css/header.css" />
+        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
+        <option value="$PROJECT_DIR$/fuel/app/views/help/suggest.php" />
       </list>
     </option>
   </component>
@@ -573,6 +576,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fuel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="help" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -769,13 +798,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/html/usercenter.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.6556544" vertical-offset="1303" max-vertical-offset="2090">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/items/search.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="13" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2280">
@@ -846,22 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1478" column="1" selection-start="26726" selection-end="26726" vertical-scroll-proportion="-6.24" vertical-offset="27926" max-vertical-offset="31692">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1762" column="7" selection-start="31044" selection-end="31050" vertical-scroll-proportion="-11.32" vertical-offset="33195" max-vertical-offset="41078">
-          <folding>
-            <marker date="1397013420138" expanded="true" signature="625:649" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/header.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="70" column="26" selection-start="1377" selection-end="1377" vertical-scroll-proportion="-12.84" vertical-offset="1009" max-vertical-offset="6821">
@@ -878,7 +884,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/html/special-lol.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="6" selection-start="755" selection-end="755" vertical-scroll-proportion="0.49408984" vertical-offset="0" max-vertical-offset="2565">
+        <state line="22" column="6" selection-start="755" selection-end="755" vertical-scroll-proportion="-14.928572" vertical-offset="0" max-vertical-offset="2565">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1478" column="1" selection-start="26726" selection-end="26726" vertical-scroll-proportion="-6.24" vertical-offset="27926" max-vertical-offset="31692">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2145" column="9" selection-start="38033" selection-end="38041" vertical-scroll-proportion="-21.8" vertical-offset="40210" max-vertical-offset="41230">
+          <folding>
+            <marker date="1397042141833" expanded="true" signature="625:649" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/help/suggest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="16" selection-start="1700" selection-end="1700" vertical-scroll-proportion="0.45652175" vertical-offset="342" max-vertical-offset="1349">
           <folding />
         </state>
       </provider>
