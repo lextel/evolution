@@ -761,6 +761,11 @@ table td p.tl{
     font-weight: normal;
     font-size: 14px;
 }
+.loginForm .title h3{
+    float: left;
+    font-size: 16px;
+    color:#fff;
+}
 .title h3{
     float: left;
     font-size: 16px;
@@ -2066,7 +2071,7 @@ a.Myahoo {
     color: #bbbbbb;
     line-height: 30px;
     overflow: hidden;
-    margin-bottom: 5px;
+    margin:0 auto 5px;
 }
 .bread ul li{
     float: left;

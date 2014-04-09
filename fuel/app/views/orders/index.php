@@ -4,6 +4,13 @@
 <?php echo Asset::css('member/jquery-ui.css'); ?>
 <?php echo Asset::js(['jquery-ui.js', 'member/index.js']); ?>
 <div class="history">
+     <div class="bread">
+            <ul>
+                <li>首页</li>
+                <li><em>&gt;</em></li>
+                <li>历史记录</li>
+            </ul>
+     </div>
     <div class="title">
         <span class="icon-history"></span>  历史乐淘记录
     </div>

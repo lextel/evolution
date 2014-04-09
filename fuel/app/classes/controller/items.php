@@ -122,4 +122,18 @@ class Controller_Items extends Controller_Frontend {
         return json_encode(['phases' => $phases, 'page' => Pagination::instance('mypagination')->render()]);
     }
 
+    // test
+    public function action_addnew($id) {
+        $item = Model_Item::find($id);
+
+        $res = 'not ok';
+        if(!empty($item)) {
+            $phaseModel = new Model_Phase();
+            $phaseModel->add($item);
+            $res = 'ok';
+        }
+
+        return $res;
+    }
+
 }
