@@ -79,21 +79,9 @@ class View_Wins_View extends Viewmodel {
 
         // 面包屑
         $this->getBread = function($phase) {
-            $ids[] = $phase->cate_id;
-            $ids[] = $phase->brand_id;
-
-            $select = ['name', 'id'];
-            $cates = Model_Cate::find('all', ['select' => $select, 'where' => [['id', 'in', $ids]]]);
             
             $bread = '<li><a href="'.Uri::create('/').'">首页</a></li><li><em>&gt;</em></li><li><a href="'.Uri::create('w').'">最新揭晓</a></li>';
-
             $sp = '<li><em>&gt;</em></li>';
-            $pre = 'c/';
-            foreach($cates as $cate) {
-                $bread .= $sp .'<li><a href="'.Uri::create('m/'.$pre.$cate->id).'">' . $cate->name . '</a></li>';
-                $pre .= $cate->id . '/b/';
-            }
-
             $bread .= $sp . $phase->title;
 
             return $bread;
