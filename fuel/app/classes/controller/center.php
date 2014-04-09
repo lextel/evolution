@@ -71,7 +71,6 @@ class Controller_Center extends Controller_Frontend
 
     public function action_signup()
     {
-
         $this->auth->check() and Response::redirect('/u');
         if (Input::method() == 'POST')
         {
