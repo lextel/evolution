@@ -59,7 +59,7 @@
 }
 .notice ul{
     overflow: hidden;
-    padding: 10px 10px 0;
+    padding: 7px 10px 0;
     list-style-type: square;
 }
 .notice ul li{
@@ -67,7 +67,8 @@
     line-height: 26px;
     width: 200px;
     overflow: hidden;
-    white-space: nowrap;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 .notice ul li i{
     height: 10px;
