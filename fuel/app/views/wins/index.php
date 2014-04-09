@@ -1,11 +1,11 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
 <?php echo Asset::js(['wins/index.js']); ?>
  <div class="bread">
-        <ul>
-            <li>首页</li>
-            <li><em>&gt;</em></li>
-            <li>最新揭晓</li>
-        </ul>
+    <ul>
+        <li><a href="<?php echo Uri::create('/')?>">首页</a></li>
+        <li><em>&gt;</em></li>
+        <li><a href="<?php echo Uri::create('w')?>">最新揭晓</a></li>
+    </ul>
  </div>
 <div class="latest-wrap w">
    <!--左边内容开始-->
