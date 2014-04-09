@@ -52,8 +52,7 @@ class Model_Order extends \Classes\Model
         $orderIds = [0];
 
         Config::load('common');
-        //$memberHelper = new \Helper\Member();
-        //$ip = $memberHelper->getIp();
+
         $member = Model_Member::find($memberId);
         $ip = $member->ip;
 
@@ -103,7 +102,9 @@ class Model_Order extends \Classes\Model
         // 更新用户积分
         $point = $quantity * Config::get('point');
         $member->points = $member->points - $point;
-        $member->save();
+        if(!$member->save()) {
+            Log::error('会员: ID#'.$member->id . '减去金额' . $point . '操作失败');
+        }
 
         // 写邀请佣金
         $invit = Model_Member_Invit::find('first', ['where' => ['invit_id' => $memberId]]);
@@ -113,8 +114,9 @@ class Model_Order extends \Classes\Model
             $invitPoints = $point * Config::get('invitPercent') / 100;
             $inviter = Model_Member::find($invit->member_id);
             $inviter->points = $inviter->points + $invitPoints;
-            $inviter->save();
-
+            if(!$inviter->save()) {
+                Log::error('会员: 邀请者ID#'.$inviter->id . '添加金额' . $invitPoints . '操作失败');
+            }
             // 写佣金日志
             $brokerage = [
                 'type_id' => 2,
@@ -123,7 +125,9 @@ class Model_Order extends \Classes\Model
                 'points' => $invitPoints,
                 ];
             $brokerageModel = new Model_Member_Brokerage($brokerage);
-            $brokerageModel->save();
+            if($brokerageModel->save()) {
+                Log::error('会员: ID#'.$invit->id . '写佣金日志ID#' . $memberId . '金额' . $invitPoints . '操作失败');
+            }
 
         }
 

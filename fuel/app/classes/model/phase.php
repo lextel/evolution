@@ -60,8 +60,8 @@ class Model_Phase extends \Classes\Model {
 
         $phase = Model_Phase::count(['where' => ['item_id' => $item->id, 'opentime' => 0]]);
 
-        if($item && empty($phase)) {
-
+        $result = false;
+        if($item && $phase <= 1) {
             Config::load('common');
             $count = Model_Phase::count(['where' => ['item_id' => $item->id]]);
             $cost = $item->price * Config::get('point');
@@ -96,10 +96,11 @@ class Model_Phase extends \Classes\Model {
                 ];
             $phaseModel = new Model_Phase($data);
             $result = $phaseModel->save();
+        }
 
-            if(!$result) {
-                Log::error('Phase: add #'. $id . ' error');
-            }
+        if(!$result) {
+            $reason = empty($item) ? '母商品内容是空的' : '有其他正在进行的期数';
+            Log::error('期数:开启新一期 商品ID#'. $item->id . '失败 原因:' .  $reason);
         }
     }
 
