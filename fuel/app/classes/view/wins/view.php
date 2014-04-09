@@ -85,7 +85,7 @@ class View_Wins_View extends Viewmodel {
             $select = ['name', 'id'];
             $cates = Model_Cate::find('all', ['select' => $select, 'where' => [['id', 'in', $ids]]]);
             
-            $bread = '<li><a href="'.Uri::create('/').'">首页</a></li><li><em>&gt;</em></li><li><a href="'.Uri::create('m').'">所有商品</a></li>';
+            $bread = '<li><a href="'.Uri::create('/').'">首页</a></li><li><em>&gt;</em></li><li><a href="'.Uri::create('w').'">最新揭晓</a></li>';
 
             $sp = '<li><em>&gt;</em></li>';
             $pre = 'c/';
