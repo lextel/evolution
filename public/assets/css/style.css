@@ -1543,14 +1543,14 @@
     bottom: 60px;
  }
 .game-hd{
-    width: 1678px;
+    width: 100%;
     height: 755px;
     margin: 0 auto;
     overflow: hidden;
     background: url("../img/game-banner.jpg") no-repeat;
 }
 .game-bd{
-    width: 1678px;
+    width: 100%;
     height: 908px;
     margin: 0 auto;
     overflow: hidden;
