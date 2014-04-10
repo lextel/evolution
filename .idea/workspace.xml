@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="修改分页">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/signin.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/template.php" afterPath="$PROJECT_DIR$/fuel/app/views/template.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,8 +71,8 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="1230" column="24" selection-start="22221" selection-end="22221" vertical-scroll-proportion="-18.16" vertical-offset="22916" max-vertical-offset="32186">
               <folding>
-                <marker date="1397115038010" expanded="true" signature="27391:27471" placeholder="{...}" />
-                <marker date="1397115038010" expanded="true" signature="27571:27680" placeholder="{...}" />
+                <marker date="1397117212822" expanded="true" signature="27395:27472" placeholder="{...}" />
+                <marker date="1397117212822" expanded="true" signature="27572:27681" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -81,36 +81,18 @@
       <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1264" column="0" selection-start="21760" selection-end="21760" vertical-scroll-proportion="-9.24" vertical-offset="23785" max-vertical-offset="41268">
+            <state line="1272" column="0" selection-start="21891" selection-end="21891" vertical-scroll-proportion="-68.52" vertical-offset="22455" max-vertical-offset="41249">
               <folding>
-                <marker date="1397117134125" expanded="true" signature="625:649" placeholder="{...}" />
+                <marker date="1397117212860" expanded="true" signature="625:649" placeholder="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signin.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="26" selection-start="2821" selection-end="2821" vertical-scroll-proportion="0.21649484" vertical-offset="1143" max-vertical-offset="2318">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="template.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="template.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="129" column="67" selection-start="6243" selection-end="6243" vertical-scroll-proportion="0.0" vertical-offset="1938" max-vertical-offset="4123">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="special-lol.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/html/special-lol.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="6" selection-start="755" selection-end="755" vertical-scroll-proportion="-14.928572" vertical-offset="0" max-vertical-offset="2565">
+            <state line="129" column="45" selection-start="6221" selection-end="6221" vertical-scroll-proportion="0.5808917" vertical-offset="1995" max-vertical-offset="4142">
               <folding />
             </state>
           </provider>
@@ -183,9 +165,9 @@
         <option value="$PROJECT_DIR$/fuel/app/views/help/suggest.php" />
         <option value="$PROJECT_DIR$/public/assets/css/style.css" />
         <option value="$PROJECT_DIR$/public/assets/css/header.css" />
-        <option value="$PROJECT_DIR$/fuel/app/views/template.php" />
         <option value="$PROJECT_DIR$/public/assets/css/common.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
+        <option value="$PROJECT_DIR$/fuel/app/views/template.php" />
       </list>
     </option>
   </component>
@@ -876,13 +858,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/special-lol.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="6" selection-start="755" selection-end="755" vertical-scroll-proportion="-14.928572" vertical-offset="0" max-vertical-offset="2565">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/help/suggest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="16" selection-start="1594" selection-end="1594" vertical-scroll-proportion="0.0" vertical-offset="361" max-vertical-offset="1463">
@@ -894,8 +869,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="1230" column="24" selection-start="22221" selection-end="22221" vertical-scroll-proportion="-18.16" vertical-offset="22916" max-vertical-offset="32186">
           <folding>
-            <marker date="1397115038010" expanded="true" signature="27391:27471" placeholder="{...}" />
-            <marker date="1397115038010" expanded="true" signature="27571:27680" placeholder="{...}" />
+            <marker date="1397117212822" expanded="true" signature="27395:27472" placeholder="{...}" />
+            <marker date="1397117212822" expanded="true" signature="27572:27681" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -921,25 +896,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="67" selection-start="6243" selection-end="6243" vertical-scroll-proportion="0.0" vertical-offset="1938" max-vertical-offset="4123">
+        <state line="91" column="50" selection-start="3774" selection-end="3774" vertical-scroll-proportion="1.5631443" vertical-offset="516" max-vertical-offset="2318">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1264" column="0" selection-start="21760" selection-end="21760" vertical-scroll-proportion="-9.24" vertical-offset="23785" max-vertical-offset="41268">
+        <state line="1272" column="0" selection-start="21891" selection-end="21891" vertical-scroll-proportion="-68.52" vertical-offset="22455" max-vertical-offset="41249">
           <folding>
-            <marker date="1397117134125" expanded="true" signature="625:649" placeholder="{...}" />
+            <marker date="1397117212860" expanded="true" signature="625:649" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signin.php">
+    <entry file="file://$PROJECT_DIR$/public/html/special-lol.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="26" selection-start="2821" selection-end="2821" vertical-scroll-proportion="0.21649484" vertical-offset="1143" max-vertical-offset="2318">
+        <state line="22" column="6" selection-start="755" selection-end="755" vertical-scroll-proportion="-1.7883117" vertical-offset="1795" max-vertical-offset="2565">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="129" column="45" selection-start="6221" selection-end="6221" vertical-scroll-proportion="0.5808917" vertical-offset="1995" max-vertical-offset="4142">
           <folding />
         </state>
       </provider>
