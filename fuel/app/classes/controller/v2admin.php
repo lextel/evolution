@@ -156,9 +156,9 @@ class Controller_V2admin extends Controller_Baseend
         $code = substr(md5($time.$mobile),0, 6);
 
         // 发送
-        $content = "验证码为：".$code;
-        $sms = new Classes\Sms;
-        $r = 1;//$sms->send($mobile, $content);
+        $content = $code;
+        $sms = new Classes\Sms();
+        $r = $sms->send($mobile, $content);
         \Log::error(sprintf('短信： %s | %s', $mobile, $content));
         if ($r)
         {
