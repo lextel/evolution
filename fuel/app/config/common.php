@@ -45,6 +45,7 @@ return [
     'shipping_key' => '',
 
     'helppages' => [
+              'guide'=>['title'=>'新手指南', 'page'=>'help/guide'],
               'about'=>['title'=>'关于乐淘', 'page'=>'help/about'],
               'new'=>['title'=>'了解乐淘', 'page'=>'help/new'],
               'examine'=>['title'=>'商品验货与签收', 'page'=>'help/examine'],

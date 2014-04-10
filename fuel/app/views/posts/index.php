@@ -1,7 +1,18 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
 <?php echo Asset::js(['jquery.cookie.js', 'post/postup.js']);?>
 <div class="wrapper w">
+<<<<<<< HEAD
     <div class="title titlecontent">
+=======
+     <div class="bread">
+        <ul>
+            <li><a href="<?php echo Uri::create('/')?>">首页</a></li>
+            <li><em>&gt;</em></li>
+            <li><a href="<?php echo Uri::create('p')?>">晒单分享</a></li>
+        </ul>
+     </div>
+    <div class="title">
+>>>>>>> a0ff1a07ccbc2b3f72896b1de73441ea45be7b71
         <h2>晒单分享<small>（截止目前共 <b class="r"><?php echo $postscount; ?></b> 个幸运者晒单）</small></h2>
     </div>
     <div class="list_sort">
