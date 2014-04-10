@@ -191,7 +191,7 @@ return array(
         // Restrict the path that the cookie is available to
         'path'        => '/',
         // Restrict the domain that the cookie is available to
-        'domain'      => 'dev_www.lltao.com',
+        'domain'      => '*.lltao.com',
         // Only transmit cookies over secure connections
         'secure'      => false,
         // Only transmit cookies over HTTP, disabling Javascript access

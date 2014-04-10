@@ -67,7 +67,6 @@ class Controller_V2admin extends Controller_Baseend
     public function action_login2()
     {
         // Already logged in
-        //$this->auth = Auth::instance('Simpleauth');
         $this->auth->check() and Response::redirect('v2admin');
         $val = Validation::forge();
 
@@ -102,7 +101,6 @@ class Controller_V2admin extends Controller_Baseend
                 }
             }
         }
-
         $this->template->title = '管理登陆';
         $this->template->content = View::forge('v2admin/login', array('val' => $val), false);
     }
@@ -160,8 +158,7 @@ class Controller_V2admin extends Controller_Baseend
         $sms = new Classes\Sms();
         $r = $sms->send($mobile, $content);
         \Log::error(sprintf('短信： %s | %s', $mobile, $content));
-        if ($r)
-        {
+        if ($r){
             $res['code'] = 0;
             $res['msg'] = '已发送';
             Session::set('password', $code);
