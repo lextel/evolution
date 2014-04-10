@@ -59,7 +59,7 @@
 }
 .notice ul{
     overflow: hidden;
-    padding: 10px 10px 0;
+    padding: 7px 10px 0;
     list-style-type: square;
 }
 .notice ul li{
@@ -67,7 +67,8 @@
     line-height: 26px;
     width: 200px;
     overflow: hidden;
-    white-space: nowrap;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 .notice ul li i{
     height: 10px;
@@ -165,6 +166,7 @@
     width: 230px;
     background: #FFFFFF;
     height: 422px;
+    margin-top:1px;
 }
 .buying-box.box2{
     width: 270px;
@@ -301,10 +303,13 @@
 .bask-side .bask-list ul li{
     float: left;
     overflow: hidden;
-    margin-right: 13px;
+    margin-right: 16px;
 }
 .bask-list .title-02{
     max-height: 40px;
+}
+.bask-list .username{
+   max-width: 120px;
 }
 /*编辑推荐*/
 .best-route{
