@@ -57,7 +57,7 @@
                         </li>
                         <li>
                             <label>*收货人：</label>
-                            <input value="" class="txt" id="name" name="name" sucmsg=" " />
+                            <input value="" class="txt" id="name" name="name" sucmsg=" " datatype="*" errormsg="请输入2到6个中文字符!" nullmsg="请输入收货人!"/>
                         </li>
                         <li>
                             <label>*联系电话：</label>
@@ -65,7 +65,7 @@
                         </li>
                         <li>
                              <label>邮政编码：</label>
-                             <input value="" class="txt" name="postcode" datatype="p" nullmsg="请输入邮政编码!" errormsg="请输入正确的邮政编码！" sucmsg=" " ignore="ignore"/>
+                             <input value="" class="txt" name="postcode" id="postcode" datatype="postcode" errormsg="请输入正确的邮政编码！" sucmsg=" "  />
                         </li>
                         <li>
                             <input name="addressid" id="addressid" type="hidden" val=""/>
