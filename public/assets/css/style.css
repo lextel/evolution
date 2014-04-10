@@ -1493,8 +1493,31 @@
 .guide-bd{
     width: 100%;
     height: auto;
-    background: url("../img/guidebg.png") repeat top center;
+    margin-top:-10px;
+    /*background: url("../img/guidebg.png") repeat top center;*/
 }
+.guide-fd .column .title{
+    padding:30px 0 15px 15px;
+}
+.guide-fd .column .title span{
+    margin-top:10px;
+    position: absolute;
+    font-size:16px;
+    margin-left:9px;
+    color: #757575;
+}
+.guide-fd .column p img{
+    padding:10px 10px 0px 60px;
+}
+.guide-fd .column p span{
+    margin-top:16px;
+    font-size:12px;
+    color: #666;
+    letter-spacing:1px;
+    position: absolute;
+}
+
+
 .guide-banner{
     width: 980px;
     height: 349px;
@@ -1505,6 +1528,7 @@
     width: 980px;
     height: 386px;
     margin: 0 auto;
+
     background: url("../img/guide01.png") no-repeat;
 }
 .guide-bd .column02{

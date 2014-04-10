@@ -72,7 +72,7 @@ h5{
     color:#999999;
 }
 h2{
-    font-size: 16px;
+    font-size: 18px;
     color: #757575;
 }
 h1{
@@ -756,6 +756,10 @@ table td p.tl{
     padding: 9px;
     overflow: hidden;
 }
+.titlecontent .title{
+    padding: 2px 0px 4px 9px;
+    overflow: hidden;
+}
 .left-content .title{
     padding: 0px 9px 9px 9px;
 }
@@ -1088,7 +1092,7 @@ table td p.tl{
     margin: 0 auto;
 }
 .logo-box .logo{
-    width: 150px;
+    width: 351px;
     height: 80px;
     float: left;
     margin: 5px 0 0 10px;
@@ -1283,7 +1287,7 @@ table td p.tl{
     border-left: 3px solid #B92C00;
     font-weight: bold;
     font-size: 14px;
-    color: #666;
+    color:#666;
 }
 .footer-help dl dd{
     padding:5px 0  5px 15px;
@@ -1300,8 +1304,6 @@ table td p.tl{
 .bottom-nav{
     margin: 0 auto 5px;
     width: 340px;
-    width: 34
-    0px;
     overflow: hidden;
 }
 .bottom-nav li{
@@ -1315,10 +1317,11 @@ table td p.tl{
 .footer p{
     line-height: 18px;
 }
-.footer .log{
-    color: #b92c00;
-    font-size: 18px;
-    margin: 35px 0;
+.footer .slogan{
+    overflow: hidden;
+    height: 41px;
+    text-align: center;
+    margin: 20px 0;
 }
 .kf{
     display: block;
@@ -1679,9 +1682,6 @@ table td p.tl{
     overflow: hidden;
 	margin:0 auto;
 }
-.titlecontent{
-    padding:0px 9px 9px 9px;
-}
 .toolbox{
     position: relative;
 }
@@ -1818,9 +1818,6 @@ table td p.tl{
 }
 .img-wide{
     overflow: hidden;
-}
-.flsl{
-    height:606px;
 }
 /*帐户管理*/
 .prepaid-box{
@@ -2081,11 +2078,15 @@ a.Myahoo {
     line-height: 30px;
     overflow: hidden;
 <<<<<<< HEAD
+<<<<<<< HEAD
     margin-bottom: 5px;
     margin-top: -8px;
 =======
     margin:0 auto 5px;
 >>>>>>> a0ff1a07ccbc2b3f72896b1de73441ea45be7b71
+=======
+    margin:0 auto 5px;
+>>>>>>> 1c4df8d32622da729c3d40d56f4ea71d258cc492
 }
 .bread ul li{
     float: left;
