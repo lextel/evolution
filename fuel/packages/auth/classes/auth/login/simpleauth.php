@@ -194,11 +194,13 @@ class Auth_Login_Simpleauth extends \Auth_Login_Driver
 			$this->user = \Config::get('simpleauth.guest_login', true) ? static::$guest_login : false;
 			\Session::delete('username');
 			\Session::delete('login_hash');
+			\Session::delete('login_time');
 			return false;
 		}
 
 		\Session::set('username', $this->user['username']);
 		\Session::set('login_hash', $this->create_login_hash());
+		\Session::set('login_time', time());
 		return true;
 	}
 
