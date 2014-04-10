@@ -1052,6 +1052,7 @@
     overflow: hidden;
     padding: 10px;
     min-height: 500px;
+    color: #666;
 }
 .pane-bd p{
     text-indent: 2em;
@@ -1150,6 +1151,9 @@
 }
 .comment-list .info-side{
     width: 90%;
+}
+.comment-list .info-side span a{
+    color: #2af;
 }
 .comment-box {
     width: 100%;

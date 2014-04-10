@@ -94,6 +94,7 @@
     overflow: hidden;
     height: 124px;
     border: 1px solid #D2D2D2;
+    color: #848484;
 }
 .win-number .left{
     width: 80px;
@@ -122,6 +123,7 @@
     overflow: hidden;
     padding: 10px;
     background: #EEEEEE;
+    color: #666;
 }
 
 .calculation-box ol li {
@@ -132,8 +134,11 @@
     width: 100%;
     overflow: hidden;
     margin-top: 10px;
+    color: #848484;
 }
-
+.calculation-list thead{
+    color: #666;
+}
 .calculation-list table{
     width: 100%;
     border: 1px solid #D2D2D2;
@@ -723,6 +728,7 @@
     overflow: hidden;
     margin-top: 10px;
     background: #ffffff;
+    color: #848484;
 }
 .new-buyer-header{
     overflow: hidden;
@@ -808,6 +814,7 @@
     background: #ffffff;
     z-index: 999;
     width: 978px;
+    color: #666;
 }
 .sub-nav ul {
     overflow: hidden;
@@ -864,6 +871,7 @@
 }
 .product-bask ul li .bask-list .text-title a{
     font-size: 14px;
+    color: #666;
 }
 .product-bask .head-img{
     width: 100px;
@@ -881,6 +889,7 @@
     width: auto;
     height: 45px;
     font-size: 14px;
+    color: #848484;
 }
 .bask-list .bask-imgBox{
     overflow: hidden;
@@ -907,10 +916,12 @@
     font-size: 14px;
     color: #FFFFFF;
 }
+#handleJoineds thead{
+    color: #666;
+}
 .bask-list h4 a{
     font-size: 16px;
     font-weight: bold;
-    color: #161616;
 }
 /*所有参与记录*/
 .record{
@@ -1101,7 +1112,7 @@
 /*右边内容*/
 .latest-wrap .right-box{
     width:270px;
-    margin-top: 38px;
+    margin-top: 25px;
     overflow: hidden;
 }
 .sort-list{

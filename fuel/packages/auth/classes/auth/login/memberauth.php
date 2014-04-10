@@ -78,6 +78,7 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 		// fetch the username and login hash from the session
 		$username   = \Session::get('membername');
 		$login_hash  = \Session::get('member_login_hash');
+		\Log::error('ietest',$username);
 		// only worth checking if there's both a username and login-hash
 		if ( ! empty($username) and ! empty($login_hash))
 		{

@@ -33,7 +33,7 @@ function toAddress(url){
     var phone = $("input[name='phone']").val();
 
     if ((province != '请选择' && province != '') && (city != '请选择' && city != '') && (county != '请选择' && county != '')){
-          if (address !='' && postcode !='' && name !='' && phone !=''){
+          if (address !='' && name !='' && phone !=''){
              $.post(url,
              {province:province, city:city, county:county, address:address, postcode:postcode, name:name, phone:phone},
              function( data ){
@@ -77,7 +77,6 @@ $(function(){
 
     var from = $(".editAddress>.edit-data").Validform({
        tiptype:3,
-       label:".label",
        showAllError:true,
        ajaxPost:true
     });
