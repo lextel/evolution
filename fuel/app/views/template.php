@@ -127,7 +127,7 @@
                 <li class="lastest"><a href="javascript:void(0);">联系我们</a></li>
             </ul>
             <P style="color:#5b5b5b">Copyright © 2014<?php echo date('Y') != 2014 ? '-'.date('Y') : '';?> <a href="http://www.lltao.com">www.LLtao.com</a> 版权所有 <a href="http://www.miitbeian.gov.cn/" target="_blank" ref="nofollow">粤ICP备14017463号-1<!--服务器商要求加链接--></a></P>
-            <div class="log">独乐乐不如众乐乐！</div>
+            <div class="slogan"><img src="assets/images/slogan.png"></div>
             <div class="flink" style="text-align:center">
                 <span>友情链接:</span>
                     <a href="http://bbs.anzhi.com" target="_blank">安智论坛</a>
