@@ -72,7 +72,7 @@ h5{
     color:#999999;
 }
 h2{
-    font-size: 18px;
+    font-size: 16px;
     color: #757575;
 }
 h1{
@@ -756,6 +756,9 @@ table td p.tl{
     padding: 9px;
     overflow: hidden;
 }
+.left-content .title{
+    padding: 0px 9px 9px 9px;
+}
 .title small{
     font-weight: normal;
     font-size: 14px;
@@ -1280,6 +1283,7 @@ table td p.tl{
     border-left: 3px solid #B92C00;
     font-weight: bold;
     font-size: 14px;
+    color: #666;
 }
 .footer-help dl dd{
     padding:5px 0  5px 15px;
@@ -1675,6 +1679,9 @@ table td p.tl{
     overflow: hidden;
 	margin:0 auto;
 }
+.titlecontent{
+    padding:0px 9px 9px 9px;
+}
 .toolbox{
     position: relative;
 }
@@ -1811,6 +1818,9 @@ table td p.tl{
 }
 .img-wide{
     overflow: hidden;
+}
+.flsl{
+    height:606px;
 }
 /*帐户管理*/
 .prepaid-box{
@@ -2070,7 +2080,12 @@ a.Myahoo {
     color: #bbbbbb;
     line-height: 30px;
     overflow: hidden;
+<<<<<<< HEAD
+    margin-bottom: 5px;
+    margin-top: -8px;
+=======
     margin:0 auto 5px;
+>>>>>>> a0ff1a07ccbc2b3f72896b1de73441ea45be7b71
 }
 .bread ul li{
     float: left;

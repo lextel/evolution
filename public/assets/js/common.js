@@ -288,30 +288,41 @@ $(function(){
         }
     });
 
+    if($("#tab-content").length>0){
+        cleardata();
+        joined(1,0);
+    }
+    
     //商品详情字体颜色
     $('a[href="#desc"]').click(function() {
         $(".fl").find("a").css("color","#666");
         $(this).css("color","#af2812");
+        cleardata();
+        joined(1,0);//).ready(posts(1,0));
     });
+
     // 参与者拉取
     $('a[href="#buylog"]').click(function() {
-        joined(1);
         $(".fl").find("a").css("color","#666");
         $(this).css("color","#af2812");
+        cleardata();
+        joined(1,1);
     });
 
     // 晒单拉取
     $('a[href="#posts"]').click(function() {
-        posts(1);
         $(".fl").find("a").css("color","#666");
         $(this).css("color","#af2812");
+        cleardata();
+        posts(1,1);
     });
 
     // 拉取期数
     $('a[href="#phase"]').click(function() {
-        phases(1);
         $(".fl").find("a").css("color","#666");
         $(this).css("color","#af2812");
+        cleardata();
+        phases(1,1);
     });
 
 
@@ -453,6 +464,7 @@ $(function(){
 
     // 添加购物车效果
     $('.doCart').click(function () {
+
         var cart = $('.item-cart');
         var imgtodrag = $(this).parent().prev().prev().prev().find("a img");
         //console.log(imgtodrag);
@@ -493,6 +505,7 @@ $(function(){
                     success: function(data) {
                         if(data.status == 'success') {
                             $('.item-cart').find('s').html(data.msg);
+                            $(".item-cart s").css("display","");
                         }
                     }
                 });
@@ -505,8 +518,7 @@ $(function(){
 INIT_PAGE = 1;
 
 // 拉取参与记录
-function joined(page) {
-
+function joined(page,status) {
     var phaseId = $('a[href="#buylog"]').attr('phaseId');
 
     // 上一页
@@ -526,14 +538,14 @@ function joined(page) {
         type: 'get',
         dataType: 'json',
         success: function(data) {
-            handleJoined(data);
+            handleJoined(data,status);
+            
         }
     });
 }
 
-
 // 拉取晒单信息
-function posts(page) {
+function posts(page,status) {
     var itemId = $('a[href="#posts"]').attr('itemId');
 
     // 上一页
@@ -553,13 +565,13 @@ function posts(page) {
         type: 'get',
         dataType: 'json',
         success: function(data) {
-            handlePosts(data);
+            handlePosts(data,status);
         }
     });
 }
 
 // 拉取期数信息
-function phases(page) {
+function phases(page,status) {
 
     var itemId = $('a[href="#phase"]').attr('itemId');
 
@@ -580,15 +592,15 @@ function phases(page) {
         type: 'get',
         dataType: 'json',
         success: function(data) {
-            handlePhases(data);
+            handlePhases(data,status);
         }
     });
 }
 
 // 渲染参与记录
-function handleJoined(data) {
+function handleJoined(data,status) {
     if(!jQuery.isEmptyObject(data.orders)) {
-        var html = '<table><thead><tr><th>会员帐号</th><th>购买数量</th><th>时间</th><tr></thead><tbody>';
+        var html = "<table id='handleJoineds'><thead><tr><th>会员帐号</th><th>购买数量</th><th>时间</th><tr></thead><tbody>";
         for(var i in data.orders) {
             html += '<tr>' +
                     '    <td>'+
@@ -602,16 +614,19 @@ function handleJoined(data) {
         }
 
         html += '</tbody></table>';
-
-        $('#buylog').html(html).append(data.page);
+        $('#buylog').html(html).append(data.page).append(data.page);
+            //$("#tab-content").after(html).append(data.page); 
+        if(0 == status ){
+            copyJoined(data.page);
+        }
     }
 }
 
 // 渲染晒单记录
-function handlePosts(data) {
-    if(!jQuery.isEmptyObject(data.posts)) {
-        var html = '<ul>';
-
+function handlePosts(data,status) {
+    var bool = !jQuery.isEmptyObject(data.posts);
+    if(bool) {
+        var html = "<ul>";
         var images = '';
         for(var i in data.posts) {
             images = '';
@@ -620,7 +635,6 @@ function handlePosts(data) {
                 oimage = oimage.replace('post', 'upload/post');
                 images += '<dd class="img-box img-md"><a href="'+oimage+'" target="_blank"><img src="'+data.posts[i].images[j]+'" alt=""></a></dd>';
             }
-
             html += '<li>' +
                     '<div class="fl">'+
                          '<div class="head-img">' +
@@ -642,17 +656,38 @@ function handlePosts(data) {
                     '</li>';
         }
 
-        html += '</ul>';
-
-        $('#posts').html(html).append(data.page);
+        html += '</ul>'; 
     }
+    
+        if(1 == status && bool){
+            $('#posts').html(html).append(data.page);
+        }
+        if(0 == status && bool){
+            $('#posts').html(html).append(data.page);
+            copyPosts(data.page);
+        }else{
+            $("#desctwo").after("<div id='poststwo' style='margin-top:10px;'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;'>晒单</div><div class='product-bask active tab-content' style='text-align:center;padding:30px 20px 20px;'>暂无晒单记录</div></div>");
+            copyPosts(data.page);
+        }
 }
-
+function copyPosts(page){
+    var html ="<div id='poststwo' style='margin-top:10px;'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;'>晒单</div><div class='product-bask active tab-content'>";
+    html += $("#posts").html();
+    html += "</div>";
+    $("#copyJoinedid").after(html).append(page); 
+}
+function copyJoined(page){
+    var html = "<div id='copyJoinedid' class='record active' style='margin-top:10px;'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;'>所有参与记录</div>";
+    html += $("#buylog").html();
+    html +="</div>";
+    $("#tab-content").after(html).append(page); ;
+    posts(1,0);
+}
 // 渲染期数记录
-function handlePhases(data) {
-
-    if(!jQuery.isEmptyObject(data.phases)) {
-        var html = '<table><thead><tr><th>期数</th><th>幸运乐淘码</th><th>幸运获奖者</th><th>揭晓时间</th><th>购买数量</th><tr></thead><tbody>';
+function handlePhases(data,status) {
+    var bool = !jQuery.isEmptyObject(data.phases);
+    if(bool) {
+        var html = "<div class='tab-content' style='margin-top:10px;' id='phasetwo'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;'>往期回顾</div><table><thead><tr><th>期数</th><th>幸运乐淘码</th><th>幸运获奖者</th><th>揭晓时间</th><th>购买数量</th><tr></thead><tbody>";
         for(var i in data.phases) {
             var code = typeof(data.phases[i].code) == 'undefined' ? '<span class="r">进行中...</span>' : data.phases[i].code;
             var member = typeof(data.phases[i].member) == 'undefined' ? '' : data.phases[i].member;
@@ -671,9 +706,16 @@ function handlePhases(data) {
                     '<tr>';
         }
 
-        html += '</tbody></table>';
-
+        html += '</tbody></table></div>';
+        
+    }
+    if(1 == status && bool){
         $('#phase').html(html).append(data.page);
+    }
+    if(0 == status && bool){
+        $("#poststwo").after(html).append(data.page); 
+    }else{
+        $("#poststwo").after("<div id='phasestwo'><p style='margin-bottom: 15px;text-align: center'>暂无期数记录</p></div>");
     }
 }
 
@@ -729,7 +771,7 @@ $(function(){
         // 向下滚动
         var _BuyList=$(".buyList");
         var Trundle = function () {
-            _BuyList.prepend(_BuyList.find("li:last")).css('marginTop', '-100px');
+            _BuyList.prepend(_BuyList.find("li:last")).css('marginTop', '-77px');
             _BuyList.animate({ 'marginTop': '0px' }, 800);
         }
         var setTrundle = setInterval(Trundle, 3000);
@@ -840,4 +882,14 @@ $(function(){
                 }
             }
         });
+    }
+
+
+    function cleardata(){
+        if($("#desctwo").length>0)
+            $("#desctwo").remove();
+        if($("#poststwo").length>0)
+            $("#poststwo").remove();
+        if($("#phasetwo").length>0)
+            $("#phasetwo").remove();
     }
