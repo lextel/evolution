@@ -36,7 +36,7 @@ return array(
 	'match_ip'			=> false,
 
 	// check for a user agent match after loading the cookie (optional, default = true)
-	'match_ua'			=> true,
+	'match_ua'			=> false,
 
 	// cookie domain  (optional, default = '')
 	'cookie_domain' 	=> '',
