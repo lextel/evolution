@@ -302,10 +302,13 @@
 .bask-side .bask-list ul li{
     float: left;
     overflow: hidden;
-    margin-right: 10px;
+    margin-right: 16px;
 }
 .bask-list .title-02{
     max-height: 40px;
+}
+.bask-list .username{
+   max-width: 120px;
 }
 /*编辑推荐*/
 .best-route{
