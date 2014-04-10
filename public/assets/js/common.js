@@ -289,9 +289,8 @@ $(function(){
     });
 
     if($("#tab-content").length>0){
-        joined(1,0)
         cleardata();
-        posts(1,0);
+        joined(1,0);
     }
     
     //商品详情字体颜色
@@ -544,12 +543,7 @@ function joined(page,status) {
         }
     });
 }
-function copyJoined(){
-    var html = "<div id='copyJoinedid' class='record active' style='margin-top:10px;'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;'>所有参与记录</div>";
-    html += $("#buylog").html();
-    html +="</div>";
-    $("#tab-content").after(html);
-}
+
 // 拉取晒单信息
 function posts(page,status) {
     var itemId = $('a[href="#posts"]').attr('itemId');
@@ -623,7 +617,7 @@ function handleJoined(data,status) {
         $('#buylog').html(html).append(data.page).append(data.page);
             //$("#tab-content").after(html).append(data.page); 
         if(0 == status ){
-            copyJoined();
+            copyJoined(data.page);
         }
     }
 }
@@ -681,6 +675,13 @@ function copyPosts(page){
     html += $("#posts").html();
     html += "</div>";
     $("#copyJoinedid").after(html).append(page); 
+}
+function copyJoined(page){
+    var html = "<div id='copyJoinedid' class='record active' style='margin-top:10px;'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;'>所有参与记录</div>";
+    html += $("#buylog").html();
+    html +="</div>";
+    $("#tab-content").after(html).append(page); ;
+    posts(1,0);
 }
 // 渲染期数记录
 function handlePhases(data,status) {
