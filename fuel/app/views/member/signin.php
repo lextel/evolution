@@ -39,7 +39,7 @@
                          'datatype'=>'em','errorms'=>'手机/邮箱格式不正确！','nullmsg'=>'请输入注册手机/邮箱！','placeholder'=>'请输入手机/邮箱','sucmsg'=>' ')); ?>
 
                         <?php if (Session::get_flash('signError', null)) { ?>
-                        <span class="Validform_checktip"><?php echo Session::get_flash('signError');?></span>
+                        <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('signError');?></span>
                         <?php }else{?>
                         <?php } ?>
                         <s class="icon-user"></s>
@@ -80,7 +80,7 @@
                 <li class="lastest"><a href="javascript:void(0);">联系我们</a></li>
             </ul>
             <p style="color:#5b5b5b">Copyright © 2014 粤ICP备14017463号-1 <a href="www.lltao.com">www.lltao.com</a> 版权所有</p>
-            <div class="log">乐淘，快乐抢拍你的人生！</div>
+            <div class="slogan"><img src="assets/images/slogan.png"></div>
         </div>
     </div>
 <!--底部结束-->

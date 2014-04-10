@@ -1,7 +1,7 @@
 <?php
 return array(
     '_root_'  => 'index/index',  // The default route
-    '_404_'   => 'error/404',    // The main 404 route
+    '404'   => 'error/404',    // The main 404 route
     '_500_'   => 'error/500',    // The main 500 route
 
     'totalbuycount' => 'index/totalCount',
@@ -82,7 +82,7 @@ return array(
     'u/moneylog/p/(\d+)' => 'member/moneylog/rechargeIndex/$1',
     'u/moneylog/b/(\d+)' => 'member/moneylog/buyIndex/$1',
     'u/moneylog/b' => 'member/moneylog/buyIndex',
-     
+
     'u/mobile/first' => 'member/mobile/first',
     'u/mobile/second/(\d+)' => 'member/mobile/second/$1',
     'u/mobile/getcode' => 'member/mobile/getcode',
@@ -130,6 +130,7 @@ return array(
     'l/phases' => 'items/phases',
 
     'h' => 'help/page',
+    'ha/addsuggest' => 'help/addSuggest',
     'h/(\w+)' => 'help/page/$1',
 
     'notice/p/:page' => 'notice/index',
