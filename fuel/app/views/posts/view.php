@@ -25,7 +25,7 @@
                   </a>
                </div>
                <div class="info fl">
-                   <span class="username">幸运获奖者：<?php echo Html::anchor('u/'.$post->member_id, $getUser($post->member_id)->nickname, ['class'=>'blue']);?></span>
+                   <span class="username ">幸运获奖者：<?php echo Html::anchor('u/'.$post->member_id, $getUser($post->member_id)->nickname, ['class'=>'peoplename']);?></span>
                    <span class="number">共乐淘：<b><?php echo $getPhase($post->phase_id)->code_count;?></b> 元宝</span>
                    <span class="number">幸运乐淘码：<b><?php echo $getPhase($post->phase_id)->code;?></b></span>
                    <span class="datetime">揭晓时间：<s><?php echo date('Y-m-d H:i:s', $getPhase($post->phase_id)->opentime);?></s></span>
@@ -60,7 +60,7 @@
        </div>
        <div class="btn-group sns-bar">
            <?php echo Html::anchor('javascript:;', '喜欢(<s>'.$post->up.'</s>)', array('class'=>'btn-link sns-love', 'id'=>$post->id));?>
-           <span class="btn-link sns-comment"><a href="#comment">评论</a>(<s><?php echo $post->comment_count;?></s>)</span>
+            <span class="btn-link sns-comment"><a href="#comment">评论</a>(<s><?php echo $post->comment_count;?></s>)</span>
        </div>
        <div class="comment-panel" name="comment">
            <div class="comment-box">
@@ -127,7 +127,7 @@
                 </div>
                 <div class="info-side">
                         <div class="username">
-                            <?php echo Html::anchor('u/'.$lwin->member_id, $members[$lwin->member_id]->nickname, ['class'=>'blue']);?>
+                            <?php echo Html::anchor('u/'.$lwin->member_id, $members[$lwin->member_id]->nickname, ['class'=>'peoplenamea']);?>
                             <s class="datetime"><?php echo '获得了第'.$lwin->phase_id.'期';?></s>
                         </div>
                     <?php if($lwin->post_id == 0){?>
@@ -150,7 +150,7 @@
             ?>
             <?php foreach($nposts as $npost) { ?>
             <li>
-               <div><?php echo Html::anchor('u/'.$npost->member_id, $npostMembers[$npost->member_id]->nickname, ['class'=>'blue username']);?>
+               <div><?php echo Html::anchor('u/'.$npost->member_id, $npostMembers[$npost->member_id]->nickname, ['class'=>'peoplenamea']);?>
                <s class="datetime"><?php echo \Helper\Timer::friendlyDate($npost->created_at); ?></s>
                </div>
 

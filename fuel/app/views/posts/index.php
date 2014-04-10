@@ -41,7 +41,7 @@
                                           </a>
                                       </div>
                                       <div class="info-side fl">
-                                            <div ><?php echo Html::anchor('u/'.$item->member_id, $members[$item->member_id]->nickname);?></div>
+                                            <div class="peoplename"><?php echo Html::anchor('u/'.$item->member_id, $members[$item->member_id]->nickname);?></div>
                                             <div class="datetime"><?php echo \Helper\Timer::friendlyDate($item->created_at); ?></div>
                                             <h5 class="title-mx"> <?php echo Html::anchor('p/'.$item->id, $item->title);?></h5>
                                       </div>
