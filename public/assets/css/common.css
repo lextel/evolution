@@ -223,6 +223,7 @@ textarea:focus,input:focus{
      overflow: hidden;
      vertical-align: middle;
      white-space: nowrap;
+     text-overflow: ellipsis;
  }
 .username b{
     font-weight: normal;
@@ -756,6 +757,9 @@ table td p.tl{
     padding: 9px;
     overflow: hidden;
 }
+.titlecontent .bread{
+    margin:-10px 1px 0px 0px;
+}
 .titlecontent .title{
     padding: 2px 0px 4px 9px;
     overflow: hidden;
@@ -1266,6 +1270,9 @@ table td p.tl{
 }
 .pl-01{
     font-size: 13px;
+}
+.footer2{
+
 }
 .footer-help .dl01{
     margin-left: 240px;
@@ -2077,16 +2084,8 @@ a.Myahoo {
     color: #bbbbbb;
     line-height: 30px;
     overflow: hidden;
-<<<<<<< HEAD
-<<<<<<< HEAD
     margin-bottom: 5px;
-    margin-top: -8px;
-=======
-    margin:0 auto 5px;
->>>>>>> a0ff1a07ccbc2b3f72896b1de73441ea45be7b71
-=======
-    margin:0 auto 5px;
->>>>>>> 1c4df8d32622da729c3d40d56f4ea71d258cc492
+    margin:-6px auto 5px;
 }
 .bread ul li{
     float: left;
@@ -2166,14 +2165,3 @@ a.Myahoo {
     padding: 8px;
     float: left;
 }
-
-
-
-
-
-
-
-
-
-
-
