@@ -789,6 +789,7 @@ table td p.tl{
     white-space: nowrap;
     font-size: 14px;
     text-overflow: ellipsis;
+    text-align: left;
 }
 .title-sm{
     width: 180px;
