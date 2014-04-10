@@ -72,6 +72,7 @@ $(function(){
                     success: function(data) {
                         if(data.status == 'success') {
                             $('.item-cart').find('s').html(data.msg);
+                            $(".item-cart s").css("display","");
                         }
                     }
                 });

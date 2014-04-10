@@ -1,4 +1,5 @@
-
+    <?php echo Asset::css('member/validfrom_style.css'); ?>
+    <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
 <div class="help-main fr">
     <h2>投诉与建议</h2>
     <div class="help-content">
@@ -19,7 +20,7 @@
                 </li>
             <?php } ?>
             <li>
-                <label>主题：</label>
+                <label>主题：</label>  
                 
                 <?php echo Form::select('type', isset($input) ? $input['type']: null, 
                     ['投诉建议' => '投诉建议', '商品配送'=>'商品配送', '售后服务'=>'售后服务'], ['class'=>'choose']);?>
@@ -35,20 +36,20 @@
             </li>
             <li>
                 <label><font color="#f00">*</font>E-mail：</label>
-                <?php echo Form::input('email', isset($input) ? $input['email']: '', ['type'=>'text', 'class'=>'txt']);?>
+                <?php echo Form::input('email', isset($input) ? $input['email']: '', ['type'=>'text', 'class'=>'txt','nullmsg'=>'请输入E-mail','errormsg'=>'请输入正确到E-mail', 'datatype'=>'e','sucmsg'=>' ']);?>
             </li>
             <li>
                 <label><font color="#f00">*</font>反馈内容：</label>
-                <?php echo Form::textarea('text', isset($input) ? $input['text']: '', ['cols'=>'60', 'rows'=>'5', 'class'=>'txt']);?>
+                <?php echo Form::textarea('text', isset($input) ? $input['text']: '', ['cols'=>'60', 'rows'=>'5', 'class'=>'txt', 'datatype'=>'*','nullmsg'=>'请输入反馈内容']);?>
             </li>
             <li>
                 <label><font color="#f00">*</font>验证码：</label>
-                <input name="captcha" type="cap-text" class="txt">
+                <input name="captcha" type="cap-text" class="txt" datatype="*" nullmsg="请输入验证码" />
                 <span class="captcha"><?php echo Html::img('captcha?'.+time());?></span>
                 <span class="recaptcha"><a href="javascript:void(0)">看不清？换一张</a></span>
             </li>
             <li>
-                <button class="btn btn-red btn-md">提交信息</button>
+                <button id="sub" class="btn btn-red btn-md">提交信息</button>
             </li>
         </ul>
         <?php echo Form::close();?>
@@ -60,6 +61,11 @@ $(function(){
         $(".captcha img").attr('src', '<?php echo Uri::create("captcha");?>' + '?' + Math.random());
     });
     
+
+    $(".edit-data").Validform({
+        btnSubmit: "#sub",
+        tiptype:4
+    });
 });
 </script>
 

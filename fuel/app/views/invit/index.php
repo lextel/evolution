@@ -102,6 +102,7 @@
                         with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
                     </script>
                 </div>
+                <!--
                 <div class="Invitation-C3">
                     <p class="fs14">您可以直接通过发送邮件邀请好友：</p>
                     <ul>
@@ -114,6 +115,7 @@
                         <li><a href="http://mail.cn.yahoo.com" target="_blank" class="Myahoo"></a></li>
                     </ul>
                 </div>
+            -->
             <?php endif;?>
         </div>
         <div class="W-right fr">
