@@ -508,6 +508,7 @@
     padding:15px 20px 20px;
     border: 1px solid #d2d2d2;
     background: #FFFFFF;
+    min-height: 625px;
 }
 .content-inner .pagination {
     margin-top: 20px;
@@ -594,25 +595,26 @@
     height: 31px;
     border: 1px solid #d2d2d2;
 }
-.select button{
+/*.select button{
     height: 31px;
     border: 1px solid #d2d2d2;
     display: inline-block;
     line-height: 31px;
-}
+}*/
 .select input{
-    width: 300px;
+    width: 333px;
     display: inline-block;
     border: 1px solid #d2d2d2;
     height: 18px;
     padding: 6px 0 6px 10px;
+    margin-right: 10px;
 }
 .select button{
-    width: 80px;
-    background: #D96D66;
-    color: #ffffff;
-    text-align: center;
+    width: 60px;
+    height: 30px;
     border-radius: 3px;
+    background: #af2812;
+    color: #FFFFFF;
     cursor: pointer;
 }
 .show-box{
