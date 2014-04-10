@@ -82,15 +82,15 @@ if(is_array($phasesList)) {
     <div class="bd w">
         <div class="sub-nav w" id="bigNav">
         <ul>
-            <li><a href="#result" class="active" data-toggle="tab">计算结果</a></li>
+            <li><a href="#desc" class="active" data-toggle="tab">计算结果</a></li>
             <li><a href="#buylog" phaseId="<?php echo $win->id; ?>"  data-toggle="tab">所有参与纪录(<s class="r"><?php echo $orderCount; ?></s>)</a></li>
             <li><a href="#posts" itemId="<?php echo $itemInfo->id; ?>" data-toggle="tab">晒单(<s class="r"><?php echo $postCount; ?></s>)</a></li>
             <li><a href="#phase" itemId="<?php echo $itemInfo->id; ?>" data-toggle="tab">往期回顾(<s class="r"><?php echo $phaseCount; ?></s>)</a></li>
         </ul>
         </div>
-        <div class="tab-content">
+        <div class="tab-content" id="tab-content">
         <!--计算结果开始-->
-        <div class="tab-pane active" id="result">
+        <div class="tab-pane active" id="desc">
             <div class="calculation-box">
                 <ol>
                     <li>1、取该商品最后购买时间前网站所有商品的最后100条购买时间记录</li>

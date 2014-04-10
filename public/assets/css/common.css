@@ -757,6 +757,16 @@ table td p.tl{
     padding: 9px;
     overflow: hidden;
 }
+.titlecontent .bread{
+    margin:-10px 1px 0px 0px;
+}
+.titlecontent .title{
+    padding: 2px 0px 4px 9px;
+    overflow: hidden;
+}
+.left-content .title{
+    padding: 0px 9px 9px 9px;
+}
 .title small{
     font-weight: normal;
     font-size: 14px;
@@ -1086,7 +1096,7 @@ table td p.tl{
     margin: 0 auto;
 }
 .logo-box .logo{
-    width: 150px;
+    width: 351px;
     height: 80px;
     float: left;
     margin: 5px 0 0 10px;
@@ -1261,6 +1271,9 @@ table td p.tl{
 .pl-01{
     font-size: 13px;
 }
+.footer2{
+
+}
 .footer-help .dl01{
     margin-left: 240px;
 }
@@ -1281,6 +1294,7 @@ table td p.tl{
     border-left: 3px solid #B92C00;
     font-weight: bold;
     font-size: 14px;
+    color:#666;
 }
 .footer-help dl dd{
     padding:5px 0  5px 15px;
@@ -1297,8 +1311,6 @@ table td p.tl{
 .bottom-nav{
     margin: 0 auto 5px;
     width: 340px;
-    width: 34
-    0px;
     overflow: hidden;
 }
 .bottom-nav li{
@@ -1312,10 +1324,11 @@ table td p.tl{
 .footer p{
     line-height: 18px;
 }
-.footer .log{
-    color: #b92c00;
-    font-size: 18px;
-    margin: 35px 0;
+.footer .slogan{
+    overflow: hidden;
+    height: 41px;
+    text-align: center;
+    margin: 20px 0;
 }
 .kf{
     display: block;
@@ -2071,7 +2084,8 @@ a.Myahoo {
     color: #bbbbbb;
     line-height: 30px;
     overflow: hidden;
-    margin:0 auto 5px;
+    margin-bottom: 5px;
+    margin:-6px auto 5px;
 }
 .bread ul li{
     float: left;
@@ -2140,17 +2154,14 @@ a.Myahoo {
 .overdueList ul{
     width: 100%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.captcha{
+    margin: 0 5px;
+}
+.cap-text{
+    display: inline-block;
+    width: 100px;
+    font-size: 14px;
+    border: 1px solid #D2D2D2;
+    padding: 8px;
+    float: left;
+}

@@ -1,6 +1,8 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
 <?php echo Asset::js(['jquery.cookie.js', 'post/postup.js']);?>
 <div class="wrapper w">
+    <div class="title titlecontent">
+
      <div class="bread">
         <ul>
             <li><a href="<?php echo Uri::create('/')?>">首页</a></li>
@@ -9,7 +11,8 @@
         </ul>
      </div>
     <div class="title">
-        <h2>晒单分享<small>（截止目前共 <b class="r"><?php echo $postscount; ?></b> 个幸运者晒单）</small></h2>
+
+        <h3>晒单分享<small>（截止目前共 <b class="r"><?php echo $postscount; ?></b> 个幸运者晒单）</small></h3>
     </div>
     <div class="list_sort">
         <span><b>排序</b></span>
@@ -38,7 +41,7 @@
                                           </a>
                                       </div>
                                       <div class="info-side fl">
-                                            <div class="username"><?php echo Html::anchor('u/'.$item->member_id, $members[$item->member_id]->nickname);?></div>
+                                            <div ><?php echo Html::anchor('u/'.$item->member_id, $members[$item->member_id]->nickname);?></div>
                                             <div class="datetime"><?php echo \Helper\Timer::friendlyDate($item->created_at); ?></div>
                                             <h5 class="title-mx"> <?php echo Html::anchor('p/'.$item->id, $item->title);?></h5>
                                       </div>

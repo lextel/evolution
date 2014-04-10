@@ -21,15 +21,17 @@ class Controller_V2admin extends Controller_Baseend
         {
             Response::redirect('v2admin/login');
         }
-        
+
         $login_time = \Session::get('login_time', 0);
         $limit_time = \Config::get('simpleauth.limit_time', 10 * 60);
         //\Log::error('time = '.(time() - $login_time));
         if ((time() - $login_time) > $limit_time){
             Session::set_flash('login_error', e('超过10分钟没操作了，退出登录,请重新登录'));
             Response::redirect('v2admin/logout');
+        }else{
+            \Session::set('login_time', time());
         }
-        
+
         $group = Auth::group()->groups();
         list($driver, $groupid) = $this->auth->get_groups();
         $contorller = Request::active()->controller;
@@ -59,8 +61,6 @@ class Controller_V2admin extends Controller_Baseend
             Session::set_flash('error', e('您没有权限操作'));
             Response::redirect('v2admin');
         }
-
-
     }
 
 
@@ -130,14 +130,14 @@ class Controller_V2admin extends Controller_Baseend
         $res = ['code'=>1];
         $time = Session::get('time', 0);
         $phone = Session::get('mobile');
-		$now = time();
-		if ($phone == $mobile){
-	        if (!empty($time) && (($now - $time) <= $this->smsPerTime)){
-	            $res['code'] = 2;
-	            $res['msg'] = $mobile.'获取太频繁了';
-	            return json_encode($res);
-	        }
-		}
+        $now = time();
+        if ($phone == $mobile){
+            if (!empty($time) && (($now - $time) <= $this->smsPerTime)){
+                $res['code'] = 2;
+                $res['msg'] = $mobile.'获取太频繁了';
+                return json_encode($res);
+            }
+        }
         $val = Validation::forge();
         $val->add_callable(new \Classes\MyRules());
         $val->add_field('mobile', '手机', 'required|is_mobile');
@@ -158,15 +158,15 @@ class Controller_V2admin extends Controller_Baseend
         // 发送
         $content = "验证码为：".$code;
         $sms = new Classes\Sms;
-        $r = $sms->send($mobile, $content);
+        $r = 1;//$sms->send($mobile, $content);
         \Log::error(sprintf('短信： %s | %s', $mobile, $content));
         if ($r)
         {
             $res['code'] = 0;
             $res['msg'] = '已发送';
             Session::set('password', $code);
-		    Session::set('time', $time);
-		    Session::set('mobile', $mobile);
+            Session::set('time', $time);
+            Session::set('mobile', $mobile);
             return json_encode($res);
         }
         $res['msg'] = '发送失败';
@@ -179,6 +179,7 @@ class Controller_V2admin extends Controller_Baseend
     public function action_login()
     {
         $this->auth->check() and Response::redirect('v2admin');
+
         $val = Validation::forge();
         $val->add_callable(new \Classes\MyRules());
         $val->add_field('password', '密码', 'required|min_length[6]|max_length[6]');
@@ -191,17 +192,17 @@ class Controller_V2admin extends Controller_Baseend
             $user = Model_User::find_by_mobile($mobile);
             if ($mobile == Session::get('mobile') && $user){
                 $code = Session::get('password');
-		        $time = Session::get('time');
-		        $now = time();
-		        if ((($now - $time) <= $this->smsPerTime) && ($code == $pwd)){
-		            $this->auth->force_login($user->id);
+                $time = Session::get('time');
+                $now = time();
+                if ((($now - $time) <= $this->smsPerTime) && ($code == $pwd)){
+                    $this->auth->force_login($user->id);
                     Session::delete('password');
-		            Session::delete('time');
-		            Session::delete('mobile');
+                    Session::delete('time');
+                    Session::delete('mobile');
                     return Response::redirect('v2admin');
-		        }else{
-		            $this->template->set_global('login_error', '您输入的密码不正确或者已经过期了');
-		        }
+                }else{
+                    $this->template->set_global('login_error', '您输入的密码不正确或者已经过期了');
+                }
             }else{
                 $this->template->set_global('login_error', $mobile.'不存在');
             }
