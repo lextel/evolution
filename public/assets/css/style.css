@@ -1351,18 +1351,22 @@
 }
 .lol-bd{
     width: 100%;
-    height: 2708px;
-    background:url("../img/lol_bd-bg.jpg") no-repeat center center;
+    height: 2710px;
+    background:url("../img/lol_bd-bg.jpg") no-repeat center 0;
 }
 .column-hero{
     margin: 0 auto;
     width: 1016px;
     overflow: hidden;
 }
+.column-hero dl{
+    overflow: hidden;
+    margin-top: 20px;
+}
 .column-hero dl dt{
     float: left;
     width: 1016px;
-    height: 157px;
+    height: 135px;
     background: url("../img/lol-tit01.png") no-repeat center center;
 }
 .column-hero dl dd{
@@ -1386,9 +1390,8 @@
     height: 50px;
     line-height: 50px;
     font-size: 14px;
-    max-width: 320px;
+    max-width: 325px;
     float: left;
-    margin-right: 10px;
 }
 .column-hero dl dd .tit span{
     margin-left: 10px;
@@ -1410,12 +1413,12 @@
 .column-skin{
     overflow: hidden;
     width: 1000px;
-    margin: 0 auto 20px;
+    margin: 0 auto 15px;
 }
 .column-skin dt{
     float: left;
     width: 1000px;
-    height: 157px;
+    height: 130px;
     background: url("../img/lol-tit02.png") no-repeat center center;
  }
 .column-skin dd{
@@ -1460,10 +1463,13 @@
     width: 1000px;
     margin: 0 auto;
 }
+.column-peri dl{
+   overflow: hidden;
+}
 .column-peri dl dt{
     float: left;
     width: 1000px;
-    height: 157px;
+    height: 135px;
     background: url("../img/lol-tit03.png") no-repeat center center;
 }
 .column-peri dl dd{
@@ -1473,7 +1479,7 @@
 }
 .column-peri dl dd.per_02{
     height: 447px;
-    margin-top:15px;
+    margin-top: -10px;
 }
 .column-peri dl dd.per_03{
     margin-top: -55px;
@@ -1485,13 +1491,13 @@
 .guide-bd{
     width: 100%;
     height: auto;
-    background: url("../img/guidebg.png") repeat;
+    background: url("../img/guidebg.png") repeat top center;
 }
 .guide-banner{
     width: 980px;
     height: 349px;
     margin: 0 auto -10px;
-    background:url("../img/guide_bn-bg.png") no-repeat center  center;
+    background:url("../img/guide_bn-bg.png") no-repeat top center;
 }
 .guide-bd .column01{
     width: 980px;
@@ -1537,15 +1543,18 @@
     bottom: 60px;
  }
 .game-hd{
-    width: 1678px;
+    width: 100%;
     height: 755px;
     margin: 0 auto;
+    overflow: hidden;
+    background: url("../img/game-banner.jpg") no-repeat top center;
 }
 .game-bd{
-    width: 1678px;
+    width: 100%;
     height: 908px;
     margin: 0 auto;
-    background: url("../img/game-bg.png") no-repeat;
+    overflow: hidden;
+    background: url("../img/game-bg.png") no-repeat top center;
 }
 .game-column{
     width: 1000px;

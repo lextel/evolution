@@ -21,15 +21,17 @@ class Controller_V2admin extends Controller_Baseend
         {
             Response::redirect('v2admin/login');
         }
-        
+
         $login_time = \Session::get('login_time', 0);
         $limit_time = \Config::get('simpleauth.limit_time', 10 * 60);
         //\Log::error('time = '.(time() - $login_time));
         if ((time() - $login_time) > $limit_time){
             Session::set_flash('login_error', e('超过10分钟没操作了，退出登录,请重新登录'));
             Response::redirect('v2admin/logout');
+        }else{
+            \Session::set('login_time', time());
         }
-        
+
         $group = Auth::group()->groups();
         list($driver, $groupid) = $this->auth->get_groups();
         $contorller = Request::active()->controller;

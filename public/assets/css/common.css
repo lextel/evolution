@@ -2081,8 +2081,12 @@ a.Myahoo {
     color: #bbbbbb;
     line-height: 30px;
     overflow: hidden;
+<<<<<<< HEAD
     margin-bottom: 5px;
     margin-top: -8px;
+=======
+    margin:0 auto 5px;
+>>>>>>> a0ff1a07ccbc2b3f72896b1de73441ea45be7b71
 }
 .bread ul li{
     float: left;
@@ -2151,9 +2155,17 @@ a.Myahoo {
 .overdueList ul{
     width: 100%;
 }
-
-
-
+.captcha{
+    margin: 0 5px;
+}
+.cap-text{
+    display: inline-block;
+    width: 100px;
+    font-size: 14px;
+    border: 1px solid #D2D2D2;
+    padding: 8px;
+    float: left;
+}
 
 
 

@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
-<head>
-    <title>游戏机专题</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../assets/css/common.css"/>
-    <link rel="stylesheet" href="../assets/css/style.css"/>
-    <script type="text/javascript" src="../assets/js/jquery-1.10.1.min.js"></script>
-    <script type="text/javascript" src="../assets/js/common.js"></script>
-</head>
-<body>
-<div class="game-hd">
-
-</div>
+<?php echo Asset::css(['style.css']);?>
+<style>
+.w {
+    width: 100%;
+    overflow: visible;
+}
+.navbar {
+    margin-bottom: 0;
+}
+.column-skin dd {
+    margin-right: 37px;
+}
+.footer-help  {
+    width: 980px !important;
+    overflow: hidden !important;
+}
+</style>
+<div class="game-hd"></div>
 <div class="game-bd">
     <div class="game-column">
         <ul>
@@ -90,5 +94,3 @@
         </ul>
     </div>
 </div>
-</body>
-</html>

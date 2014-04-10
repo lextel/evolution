@@ -82,7 +82,7 @@ return array(
     'u/moneylog/p/(\d+)' => 'member/moneylog/rechargeIndex/$1',
     'u/moneylog/b/(\d+)' => 'member/moneylog/buyIndex/$1',
     'u/moneylog/b' => 'member/moneylog/buyIndex',
-     
+
     'u/mobile/first' => 'member/mobile/first',
     'u/mobile/second/(\d+)' => 'member/mobile/second/$1',
     'u/mobile/getcode' => 'member/mobile/getcode',
@@ -130,6 +130,7 @@ return array(
     'l/phases' => 'items/phases',
 
     'h' => 'help/page',
+    'ha/addsuggest' => 'help/addSuggest',
     'h/(\w+)' => 'help/page/$1',
 
     'notice/p/:page' => 'notice/index',

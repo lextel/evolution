@@ -15,7 +15,7 @@ class View_Index extends Viewmodel {
            $notices = Model_Notice::find('all',[
                        'where' => ['is_delete' => 0],
                        'order_by'=>['is_top' => 'desc', 'id'=>'desc'],
-                       'limit'=>6,
+                       'limit'=>9,
                        ]);
            return $notices;
        };
