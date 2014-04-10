@@ -80,7 +80,7 @@
                 <li class="lastest"><a href="javascript:void(0);">联系我们</a></li>
             </ul>
             <p style="color:#5b5b5b">Copyright © 2014 粤ICP备14017463号-1 <a href="www.lltao.com">www.lltao.com</a> 版权所有</p>
-            <div class="log">乐淘，快乐抢拍你的人生！</div>
+            <div class="slogan"><img src="assets/images/slogan.png"></div>
         </div>
     </div>
 <!--底部结束-->
