@@ -756,6 +756,9 @@ table td p.tl{
     padding: 9px;
     overflow: hidden;
 }
+.titlecontent .bread{
+    margin:-10px 1px 0px 0px;
+}
 .titlecontent .title{
     padding: 2px 0px 4px 9px;
     overflow: hidden;
@@ -2078,8 +2081,7 @@ a.Myahoo {
     line-height: 30px;
     overflow: hidden;
     margin-bottom: 5px;
-    margin-top: -18px;
-    margin:0 auto 5px;
+    margin:-6px auto 5px;
 }
 .bread ul li{
     float: left;
