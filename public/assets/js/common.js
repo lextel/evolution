@@ -671,13 +671,13 @@ function handlePosts(data,status) {
         }
 }
 function copyPosts(page){
-    var html ="<div id='poststwo' style='margin-top:10px;'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;'>晒单</div><div class='product-bask active tab-content'>";
+    var html ="<div id='poststwo' style='margin-top:10px;color:#848484;'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;color:#666;'>晒单</div><div class='product-bask active tab-content'>";
     html += $("#posts").html();
     html += "</div>";
     $("#copyJoinedid").after(html).append(page); 
 }
 function copyJoined(page){
-    var html = "<div id='copyJoinedid' class='record active' style='margin-top:10px;'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;'>所有参与记录</div>";
+    var html = "<div id='copyJoinedid' class='record active' style='margin-top:10px;color:#848484;'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;color:#666;'>所有参与记录</div>";
     html += $("#buylog").html();
     html +="</div>";
     $("#tab-content").after(html).append(page); ;
@@ -687,7 +687,7 @@ function copyJoined(page){
 function handlePhases(data,status) {
     var bool = !jQuery.isEmptyObject(data.phases);
     if(bool) {
-        var html = "<div class='tab-content' style='margin-top:10px;' id='phasetwo'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;'>往期回顾</div><table><thead><tr><th>期数</th><th>幸运乐淘码</th><th>幸运获奖者</th><th>揭晓时间</th><th>购买数量</th><tr></thead><tbody>";
+        var html = "<div class='tab-content' style='margin-top:10px;color:#848484' id='phasetwo'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;color:#666;'>往期回顾</div><table><thead><tr><th>期数</th><th>幸运乐淘码</th><th>幸运获奖者</th><th>揭晓时间</th><th>购买数量</th><tr></thead><tbody>";
         for(var i in data.phases) {
             var code = typeof(data.phases[i].code) == 'undefined' ? '<span class="r">进行中...</span>' : data.phases[i].code;
             var member = typeof(data.phases[i].member) == 'undefined' ? '' : data.phases[i].member;
