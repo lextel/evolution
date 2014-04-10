@@ -1204,6 +1204,8 @@
 }
 .help-center dd:hover{
     background: #af2812;
+}
+.help-center dd:hover a{
     color: #FFFFFF;
 }
 .help-center dd.active{
