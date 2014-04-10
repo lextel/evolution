@@ -223,7 +223,6 @@ textarea:focus,input:focus{
      overflow: hidden;
      vertical-align: middle;
      white-space: nowrap;
-     text-overflow: ellipsis;
  }
 .username b{
     font-weight: normal;
