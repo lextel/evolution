@@ -136,7 +136,9 @@
     margin-top: 10px;
     color: #848484;
 }
-
+.calculation-list thead{
+    color: #666;
+}
 .calculation-list table{
     width: 100%;
     border: 1px solid #D2D2D2;

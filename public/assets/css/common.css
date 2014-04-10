@@ -212,7 +212,7 @@ textarea:focus,input:focus{
     height: 19px;
     line-height: 19px;
     margin-left: 5px;
-    color: #0093D0;
+    color: #666;
 }
 .username{
      display: inline-block;
@@ -496,6 +496,13 @@ textarea:focus,input:focus{
 }
 .tl{
     text-align:left ;
+    color: #848484;
+}
+.peoplename a{
+    color: #2af;
+}
+.peoplenamea{
+    color: #2af;
 }
 .tr{
     text-align:right ;
@@ -799,6 +806,10 @@ table td p.tl{
     white-space: nowrap;
     font-weight: bold;
     text-overflow: ellipsis;
+    color: #666;
+}
+.title-sm a{ 
+    color: #757575;
 }
 .title-mx{
     width: 120px;
