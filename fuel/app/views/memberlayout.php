@@ -2,7 +2,8 @@
 <?php echo Asset::css('member/validfrom_style.css'); ?>
 <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
 <style>
-.acquire-box, .record-box, show-box, .message-box, .record{
+/*
+.acquire-box, .record-box,.record{
     overflow: visible;
 }
 .content-inner{
@@ -13,7 +14,7 @@
 }
 .w {
     overflow: visible;
-}
+}*/
 </style>
 <script>
     $(function() {
