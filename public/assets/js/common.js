@@ -886,10 +886,11 @@ $(function(){
 
 
     function cleardata(){
-        if($("#desctwo").length>0)
-            $("#desctwo").remove();
-        if($("#poststwo").length>0)
+        alert(1);
+        if($("#copyJoinedid").length>0){
+            $("#copyJoinedid").remove();
+        }
+        if($("#poststwo").length>0){
             $("#poststwo").remove();
-        if($("#phasetwo").length>0)
-            $("#phasetwo").remove();
+        }
     }

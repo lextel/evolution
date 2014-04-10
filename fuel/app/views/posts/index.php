@@ -12,7 +12,7 @@
      </div>
     <div class="title">
 
-        <h2>晒单分享<small>（截止目前共 <b class="r"><?php echo $postscount; ?></b> 个幸运者晒单）</small></h2>
+        <h3>晒单分享<small>（截止目前共 <b class="r"><?php echo $postscount; ?></b> 个幸运者晒单）</small></h3>
     </div>
     <div class="list_sort">
         <span><b>排序</b></span>
