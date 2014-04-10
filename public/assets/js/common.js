@@ -288,8 +288,12 @@ $(function(){
         }
     });
 
-    joined(1,0);
-    posts(1,0);
+    if($("#tab-content").length>0){
+        alert(1);
+        joined(1,0);
+        posts(1,0);
+    }
+    
     //商品详情字体颜色
     $('a[href="#desc"]').click(function() {
         $(".fl").find("a").css("color","#666");
@@ -461,6 +465,7 @@ $(function(){
 
     // 添加购物车效果
     $('.doCart').click(function () {
+
         var cart = $('.item-cart');
         var imgtodrag = $(this).parent().prev().prev().prev().find("a img");
         //console.log(imgtodrag);
@@ -501,6 +506,7 @@ $(function(){
                     success: function(data) {
                         if(data.status == 'success') {
                             $('.item-cart').find('s').html(data.msg);
+                            $(".item-cart s").css("display","");
                         }
                     }
                 });
