@@ -886,7 +886,6 @@ $(function(){
 
 
     function cleardata(){
-        alert(1);
         if($("#copyJoinedid").length>0){
             $("#copyJoinedid").remove();
         }

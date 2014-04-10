@@ -1287,6 +1287,7 @@ table td p.tl{
     border-left: 3px solid #B92C00;
     font-weight: bold;
     font-size: 14px;
+    color:#666;
 }
 .footer-help dl dd{
     padding:5px 0  5px 15px;
