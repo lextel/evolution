@@ -289,7 +289,6 @@ $(function(){
     });
 
     if($("#tab-content").length>0){
-        alert(1);
         joined(1,0);
         posts(1,0);
     }
