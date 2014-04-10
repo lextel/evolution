@@ -758,10 +758,10 @@ table td p.tl{
     overflow: hidden;
 }
 .titlecontent .bread{
-    margin:-10px 1px 0px 0px;
+    margin:-15px 1px 2px -8px;
 }
 .titlecontent .title{
-    padding: 2px 0px 4px 9px;
+    padding: 2px 0px 4px 3px;
     overflow: hidden;
 }
 .left-content .title{
