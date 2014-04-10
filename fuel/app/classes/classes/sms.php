@@ -14,7 +14,7 @@ class Sms {
     * url 为服务的url地址
     * query 为请求串
     */
-    function sock_post($url,$query){
+    public function sock_post($url,$query){
         $info=parse_url($url);
         $fp=fsockopen($info["host"],80,$errno,$errstr,30);
         $head="POST ".$info['path']." HTTP/1.0\r\n";
@@ -44,7 +44,7 @@ class Sms {
     * tpl_value 为模板值
     * mobile 为接受短信的手机号
     */
-    function tpl_send_sms($apikey, $tpl_id, $tpl_value, $mobile){
+    public function tpl_send_sms($apikey, $tpl_id, $tpl_value, $mobile){
         $encoded_tpl_value = urlencode("$tpl_value");
         $post_string="apikey=$apikey&tpl_id=$tpl_id&tpl_value=$encoded_tpl_value&mobile=$mobile";
 
