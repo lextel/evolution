@@ -223,6 +223,7 @@ textarea:focus,input:focus{
      overflow: hidden;
      vertical-align: middle;
      white-space: nowrap;
+     text-overflow: ellipsis;
  }
 .username b{
     font-weight: normal;
@@ -1269,6 +1270,9 @@ table td p.tl{
 }
 .pl-01{
     font-size: 13px;
+}
+.footer2{
+
 }
 .footer-help .dl01{
     margin-left: 240px;
