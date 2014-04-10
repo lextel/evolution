@@ -79,6 +79,30 @@ h1{
     font-size: 16px;
     font-weight: normal;
 }
+.center-info .winner h1{
+    color: #666;
+}
+.center-info{
+    color: #757575;
+}
+.buy-menu {
+    color: #757575;
+}
+.show-c table thead{
+    color: #757575;
+}
+.show-c table tbody{
+    color: #848484;
+}
+.content-inner .prepaid-box .pay-money dt{
+    color: #666;
+}
+.content-inner .prepaid-box .pay-money .moneydd{
+    color: #848484;
+}
+.prepaid-box .pay-way dl dt{
+    color: #757575;
+}
 .total-money{
     height: 40px;
     line-height: 40px;
@@ -86,6 +110,7 @@ h1{
     border-top: 1px solid #D2D2D2;
     font-size: 14px;
     margin: 20px 0;
+    color: #848484;
  }
 .btn-group.soon{
     margin: 28px auto 0;

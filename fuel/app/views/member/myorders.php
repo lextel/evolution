@@ -12,7 +12,7 @@
             </div>
             <div class="select-box">
                 <label for=""><?php echo Html::anchor('/u/orders', '全部商品', ['class'=>'b']);?></label>
-            <span class="time-choose">选择时间段：
+            <span class="time-choose"><s>选择时间段：</s>
                  <input  id="datepicker" type="text" placeholder="输入起始时间"/>
                  <input  id="datepicker1" type="text" placeholder="输入结束时间" />
                  <button class="order-date-search">搜索</button>
