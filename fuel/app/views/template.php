@@ -110,7 +110,7 @@
                 </dl>
                 -->
                 <dl class="dl04">
-                    <dt><a href="javascript:;">二维码</a></dt>
+                    <dd><img src="../assets/images/wxin1.jpg"></dd>
                 </dl>
             </div>
         </div>
@@ -162,7 +162,7 @@
     });
     </script>
     <!--底部结束-->
-    <!--二维码开始-->
+    <!--二维码开始
     <div class="weiXin">
         <div class="weiXin-img">
              <img src="../assets/images/wxin1.jpg">
@@ -170,7 +170,7 @@
         </div>
         <p>关注微信更多惊喜<p/>
     </div>
-    <!--二维码结束-->
+    -->
     <div class="short-cut">
         <a  href="<?php echo Uri::create('cart/list'); ?>" class="item-cart"><s style=" <?php echo ($cartCount == 0) ? 'display: none' :'' ?>"><?php echo $cartCount; ?></s></a>
         <a  href="javascript:void(null)" class="item-qq"></a>
