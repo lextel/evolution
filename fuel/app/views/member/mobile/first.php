@@ -12,7 +12,7 @@
         <div class="row">
             <label for="" class="fl">输入手机号码：</label>
 
-            <?php echo Form::input('mobile', '', array('class' => 'txt fl', 'placeholder' => '手机号', 'autofocus'
+            <?php echo Form::input('mobile', $user->is_mobile == '1' ? '' : $user->mobile, array('class' => 'txt fl', 'placeholder' => '手机号', 'autofocus'
             , 'datatype'=>'m' , 'nullmsg'=>'请输入11位手机号', 'errormsg' => '请输入正确到手机号' ,'sucmsg'=>' '));?>
             <span class="Validform_checktip">手机号码格式为11位数字！</span>
             <!--<span class="verification sure fl">手机号码格式为121位数字！</span>-->

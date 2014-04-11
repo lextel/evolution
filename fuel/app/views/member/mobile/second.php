@@ -9,6 +9,7 @@
         请完成手机验证，验证手机不仅能加强账户安全，快速找回密码，还会在您成功云购到商品后及时通知您！
     </div>
     <?php echo Form::open(['action'=>'u/mobile/check', 'class'=>"verifyForm"]);?>
+        
         <div class="row">
             <label for="" class="fl">您的手机号码：</label>
             <span class="phone_num"><?php echo $mobile?><input type="hidden" name="mobile" value="<?php echo $mobile;?>"></span>
@@ -23,6 +24,11 @@
         </div>
         <div class="row">
             <a href="javascript:;" class="btn btn-red btn-sx" id="submitID">提交</a>
+            <a href="javascript:;" class="btn btn-red btn-chance" id="chance">返回</a>
+        </div>
+        <div class="row">
+            <label></label>
+            <span class="r"><?php echo Session::get_flash('login_error') ? Session::get_flash('login_error'): '';?></span>
         </div>
     <?php echo Form::close();?>
 </div>
@@ -32,7 +38,7 @@ $(function(){
     var tt = 100;
     var curCount = tt;
     var url = "<?php echo Uri::create('/u/mobile/getcode');?>";
-    var img = '<img src="<?php echo Uri::create('assets/images/bx_loader.gif')?>" style="width:30px" >';
+    var img = '<img src="<?php echo Uri::create('assets/images/bx_loader.gif')?>" style="width:30px;margin-bottom: -10px;" >';
     function countingDown(){
         if (curCount == 0) {                
             window.clearInterval(InterValObj);//停止计时器
@@ -49,6 +55,7 @@ $(function(){
         $(".verifyForm").submit();
     });
     
+    $(".Validform_checktip").css('overflow', 'visible');
     
     $(".get_code").click(function(){
         $.ajax({
@@ -71,6 +78,7 @@ $(function(){
                        $('.get_code').attr('disabled', 'disabled');
                        //$(".get_pwd").html("重新获取密码");
                        $(".verification").html(data.msg);
+                       curCount = 100;
                        InterValObj = window.setInterval(countingDown, 1000);
                     }else{
                        $(".verification").html(data.msg);
@@ -91,6 +99,10 @@ $(function(){
     $(".verifyForm").Validform({
         btnSubmit:"#submitID", 
         tiptype:4
+    });
+    
+    $(".btn-chance").click(function(){
+        window.history.back();
     });
 });
 </script>
