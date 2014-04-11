@@ -35,6 +35,7 @@ body{
 .row{
     overflow: hidden;
     margin-bottom: 10px;
+    line-height: 30px;
 }
 a{
     color: #666;
