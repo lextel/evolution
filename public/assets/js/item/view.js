@@ -28,7 +28,7 @@ $(function(){
 
     // 滚动到描点
     $(document).on('click', '#bigNav > ul > li, .pagination > span > a', function() {
-        var obj = $('#bigNav');
+        var obj = $('.pin-wrapper');
         scrollToAnchor(obj);
     });
 
