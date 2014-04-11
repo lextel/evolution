@@ -184,12 +184,12 @@
       <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1781" column="16" selection-start="31250" selection-end="31250" vertical-scroll-proportion="0.4553687" vertical-offset="33487" max-vertical-offset="42066">
+            <state line="1909" column="18" selection-start="33762" selection-end="33762" vertical-scroll-proportion="0.43078914" vertical-offset="35938" max-vertical-offset="42009">
               <folding>
-                <marker date="1397198616838" expanded="true" signature="648:672" placeholder="{...}" />
-                <marker date="1397198616838" expanded="true" signature="14094:14151" placeholder="{...}" />
-                <marker date="1397198616838" expanded="true" signature="14180:14342" placeholder="{...}" />
-                <marker date="1397198616838" expanded="true" signature="37502:37664" placeholder="{...}" />
+                <marker date="1397199475690" expanded="true" signature="648:672" placeholder="{...}" />
+                <marker date="1397199475690" expanded="true" signature="14094:14151" placeholder="{...}" />
+                <marker date="1397199475690" expanded="true" signature="14180:14342" placeholder="{...}" />
+                <marker date="1397199475690" expanded="true" signature="37446:37608" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -1113,12 +1113,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1781" column="16" selection-start="31250" selection-end="31250" vertical-scroll-proportion="0.4553687" vertical-offset="33487" max-vertical-offset="42066">
+        <state line="1909" column="18" selection-start="33762" selection-end="33762" vertical-scroll-proportion="0.43078914" vertical-offset="35938" max-vertical-offset="42009">
           <folding>
-            <marker date="1397198616838" expanded="true" signature="648:672" placeholder="{...}" />
-            <marker date="1397198616838" expanded="true" signature="14094:14151" placeholder="{...}" />
-            <marker date="1397198616838" expanded="true" signature="14180:14342" placeholder="{...}" />
-            <marker date="1397198616838" expanded="true" signature="37502:37664" placeholder="{...}" />
+            <marker date="1397199475690" expanded="true" signature="648:672" placeholder="{...}" />
+            <marker date="1397199475690" expanded="true" signature="14094:14151" placeholder="{...}" />
+            <marker date="1397199475690" expanded="true" signature="14180:14342" placeholder="{...}" />
+            <marker date="1397199475690" expanded="true" signature="37446:37608" placeholder="{...}" />
           </folding>
         </state>
       </provider>
