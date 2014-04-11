@@ -2,7 +2,7 @@
 <?php echo Asset::css('member/validfrom_style.css'); ?>
 <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
 <style>
-/*
+
 .acquire-box, .record-box,.record{
     overflow: visible;
 }
@@ -12,6 +12,7 @@
 .wrapper {
     overflow: visible;
 }
+/*
 .w {
     overflow: visible;
 }*/
