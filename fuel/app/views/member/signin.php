@@ -37,12 +37,12 @@
                     <div class="item">
                         <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'name'=>'username',
                          'datatype'=>'em','errorms'=>'手机/邮箱格式不正确！','nullmsg'=>'请输入注册手机/邮箱！','placeholder'=>'请输入手机/邮箱','sucmsg'=>' ')); ?>
-
+                         <s class="icon-user"></s>
                         <?php if (Session::get_flash('signError', null)) { ?>
                         <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('signError');?></span>
                         <?php }else{?>
                         <?php } ?>
-                        <s class="icon-user"></s>
+                        
                         <!--<span class="Validform_checktip"></span>-->
                    </div>
                 </li>
@@ -93,19 +93,19 @@ $(function(){
                 var m = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
                 var e = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
                 if(m.test(gets) || e.test(gets)){
-                    $("#form_username").next().next().css("display","none");
+                    $("#form_username").next().next().css("visibility","hidden");
                     return true;
                 }
-                $("#form_username").next().next().css("display","");
+                $("#form_username").next().next().css("visibility","visible");
                 return "手机/邮箱格式不正确!";
               },
               'num':function (gets,obj,curform,regxp){
                 var m = /^[\w\W]{6,18}$/;
                 if(m.test(gets)){
-                    $("#form_password").next().next().css("display","none");
+                    $("#form_password").next().next().css("visibility","hidden");
                     return true;
                 }
-                $("#form_password").next().next().css("display","");
+                $("#form_password").next().next().css("visibility","visible");
                  return "密码为6~18位数!";
               }
             }
