@@ -1,8 +1,13 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
 <?php echo Asset::js(['jquery.cookie.js', 'post/postup.js']);?>
+<script type="text/javascript">
+    $(function(){
+        var location_url = window.location.href;
+        $('.list_sort a[href="' + location_url + '"]').css('border', '1px solid #AF2812');
+    });
+</script>>
 <div class="wrapper w">
     <div class="title titlecontent">
-
      <div class="bread">
         <ul>
             <li><a href="<?php echo Uri::create('/')?>">首页</a></li>
@@ -16,7 +21,7 @@
     </div>
     <div class="list_sort">
         <span><b>排序</b></span>
-        <?php echo Html::anchor('/p/s/sortnew', '最新晒单', array('class' => ''));?>
+        <?php echo Html::anchor('/p/s/sortnew', '最新晒单', ['class' => '']);?>
         <?php echo Html::anchor('/p/s/sortup', '人气晒单', array('class' => ''));?>
         <?php echo Html::anchor('/p/s/sortcomment', '评论最多', array('class' => ''));?>
     </div>
@@ -57,9 +62,9 @@
                                  </div>
                                  </div>
                             <?php }; ?>
-                  
+
                  <?php }; ?>
-            
+
         </li>
         <?php }; ?>
         <?php else: ?>
