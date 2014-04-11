@@ -297,12 +297,12 @@ class Model_Order extends \Classes\Model
 
         if(!isset($get['page']) && !isset($get['phaseId'])) return [];
 
-        $offset = ($get['page'] - 1)*\Helper\Page::PAGESIZE;
+        $offset = ($get['page'] - 1)*\Helper\Page::AJAXSIZE;
 
         $where   = ['phase_id' => $get['phaseId']];
         $orderBy = ['id' => 'desc'];
 
-        $orders = Model_Order::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::PAGESIZE]);
+        $orders = Model_Order::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::AJAXSIZE]);
 
         $data = [];
         list($memberIds) = Model_Order::getIds($orders, ['member_id']);
