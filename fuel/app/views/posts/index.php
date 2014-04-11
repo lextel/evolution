@@ -5,7 +5,7 @@
         var location_url = window.location.href;
         $('.list_sort a[href="' + location_url + '"]').css('border', '1px solid #AF2812');
     });
-</script>>
+</script>
 <div class="wrapper w">
     <div class="title titlecontent">
      <div class="bread">
