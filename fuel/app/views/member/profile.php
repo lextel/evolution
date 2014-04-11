@@ -46,7 +46,7 @@ $(function(){
             </li>
             <li>
                 <label>*邮箱：</label>
-                <span class="email"><?php echo $member->email;?></span>
+                <span class="email" style="width: 150px;"><?php echo $member->email;?></span>
                 <?php if (!Model_Member_Email::check_emailok($member->email)) {  ?>
                 <span class="red">（未验证）</span>
                 <span class="load" style="display:none"><?php echo Html::img('assets/images/bx_loader.gif', ['style'=>'width:30px']);?></span>
@@ -57,9 +57,13 @@ $(function(){
             </li>
             <li>
                  <label>*手机：</label>
-                 <span class="mobile"><?php echo $member->mobile;?></span>
-                 <span class="red">（未绑定）</span>
-                 <a href="<?php echo Uri::create('u/mobile/first');?>" class="btn-sm btn-state fl">去绑定</a>
+                 <span class="mobile" style="width: 150px;"><?php echo $member->mobile;?></span>
+                 <span class="red"><?php echo $member->is_mobile == '1' ? '（已绑定）':'（未绑定）';?></span>
+                 <?php if ($member->is_mobile != '1') { ?>
+                    <a href="<?php echo Uri::create('u/mobile/first');?>" class="btn-sm btn-state fl">去绑定</a>
+                 <?php }else{ ?>
+                    <a href="<?php echo Uri::create('u/mobile/first');?>" class="btn-sm btn-state fl">绑定新手机</a>
+                 <?php } ?>
              </li>
             <li>
                 <label>*昵称：</label>

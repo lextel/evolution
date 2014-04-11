@@ -141,10 +141,10 @@
 	height:496px;
 	overflow:hidden;
 	background:url(images/gallerry-bg.gif) 0 0 repeat-x #ccc;
-	border-bottom:5px solid #EAEAEA; 
+	border-bottom:5px solid #EAEAEA;
 }
 .gallery li{background-color:#fff; overflow:hidden;}
-.roundabout-holder  { 
+.roundabout-holder  {
 	width:646px;
 	height:496px;
 	margin:0 auto;
@@ -276,15 +276,14 @@
 	padding:5px 15px;
 	color:#333;
 	font-size:14px;
-	background-color:#eee; 
+	background-color:#eee;
 }
 .questionlist dd{padding:6px 15px 15px; margin-bottom:10px; color:#666;}
 .questionlist p{margin:8px 0;}
 /*==========浠ヤ笅閮ㄥ垎鏄疺alidform蹇呴』鐨�===========*/
 .Validform_checktip{
-	height:20px;
-	overflow:hidden;
-	color:#999;
+    height:20px;
+    color:#999;
     display: inline-block;
     margin-left: 3px;
     position: relative;
