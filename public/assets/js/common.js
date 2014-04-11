@@ -614,10 +614,10 @@ function handleJoined(data,status) {
         }
 
         html += '</tbody></table>';
-        $('#buylog').html(html).append(data.page).append(data.page);
+        $('#buylog').html(html).append(data.page);
             //$("#tab-content").after(html).append(data.page);
         if(0 == status ){
-            copyJoined(data.page);
+            copyJoined();
         }
     }
 }
@@ -664,23 +664,23 @@ function handlePosts(data,status) {
         }
         if(0 == status && bool){
             $('#posts').html(html).append(data.page);
-            copyPosts(data.page);
+            copyPosts();
         }else{
             $("#desctwo").after("<div id='poststwo' style='margin-top:10px;'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;'>晒单</div><div class='product-bask active tab-content' style='text-align:center;padding:30px 20px 20px;'>暂无晒单记录</div></div>");
-            copyPosts(data.page);
+            copyPosts();
         }
 }
-function copyPosts(page){
+function copyPosts(){
     var html ="<div id='poststwo' style='margin-top:10px;color:#848484;'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;color:#666;'>晒单</div><div class='product-bask active tab-content'>";
     html += $("#posts").html();
     html += "</div>";
-    $("#copyJoinedid").after(html).append(page);
+    $("#copyJoinedid").after(html);
 }
-function copyJoined(page){
+function copyJoined(){
     var html = "<div id='copyJoinedid' class='record active' style='margin-top:10px;color:#848484;'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;color:#666;'>所有参与记录</div>";
     html += $("#buylog").html();
     html +="</div>";
-    $("#tab-content").after(html).append(page); ;
+    $("#tab-content").after(html);
     posts(1,0);
 }
 // 渲染期数记录
