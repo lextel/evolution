@@ -504,7 +504,20 @@ textarea:focus,input:focus{
     background: #AF2812;
     display: block;
 }
- .sns-bar{
+.wrapper .set-wrap table thead{
+    color: #666;
+}
+.wrapper .set-wrap table tBODY{
+    color: #757575;
+}
+
+.edit-data .form-profile input{
+    color: #666;
+}
+.edit-data .form-profile textarea{
+    color: #666;
+}
+.sns-bar{
      overflow: hidden;
      margin: 5px 0;
  }
