@@ -151,7 +151,7 @@ class Controller_V2admin extends Controller_Baseend
         }
         //生成随机验证码
         $time = time();
-        $code = substr(md5($time.$mobile),0, 6);
+        $code = substr(crc32($time.$mobile),0, 6);
 
         // 发送
         $content = $code;
