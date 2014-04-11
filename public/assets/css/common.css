@@ -927,12 +927,19 @@ table td p.tl{
 .fl{
     float: left;
     display: block;
+    color: #757575;
 }
 .fr{
     float: right;
     display: block;
+    color: #757575;
 }
-
+.product-details .firstRow{
+    color: #757575;
+}
+.product-details .firstRow .formwork_titleleft2{
+     color: #848484;
+}
 /*进度条*/
 .progress-side{
     overflow: hidden;
@@ -1734,12 +1741,16 @@ table td p.tl{
     width: 50px;
     height: 22px;
     line-height: 22px;
-    color: #333;
     padding-right: 20px;
     display: inline-block;
     text-align: center;
-    color: #333333;
     background:url("../images/icon-02.png") no-repeat -37px -297px;
+}
+.acquire-box .acquire table thead{
+    color: #757575;
+}
+.acquire-box .acquire table{
+    color: #848484;
 }
 .num-list{
     position: absolute;
