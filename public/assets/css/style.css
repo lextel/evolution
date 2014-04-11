@@ -803,11 +803,11 @@
     float: left;
 }
 .verify-wrap .prompt-bar{
-    padding: 7px 0 7px 30px;
+    padding: 8px 0 7px 30px;
     overflow: hidden;
-    color: #f60;
-    background: #fffce2;
-    border: #fd9 1px solid;
+    color: #af2812;
+    background: #fff;
+    border: #af2812 1px solid;
     position: relative;
     margin-bottom: 20px;
 }
