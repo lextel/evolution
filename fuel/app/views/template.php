@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title><?php echo $title?></title>
+    <title><?php echo $title?> - 独乐乐,不如众乐乐</title>
     <?php echo Asset::css(['common.css', 'header.css']); ?>
     <?php echo Asset::js(['jquery.min.js', 'common.js']); ?>
     <!--[if lt IE 10]>
