@@ -110,7 +110,7 @@
                 </dl>
                 -->
                 <dl class="dl04">
-                    <dd><img src="../assets/images/wxin1.jpg"></dd>
+                    <dd><img src="<?php echo Uri::create("/assets/images/wxin1.jpg");?>"></dd>
                 </dl>
             </div>
         </div>
