@@ -164,6 +164,7 @@
     <!--二维码开始-->
     <div class="weiXin">
         <div class="weiXin-img">
+             <img src="../assets/images/wxin1.jpg">
             <button class="icon-close"></button>
         </div>
         <p>关注微信更多惊喜<p/>
