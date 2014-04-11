@@ -31,6 +31,7 @@ class Controller_Member_Mobile extends Controller_Center
     */
     public function action_getcode(){
         //检测数据库里是否有该电话
+        $mobile = Input::post('mobile');
         $res = ['code'=>1];
         $time = Session::get('front_time', 0);
         $phone = Session::get('front_mobile');
@@ -44,12 +45,11 @@ class Controller_Member_Mobile extends Controller_Center
         //生成随机验证码
         $time = time();       
         $code = substr(md5($time.$phone),0, 6);
-                		
+
         // 发送
-        $content = "验证码为：".$code;
-        $sms = new Classes\Sms;
-        $r = 1;//$sms->send($mobile, $content);
-        \Log::error(sprintf('短信： %s | %s', $phone, $content));
+        $content = $code;
+        $sms = new \Classes\Sms();
+        $r = $sms->send($mobile, $content);
         if ($r)
         {
             $res['code'] = 0;
@@ -58,6 +58,7 @@ class Controller_Member_Mobile extends Controller_Center
 		    Session::set('front_time', $time);
             return json_encode($res);
         }
+        \Log::error(sprintf('短信： %s | %s', $phone, $content));
         $res['msg'] = '发送失败';
         return json_encode($res);
     }
@@ -66,6 +67,7 @@ class Controller_Member_Mobile extends Controller_Center
     * 检测短信验证码
     */
     public function action_check(){
+        $mobile = Input::post('mobile');
         $val = Validation::forge();
         $val->add_callable(new \Classes\MyRules());
         $val->add_field('code', '密码', 'required|min_length[6]|max_length[6]');
@@ -95,7 +97,7 @@ class Controller_Member_Mobile extends Controller_Center
             }else{
                 $this->template->set_global('login_error', $mobile.'已经存在');
             }
-            return Response::redirect('u/mobile/second'.$phone); 
+            return Response::redirect('u/mobile/getprofile); 
         }
         return Response::redirect('u/mobile/first'); 
     }

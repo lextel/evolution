@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title><?php echo $title?></title>
+    <title><?php echo $title?> - 独乐乐,不如众乐乐</title>
     <?php echo Asset::css(['common.css', 'header.css']); ?>
     <?php echo Asset::js(['jquery.min.js', 'common.js']); ?>
     <!--[if lt IE 10]>
@@ -127,7 +127,8 @@
                 <li class="lastest"><a href="javascript:void(0);">联系我们</a></li>
             </ul>
             <P style="color:#5b5b5b">Copyright © 2014<?php echo date('Y') != 2014 ? '-'.date('Y') : '';?> <a href="http://www.lltao.com">www.LLtao.com</a> 版权所有 <a href="http://www.miitbeian.gov.cn/" target="_blank" ref="nofollow">粤ICP备14017463号-1<!--服务器商要求加链接--></a></P>
-            <div class="slogan"><img src="../assets/images/slogan.png"></div>
+
+            <div class="slogan"><img src=<?php echo Uri::create("/assets/images/slogan.png");?>></div>
             <div class="flink" style="text-align:center">
                 <span>友情链接:</span>
                     <a href="http://bbs.anzhi.com" target="_blank">安智论坛</a>

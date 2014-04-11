@@ -12,7 +12,7 @@
             </div>
             <div class="select-box">
                 <label for=""><?php echo Html::anchor('/u/orders', '全部商品', ['class'=>'b']);?></label>
-            <span class="time-choose">选择时间段：
+            <span class="time-choose"><s>选择时间段：</s>
                  <input  id="datepicker" type="text" placeholder="输入起始时间"/>
                  <input  id="datepicker1" type="text" placeholder="输入结束时间" />
                  <button class="order-date-search">搜索</button>
@@ -27,7 +27,6 @@
                 <table>
                     <thead>
                     <tr>
-
                         <th>商品图片</th>
                         <th>商品名称</th>
                         <th>乐淘状态</th>
@@ -44,7 +43,6 @@
                     <?php foreach($orders as $order) { ?>
                     <?php $phase = $getPhaseInfo($order->phase_id);?>
                     <tr>
-                           
                         <td>
                             <div class="img-box img-sm">
                                 <a href="<?php echo Uri::create('m/'.$order->phase_id); ?>" rel="nofollow">
@@ -59,7 +57,7 @@
                             <div class="number">幸运乐淘码：<span class="r"><?php echo $phase->code;?></span></div>
                             <div class="datetime">揭晓时间：<?php echo Date("Y-m-d H:i:s", $phase->opentime);?></div>
                             <?php }else{ ?>
-                            
+
                             <?php } ?>
                         </td>
                         <td><?php echo ($phase->member_id !=0) ? "已经揭晓": "进行中";?></td>
@@ -69,7 +67,7 @@
                            <div class="num-list">
                                 <div class="icon-arrow"></div>
                                 <ul>
-                                     <?php 
+                                     <?php
                                         $codes = \Helper\Codes::getArray($order->codes);
                                         foreach($codes as $code) {
                                             echo "<li>{$code}</li>";

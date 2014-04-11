@@ -1,12 +1,27 @@
 <?php echo Asset::css(['style.css']); ?>
 <?php echo Asset::css('member/validfrom_style.css'); ?>
 <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
+<style>
+/*
+.acquire-box, .record-box,.record{
+    overflow: visible;
+}
+.content-inner{
+    overflow: visible;
+}
+.wrapper {
+    overflow: visible;
+}
+.w {
+    overflow: visible;
+}*/
+</style>
 <script>
     $(function() {
     var location_url = window.location.href;
     var patten = new RegExp(/http:\/\/[^\/]+\/u(\/\w+|)/);
     var location_url = patten.exec(location_url)[0];
-    
+
     if ($('.left-nav > li > a[href="' + location_url + '"]')){
         $('.left-nav > li > a[href="' + location_url + '"]').addClass('active');
     }
