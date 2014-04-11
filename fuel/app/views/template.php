@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title><?php echo $title?></title>
+    <title><?php echo $title?> - 独乐乐,不如众乐乐</title>
     <?php echo Asset::css(['common.css', 'header.css']); ?>
     <?php echo Asset::js(['jquery.min.js', 'common.js']); ?>
     <!--[if lt IE 10]>
@@ -165,6 +165,7 @@
     <!--二维码开始-->
     <div class="weiXin">
         <div class="weiXin-img">
+             <img src="../assets/images/wxin1.jpg">
             <button class="icon-close"></button>
         </div>
         <p>关注微信更多惊喜<p/>
