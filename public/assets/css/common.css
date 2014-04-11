@@ -1789,6 +1789,9 @@ table td p.tl{
     float: left;
     width:80px;
 }
+.num-list .icon-close{
+    right: 16px;
+}
 .vertical-ticker{
 	overflow:hidden;
 	margin:0; padding:0;

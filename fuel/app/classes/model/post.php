@@ -98,12 +98,12 @@ class Model_Post extends \Classes\Model
 
         if(!isset($get['page']) && !isset($get['itemId'])) return [];
 
-        $offset = ($get['page'] - 1)*\Helper\Page::PAGESIZE;
+        $offset = ($get['page'] - 1)*\Helper\Page::AJAXSIZE;
 
         $where   = ['item_id' => $get['itemId'], 'status' => self::IS_PASS, 'is_delete' => self::NOT_DELETE];
         $orderBy = ['id' => 'desc'];
 
-        $posts = Model_Post::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::PAGESIZE]);
+        $posts = Model_Post::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::AJAXSIZE]);
 
         list($memberIds, $phaseIds) = Model_Post::getIds($posts, ['member_id', 'phase_id']);
         $memberInfo = Model_Member::byIds($memberIds, ['avatar', 'nickname']);

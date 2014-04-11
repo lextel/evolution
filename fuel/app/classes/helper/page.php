@@ -10,6 +10,7 @@ namespace Helper;
 class Page {
 
     const PAGESIZE = 16;
+    const AJAXSIZE = 10;
 
     /**
      * 设置分页配置
@@ -145,7 +146,7 @@ class Page {
         return [
              'wrapper'=>'<div class="pagination fr">{pagination}</div>',
              'total_items' => $total,
-             'per_page'       => self::PAGESIZE,
+             'per_page'       => self::AJAXSIZE,
              'regular-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}({page})'>{page}</a>\n",
              'active-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}({page})'>{page}</a>\n",
              'next-link' => "\t\t<a href='javascript:void(0);' onclick='{$fun}({$nextpage})' rel='next'>{page}</a>\n",
