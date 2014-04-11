@@ -149,16 +149,19 @@
     </div>
 
     <script>
-    $(function (){
+    //传入不显示右侧购物车块的地址
+    function hideSpecial(specialName){
         var lolUrl = window.location.pathname;
-        function loads(){
-            var url = "/special/lol";
-            if(lolUrl == url){
+        //var url = "/special/lol";
+        for(var i = 0; i < specialName.length; i++){
+            if(lolUrl.indexOf(specialName[i]) > 0){
                 $(".weiXin").css("display","none");
                 $(".short-cut").css("display","none");
             }
-        }
-        loads();
+        } 
+    }
+    $(function (){
+        hideSpecial(["special"]);
     });
     </script>
     <!--底部结束-->
