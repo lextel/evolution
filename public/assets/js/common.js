@@ -292,7 +292,7 @@ $(function(){
         cleardata();
         joined(1,0);
     }
-    
+
     //商品详情字体颜色
     $('a[href="#desc"]').click(function() {
         $(".fl").find("a").css("color","#666");
@@ -539,7 +539,7 @@ function joined(page,status) {
         dataType: 'json',
         success: function(data) {
             handleJoined(data,status);
-            
+
         }
     });
 }
@@ -615,7 +615,7 @@ function handleJoined(data,status) {
 
         html += '</tbody></table>';
         $('#buylog').html(html).append(data.page).append(data.page);
-            //$("#tab-content").after(html).append(data.page); 
+            //$("#tab-content").after(html).append(data.page);
         if(0 == status ){
             copyJoined(data.page);
         }
@@ -656,9 +656,9 @@ function handlePosts(data,status) {
                     '</li>';
         }
 
-        html += '</ul>'; 
+        html += '</ul>';
     }
-    
+
         if(1 == status && bool){
             $('#posts').html(html).append(data.page);
         }
@@ -674,7 +674,7 @@ function copyPosts(page){
     var html ="<div id='poststwo' style='margin-top:10px;color:#848484;'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;color:#666;'>晒单</div><div class='product-bask active tab-content'>";
     html += $("#posts").html();
     html += "</div>";
-    $("#copyJoinedid").after(html).append(page); 
+    $("#copyJoinedid").after(html).append(page);
 }
 function copyJoined(page){
     var html = "<div id='copyJoinedid' class='record active' style='margin-top:10px;color:#848484;'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;color:#666;'>所有参与记录</div>";
@@ -707,13 +707,13 @@ function handlePhases(data,status) {
         }
 
         html += '</tbody></table></div>';
-        
+
     }
     if(1 == status && bool){
         $('#phase').html(html).append(data.page);
     }
     if(0 == status && bool){
-        $("#poststwo").after(html).append(data.page); 
+        $("#poststwo").after(html).append(data.page);
     }else{
         $("#poststwo").after("<div id='phasestwo'><p style='margin-bottom: 15px;text-align: center'>暂无期数记录</p></div>");
     }
@@ -798,7 +798,7 @@ $(function(){
 **/
 $(function(){
     $(".tooltip").click(function(){
-          var num_list=$(this).next(".codeList");
+          var num_list=$(this).next(".num-list");
            if(num_list.css("display")=="none"){
               num_list.css({display:"block"});
            }

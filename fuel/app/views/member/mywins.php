@@ -4,14 +4,14 @@
         <!--获得的商品开始-->
         <div class="lead">获得的商品</div>
         <div class="acquire-box">
-            <div class="remind ">乐淘提醒：你总共乐淘获得商品（<?php echo $wincount;?>)件</div>
+            <div class="remind ">乐淘提醒：你总共乐淘获得商品（<?php echo $wincount;?>）件</div>
             <div class="select-box">
             <label for=""><?php echo Html::anchor('/u/wins', '全部商品', ['class'=>'b']);?></label>
-            <span class="time-choose">选择时间段：                 
+            <span class="time-choose">选择时间段：
                  <input  id="datepicker" type="text" placeholder="输入起始时间" />
                  <input  id="datepicker1" type="text" placeholder="输入结束时间" />
                  <button class="wins-date-search">搜索</button>
-            </span>          
+            </span>
             </div>
             <div class="select">
                 <label for="" class="select-title">商品名称</label>
@@ -47,17 +47,16 @@
                                 </a>
                             </div>
                         </td>
-                        <td>（第<?php echo $win->phase_id;?>期）<?php echo $win->title;?></td>
+                        <td><div class="tl">（第<?php echo $win->phase_id;?>期）<?php echo $win->title;?></div></td>
                         <td>已经揭晓</td>
                         <td><?php echo $win->code_count;?>元宝</td>
                         <td><?php echo $win->code; ?></td>
-                        
+
                         <td><?php $status = intval($getShipping($win->id)); ?>
                         <?php echo $getShippingStatus($status);?>
                         <?php if ($status < 100) { ?>
                            <div class="toolbox">
                            <a class="tooltip" href="javascript:void(0)">查看快递</a>
-                        
                            <div class="num-list">
                                 <div class="icon-arrow"></div>
                                 <div class="item">
@@ -65,25 +64,24 @@
                                     <tbody>
                                     <?php foreach($getShippingData($win->id) as $row) { ?>
                                           <tr>
-                                          <td><?php echo $row->context;?></td><td><?php echo $row->time;?></td>  
+                                          <td><?php echo $row->context;?></td><td><?php echo $row->time;?></td>
                                           </tr>
                                       <?php } ?>
-                                      </tbody>                                 
+                                      </tbody>
                                 </table>
                                 </div>
                                 <button class="icon-close"></button>
                             </div>
                             </div>
-                        <?php }?>                        
+                        <?php }?>
                         </td>
                         <td><?php echo Html::anchor('w/'.$win->id, '查看详情'); ?></td>
                     </tr>
                     <?php }?>
                     </tbody>
                 </table>
-                <br />
-                <?php echo Pagination::instance('uwins')->render(); ?>
             </div>
         </div>
         <!--获得的商结束-->
+         <?php echo Pagination::instance('uwins')->render(); ?>
     </div>
