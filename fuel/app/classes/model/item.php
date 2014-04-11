@@ -110,12 +110,12 @@ class Model_Item extends \Classes\Model {
 
         if(!isset($get['page']) && !isset($get['itemId'])) return [];
 
-        $offset = ($get['page'] - 1)*\Helper\Page::PAGESIZE;
+        $offset = ($get['page'] - 1)*\Helper\Page::AJAXSIZE;
 
         $where   = ['item_id' => $get['itemId']];
         $orderBy = ['id' => 'desc'];
 
-        $phases = Model_Phase::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::PAGESIZE]);
+        $phases = Model_Phase::find('all', ['where' => $where, 'order_by' => $orderBy, 'offset' => $offset, 'limit' => \Helper\Page::AJAXSIZE]);
 
         list($memberIds) = Model_Phase::getIds($phases, ['member_id']);
         $members = Model_Member::byIds($memberIds);
