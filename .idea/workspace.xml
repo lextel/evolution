@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="修改分页">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/images/icon-02.png" afterPath="$PROJECT_DIR$/public/assets/images/icon-02.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/template.php" afterPath="$PROJECT_DIR$/fuel/app/views/template.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
     </list>
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -182,23 +181,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1313" column="0" selection-start="22532" selection-end="22532" vertical-scroll-proportion="0.0" vertical-offset="23234" max-vertical-offset="42009">
+            <state line="1781" column="16" selection-start="31250" selection-end="31250" vertical-scroll-proportion="0.4553687" vertical-offset="33487" max-vertical-offset="42066">
               <folding>
-                <marker date="1397187918361" expanded="true" signature="14094:14151" placeholder="{...}" />
-                <marker date="1397187918361" expanded="true" signature="14180:14342" placeholder="{...}" />
-                <marker date="1397187918361" expanded="true" signature="37460:37622" placeholder="{...}" />
+                <marker date="1397198616838" expanded="true" signature="648:672" placeholder="{...}" />
+                <marker date="1397198616838" expanded="true" signature="14094:14151" placeholder="{...}" />
+                <marker date="1397198616838" expanded="true" signature="14180:14342" placeholder="{...}" />
+                <marker date="1397198616838" expanded="true" signature="37502:37664" placeholder="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="template.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="template.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="172" column="4" selection-start="7613" selection-end="7613" vertical-scroll-proportion="0.588535" vertical-offset="2806" max-vertical-offset="4180">
+            <state line="172" column="4" selection-start="7613" selection-end="7613" vertical-scroll-proportion="0.0" vertical-offset="2806" max-vertical-offset="4180">
               <folding />
             </state>
           </provider>
@@ -269,11 +269,11 @@
         <option value="$PROJECT_DIR$/fuel/app/views/wins/index.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/help/suggest.php" />
         <option value="$PROJECT_DIR$/public/assets/css/header.css" />
-        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
         <option value="$PROJECT_DIR$/public/html/special-game.html" />
         <option value="$PROJECT_DIR$/public/assets/css/style.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/template.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/common.css" />
       </list>
     </option>
   </component>
@@ -978,17 +978,6 @@
         <state line="91" column="50" selection-start="3774" selection-end="3774" vertical-scroll-proportion="1.5631443" vertical-offset="516" max-vertical-offset="2318" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1313" column="0" selection-start="22532" selection-end="22532" vertical-scroll-proportion="0.0" vertical-offset="23234" max-vertical-offset="42009">
-          <folding>
-            <marker date="1397187918361" expanded="true" signature="14094:14151" placeholder="{...}" />
-            <marker date="1397187918361" expanded="true" signature="14180:14342" placeholder="{...}" />
-            <marker date="1397187918361" expanded="true" signature="37460:37622" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/html/special-lol.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="6" selection-start="755" selection-end="755" vertical-scroll-proportion="-1.7883117" vertical-offset="1795" max-vertical-offset="2565" />
@@ -1117,8 +1106,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="172" column="4" selection-start="7613" selection-end="7613" vertical-scroll-proportion="0.588535" vertical-offset="2806" max-vertical-offset="4180">
+        <state line="172" column="4" selection-start="7613" selection-end="7613" vertical-scroll-proportion="0.0" vertical-offset="2806" max-vertical-offset="4180">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1781" column="16" selection-start="31250" selection-end="31250" vertical-scroll-proportion="0.4553687" vertical-offset="33487" max-vertical-offset="42066">
+          <folding>
+            <marker date="1397198616838" expanded="true" signature="648:672" placeholder="{...}" />
+            <marker date="1397198616838" expanded="true" signature="14094:14151" placeholder="{...}" />
+            <marker date="1397198616838" expanded="true" signature="14180:14342" placeholder="{...}" />
+            <marker date="1397198616838" expanded="true" signature="37502:37664" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
