@@ -24,7 +24,7 @@
         </div>
         <div class="row">
             <a href="javascript:;" class="btn btn-red btn-sx" id="submitID">提交</a>
-            <a href="javascript:;" class="btn btn-red btn-chance" id="chance">返回</a>
+            <a href="javascript:;" class="btn btn-sx btn-gr btn-chance" id="chance" style="margin-left:10px;">返回</a>
         </div>
         <div class="row">
             <label></label>
