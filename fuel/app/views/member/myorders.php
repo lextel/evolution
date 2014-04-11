@@ -78,7 +78,7 @@
                             </div>
                         </div>
                             </td>
-                        <td><?php echo Html::anchor("/m/".$order->phase_id, "查看详情");?></td>
+                        <td><?php echo Html::anchor("/m/".$order->phase_id, "详情");?></td>
                     </tr>
                     <?php } ?>
                     </tbody>
