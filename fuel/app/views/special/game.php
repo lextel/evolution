@@ -29,12 +29,12 @@
             <?php foreach($games as $row) { ?>
             <li>
                 <div class="imgBox">
-                    <?php echo Html::anchor('m/'.$row->id, Html::img($row->image));?>
+                    <?php echo Html::anchor('m/'.$row->id, Html::img(\Helper\Image::showImage($row->image, '400x400'), ['style'=>'width:320px;height:210px']));?>
                 </div>
                 <div class="tit"><?php echo $row->title;?></div>
                 <div class="fd-col">
                     <span class="money">参考价：<?php echo $row->cost;?>.00元</span>
-                    <?php echo Html::anchor('m/'.$row->id, ['class'=>'lol-btn-sm']);?>
+                    <?php echo Html::anchor('m/'.$row->id, '',['class'=>'lol-btn-sm']);?>
                 </div>
             </li>
             <?php } ?>
