@@ -566,18 +566,42 @@ function handlePosts(data, needReturn) {
         html += '</ul>';
     }
 
+/*HEAD
+        if(1 == status && bool){
+            $('#posts').html(html).append(data.page);
+        }
+        if(0 == status && bool){
+            $('#posts').html(html).append(data.page);
+            copyPosts();
+        }else{
+            $("#desctwo").after("<div id='poststwo'><div class='tit'>晒单</div><div class='product-bask active'>暂无晒单记录</div></div>");
+            copyPosts();
+        }
+}
+function copyPosts(){
+    var html ="<div id='poststwo' class='bask'><div class='tit'>晒单</div><div class='product-bask active'>";
+    html += $("#posts").html();
+    html += "</div>";
+    $("#copyJoinedid").after(html);
+}
+function copyJoined(){
+    var html = "<div id='copyJoinedid' class='record active'><div class='tit'>所有参与记录</div>";
+    html += $("#buylog").html();
+    html +="</div>";
+    $("#tab-content").after(html);
+    posts(1,0);
+*/
     if(!needReturn && bool) {
         $('#posts').html(html).append(data.page);
     } else {
         return bool ? html : bool;
     }
-
 }
 // 渲染期数记录
 function handlePhases(data) {
     var bool = !jQuery.isEmptyObject(data.phases);
     if(bool) {
-        var html = "<div class='tab-content' style='margin-top:10px;color:#848484' id='phasetwo'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;color:#666;'>往期回顾</div><table><thead><tr><th>期数</th><th>幸运乐淘码</th><th>幸运获奖者</th><th>揭晓时间</th><th>购买数量</th><tr></thead><tbody>";
+        var html = "<div class='tab-content' id='phasetwo'><div class='tit'>往期回顾</div><table><thead><tr><th>期数</th><th>幸运乐淘码</th><th>幸运获奖者</th><th>揭晓时间</th><th>购买数量</th><tr></thead><tbody>";
         for(var i in data.phases) {
             var code = typeof(data.phases[i].code) == 'undefined' ? '<span class="r">进行中...</span>' : data.phases[i].code;
             var member = typeof(data.phases[i].member) == 'undefined' ? '' : data.phases[i].member;
