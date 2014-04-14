@@ -364,8 +364,8 @@ function initDesc() {
             dataType: 'json',
             success: function(data) {
                 addtion = '<div style="background:#f5f7fa;height: 10px;"></div>'+
-                          '<div id="descJoined" style="border-top:2px solid #F60">'+
-                          '<div style="margin:10px;font-size: 14px; color: #666;">所有参与者记录</div>';
+                          '<div id="descJoined" style="border-top:2px solid #AF2812">'+
+                          '<div class="title"><h3>所有参与者记录</h3></div>';
                 var html = handleJoined(data, true);
                 if(html) {
                     addtion += html;
@@ -389,8 +389,8 @@ function initDesc() {
             dataType: 'json',
             success: function(data) {
                 addtion += '<div style="background:#f5f7fa;height: 10px"></div>'+
-                          '<div id="descPosts" class="product-bask" style="border-top:2px solid #F60;">'+
-                           '<div style="margin: 10px;font-size: 14px; color: #666">晒单</div>';
+                          '<div id="descPosts" class="product-bask" style="border-top:2px solid #AF2812;">'+
+                          '<div style="border-bottom:1px dashed #E4E4E4;" class="title"><h3>晒单</h3></div>';
                 var html = handlePosts(data, true);
                 if(html) {
                     addtion += html;
