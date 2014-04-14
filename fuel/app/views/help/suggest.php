@@ -61,11 +61,10 @@ $(function(){
     $(".recaptcha").click(function(){
         $(".captcha img").attr('src', '<?php echo Uri::create("captcha");?>' + '?' + Math.random());
     });
-    /*
     $(".edit-data").Validform({
         btnSubmit: "#sub",
         tiptype:4
-    });*/
+    });
 });
 </script>
 
