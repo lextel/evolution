@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="修改分页">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/common.css" afterPath="$PROJECT_DIR$/public/assets/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/common.js" afterPath="$PROJECT_DIR$/public/assets/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/help/guide.php" afterPath="$PROJECT_DIR$/fuel/app/views/help/guide.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/invit/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/invit/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/invit/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/invit/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/posts/index.php" afterPath="$PROJECT_DIR$/fuel/app/views/posts/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/v2admin/login1.php" afterPath="$PROJECT_DIR$/fuel/app/views/v2admin/login1.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/member.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/member.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/model/member.php" afterPath="$PROJECT_DIR$/fuel/app/classes/model/member.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/member/mobile.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/member/mobile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/product.css" afterPath="$PROJECT_DIR$/public/assets/css/product.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/profile.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/mobile/second.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/mobile/second.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/signin.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/special-game.html" afterPath="$PROJECT_DIR$/public/html/special-game.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style.css" afterPath="$PROJECT_DIR$/public/assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/template.php" afterPath="$PROJECT_DIR$/fuel/app/views/template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/classes/controller/v2admin.php" afterPath="$PROJECT_DIR$/fuel/app/classes/controller/v2admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/item/view.js" afterPath="$PROJECT_DIR$/public/assets/js/item/view.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/items/view.php" afterPath="$PROJECT_DIR$/fuel/app/views/items/view.php" />
     </list>
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,23 +57,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1070" column="22" selection-start="19470" selection-end="19470" vertical-scroll-proportion="0.0" vertical-offset="19845" max-vertical-offset="33060">
+            <state line="1676" column="16" selection-start="30569" selection-end="30569" vertical-scroll-proportion="0.53474677" vertical-offset="31390" max-vertical-offset="33117">
               <folding>
-                <marker date="1397445015368" expanded="true" signature="21632:21635" placeholder="{...}" />
-                <marker date="1397445015368" expanded="true" signature="28239:28316" placeholder="{...}" />
-                <marker date="1397445015368" expanded="true" signature="28416:28525" placeholder="{...}" />
+                <marker date="1397458496339" expanded="true" signature="21632:21635" placeholder="{...}" />
+                <marker date="1397458496339" expanded="true" signature="28239:28316" placeholder="{...}" />
+                <marker date="1397458496339" expanded="true" signature="28416:28525" placeholder="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="941" column="19" selection-start="16057" selection-end="16057" vertical-scroll-proportion="-0.06080207" vertical-offset="17926" max-vertical-offset="42427">
+            <state line="958" column="18" selection-start="16314" selection-end="16314" vertical-scroll-proportion="-11.04" vertical-offset="17926" max-vertical-offset="42427">
               <folding>
                 <marker date="1397445895321" expanded="true" signature="648:672" placeholder="{...}" />
                 <marker date="1397445895321" expanded="true" signature="14295:14352" placeholder="{...}" />
@@ -249,6 +231,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="special-game.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/html/special-game.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="0" selection-start="435" selection-end="435" vertical-scroll-proportion="-1.7142857" vertical-offset="180" max-vertical-offset="1349">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="template.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -340,21 +331,21 @@
         <option value="$PROJECT_DIR$/fuel/app/views/help/suggest.php" />
         <option value="$PROJECT_DIR$/public/assets/css/header.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
-        <option value="$PROJECT_DIR$/public/html/special-game.html" />
         <option value="$PROJECT_DIR$/fuel/app/views/template.php" />
-        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/mobile/second.php" />
         <option value="$PROJECT_DIR$/public/assets/css/product.css" />
         <option value="$PROJECT_DIR$/public/assets/js/common.js" />
         <option value="$PROJECT_DIR$/public/assets/css/common.css" />
+        <option value="$PROJECT_DIR$/public/html/special-game.html" />
+        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="340" />
-    <option name="y" value="24" />
-    <option name="width" value="1431" />
-    <option name="height" value="980" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -418,6 +409,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -904,14 +913,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="340" y="24" width="1431" height="980" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32678983" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287037" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24924012" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17672414" sideWeight="0.6701389" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12967844" sideWeight="0.6701389" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31914893" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20668693" sideWeight="0.42708334" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -986,11 +995,6 @@
         <state line="22" column="6" selection-start="755" selection-end="755" vertical-scroll-proportion="-1.7883117" vertical-offset="1795" max-vertical-offset="2565" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/special-game.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="1935" selection-end="1935" vertical-scroll-proportion="-22.071428" vertical-offset="351" max-vertical-offset="1349" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/member/mobile/first.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1007" />
@@ -1004,17 +1008,6 @@
     <entry file="file://$PROJECT_DIR$/fuel/app/views/orders/search.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="776" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1070" column="22" selection-start="19470" selection-end="19470" vertical-scroll-proportion="0.0" vertical-offset="19845" max-vertical-offset="33060">
-          <folding>
-            <marker date="1397445015368" expanded="true" signature="21632:21635" placeholder="{...}" />
-            <marker date="1397445015368" expanded="true" signature="28239:28316" placeholder="{...}" />
-            <marker date="1397445015368" expanded="true" signature="28416:28525" placeholder="{...}" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/wins/index.php">
@@ -1078,7 +1071,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="941" column="19" selection-start="16057" selection-end="16057" vertical-scroll-proportion="-0.06080207" vertical-offset="17926" max-vertical-offset="42427">
+        <state line="958" column="18" selection-start="16314" selection-end="16314" vertical-scroll-proportion="-11.04" vertical-offset="17926" max-vertical-offset="42427">
           <folding>
             <marker date="1397445895321" expanded="true" signature="648:672" placeholder="{...}" />
             <marker date="1397445895321" expanded="true" signature="14295:14352" placeholder="{...}" />
@@ -1231,6 +1224,24 @@
             <marker date="1397445895321" expanded="true" signature="30735:30763" placeholder="{...}" />
             <marker date="1397445895321" expanded="true" signature="30793:31038" placeholder="{...}" />
             <marker date="1397445895321" expanded="true" signature="37839:38001" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/special-game.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="435" selection-end="435" vertical-scroll-proportion="-1.7142857" vertical-offset="180" max-vertical-offset="1349">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1676" column="16" selection-start="30569" selection-end="30569" vertical-scroll-proportion="0.53474677" vertical-offset="31390" max-vertical-offset="33117">
+          <folding>
+            <marker date="1397458496339" expanded="true" signature="21632:21635" placeholder="{...}" />
+            <marker date="1397458496339" expanded="true" signature="28239:28316" placeholder="{...}" />
+            <marker date="1397458496339" expanded="true" signature="28416:28525" placeholder="{...}" />
           </folding>
         </state>
       </provider>
