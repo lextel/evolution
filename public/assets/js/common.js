@@ -366,16 +366,11 @@ function initDesc() {
             type: 'get',
             dataType: 'json',
             success: function(data) {
-                addtion = '<div style="background:#f5f7fa;height: 10px"></div>'+
-                          '<div id="descJoined" style="padding: 0px 20px">'+
-                          '<div style="margin:10px;font-size: 14px; color: #666">所有参与者记录</div>';
-                var html = handleJoined(data, true);
-                if(!html) {
-                   addtion += '<p>暂无参与者记录</p>'; 
-                } else {
-                    addtion += html;
-                    addtion += data.page.replace(/joined/g, 'descJoined');
-                }
+                addtion = '<div style="background:#f5f7fa;height: 10px;"></div>'+
+                          '<div id="descJoined" style="border-top:2px solid #F60">'+
+                          '<div style="margin:10px;font-size: 14px; color: #666;">所有参与者记录</div>';
+                addtion += handleJoined(data, true);
+                addtion += data.page.replace(/joined/g, 'descJoined');
                 addtion += '<div style="clear:both"></div></div>';
                 $(document).dequeue("ajaxRequests"); 
             }
@@ -392,16 +387,10 @@ function initDesc() {
             dataType: 'json',
             success: function(data) {
                 addtion += '<div style="background:#f5f7fa;height: 10px"></div>'+
-                          '<div id="descPosts" class="product-bask" style="padding: 0px 20px">'+
+                          '<div id="descPosts" class="product-bask" style="border-top:2px solid #F60;">'+
                            '<div style="margin: 10px;font-size: 14px; color: #666">晒单</div>';
-
-                var html = handlePosts(data, true);
-                if(!html) {
-                   addtion += '<p>暂无晒单记录</p>'; 
-                } else {
-                    addtion += html;
-                    addtion += data.page.replace(/posts/g, 'descPosts');
-                }
+                addtion += handlePosts(data, true);
+                addtion += data.page.replace(/posts/g, 'descPosts');
                 addtion += '<div style="clear:both"></div></div>';
                 $('#desc').append(addtion);
             }
@@ -477,7 +466,7 @@ function posts(page) {
 }
 
 // 拉取期数信息
-function phases(page) {
+function phases(page,isDesc) {
 
     var itemId = $('a[href="#phase"]').attr('itemId');
 
@@ -498,15 +487,14 @@ function phases(page) {
         type: 'get',
         dataType: 'json',
         success: function(data) {
-            handlePhases(data);
+            handlePhases(data,isDesc);
         }
     });
 }
 
 // 
 function handleJoined(data, needReturn) {
-    var bool = !jQuery.isEmptyObject(data.orders);
-    if(bool) {
+    if(!jQuery.isEmptyObject(data.orders)) {
         var html = "<table id='handleJoineds'><thead><tr><th>会员帐号</th><th>购买数量</th><th>时间</th><tr></thead><tbody>";
         for(var i in data.orders) {
             html += '<tr>' +
@@ -520,12 +508,12 @@ function handleJoined(data, needReturn) {
                     '<tr>';
         }
         html += '</tbody></table>';
-    }
-
-    if(!needReturn && bool) {
-        $('#buylog').html(html).append(data.page);
-    } else {
-        return bool ? html : bool;
+        
+        if(!needReturn) {
+            $('#buylog').html(html).append(data.page);
+        } else {
+            return html;
+        }
     }
 }
 
@@ -564,44 +552,20 @@ function handlePosts(data, needReturn) {
         }
 
         html += '</ul>';
+
+        if(!needReturn) {
+            $('#posts').html(html).append(data.page);
+        } else {
+            return html;
+        }
     }
 
-/*HEAD
-        if(1 == status && bool){
-            $('#posts').html(html).append(data.page);
-        }
-        if(0 == status && bool){
-            $('#posts').html(html).append(data.page);
-            copyPosts();
-        }else{
-            $("#desctwo").after("<div id='poststwo'><div class='tit'>晒单</div><div class='product-bask active'>暂无晒单记录</div></div>");
-            copyPosts();
-        }
-}
-function copyPosts(){
-    var html ="<div id='poststwo' class='bask'><div class='tit'>晒单</div><div class='product-bask active'>";
-    html += $("#posts").html();
-    html += "</div>";
-    $("#copyJoinedid").after(html);
-}
-function copyJoined(){
-    var html = "<div id='copyJoinedid' class='record active'><div class='tit'>所有参与记录</div>";
-    html += $("#buylog").html();
-    html +="</div>";
-    $("#tab-content").after(html);
-    posts(1,0);
-*/
-    if(!needReturn && bool) {
-        $('#posts').html(html).append(data.page);
-    } else {
-        return bool ? html : bool;
-    }
 }
 // 渲染期数记录
 function handlePhases(data) {
     var bool = !jQuery.isEmptyObject(data.phases);
     if(bool) {
-        var html = "<div class='tab-content' id='phasetwo'><div class='tit'>往期回顾</div><table><thead><tr><th>期数</th><th>幸运乐淘码</th><th>幸运获奖者</th><th>揭晓时间</th><th>购买数量</th><tr></thead><tbody>";
+        var html = "<div class='tab-content' style='margin-top:10px;color:#848484' id='phasetwo'><div style='width:100%;height:26px;background:#F8F8F8;padding:10px;font-size:14px;color:#666;'>往期回顾</div><table><thead><tr><th>期数</th><th>幸运乐淘码</th><th>幸运获奖者</th><th>揭晓时间</th><th>购买数量</th><tr></thead><tbody>";
         for(var i in data.phases) {
             var code = typeof(data.phases[i].code) == 'undefined' ? '<span class="r">进行中...</span>' : data.phases[i].code;
             var member = typeof(data.phases[i].member) == 'undefined' ? '' : data.phases[i].member;
