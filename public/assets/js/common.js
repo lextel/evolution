@@ -288,41 +288,40 @@ $(function(){
         }
     });
 
-    if($("#tab-content").length>0){
-        cleardata();
-        joined(1,0);
-    }
 
     //商品详情字体颜色
     $('a[href="#desc"]').click(function() {
         $(".fl").find("a").css("color","#666");
         $(this).css("color","#af2812");
-        cleardata();
-        joined(1,0);//).ready(posts(1,0));
     });
+
+    // 是否是初次加载详情页，如果是拉取参与者和晒单否则copy参与者和晒单到页尾
+    if($("#tab-content").length > 0 && $('#copyJoinedid').length == 0){
+        initDesc();
+    } else {
+        // copyJoined();
+        // copyPosts();
+    }
 
     // 参与者拉取
     $('a[href="#buylog"]').click(function() {
         $(".fl").find("a").css("color","#666");
         $(this).css("color","#af2812");
-        cleardata();
-        joined(1,1);
+        joined(1);
     });
 
     // 晒单拉取
     $('a[href="#posts"]').click(function() {
         $(".fl").find("a").css("color","#666");
         $(this).css("color","#af2812");
-        cleardata();
-        posts(1,1);
+        posts(1);
     });
 
     // 拉取期数
     $('a[href="#phase"]').click(function() {
         $(".fl").find("a").css("color","#666");
         $(this).css("color","#af2812");
-        cleardata();
-        phases(1,1);
+        phases(1);
     });
 
 
@@ -347,6 +346,285 @@ $(function(){
         }
     });
 });
+
+
+
+// 初始化ajax分页
+INIT_PAGE = 1;
+
+// 初始化商品详情参与者和晒单
+function initDesc() {
+
+    var addtion = '';
+
+    // 获取参与者队列
+    $(document).queue("ajaxRequests", function(){  
+        var phaseId = $('a[href="#buylog"]').attr('phaseId');
+        $.ajax({
+            url: BUYLOG_URL,
+            data: {phaseId:phaseId, page:1},
+            type: 'get',
+            dataType: 'json',
+            success: function(data) {
+                addtion = '<div style="background:#f5f7fa;height: 10px"></div>'+
+                          '<div id="descJoined" style="padding: 0px 20px">'+
+                          '<div style="margin:10px;font-size: 14px; color: #666">所有参与者记录</div>';
+                var html = handleJoined(data, true);
+                if(!html) {
+                   addtion += '<p>暂无参与者记录</p>'; 
+                } else {
+                    addtion += html;
+                    addtion += data.page.replace(/joined/g, 'descJoined');
+                }
+                addtion += '<div style="clear:both"></div></div>';
+                $(document).dequeue("ajaxRequests"); 
+            }
+        });
+    });
+
+    // 获取晒单队列
+    $(document).queue("ajaxRequests", function(){  
+        var itemId = $('a[href="#posts"]').attr('itemId');
+        $.ajax({
+            url: POSTLOG_URL,
+            data: {itemId:itemId, page:1},
+            type: 'get',
+            dataType: 'json',
+            success: function(data) {
+                addtion += '<div style="background:#f5f7fa;height: 10px"></div>'+
+                          '<div id="descPosts" class="product-bask" style="padding: 0px 20px">'+
+                           '<div style="margin: 10px;font-size: 14px; color: #666">晒单</div>';
+
+                var html = handlePosts(data, true);
+                if(!html) {
+                   addtion += '<p>暂无晒单记录</p>'; 
+                } else {
+                    addtion += html;
+                    addtion += data.page.replace(/posts/g, 'descPosts');
+                }
+                addtion += '<div style="clear:both"></div></div>';
+                $('#desc').append(addtion);
+            }
+        });
+    });
+
+    $(document).dequeue("ajaxRequests"); 
+}
+
+// 详情参与者切页
+function descJoined(page) {
+    $(".fl").find("a").css("color","#666");
+    $('#bigNav li:eq(1) a').tab('show').css("color", '#af2812');
+    joined(page);
+}
+// 详情晒单切页
+function descPosts(page) {
+    $(".fl").find("a").css("color","#666");
+    $('#bigNav li:eq(2) a').tab('show').css("color", '#af2812');
+    posts(page);
+}
+
+// 拉取参与记录
+function joined(page) {
+    var phaseId = $('a[href="#buylog"]').attr('phaseId');
+
+    // 上一页
+    if(page === '-1') {
+        page = INIT_PAGE - 1;
+    }
+    // 下一页
+    if(page === '+1') {
+        page = INIT_PAGE +1;
+    }
+
+    INIT_PAGE = page;
+
+    $.ajax({
+        url: BUYLOG_URL,
+        data: {phaseId:phaseId, page:page},
+        type: 'get',
+        dataType: 'json',
+        success: function(data) {
+            handleJoined(data, false);
+        }
+    });
+}
+
+// 拉取晒单信息
+function posts(page) {
+    var itemId = $('a[href="#posts"]').attr('itemId');
+
+    // 上一页
+    if(page === '-1') {
+        page = INIT_PAGE - 1;
+    }
+    // 下一页
+    if(page === '+1') {
+        page = INIT_PAGE +1;
+    }
+
+    INIT_PAGE = page;
+
+    $.ajax({
+        url: POSTLOG_URL,
+        data: {itemId:itemId, page:page},
+        type: 'get',
+        dataType: 'json',
+        success: function(data) {
+            handlePosts(data, false);
+        }
+    });
+}
+
+// 拉取期数信息
+function phases(page) {
+
+    var itemId = $('a[href="#phase"]').attr('itemId');
+
+    // 上一页
+    if(page === '-1') {
+        page = INIT_PAGE - 1;
+    }
+    // 下一页
+    if(page === '+1') {
+        page = INIT_PAGE +1;
+    }
+
+    INIT_PAGE = page;
+
+    $.ajax({
+        url: PHASELOG_URL,
+        data: {itemId:itemId, page:page},
+        type: 'get',
+        dataType: 'json',
+        success: function(data) {
+            handlePhases(data);
+        }
+    });
+}
+
+// 
+function handleJoined(data, needReturn) {
+    var bool = !jQuery.isEmptyObject(data.orders);
+    if(bool) {
+        var html = "<table id='handleJoineds'><thead><tr><th>会员帐号</th><th>购买数量</th><th>时间</th><tr></thead><tbody>";
+        for(var i in data.orders) {
+            html += '<tr>' +
+                    '    <td>'+
+                    '        <span class="head-sm fl"><a href="'+data.orders[i].link+'"><img src="'+data.orders[i].avatar+'" alt=""/></a></span>'+
+                    '        <span class="username fl"><a href="'+data.orders[i].link+'">'+data.orders[i].nickname+'</a></span>'+
+                    '        <span class="ip fl">来自：'+data.orders[i].area+'（IP:'+data.orders[i].ip+'）</span>'+
+                    '    </td>'+
+                    '    <td>'+data.orders[i].count+'</td>'+
+                    '    <td>'+data.orders[i].created_at+'</td>'+
+                    '<tr>';
+        }
+        html += '</tbody></table>';
+    }
+
+    if(!needReturn && bool) {
+        $('#buylog').html(html).append(data.page);
+    } else {
+        return bool ? html : bool;
+    }
+}
+
+// 渲染晒单记录
+function handlePosts(data, needReturn) {
+    var bool = !jQuery.isEmptyObject(data.posts);
+    if(bool) {
+        var html = "<ul>";
+        var images = '';
+        for(var i in data.posts) {
+            images = '';
+            for(var j in data.posts[i].images) {
+                var oimage = data.posts[i].images[j].replace('120x120/', '');
+                oimage = oimage.replace('post', 'upload/post');
+                images += '<dd class="img-box img-md"><a href="'+oimage+'" target="_blank"><img src="'+data.posts[i].images[j]+'" alt=""></a></dd>';
+            }
+            html += '<li>' +
+                    '<div class="fl">'+
+                         '<div class="head-img">' +
+                             '<a href="'+BASE_URL + 'u/' + data.posts[i].member_id+'"><img src="'+data.posts[i].avatar+'" alt=""></a>'+
+                         '</div>'+
+                         '<div class="username"><a href="'+BASE_URL + 'u/' + data.posts[i].member_id+'">'+data.posts[i].nickname+'</a></div>'+
+                    '</div>'+
+                    '<div class="bask-list fr">'+
+                    '    <h4 class="text-title"><a href="'+BASE_URL+ 'p/' + data.posts[i].id+'">'+data.posts[i].title+'</a></h4>'+
+                    '    <div class="datetime">'+data.posts[i].created_at+'</div>'+
+                    '    <div class="bask-text">'+data.posts[i].desc+'</div>'+
+                    '    <dl class="bask-imgBox">' + images + '</dl>'+
+                    '    <div class="btn-group sns-bar tl">'+
+                    '        <span class="sns-love">喜欢<s>('+data.posts[i].up+')</s></span>'+
+                    '        <span class="sns-comment">评论<s>('+data.posts[i].count+')</s></span>'+
+                    '    </div>'+
+                    '    <div class="bask-number">'+'第'+data.posts[i].phase+'期晒单'+'</div>'+
+                    '</div>'+
+                    '</li>';
+        }
+
+        html += '</ul>';
+    }
+
+/*HEAD
+        if(1 == status && bool){
+            $('#posts').html(html).append(data.page);
+        }
+        if(0 == status && bool){
+            $('#posts').html(html).append(data.page);
+            copyPosts();
+        }else{
+            $("#desctwo").after("<div id='poststwo'><div class='tit'>晒单</div><div class='product-bask active'>暂无晒单记录</div></div>");
+            copyPosts();
+        }
+}
+function copyPosts(){
+    var html ="<div id='poststwo' class='bask'><div class='tit'>晒单</div><div class='product-bask active'>";
+    html += $("#posts").html();
+    html += "</div>";
+    $("#copyJoinedid").after(html);
+}
+function copyJoined(){
+    var html = "<div id='copyJoinedid' class='record active'><div class='tit'>所有参与记录</div>";
+    html += $("#buylog").html();
+    html +="</div>";
+    $("#tab-content").after(html);
+    posts(1,0);
+*/
+    if(!needReturn && bool) {
+        $('#posts').html(html).append(data.page);
+    } else {
+        return bool ? html : bool;
+    }
+}
+// 渲染期数记录
+function handlePhases(data) {
+    var bool = !jQuery.isEmptyObject(data.phases);
+    if(bool) {
+        var html = "<div class='tab-content' id='phasetwo'><div class='tit'>往期回顾</div><table><thead><tr><th>期数</th><th>幸运乐淘码</th><th>幸运获奖者</th><th>揭晓时间</th><th>购买数量</th><tr></thead><tbody>";
+        for(var i in data.phases) {
+            var code = typeof(data.phases[i].code) == 'undefined' ? '<span class="r">进行中...</span>' : data.phases[i].code;
+            var member = typeof(data.phases[i].member) == 'undefined' ? '' : data.phases[i].member;
+            var opentime = typeof(data.phases[i].opentime) == 'undefined' ? '' : data.phases[i].opentime;
+            var total = typeof(data.phases[i].total) == 'undefined' ? '' : data.phases[i].total;
+            if(opentime && code =='进行中...') {
+                opentime = '';
+                code = '即将揭晓';
+            }
+            html += '<tr>' +
+                    '   <td>' + data.phases[i].phase + '</td>'+
+                    '   <td>'+code+'</td>'+
+                    '   <td>'+member+'</td>'+
+                    '   <td>'+opentime+'</td>'+
+                    '   <td>'+total+'</td>'+
+                    '<tr>';
+        }
+        html += '</tbody></table></div>';
+    }
+
+    $('#phase').html(html).append(data.page);
+}
+
 /**
  * 选择充值方式
  */
@@ -355,6 +633,7 @@ $(function(){
        $(this).closest("dl").children("dd").find("input:radio").attr({checked:false});
     });
 });
+
 /**
  * 计算中奖几率
  *
@@ -513,211 +792,6 @@ $(function(){
         }
     });
 });
-
-// 初始化ajax分页
-INIT_PAGE = 1;
-
-// 拉取参与记录
-function joined(page,status) {
-    var phaseId = $('a[href="#buylog"]').attr('phaseId');
-
-    // 上一页
-    if(page === '-1') {
-        page = INIT_PAGE - 1;
-    }
-    // 下一页
-    if(page === '+1') {
-        page = INIT_PAGE +1;
-    }
-
-    INIT_PAGE = page;
-
-    $.ajax({
-        url: BUYLOG_URL,
-        data: {phaseId:phaseId, page:page},
-        type: 'get',
-        dataType: 'json',
-        success: function(data) {
-            handleJoined(data,status);
-
-        }
-    });
-}
-
-// 拉取晒单信息
-function posts(page,status) {
-    var itemId = $('a[href="#posts"]').attr('itemId');
-
-    // 上一页
-    if(page === '-1') {
-        page = INIT_PAGE - 1;
-    }
-    // 下一页
-    if(page === '+1') {
-        page = INIT_PAGE +1;
-    }
-
-    INIT_PAGE = page;
-
-    $.ajax({
-        url: POSTLOG_URL,
-        data: {itemId:itemId, page:page},
-        type: 'get',
-        dataType: 'json',
-        success: function(data) {
-            handlePosts(data,status);
-        }
-    });
-}
-
-// 拉取期数信息
-function phases(page,status) {
-
-    var itemId = $('a[href="#phase"]').attr('itemId');
-
-    // 上一页
-    if(page === '-1') {
-        page = INIT_PAGE - 1;
-    }
-    // 下一页
-    if(page === '+1') {
-        page = INIT_PAGE +1;
-    }
-
-    INIT_PAGE = page;
-
-    $.ajax({
-        url: PHASELOG_URL,
-        data: {itemId:itemId, page:page},
-        type: 'get',
-        dataType: 'json',
-        success: function(data) {
-            handlePhases(data,status);
-        }
-    });
-}
-
-// 渲染参与记录
-function handleJoined(data,status) {
-    if(!jQuery.isEmptyObject(data.orders)) {
-        var html = "<table id='handleJoineds'><thead><tr><th>会员帐号</th><th>购买数量</th><th>时间</th><tr></thead><tbody>";
-        for(var i in data.orders) {
-            html += '<tr>' +
-                    '    <td>'+
-                    '        <span class="head-sm fl"><a href="'+data.orders[i].link+'"><img src="'+data.orders[i].avatar+'" alt=""/></a></span>'+
-                    '        <span class="username fl"><a href="'+data.orders[i].link+'">'+data.orders[i].nickname+'</a></span>'+
-                    '        <span class="ip fl">来自：'+data.orders[i].area+'（IP:'+data.orders[i].ip+'）</span>'+
-                    '    </td>'+
-                    '    <td>'+data.orders[i].count+'</td>'+
-                    '    <td>'+data.orders[i].created_at+'</td>'+
-                    '<tr>';
-        }
-
-        html += '</tbody></table>';
-        $('#buylog').html(html).append(data.page);
-            //$("#tab-content").after(html).append(data.page);
-        if(0 == status ){
-            copyJoined();
-        }
-    }
-}
-
-// 渲染晒单记录
-function handlePosts(data,status) {
-    var bool = !jQuery.isEmptyObject(data.posts);
-    if(bool) {
-        var html = "<ul>";
-        var images = '';
-        for(var i in data.posts) {
-            images = '';
-            for(var j in data.posts[i].images) {
-                var oimage = data.posts[i].images[j].replace('120x120/', '');
-                oimage = oimage.replace('post', 'upload/post');
-                images += '<dd class="img-box img-md"><a href="'+oimage+'" target="_blank"><img src="'+data.posts[i].images[j]+'" alt=""></a></dd>';
-            }
-            html += '<li>' +
-                    '<div class="fl">'+
-                         '<div class="head-img">' +
-                             '<a href="'+BASE_URL + 'u/' + data.posts[i].member_id+'"><img src="'+data.posts[i].avatar+'" alt=""></a>'+
-                         '</div>'+
-                         '<div class="username"><a href="'+BASE_URL + 'u/' + data.posts[i].member_id+'">'+data.posts[i].nickname+'</a></div>'+
-                    '</div>'+
-                    '<div class="bask-list fr">'+
-                    '    <h4 class="text-title"><a href="'+BASE_URL+ 'p/' + data.posts[i].id+'">'+data.posts[i].title+'</a></h4>'+
-                    '    <div class="datetime">'+data.posts[i].created_at+'</div>'+
-                    '    <div class="bask-text">'+data.posts[i].desc+'</div>'+
-                    '    <dl class="bask-imgBox">' + images + '</dl>'+
-                    '    <div class="btn-group sns-bar tl">'+
-                    '        <span class="sns-love">喜欢<s>('+data.posts[i].up+')</s></span>'+
-                    '        <span class="sns-comment">评论<s>('+data.posts[i].count+')</s></span>'+
-                    '    </div>'+
-                    '    <div class="bask-number">'+'第'+data.posts[i].phase+'期晒单'+'</div>'+
-                    '</div>'+
-                    '</li>';
-        }
-
-        html += '</ul>';
-    }
-
-        if(1 == status && bool){
-            $('#posts').html(html).append(data.page);
-        }
-        if(0 == status && bool){
-            $('#posts').html(html).append(data.page);
-            copyPosts();
-        }else{
-            $("#desctwo").after("<div id='poststwo'><div class='tit'>晒单</div><div class='product-bask active'>暂无晒单记录</div></div>");
-            copyPosts();
-        }
-}
-function copyPosts(){
-    var html ="<div id='poststwo' class='bask'><div class='tit'>晒单</div><div class='product-bask active'>";
-    html += $("#posts").html();
-    html += "</div>";
-    $("#copyJoinedid").after(html);
-}
-function copyJoined(){
-    var html = "<div id='copyJoinedid' class='record active'><div class='tit'>所有参与记录</div>";
-    html += $("#buylog").html();
-    html +="</div>";
-    $("#tab-content").after(html);
-    posts(1,0);
-}
-// 渲染期数记录
-function handlePhases(data,status) {
-    var bool = !jQuery.isEmptyObject(data.phases);
-    if(bool) {
-        var html = "<div class='tab-content' id='phasetwo'><div class='tit'>往期回顾</div><table><thead><tr><th>期数</th><th>幸运乐淘码</th><th>幸运获奖者</th><th>揭晓时间</th><th>购买数量</th><tr></thead><tbody>";
-        for(var i in data.phases) {
-            var code = typeof(data.phases[i].code) == 'undefined' ? '<span class="r">进行中...</span>' : data.phases[i].code;
-            var member = typeof(data.phases[i].member) == 'undefined' ? '' : data.phases[i].member;
-            var opentime = typeof(data.phases[i].opentime) == 'undefined' ? '' : data.phases[i].opentime;
-            var total = typeof(data.phases[i].total) == 'undefined' ? '' : data.phases[i].total;
-            if(opentime && code =='进行中...') {
-                opentime = '';
-                code = '即将揭晓';
-            }
-            html += '<tr>' +
-                    '   <td>' + data.phases[i].phase + '</td>'+
-                    '   <td>'+code+'</td>'+
-                    '   <td>'+member+'</td>'+
-                    '   <td>'+opentime+'</td>'+
-                    '   <td>'+total+'</td>'+
-                    '<tr>';
-        }
-
-        html += '</tbody></table></div>';
-
-    }
-    if(1 == status && bool){
-        $('#phase').html(html).append(data.page);
-    }
-    if(0 == status && bool){
-        $("#poststwo").after(html).append(data.page);
-    }else{
-        $("#poststwo").after("<div id='phasestwo'><p style='margin-bottom: 15px;text-align: center'>暂无期数记录</p></div>");
-    }
-}
 
 /**
  * 评论交互效果

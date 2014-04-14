@@ -23,7 +23,7 @@
             <span class="Validform_checktip"></span>
         </div>
         <div class="row">
-            <a href="javascript:;" class="btn btn-red btn-sx" id="submitID">提交</a>
+            <a href="javascript:;" class="btn btn-red btn-sx btn-submit" id="submitID">提交</a>
             <a href="javascript:;" class="btn btn-sx btn-gr btn-chance" id="chance" style="margin-left:10px;">返回</a>
         </div>
         <div class="row">
@@ -51,7 +51,7 @@ $(function(){
             $(".verification").html("请在" + curCount + "秒内输入密码");
         }
     }
-    $(".btn-sx").click(function(){
+    $(".btn-submit").click(function(){
         $(".verifyForm").submit();
     });
     

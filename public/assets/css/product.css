@@ -668,7 +668,9 @@
 .columnw{
     height:606px;
 }
-
+.product-column .state-heading{
+    color:#666;
+}
 .middle{
     overflow: hidden;
    background: #ffffff;

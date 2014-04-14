@@ -6,10 +6,11 @@ $(function(){
     $(".btn-checkemail").click(function(){
         //需要个加载的图
         $(".load").show();
-        $.get("/u/checkemail", '', function(data){   
-            $(".load").hide();    
+        $.get("/u/checkemail", '', function(data){
+            $(".load").hide();
             alert(data.msg);
         });
+        $(".load").hide();
     });
 });
 </script>
@@ -27,21 +28,16 @@ $(function(){
         <ul class="edit-data">
             <?php echo Form::open(['action' => 'u/profile', 'method' => 'post', 'class'=>'form-profile validForm']); ?>
             <li>
-            <?php if (Session::get_flash('success')): ?>
-                <div class="alert alert-success alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <p>
+                <label></label>
+                <?php if (Session::get_flash('success')): ?>
+                    <p style="color:red;">
                     <?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
                     </p>
-                </div>
                 <?php endif; ?>
                 <?php if (Session::get_flash('error')): ?>
-                <div class="alert alert-danger alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <p>
+                    <p style="color:red;">
                     <?php echo implode('</p><p>', (array) Session::get_flash('error')); ?>
                     </p>
-                </div>
                 <?php endif; ?>
             </li>
             <li>
@@ -51,14 +47,14 @@ $(function(){
                 <span class="red">（未验证）</span>
                 <span class="load" style="display:none"><?php echo Html::img('assets/images/bx_loader.gif', ['style'=>'width:30px']);?></span>
                 <a href="javascript:;" class="btn-sm btn-state fl btn-checkemail">去验证</a>
-                <?php }else{ ?>                
+                <?php }else{ ?>
                  <span class="green">（已验证）</span>
                 <?php }?>
             </li>
             <li>
                  <label>*手机：</label>
                  <span class="mobile" style="width: 150px;"><?php echo $member->mobile;?></span>
-                 <span class="red"><?php echo $member->is_mobile == '1' ? '（已绑定）':'（未绑定）';?></span>
+                 <span class="red"><?php echo $member->is_mobile == '1' ? '':'（未绑定）';?></span>
                  <?php if ($member->is_mobile != '1') { ?>
                     <a href="<?php echo Uri::create('u/mobile/first');?>" class="btn-sm btn-state fl">去绑定</a>
                  <?php }else{ ?>
@@ -101,7 +97,7 @@ $(function(){
                   //如果为英文
                   if(E.test(gets)){
                      if(gets.length >= 3 && gets.length <= 8){
-                       return true;  
+                       return true;
                      }
                      return "请输入3-8个英文字符";
                   }

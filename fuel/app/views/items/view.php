@@ -242,8 +242,10 @@ if(is_array($phasesList)) {
         </div>
         <div class="tab-content" id="tab-content">
             <!--商品详情开始-->
-            <div class="product-details tab-pane active" id="desc">
-                <?php echo $item->desc; ?>
+            <div class="tab-pane active" id="desc">
+                <div class="product-details">
+                    <?php echo $item->desc; ?>
+                </div>
             </div>
             <!--商品详情结束-->
             <!--参与记录开始-->
@@ -261,6 +263,11 @@ if(is_array($phasesList)) {
         </div>
 	</div>
 </div>
+<style>
+#descJoined .pagination {
+    margin: 10px 0;
+}
+</style>
 <!--今日热门开始-->
 <div class="date-hot w">
     <div class="title"><h3>今日热门</h3></div>

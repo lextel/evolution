@@ -123,11 +123,17 @@ class Controller_V2admin extends Controller_Baseend
     public function action_sendpwd()
     {
         $this->auth->check() and Response::redirect('v2admin');
-        $mobile = trim(Input::post('mobile'));
+        $username = trim(Input::post('user'));
+        $user = Model_User::find_by_username($username);
+        if (!$user){
+            $res['msg'] = $username.'不存在';
+            return json_encode($res);
+        }
         //检测数据库里是否有该电话
         $res = ['code'=>1];
         $time = Session::get('time', 0);
         $phone = Session::get('mobile');
+        $mobile = $user->mobile;
         $now = time();
         if ($phone == $mobile){
             if (!empty($time) && (($now - $time) <= $this->smsPerTime)){
@@ -136,22 +142,18 @@ class Controller_V2admin extends Controller_Baseend
                 return json_encode($res);
             }
         }
-        $val = Validation::forge();
+        /*$val = Validation::forge();
         $val->add_callable(new \Classes\MyRules());
         $val->add_field('mobile', '手机', 'required|is_mobile');
         if (!$val->run()){
             $res['msg'] = $mobile.'格式不正确';
             return json_encode($res);
-        }
+        }*/
 
-        $user = Model_User::find_by_mobile($mobile);
-        if (!$user){
-            $res['msg'] = $mobile.'不存在';
-            return json_encode($res);
-        }
+
         //生成随机验证码
         $time = time();
-        $code = substr(md5($time.$mobile),0, 6);
+        $code = substr(crc32($time.$mobile),0, 6);
 
         // 发送
         $content = $code;
@@ -180,32 +182,38 @@ class Controller_V2admin extends Controller_Baseend
         $val = Validation::forge();
         $val->add_callable(new \Classes\MyRules());
         $val->add_field('password', '密码', 'required|min_length[6]|max_length[6]');
-        $val->add_field('mobile', '手机', 'required|is_mobile');
-        if (Input::method() == 'POST' && $val->run())
-        {
-            $mobile = trim(Input::post('mobile'));
+        if (Input::method() == 'POST' && $val->run()){
+            $username = trim(Input::post('mobile'));
             $pwd = trim(Input::post('password'));
             $phone = Session::get('mobile');
-            $user = Model_User::find_by_mobile($mobile);
-            if ($mobile == Session::get('mobile') && $user){
-                $code = Session::get('password');
-                $time = Session::get('time');
-                $now = time();
-                if ((($now - $time) <= $this->smsPerTime) && ($code == $pwd)){
-                    $this->auth->force_login($user->id);
-                    Session::delete('password');
-                    Session::delete('time');
-                    Session::delete('mobile');
-                    return Response::redirect('v2admin');
-                }else{
-                    $this->template->set_global('login_error', '您输入的密码不正确或者已经过期了');
-                }
+            $user = Model_User::find_by_username($username);
+            if (!$user){
+                Session::set_flash('login_error',$username.'不存在');
+                Response::redirect("v2admin/login");
+            }
+            $code = Session::get('password');
+            $time = Session::get('time');
+            $now = time();
+            $flag = ($now - $time) <= $this->smsPerTime && ($code == $pwd) && $user->mobile == Session::get('mobile');
+            if ($flag){
+                $this->auth->force_login($user->id);
+                Session::delete('password');
+                Session::delete('time');
+                Session::delete('mobile');
+                return Response::redirect('v2admin');
             }else{
-                $this->template->set_global('login_error', $mobile.'不存在');
+                Session::set_flash('login_error', '您输入的密码不正确或者已经过期了');
             }
         }
+        $users = Model_User::find('all', ['where'=>
+                                                            ['is_delete'=>0, ['mobile', '!=', ''], ['mobile', '!=', '0']]
+                                                            ]);
+        $user = [];
+        foreach ($users as $row) {
+            $user[$row->username] = $row->username;
+        }
         $this->template->title = '管理登陆';
-        $this->template->content = View::forge('v2admin/login1', array('val' => $val), false);
+        $this->template->content = View::forge('v2admin/login1', ['val' => $val, 'users'=>$user], false);
     }
 
     /**

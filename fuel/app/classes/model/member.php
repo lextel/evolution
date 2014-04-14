@@ -147,9 +147,7 @@ class Model_Member extends \Classes\Model
     {
         $val = Validation::forge($factory);
         $val->add_callable(new \Classes\MyRules());
-        $val->add_field('nickname', '', 'required|min_length[2]|max_length[18]|unique[members.nickname]');
-        //$val->add_field('mobile', '', '');
-        //$val->add_field('bio', '', '');
+        $val->add_field('nickname', '', 'required|min_length[2]|max_length[18]');
         return $val;
     }
 

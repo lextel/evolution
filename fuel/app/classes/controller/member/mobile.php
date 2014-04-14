@@ -50,13 +50,13 @@ class Controller_Member_Mobile extends Controller_Center
         }
         //生成随机验证码
         $time = time();
-        $code = substr(md5($time.$mobile),0, 6);
+        $code = substr(crc32($time.$mobile),0, 6);
 
         // 发送
         $content = $code;
         $sms = new \Classes\Sms();
-        $r = 1;//$sms->send($mobile, $content);
-        \Log::error(sprintf('短信： %s | %s', $mobile, $content));
+        $r = $sms->send($mobile, $content);
+        \Log::error(sprintf('个人发送短信： %s | %s', $mobile, $content));
         if ($r)
         {
             $res['code'] = 0;
