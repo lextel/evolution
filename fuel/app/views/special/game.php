@@ -15,82 +15,29 @@
     overflow: hidden !important;
 }
 </style>
-<div class="game-hd"></div>
+<div class="game-hd">
+
+</div>
 <div class="game-bd">
     <div class="game-column">
         <ul>
+            <?php
+                $where = ['opentime' => 0, 'is_delete' => 0, 'cate_id'=>5];
+                $select= ['id', 'title', 'cost', 'image'];
+                $games = Model_Phase::find('all', ['where' => $where, 'orderBy'=>['item_id'=>'asc']]);
+            ?>
+            <?php foreach($games as $row) { ?>
             <li>
-                <dl class="game-count">
-                    <dt>00</dt>
-                    <dd>时</dd>
-                    <dt>00</dt>
-                    <dd>分</dd>
-                    <dt>00</dt>
-                    <dd>秒</dd>
-                </dl>
                 <div class="imgBox">
-                    <a href="http://www.lltao.com/m/1"><img src="../assets/img/game01.png" alt=""/></a>
+                    <?php echo Html::anchor('m/'.$row->id, Html::img($row->image));?>
                 </div>
-                <div class="tit">Sony PlayStation4 索尼PS4次世代游戏主机</div>
+                <div class="tit"><?php echo $row->title;?></div>
                 <div class="fd-col">
-                    <span class="money">参考价：3699.00元</span>
-                    <a href="http://www.lltao.com/m/1" class="lol-btn-sm"></a>
+                    <span class="money">参考价：<?php echo $row->cost;?>.00元</span>
+                    <?php echo Html::anchor('m/'.$row->id, ['class'=>'lol-btn-sm']);?>
                 </div>
             </li>
-            <li>
-                <dl class="game-count">
-                    <dt>00</dt>
-                    <dd>时</dd>
-                    <dt>00</dt>
-                    <dd>分</dd>
-                    <dt>00</dt>
-                    <dd>秒</dd>
-                </dl>
-                <div class="imgBox">
-                    <a href="http://www.lltao.com/m/71"> <img src="../assets/img/game02.png" alt=""/></a>
-                </div>
-                <div class="tit">Sony Playstation Vita 索尼PSV 掌上游戏机</div>
-                <div class="fd-col">
-                    <span class="money">参考价：1599.00元</span>
-                    <a href="http://www.lltao.com/m/71" class="lol-btn-sm"></a>
-                </div>
-            </li>
-            <li>
-                <dl class="game-count">
-                    <dt>00</dt>
-                    <dd>时</dd>
-                    <dt>00</dt>
-                    <dd>分</dd>
-                    <dt>00</dt>
-                    <dd>秒</dd>
-                </dl>
-                <div class="imgBox">
-                    <a href="http://www.lltao.com/m/3"><img src="../assets/img/game03.png" alt=""/></a>
-                </div>
-                <div class="tit">Microsoft 微软Xbox one多媒体游戏主机</div>
-                <div class="fd-col">
-                    <span class="money">参考价：3799.00元</span>
-                    <a href="http://www.lltao.com/m/3" class="lol-btn-sm"></a>
-                </div>
-            </li>
-            <li>
-                <dl class="game-count">
-                    <dt>00</dt>
-                    <dd>时</dd>
-                    <dt>00</dt>
-                    <dd>分</dd>
-                    <dt>00</dt>
-                    <dd>秒</dd>
-                </dl>
-                <div class="imgBox">
-                    <a href="http://www.lltao.com/m/73"><img src="../assets/img/game04.jpg" alt=""/></a>
-                </div>
-                <div class="tit">Nintendo 任天堂 3DS XL 掌上游戏机</div>
-                <div class="fd-col">
-                    <span class="money">参考价：1499.00元</span>
-                    <a href="http://www.lltao.com/m/73" class="lol-btn-sm"></a>
-                </div>
-            </li>
+            <?php } ?>
         </ul>
     </div>
 </div>
