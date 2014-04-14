@@ -10,8 +10,8 @@
             <ul class="registerForm">
                 <li>
                     <label>邮箱:</label>
-                    <input type="text" class="txt" name="email" datatype="e" errorms="请输入6-18位密码" nullmsg="请输入6-18位密码" value="" id="form_password">
-                    <span class="Validform_checktip">请输入6-18位密码</span>
+                    <input type="text" class="txt" name="email" datatype="e" errorms="请输入正确的邮箱" nullmsg="请输入邮箱" sucmsg=" " value="" id="form_password">
+                    <span class="Validform_checktip"></span>
                 </li>
                 <li>
                     <input class="btn btn-red btn-md" name="submit" value="提交" type="submit" id="form_submit">
@@ -25,3 +25,8 @@
         </div>
     </div>
 </div>
+<script>
+    $(".demoform").Validform({
+        tiptype:4
+    });
+</script>

@@ -856,6 +856,8 @@
 }
 .product-bask ul{
     overflow: hidden;
+    border-top:1px dashed #E4E4E4;
+    padding-top:9px;
 }
 .product-bask ul li{
      margin-bottom: 15px;
