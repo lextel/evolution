@@ -25,18 +25,20 @@
                 $where = ['opentime' => 0, 'is_delete' => 0, 'cate_id'=>5];
                 $select= ['id', 'title', 'cost', 'image'];
                 $games = Model_Phase::find('all', ['where' => $where, 'orderBy'=>['item_id'=>'asc']]);
+                $i = 1;
             ?>
             <?php foreach($games as $row) { ?>
             <li>
                 <div class="imgBox">
-                    <?php echo Html::anchor('m/'.$row->id, Html::img($row->image));?>
+                    <?php echo Html::anchor('m/'.$row->id, Html::img('assets/img/game0'.$i.'.png'));?>
                 </div>
                 <div class="tit"><?php echo $row->title;?></div>
                 <div class="fd-col">
-                    <span class="money">参考价：<?php echo $row->cost;?>.00元</span>
-                    <?php echo Html::anchor('m/'.$row->id, ['class'=>'lol-btn-sm']);?>
+                    <span class="money">参考价：<?php echo sprintf('%.2f', $row->cost/100);?></span>
+                    <?php echo Html::anchor('m/'.$row->id, '',['class'=>'lol-btn-sm']);?>
                 </div>
             </li>
+            <?php $i++ ;?>
             <?php } ?>
         </ul>
     </div>
