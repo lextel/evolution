@@ -67,12 +67,7 @@
                 </ul>
             </li>
             <li><?php echo Html::anchor('u/code', '乐淘码<s></s>', ['style'=>'color: #af2812;']);?><s></s></li>
-            <li><?php echo Html::anchor('u/message', '消息管理<s></s>', ['style'=>'color: #af2812;']);?>
-            <?php if ($isnew) { ?>
-               <span style="color: red!important;position: absolute;top: 0;right: 30px;">新</span>
-            <?php } ?>
-            <s></s>
-            </li>
+            <li><?php echo Html::anchor('u/message', '消息管理<s></s>', ['style'=>'color: #af2812;']);?></li>
             <li><?php echo Html::anchor('u/getprofile', '个人设置<s></s>', ['style'=>'color: #af2812;']);?><s></s></li>
         </ul>
     </div>
