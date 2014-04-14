@@ -14,7 +14,7 @@
                     <dl><img src="assets/images/pic_01.png"></dl>
                     <dl>
                         <h3>一重礼 60银币</h3>
-                        您邀请的每一位好友成功参与云购，<br>即可获得60银币(100银币等于1元宝<br>哦！)
+                        您邀请的每一位好友成功参与乐淘，<br>即可获得60银币(100银币等于1元宝<br>哦！)
                     </dl>
                 </div>
                 <div class="wqylR">
@@ -32,7 +32,7 @@
             <div class="login_button">
                 <a class="btn btn-red btn-atc" style="margin-bottom: 137px; padding: 5px 20px" href="<?php echo Uri::create('/signin');?>">立即登录邀请好友</a>
             </div>
-            <?php elseif($current_user->is_mobile): ?>
+            <?php elseif(empty($current_user->is_mobile)): ?>
             <div class="login_reg">
                 您当前未通过手机验证，邀请功能需要您登录并通过手机验证后才能正常使用并获得佣金奖励!
             </div>
@@ -83,9 +83,9 @@
                     <script>
                         window._bd_share_config = {
                             common : {
-                                bdText : '我刚发现一个很好很好玩的网站，1元就能买LOL英雄哦，快去看看吧！',	
-                                bdDesc : '我刚发现一个很好很好玩的网站，1元就能买LOL英雄哦，快去看看吧！',	
-                                bdUrl : '<?php echo Uri::create('invit/'.base64_encode($current_user->id));?>', 	
+                                bdText : '我刚发现一个很好很好玩的网站，1元就能买LOL英雄哦，快去看看吧！',
+                                bdDesc : '我刚发现一个很好很好玩的网站，1元就能买LOL英雄哦，快去看看吧！',
+                                bdUrl : '<?php echo Uri::create('invit/'.base64_encode($current_user->id));?>',
                                 bdPic : '<?php Uri::create('upload/ad/3/a/3a5ba1e800a5aefc5173fb4c52b14ae8.jpg');?>'
                             },
                             share : [{

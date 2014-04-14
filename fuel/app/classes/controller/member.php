@@ -162,7 +162,6 @@ class Controller_Member extends Controller_Center{
                 }
             }
             $member->nickname = Input::post('nickname');
-            //$member->mobile = Input::post('mobile');
             $member->bio = Input::post('bio');
             if ($member and $member->save())
             {
