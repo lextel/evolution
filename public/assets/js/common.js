@@ -369,8 +369,13 @@ function initDesc() {
                 addtion = '<div style="background:#f5f7fa;height: 10px"></div>'+
                           '<div id="descJoined" style="padding: 0px 20px">'+
                           '<div style="margin:10px;font-size: 14px; color: #666">所有参与者记录</div>';
-                addtion += handleJoined(data, true);
-                addtion += data.page.replace(/joined/g, 'descJoined');
+                var html = handleJoined(data, true);
+                if(!html) {
+                   addtion += '<p>暂无参与者记录</p>'; 
+                } else {
+                    addtion += html;
+                    addtion += data.page.replace(/joined/g, 'descJoined');
+                }
                 addtion += '<div style="clear:both"></div></div>';
                 $(document).dequeue("ajaxRequests"); 
             }
@@ -389,8 +394,14 @@ function initDesc() {
                 addtion += '<div style="background:#f5f7fa;height: 10px"></div>'+
                           '<div id="descPosts" class="product-bask" style="padding: 0px 20px">'+
                            '<div style="margin: 10px;font-size: 14px; color: #666">晒单</div>';
-                addtion += handlePosts(data, true);
-                addtion += data.page.replace(/posts/g, 'descPosts');
+
+                var html = handlePosts(data, true);
+                if(!html) {
+                   addtion += '<p>暂无晒单记录</p>'; 
+                } else {
+                    addtion += html;
+                    addtion += data.page.replace(/posts/g, 'descPosts');
+                }
                 addtion += '<div style="clear:both"></div></div>';
                 $('#desc').append(addtion);
             }
@@ -466,7 +477,7 @@ function posts(page) {
 }
 
 // 拉取期数信息
-function phases(page,isDesc) {
+function phases(page) {
 
     var itemId = $('a[href="#phase"]').attr('itemId');
 
@@ -487,14 +498,15 @@ function phases(page,isDesc) {
         type: 'get',
         dataType: 'json',
         success: function(data) {
-            handlePhases(data,isDesc);
+            handlePhases(data);
         }
     });
 }
 
 // 
 function handleJoined(data, needReturn) {
-    if(!jQuery.isEmptyObject(data.orders)) {
+    var bool = !jQuery.isEmptyObject(data.orders);
+    if(bool) {
         var html = "<table id='handleJoineds'><thead><tr><th>会员帐号</th><th>购买数量</th><th>时间</th><tr></thead><tbody>";
         for(var i in data.orders) {
             html += '<tr>' +
@@ -508,12 +520,12 @@ function handleJoined(data, needReturn) {
                     '<tr>';
         }
         html += '</tbody></table>';
-        
-        if(!needReturn) {
-            $('#buylog').html(html).append(data.page);
-        } else {
-            return html;
-        }
+    }
+
+    if(!needReturn && bool) {
+        $('#buylog').html(html).append(data.page);
+    } else {
+        return bool ? html : bool;
     }
 }
 
@@ -552,12 +564,12 @@ function handlePosts(data, needReturn) {
         }
 
         html += '</ul>';
+    }
 
-        if(!needReturn) {
-            $('#posts').html(html).append(data.page);
-        } else {
-            return html;
-        }
+    if(!needReturn && bool) {
+        $('#posts').html(html).append(data.page);
+    } else {
+        return bool ? html : bool;
     }
 
 }
