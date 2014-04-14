@@ -31,7 +31,7 @@
                 <div class="imgBox">
                     <?php echo Html::anchor('m/'.$row->id, Html::img(\Helper\Image::showImage($row->image)));?>
                 </div>
-                <div class="tit"><?php echo $row->title;?></div>
+                <div class="tit"><?php echo Html::anchor('m/'.$row->id, $row->title);?></div>
                 <div class="fd-col">
                     <span class="money">参考价：<?php echo sprintf('%.2f', $row->cost/100);?></span>
                     <?php echo Html::anchor('m/'.$row->id, '',['class'=>'lol-btn-sm']);?>
