@@ -7,7 +7,7 @@
             你可以通过以下方式为我们提出意见和建议：</p>
 
         <?php $input = Session::get_flash('input', null);?>
-        
+
         <?php echo Form::open(["action"=>"/ha/addsuggest",'id'=>'suggestfrom']);?>
 
         <ul class="edit-data">
@@ -17,7 +17,7 @@
             <?php if (Session::get_flash("info", null)) { ?>
                 <li>
                     <label></label>
-                    <p style="color:#e00"><?php echo Session::get_flash("info");?></p>
+                    <p style="color:green"><?php echo Session::get_flash("info");?></p>
                 </li>
             <?php } ?>
             <li>
@@ -47,7 +47,7 @@
             <li>
                 <label><font color="#f00">*</font>验证码：</label>
                 <input name="captcha" type="cap-text" class="txt" datatype="*" nullmsg="请输入验证码" sucmsg=" " ajaxurl="<?php echo Uri::create('/index/ajaxcaptcha');?>" />
-                <span class="captcha"><?php echo Html::img('captcha?'.+time());?></span>
+                <span class="captcha"><img src=""/></span>
                 <span class="recaptcha"><a href="javascript:void(0)">看不清？换一张</a></span>
             </li>
             <li>
@@ -58,11 +58,15 @@
     </div>
 </div>
 <script>
+function getcaptch(){
+    $(".captcha img").attr('src', '<?php echo Uri::create("captcha");?>' + '?' + Math.random());
+}
 $(function(){
+    getcaptch();
     $(".recaptcha").click(function(){
-        $(".captcha img").attr('src', '<?php echo Uri::create("captcha");?>' + '?' + Math.random());
+        getcaptch();
     });
-    
+
     $("#suggestfrom").Validform({
         btnSubmit: "#sub",
         tiptype:4
