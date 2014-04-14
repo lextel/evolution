@@ -80,7 +80,7 @@ class Result {
         $sms->save();
 
         // 短信通知
-        $member = Model_Member::find($order->member_id);
+        $member = \Model_Member::find($order->member_id);
         if($member->is_mobile) {
             $sms = new \Classes\Sms();
             $sms->sendWin($member->mobile, $member->nickname, $title);
