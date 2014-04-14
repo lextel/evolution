@@ -4,13 +4,10 @@
             <div class="form-group <?php echo ! $val->error('email') ?: 'has-error' ?>">
                 <span class="control-label server_error"></span>
                 <label for="email">手机号:</label>
-                <?php echo Form::input('mobile', Input::post('mobile'), array('class' => 'form-control', 'placeholder' => '手机号', 'autofocus')); ?>
-                <span class="control-label check_mobile" style="color:#f00;"><?php echo $val->error('mobile') ? $val->error('mobile')->get_message('请输入手机号'): ''; ?></span>
-                <?php if (isset($login_error)): ?>
-                <div class="error" style="color:#f00;"><?php echo $login_error; ?></div>
-                <?php endif; ?>
+                <?php echo Form::select('mobile', Input::post("mobile", ""), $users,  ['class'=>'form-control postactive', 'style'=>'height:34px']); ?>
+
                  <?php if (Session::get_flash('login_error')): ?>
-                <div class="error" style="color:#f00;"><?php echo Session::get_flash('login_error'); ?></div>
+                <span class="control-label check_mobile" style="color:#f00;"><?php echo Session::get_flash('login_error'); ?></span>
                 <?php endif; ?>
                 <p></p>
                 <span class="btn btn-info get_pwd">获取密码</span>
@@ -49,15 +46,15 @@ $(function(){
     }
 
     $(".get_pwd").click(function(){
-        var mobile = $("input[name=mobile]").val();
-        if (mobile == '' || mobile.length != 11){
+        var mobile = $("select[name=mobile]").val();
+        if (mobile == ''){
             return;
         }
         $.ajax({
             url:url,
             type:"post",
             dataType:"json",
-            data:{mobile:mobile},
+            data:{user:mobile},
             beforeSend: function(){
                 //ShowLoading();
                 $('.get_pwd').html(img);
@@ -92,12 +89,12 @@ $(function(){
         });
     });
     $("form").submit(function(e){
-        var mobile = $("input[name=mobile]").val();
+        var mobile = $("select[name=mobile]").val();
         var code = $("input[name=password]").val();
 
-        if (mobile == undefined || mobile == '' || mobile.length != 11){
+        if (mobile == undefined || mobile == ''){
             e.preventDefault();
-            $(".check_mobile").html("手机号应该11位");
+            $(".check_mobile").html("");
         }
         if (code == undefined || code == '' || code.length != 6){
             e.preventDefault();
