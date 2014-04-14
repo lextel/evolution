@@ -16,7 +16,7 @@
             $(document).ready(function(){
                 $("#btnCopy").zclip({
                     path:'<?php echo Uri::create('/assets/js/ZeroClipboard.swf');?>',
-                    copy:$('#copyShareText').text(),
+                    copy:$('#copyShareText').val(),
                     beforeCopy:function(){
                         $(this).next('span').html();
                     },
