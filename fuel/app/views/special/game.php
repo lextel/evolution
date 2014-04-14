@@ -22,7 +22,7 @@
     <div class="game-column">
         <ul>
             <?php
-                $where = ['opentime' => 0, 'is_delete' => 0, 'cate_id'=>7];
+                $where = ['opentime' => 0, 'is_delete' => 0, 'cate_id'=>5];
                 $select= ['id', 'title', 'cost', 'image'];
                 $games = Model_Phase::find('all', ['where' => $where, 'orderBy'=>['item_id'=>'asc']]);
             ?>
