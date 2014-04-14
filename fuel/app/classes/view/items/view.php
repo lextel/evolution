@@ -34,7 +34,7 @@ class View_Items_view extends Viewmodel {
         // 晒单数量
         $this->postsCount = function($itemId) {
 
-            return Model_Post::count(['item_id' => $itemId, 'status' => 1, 'is_delete' => 0]);
+            return Model_Post::count(['where' => ['item_id' => $itemId, 'status' => 1, 'is_delete' => 0]]);
         };
 
         // 评论数量
