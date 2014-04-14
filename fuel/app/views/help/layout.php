@@ -24,7 +24,7 @@
                <dd><?php echo Html::anchor('h/pay', '安全支付');?></dd>
                <dd><?php echo Html::anchor('h/shipping', '配送费用');?></dd>
                <dd><?php echo Html::anchor('h/suggest', '投诉建议');?></dd>
-               <dt>新手指南</dt>
+               <dt>商品问题</dt>
                <dd><?php echo Html::anchor('h/expressinfo', '商品配送');?></dd>
                <dd><?php echo Html::anchor('h/examine', '商品验货与签收');?></dd>
                <dd><?php echo Html::anchor('h/longTime', '未收到商品问题');?></dd>
