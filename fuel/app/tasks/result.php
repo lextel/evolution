@@ -68,15 +68,23 @@ class Result {
         $shipping->save();
 
         // 发送通知
+        $title = sprintf('(第%d期)%s', $phase->phase_id, $phase->title);
         $data = [
             'owner_id'  => $order->member_id,
-            'title'     => sprintf('(第%d期)%s', $phase->phase_id, $phase->title),
+            'title'     => $title,
             'type'      => 'win',
             'user_id'   => 0,
             'user_name' => '系统',
             ];
         $sms = new \Model_Member_Sm($data);
         $sms->save();
+
+        // 短信通知
+        $member = Model_Member::find($order->member_id);
+        if($member->is_mobile) {
+            $sms = new \Classes\Sms();
+            $sms->sendWin($member->mobile, $member->nickname, $title);
+        }
 
         return 'success';
     }
