@@ -8,7 +8,8 @@
 
         <?php $input = Session::get_flash('input', null);?>
 
-        <?php echo Form::open(["action"=>"/ha/addsuggest"]);?>
+        <?php echo Form::open(["action"=>"/ha/addsuggest",'id'=>'suggestfrom']);?>
+
         <ul class="edit-data">
             <?php if (Session::get_flash("error", null)) { ?>
                 <p style="color:#e00"><?php echo Session::get_flash("error");?></p>
@@ -41,11 +42,11 @@
             </li>
             <li>
                 <label><font color="#f00">*</font>反馈内容：</label>
-                <?php echo Form::textarea('text', isset($input) ? $input['text']: '', ['cols'=>'60', 'rows'=>'5', 'class'=>'txt', 'datatype'=>'*','nullmsg'=>'请输入反馈内容']);?>
+                <?php echo Form::textarea('text', isset($input) ? $input['text']: '', ['cols'=>'60', 'rows'=>'5', 'class'=>'txt', 'datatype'=>'*','nullmsg'=>'请输入反馈内容' ,'sucmsg'=>' ']);?>
             </li>
             <li>
                 <label><font color="#f00">*</font>验证码：</label>
-                <input name="captcha" type="cap-text" class="txt" datatype="*" nullmsg="请输入验证码" />
+                <input name="captcha" type="cap-text" class="txt" datatype="*" nullmsg="请输入验证码" sucmsg=" "/>
                 <span class="captcha"><?php echo Html::img('');?></span>
                 <span class="recaptcha"><a href="javascript:void(0)">看不清？换一张</a></span>
             </li>
@@ -65,7 +66,6 @@ $(function(){
     $(".recaptcha").click(function(){
         getcaptch();
     });
-
     $(".edit-data").Validform({
         btnSubmit: "#sub",
         tiptype:4
