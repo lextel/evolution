@@ -10,13 +10,13 @@
     </div>
     <?php echo Form::open(['action'=>'u/mobile/check', 'class'=>"verifyForm"]);?>
         
-        <div class="row">
+        <div class="row" style="margin-bottom:5px;">
             <label for="" class="fl">您的手机号码：</label>
             <span class="phone_num"><?php echo $mobile?><input type="hidden" name="mobile" value="<?php echo $mobile;?>"></span>
         </div>
         <div class="row">
-            <input class="btn btn-code get_code" type="button" value="获取验证码" />
-            <span class="verification"></span>
+            <input class="btn btn-code get_code fl" type="button" value="获取验证码" />
+            <span class="verification fl"></span>
         </div>
         <div class="row">
             <label for="" class="fl">输入验证码：</label><input name="code" class="txt fl" datatype="s6-6" nullmsg="请输入6位验证码" errormsg="请输入正确的验证码" sucmsg=" "/>
