@@ -168,7 +168,7 @@ class Model_Cate extends \Orm\Model
         $data = [
             'parent_id' => self::NO_PARENT,
             'name'      => $post['name'],
-            'thumb'     => $post['icon'],
+            'thumb'     => isset($post['icon']) ? $post['icon'] : '',
             'is_delete' => self::NOT_DELETE,
             ];
 
@@ -195,7 +195,7 @@ class Model_Cate extends \Orm\Model
         $data = [
                 'parent_id' => $post['parent_id'],
                 'name'      => $post['name'],
-                'thumb'     => $post['icon'],
+                'thumb'     => isset($post['icon']) ? $post['icon'] : '',
                 'is_delete' => self::NOT_DELETE,
             ];
 
