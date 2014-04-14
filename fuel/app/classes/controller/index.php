@@ -82,5 +82,20 @@ class Controller_Index extends Controller_Frontend {
     public function action_captcha() {
         return  Captcha::forge()->image();
     }
+
+    /*
+    * method POST
+    * 输入 param
+    * return json
+    */
+    public function action_ajaxcaptcha() {
+        $result = ['status' => 'n', 'info' => '验证码错误'];
+        $code =  Input::post('param');
+        if(Captcha::forge()->check($code)){
+            $result = ['status' => 'y'];
+        }
+        $response = new Response();
+        return $response->body(json_encode($result));
+    }
 }
 

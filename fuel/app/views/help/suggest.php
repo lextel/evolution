@@ -46,7 +46,7 @@
             <li>
                 <label><font color="#f00">*</font>验证码：</label>
                 <input name="captcha" type="cap-text" class="txt" datatype="*" nullmsg="请输入验证码" />
-                <span class="captcha"><?php echo Html::img('captcha?'.+time());?></span>
+                <span class="captcha"><?php echo Html::img('');?></span>
                 <span class="recaptcha"><a href="javascript:void(0)">看不清？换一张</a></span>
             </li>
             <li>
@@ -57,10 +57,15 @@
     </div>
 </div>
 <script>
+function getcaptch(){
+    $(".captcha img").attr('src', '<?php echo Uri::create("captcha");?>' + '?' + Math.random());
+}
 $(function(){
+    getcaptch();
     $(".recaptcha").click(function(){
-        $(".captcha img").attr('src', '<?php echo Uri::create("captcha");?>' + '?' + Math.random());
+        getcaptch();
     });
+
     $(".edit-data").Validform({
         btnSubmit: "#sub",
         tiptype:4
