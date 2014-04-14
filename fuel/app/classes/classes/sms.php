@@ -70,4 +70,20 @@ class Sms {
 
         return (isset($info['code']) && $info['code'] == 0);
     }
+
+    /**
+     * 发送中奖短信
+     *
+     */
+    public function sendWin($mobile, $name, $title) {
+
+        $return = $this->tpl_send_sms($this->apiKey, 330987, '#name#='.$name.'&#item#='.$title, $mobile);
+        $info = json_decode($return, true);
+        if($info['code'] != 0) {
+            \Log::error(sprintf('短信： %s | %s | %s', $mobile, $title, '原因：'.$info['msg']));
+        }
+
+        return (isset($info['code']) && $info['code'] == 0);
+
+    }
 }
