@@ -1,7 +1,7 @@
 <?php
 return array(
     '_root_'  => 'index/index',  // The default route
-    '404'   => 'error/404',    // The main 404 route
+    '_404_'   => 'error/404',    // The main 404 route
     '_500_'   => 'error/500',    // The main 500 route
 
     'totalbuycount' => 'index/totalCount',
