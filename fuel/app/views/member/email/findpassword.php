@@ -1,7 +1,7 @@
 <table width="80%" border="0" style="" cellpadding="3" cellspacing="10">
         <tbody>
             <tr >
-                <td style="border-bottom: 1px solid #aae;margin-bottom: 10px;" ><a href="http://www.llt.com/"><img src="<?php echo \Uri::create('assets/images/logo.png');?>" alt="乐乐淘首页"></a></td>
+                <td style="border-bottom: 1px solid #aae;margin-bottom: 10px;" ><a href="<?php echo Uri::create('/');?>"><img src="<?php echo \Uri::create('assets/images/logo.png');?>" alt="乐乐淘首页"></a></td>
             </tr>
             <tr>
                 <td>亲爱的&nbsp;<?php echo \Html::mail_to($email);?>:</td>
@@ -29,7 +29,7 @@
                 <td style="color: #999">此邮件由系统自动发送，请勿回复</td>
             </tr>
             <tr>
-                <td  style="border-top: 1px solid #aae;">感谢你对乐乐淘（ <a href="http://www.lltao.com">http://www.lltao.com</a> ）的支持，祝你好运<br/>客服热线：400-123-123</td>
+                <td  style="border-top: 1px solid #aae;">感谢你对乐乐淘（ <a href="<?php echo Uri::create('/');?>"><?php echo Uri::create('/');?></a> ）的支持，祝你好运<br/>客服热线：400-123-123</td>
             </tr>
         </tbody>
 </table>
