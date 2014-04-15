@@ -31,7 +31,7 @@ $(function(){
             <li>
                 <label>昵称：</label>
                 <?php echo Form::input('nickname', Session::get_flash('nickname', ''), array('class' => 'txt','type'=>"text",'name'=>'nickname', 'datatype'=>'zhE',
-                 'nullmsg'=>'请输入昵称' ,'errormsg'=>' ' ,'sucmsg'=>' ' ,'style'=>'width:180px','ajaxurl' => Uri::create('checkname') )); ?>
+                 'nullmsg'=>'请输入昵称' ,'errormsg'=>' ' ,'sucmsg'=>' ' ,'ajaxurl' => Uri::create('/u/checknickname')  ,'style'=>'width:180px')); ?>
                 <?php if (Session::get_flash('error', null)) { ?>
                    <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('error');?></span>
                 <?php }else{?>
@@ -47,8 +47,10 @@ $(function(){
 
 <script>
 $(function (){
-  $(".demoform").Validform({
+  //,'ajaxurl' => Uri::create('/uchecknickname') 
+  $(".addnickname").Validform({
         tiptype:4,
+        ajaxPost:true,
         datatype:{
               'zhE': function (gets,obj,curform,regxp){
                 var zhE = /^[\u4e00-\u9fa5a-zA-Z0-9]+$/;
