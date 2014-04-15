@@ -5,7 +5,6 @@ $(function(){
     $(".nickname").click(function(){
         $(".addnickname").submit();
     });
-
 	$(".addnickname").Validform({
 	tiptype:4,
 	});
@@ -66,7 +65,7 @@ $(function (){
                   //如果为英文
                   if(E.test(gets)){
                      if(gets.length >= 3 && gets.length <= 8){
-                       return true;  
+                       return true;
                      }
                      return "请输入3-8个英文字符";
                   }
