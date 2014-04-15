@@ -550,7 +550,6 @@ function handlePosts(data, needReturn) {
                     '</div>'+
                     '</li>';
         }
-
         html += '</ul>';
 
         if(!needReturn) {
@@ -559,7 +558,6 @@ function handlePosts(data, needReturn) {
             return html;
         }
     }
-
 }
 // 渲染期数记录
 function handlePhases(data) {

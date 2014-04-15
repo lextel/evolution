@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="修改分页">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/common.js" afterPath="$PROJECT_DIR$/public/assets/js/common.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/sendok.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/sendok.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/special-game.html" afterPath="$PROJECT_DIR$/public/html/special-game.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/style.css" afterPath="$PROJECT_DIR$/public/assets/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/template.php" afterPath="$PROJECT_DIR$/fuel/app/views/template.php" />
     </list>
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,10 +59,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1676" column="16" selection-start="30569" selection-end="30569" vertical-scroll-proportion="0.53474677" vertical-offset="31390" max-vertical-offset="33117">
+            <state line="1663" column="23" selection-start="30318" selection-end="30318" vertical-scroll-proportion="-8.28" vertical-offset="31390" max-vertical-offset="33117">
               <folding>
                 <marker date="1397458496339" expanded="true" signature="21632:21635" placeholder="{...}" />
                 <marker date="1397458496339" expanded="true" signature="28239:28316" placeholder="{...}" />
@@ -73,7 +75,7 @@
       <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="958" column="18" selection-start="16314" selection-end="16314" vertical-scroll-proportion="-11.04" vertical-offset="17926" max-vertical-offset="42427">
+            <state line="805" column="21" selection-start="13734" selection-end="13734" vertical-scroll-proportion="0.0" vertical-offset="15165" max-vertical-offset="42427">
               <folding>
                 <marker date="1397445895321" expanded="true" signature="648:672" placeholder="{...}" />
                 <marker date="1397445895321" expanded="true" signature="14295:14352" placeholder="{...}" />
@@ -231,19 +233,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="special-game.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/html/special-game.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="435" selection-end="435" vertical-scroll-proportion="-1.7142857" vertical-offset="180" max-vertical-offset="1349">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="template.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="template.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="160" column="10" selection-start="7445" selection-end="7445" vertical-scroll-proportion="0.0" vertical-offset="2863" max-vertical-offset="4237">
+            <state line="110" column="19" selection-start="5192" selection-end="5192" vertical-scroll-proportion="0.4703833" vertical-offset="1685" max-vertical-offset="4256">
               <folding />
             </state>
           </provider>
@@ -252,7 +245,7 @@
       <file leaf-file-name="product.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/product.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="947" column="16" selection-start="17202" selection-end="17202" vertical-scroll-proportion="-16.36" vertical-offset="17584" max-vertical-offset="26068">
+            <state line="949" column="16" selection-start="17258" selection-end="17258" vertical-scroll-proportion="-16.36" vertical-offset="17622" max-vertical-offset="26106">
               <folding />
             </state>
           </provider>
@@ -270,36 +263,17 @@
       <file leaf-file-name="view.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/wins/view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="21" selection-start="8702" selection-end="8702" vertical-scroll-proportion="0.0" vertical-offset="2673" max-vertical-offset="3572">
+            <state line="154" column="14" selection-start="8265" selection-end="8265" vertical-scroll-proportion="0.0" vertical-offset="2445" max-vertical-offset="3572">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/js/common.js">
+      <file leaf-file-name="signup.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signup.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="597" column="5" selection-start="18046" selection-end="18046" vertical-scroll-proportion="-28.88" vertical-offset="10621" max-vertical-offset="14079">
-              <folding>
-                <element signature="e#20524#22029#0" expanded="false" />
-                <element signature="e#22222#22952#0" expanded="false" />
-                <element signature="e#23006#24629#0" expanded="false" />
-                <element signature="e#24667#26177#0" expanded="false" />
-                <element signature="e#26194#26918#0" expanded="false" />
-                <element signature="e#26986#27229#0" expanded="false" />
-                <element signature="n#!!block;n#addFavorite#0" expanded="false" />
-                <element signature="e#27658#28196#0" expanded="false" />
-                <element signature="e#28221#28278#0" expanded="false" />
-                <element signature="n#!!block;n#getTotalBuy#0" expanded="false" />
-                <marker date="1397445661661" expanded="true" signature="10558:10589" placeholder="..." />
-                <marker date="1397445661661" expanded="true" signature="10655:10672" placeholder="..." />
-                <marker date="1397445661661" expanded="true" signature="10716:10756" placeholder="..." />
-                <marker date="1397445661661" expanded="true" signature="11099:11109" placeholder="..." />
-                <marker date="1397445661661" expanded="true" signature="11563:11594" placeholder="..." />
-                <marker date="1397445661661" expanded="true" signature="11680:11697" placeholder="..." />
-                <marker date="1397445661661" expanded="true" signature="11742:11783" placeholder="..." />
-                <marker date="1397445661661" expanded="true" signature="12118:12128" placeholder="..." />
-              </folding>
+            <state line="3" column="29" selection-start="174" selection-end="187" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1406">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -322,7 +296,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/fuel/app/views/invit/index.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/items/search.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/orders/index.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/posts/index.php" />
@@ -331,13 +304,14 @@
         <option value="$PROJECT_DIR$/fuel/app/views/help/suggest.php" />
         <option value="$PROJECT_DIR$/public/assets/css/header.css" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/signin.php" />
-        <option value="$PROJECT_DIR$/fuel/app/views/template.php" />
         <option value="$PROJECT_DIR$/fuel/app/views/member/mobile/second.php" />
         <option value="$PROJECT_DIR$/public/assets/css/product.css" />
-        <option value="$PROJECT_DIR$/public/assets/js/common.js" />
         <option value="$PROJECT_DIR$/public/assets/css/common.css" />
-        <option value="$PROJECT_DIR$/public/html/special-game.html" />
         <option value="$PROJECT_DIR$/public/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/public/html/special-game.html" />
+        <option value="$PROJECT_DIR$/public/assets/js/common.js" />
+        <option value="$PROJECT_DIR$/fuel/app/views/member/sendok.php" />
+        <option value="$PROJECT_DIR$/fuel/app/views/template.php" />
       </list>
     </option>
   </component>
@@ -426,69 +400,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -673,6 +585,62 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="notice" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fuel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="member" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fuel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="member" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="email" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -975,21 +943,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/help/suggest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="16" selection-start="1594" selection-end="1594" vertical-scroll-proportion="0.0" vertical-offset="361" max-vertical-offset="1463" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/memberlayout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1349" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="50" selection-start="3774" selection-end="3774" vertical-scroll-proportion="1.5631443" vertical-offset="516" max-vertical-offset="2318" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/html/special-lol.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="6" selection-start="755" selection-end="755" vertical-scroll-proportion="-1.7883117" vertical-offset="1795" max-vertical-offset="2565" />
@@ -1015,63 +968,27 @@
         <state line="8" column="7" selection-start="307" selection-end="307" vertical-scroll-proportion="-2.8076434" vertical-offset="2356" max-vertical-offset="4104" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/header.css">
+    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="305" column="20" selection-start="5590" selection-end="5590" vertical-scroll-proportion="0.0" vertical-offset="5528" max-vertical-offset="6897">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="10" selection-start="7445" selection-end="7445" vertical-scroll-proportion="0.0" vertical-offset="2863" max-vertical-offset="4237">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuel/app/views/wins/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="21" selection-start="8702" selection-end="8702" vertical-scroll-proportion="0.0" vertical-offset="2673" max-vertical-offset="3572">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/product.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="947" column="16" selection-start="17202" selection-end="17202" vertical-scroll-proportion="-16.36" vertical-offset="17584" max-vertical-offset="26068">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="597" column="5" selection-start="18046" selection-end="18046" vertical-scroll-proportion="-28.88" vertical-offset="10621" max-vertical-offset="14079">
+        <state line="1663" column="23" selection-start="30318" selection-end="30318" vertical-scroll-proportion="-8.28" vertical-offset="31390" max-vertical-offset="33117">
           <folding>
-            <element signature="e#20524#22029#0" expanded="false" />
-            <element signature="e#22222#22952#0" expanded="false" />
-            <element signature="e#23006#24629#0" expanded="false" />
-            <element signature="e#24667#26177#0" expanded="false" />
-            <element signature="e#26194#26918#0" expanded="false" />
-            <element signature="e#26986#27229#0" expanded="false" />
-            <element signature="n#!!block;n#addFavorite#0" expanded="false" />
-            <element signature="e#27658#28196#0" expanded="false" />
-            <element signature="e#28221#28278#0" expanded="false" />
-            <element signature="n#!!block;n#getTotalBuy#0" expanded="false" />
-            <marker date="1397445661661" expanded="true" signature="10558:10589" placeholder="..." />
-            <marker date="1397445661661" expanded="true" signature="10655:10672" placeholder="..." />
-            <marker date="1397445661661" expanded="true" signature="10716:10756" placeholder="..." />
-            <marker date="1397445661661" expanded="true" signature="11099:11109" placeholder="..." />
-            <marker date="1397445661661" expanded="true" signature="11563:11594" placeholder="..." />
-            <marker date="1397445661661" expanded="true" signature="11680:11697" placeholder="..." />
-            <marker date="1397445661661" expanded="true" signature="11742:11783" placeholder="..." />
-            <marker date="1397445661661" expanded="true" signature="12118:12128" placeholder="..." />
+            <marker date="1397458496339" expanded="true" signature="21632:21635" placeholder="{...}" />
+            <marker date="1397458496339" expanded="true" signature="28239:28316" placeholder="{...}" />
+            <marker date="1397458496339" expanded="true" signature="28416:28525" placeholder="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/special-game.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="59" selection-start="238" selection-end="238" vertical-scroll-proportion="0.13475177" vertical-offset="0" max-vertical-offset="1311">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="958" column="18" selection-start="16314" selection-end="16314" vertical-scroll-proportion="-11.04" vertical-offset="17926" max-vertical-offset="42427">
+        <state line="805" column="21" selection-start="13734" selection-end="13734" vertical-scroll-proportion="0.0" vertical-offset="15165" max-vertical-offset="42427">
           <folding>
             <marker date="1397445895321" expanded="true" signature="648:672" placeholder="{...}" />
             <marker date="1397445895321" expanded="true" signature="14295:14352" placeholder="{...}" />
@@ -1228,21 +1145,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/special-game.html">
+    <entry file="file://$PROJECT_DIR$/public/assets/css/product.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="435" selection-end="435" vertical-scroll-proportion="-1.7142857" vertical-offset="180" max-vertical-offset="1349">
+        <state line="949" column="16" selection-start="17258" selection-end="17258" vertical-scroll-proportion="-16.36" vertical-offset="17622" max-vertical-offset="26106">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
+    <entry file="file://$PROJECT_DIR$/public/assets/css/header.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1676" column="16" selection-start="30569" selection-end="30569" vertical-scroll-proportion="0.53474677" vertical-offset="31390" max-vertical-offset="33117">
+        <state line="305" column="20" selection-start="5590" selection-end="5590" vertical-scroll-proportion="0.0" vertical-offset="5528" max-vertical-offset="6897">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="526" column="24" selection-start="15046" selection-end="15046" vertical-scroll-proportion="-0.022727273" vertical-offset="10013" max-vertical-offset="13357">
           <folding>
-            <marker date="1397458496339" expanded="true" signature="21632:21635" placeholder="{...}" />
-            <marker date="1397458496339" expanded="true" signature="28239:28316" placeholder="{...}" />
-            <marker date="1397458496339" expanded="true" signature="28416:28525" placeholder="{...}" />
+            <element signature="e#19487#20992#0" expanded="false" />
+            <element signature="e#21185#21915#0" expanded="false" />
+            <element signature="e#21969#23592#0" expanded="false" />
+            <element signature="e#23630#25140#0" expanded="false" />
+            <element signature="e#25157#25881#0" expanded="false" />
+            <element signature="e#25949#26192#0" expanded="false" />
+            <element signature="n#!!block;n#addFavorite#0" expanded="false" />
+            <element signature="e#26621#27159#0" expanded="false" />
+            <element signature="e#27184#27241#0" expanded="false" />
+            <element signature="n#!!block;n#getTotalBuy#0" expanded="false" />
+            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/email/emailok.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="16" selection-start="434" selection-end="434" vertical-scroll-proportion="0.17391305" vertical-offset="0" max-vertical-offset="874">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/signup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="29" selection-start="174" selection-end="187" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1406">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/member/sendok.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="48" selection-start="336" selection-end="336" vertical-scroll-proportion="0.19565217" vertical-offset="0" max-vertical-offset="1064">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/wins/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="14" selection-start="8265" selection-end="8265" vertical-scroll-proportion="0.0" vertical-offset="2445" max-vertical-offset="3572">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuel/app/views/template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="19" selection-start="5192" selection-end="5192" vertical-scroll-proportion="0.4703833" vertical-offset="1685" max-vertical-offset="4256">
+          <folding />
         </state>
       </provider>
     </entry>
