@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="修改分页">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/common.js" afterPath="$PROJECT_DIR$/public/assets/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/member/sendok.php" afterPath="$PROJECT_DIR$/fuel/app/views/member/sendok.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/special-game.html" afterPath="$PROJECT_DIR$/public/html/special-game.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuel/app/views/template.php" afterPath="$PROJECT_DIR$/fuel/app/views/template.php" />
-    </list>
+    <list default="true" id="4767158a-65a8-41f0-8e19-9fdcf4950b52" name="默认" comment="修改分页" />
     <ignored path="evolution.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -263,7 +258,7 @@
       <file leaf-file-name="view.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fuel/app/views/wins/view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="154" column="14" selection-start="8265" selection-end="8265" vertical-scroll-proportion="0.0" vertical-offset="2445" max-vertical-offset="3572">
+            <state line="155" column="14" selection-start="8291" selection-end="8291" vertical-scroll-proportion="0.0" vertical-offset="2464" max-vertical-offset="3572">
               <folding />
             </state>
           </provider>
@@ -1163,27 +1158,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="526" column="24" selection-start="15046" selection-end="15046" vertical-scroll-proportion="-0.022727273" vertical-offset="10013" max-vertical-offset="13357">
           <folding>
-            <element signature="e#19487#20992#0" expanded="false" />
-            <element signature="e#21185#21915#0" expanded="false" />
-            <element signature="e#21969#23592#0" expanded="false" />
-            <element signature="e#23630#25140#0" expanded="false" />
-            <element signature="e#25157#25881#0" expanded="false" />
-            <element signature="e#25949#26192#0" expanded="false" />
+            <element signature="e#19743#21248#0" expanded="false" />
+            <element signature="e#21441#22171#0" expanded="false" />
+            <element signature="e#22225#23848#0" expanded="false" />
+            <element signature="e#23886#25396#0" expanded="false" />
+            <element signature="e#25413#26137#0" expanded="false" />
+            <element signature="e#26205#26448#0" expanded="false" />
             <element signature="n#!!block;n#addFavorite#0" expanded="false" />
-            <element signature="e#26621#27159#0" expanded="false" />
-            <element signature="e#27184#27241#0" expanded="false" />
+            <element signature="e#26877#27415#0" expanded="false" />
+            <element signature="e#27440#27497#0" expanded="false" />
             <element signature="n#!!block;n#getTotalBuy#0" expanded="false" />
-            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1397468835048" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397543721511" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397543721511" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397543721511" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397543721511" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397543721511" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397543721511" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397543721511" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397543721511" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397543721511" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397543721511" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1397543721511" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1211,7 +1206,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fuel/app/views/wins/view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="14" selection-start="8265" selection-end="8265" vertical-scroll-proportion="0.0" vertical-offset="2445" max-vertical-offset="3572">
+        <state line="155" column="14" selection-start="8291" selection-end="8291" vertical-scroll-proportion="0.0" vertical-offset="2464" max-vertical-offset="3572">
           <folding />
         </state>
       </provider>
