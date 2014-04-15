@@ -167,7 +167,6 @@ class Controller_Center extends Controller_Frontend
     */
     public function action_getforgot()
     {
-        Session::set_flash('error', null);
         $this->template->title = '用户找回密码';
         $this->template->layout = View::forge('member/forgot', [], false);
     }
@@ -180,10 +179,11 @@ class Controller_Center extends Controller_Frontend
        $email = Session::get('email', null);
        if (!$email)
        {
-           Response::redirect('/signin');
+           Response::redirect('/forgot');
        }
        Session::delete('email');
-       return Response::forge(View::forge('member/sendok', ['email'=>$email], true));
+       $this->template->title = '用户找回密码';
+       $this->template->layout = View::forge('member/sendok', ['email'=>$email], true);
     }
 
     /**
@@ -207,12 +207,16 @@ class Controller_Center extends Controller_Frontend
                    'view'=>'member/email/findpassword',
                    'type'=>'password',
                    "subject"=>"乐乐淘用户找回密码"];
-               $send = Model_Member_Email::sendEmail($data);
+               $send = Model_Member_Email::sendEmail($data, $member->id);
                Session::set('email', $email);
                return Response::redirect('/sendok');
+            }else{
+                Session::set_flash('erroremail', '你输入的邮箱未注册');
             }
+        }else{
+            Session::set_flash('erroremail', '你输入的邮箱不正确');
         }
-        Session::set_flash('error', e('你输入的邮箱错误'));
+        
         Response::redirect('/forgot');
     }
 
@@ -221,15 +225,17 @@ class Controller_Center extends Controller_Frontend
     */
     public function action_emailok()
     {
-       $key = Input::get('key');
-       if (Model_Member_Email::check_key($key, 'email')){
-
-          $email = Model_Member_Email::find_by_key($key);
-          $this->auth->force_login($email->member_id);
-          return json_encode(['key' => $key]);
-       }else{
-          return json_encode(['error'=>'key 错误']);
-       }
+        $key = Input::get('key');
+        if (Model_Member_Email::check_key($key, 'email')){
+            Model_Member_Email::save_key($key, 'email');                      
+            $email = Model_Member_Email::find_by_key($key);
+            $this->auth->force_login($email->member_id);
+            Session::set_flash('success', '邮箱验证成功');
+        }else{
+            Session::set_flash('error', '验证邮箱失败请重新验证');
+            
+        }
+        Response::redirect('/u/getprofile');
     }
 
     /*
@@ -239,19 +245,16 @@ class Controller_Center extends Controller_Frontend
     {
         $header = ['Content-Type' => 'application/json'];
         $header = [];
-        $key = Input::get('key');
-        if (Model_Member_Email::check_key($key, 'password'))
-        {
-           $email = Model_Member_Email::find_by_key($key);
-           $member = Model_Member::find_by_email($email->email);
-           if (!$member)
-           {
-              return Response::forge(json_encode(['error'=>'用户数据库 错误']),200, $header);
-           }
-           Session::set('member_id', $member->id);
-           return Response::redirect('newpwd');
+        $key = Input::get('key', '');
+        $res = Model_Member_Email::check_key($key, 'password');
+        if ($res)
+        {           
+           Session::set('member_id', $res->member_id);
+           Session::set('emailkey', $key);
+           return Response::redirect('/newpwd');
         }else{
-           return Response::forge(json_encode(['error'=>'key 错误']),200, $header);
+           Session::set_flash('erroremail', 'KEY不存在或者过期了，请重新再获取一次');
+           Response::redirect('/forgot');
         }
 
     }
@@ -261,32 +264,55 @@ class Controller_Center extends Controller_Frontend
     */
     public function action_newpassword()
     {
-        $header = [];
+
+        $key = Session::get('emailkey', null);
         $member_id = Session::get('member_id', null);
-        if (!$member_id)
-        {
+        if (!$member_id){
             return Response::redirect('signup');
         }
-        if (!(Input::method() == 'POST'))
-        {
-            return Response::forge(View::forge('member/findpwd'));
+        if (!$key){
+           Session::set_flash('erroremail', 'KEY不存在或者过期了，请重新再获取一次');
+           return Response::redirect('/forgot');
         }
-
-        if ($this->auth->force_login($member_id)){
-                Session::delete('member_id');
+        if (!(Input::method() == 'POST')){
+            $this->template->title = '设置新密码';
+            $this->template->layout = View::forge('member/findpwd', [], true);
+            return;
         }
+        $val = Validation::forge('create');
+        $val->add_field('newpassword', 'newpassword', 'required|max_length[18]|min_length[6]');
+        if (!$val->run()){
+            Session::set_flash('newpwderror', '密码格式不正确');
+            return Response::redirect('/newpwd');
+        }
+        
         $newpassword = Input::post('newpassword');
         $user = Model_Member::find($member_id);
+        if (!$this->auth->force_login($member_id)){
+            Session::set_flash('newpwderror', '用户不存在');
+            return Response::redirect('/newpwd');
+        }
+        
+        Session::delete('member_id');
+        Session::delete('emailkey');
         $newrandpwd = $this->auth->reset_password($this->auth->get_screen_name());
         $res = $this->auth->change_password($newrandpwd, $newpassword, $this->auth->get_screen_name());
         if ($res)
         {
-           return Response::redirect('u');
-           //return Response::forge(json_encode(['error'=>'key 错误']),200, $header);
+            Model_Member_Email::save_key($key, 'password');
+            //
+            
+            return Response::redirect('/findok');;
         }
-        return Response::forge(View::forge('member/findpwd'));
+        return Response::redirect('/newpwd');
     }
 
+    public function action_findok()
+    {
+        $this->template->title = '设置新密码';
+        $this->template->layout = View::forge('member/findok', [], true);
+    }
+    
     /*
     * 验证手机号码或者邮箱是否存在
     */

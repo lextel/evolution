@@ -6,10 +6,7 @@ $(function(){
     $(".btn-checkemail").click(function(){
         //需要个加载的图
         $(".load").show();
-        $.get("/u/checkemail", '', function(data){
-            $(".load").hide();
-            alert(data.msg);
-        });
+        window.location = "/u/checkemail";
         $(".load").hide();
     });
 });
@@ -30,7 +27,7 @@ $(function(){
             <li>
                 <label></label>
                 <?php if (Session::get_flash('success')): ?>
-                    <p style="color:red;">
+                    <p style="color:green;">
                     <?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
                     </p>
                 <?php endif; ?>
@@ -41,18 +38,18 @@ $(function(){
                 <?php endif; ?>
             </li>
             <li>
-                <label>*邮箱：</label>
+                <label><s class="r">*</s>邮箱：</label>
                 <span class="email" style="width: 150px;"><?php echo $member->email;?></span>
                 <?php if (!Model_Member_Email::check_emailok($member->email)) {  ?>
                 <span class="red">（未验证）</span>
                 <span class="load" style="display:none"><?php echo Html::img('assets/images/bx_loader.gif', ['style'=>'width:30px']);?></span>
                 <a href="javascript:;" class="btn-sm btn-state fl btn-checkemail">去验证</a>
                 <?php }else{ ?>
-                 <span class="green">（已验证）</span>
+                 <span style="color:green;">（已验证）</span>
                 <?php }?>
             </li>
             <li>
-                 <label>*手机：</label>
+                 <label><s class="r">*</s>手机：</label>
                  <span class="mobile" style="width: 150px;"><?php echo $member->mobile;?></span>
                  <span class="red"><?php echo $member->is_mobile == '1' ? '':'（未绑定）';?></span>
                  <?php if ($member->is_mobile != '1') { ?>
@@ -62,8 +59,9 @@ $(function(){
                  <?php } ?>
              </li>
             <li>
-                <label>*昵称：</label>
+                <label><s class="r">*</s>昵称：</label>
                 <?php echo Form::input('nickname', Input::post('nickname', $member->nickname), array('class' => 'form-control txt','name'=>'username','datatype'=>'zhE','errorms'=>'请输入昵称 2~8个字','sucmsg'=>' '));?>
+                
                 <span class="Validform_checktip"></span>
             </li>
             <li>

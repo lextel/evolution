@@ -38,6 +38,7 @@ if(is_array($phasesList)) {
                 <ul class="slide-list" id="thumblist">
                     <?php
                         $images = unserialize($item->images);
+                        $images = array_slice($images, 0, 5);
                         foreach($images as $image):
                     ?>
                     <li>

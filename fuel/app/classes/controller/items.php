@@ -127,7 +127,8 @@ class Controller_Items extends Controller_Frontend {
         $item = Model_Item::find($id);
 
         $res = 'not ok';
-        if(!empty($item)) {
+        $phase = Model_Phase::find('first', ['where' => ['item_id' => $id],'order_by' => ['id' => 'desc']]);
+        if(!empty($item) and $item->is_delete == 0 and $item->status == 1 and ((empty($phase) || $item->phase > $phase->phase_id) || $item->phase == 0)) {
             $phaseModel = new Model_Phase();
             $phaseModel->add($item);
             $res = 'ok';

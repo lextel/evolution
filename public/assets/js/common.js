@@ -558,7 +558,6 @@ function handlePosts(data, needReturn) {
                     '</div>'+
                     '</li>';
         }
-
         html += '</ul>';
     }
 
@@ -567,7 +566,6 @@ function handlePosts(data, needReturn) {
     } else {
         return bool ? html : bool;
     }
-
 }
 // 渲染期数记录
 function handlePhases(data) {

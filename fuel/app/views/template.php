@@ -110,6 +110,7 @@
                 </dl>
                 -->
                 <dl class="dl04">
+                    <dt>关注微信</dt>
                     <dd><img src="<?php echo Uri::create("/assets/images/wxin1.jpg");?>"></dd>
                 </dl>
             </div>
