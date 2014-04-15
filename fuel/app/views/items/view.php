@@ -249,17 +249,17 @@ if(is_array($phasesList)) {
             </div>
             <!--商品详情结束-->
             <!--参与记录开始-->
-            <div class="record d-n tab-pane" id="buylog">
-                <p style="margin-bottom: 15px;text-align: center">暂无参与记录</p>
+            <div class="record d-n tab-pane" style="min-height:40px;padding:20px 10px;" id="buylog">
+                <p style="margin-bottom: 15px;text-align: center;font-size:16px;">暂无参与记录</p>
             </div>
             <!--参与记录结束-->
             <!--晒单开始-->
-            <div class="product-bask tab-pane" id="posts">
-                <p style="margin-bottom: 15px;text-align: center">暂无晒单记录</p>
+            <div class="product-bask tab-pane" style="min-height:40px;padding:20px 10px;" id="posts">
+                <p style="margin-bottom: 15px;text-align: center;font-size:16px;">暂无晒单记录</p>
             </div>
             <!--晒单结束-->
             <!--往期回顾开始-->
-            <div class="look-bak d-n tab-pane" id="phase"></div>
+            <div class="look-bak d-n tab-pane" style="min-height:40px;padding:20px 10px;" id="phase"></div>
         </div>
 	</div>
 </div>
