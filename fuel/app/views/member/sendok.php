@@ -5,7 +5,7 @@
             <div class="title">
                 <h3 class="fl">忘记密码？不用急，您可以通过以下方式找回密码。</h3>
             </div>
-            <form class="demoform">            
+            <form class="demoform">
                 <ul class="registerForm">
                     <li>
                        <p>乐乐淘已向你的邮箱发送了一封找回密码的邮件,请尽快完成验证</p>
