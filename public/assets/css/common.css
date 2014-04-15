@@ -1120,6 +1120,16 @@ table td p.tl{
     padding-left: 20px;
     background: url("../images/headicon.png") no-repeat 2px -38px;
 }
+.top-menu span.offline{
+    display:block;
+    height: 30px;
+    line-height: 30px;
+    float: right;
+    margin-left: 10px;
+    position: relative;
+    padding-left: 20px;
+    background: url("../images/headicon.png") no-repeat 2px -15px;
+}
 .head-set{
     position: absolute;
     top: 20px;
