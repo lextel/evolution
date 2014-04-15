@@ -197,7 +197,7 @@ class Model_Order extends \Classes\Model
             }
 
             $root = realpath(DOCROOT . '../');
-            file_put_contents($dir.$filename, 'sleep '.$sec.' && cd '. $root . ' && php oil refine result ' . $phaseId . "\n");
+            file_put_contents($dir.$filename, 'sleep '.$sec.' && cd '. $root . ' && FUEL_ENV='.FUEL::$env.' php oil refine result ' . $phaseId . "\n");
         }
 
         $phase->save();

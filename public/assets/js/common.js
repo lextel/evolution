@@ -296,11 +296,8 @@ $(function(){
     });
 
     // 是否是初次加载详情页，如果是拉取参与者和晒单否则copy参与者和晒单到页尾
-    if($("#tab-content").length > 0 && $('#copyJoinedid').length == 0){
+    if($("#tab-content").length > 0) {
         initDesc();
-    } else {
-        // copyJoined();
-        // copyPosts();
     }
 
     // 参与者拉取
@@ -367,9 +364,14 @@ function initDesc() {
             dataType: 'json',
             success: function(data) {
                 addtion = '<div style="background:#f5f7fa;height: 10px;"></div>'+
-                          '<div id="descJoined" style="border-top:2px solid #F60">'+
-                          '<div style="margin:10px;font-size: 14px; color: #666;">所有参与者记录</div>';
-                addtion += handleJoined(data, true);
+                          '<div id="descJoined" style="border-top:2px solid #AF2812">'+
+                          '<div class="title"><h3>所有参与者记录</h3></div>';
+                var html = handleJoined(data, true);
+                if(html) {
+                    addtion += html;
+                } else {
+                    addtion += '<p style="padding: 10px">暂无参与者记录</p>';
+                }
                 addtion += data.page.replace(/joined/g, 'descJoined');
                 addtion += '<div style="clear:both"></div></div>';
                 $(document).dequeue("ajaxRequests"); 
@@ -387,9 +389,14 @@ function initDesc() {
             dataType: 'json',
             success: function(data) {
                 addtion += '<div style="background:#f5f7fa;height: 10px"></div>'+
-                          '<div id="descPosts" class="product-bask" style="border-top:2px solid #F60;">'+
-                           '<div style="margin: 10px;font-size: 14px; color: #666">晒单</div>';
-                addtion += handlePosts(data, true);
+                          '<div id="descPosts" class="product-bask" style="border-top:2px solid #AF2812;">'+
+                          '<div style="border-bottom:1px dashed #E4E4E4;" class="title"><h3>晒单</h3></div>';
+                var html = handlePosts(data, true);
+                if(html) {
+                    addtion += html;
+                } else {
+                    addtion += '<p style="padding: 10px">暂无晒单数据</p>';
+                }
                 addtion += data.page.replace(/posts/g, 'descPosts');
                 addtion += '<div style="clear:both"></div></div>';
                 $('#desc').append(addtion);
@@ -466,7 +473,7 @@ function posts(page) {
 }
 
 // 拉取期数信息
-function phases(page,isDesc) {
+function phases(page) {
 
     var itemId = $('a[href="#phase"]').attr('itemId');
 
@@ -487,14 +494,15 @@ function phases(page,isDesc) {
         type: 'get',
         dataType: 'json',
         success: function(data) {
-            handlePhases(data,isDesc);
+            handlePhases(data);
         }
     });
 }
 
 // 
 function handleJoined(data, needReturn) {
-    if(!jQuery.isEmptyObject(data.orders)) {
+    var bool = !jQuery.isEmptyObject(data.orders);
+    if(bool) {
         var html = "<table id='handleJoineds'><thead><tr><th>会员帐号</th><th>购买数量</th><th>时间</th><tr></thead><tbody>";
         for(var i in data.orders) {
             html += '<tr>' +
@@ -508,12 +516,12 @@ function handleJoined(data, needReturn) {
                     '<tr>';
         }
         html += '</tbody></table>';
-        
-        if(!needReturn) {
-            $('#buylog').html(html).append(data.page);
-        } else {
-            return html;
-        }
+    }
+
+    if(!needReturn && bool) {
+        $('#buylog').html(html).append(data.page);
+    } else {
+        return bool ? html : bool;
     }
 }
 
@@ -551,12 +559,12 @@ function handlePosts(data, needReturn) {
                     '</li>';
         }
         html += '</ul>';
+    }
 
-        if(!needReturn) {
-            $('#posts').html(html).append(data.page);
-        } else {
-            return html;
-        }
+    if(!needReturn && bool) {
+        $('#posts').html(html).append(data.page);
+    } else {
+        return bool ? html : bool;
     }
 }
 // 渲染期数记录

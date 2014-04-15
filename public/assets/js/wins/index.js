@@ -33,7 +33,7 @@ $(function() {
         html += '    <a href="'+data.userlink+'"><img src="'+data.avatar+'"></a>';
         html += '    </div>';
         html += '    <div class="user-info fl">';
-        html += '       <div class="winner">获奖者：<b><a href="'+data.userlink+'">'+data.nickname+'</a></b></div>';
+        html += '       <div class="username">获奖者：<b><a href="'+data.userlink+'">'+data.nickname+'</a></b></div>';
         html += '       <div class="ip">来自：'+data.area+'</div>';
         html += '    </div>';       
         html += ' </div>';
