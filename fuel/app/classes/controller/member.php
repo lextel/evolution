@@ -45,10 +45,11 @@ class Controller_Member extends Controller_Center{
             return Response::redirect('/u/getnickname');
         }
         $nickname = trim(Input::post('param'));
-        $res = ['status' => 'n', 'info' => $nickname.'已存在'];
+        $res = ['status' => 'n', 'info' => '请输入昵称'];
         if (is_null($nickname)){
             return json_encode($res);
         }
+        $res = ['status' => 'n', 'info' => $nickname.'已存在'];
         if (Model_Member::checkNickname($nickname)){
             $res['status'] = 'y';
             $res['info'] = ' ';

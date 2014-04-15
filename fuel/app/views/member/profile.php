@@ -60,7 +60,8 @@ $(function(){
              </li>
             <li>
                 <label><s class="r">*</s>昵称：</label>
-                <?php echo Form::input('nickname', Input::post('nickname', $member->nickname), array('class' => 'form-control txt','name'=>'username','datatype'=>'zhE','errorms'=>'请输入昵称 2~8个字','sucmsg'=>' ','ajaxurl' => Uri::create('checkname')));?>
+                <?php echo Form::input('nickname', Input::post('nickname', $member->nickname), array('class' => 'form-control txt','name'=>'username','datatype'=>'zhE','errorms'=>'请输入昵称 2~8个字','sucmsg'=>' '));?>
+                
                 <span class="Validform_checktip"></span>
             </li>
             <li>
@@ -76,8 +77,8 @@ $(function(){
 </div>
 <script>
 $(function(){
-	$(".validForm").Validform({
-	tiptype:4,
+	var validForm = $(".validForm").Validform({
+	  tiptype:4,
     datatype:{
         'zhE': function (gets,obj,curform,regxp){
                 var zhE = /^[\u4e00-\u9fa5a-zA-Z0-9]+$/;
@@ -103,5 +104,16 @@ $(function(){
               }
         }
 	});
+
+  var nickname = $("#form_nickname").val();
+
+  $("#form_nickname").bind("change",function (){
+      if(nickname == $(this).val()){
+        $(this).attr("ajaxurl", "");
+      }else{
+        $(this).attr("ajaxurl", "<?php echo Uri::create('u/checknickname');?>");
+      }
+  });
+  
 });
 </script>
