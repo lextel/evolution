@@ -5,13 +5,13 @@
         <div class="title">
             忘记密码？不用急，您可以通过以下方式找回密码。
         </div>
-         <?php echo Session::get_flash('error');?>
+         
          <?php echo Form::open(['action'=>'forgotemail','class'=> 'demoform']);?>
             <ul class="registerForm">
                 <li>
                     <label>邮箱:</label>
                     <input type="text" class="txt" name="email" datatype="e" errorms="请输入正确的邮箱" nullmsg="请输入邮箱" sucmsg=" " value="" id="form_password">
-                    <span class="Validform_checktip"></span>
+                    <span class="Validform_checktip"><?php echo '<font color="red">'.Session::get_flash('erroremail').'</font>';?></span>
                 </li>
                 <li>
                     <input class="btn btn-red btn-md" name="submit" value="提交" type="submit" id="form_submit">

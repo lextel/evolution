@@ -1,56 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>填写新密码</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <?php echo Asset::css('/member/bootstrap.min.css');?>
-    <?php echo Asset::css('member/comme.css');?>
-    <?php echo Asset::css('member/font-awesome.min.css');?>
-    <?php echo Asset::js(array('jquery.min.js', 'bootstrap.min.js', 'common.js', 'holder.js'));?>
-    <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
-    <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <![endif]-->
-    <script type="text/javascript">
-
-    </script>
-</head>
-<body>
-<!--导航开始-->
-<!--导航结束-->
+<div class="w">
+<?php echo Asset::css(['style.css']);?>
 <!--中间内容开始-->
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-primary ">
-                <div class="panel-heading">填写新密码</div>
-                <div class="panel-body">
-                    <?php echo Session::get_flash('error');?>
-                    <?php echo Form::open(['action'=>'newpwd','class'=>'col-md-5 col-md-offset-3']);?>
-                        <div class="form-group">
-                            <label for="" class="control-label">新密码</label>
-                            <input type="text" name="newpassword" class="form-control"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="control-label">再次输入密码</label>
-                            <input type="text" name="newpassword1" class="form-control"/>
-                        </div>
-                        <button class="btn btn-primary">保存</button>
-                    <?php echo Form::close();?>
-                </div>
-                <!-- <div class="panel-body">
-                    <div for="" class="col-md-offset-3">发送成功！<a href="">点击查看邮箱</a></div>
-                </div> -->
-            </div>
+    
+    <div class="register-warp">
+        <div class="title">
+            设置新密码
         </div>
+        <?php echo Form::open(['action'=>'newpwd','class'=>'demoform']);?>
+        <ul class="registerForm">
+            <li>
+                <label></label>
+                <span class="r"><?php echo Session::get_flash('newpwderror');?></span>
+            </li>
+            <li>
+                <label>输入密码:</label>
+                <input type="password" class="txt" name="newpassword" datatype="*6-18" errorms="请输入6-18位密码" nullmsg="请输入6-18位密码" value="" id="form_password">
+            </li>
+            <li>
+                <label>确认密码:</label>
+                <input type="password" value="" name="newpassword1" class="txt" datatype="*6-18" recheck="password" nullmsg="请填写信息！">
+            </li>
+            <li>
+                <input class="btn btn-red btn-md" name="submit" value="确认" type="submit" id="form_submit">
+            </li>
+        </ul>
+        <?php echo Form::close();?>
     </div>
-</div>
 <!--中间内容结束-->
-</body>
-</html>
+</div>

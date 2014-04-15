@@ -128,12 +128,25 @@ class Model_Member_Email extends \Classes\Model
                                           ]]);
         if ($key)
         {
-           $key->status = 1;
-           $key->save();
-           return true;
+           //$key->status = 1;
+           //$key->save();
+           return $key;
         }
         return false;
+    }
 
+    public static function save_key($key, $type)
+    {
+        $key = Model_Member_Email::find_by_key($key, ['where'=>['status'=>0,
+                                          'type'=> $type,
+                                          'and'=>['deadtime', '>=', time()]
+                                          ]]);
+        if (!$key){
+          return false;
+        }
+        $key->status = 1;
+        $key->save();
+        return true;
     }
 
     /*
