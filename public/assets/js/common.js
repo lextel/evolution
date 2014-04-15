@@ -906,34 +906,35 @@ $(function(){
     setInterval(getTotalBuy,3000);
 });
 
-    function getTotalBuy(){
-        $.get(BASE_URL+"totalbuycount?callback="+ new Date().getTime(), function(data){
-            if (data.code==0){
-                if($("#totalbuy").html() != data.num){
-                    $("#totalbuy").css('backgroundColor', '#af2812');
-                    $("#totalbuy").css('color', '#FFF');
-                    $("#totalbuy").animate({
-                         'opacity': '0.4'
-                    },800,function(){
-                         $("#totalbuy").css('backgroundColor', '#FFF');
-                         $("#totalbuy").css('color', '#2af');
-                         $("#totalbuy").html(data.num);
-                    });
 
-                    $("#totalbuy").animate({
-                        'opacity': '1'
-                    },100);
-                }
+function getTotalBuy(){
+    $.get(BASE_URL+"totalbuycount?callback="+ new Date().getTime(), function(data){
+        if (data.code==0){
+            if($("#totalbuy").html() != data.num){
+                $("#totalbuy").css('backgroundColor', '#af2812');
+                $("#totalbuy").css('color', '#FFF');
+                $("#totalbuy").animate({
+                     'opacity': '0.4'
+                },800,function(){
+                     $("#totalbuy").css('backgroundColor', '#FFF');
+                     $("#totalbuy").css('color', '#2af');
+                     $("#totalbuy").html(data.num);
+                });
+
+                $("#totalbuy").animate({
+                    'opacity': '1'
+                },100);
             }
-        });
-    }
+        }
+    });
+}
 
 
-    function cleardata(){
-        if($("#copyJoinedid").length>0){
-            $("#copyJoinedid").remove();
-        }
-        if($("#poststwo").length>0){
-            $("#poststwo").remove();
-        }
+function cleardata(){
+    if($("#copyJoinedid").length>0){
+        $("#copyJoinedid").remove();
     }
+    if($("#poststwo").length>0){
+        $("#poststwo").remove();
+    }
+}
