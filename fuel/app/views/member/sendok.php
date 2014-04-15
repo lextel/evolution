@@ -7,6 +7,7 @@
     <!-- Bootstrap -->
     <?php echo Asset::css('/member/bootstrap.min.css');?>
     <?php echo Asset::css('member/comme.css');?>
+    <?php echo Asset::css('member/style.css');?>
     <?php echo Asset::css('member/font-awesome.min.css');?>
     <?php echo Asset::js(array('jquery.min.js', 'bootstrap.min.js', 'common.js', 'holder.js'));?>
     <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
