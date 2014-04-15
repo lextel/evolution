@@ -81,7 +81,7 @@ if(is_array($phasesList)) {
     </div>
     <div class="bd w">
         <div class="sub-nav w" id="bigNav">
-        <ul>
+        <ul class="fl">
             <li><a href="#desc" class="active" data-toggle="tab">计算结果</a></li>
             <li><a href="#buylog" phaseId="<?php echo $win->id; ?>"  data-toggle="tab">所有参与纪录(<s class="r"><?php echo $orderCount; ?></s>)</a></li>
             <li><a href="#posts" itemId="<?php echo $itemInfo->id; ?>" data-toggle="tab">晒单(<s class="r"><?php echo $postCount; ?></s>)</a></li>

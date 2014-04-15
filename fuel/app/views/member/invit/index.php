@@ -5,7 +5,7 @@
     <div class="show-box">
         <div class="remind" style="line-height: 40px;height:40px">
             <?php if(!empty($current_user->is_mobile)):?>
-            邀请链接： <input type="text" id="copyShareText"  value="<?php echo Uri::create('/invite/'.base64_encode($current_user->id)); ?>" style="margin-right: 10px; line-height: 28px; width: 400px"/>
+            邀请链接： <input type="text" id="copyShareText"  value="<?php echo Uri::create('/invit/'.base64_encode($current_user->id)); ?>" style="margin-right: 10px; line-height: 28px; width: 400px"/>
             <a href="javascript:;" id="btnCopy" class="btn btn-red" style="text-align:center;width: 60px;height: 28px;line-height: 28px;padding-right: 14px;font-size:12px">复制</a>
             <span style="color:green"></span>
             <?php else: ?>
@@ -16,7 +16,7 @@
             $(document).ready(function(){
                 $("#btnCopy").zclip({
                     path:'<?php echo Uri::create('/assets/js/ZeroClipboard.swf');?>',
-                    copy:$('#copyShareText').text(),
+                    copy:$('#copyShareText').val(),
                     beforeCopy:function(){
                         $(this).next('span').html();
                     },
