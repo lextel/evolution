@@ -77,13 +77,13 @@ class Controller_Member extends Controller_Center{
             if ($member and $member->save())
             {
                 Session::set_flash('success', '更新个人设置OK');
-                Response::redirect('/u');
+                Response::redirect('/');
             }
             else{
                 $res and Response::redirect('/u/getnickname');
             }
         }
-        Session::set_flash('error', '昵称格式不正确');
+        Session::set_flash('error', '用户昵称已经存在了');
         Response::redirect('/u/getnickname');
 
     }

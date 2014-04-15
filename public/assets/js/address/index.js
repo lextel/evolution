@@ -75,12 +75,14 @@ $(function(){
         $("input[name='phone']").val('');
     });
 
-    var from = $(".editAddress>.edit-data").Validform({
-       tiptype:3,
-       showAllError:true,
-       ajaxPost:true
+    var from = $(".edit-data").Validform({
+       btnSubmit:".btn-address",
+       tiptype:4,
+       showAllError:true
+       //ajaxPost:true
     });
-    from.addRule([
+    
+        from.addRule([
             {
               ele:"#name",
               datatype:/^[\u4e00-\u9fa5]{2,6}$/ ,
@@ -88,7 +90,6 @@ $(function(){
               errormsg:"请输入2到6个中文字符!"
             }
         ]);
-
     $(".setFlag").click(function(){
        var data = $(this).attr('data');
        var rate = $(this).attr('rate');
