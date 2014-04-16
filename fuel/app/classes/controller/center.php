@@ -217,7 +217,6 @@ class Controller_Center extends Controller_Frontend
         }else{
             Session::set_flash('erroremail', '你输入的邮箱不正确');
         }
-
         Response::redirect('/forgot');
     }
 
@@ -234,7 +233,6 @@ class Controller_Center extends Controller_Frontend
             Session::set_flash('success', '邮箱验证成功');
         }else{
             Session::set_flash('error', '验证邮箱失败请重新验证');
-
         }
         Response::redirect('/u/getprofile');
     }

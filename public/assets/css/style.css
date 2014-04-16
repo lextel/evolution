@@ -935,6 +935,7 @@
     height: 33px;
     line-height: 33px;
     float: left;
+    margin-top:2px;
 }
 .edit-data li span.email{
     font-size: 14px;

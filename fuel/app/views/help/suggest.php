@@ -31,7 +31,6 @@
                 <label>昵称：</label>
                 <?php echo Form::input('nickname', isset($input) ? $input['nickname']: '', ['type'=>'text', 'class'=>'txt']);?>
             </li>
-
             <li>
                 <label>电话：</label>
                 <?php echo Form::input('mobile', isset($input) ? $input['mobile']: '', ['type'=>'text', 'class'=>'txt']);?>
@@ -39,16 +38,20 @@
             <li>
                 <label><font color="#f00">*</font>E-mail：</label>
                 <?php echo Form::input('email', isset($input) ? $input['email']: '', ['type'=>'text', 'class'=>'txt','nullmsg'=>'请输入E-mail','errormsg'=>'请输入正确到E-mail', 'datatype'=>'e','sucmsg'=>' ']);?>
+                <span id="emailmsg" class="Validform_checktip"></span>
             </li>
             <li>
                 <label><font color="#f00">*</font>反馈内容：</label>
                 <?php echo Form::textarea('text', isset($input) ? $input['text']: '', ['cols'=>'60', 'rows'=>'5', 'class'=>'txt', 'datatype'=>'*','nullmsg'=>'请输入反馈内容' ,'sucmsg'=>' ']);?>
+                
             </li>
+            <li style="height:20px;margin-top:-12px;"><label></label><span id="descmsg" class="Validform_checktip" style="margin-top:-4px;"></span></li>
             <li>
                 <label><font color="#f00">*</font>验证码：</label>
-                <input name="captcha" type="cap-text" class="txt" datatype="*" nullmsg="请输入验证码" sucmsg=" " ajaxurl="<?php echo Uri::create('/index/ajaxcaptcha');?>" />
+                <input id="captcha" name="captcha" type="cap-text" class="txt" datatype="*" nullmsg="请输入验证码" sucmsg=" " ajaxurl="<?php echo Uri::create('/index/ajaxcaptcha');?>" />
                 <span class="captcha"><img src=""/></span>
                 <span class="recaptcha"><a href="javascript:void(0)">看不清？换一张</a></span>
+                <span id="captchamsg" class="Validform_checktip"></span>
             </li>
             <li>
                 <button id="sub" class="btn btn-red btn-md">提交信息</button>
@@ -69,7 +72,24 @@ $(function(){
 
     $("#suggestfrom").Validform({
         btnSubmit: "#sub",
-        tiptype:4
+        tiptype:function(msg,o,cssctl){
+            if(o.obj.attr("id") =="form_email"){
+                var objtip=$("#emailmsg");
+                cssctl(objtip,o.type);
+                objtip.text(msg);
+            }
+            if(o.obj.attr("id") =="form_text"){
+                var objtip=$("#descmsg");
+                cssctl(objtip,o.type);
+                objtip.text(msg);
+            }
+            if(o.obj.attr("id") =="captcha"){
+                var objtip=$("#captchamsg");
+                cssctl(objtip,o.type);
+                objtip.text(msg);
+            }
+        }   
+
     });
 });
 </script>
