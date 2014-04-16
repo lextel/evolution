@@ -239,7 +239,7 @@ if(is_array($phasesList)) {
                 <li><a href="#posts" itemId="<?php echo $item->id; ?>" data-toggle="tab">晒单(<s class="r"><?php echo $postCount; ?></s>)</a></li>
                 <li><a href="#phase" itemId="<?php echo $item->id; ?>" data-toggle="tab">往期回顾(<s class="r"><?php echo $phaseCount; ?></s>)</a></li>
             </ul>
-            <div class="online-qq fr"><span class="icon icon-qq"></span><a class="chance" href="javaxcript:void(0)">在线客服</a></div>
+            <div class="online-qq fr"><span class="icon icon-qq"></span><a class="chance" href="http://wpa.qq.com/msgrd?v=3&uin=2698744419&site=qq&menu=yes">在线客服</a></div>
         </div>
         <div class="tab-content" id="tab-content">
             <!--商品详情开始-->
