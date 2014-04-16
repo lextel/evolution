@@ -2,11 +2,12 @@
 
 class Controller_Center extends Controller_Frontend
 {
-    //public $auth;
+
     public function before()
     {
         parent::before();
-        if (! in_array(Request::active()->action, ['signin', 'signup', 'findpassword', 'newpassword', 'forgotemail', 'getforgot', 'sendok', 'checkname']))
+        if (! in_array(Request::active()->action, ['signin', 'signup', 'findpassword', 
+            'newpassword', 'forgotemail', 'getforgot', 'sendok', 'checkname']))
         {
             $this -> membercheck();
         }
@@ -94,7 +95,7 @@ class Controller_Center extends Controller_Frontend
 
                         $memberHelper = new \Helper\Member();
                         $ip = $memberHelper->getIp();
-                        $current_user ->avatar = Config::get('default_headico');
+                        $current_user->avatar = Config::get('default_headico');
                         $current_user->ip = $ip;
                         if (empty(strpos($username, '@'))){
                             $current_user->mobile = $username;
@@ -300,8 +301,6 @@ class Controller_Center extends Controller_Frontend
         if ($res)
         {
             Model_Member_Email::save_key($key, 'password');
-            //
-
             return Response::redirect('/findok');;
         }
         return Response::redirect('/newpwd');
