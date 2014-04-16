@@ -94,7 +94,7 @@ class Controller_Center extends Controller_Frontend
 
                         $memberHelper = new \Helper\Member();
                         $ip = $memberHelper->getIp();
-                        $current_user -> avatar = Config::get('default_headico');
+                        $current_user ->avatar = Config::get('default_headico');
                         $current_user->ip = $ip;
                         if (empty(strpos($username, '@'))){
                             $current_user->mobile = $username;
@@ -216,7 +216,7 @@ class Controller_Center extends Controller_Frontend
         }else{
             Session::set_flash('erroremail', '你输入的邮箱不正确');
         }
-        
+
         Response::redirect('/forgot');
     }
 
@@ -227,13 +227,13 @@ class Controller_Center extends Controller_Frontend
     {
         $key = Input::get('key');
         if (Model_Member_Email::check_key($key, 'email')){
-            Model_Member_Email::save_key($key, 'email');                      
+            Model_Member_Email::save_key($key, 'email');
             $email = Model_Member_Email::find_by_key($key);
             $this->auth->force_login($email->member_id);
             Session::set_flash('success', '邮箱验证成功');
         }else{
             Session::set_flash('error', '验证邮箱失败请重新验证');
-            
+
         }
         Response::redirect('/u/getprofile');
     }
@@ -248,7 +248,7 @@ class Controller_Center extends Controller_Frontend
         $key = Input::get('key', '');
         $res = Model_Member_Email::check_key($key, 'password');
         if ($res)
-        {           
+        {
            Session::set('member_id', $res->member_id);
            Session::set('emailkey', $key);
            return Response::redirect('/newpwd');
@@ -285,14 +285,14 @@ class Controller_Center extends Controller_Frontend
             Session::set_flash('newpwderror', '密码格式不正确');
             return Response::redirect('/newpwd');
         }
-        
+
         $newpassword = Input::post('newpassword');
         $user = Model_Member::find($member_id);
         if (!$this->auth->force_login($member_id)){
             Session::set_flash('newpwderror', '用户不存在');
             return Response::redirect('/newpwd');
         }
-        
+
         Session::delete('member_id');
         Session::delete('emailkey');
         $newrandpwd = $this->auth->reset_password($this->auth->get_screen_name());
@@ -301,7 +301,7 @@ class Controller_Center extends Controller_Frontend
         {
             Model_Member_Email::save_key($key, 'password');
             //
-            
+
             return Response::redirect('/findok');;
         }
         return Response::redirect('/newpwd');
@@ -312,7 +312,7 @@ class Controller_Center extends Controller_Frontend
         $this->template->title = '设置新密码';
         $this->template->layout = View::forge('member/findok', [], true);
     }
-    
+
     /*
     * 验证手机号码或者邮箱是否存在
     */
