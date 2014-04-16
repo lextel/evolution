@@ -88,8 +88,8 @@ $(function(){
                                            'datatype'=>'desc', 'rows'=>'15', 'cols'=>'20', 'nullmsg'=>'请输入正文', 'sucmsg'=>' ']);?>
                         
                     </li>
-                    <li style="height:23px;margin-top:-8px;">
-                        <label for="" class="body-label"></label><span id="descmsg" class="Validform_checktip"></span>
+                    <li style="height:23px;margin-top:-14px;">
+                        <label for="" class="body-label"></label><span id="descmsg" class="Validform_checktip" style="margin-top:-1px;"></span>
                     </li>
                     <li>
                        <div class="destItem">
@@ -134,7 +134,7 @@ $(function(){
         },
         datatype:{
            'title':function (gets,obj,curform,regxp){
-                if(0!=gets){
+                if(0!=gets.length){
                     obj.next().css("display","none");
                     return true;
                 }
@@ -142,7 +142,7 @@ $(function(){
                 return false;
            },
            'desc':function (gets,obj,curform,regxp){
-                if(0!=gets){
+                if(0!=gets.length){
                     obj.parent().next().find("span").css("display","none");
                     return true;
                 }
