@@ -13,6 +13,7 @@ fuel/app/cache/*/*
 *.idea/*
 .idea.*~
 .gitignore
+qqstate/*
 # Compiled source #
 ###################
 *.com
