@@ -1,6 +1,8 @@
 <?php
 class Controller_Member extends Controller_Center{
-
+    /*
+    *用户中心首页
+    */
     public function action_index()
     {
         $member_id = $this->current_user->id;
@@ -50,7 +52,7 @@ class Controller_Member extends Controller_Center{
             return json_encode($res);
         }
         $res = ['status' => 'n', 'info' => $nickname.'已存在'];
-        if (Model_Member::checkNickname($nickname)){
+        if (Model_Member::checkNickname($nickname, $this->current_user->id)){
             $res['status'] = 'y';
             $res['info'] = ' ';
         }
@@ -258,14 +260,6 @@ class Controller_Member extends Controller_Center{
        }
     }
 
-    /*
-    *
-    */
-    public function action_msg()
-    {
-        return;
-    }
-
     // 上传头像图片
     public function action_avatarUpload()
     {
@@ -362,8 +356,8 @@ class Controller_Member extends Controller_Center{
     }
 
     /**
-     * 使用乐淘码
-     */
+    * 使用乐淘码
+    */
     public function action_usecode(){
         $code    = Input::post('code');
         $captcha = Input::post('captcha');
@@ -386,11 +380,5 @@ class Controller_Member extends Controller_Center{
 
         return json_encode(['code' => 1, 'msg' => '乐淘码不正确或者已使用！']);
     }
-
-
-
-
-
-
 }
 
