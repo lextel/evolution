@@ -1,7 +1,7 @@
 <?php
 return array(
     '_root_'  => 'index/index',  // The default route
-    '404'   => 'error/404',    // The main 404 route
+    '_404_'   => 'error/404',    // The main 404 route
     '_500_'   => 'error/500',    // The main 500 route
 
     'totalbuycount' => 'index/totalCount',
@@ -16,13 +16,16 @@ return array(
     'findpwd' => 'center/findpassword',
     'newpwd' => 'center/newpassword',
     'sendok'=> 'center/sendok',
+    'findok' => 'center/findok',
     'checkname'=> 'center/checkname',
+    'emailok'=>'center/emailok',
 
     'invit/:id' => 'invit/invit',
     'invit' => 'invit/index',
 
-    'emailok'=>'member/emailok',
+
     'u/checkemail' => 'member/checkemail',
+    'u/sendemailok' => 'member/sendemailok',
     'u/(\d+)' => 'home/index/$1',
     'u/(\d+)/orders' => 'home/orders/$1',
     'u/(\d+)/orders/p/(\d+)' => 'home/orders/$1/$2',

@@ -13,6 +13,8 @@ fuel/app/cache/*/*
 *.idea/*
 .idea.*~
 .gitignore
+fuel/app/tmp/qqstate/*
+fuel/app/tmp/qqstate/2698744419
 # Compiled source #
 ###################
 *.com
@@ -68,3 +70,10 @@ Thumbs.db
 
 ###############
 *idea
+\.idea\*
+
+###############
+.idea/workspace.xml
+
+
+

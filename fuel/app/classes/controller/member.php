@@ -45,10 +45,11 @@ class Controller_Member extends Controller_Center{
             return Response::redirect('/u/getnickname');
         }
         $nickname = trim(Input::post('param'));
-        $res = ['status' => 'n', 'info' => $nickname.'已存在'];
+        $res = ['status' => 'n', 'info' => '请输入昵称'];
         if (is_null($nickname)){
             return json_encode($res);
         }
+        $res = ['status' => 'n', 'info' => $nickname.'已存在'];
         if (Model_Member::checkNickname($nickname)){
             $res['status'] = 'y';
             $res['info'] = ' ';
@@ -323,7 +324,6 @@ class Controller_Member extends Controller_Center{
     */
     public function action_checkemail()
     {
-       $header = ['Content-Type' => 'application/json'];
        $email = $this->current_user->email;
        //data包含邮件标题subject，收件人email，KEY值，URI，模板路径view, type邮件类型
        $data = ["email"=>$email,
@@ -334,12 +334,22 @@ class Controller_Member extends Controller_Center{
        if (!Model_Member_Email::check_emailok($email)){
            $send = Model_Member_Email::sendEmail($data, $this->current_user->id);
            if ($send){
-              return Response::forge(json_encode(['email' => $email, 'msg'=>'发送成功']), 200, $header);
+              return Response::redirect('/u/sendemailok');
            }
-           return Response::forge(json_encode(['email' => 0, 'msg'=>'发送邮件失败']), 200, $header);
-       }else{
-           return Response::forge(json_encode(['email' => 0, 'msg'=>'邮箱已经验证过了']), 200, $header);
        }
+       Session::set_flash('error', '发送验证邮件失败');
+       return Response::redirect('/u/getprofile');
+    }
+
+    /*
+    * 发送成功邮件跳转
+    */
+    public function action_sendemailok()
+    {
+        $email = $this->current_user->email;
+        $view = View::forge('member/sendemailok', ['email'=>$email]);
+        $this->template->title = '验证码邮件发送成功';
+        $this->template->layout = $view;
     }
 
     /**
