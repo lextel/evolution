@@ -37,7 +37,7 @@
                 您当前未通过手机验证，邀请功能需要您登录并通过手机验证后才能正常使用并获得佣金奖励!
             </div>
             <div class="login_button">
-                <a class="btn btn-red btn-atc" style="margin-bottom: 137px; padding: 5px 20px" href="<?php echo Uri::create('/u/mobile/first');?>">立即验证>邀请好友</a>
+                <a class="btn btn-red btn-atc" style="margin-bottom: 114px; padding: 5px 20px" href="<?php echo Uri::create('/u/mobile/first');?>">立即验证>邀请好友</a>
             </div>
             <?php else:?>
                 <div class="Invitation-t">专用邀请链接</div>

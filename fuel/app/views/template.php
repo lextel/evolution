@@ -138,7 +138,6 @@
                     <a href="http://www.kuaidi100.com/all/sf.shtml" target="_blank">顺丰快递查询</a>
             </div>
             <!--
-
             <div style="clear:both"></div>
              <ul class="safety">
                 <li class="safety-01"></li>
