@@ -252,9 +252,10 @@ class Model_Member extends \Classes\Model
     */
     public static function checkNickname($nickname, $userId)
     {
-        $member = Model_Member::find('first',['where' =>
-                ['nickname'=>$nickname]],
-                [['id', '!=', $userId]]);
+        $member = Model_Member::find('all',['where' =>
+                ['nickname'=>$nickname,
+                ['id', '!=', $userId]
+                ]]);
         if (!$member)
         {
             return true;
