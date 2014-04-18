@@ -38,6 +38,7 @@ class Model_Post extends \Classes\Model
         'up',
         'comment_count',
         'comment_top',
+        'award',
         'is_delete',
         'reason',
     );

@@ -129,7 +129,7 @@ class Controller_Member_Posts extends Controller_Center
             
         }
         Session::set_flash('error', '添加晒单失败');
-        return Response::redirect('/u/posts/getadd/'.$phaseid);
+        return Response::redirect('/u/posts/getadd/'.$phase_id);
     }
 
     //晒单获得单个

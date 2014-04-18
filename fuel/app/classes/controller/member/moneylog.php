@@ -8,7 +8,7 @@ class Controller_Member_Moneylog extends Controller_Center{
     */
     public function action_rechargeIndex()
     {
-        $where = ['member_id'=>$this->current_user->id,'type'=>0];
+        $where = ['member_id'=>$this->current_user->id,['type', 'in', [0, 3, 4]]]; // 0 正常充值 3 晒单 4 爆照
         $date1 = Input::get('date1', null);
         $date2 = Input::get('date2', null);
         $url = 'u/moneylog/p';
