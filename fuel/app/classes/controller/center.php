@@ -35,7 +35,12 @@ class Controller_Center extends Controller_Frontend
             if ($val->run()){
                 $username = Input::post('username');
                 $password = Input::post('password');
-
+                //是否冻结
+                $is_disable = Model_Member::find('first', ['where'=>['username'=>$username, 'is_disable'=>1]]);
+                if ($is_disable){
+                    Session::set_flash('signError', '用户已经被冻结');
+                    return Response::redirect('/signin');
+                }
                 if ($this->auth->check() or $this->auth->login($username, $password)){
                     if (Config::get('auth.driver', 'Memberauth') == 'Ormauth'){
                         $current_user = Model\Auth_Member::find_by_username($this->auth->get_screen_name());

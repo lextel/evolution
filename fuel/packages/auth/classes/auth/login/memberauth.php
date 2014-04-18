@@ -132,6 +132,7 @@ class Auth_Login_Memberauth extends \Auth_Login_Driver
 			->or_where('mobile', '=', $username_or_email)
 			->where_close()
 			->where('password', '=', $password)
+			->where('is_disable', '=', 0)
 			->from(\Config::get('memberauth.table_name'))
 			->execute(\Config::get('memberauth.db_connection'))->current();
 
