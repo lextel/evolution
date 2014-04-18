@@ -21,7 +21,7 @@ class Controller_V2admin_Posts extends Controller_V2admin{
         }
         $count = Model_Post::count(['where'=>$etype]);
         $page = new \Helper\Page();
-        $url = Uri::create('v2admin/posts');
+        $url = Uri::create('v2admin/posts', ['active'=>$active], ['active' => ':active']);
         $config = $page->setConfig($url, $count, 'page');
         $pagination = Pagination::forge('postspage', $config);
         $posts = Model_Post::find('all', [

@@ -40,7 +40,7 @@ return [
             ]
         ],
         [
-            'name' => '马甲管理', 
+            'name' => '马甲管理',
             'href' => 'javascript:void(0);',
             'class' => 'dropdown',
             'childs' => [
@@ -51,13 +51,13 @@ return [
             ]
         ],
         ['name' => '晒单/物流',
-             'href' => 'javascript:void(0);', 
+             'href' => 'javascript:void(0);',
              'class'=> 'dropdown',
              'childs'=> [
                   ['name' => '晒单管理', 'href' => Uri::create('/v2admin/posts'), 'group'=>1],
                   ['name' => '物流管理', 'href' => Uri::create('/v2admin/shipping'), 'group'=>1],
              ]
-        ],       
+        ],
         [
             'name' => '财务管理',
             'href' => 'javascript:void(0);',
@@ -69,8 +69,8 @@ return [
         ],
 
         [
-            'name' => '系统管理', 
-            'href' => 'javascript:void(0);', 
+            'name' => '系统管理',
+            'href' => 'javascript:void(0);',
             'class' => 'dropdown',
             'childs' => [
                 ['name' => '商品分类', 'href' => Uri::create('/v2admin/cates/cate'), 'group'=>10],
@@ -85,6 +85,11 @@ return [
                     'href' => Uri::create('/v2admin/logs'),
                     'group'=>50
                 ],
+                [
+                    'name' => '反馈建议',
+                    'href' => Uri::create('v2admin/suggests'),
+                    'group' => 10,
+                ]
             ],
         ],
 
@@ -97,19 +102,19 @@ return [
         ],
         ['controller'=>'Controller_V2admin_Ads',
          'action'=>[
-            'index'=>1, 
+            'index'=>1,
             'create'=>10,
             'upload'=>10,
             'add'=>10,
             'edit'=>10,
             'update'=>10,
-            'delete'=>10,         
+            'delete'=>10,
           ]
         ],
-        
+
         ['controller'=>'Controller_V2admin_Cates',
          'action'=>[
-            'cate'=>10, 
+            'cate'=>10,
             'brand'=>10,
             'brands'=>10,
             'createBrand'=>10,
@@ -121,11 +126,11 @@ return [
         ],
         ['controller'=>'Controller_V2admin_Ghost',
          'action'=>[
-            'index'=>50, 
+            'index'=>50,
             'lists'=>50,
             'create'=>50,
-            'multi'=>50, 
-            'add'=>50, 
+            'multi'=>50,
+            'add'=>50,
             'getedit'=>50,
             'edit'=>50,
             'win'=>50,
@@ -136,19 +141,19 @@ return [
             'order'=>50,
             'avatarUpload'=>50,
             'multiUpload'=>50,
-            'csvUpload'=>50,       
+            'csvUpload'=>50,
           ]
         ],
         ['controller'=>'Controller_V2admin_Invitcodes',
          'action'=>[
-            'index'=>50, 
+            'index'=>50,
             'create'=>50,
             'delete'=>50,
           ]
         ],
         ['controller'=>'Controller_V2admin_Items',
          'action'=>[
-            'index'=>1, 
+            'index'=>1,
             'list'=>1,
             'view'=>10,
             'create'=>10,
@@ -169,12 +174,12 @@ return [
         ],
         ['controller'=>'Controller_V2admin_Logs',
          'action'=>[
-            'index'=>50, 
+            'index'=>50,
           ]
         ],
         ['controller'=>'Controller_V2admin_Members',
          'action'=>[
-            'index'=>50, 
+            'index'=>50,
             'black'=>50,
             'view'=>50,
             'disable'=>50,
@@ -184,13 +189,13 @@ return [
         ],
         ['controller'=>'Controller_V2admin_Moneylog',
          'action'=>[
-            'buy'=>50, 
+            'buy'=>50,
             'recharge'=>50,
           ]
         ],
         ['controller'=>'Controller_V2admin_Notices',
          'action'=>[
-            'index'=>10, 
+            'index'=>10,
             'view'=>10,
             'create'=>10,
             'add'=>10,
@@ -202,7 +207,7 @@ return [
         ],
         ['controller'=>'Controller_V2admin_Posts',
          'action'=>[
-            'index'=>1, 
+            'index'=>1,
             'view'=>10,
             'edit'=>10,
             'delete'=>10,
@@ -210,7 +215,7 @@ return [
         ],
         ['controller'=>'Controller_V2admin_Shipping',
          'action'=>[
-            'index'=>1, 
+            'index'=>1,
             'view'=>10,
             'ship'=>10,
             'save'=>10,
@@ -218,7 +223,7 @@ return [
         ],
         ['controller'=>'Controller_V2admin_Users',
          'action'=>[
-            'index'=>50, 
+            'index'=>50,
             'create'=>50,
             'add'=>50,
             'edit'=>50,
@@ -226,6 +231,12 @@ return [
             'delete'=>50,
           ]
         ],
+        ['controller'=>'Controller_V2admin_Suggests',
+         'action'=>[
+            'index'=>10,
+            'view'=>10,
+          ]
+        ],
     ]
-    
+
 ];
