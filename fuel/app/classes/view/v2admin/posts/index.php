@@ -3,9 +3,9 @@
 class View_V2admin_Posts_Index extends Viewmodel {
     public $status = [
         0=>'未审核',
-        1=>'审核通过',
-        2=>'审核通不过',
-        3=>'已经删除',
+        1=>'通过',
+        2=>'驳回',
+        3=>'已删除',
         ];
 
     public function view() {
@@ -23,7 +23,7 @@ class View_V2admin_Posts_Index extends Viewmodel {
        //获得商品的标题
        $this->getStatus = function($item) {
            if ($item->is_delete == 1){
-               $text = '已经删除';
+               $text = '已删除';
            }else{
                
               $text = $this->status[$item->status];

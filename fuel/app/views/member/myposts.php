@@ -44,9 +44,7 @@
                     <td><?php echo $getType($post->status); ?></td>
                     <td>
                         <?php if ($post->status == 1) { ?>
-                        <?php echo Html::anchor('p/'.$post->id, '查看'); ?> |
-                        <?php echo Html::anchor('u/posts/getedit/'.$post->id, '编辑'); ?> |
-                        <?php echo Html::anchor('u/posts/delete/'.$post->id, '删除', array('onclick' => "return confirm('你确定需要删除该晒单吗?')") ); ?>
+                        <?php echo Html::anchor('p/'.$post->id, '查看'); ?>
                         <?php }else{ ?>
                         <?php echo Html::anchor('u/posts/getedit/'.$post->id, '编辑'); ?>                       
                         <?php } ?>
