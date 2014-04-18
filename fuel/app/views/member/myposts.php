@@ -37,8 +37,10 @@
                     <?php }?>
                     </div></td>
                     <td>
-                        <div class="text-title"><?php echo $post->title;?></div>
-                        <div class="text-time"><?php echo date("Y-m-d H:i:s", $post->created_at);?></div>
+                        <div class="">
+                             <div class="text-title fl"><?php echo $post->title;?></div>
+                             <div class="text-time fr"><?php echo date("Y-m-d H:i:s", $post->created_at);?></div>
+                        </div>
                         <div class="text-content"><?php echo mb_substr($post->desc, 0,90,'utf-8'); ?>...</div>
                     </td>
                     <td><?php echo $getType($post->status); ?></td>
