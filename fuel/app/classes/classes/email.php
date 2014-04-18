@@ -34,7 +34,7 @@ class Email {
         }
         catch(\EmailSendingFailedException $e)
         {
-            Log::error($to.'邮件发送失败'.$e));
+            Log::error($to.'邮件发送失败'.$e);
         }
         return false;
     }

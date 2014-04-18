@@ -1,5 +1,3 @@
-<h2 class="">晒单内容管理详情</h2>
-<br />
 <?php echo Form::open(["class"=>"form-horizontal", 'action' => $url]); ?>
     <fieldset>
         <div class="form-group">
@@ -39,12 +37,23 @@
           </div>
         </div>
         <div class="form-group">
+          <label class="control-label col-sm-1" for="form_title">爆照奖:</label>
+          <div class="col-sm-8">
+              <div class="checkbox">
+                <label>
+                  <?php Config::load('post');?>
+                  <input type="checkbox" name="award">奖励商品总价值<?php echo Config::get('percent');?>%
+                </label>
+              </div>
+          </div>
+        </div>
+        <div class="form-group">
           <label class="control-label col-sm-1" for="form_title">审核状态:</label>
           <div class="col-sm-8">
                 <div class="row">
                     <select class="form-control col-sm-5" name="status"/>
                         <option value="1">通过</option>
-                        <option value="2">不通过</option>
+                        <option value="2">驳回</option>
                     </select>
                 </div>
                 <div class="row">

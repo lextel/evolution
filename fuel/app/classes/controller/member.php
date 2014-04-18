@@ -1,6 +1,8 @@
 <?php
 class Controller_Member extends Controller_Center{
-
+    /*
+    *用户中心首页
+    */
     public function action_index()
     {
         $member_id = $this->current_user->id;
@@ -40,21 +42,21 @@ class Controller_Member extends Controller_Center{
     /*
     * 检测昵称是否存在
     */
-    public function action_checknickname(){
+    public function action_checknickname()
+    {
         if (Input::method() != 'POST' ){
             return Response::redirect('/u/getnickname');
         }
         $nickname = trim(Input::post('param'));
-        $res = ['status' => 'n', 'info' => '请输入昵称'];
+        $res = 'false';
         if (is_null($nickname)){
-            return json_encode($res);
+            return $res;
         }
-        $res = ['status' => 'n', 'info' => $nickname.'已存在'];
-        if (Model_Member::checkNickname($nickname)){
-            $res['status'] = 'y';
-            $res['info'] = ' ';
+
+        if (Model_Member::checkNickname($nickname, $this->current_user->id)){
+            $res = 'true';
         }
-        return json_encode($res);
+        return $res;
     }
     /*
     *增加用户名
@@ -190,7 +192,6 @@ class Controller_Member extends Controller_Center{
                 ->add_rule('required');
             if ($val->run())
             {
-                // check the credentials. This assumes that you have the previous table created
                 $oldpassword = Input::post('oldpassword');
                 $newpassword = Input::post('newpassword');
                 $username = $this->auth->get_screen_name();
@@ -256,14 +257,6 @@ class Controller_Member extends Controller_Center{
            Session::set_flash('error', e('充值失败'));
            return $response->body(json_encode($data));
        }
-    }
-
-    /*
-    *
-    */
-    public function action_msg()
-    {
-        return;
     }
 
     // 上传头像图片
@@ -362,8 +355,8 @@ class Controller_Member extends Controller_Center{
     }
 
     /**
-     * 使用乐淘码
-     */
+    * 使用乐淘码
+    */
     public function action_usecode(){
         $code    = Input::post('code');
         $captcha = Input::post('captcha');
@@ -386,11 +379,5 @@ class Controller_Member extends Controller_Center{
 
         return json_encode(['code' => 1, 'msg' => '乐淘码不正确或者已使用！']);
     }
-
-
-
-
-
-
 }
 
