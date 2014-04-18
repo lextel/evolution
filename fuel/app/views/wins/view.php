@@ -53,7 +53,7 @@ if(is_array($phasesList)) {
                               </a>
                          </div>
                          <div class="info-side fl">
-                              <div class="username">获得者：<a href="<?php echo Uri::create('u/'.$memberInfo->id); ?>"><b><?php echo $memberInfo->nickname; ?></b></a></div>
+                              <div  class="username">获得者：<a href="<?php echo Uri::create('u/'.$memberInfo->id); ?>"><b><?php echo $memberInfo->nickname; ?></b></a></div>
                               <span class="datetime">揭晓时间：<b><?php echo $friendlyDate($win->opentime);?></b></span>
                               <span class="datetime">乐淘时间：<b><?php echo $friendlyDate($win->order_created_at);?></b></span>
                               <span class="number">乐购数量：<b class="red"><?php echo $win->code_count; ?></b>元宝</span>

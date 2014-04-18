@@ -71,3 +71,9 @@ Thumbs.db
 ###############
 *idea
 \.idea\*
+
+###############
+.idea/workspace.xml
+
+
+
