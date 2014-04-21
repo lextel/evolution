@@ -1,13 +1,10 @@
-<?php echo Asset::css(['style.css', 'member/validfrom_style.css']); ?>
-<?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
+<?php echo Asset::css(['style.css']); ?>
+<?php echo Asset::js(['jquery.validate.js','additional-methods.min.js']); ?>
 <script type="text/javascript">
 $(function(){
     $(".nickname").click(function(){
         $(".addnickname").submit();
     });
-	$(".addnickname").Validform({
-	tiptype:4,
-	});
 });
 </script>
 <div class="register-warp">
@@ -29,13 +26,12 @@ $(function(){
         <ul class="succeedForm">
             <li><h2>恭喜你成为乐淘会员，输入您的昵称马上开始乐淘！</h2><li/>
             <li>
-                <label>昵称：</label>
-                <?php echo Form::input('nickname', Session::get_flash('nickname', ''), array('class' => 'txt','type'=>"text",'name'=>'nickname', 'datatype'=>'zhE',
-                 'nullmsg'=>'请输入昵称' ,'errormsg'=>' ' ,'sucmsg'=>' ' ,'ajaxurl' => Uri::create('/u/checknickname')  ,'style'=>'width:180px')); ?>
+                <label style="text-align:right">昵称：</label>
+                <?php echo Form::input('nickname', Session::get_flash('nickname', ''), array('class' => 'txt','type'=>"text",'name'=>'nickname','style'=>'width:180px')); ?>
                 <?php if (Session::get_flash('error', null)) { ?>
-                   <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('error');?></span>
+                   <span class="error"><?php echo Session::get_flash('error');?></span>
                 <?php }else{?>
-                   <span class="Validform_checktip"></span>
+                   
                 <?php } ?>
             </li>
             <li>
@@ -47,13 +43,9 @@ $(function(){
 
 <script>
 $(function (){
-  //,'ajaxurl' => Uri::create('/uchecknickname') 
-  $(".addnickname").Validform({
-        tiptype:4,
-        ajaxPost:true,
-        datatype:{
-              'zhE': function (gets,obj,curform,regxp){
-                var zhE = /^[\u4e00-\u9fa5a-zA-Z0-9]+$/;
+
+  jQuery.validator.addMethod("validatenickname", function(gets,element) {
+         var zhE = /^[\u4e00-\u9fa5a-zA-Z0-9]+$/;
                 var zh = /[^\x00-\xff]/ig;
                 var E =/[A-Za-z0-9]/;
                 if(zhE.test(gets)){
@@ -62,19 +54,39 @@ $(function (){
                      if(gets.length >= 2 && gets.length <= 8){
                        return true;
                      }
-                     return "请输入2-8个中文字符";
+                     return false;//"请输入2-8个中文字符";
                   }
                   //如果为英文
                   if(E.test(gets)){
                      if(gets.length >= 3 && gets.length <= 8){
                        return true;
                      }
-                     return "请输入3-8个英文字符";
+                     return false;//"请输入3-8个英文字符";
                   }
                 }
-                return "昵称只能为中文，数字，字母";
+                return false;//"昵称只能为中文，数字，字母";
+   }, "error");
+
+  $(".addnickname").validate({
+      rules:{
+            nickname:{
+                required:true,
+                validatenickname:true,
+                remote:{
+                 url:"<?php echo Uri::create('/u/checknickname');?>",  
+                 type:"post",  
+                 dataType:"json",
+                 data:{ 'param':function(){return $("#form_nickname").val();}}
               }
             }
-        });
+        },
+        messages:{
+            nickname:{
+                required:"请输入昵称",
+                validatenickname:"昵称格式不正确",
+                remote:"已存在"
+            }
+        }
+      });
 })
 </script>

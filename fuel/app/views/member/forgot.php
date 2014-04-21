@@ -1,17 +1,19 @@
 <div class="w">
-    <?php echo Asset::css(['style.css', 'member/validfrom_style.css']);?>
-    <?php echo Asset::js('Validform_v5.3.2_min.js');?>
+    <?php echo Asset::css(['style.css']);?>
+    <?php echo Asset::js(['jquery.validate.js','additional-methods.min.js']); ?>
     <div class="register-warp">
         <div class="title">
             忘记密码？不用急，您可以通过以下方式找回密码。
         </div>
          
-         <?php echo Form::open(['action'=>'forgotemail','class'=> 'demoform']);?>
+         <?php echo Form::open(['action'=>'forgotemail','class'=> 'forgotemailform']);?>
             <ul class="registerForm">
                 <li>
-                    <label>邮箱:</label>
-                    <input type="text" class="txt" name="email" datatype="e" errorms="请输入正确的邮箱" nullmsg="请输入邮箱" sucmsg=" " value="" id="form_password">
-                    <span class="Validform_checktip"><?php echo '<font color="red">'.Session::get_flash('erroremail').'</font>';?></span>
+                    <label style="text-align:right">邮箱:</label>
+                    <input class="txt" name="email" id="form_password">
+                    <?php if (Session::get_flash('erroremail')) { ?>
+                    <label for="form_password" class="error"><?php echo '<font >'.Session::get_flash('erroremail').'</font>';?></label>
+                    <?php } ?>
                 </li>
                 <li>
                     <input class="btn btn-red btn-md" name="submit" value="提交" type="submit" id="form_submit">
@@ -26,7 +28,20 @@
     </div>
 </div>
 <script>
-    $(".demoform").Validform({
-        tiptype:4
+$(function (){
+    $(".forgotemailform").validate({
+        rules:{
+            email:{
+                required:true,
+                email:true
+            }
+        },
+        messages:{
+            email:{
+                required:"请输入邮箱",
+                email:"请输入正确的邮箱"
+            }
+        }
     });
+})
 </script>

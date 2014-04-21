@@ -31,7 +31,6 @@ function toAddress(url){
     var postcode = $("input[name='postcode']").val();
     var name = $("input[name='name']").val();
     var phone = $("input[name='phone']").val();
-
     if ((province != '请选择' && province != '') && (city != '请选择' && city != '') && (county != '请选择' && county != '')){
           if (address !='' && name !='' && phone !=''){
              $.post(url,
@@ -43,9 +42,10 @@ function toAddress(url){
              );
           }
     }else{
-       $("#xperror").html("<span class='Validform_checktip Validform_wrong'>请选择地区</span>");
+       $("#provinceerror").css("display","block");
     }
 }
+
 $(function(){
     $(".btn-address").click(function(){
         
@@ -74,7 +74,64 @@ $(function(){
         $("input[name='name']").val('');
         $("input[name='phone']").val('');
     });
+    jQuery.validator.addMethod("call", function(value,element) {
+      var call = /^1[3,4,5,7,8][0-9]{9}$/;
+      if(call.test(value))
+        return true;
+      return false;
+    },"error call");
+    
+    jQuery.validator.addMethod("code", function(value,element) {
+      var code = /^[0-9]{6}$/;
+      if("" == value || code.test(value))
+        return true;
+      return false;
+    },"error code");
 
+    jQuery.validator.addMethod("zh", function(value,element) {
+      var zh = /^[\u4e00-\u9fa5]{2,6}$/;
+      if( zh.test(jQuery.trim(value)))
+        return true;
+      return false;
+    },"error zh");
+
+    $(".edit-datafrom").validate({
+        rules:{
+          address:{
+            required:true
+          },
+          name:{
+            required:true,
+            rangelength:[2,6],
+            zh:true
+          },
+          phone:{
+            required:true,
+            call:true
+          },
+          postcode:{
+            code:true
+          }
+        },
+        messages:{
+          address:{
+            required:"请输入街道地址"
+          },
+          name:{
+            required:"请输入收货人",
+            rangelength:"请输入2到6个中文字符",
+            zh:"请输入2到6个中文字符"
+          },
+          phone:{
+            required:"请输入联系电话",
+            call:"请输入正确的联系电话"
+          },
+          postcode:{
+            code:"邮政编码格式错误"
+          }
+        }
+    });
+    /*
     var from = $(".edit-data").Validform({
        btnSubmit:".btn-address",
        tiptype:4,
@@ -89,7 +146,8 @@ $(function(){
               nullmsg:"请输入收货人!",
               errormsg:"请输入2到6个中文字符!"
             }
-        ]);
+        ]);*/
+
     $(".setFlag").click(function(){
        var data = $(this).attr('data');
        var rate = $(this).attr('rate');

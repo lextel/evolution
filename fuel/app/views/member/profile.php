@@ -1,3 +1,4 @@
+<?php echo Asset::js(['jquery.validate.js','additional-methods.min.js']); ?>
 <script type="text/javascript">
 $(function(){
     $(".btn-profile").click(function(){
@@ -60,9 +61,7 @@ $(function(){
              </li>
             <li>
                 <label><s class="r">*</s>昵称：</label>
-                <?php echo Form::input('nickname', Input::post('nickname', $member->nickname), array('class' => 'form-control txt','name'=>'username','datatype'=>'zhE','errorms'=>'请输入昵称 2~8个字','sucmsg'=>' '));?>
-                
-                <span class="Validform_checktip"></span>
+                <?php echo Form::input('nickname', Input::post('nickname', $member->nickname), array('class' => 'form-control txt','name'=>'username'));?>
             </li>
             <li>
                 <label class="align">个性签名：</label>
@@ -77,11 +76,8 @@ $(function(){
 </div>
 <script>
 $(function(){
-	var validForm = $(".validForm").Validform({
-	  tiptype:4,
-    datatype:{
-        'zhE': function (gets,obj,curform,regxp){
-                var zhE = /^[\u4e00-\u9fa5a-zA-Z0-9]+$/;
+   jQuery.validator.addMethod("validatenickname", function(gets,element) {
+         var zhE = /^[\u4e00-\u9fa5a-zA-Z0-9]+$/;
                 var zh = /[^\x00-\xff]/ig;
                 var E =/[A-Za-z0-9]/;
                 if(zhE.test(gets)){
@@ -90,30 +86,40 @@ $(function(){
                      if(gets.length >= 2 && gets.length <= 8){
                        return true;
                      }
-                     return "请输入2-8个中文字符";
+                     return false;//"请输入2-8个中文字符";
                   }
                   //如果为英文
                   if(E.test(gets)){
                      if(gets.length >= 3 && gets.length <= 8){
                        return true;
                      }
-                     return "请输入3-8个英文字符";
+                     return false;//"请输入3-8个英文字符";
                   }
                 }
-                return "昵称只能为中文，数字，字母";
+                return false;//"昵称只能为中文，数字，字母";
+   }, "error");
+
+   $(".validForm").validate({
+        onkeyup:false,
+        rules:{
+            nickname:{
+                required:true,
+                validatenickname:true,
+                remote:{
+                 url:"<?php echo Uri::create('u/checknickname');?>",  
+                 type:"post",  
+                 dataType:"json",
+                 data:{ 'param':function(){return $("#form_nickname").val();} }
               }
+            }
+        },
+        messages:{
+            nickname:{
+                required: "请输入昵称",
+                validatenickname:"请输入正确的昵称",
+                remote:"已存在"
+            }
         }
-	});
-
-  var nickname = $("#form_nickname").val();
-
-  $("#form_nickname").bind("change",function (){
-      if(nickname == $(this).val()){
-        $(this).attr("ajaxurl", "");
-      }else{
-        $(this).attr("ajaxurl", "<?php echo Uri::create('u/checknickname');?>");
-      }
-  });
-  
+    });
 });
 </script>

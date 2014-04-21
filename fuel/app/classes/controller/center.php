@@ -320,7 +320,7 @@ class Controller_Center extends Controller_Frontend
     */
     public function action_checkname()
     {
-        $res = ['status' => 'n', 'info' => '手机/邮箱已存在'];
+        $res =false;
         $username = Input::post('param');
         if (is_null($username)){
             return json_encode($res);
@@ -330,8 +330,7 @@ class Controller_Center extends Controller_Frontend
                            'or'=>[['mobile', '=', $username]]
                            ]]);
         if ($check == 0){
-            $res['status'] = 'y';
-            $res['info'] = ' ';
+            $res = true ;
         }
         return json_encode($res);
     }
