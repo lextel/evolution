@@ -158,7 +158,7 @@ class Controller_Member extends Controller_Center{
             $member = Model_Member::find($this->current_user->id);
             if ($member->nickname != Input::post('nickname'))
             {
-                if (!Model_Member::checkNickname(Input::post('nickname')))
+                if (!Model_Member::checkNickname(Input::post('nickname'), $this->current_user->id))
                 {
                     Session::set_flash('error', '用户昵称已经存在了');
                     Response::redirect('/u/getprofile');

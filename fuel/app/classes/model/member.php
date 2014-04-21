@@ -250,7 +250,7 @@ class Model_Member extends \Classes\Model
     /*
     *检测用户昵称
     */
-    public static function checkNickname($nickname, $userId)
+    public static function checkNickname($nickname, $userId = 0)
     {
         $member = Model_Member::find('all',['where' =>
                 ['nickname'=>$nickname,

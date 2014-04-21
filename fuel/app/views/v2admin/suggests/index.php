@@ -1,24 +1,72 @@
 <script type="text/javascript">
+function isEmpty(obj)
+{
+    for (var name in obj) 
+    {
+        return false;
+    }
+    return true;
+};
+function getParse(queryString){
+    var params = {}, queries, temp, i, l;
+    if ( queryString.length == 0 ){
+        return params;
+    }
+    
+    queries = queryString.split("&");
+    for ( i = 0, l = queries.length; i < l; i++ ) {
+        temp = queries[i].split('=');
+        params[temp[0]] = temp[1];
+    }
+    return params;
+};
+function locateUrl(url, val, key, params){
+    var queryString = window.location.search;
+    queryString = queryString.substring(1);
+    var res = getParse(queryString);
+    if (!isEmpty(res)){
+        if (res[key] == undefined ){
+            res[key] = val;
+        }else{
+            res[key] = val;
+        }
+        window.location.href = url + '?' + $.param(res);
+    }else{
+        window.location.href = url + '?' + key + '='+ val;
+    }
+};
 $(function(){
+   
    $(".postactive").change(function(){
        var val = $(this).val();
+       var url = window.location.pathname;       
+       locateUrl(url, val, 'active');
+   });
+   $(".poststatus").change(function(){
+       var val = $(this).val();
        var url = window.location.pathname;
-       window.location.href = url + '?active='+ val;
+       locateUrl(url, val, 'status');
    });
 });
 </script>
-            <div class="input-group">
-              <span class="input-group-addon">选择分类</span>
-<?php echo Form::select('active', Input::param('active'),[
-    '0' => '所有',
-    '1' => '投诉建议',
-    '2' => '商品配送',
-    '3' => '售后服务',
-    ],
-    ['class'=>'form-control postactive', 'style'=>'height:34px; width: 200px']
-);?>
+<div class="input-group">
+    <span class="input-group-addon">选择分类</span>
+    <?php echo Form::select('active', Input::param('active'),[
+        '0' => '所有',
+        '1' => '投诉建议',
+        '2' => '商品配送',
+        '3' => '售后服务',
+        ],
+        ['class'=>'form-control postactive', 'style'=>'height:34px; width: 200px']
+    );?>
+    <span class=""></span>
+    <?php echo Form::select('status', Input::param('status'),[
+        '0' => '未阅',
+        '1' => '已阅',
+        ],
+        ['class'=>'form-control poststatus', 'style'=>'height:34px; width: 200px']
+    );?>
 </div>
-
 <br>
 <?php if ($suggests): ?>
 <table class="table table-striped">
@@ -38,15 +86,10 @@ $(function(){
             <td>
                 <?php echo $item->type;?>
             </td>
-            <td><?php echo $item->title; ?><br /><?php echo $item->text;?></td>
-            <td><?php echo $item->nickname; ?><br /><?php echo $item->email;?></td>
-            <td>
-                <?php if (Input::param('active')=='0' or Input::param('active')==null ) { ?>
-                <?php echo Html::anchor('v2admin/posts/view/'.$item->id, '审核'); ?>
-                <?php }elseif(Input::param('active')=='1') { ?>
-                <?php echo Html::anchor('p/'.$item->id, '详情', ['target'=>'_blank']); ?>
-                <?php }else{ ?>
-                <?php }?>
+            <td><?php echo $item->title ? $item->title.'<p>'.mb_substr($item->text, 0, 42,'utf-8').'</p>' : mb_substr($item->text, 0, 42,'utf-8'); ?></td>
+            <td><?php echo $item->nickname ? $item->nickname.'<br />'.$item->email : $item->email; ?></td>
+            <td>               
+                <?php echo is_null($item->status) ? Html::anchor('/v2admin/suggests/view/'.$item->id, '查看') : '已阅'; ?>
             </td>
         </tr>
         <?php } ?>
