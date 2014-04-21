@@ -42,7 +42,8 @@ class Controller_Member extends Controller_Center{
     /*
     * 检测昵称是否存在
     */
-    public function action_checknickname(){
+    public function action_checknickname()
+    {
         if (Input::method() != 'POST' ){
             return Response::redirect('/u/getnickname');
         }
@@ -191,7 +192,6 @@ class Controller_Member extends Controller_Center{
                 ->add_rule('required');
             if ($val->run())
             {
-                // check the credentials. This assumes that you have the previous table created
                 $oldpassword = Input::post('oldpassword');
                 $newpassword = Input::post('newpassword');
                 $username = $this->auth->get_screen_name();

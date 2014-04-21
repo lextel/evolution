@@ -728,6 +728,22 @@ table td p.tl{
     top:-10px;
     right: 10%;
 }
+.yinzhang1{
+    width: 93px;
+    height: 33px;
+    background: url("../images/yinzhang1.png") no-repeat;
+    position: absolute;
+    right: -48px;
+    top: -18px;
+}
+.yinzhang2{
+    width: 94px;
+    height: 33px;
+    background: url("../images/yinzhang2.png") no-repeat;
+    position: absolute;
+    right:-70px;
+    top: 8px;
+}
 /*图片*/
 .img-box{
     text-align: center;
@@ -789,6 +805,7 @@ table td p.tl{
 }
 .info{
     width: 60%;
+    position: relative;
 }
 .info span{
     display: block;

@@ -1,4 +1,3 @@
-<h2>晒单列表</h2>
 <script type="text/javascript">
 $(function(){
    $(".postactive").change(function(){
@@ -8,16 +7,15 @@ $(function(){
    });
 });
 </script>
-
             <div class="input-group">
               <span class="input-group-addon">选择分类</span>
 <?php echo Form::select('active', Input::param('active'),[
-    '0' => '待审核晒单列表',
-    '1' => '运行中晒单列表',
-    '2' => '审核不通过晒单列表',
-    '3' => '已删除晒单列表',
+    '0' => '待审核晒单',
+    '1' => '已审核晒单',
+    '2' => '驳回的晒单',
+    '3' => '已删除晒单',
     ],
-    ['class'=>'form-control postactive', 'style'=>'height:34px']
+    ['class'=>'form-control postactive', 'style'=>'height:34px; width: 200px']
 );?>
 </div>
 
@@ -26,39 +24,37 @@ $(function(){
 <table class="table table-striped">
     <thead>
         <tr>
+            <th width="5%">#ID</th>
             <th>标题</th>
-            <th>标题</th>
-            <th>内容</th>
-            <th>状态</th>
-            <th>发布人</th>
-            <th>商品名称</th>
-            <th></th>
+            <th width="10%">审核</th>
+            <th width="10%">发布会员</th>
+            <th width="10%">操作</th>
         </tr>
     </thead>
     <tbody>
-<?php foreach ($posts as $item){ ?>     <tr>
+        <?php foreach ($posts as $item){ ?>
+         <tr>
             <th><?php echo $item->id; ?></th>
-            <td><?php echo mb_substr($item->title, 0, 16,'utf-8'); ?>...</td>
-            <td><?php echo mb_substr($item->desc, 0, 16,'utf-8');?>...</td>
+            <td>
+                <?php echo $item->title;?><br/>
+                <a href="<?php echo Uri::create('w/'.$item->phase_id);?>" target='_blank'>(第<?php echo $getPhase($item)->phase_id; ?>期) <?php echo $getPhase($item)->title; ?></a>
+            </td>
             <td><?php echo $getStatus($item); ?></td>
             <td><?php echo $getUser($item->member_id)->nickname; ?></td>
-            <td>第<?php echo $getPhase($item)->phase_id; ?>期 <?php echo mb_substr($getPhase($item)->title, 0, 16,'utf-8'); ?>...</td>
             <td>
                 <?php if (Input::param('active')=='0' or Input::param('active')==null ) { ?>
-                <?php echo Html::anchor('v2admin/posts/view/'.$item->id, '审核', ['class'=>'btn btn-success']); ?>
+                <?php echo Html::anchor('v2admin/posts/view/'.$item->id, '审核'); ?>
                 <?php }elseif(Input::param('active')=='1') { ?>
-                <?php echo Html::anchor('p/'.$item->id, '浏览页面', ['target'=>'_blank']); ?>
+                <?php echo Html::anchor('p/'.$item->id, '详情', ['target'=>'_blank']); ?>
                 <?php }else{ ?>
                 <?php }?>
-
-
             </td>
         </tr>
-<?php } ?>    </tbody>
+        <?php } ?>
+    </tbody>
 </table>
 <?php echo Pagination::instance('postspage')->render(); ?>
 <?php else: ?>
-<p>该分类没数据.</p>
-
+<p>该分类没晒单.</p>
 <?php endif; ?><p>
 </p>

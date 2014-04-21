@@ -37,16 +37,16 @@
                     <?php }?>
                     </div></td>
                     <td>
-                        <div class="text-title"><?php echo $post->title;?></div>
-                        <div class="text-time"><?php echo date("Y-m-d H:i:s", $post->created_at);?></div>
+                        <div class="">
+                             <div class="text-title fl"><?php echo $post->title;?></div>
+                             <div class="text-time fr"><?php echo date("Y-m-d H:i:s", $post->created_at);?></div>
+                        </div>
                         <div class="text-content"><?php echo mb_substr($post->desc, 0,90,'utf-8'); ?>...</div>
                     </td>
                     <td><?php echo $getType($post->status); ?></td>
                     <td>
                         <?php if ($post->status == 1) { ?>
-                        <?php echo Html::anchor('p/'.$post->id, '查看'); ?> |
-                        <?php echo Html::anchor('u/posts/getedit/'.$post->id, '编辑'); ?> |
-                        <?php echo Html::anchor('u/posts/delete/'.$post->id, '删除', array('onclick' => "return confirm('你确定需要删除该晒单吗?')") ); ?>
+                        <?php echo Html::anchor('p/'.$post->id, '查看'); ?>
                         <?php }else{ ?>
                         <?php echo Html::anchor('u/posts/getedit/'.$post->id, '编辑'); ?>                       
                         <?php } ?>

@@ -69,11 +69,6 @@ Thumbs.db
 *app/config/config.php
 
 ###############
-*idea
-\.idea\*
-
-###############
-.idea/workspace.xml
-
-
+*.idea
+*/idea/*
 
