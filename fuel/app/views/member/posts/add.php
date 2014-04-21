@@ -10,6 +10,7 @@ echo Asset::js(
             'jquery.ui.widget.js',
             'jquery.iframe-transport.js',
             'jquery.fileupload.js',
+            'jquery.validate.js'
             ]
         ); 
 ?>
@@ -65,7 +66,7 @@ $(function(){
         <div class="show-box">
             
             <!--查看晒单详情-->
-                <?php echo Form::open(['action' => 'u/posts/add/', 'class'=>'demoform']);?>
+                <?php echo Form::open(['action' => 'u/posts/add/', 'class'=>'postsform']);?>
                 <ul class="edit-data">
                     <li>
                         <label for=""></label>
@@ -84,12 +85,12 @@ $(function(){
                     </li>
                     <li>
                         <label for="" class="body-label">正文：</label>
-                        <?php echo Form::textarea('desc', Input::get('desc'), ['class' => 'txt', 'name'=>'',
+                        <?php echo Form::textarea('desc', Input::get('desc'), ['class' => 'txt', 'id'=>'desc',
                                            'datatype'=>'desc', 'rows'=>'15', 'cols'=>'20', 'nullmsg'=>'请输入正文', 'sucmsg'=>' ']);?>
                         
                     </li>
                     <li style="height:23px;margin-top:-14px;">
-                        <label for="" class="body-label"></label><span id="descmsg" class="Validform_checktip" style="margin-top:-1px;"></span>
+                        <label for="" class="body-label"></label><span id="descmsg" style="margin-top:-1px;"></span>
                     </li>
                     <li>
                        <div class="destItem">
@@ -109,7 +110,7 @@ $(function(){
                         <input id="postid" name="phase_id" type="hidden" value="<?php echo $phase->id;?>" />
                     </li>             
                     <li>
-                        <button class="btn-red  btn-address">发布</button>
+                        <button class="btn-red  btn-address" type="submit">发布</button>
                         <a href="/u/noposts" class="btn-sx btn-cancel">返回</a>
                     </li>
                 </ul>
@@ -118,38 +119,29 @@ $(function(){
 </div>
 <script>
 $(function(){
-	$(".demoform").Validform({
-        btnSubmit: ".btn-address",
-        tiptype:function(msg,o,cssctl){
-            if(o.obj.attr("id") =="form_title"){
-                var objtip=$("#titlemsg");
-                cssctl(objtip,o.type);
-                objtip.text(msg);
-            }
-            if(o.obj.attr("id") =="form_desc"){
-                var objtip=$("#descmsg");
-                cssctl(objtip,o.type);
-                objtip.text(msg);
+    $(".postsform").validate({
+        rules:{
+            title:{
+                required:true
+            },
+            desc:{
+                required:true
             }
         },
-        datatype:{
-           'title':function (gets,obj,curform,regxp){
-                if(0!=gets.length){
-                    obj.next().css("display","none");
-                    return true;
-                }
-                obj.next().css("display","");
-                return false;
-           },
-           'desc':function (gets,obj,curform,regxp){
-                if(0!=gets.length){
-                    obj.parent().next().find("span").css("display","none");
-                    return true;
-                }
-                obj.parent().next().find("span").css("display","");
-                return false;
-           }
+        messages:{
+            title:{
+                required:"请输入标题内容"
+            },
+            desc:{
+                required:"请输入正文"
+            }
+        },
+        errorPlacement: function(error, element) {
+            if(element[0].id=="desc"){
+                $("#descmsg").append(error);
+            }else
+                error.appendTo(element.parent());
         }
-	});
+    });
 });
 </script>

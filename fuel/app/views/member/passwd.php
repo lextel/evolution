@@ -1,5 +1,4 @@
-<?php echo Asset::css(['member/validfrom_style.css']); ?>
-    <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
+<?php echo Asset::js(['jquery.validate.js','additional-methods.min.js']); ?>
 
 <div class="set-wrap">
         <div class="lead">个人设置</div>
@@ -29,7 +28,7 @@
             </li>
             <li>
                 <label>新密码：</label>
-                <input type="password" value="" class="txt" name="newpassword" class="inputxt" datatype="*6-20" nullmsg="请输入新密码" errormsg="请输入6-20位新密码" sucmsg=" "/>
+                <input type="password" value="" class="txt" id="newpassword" name="newpassword" class="inputxt" datatype="*6-20" nullmsg="请输入新密码" errormsg="请输入6-20位新密码" sucmsg=" "/>
                 <span class="Validform_checktip"></span>
             </li>
             <li>
@@ -41,13 +40,39 @@
                 <button class="btn btn-red btn-sx btn-password" type="submit">提交</button>
             </li>
         </ul>
-         <?php echo Form::close(); ?>
+        <?php echo Form::close(); ?>
 </div>
 <script type="text/javascript">
 $(function(){
-
-	$(".validForm").Validform({
-		tiptype:4,
-      	});
+    $(".validForm").validate({
+        rules:{
+            oldpassword:{
+                required:true,
+                rangelength:[6,18]
+            },
+            newpassword:{
+                required:true,
+                rangelength:[6,18],
+            },
+            newpassword2:{
+                required:true,
+                equalTo:"#newpassword"
+            }
+        },
+        messages:{
+            oldpassword:{
+                required:"请输入旧密码",
+                rangelength:"请输入正确的旧密码"
+            },
+            newpassword:{
+                required:"请输入新密码",
+                rangelength:"请输入6-18位新密码",  
+            },
+            newpassword2:{
+                required:"请输入确认密码",
+                equalTo:"两次密码输入不一致"
+            }
+        }
+    });
 });
 </script>

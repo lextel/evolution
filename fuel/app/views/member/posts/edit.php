@@ -10,6 +10,7 @@ echo Asset::js(
             'jquery.ui.widget.js',
             'jquery.iframe-transport.js',
             'jquery.fileupload.js',
+            'jquery.validate.js'
             ]
         ); 
 ?>
@@ -59,7 +60,7 @@ $(function(){
         <!--晒单开始-->
         <div class="show-box">
             <!--查看晒单详情-->
-                <?php echo Form::open(['action' => 'u/posts/edit/'.$post->id, 'class'=>'demoform']);?>
+                <?php echo Form::open(['action' => 'u/posts/edit/'.$post->id, 'class'=>'postsform']);?>
                 <ul class="edit-data">
                     <li>
                         <label for=""></label>
@@ -80,7 +81,9 @@ $(function(){
                         <label for="" class="body-label">正文：</label>
                         <?php echo Form::textarea('desc', $post->desc, ['class' => 'txt', 'name'=>'',
                                            'datatype'=>'*', 'rows'=>'15', 'cols'=>'20', 'nullmsg'=>'请输入', 'sucmsg'=>'已填写']);?>
-                        <span class="Validform_checktip"></span>
+                    </li>
+                    <li style="height:23px;margin-top:-14px;">
+                        <label for="" class="body-label"></label><span id="descmsg" style="margin-top:-1px;"></span>
                     </li>
                     <li>
                        <div class="destItem">
@@ -103,7 +106,7 @@ $(function(){
                         </div>
                     </li>             
                     <li>
-                        <button class="btn-red  btn-address">发布</button>
+                        <button class="btn-red  btn-address" type="submit">发布</button>
                         <a href="/u/posts" class="btn-sx btn-cancel">返回</a>
                     </li>
                 </ul>
@@ -112,8 +115,29 @@ $(function(){
 </div>
 <script>
 $(function(){
-	$(".demoform").Validform({
-	tiptype:4
-	});
+    $(".postsform").validate({
+        rules:{
+            title:{
+                required:true
+            },
+            desc:{
+                required:true
+            }
+        },
+        messages:{
+            title:{
+                required:"请输入标题"
+            },
+            desc:{
+                required:"请输入正文"
+            }
+        },
+        errorPlacement: function(error, element) {
+            if(element[0].id=="form_desc"){
+                $("#descmsg").append(error);
+            }else
+                error.appendTo(element.parent());
+        }
+    });
 });
 </script>

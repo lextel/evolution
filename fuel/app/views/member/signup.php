@@ -1,6 +1,5 @@
     <?php echo Asset::css('style.css');?>
-    <?php echo Asset::css('member/validfrom_style.css'); ?>
-    <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
+    <?php echo Asset::js(['jquery.validate.js','additional-methods.min.js']); ?>
     <div class="register-warp">
         <div class="title">
             <h3 class="fl">新用户注册</h3>
@@ -15,8 +14,8 @@
             </div>
         </div>
 
-        <?php echo Form::open(array("class"=>"demoform")); ?>
-            <ul class="registerForm">
+        <?php echo Form::open(array("class"=>"registerForm")); ?>
+            <ul class="">
                 <li>
                    <?php echo Form::label('手机/邮箱'); ?> 
                    <?php echo Form::input('username', Session::get_flash('username', ''), array('class' => 'txt','type'=>"text",'datatype'=>'em',
@@ -51,18 +50,50 @@
     </div>
 <script type="text/javascript">
 $(function(){
-        var form = $(".demoform").Validform({
-            tiptype:4,
-            datatype:{
-              'em': function (gets,obj,curform,regxp){
-                var m = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
-                var e = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-                if(m.test(gets) || e.test(gets)){
-                   return true;
-                }
-                return "手机/邮箱格式不正确";
+  jQuery.validator.addMethod("codemobile", function(value,element) {
+      var code = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+      var mobile = /^1[3,4,5,8][0-9]{9}$/
+      if(code.test(value) || mobile.test(value))
+        return true;
+      return false;
+    },"error zhanghao");
+
+    $(".registerForm").validate({
+      rules:{
+            username:{
+                required:true,
+                codemobile:true,
+                remote:{
+                 url:"<?php echo Uri::create('checkname');?>",  
+                 type:"post",  
+                 dataType:"json",
+                 data:{ 'param':function(){return $("#username").val();}}
               }
+            },
+            password:{
+                required:true,
+                rangelength:[6,18]
+            },
+            password2:{
+              required:true,
+              equalTo:"#form_password"
             }
-        });
+        },
+        messages:{
+            username:{
+                required:"请输入注册手机/邮箱",
+                codemobile:"手机/邮箱格式不正确",
+                remote:"已存在"
+            },
+            password:{
+                required:"请输入密码",
+                rangelength:"密码为6~18位数"
+            },
+            password2:{
+              required:"请确认密码",
+              equalTo:"两次密码输入不一致"
+            }
+        }
+    });
 });  
 </script>

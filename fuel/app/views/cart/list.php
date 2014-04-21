@@ -1,5 +1,5 @@
-<?php echo Asset::css(['product.css', 'member/validfrom_style.css']); ?>
-<?php echo Asset::js(['Validform_v5.3.2_min.js', 'cart/cart.js']); ?>
+<?php echo Asset::css(['product.css','style.css']); ?>
+<?php echo Asset::js(['cart/cart.js','jquery.validate.js','additional-methods.min.js']); ?>
     <div class="wrapper w">
         <div class="cart-content">
             <ol class="pay-prompt">
@@ -127,28 +127,28 @@
         </div>
         <!--弹出登录框-->
         <div class="login2">
-            <form action="<?php echo Uri::create('signin'); ?>" method="post" >
-                <div class="login2-head">
-                  <h3>用户登录</h3>
-                   <button class="close" id="close"></button>
-                </div>
-                <label for="" class="error"></label>
+            
+        <div class="login2-head">
+             <h3>用户登录</h3>
+                 <button class="close" id="close"></button>
+             </div>
+           <form action="<?php echo Uri::create('signin'); ?>" method="post" id="signin">
                 <ul class="login2-body">
                     <li>
-                        <input type="text" name="username" placeholder="请输入手机/邮箱"  datatype="em" errorms="请输入手机/邮箱" sucmsg=" " id="form_username" class="Validform_error"/>
+                        <input type="text" name="username" placeholder="请输入手机/邮箱" id="form_username" />
                         <span class="icon-user"></span>
                     </li>
                     <li>
-                        <input type="password" value="" name="password" placeholder="输入密码"   datatype="*6-18" sucmsg=" " errorms="密码范围在6-18位之间" id="form_username" class="Validform_error"/>
+                        <input type="password" value="" name="password" placeholder="请输入输入密码" id="form_password" />
                         <span class="icon-password"></span>
                     </li>
                     <li>
-                        <button class="btn btn-red btn-modal">登录</button>
+                        <button class="btn btn-red btn-modal" type="submit">登录</button>
                         <a href="<?php echo Uri::create('/forgot'); ?>" class="fr">忘记密码？</a>
                     </li>
                 </ul>
+                </form>
                 <div class="register-bar">还没有帐号？<a href="/signup" class="register">马上注册</a> </div>
-            </form>
         </div>
         <!--登陆框-->
         <!--今日热门开始-->
@@ -186,21 +186,43 @@
         <!--今日热门结束-->
     </div>
     <script type="text/javascript">
-
     $(function(){
-    	$(".login2-body").Validform({
-    	tiptype:4,
-        datatype:{
-              'em': function (gets,obj,curform,regxp){
-                var m = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
-                var e = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-                if(m.test(gets) || e.test(gets)){
-                   return true;
-                }
-                return "手机/邮箱格式不正确";
-              }
+
+    jQuery.validator.addMethod("codemobile", function(value,element) {
+      var code = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+      var mobile = /^1[3,4,5,8][0-9]{9}$/
+      if(code.test(value) || mobile.test(value))
+        return true;
+      return false;
+    },"error zhanghao");
+
+    $("#signin").validate({
+        rules:{
+            username:{
+                required:true,
+                codemobile:true
+            },
+            password:{
+                required:true,
+                rangelength:[6,18]
             }
-    	});
+        },
+        messages:{
+            username:{
+                required:"请输入手机/邮箱",
+                codemobile:"手机/邮箱格式错误"
+            },
+            password:{
+                required:"请输入密码",
+                rangelength:"密码为6~18位数"
+            }
+        },
+        errorPlacement: function(error, element) {
+            error.css({"display":"inline-block","line-height":"29px"});
+            error.appendTo(element.parent());
+        }
+    });
+
     });
     </script>
     <script>

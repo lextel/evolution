@@ -1,3 +1,4 @@
+<?php echo Asset::js(['jquery.validate.js','additional-methods.min.js']); ?>
 <!--右左边内容结束-->
 <div class="verify-wrap">
     <div class="tit-bar">
@@ -23,8 +24,8 @@
             <span class="Validform_checktip"></span>
         </div>
         <div class="row">
-            <a href="javascript:;" class="btn btn-red btn-sx btn-submit" id="submitID">提交</a>
-            <a href="javascript:;" class="btn btn-sx btn-gr btn-chance" id="chance" style="margin-left:10px;">返回</a>
+            <button class="btn btn-red btn-sx btn-submit" id="submitID">提交</button>
+            <button class="btn btn-sx btn-gr btn-chance" id="chance" style="margin-left:10px;">返回</button>
         </div>
         <div class="row">
             <label></label>
@@ -51,11 +52,11 @@ $(function(){
             $(".verification").html("请在" + curCount + "秒内输入密码");
         }
     }
-    $(".btn-submit").click(function(){
-        $(".verifyForm").submit();
-    });
+    //$(".btn-submit").click(function(){
+        //$(".verifyForm").submit();
+    //});
     
-    $(".Validform_checktip").css('overflow', 'visible');
+    //$(".Validform_checktip").css('overflow', 'visible');
     
     $(".get_code").click(function(){
         $.ajax({
@@ -96,9 +97,26 @@ $(function(){
         });
     });
 
-    $(".verifyForm").Validform({
-        btnSubmit:"#submitID", 
-        tiptype:4
+    $(".verifyForm").validate({
+        submitHandler:function(form){
+            $(form).ajaxSubmit();
+        },
+        rules:{
+            code:{
+                required:true,
+                rangelength:[6,6]
+            }
+        },
+        messages:{
+            code:{
+                required:"请输入验证码",  
+                rangelength:"请输入6位验证码"
+            }
+        },
+        errorPlacement: function(error, element) {
+            error.css({"display":"inline-block","text-align":"left"});
+            error.appendTo(element.parent());
+        }
     });
     
     $(".btn-chance").click(function(){

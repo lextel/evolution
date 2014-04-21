@@ -103,49 +103,8 @@ $(function(){
                     <?php } ?>
                     </tbody>
                 </table>
-                <div class="showForm" style="display:none">
-                <?php echo Form::open(['action' => 'u/posts/add', 'method' => 'post', 'class'=>'demoform']);?>
-                    <ul class="edit-data showForm" >
-                        <li>
-                            <label for="">标题</label>
-                            <?php echo Form::input('title', '', ['class' =>'form-control', 'name'=>'', 'datatype'=>'*', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>'已填写']);?>
-                            <span class="Validform_checktip"></span>
-                        </li>
-                        <li>
-                            <label for="" class="body-label">正文</label>
-                            <?php echo Form::textarea('desc', '', ['class' => 'form-control', 'name'=>'',
-                                           'datatype'=>'*', 'rows'=>'6', 'cols'=>'70', 'nullmsg'=>'请输入', 'sucmsg'=>'已填写']);?>
-                            <span class="Validform_checktip"></span>
-                        </li>
-                        <li>
-                           <div class="destItem" >
-                                <div class="title">
-                                     <h4 class="fl">晒单图片，可以上传<s class="red">10</s>张</h4>
-                                     <div class="add-images" title="上传图片">
-                                          上传图片
-                                          <input id="postUpload" type="file" name="post" multiple="上传图片" class="add-images2">
-                                     </div>
-                                </div>
-                                <dl class="postimg">
-                                </dl>
-                          </div>
-                        </li>
-                        <li>
-                            <input id="postid" name="phase_id" type="hidden" value="" />
-                        </li>
-                        <li><button type="text" class="btn btn-red tj">发布</button><a href="javascript:;" class="btn  chance">取消</a></li>
-                    </ul>
-                    <?php echo Form::close();?>
-                </div>               
                 <button class="icon-close"></button>
             <?php echo Pagination::instance('postspage')->render(); ?>
     </div>
     <!--获晒单结束-->
 </div>
-<script>
-$(function(){
-	$(".demoform").Validform({
-	tiptype:4,
-	});
-});
-</script>
