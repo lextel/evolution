@@ -69,7 +69,7 @@ class Controller_Member extends Controller_Center{
         {
             $member = Model_Member::find($this->current_user->id);
             $nickname = trim(Input::post('nickname'));
-            if (!Model_Member::checkNickname($nickname))
+            if (!Model_Member::checkNickname($nickname, $this->current_user->id))
             {
                 Session::set_flash('error', '用户昵称已经存在了');
                 Session::set_flash('nickname', $nickname);

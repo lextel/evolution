@@ -119,7 +119,7 @@ $(function(){
           },
           name:{
             required:"请输入收货人",
-            rangelength:"长度必须为2-6位中文",
+            rangelength:"请输入2到6个中文字符",
             zh:"请输入2到6个中文字符"
           },
           phone:{
@@ -127,7 +127,7 @@ $(function(){
             call:"请输入正确的联系电话"
           },
           postcode:{
-            code:"请输入邮政编码"
+            code:"邮政编码格式错误"
           }
         }
     });

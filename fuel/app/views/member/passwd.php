@@ -23,17 +23,17 @@
             </li>
             <li>
                 <label>旧密码：</label>
-                <input id="oldpassword" type="password" value="" class="txt" name="oldpassword" class="inputxt" datatype="*6-20" nullmsg="请输入旧密码" errormsg="请输入正确的旧密码" sucmsg=" "/>
+                <input id="oldpassword" type="password" value="" class="txt" name="oldpassword" class="inputxt" />
                 <span class="Validform_checktip"></span>
             </li>
             <li>
                 <label>新密码：</label>
-                <input type="password" value="" class="txt" id="newpassword" name="newpassword" class="inputxt" datatype="*6-20" nullmsg="请输入新密码" errormsg="请输入6-20位新密码" sucmsg=" "/>
+                <input type="password" value="" class="txt" id="newpassword" name="newpassword" class="inputxt" />
                 <span class="Validform_checktip"></span>
             </li>
             <li>
                 <label>确认密码：</label>
-               <input type="password" value="" class="txt" name="newpassword2" class="inputxt"  datatype="*" recheck="newpassword" nullmsg="请输入确认密码" errormsg="两次密码输入不一致" sucmsg=" ">
+               <input type="password" value="" class="txt" name="newpassword2" class="inputxt" />
                 <span class="Validform_checktip"></span>
             </li>
             <li>

@@ -17,11 +17,9 @@
         </div>
         <div class="row">
             <input class="btn btn-code get_code fl" type="button" value="获取验证码" />
-            <span class="verification fl"></span>
         </div>
         <div class="row">
-            <label for="" class="fl">输入验证码：</label><input name="code" class="txt fl" datatype="s6-6" nullmsg="请输入6位验证码" errormsg="请输入正确的验证码" sucmsg=" "/>
-            <span class="Validform_checktip"></span>
+            <label for="" class="fl">输入验证码：</label><input name="code" class="txt fl"/>
         </div>
         <div class="row">
             <button class="btn btn-red btn-sx btn-submit" id="submitID">提交</button>

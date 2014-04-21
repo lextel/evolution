@@ -34,11 +34,10 @@
             <ul class="loginBar">
                 <li>
                     <div class="item">
-                        <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'name'=>'username',
-                         'datatype'=>'em','errorms'=>'手机/邮箱格式不正确！','nullmsg'=>'请输入注册手机/邮箱！','placeholder'=>'请输入手机/邮箱','sucmsg'=>' ')); ?>
+                        <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'name'=>'username','placeholder'=>'请输入手机/邮箱')); ?>
                          <s class="icon-user"></s>
                         <?php if (Session::get_flash('signError', null)) { ?>
-                        <label for="form_username" class="error"><?php echo Session::get_flash('signError');?></label>
+                        <label for="form_username" class="error" style="display:inline-block;line-height:29px"><?php echo Session::get_flash('signError');?></label>
                         <?php }else{?>
                         <?php } ?>
                    </div>
@@ -46,7 +45,7 @@
                 <li>
                 <div class="item">
                 <?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'请输入账号密码',
-                    'name'=>'userpassword','datatype'=>'num','errormsg'=>'密码为6~18位数！','nullmsg'=>'请输入密码!','sucmsg'=>' ')); ?>
+                    'name'=>'userpassword')); ?>
                    <s class="icon-password"></s>
                    <!--<span class="Validform_checktip"></span>-->
                 </li>

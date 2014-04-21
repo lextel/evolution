@@ -18,8 +18,8 @@
             <ul class="">
                 <li>
                    <?php echo Form::label('手机/邮箱'); ?> 
-                   <?php echo Form::input('username', Session::get_flash('username', ''), array('class' => 'txt','type'=>"text",'datatype'=>'em',
-                   'id'=>'username', 'name'=>'username','errorms'=>'手机/邮箱格式不正确','nullmsg'=>'请输入手机/邮箱', 'ajaxurl' => Uri::create('checkname'))); ?>
+                   <?php echo Form::input('username', Session::get_flash('username', ''), array('class' => 'txt',
+                   'id'=>'username', 'name'=>'username'); ?>
                    <?php if (Session::get_flash('usernameError', null)) { ?>
                    <span class="Validform_checktip"><?php echo Session::get_flash('usernameError');?></span>
                    <?php }else{?>
@@ -28,11 +28,11 @@
                 <li>
                    <?php echo Form::label('密码'); ?>
                    <?php echo Form::input('password', '', ['type'=>"password",'class' => 'txt',
-                    'name'=>'userpassword','datatype'=>'*6-18','errorms'=>'请输入6-18位密码','nullmsg'=>'请输入6-18位密码','sucmsg'=>' ']); ?>
+                    'name'=>'userpassword']); ?>
                 </li>
                 <li>
                    <?php echo Form::label('确认密码'); ?>
-                   <input id="xp" type="password"  name="password2" recheck="password" errorms="请确认密码"  nullmsg="请确认密码" class="txt" datatype="*6-18" sucmsg=" "/>
+                   <input id="xp" type="password"  name="password2" class="txt"/>
                    <span class="Validform_checktip"></span>
                 </li>
                 <li>
@@ -68,7 +68,7 @@ $(function(){
                  type:"post",  
                  dataType:"json",
                  data:{ 'param':function(){return $("#username").val();}}
-              }
+                }
             },
             password:{
                 required:true,

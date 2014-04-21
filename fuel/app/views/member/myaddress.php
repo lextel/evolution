@@ -51,19 +51,19 @@
                         </li>
                         <li>
                             <label class="align">*街道地址：</label>
-                            <input name="address" id="address" class="txt" datatype="*" style="width:380px;" nullmsg="请输入街道地址!" errormsg="请输入街道地址！" sucmsg=" " />                            
+                            <input name="address" id="address" class="txt" style="width:380px;" />                            
                         </li>
                         <li>
                             <label>*收货人：</label>
-                            <input value="" class="txt" id="name" name="name" sucmsg=" " datatype="*" errormsg="请输入2到6个中文字符!" nullmsg="请输入收货人!"/>
+                            <input value="" class="txt" id="name" name="name" />
                         </li>
                         <li>
                             <label>*联系电话：</label>
-                            <input value="" class="txt" id="phone" name="phone" datatype="m" nullmsg="请输入联系电话!" errormsg="请输入正确的联系电话！" sucmsg=" " />
+                            <input value="" class="txt" id="phone" name="phone" />
                         </li>
                         <li>
                              <label>邮政编码：</label>
-                             <input value="" class="txt" name="postcode" id="postcode" datatype="p" errormsg="请输入正确的邮政编码！" sucmsg=" " ignore="ignore" />
+                             <input value="" class="txt" name="postcode" id="postcode"/>
                         </li>
                         <li>
                             <input name="addressid" id="addressid" type="hidden" val=""/>

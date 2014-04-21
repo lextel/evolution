@@ -27,8 +27,7 @@ $(function(){
             <li><h2>恭喜你成为乐淘会员，输入您的昵称马上开始乐淘！</h2><li/>
             <li>
                 <label style="text-align:right">昵称：</label>
-                <?php echo Form::input('nickname', Session::get_flash('nickname', ''), array('class' => 'txt','type'=>"text",'name'=>'nickname', 'datatype'=>'zhE',
-                 'nullmsg'=>'请输入昵称' ,'errormsg'=>' ' ,'sucmsg'=>' ' ,'ajaxurl' => Uri::create('/u/checknickname')  ,'style'=>'width:180px')); ?>
+                <?php echo Form::input('nickname', Session::get_flash('nickname', ''), array('class' => 'txt','type'=>"text",'name'=>'nickname','style'=>'width:180px')); ?>
                 <?php if (Session::get_flash('error', null)) { ?>
                    <span class="error"><?php echo Session::get_flash('error');?></span>
                 <?php }else{?>

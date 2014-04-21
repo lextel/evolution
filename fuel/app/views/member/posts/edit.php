@@ -74,13 +74,11 @@ $(function(){
                     </li>
                     <li>
                         <label for="">标题：</label>
-                        <?php echo Form::input('title', $post->title, ['class' =>'txt', 'name'=>'', 'datatype'=>'*', 'nullmsg'=>'请输入标题内容', 'sucmsg'=>'已填写']);?>
-
+                        <?php echo Form::input('title', $post->title, ['class' =>'txt', 'name'=>'']);?>
                     </li>
                     <li>
                         <label for="" class="body-label">正文：</label>
-                        <?php echo Form::textarea('desc', $post->desc, ['class' => 'txt', 'name'=>'',
-                                           'datatype'=>'*', 'rows'=>'15', 'cols'=>'20', 'nullmsg'=>'请输入', 'sucmsg'=>'已填写']);?>
+                        <?php echo Form::textarea('desc', $post->desc, ['class' => 'txt', 'name'=>'', 'rows'=>'15', 'cols'=>'20']);?>
                     </li>
                     <li style="height:23px;margin-top:-14px;">
                         <label for="" class="body-label"></label><span id="descmsg" style="margin-top:-1px;"></span>
