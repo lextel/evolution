@@ -19,7 +19,7 @@
                 <li>
                    <?php echo Form::label('手机/邮箱'); ?> 
                    <?php echo Form::input('username', Session::get_flash('username', ''), array('class' => 'txt',
-                   'id'=>'username', 'name'=>'username'); ?>
+                   'id'=>'username', 'name'=>'username')); ?>
                    <?php if (Session::get_flash('usernameError', null)) { ?>
                    <span class="Validform_checktip"><?php echo Session::get_flash('usernameError');?></span>
                    <?php }else{?>
