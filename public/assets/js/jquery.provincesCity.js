@@ -12,9 +12,9 @@ $.fn.ProvinceCity = function(province, city1){
 	_self.data("city1",["请选择", "请选择"]);
 	_self.data("city2",["请选择", "请选择"]);
 	//插入3个空的下拉框
-	_self.append("<select></select><s>省</s>");
-	_self.append("<select></select><s>市</s>");
-	_self.append("<select></select><s>县/区</s>");
+	_self.append("<select id='province' name='province'></select><s>省</s>");
+	_self.append("<select id='city' name='city'></select><s>市</s>");
+	_self.append("<select id='district' name='district'></select><s>县/区</s>");
 	//分别获取3个下拉框
 	var $sel1 = _self.find("select").eq(0);
 	var $sel2 = _self.find("select").eq(1);
@@ -81,9 +81,9 @@ $.fn.ProvinceCity = function(province, city1){
 			})
 		}
 		if('请选择' != this.options[index1].value){
-			$("#xperror").html("<span class='Validform_checktip Validform_right'></span>");
+			$("#provinceerror").css("display","none");
 		}else{
-			$("#xperror").html("<span class='Validform_checktip Validform_wrong'>请选择地区</span>");
+			$("#provinceerror").css("display","block");;
 		}
 		
 	}).change();
