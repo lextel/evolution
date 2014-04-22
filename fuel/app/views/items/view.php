@@ -11,7 +11,7 @@ $phasesList =$phases($item);
 if(is_array($phasesList)) {
     echo '<ul>';
     foreach($phasesList as $list) {
-       $ing = $list['class'] == 'doing active' ? '<i></i>' : '';
+       $ing = ($list['class'] == 'doing active' || $list['class'] == 'doing') ? '<i></i>' : '';
        echo '<li class="'.$list['class'].'"><a href="'.Uri::create('m/'.$list['id']).'">第'.$list['phase'].'期'.$ing.'</a></li>';
     }
     echo '</ul>';
