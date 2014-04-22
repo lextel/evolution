@@ -1337,7 +1337,7 @@ table td p.tl{
 .footer-wrapper{
     width: 980px;
     overflow: hidden;
-    margin: 10px auto 0;
+    margin: 10px auto 0 9px;
     background: #ffffff;
 }
 .footerWrap{
