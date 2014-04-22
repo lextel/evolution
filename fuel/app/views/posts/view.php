@@ -151,7 +151,6 @@
                <div><?php echo Html::anchor('u/'.$npost->member_id, $npostMembers[$npost->member_id]->nickname, ['class'=>'peoplenamea']);?>
                <s class="datetime"><?php echo \Helper\Timer::friendlyDate($npost->created_at); ?></s>
                </div>
-
                <div class="content-md">
                     <?php echo Html::anchor('p/'.$npost->id, mb_substr($npost->desc, 0, 100,'utf-8')); ?>
                </div>

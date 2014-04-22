@@ -64,7 +64,7 @@
                         <td><?php echo $order->code_count;?>元宝</td>
                         <td><div class="toolbox">
                            <a class="tooltip" href="javascript:void(0)">乐淘码</a>
-                           <div class="num-list">
+                           <div class="num-list"  id="num-list">
                                 <div class="icon-arrow"></div>
                                 <ul>
                                      <?php

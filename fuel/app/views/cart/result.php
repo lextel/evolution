@@ -31,10 +31,10 @@
                         <td>
                         <div class="toolbox">
                             <a class="tooltip" href="javascript:void(0)">查看</a>
-                            <div class="codeList">
+                            <div class="codeList" id="num-list">
                                 <dl>
                                      <dt>所有乐淘码</dt>
-                                     <?php 
+                                     <?php
                                         $codes = \Helper\Codes::getArray($item->codes);
                                         foreach($codes as $code) {
                                             echo "<dd>{$code}</dd>";
