@@ -858,6 +858,11 @@
     position: relative;
     padding-left: 20px;
 }
+label.error  {
+    position: relative;
+    padding-left: 20px;
+    color: red;
+}
 .error:before{
     content:"";
     width: 20px;
