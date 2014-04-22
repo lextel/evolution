@@ -160,10 +160,10 @@
     font-size: 14px;
 }
  .registerForm li label,.succeedForm li label{
-     text-align: left;
+     text-align: right;
      height: 33px;
      line-height: 33px;
-     width: 130px;
+     width: 80px;
      display: inline-block;
      float: left;
  }
@@ -182,7 +182,7 @@
     float: left;
 }
 .registerForm li .btn,.succeedForm li .btn{
-    margin-left: 140px;
+    margin-left: 90px;
     width: 130px;
 }
 .protocol{
@@ -830,7 +830,7 @@
 .verifyForm label{
     height: 28px;
     line-height: 28px;
-    width: 130px;
+    width: 100px;
     text-align: right;
 }
 .verifyForm .phone_num{
@@ -858,18 +858,13 @@
     position: relative;
     padding-left: 20px;
 }
-label.error  {
-    position: relative;
-    padding-left: 20px;
-    color: red;
-}
 .error:before{
     content:"";
     width: 20px;
     height: 20px;
     background: url("../images/icon-02.png") no-repeat -55px 0px;
     position: absolute;
-    top:15%;
+    top: 15%;
     left: 0;
 }
 .sure{
@@ -901,11 +896,10 @@ label.error  {
     height: 33px;
     line-height: 33px;
     display: inline-block;
-    text-align: left;
-    width: 140px;
+    text-align: right;
+    width: 120px;
     font-size: 14px;
     float: left;
-    margin-left: 2px;
 }
 .edit-data li button.btn{
     margin-left: 120px;
@@ -1029,7 +1023,7 @@ label.error  {
     overflow: hidden;
 }
 .product-item{
-    width: 235px;
+    width: 233px;
     overflow: hidden;
     border: 1px solid #ddd;
     margin-bottom: 10px;
@@ -1137,6 +1131,7 @@ label.error  {
     height: 34px;
     padding: 5px;
     line-height: 40px;
+    background: #eee;
     border: 1px solid #d2d2d2;
     border-top: 0;
 }
@@ -1166,10 +1161,11 @@ label.error  {
     margin-bottom: 15px;
 }
 .comment-list dt h4{
-    height:33px;
+    height:35px;
     line-height: 33px;
     width: 70px;
     font-size: 14px;
+    margin-bottom: -2px;
     font-weight: bold;
     border-bottom: 3px solid #D9534F;
 }

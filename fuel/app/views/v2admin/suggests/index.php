@@ -76,6 +76,7 @@ $(function(){
             <th width="5%">类型</th>
             <th width="40%">内容</th>
             <th width="10%">提交人</th>
+            <th width="10%">状态</th>
             <th width="10%">操作</th>
         </tr>
     </thead>
@@ -88,8 +89,9 @@ $(function(){
             </td>
             <td><?php echo $item->title ? $item->title.'<p>'.mb_substr($item->text, 0, 42,'utf-8').'</p>' : mb_substr($item->text, 0, 42,'utf-8'); ?></td>
             <td><?php echo $item->nickname ? $item->nickname.'<br />'.$item->email : $item->email; ?></td>
+            <td><?php echo is_null($item->status) ? '未阅': '已阅'; ?></td>
             <td>               
-                <?php echo is_null($item->status) ? Html::anchor('/v2admin/suggests/view/'.$item->id, '查看') : '已阅'; ?>
+                <?php echo Html::anchor('/v2admin/suggests/view/'.$item->id, '查看'); ?>
             </td>
         </tr>
         <?php } ?>
