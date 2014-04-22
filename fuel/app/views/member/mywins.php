@@ -57,7 +57,7 @@
                         <?php if ($status < 100) { ?>
                            <div class="toolbox">
                            <a class="tooltip" href="javascript:void(0)">查看快递</a>
-                           <div class="num-list">
+                           <div class="num-list" id="num-list">
                                 <div class="icon-arrow"></div>
                                 <div class="item">
                                 <table>
