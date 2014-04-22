@@ -14,8 +14,8 @@ return [
     /**
      * @var 积分单位
      */
-    'unit'     => '元宝',
-    'unit2'    => '银币',
+    'unit'     => '<img class="jin" src="/assets/img/jinbi.png">',
+    'unit2'    => '<img class="yin" src="/assets/img/yinbi.png">',
 
     /**
      * 邀请佣金

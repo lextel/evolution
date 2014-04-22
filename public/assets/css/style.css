@@ -160,10 +160,9 @@
     font-size: 14px;
 }
  .registerForm li label,.succeedForm li label{
-     text-align: right;
      height: 33px;
      line-height: 33px;
-     width: 80px;
+     width: 140px;
      display: inline-block;
      float: left;
  }
@@ -182,7 +181,7 @@
     float: left;
 }
 .registerForm li .btn,.succeedForm li .btn{
-    margin-left: 90px;
+    margin-left: 150px;
     width: 130px;
 }
 .protocol{
@@ -830,7 +829,7 @@
 .verifyForm label{
     height: 28px;
     line-height: 28px;
-    width: 100px;
+    width: 140px;
     text-align: right;
 }
 .verifyForm .phone_num{
@@ -857,6 +856,11 @@
 .error{
     position: relative;
     padding-left: 20px;
+}
+label.error{
+    position: relative;
+    padding-left: 20px;
+    color: red;
 }
 .error:before{
     content:"";
@@ -896,8 +900,8 @@
     height: 33px;
     line-height: 33px;
     display: inline-block;
-    text-align: right;
-    width: 120px;
+    text-align: left;
+    width: 150px;
     font-size: 14px;
     float: left;
 }
@@ -1704,37 +1708,7 @@
 .game-column ul li .lol-btn-sm{
     float: right;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.yin{
+    position:absolute;
+    margin-top:5px;
+}

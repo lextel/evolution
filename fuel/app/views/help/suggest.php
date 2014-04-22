@@ -100,7 +100,7 @@ $(function(){
             },
             captcha:{
                 required: "请输入验证码",
-                rangelength: "验证码长度必须位4位",
+                rangelength: "验证码长度必须为4位",
                 remote:"验证码错误"
             }
         },
