@@ -1,5 +1,6 @@
 <?php echo Asset::css(['product.css', 'jquery.jqzoom.css', 'customBootstrap.css', 'style.css']); ?>
 <?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js','jquery.pin.js', 'Xslider.js' , 'item/view.js']); ?>
+<?php echo Asset::js(['jquery.validate.js','additional-methods.min.js']); ?>
 <div class="bread">
      <ul>
      <?php echo $getBread($item->phase);?>
@@ -193,11 +194,12 @@ if(is_array($phasesList)) {
                                     </tbody>
                                      </table>
                           <?php }else{ ?>
-                         <form action="<?php echo Uri::create('signin'); ?>" method="post">
+                         <form action="<?php echo Uri::create('signin'); ?>" class="signinfrom" method="post">
                                <dl class="inner-login" style="display: block;">
                                     <dt>请先登录</dt>
                                     <dd>
-                                          <input type="text"  placeholder="请输入注册邮箱" class="text" name="username">
+                                          <input type="text"  placeholder="请输入注册邮箱" class="text" id="username" name="username" />
+                                          
                                     </dd>
                                     <dd>
                                           <input type="password"   placeholder="请输入密码" class="password" name="password">
@@ -303,7 +305,45 @@ if(is_array($phasesList)) {
     PHASELOG_URL = '<?php echo Uri::create('l/phases'); ?>';
 </script>
 <script>
+$(function(){
     $(".sub-nav").pin({
         containerSelector: ".bd"
     })
+
+    jQuery.validator.addMethod("codemobile", function(value,element) {
+      var code = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+      var mobile = /^1[3,4,5,8][0-9]{9}$/
+      if(code.test(value) || mobile.test(value))
+        return true;
+      return false;
+    },"error zhanghao");
+
+    $(".signinfrom").validate({
+        rules:{
+            username:{
+                required:true,
+                codemobile:true
+            },
+            password:{
+                required:true,
+                rangelength:[6,18]
+            }
+        },
+        messages:{
+            username:{
+                required:"请输入注册手机/邮箱",
+                codemobile:"手机/邮箱格式不正确"
+            },
+            password:{
+                required:"请输入密码",
+                rangelength:"密码为6~18位数"
+            }
+        },
+        errorPlacement: function(error, element) {
+            error.css({"display":"inline-block","line-height":"29px"});
+            
+            error.appendTo(element.parent());
+        }
+    });
+});
 </script>
