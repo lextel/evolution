@@ -728,24 +728,24 @@ table td p.tl{
     top:-10px;
     right: 10%;
 }
-.yinzhang{
+.yinzhang1{
     position: absolute;
-    right:-100px;
+    right:-74px;
     top: -10px;
-    background: url("../images/yinzhang.png") no-repeat;
+    background: url("../images/yinzhang1.png") no-repeat;
 }
 .yinzhang2{
     position: absolute;
     right: 0px;
     top: -10px;
+    background: url("../images/yinzhang2.png") no-repeat;
 }
-.yinzhang ,.yinzhang2{
+.yinzhang1 ,.yinzhang2{
     width:50px;
-    height: 50px;
-    padding: 20px 10px 0;
+    height: 45px;
+    padding: 15px 5px 0;
     text-align: center;
     color: #bb4c30;
-    background: url("../images/yinzhang.png") no-repeat;
 }
 /*图片*/
 .img-box{
