@@ -47,7 +47,7 @@
                         <li id="province">
                             <label>*所在地区：</label>
                             <div id="datas" class="fl"></div>
-                            <span id='provinceerror' class="error" style='font-size:14px;display: none;'>请选择地区</span>
+                            <span id='provinceerror' class="error" style='font-size:14px;display:none;width:80px'><label style="color:red;">请选择地区</label></span>
                         </li>
                         <li>
                             <label class="align">*街道地址：</label>
