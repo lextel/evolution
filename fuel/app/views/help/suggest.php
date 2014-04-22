@@ -1,5 +1,4 @@
-    <?php echo Asset::css('member/validfrom_style.css'); ?>
-    <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
+<?php echo Asset::js(['jquery.validate.js','additional-methods.min.js']); ?>
 <div class="help-main fr">
     <h2>投诉与建议</h2>
     <div class="help-content">
@@ -37,21 +36,22 @@
             </li>
             <li>
                 <label><font color="#f00">*</font>E-mail：</label>
-                <?php echo Form::input('email', isset($input) ? $input['email']: '', ['type'=>'text', 'class'=>'txt','nullmsg'=>'请输入E-mail','errormsg'=>'请输入正确到E-mail', 'datatype'=>'e','sucmsg'=>' ']);?>
-                <span id="emailmsg" class="Validform_checktip"></span>
+                <?php echo Form::input('email', isset($input) ? $input['email']: '', ['type'=>'text', 'class'=>'txt']);?>
             </li>
             <li>
                 <label><font color="#f00">*</font>反馈内容：</label>
-                <?php echo Form::textarea('text', isset($input) ? $input['text']: '', ['cols'=>'60', 'rows'=>'5', 'class'=>'txt', 'datatype'=>'*','nullmsg'=>'请输入反馈内容' ,'sucmsg'=>' ']);?>
+                <?php echo Form::textarea('content', isset($input) ? $input['text']: '', ['cols'=>'60', 'rows'=>'5', 'class'=>'txt']);?>
                 
             </li>
-            <li style="height:20px;margin-top:-12px;"><label></label><span id="descmsg" class="Validform_checktip" style="margin-top:-4px;"></span></li>
+            <li id="contentError" style="height:25px;margin-top:-12px;">
+                <label></label>
+            </li>
             <li>
                 <label><font color="#f00">*</font>验证码：</label>
-                <input id="captcha" name="captcha" type="cap-text" class="txt" datatype="*" nullmsg="请输入验证码" sucmsg=" " ajaxurl="<?php echo Uri::create('/index/ajaxcaptcha');?>" />
+                <input id="captcha" name="captcha" type="text" class="txt" />
                 <span class="captcha"><img src=""/></span>
                 <span class="recaptcha"><a href="javascript:void(0)">看不清？换一张</a></span>
-                <span id="captchamsg" class="Validform_checktip"></span>
+                
             </li>
             <li>
                 <button id="sub" class="btn btn-red btn-md">提交信息</button>
@@ -70,26 +70,47 @@ $(function(){
         getcaptch();
     });
 
-    $("#suggestfrom").Validform({
-        btnSubmit: "#sub",
-        tiptype:function(msg,o,cssctl){
-            if(o.obj.attr("id") =="form_email"){
-                var objtip=$("#emailmsg");
-                cssctl(objtip,o.type);
-                objtip.text(msg);
+    $("#suggestfrom").validate({
+        rules :{
+            email:{
+                required:true,
+                email:true
+            },
+            content:{
+                required: true
+            },
+            captcha:{
+                required: true,
+                rangelength: [4, 4],
+                remote:{
+                 url:"<?php echo Uri::create('/index/ajaxcaptcha');?>",  
+                 type:"post",  
+                 dataType:"json",
+                 data:{ 'param':function(){return $("#captcha").val();}}
+                }
             }
-            if(o.obj.attr("id") =="form_text"){
-                var objtip=$("#descmsg");
-                cssctl(objtip,o.type);
-                objtip.text(msg);
+        },
+        messages:{
+            email:{
+                required: "请输入E-mail",
+                email:"请输入正确的E-mail"
+            },
+            content:{
+                required: "请输入反馈内容"
+            },
+            captcha:{
+                required: "请输入验证码",
+                rangelength: "验证码长度必须位4位",
+                remote:"验证码错误"
             }
-            if(o.obj.attr("id") =="captcha"){
-                var objtip=$("#captchamsg");
-                cssctl(objtip,o.type);
-                objtip.text(msg);
+        },
+        errorPlacement: function(error, element) {
+            if(element[0].id=="form_content"){
+                $("#contentError").append(error);
+            }else{
+                error.appendTo(element.parent());
             }
-        }   
-
+        }
     });
 });
 </script>

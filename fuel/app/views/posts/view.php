@@ -1,7 +1,6 @@
 <?php echo Asset::css(['product.css', 'style.css']);?>
 <?php echo Asset::js(['jquery.cookie.js', 'post/postup.js']);?>
-<?php echo Asset::css('member/validfrom_style.css'); ?>
-<?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
+<?php echo Asset::js(['jquery.validate.js','additional-methods.min.js']); ?>
 <div class="w">
      <div class="bread">
         <ul>
@@ -80,7 +79,7 @@
        </div>
        <!--弹出登录框-->
        <div class="login2">
-           <form action="/signin" method="POST" class="demoform">
+           <form action="/signin" method="POST" class="siginform">
                <div class="login2-head">
                  <h3>用户登录</h3>
                   <button class="close" id="close"></button>
@@ -88,17 +87,14 @@
                <label for="" class="error2"></label>
                <ul class="login2-body">
                    <li>
-                       <input name="username" type="text" value="" placeholder="用户邮箱" datatype="e" errorms="请输入邮箱帐号" />
+                       <input name="username" placeholder="手机/邮箱" />
                        <span class="icon-user"></span>
-                        <span class="Validform_checktip"></span>
                    </li>
                    <li>
-                       <input name="password"  type="password" value="" placeholder="用户密码"  datatype="*6-18" errorms="密码范围在6-18位之间" />
+                       <input name="password"  type="password" placeholder="用户密码" />
                        <span class="icon-password"></span>
-                       <span class="Validform_checktip"></span>
                    </li>
                    <li>
-
                        <button class="btn btn-red btn-modal fl">登录</button>
                        <a href="/forgot" class="fr">忘记密码？</a>
                    </li>
@@ -177,9 +173,41 @@
 </div>
 <!--评论-->
 <script type="text/javascript">
-    $(function(){
-    	$(".demoform").Validform({
-    	tiptype:4
-    	});
+$(function(){
+
+  jQuery.validator.addMethod("codemobile", function(value,element) {
+      var code = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+      var mobile = /^1[3,4,5,8][0-9]{9}$/
+      if(code.test(value) || mobile.test(value))
+        return true;
+      return false;
+    },"error zhanghao");
+
+    $(".siginform").validate({
+        rules:{
+            username:{
+                required:true,
+                codemobile:true
+            },
+            password:{
+                required:true,
+                rangelength:[6,18]
+            }
+        },
+        messages:{
+            username:{
+                required:"请输入注册手机/邮箱",
+                codemobile:"手机/邮箱格式不正确"
+            },
+            password:{
+                required:"请输入密码",
+                rangelength:"密码为6~18位数"
+            }
+        },
+        errorPlacement: function(error, element) {
+            error.css({"display":"inline-block","line-height":"29px"});
+            error.appendTo(element.parent());
+        }
     });
+});
 </script>

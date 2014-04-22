@@ -6,8 +6,7 @@
     <?php echo Asset::css('common.css');?>
     <?php echo Asset::css('style.css');?>
     <?php echo Asset::js('jquery.min.js');?>
-    <?php echo Asset::css('member/validfrom_style.css'); ?>
-    <?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
+    <?php echo Asset::js(['jquery.validate.js','additional-methods.min.js']); ?>
 </head>
 <body>
 <div class="logo-wrapper">
@@ -28,28 +27,25 @@
         <?php echo Html::anchor('/invit', Html::img('/assets/images/loginbanner01.jpg'));?>
     </div>
     <div class="loginForm fr">
-        <form action="/signin" method="post" class="demoform">
+        <form action="/signin" method="post" class="signinform">
             <div class="title">
                 <h3>乐淘用户登录</h3>
             </div>
             <ul class="loginBar">
                 <li>
                     <div class="item">
-                        <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'name'=>'username',
-                         'datatype'=>'em','errorms'=>'手机/邮箱格式不正确！','nullmsg'=>'请输入注册手机/邮箱！','placeholder'=>'请输入手机/邮箱','sucmsg'=>' ')); ?>
+                        <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'name'=>'username','placeholder'=>'请输入手机/邮箱')); ?>
                          <s class="icon-user"></s>
                         <?php if (Session::get_flash('signError', null)) { ?>
-                        <span class="Validform_checktip Validform_wrong"><?php echo Session::get_flash('signError');?></span>
+                        <label for="form_username" class="error" style="display:inline-block;line-height:29px"><?php echo Session::get_flash('signError');?></label>
                         <?php }else{?>
                         <?php } ?>
-                        
-                        <!--<span class="Validform_checktip"></span>-->
                    </div>
                 </li>
                 <li>
                 <div class="item">
-                <?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'账号密码',
-                    'name'=>'userpassword','datatype'=>'num','errormsg'=>'密码为6~18位数！','nullmsg'=>'请输入密码!','sucmsg'=>' ')); ?>
+                <?php echo Form::input('password','',  array('type'=>"password", 'placeholder'=>'请输入账号密码',
+                    'name'=>'userpassword')); ?>
                    <s class="icon-password"></s>
                    <!--<span class="Validform_checktip"></span>-->
                 </li>
@@ -86,30 +82,41 @@
 <!--底部结束-->
 <script type="text/javascript">
 $(function(){
-        $(".demoform").Validform({
-        tiptype:4,
-        datatype:{
-              'em': function (gets,obj,curform,regxp){
-                var m = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
-                var e = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-                if(m.test(gets) || e.test(gets)){
-                    $("#form_username").next().next().css("visibility","hidden");
-                    return true;
-                }
-                $("#form_username").next().next().css("visibility","visible");
-                return "手机/邮箱格式不正确!";
-              },
-              'num':function (gets,obj,curform,regxp){
-                var m = /^[\w\W]{6,18}$/;
-                if(m.test(gets)){
-                    $("#form_password").next().next().css("visibility","hidden");
-                    return true;
-                }
-                $("#form_password").next().next().css("visibility","visible");
-                 return "密码为6~18位数!";
-              }
+
+    jQuery.validator.addMethod("codemobile", function(value,element) {
+      var code = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+      var mobile = /^1[3,4,5,8][0-9]{9}$/
+      if(code.test(value) || mobile.test(value))
+        return true;
+      return false;
+    },"error zhanghao");
+
+    $(".signinform").validate({
+        rules:{
+            username:{
+                required:true,
+                codemobile:true
+            },
+            password:{
+                required:true,
+                rangelength:[6,18]
             }
-        });
+        },
+        messages:{
+            username:{
+                required:"请输入注册手机/邮箱",
+                codemobile:"手机/邮箱格式不正确"
+            },
+            password:{
+                required:"请输入密码",
+                rangelength:"密码为6~18位数"
+            }
+        },
+        errorPlacement: function(error, element) {
+            error.css({"display":"inline-block","line-height":"29px"});
+            error.appendTo(element.parent());
+        }
+    });
 });
 </script>
 </body>

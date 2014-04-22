@@ -35,7 +35,7 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
     public function action_create($num = 0) {
 
         if(empty($num) || !preg_match('/^\d+$/', $num)) {
-            Session::set_flash('error', e('删除失败 #'.$id));
+            Session::set_flash('error', e('请输入生成数量'));
 
             Response::redirect('v2admin/invitcodes');
         }

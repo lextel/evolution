@@ -89,10 +89,10 @@ class Controller_Index extends Controller_Frontend {
     * return json
     */
     public function action_ajaxcaptcha() {
-        $result = ['status' => 'n', 'info' => '验证码错误'];
+        $result = false;
         $code =  Input::post('param');
         if(Captcha::forge()->check($code)){
-            $result = ['status' => 'y'];
+            $result = true;
         }
         $response = new Response();
         return $response->body(json_encode($result));

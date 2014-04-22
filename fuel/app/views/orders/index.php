@@ -1,6 +1,4 @@
 <?php echo Asset::css(['style.css']); ?>
-<?php echo Asset::css('member/validfrom_style.css'); ?>
-<?php echo Asset::js('Validform_v5.3.2_min.js'); ?>
 <?php echo Asset::css('member/jquery-ui.css'); ?>
 <?php echo Asset::js(['jquery-ui.js', 'member/index.js']); ?>
 <div class="history">
