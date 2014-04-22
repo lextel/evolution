@@ -49,8 +49,11 @@
                    <s class="icon-password"></s>
                    <!--<span class="Validform_checktip"></span>-->
                 </li>
-                <li><?php echo Html::anchor('forgot', '忘记密码?', array('class' => 'fr'));?></li>
-                <li><button class="login btn-l" type="submit">登录</button></li>
+                <li>
+                <div style="margin-left:17%;">
+                    <button class="login btn-l" style="float: left;" type="submit">登录</button><?php echo Html::anchor('forgot', '忘记密码?', array('class' => 'fl' ,'style'=>'margin:2px 0px 0px 10px'));?>
+                </div>
+                </li>
             </ul>
         </form>
         <div class="register-box">
