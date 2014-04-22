@@ -729,20 +729,20 @@ table td p.tl{
     right: 10%;
 }
 .yinzhang1{
-    width: 93px;
-    height: 33px;
+    width:60px;
+    height: 60px;
     background: url("../images/yinzhang1.png") no-repeat;
     position: absolute;
-    right: -48px;
+    right: 0px;
     top: -18px;
 }
 .yinzhang2{
-    width: 94px;
-    height: 33px;
+    width: 60px;
+    height: 60px;
     background: url("../images/yinzhang2.png") no-repeat;
     position: absolute;
-    right:-70px;
-    top: 8px;
+    right: -70px;
+    top: -18px;
 }
 /*图片*/
 .img-box{
