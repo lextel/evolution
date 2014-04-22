@@ -122,7 +122,7 @@ class Controller_Items extends Controller_Frontend {
         return json_encode(['phases' => $phases, 'page' => Pagination::instance('mypagination')->render()]);
     }
 
-    // test
+    // 强制生成新一期
     public function action_addnew($id) {
         $item = Model_Item::find($id);
 
@@ -135,6 +135,21 @@ class Controller_Items extends Controller_Frontend {
         }
 
         return $res;
+    }
+
+    // 修复所有有问题期数数据
+    public function action_rebuild() {
+
+        $items = Model_Item::find('all');
+        foreach($items as $item) {
+            $phases = Model_Phase::find('all', ['where' => ['item_id', $item->id]]);
+            foreach($phases as $phase) {
+                if($phase->remain + $phase->joined != count(unserialize($phase->codes))) {
+                    echo sprintf('期数ID：%d 标题：%s数据有误1<hr/>', $phase->id, $phase->title);
+                }
+            }
+        }
+
     }
 
 }

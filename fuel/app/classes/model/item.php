@@ -673,7 +673,7 @@ class Model_Item extends \Classes\Model {
 
         $image = $post['images'][$post['index']];
         $item = Model_Item::find($id);
-        $oldSort = $item->sort;
+        $oldItem = ['sort' => $item->sort, 'price' => $item->price];  // 用于更新期数排序，同步编辑期数
 
         $desc = str_replace(Uri::create('upload/item/desc'), Config::get('image_server').'upload/item/desc', $post['desc']);
         $result = false;
@@ -690,27 +690,56 @@ class Model_Item extends \Classes\Model {
         if ($item->save()) {
             Model_Log::add('编辑商品 #' . $item->id);
 
-            // 编辑期同步更新期数信息 =============begins=================
-            // 已经揭晓
+            /*
+             * 编辑期同步更新期数信息 =============begins=================
+             *
+             * (不修改往期已经揭晓的期数)
+             *
+             */
             Config::load('common');
-            DB::update('phases')->value('title', $post['title'])
-                                ->value('cate_id', $post['cate_id'])
-                                ->value('brand_id', $post['brand_id'])
-                                ->value('image', $image)
-                                ->value('cost', $post['price'] * Config::get('point'))
-                                ->value('amount', $post['price'])
-                                ->where('item_id', $item->id)
-                                ->execute();
+            $phases = Model_Phase::find('all', ['select' => ['id', 'phase_id'], 'where' => ['item_id' => $item->id, 'opentime' => 0]]);
+            foreach($phases as $phase) {
+                $data = Model_Phase::find($phase->id);
+                $data->title    = $item->title;
+                $data->cate_id  = $item->cate_id;
+                $data->brand_id = $item->brand_id;
+                $data->image    = $item->image;
 
-            // 正在运行
-            $phase = Model_Phase::find('first', ['where' => ['item_id' => $item->id, 'opentime' => 0]]);
-            $phase->remain = $post['price'] - $phase->joined;
-            $phase->save();
+                /*
+                 * !!! 如果改了价格
+                 *
+                 * 需要重新生成期数的乐淘码，以及cost joined amount remain字段
+                 *
+                 */
+                $allow = true;
+                if($item->price != $oldItem['price']) {
+                    Session::set_flash('error', e($phase->id.'修改了价格'));
 
+                    /**先判断是否有订单，有订单不给改**/
+                    $order = Model_Order::find('first', ['where' => ['phase_id' => $phase->id]]);
+                    if(empty($order)) {
+                        $data->cost   = $item->price * Config::get('point');
+                        $data->amount = $item->price;
+                        $data->remain = $item->price;
+                        $data->joined = 0;
+
+                        // 重新生成codes
+                        $p = new Model_Phase();
+                        $codes = $p->_createCodes($item->price);
+                        $data->codes = serialize($codes);
+
+                    } else {
+                        $allow = false;
+                        Session::set_flash('error', e('本商品第'.$phase->phase_id.'期由于已经产生订单，不会更新本次修改的内容，下一期将会按本次编辑的内容生成期数。'));
+                    }
+                }
+
+                if($allow) $data->save();
+            }
             // =============ends===================
 
             // 更新正在进行的期数的排序
-            if($item->sort != $oldSort) {
+            if($item->sort != $oldItem['sort']) {
                 DB::update('phases')->value('sort', $post['sort'])
                                     ->where('item_id', $item->id)
                                     ->execute();
