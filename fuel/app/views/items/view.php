@@ -1,13 +1,14 @@
 <?php echo Asset::css(['product.css', 'jquery.jqzoom.css', 'customBootstrap.css', 'style.css']); ?>
 <?php echo Asset::js(['jquery.jqzoom-core.js', 'bootstrap.min.js','jquery.pin.js', 'Xslider.js' , 'item/view.js']); ?>
+<?php echo Asset::js(['jquery.validate.js','additional-methods.min.js']); ?>
 <div class="bread">
      <ul>
      <?php echo $getBread($item->phase);?>
      </ul>
 </div>
 <div class="periodList">
-<?php 
-$phasesList =$phases($item); 
+<?php
+$phasesList =$phases($item);
 if(is_array($phasesList)) {
     echo '<ul>';
     foreach($phasesList as $list) {
@@ -169,39 +170,36 @@ if(is_array($phasesList)) {
                         </table>
                     </div>
                     <div class="tab-pane" id="myBuy">
-                        <table>
-                            <tbody>
-                                <?php
-                                    if(!is_null($current_user)) :
-                                    if($myOrders):
-                                        foreach($myOrders as $myOrder):
-                                    ?>
-                                    <tr>
-                                        <td>
-                                            <div class="head-sm">
-                                                <a href="<?php echo Uri::create('u/'.$current_user->id); ?>">
-                                                    <img src="<?php echo \Helper\Image::showImage($current_user->avatar, '60x60');?>"/>
-                                                </a>
-                                            </div>
-                                        </td>
-                                        <td><?php echo $current_user->nickname; ?></td>
-                                        <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($myOrder->created_at); ?></b></td>
-                                        <td>乐淘了<s><?php echo $myOrder->code_count; ?></s>元宝</td>
-                                    </tr>
-                                <?php
-                                        endforeach;
-                                    else:
-                                    echo '<tr><td>暂时没有乐淘记录.</td></tr>';
-                                    endif;
-                                    else:
-                                ?>
-
-                            
-                         <form action="<?php echo Uri::create('signin'); ?>" method="post">
+                        <?php  if(!is_null($current_user)) { ?>
+                          <table>
+                              <tbody>
+                                  <?php  if($myOrders) { ?>
+                                        <?php foreach($myOrders as $myOrder)  { ?>
+                                        <tr>
+                                            <td>
+                                                <div class="head-sm">
+                                                    <a href="<?php echo Uri::create('u/'.$current_user->id); ?>">
+                                                        <img src="<?php echo \Helper\Image::showImage($current_user->avatar, '60x60');?>"/>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td><?php echo $current_user->nickname; ?></td>
+                                            <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($myOrder->created_at); ?></b></td>
+                                            <td>乐淘了<s><?php echo $myOrder->code_count; ?></s>元宝</td>
+                                        </tr>
+                                      <?php } ?>
+                                    <?php }else{ ?>
+                                      <?php echo '<tr><td>暂时没有乐淘记录.</td></tr>';?>
+                                    <?php }?>
+                                    </tbody>
+                                     </table>
+                          <?php }else{ ?>
+                         <form action="<?php echo Uri::create('signin'); ?>" class="signinfrom" method="post">
                                <dl class="inner-login" style="display: block;">
                                     <dt>请先登录</dt>
                                     <dd>
-                                          <input type="text"  placeholder="请输入注册邮箱" class="text" name="username">
+                                          <input type="text"  placeholder="请输入注册邮箱" class="text" id="username" name="username" />
+                                          
                                     </dd>
                                     <dd>
                                           <input type="password"   placeholder="请输入密码" class="password" name="password">
@@ -212,9 +210,7 @@ if(is_array($phasesList)) {
                                     </dd>
                                </dl>
                          </form>
-                         <?php endif; ?>
-                         </tbody>
-                        </table>
+                         <?php  } ?>
                     </div>
                     <div class="tab-pane" id="help">
                         <p>乐乐淘是指只需1元宝就有机会买到想要的商品。即每件商品被平分成若干“等份”出售，每份1元宝，
@@ -309,7 +305,45 @@ if(is_array($phasesList)) {
     PHASELOG_URL = '<?php echo Uri::create('l/phases'); ?>';
 </script>
 <script>
+$(function(){
     $(".sub-nav").pin({
         containerSelector: ".bd"
     })
+
+    jQuery.validator.addMethod("codemobile", function(value,element) {
+      var code = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+      var mobile = /^1[3,4,5,8][0-9]{9}$/
+      if(code.test(value) || mobile.test(value))
+        return true;
+      return false;
+    },"error zhanghao");
+
+    $(".signinfrom").validate({
+        rules:{
+            username:{
+                required:true,
+                codemobile:true
+            },
+            password:{
+                required:true,
+                rangelength:[6,18]
+            }
+        },
+        messages:{
+            username:{
+                required:"请输入注册手机/邮箱",
+                codemobile:"手机/邮箱格式不正确"
+            },
+            password:{
+                required:"请输入密码",
+                rangelength:"密码为6~18位数"
+            }
+        },
+        errorPlacement: function(error, element) {
+            error.css({"display":"inline-block","line-height":"29px"});
+            
+            error.appendTo(element.parent());
+        }
+    });
+});
 </script>

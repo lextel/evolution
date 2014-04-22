@@ -729,20 +729,23 @@ table td p.tl{
     right: 10%;
 }
 .yinzhang1{
-    width:60px;
-    height: 60px;
-    background: url("../images/yinzhang1.png") no-repeat;
     position: absolute;
-    right: 0px;
-    top: -18px;
+    right:-74px;
+    top: -10px;
+    background: url("../images/yinzhang1.png") no-repeat;
 }
 .yinzhang2{
-    width: 60px;
-    height: 60px;
-    background: url("../images/yinzhang2.png") no-repeat;
     position: absolute;
-    right: -70px;
-    top: -18px;
+    right: 0px;
+    top: -10px;
+    background: url("../images/yinzhang2.png") no-repeat;
+}
+.yinzhang1 ,.yinzhang2{
+    width:50px;
+    height: 45px;
+    padding: 15px 5px 0;
+    text-align: center;
+    color: #bb4c30;
 }
 /*图片*/
 .img-box{
@@ -1034,6 +1037,7 @@ table td p.tl{
 .pagination{
     overflow: hidden;
     clear: both;
+    margin-right:9px;
 }
 .pagination span{
     float: left;
@@ -1101,7 +1105,7 @@ table td p.tl{
     overflow: hidden;
     height: 30px;
     float: left;
-    margin: 0 5px;
+    margin: 0 12px;
 }
 .top-name{
     display: inline-block;
@@ -1161,6 +1165,10 @@ table td p.tl{
     text-align: center;
     background: #E5E5E5;
     border: 1px solid #d2d2d2;
+    margin-bottom: -1px;
+}
+.head-set li:last-child{
+    margin-bottom: 0px;
 }
 .head-set li a{
      display: block;
@@ -1329,7 +1337,7 @@ table td p.tl{
 .footer-wrapper{
     width: 980px;
     overflow: hidden;
-    margin: 10px auto 0;
+    margin: 10px auto 0 9px;
     background: #ffffff;
 }
 .footerWrap{
@@ -1882,7 +1890,7 @@ table td p.tl{
     margin: 0 0 10px 50px;
 }
 .inner-login dd{
-    text-align: center;
+
     height: 33px;
     line-height: 33px;
     margin-bottom: 15px;
@@ -1891,21 +1899,23 @@ table td p.tl{
     margin-bottom: 0;
 }
 .inner-login dd input.text{
-    width: 257px;
+    width: 210px;
     height: 33px;
     line-height: 33px;
     margin: 0;
     padding-left: 33px;
     border: 1px solid #d2d2d2;
+    margin-left:23.5%;
     background:url("../images/user-icon.png") no-repeat 4px 4px;
 }
 .inner-login dd input.password{
-    width: 257px;
+    width: 210px;
     height: 33px;
     line-height: 33px;
     margin: 0;
     padding-left: 33px;
     border: 1px solid #d2d2d2;
+    margin-left:23.5%;
     background:url("../images/user-pwd.png") no-repeat  4px 4px;
 }
 .inner-login dd .btn-rg{
@@ -2253,4 +2263,12 @@ a.Myahoo {
     border: 1px solid #D2D2D2;
     padding: 8px;
     float: left;
+}
+.jin{
+    margin:8px 5px 5px 5px;
+    vertical-align:top;
+}
+.yin{
+    margin:5px;
+    vertical-align:top;
 }
