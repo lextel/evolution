@@ -1882,7 +1882,7 @@ table td p.tl{
     margin: 0 0 10px 50px;
 }
 .inner-login dd{
-    text-align: center;
+
     height: 33px;
     line-height: 33px;
     margin-bottom: 15px;
@@ -1891,21 +1891,23 @@ table td p.tl{
     margin-bottom: 0;
 }
 .inner-login dd input.text{
-    width: 257px;
+    width: 210px;
     height: 33px;
     line-height: 33px;
     margin: 0;
     padding-left: 33px;
     border: 1px solid #d2d2d2;
+    margin-left:23.5%;
     background:url("../images/user-icon.png") no-repeat 4px 4px;
 }
 .inner-login dd input.password{
-    width: 257px;
+    width: 210px;
     height: 33px;
     line-height: 33px;
     margin: 0;
     padding-left: 33px;
     border: 1px solid #d2d2d2;
+    margin-left:23.5%;
     background:url("../images/user-pwd.png") no-repeat  4px 4px;
 }
 .inner-login dd .btn-rg{
