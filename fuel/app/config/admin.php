@@ -235,6 +235,7 @@ return [
          'action'=>[
             'index'=>10,
             'view'=>10,
+            'pass'=>10,
           ]
         ],
     ]
