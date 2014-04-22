@@ -122,7 +122,7 @@ class Controller_Items extends Controller_Frontend {
         return json_encode(['phases' => $phases, 'page' => Pagination::instance('mypagination')->render()]);
     }
 
-    // test
+    // 强制生成新一期
     public function action_addnew($id) {
         $item = Model_Item::find($id);
 
@@ -135,6 +135,57 @@ class Controller_Items extends Controller_Frontend {
         }
 
         return $res;
+    }
+
+    // 修复所有有问题期数数据
+    public function action_rebuild() {
+        set_time_limit(0);
+
+        $items = Model_Item::find('all');
+        foreach($items as $item) {
+            $delete = false;
+            $phases = Model_Phase::find('all', ['select' => ['codes', 'title', 'id', 'remain'], 'where' => ['item_id' => $item->id]]);
+            $ids = [0];
+            foreach($phases as $phase) {
+                if($phase->remain != count(unserialize($phase->codes))) {
+                    echo sprintf('期数ID：%d 标题：%s数据有误<br/>', $phase->id, $phase->title);
+                    $delete = true;
+                }
+                $ids[] = $phase->id;
+            }
+
+            if($delete) {
+
+                // 删除订单
+                $orders = Model_Order::find('all', ['select' => ['id'],'where' => [['phase_id', 'in', $ids]]]);
+                foreach($orders as $order) {
+                    $id = $order->id;
+                    $o = Model_Order::find($id);
+                    $o->delete();
+                    echo 'order_id: ' . $id;
+                    echo '<br/>';
+                }
+
+                // 删除期数
+                foreach($phases as $phase) {
+                    $id = $phase->id;
+                    $p = Model_Phase::find($id);
+                    $p->delete();
+                    echo 'phase_id: ' . $id;
+                    echo '<br/>';
+                }
+
+
+                // 加回一期
+                $p = new Model_Phase();
+                $p->add($item);
+
+                echo '<hr/>';
+            }
+
+        }
+
+        return 'ok';
     }
 
 }
