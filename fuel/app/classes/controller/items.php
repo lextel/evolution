@@ -142,7 +142,7 @@ class Controller_Items extends Controller_Frontend {
 
         $items = Model_Item::find('all');
         foreach($items as $item) {
-            $phases = Model_Phase::find('all', ['where' => ['item_id', $item->id]]);
+            $phases = Model_Phase::find('all', ['where' => ['item_id' => $item->id]]);
             foreach($phases as $phase) {
                 if($phase->remain + $phase->joined != count(unserialize($phase->codes))) {
                     echo sprintf('期数ID：%d 标题：%s数据有误1<hr/>', $phase->id, $phase->title);
