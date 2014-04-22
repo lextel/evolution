@@ -23,7 +23,7 @@
         </ul>
         <ul class="two">
             <li><a id="peri" href="javascript:;" class="peri"></a></li>
-            <li><a href="<?php echo Uri::create('/'); ?>" class="buy"></a></li>
+            <li><a href="<?php echo Uri::create('/'); ?>" class="buy" target="_blank"></a></li>
         </ul>
     </div>
 </div>
