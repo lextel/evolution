@@ -35,7 +35,6 @@ class Model_Member_Address extends \Classes\Model
         $val->add_field('city', '', 'required');
         $val->add_field('county', '', 'required');
         $val->add_field('address', '', 'required');
-        $val->add_field('postcode', '', 'required');
         $val->add_field('name', '', 'required');
         $val->add_field('phone', '', 'required');
         return $val;
