@@ -23,7 +23,7 @@
     <div class="top-nav">
         <div class="top-menu">
             <span class="<?php echo Classes\Qqonline::qqState() ? 'online' : 'offline';?>">
-                <a href="http://wpa.qq.com/msgrd?v=3&uin=2698744419&site=qq&menu=yes">在线客服</a>
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=2698744419&site=qq&menu=yes" target="_blank">在线客服</a>
             </span>
             <div class="divide-line">
             <?php if (!isset($current_user)) { ?>
@@ -176,7 +176,7 @@
     -->
     <div class="short-cut">
         <a  href="<?php echo Uri::create('cart/list'); ?>" class="item-cart"><s style=" <?php echo ($cartCount == 0) ? 'display: none' :'' ?>"><?php echo $cartCount; ?></s></a>
-        <a  href="http://wpa.qq.com/msgrd?v=3&uin=2698744419&site=qq&menu=yes" class="item-qq"></a>
+        <a  href="http://wpa.qq.com/msgrd?v=3&uin=2698744419&site=qq&menu=yes" target="_blank" class="item-qq"></a>
         <a  href="javascript:void(null)" onclick="addFavorite(window.location,document.title)"  class="item-love"></a>
         <a  href="javascript:void(null)" class="item-gotTop"></a>
     </div>
