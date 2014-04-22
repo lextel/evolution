@@ -6,8 +6,8 @@
      </ul>
 </div>
 <div class="periodList">
-<?php 
-$phasesList =$phases($item); 
+<?php
+$phasesList =$phases($item);
 if(is_array($phasesList)) {
     echo '<ul>';
     foreach($phasesList as $list) {
@@ -169,34 +169,30 @@ if(is_array($phasesList)) {
                         </table>
                     </div>
                     <div class="tab-pane" id="myBuy">
-                        <table>
-                            <tbody>
-                                <?php
-                                    if(!is_null($current_user)) :
-                                    if($myOrders):
-                                        foreach($myOrders as $myOrder):
-                                    ?>
-                                    <tr>
-                                        <td>
-                                            <div class="head-sm">
-                                                <a href="<?php echo Uri::create('u/'.$current_user->id); ?>">
-                                                    <img src="<?php echo \Helper\Image::showImage($current_user->avatar, '60x60');?>"/>
-                                                </a>
-                                            </div>
-                                        </td>
-                                        <td><?php echo $current_user->nickname; ?></td>
-                                        <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($myOrder->created_at); ?></b></td>
-                                        <td>乐淘了<s><?php echo $myOrder->code_count; ?></s>元宝</td>
-                                    </tr>
-                                <?php
-                                        endforeach;
-                                    else:
-                                    echo '<tr><td>暂时没有乐淘记录.</td></tr>';
-                                    endif;
-                                    else:
-                                ?>
-
-                            
+                        <?php  if(!is_null($current_user)) { ?>
+                          <table>
+                              <tbody>
+                                  <?php  if($myOrders) { ?>
+                                        <?php foreach($myOrders as $myOrder)  { ?>
+                                        <tr>
+                                            <td>
+                                                <div class="head-sm">
+                                                    <a href="<?php echo Uri::create('u/'.$current_user->id); ?>">
+                                                        <img src="<?php echo \Helper\Image::showImage($current_user->avatar, '60x60');?>"/>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td><?php echo $current_user->nickname; ?></td>
+                                            <td><!--s>(广东深圳市)</s--><b><?php echo $friendlyDate($myOrder->created_at); ?></b></td>
+                                            <td>乐淘了<s><?php echo $myOrder->code_count; ?></s>元宝</td>
+                                        </tr>
+                                      <?php } ?>
+                                    <?php }else{ ?>
+                                      <?php echo '<tr><td>暂时没有乐淘记录.</td></tr>';?>
+                                    <?php }?>
+                                    </tbody>
+                                     </table>
+                          <?php }else{ ?>
                          <form action="<?php echo Uri::create('signin'); ?>" method="post">
                                <dl class="inner-login" style="display: block;">
                                     <dt>请先登录</dt>
@@ -212,9 +208,7 @@ if(is_array($phasesList)) {
                                     </dd>
                                </dl>
                          </form>
-                         <?php endif; ?>
-                         </tbody>
-                        </table>
+                         <?php  } ?>
                     </div>
                     <div class="tab-pane" id="help">
                         <p>乐乐淘是指只需1元宝就有机会买到想要的商品。即每件商品被平分成若干“等份”出售，每份1元宝，
