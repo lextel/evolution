@@ -182,7 +182,7 @@ $(function(){
         return true;
       return false;
     },"error zhanghao");
-
+    
     $(".siginform").validate({
         rules:{
             username:{
