@@ -162,7 +162,7 @@ class Model_Order extends \Classes\Model
         $phase->joined = $phase->joined + $count;
 
         // 卖完
-        if($total == $count) {
+        if($total == $count && !empty($fetchCodes)) {
 
             // 期数开奖时间更新
             Config::load('common');
