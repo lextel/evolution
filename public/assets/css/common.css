@@ -728,21 +728,24 @@ table td p.tl{
     top:-10px;
     right: 10%;
 }
-.yinzhang1{
-    width:60px;
-    height: 60px;
-    background: url("../images/yinzhang1.png") no-repeat;
+.yinzhang{
     position: absolute;
-    right: 0px;
-    top: -18px;
+    right:-100px;
+    top: -10px;
+    background: url("../images/yinzhang.png") no-repeat;
 }
 .yinzhang2{
-    width: 60px;
-    height: 60px;
-    background: url("../images/yinzhang2.png") no-repeat;
     position: absolute;
-    right: -70px;
-    top: -18px;
+    right: 0px;
+    top: -10px;
+}
+.yinzhang ,.yinzhang2{
+    width:50px;
+    height: 50px;
+    padding: 20px 10px 0;
+    text-align: center;
+    color: #bb4c30;
+    background: url("../images/yinzhang.png") no-repeat;
 }
 /*图片*/
 .img-box{
@@ -1161,6 +1164,10 @@ table td p.tl{
     text-align: center;
     background: #E5E5E5;
     border: 1px solid #d2d2d2;
+    margin-bottom: -1px;
+}
+.head-set li:last-child{
+    margin-bottom: 0px;
 }
 .head-set li a{
      display: block;
