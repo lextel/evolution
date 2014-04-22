@@ -1037,6 +1037,7 @@ table td p.tl{
 .pagination{
     overflow: hidden;
     clear: both;
+    margin-right:9px;
 }
 .pagination span{
     float: left;

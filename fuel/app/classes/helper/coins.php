@@ -19,11 +19,11 @@ class Coins {
 
         $coins = '';
         if(!empty($gold))
-            $coins .= $gold . \Config::get('unit');
+            $coins .= \Config::get('unit') . $gold . \Config::get('unit2');
 
         if(!$onlyGold) {
             $silver = $points%$point;
-            $coins .= $silver . \Config::get('unit2');
+            $coins .= \Config::get('unit3') . $silver . \Config::get('unit4');
         }
 
         return $coins;
