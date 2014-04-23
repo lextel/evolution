@@ -7,7 +7,7 @@
     });
 </script>
 <div class="wrapper w">
-    <div class="title titlecontent">
+    <div class="titlecontent">
      <div class="bread">
         <ul>
             <li><a href="<?php echo Uri::create('/')?>">首页</a></li>
