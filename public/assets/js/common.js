@@ -66,12 +66,16 @@ $(document).ready(function(){
  *顶部设置鼠标滑过效果
  */
 $(function(){
-    $(".divide-line .info-wide").hover(
+
+    $(".info-wide .info-user").hover(
         function(){
+            $(".info-user a").toggleClass("open");
+            //$(".info-user .x").css("color","#C10101");
             $(this).children(".head-set").css({display:"block"})},
         function(){
+            $(".info-user a").toggleClass("open")
+            //$(".info-user .x").css("color","#666");
             $(this).children(".head-set").css({display:"none"})}
-
     );
 });
 /**
