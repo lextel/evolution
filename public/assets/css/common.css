@@ -1151,7 +1151,6 @@ table td p.tl{
 .head-set{
     position: absolute;
     top: 20px;
-    left: 68px;
     width: 100px;
     overflow: hidden;
     padding-top: 10px;
@@ -2263,9 +2262,9 @@ a.Myahoo {
 }
 .info-user a i{
     display: inline-block;
-    height: 30px;
+    height: 10px;
     width: 12px;
-    background: url("../images/Detailsbg.png") no-repeat 3px 5px;
+    background: url("../img/headbg11.png") no-repeat 3px -61px;
     vertical-align: middle;
 }
 .jin{

@@ -111,7 +111,8 @@ $(function(){
 
      //添加评论
      $(".btn-comment").click(function(){
-         var c = $.cookie('userlogin');
+         var c = $.cookie("userlogin");
+         alert(c);
          var ccomment = $.cookie('comment');
          if(c==true) {  
             if (ccomment == null || ccomment == ""){
