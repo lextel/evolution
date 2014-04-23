@@ -49,6 +49,12 @@
           </div>
         </div>
         <div class="form-group">
+          <label class="control-label col-sm-1" for="form_title">晒单奖励:</label>
+          <div class="col-sm-8">
+              <?php echo Form::input('post_point');?>
+          </div>
+        </div>
+        <div class="form-group">
           <label class="control-label col-sm-1" for="form_title">审核状态:</label>
           <div class="col-sm-8">
                 <div class="row">

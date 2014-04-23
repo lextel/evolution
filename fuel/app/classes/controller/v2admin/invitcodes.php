@@ -41,7 +41,8 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
         }
         //导入默认奖励配置
         Config::load('common');
-        $addPoints = Config::get('point') * Config::get('inviteCodeAddPoints');
+        //$addPoints = Config::get('point') * Config::get('inviteCodeAddPoints');
+        $addPoints = Config::get('inviteCodeAddPoints');
         $ids = [];
         for($i=0; $i<$num; $i++) {
             $code = Str::random('alnum', 8);
