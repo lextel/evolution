@@ -708,7 +708,7 @@ class Model_Item extends \Classes\Model {
                 /*
                  * !!! 如果改了价格
                  *
-                 * 需要重新生成期数的乐淘码，以及cost joined amount remain字段
+                 * 需要重新生成期数的礼品码，以及cost joined amount remain字段
                  *
                  */
                 $allow = true;

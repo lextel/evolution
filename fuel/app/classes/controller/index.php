@@ -60,13 +60,13 @@ class Controller_Index extends Controller_Frontend {
     }
 
     /**
-     * 验证邀请码
+     * 验证礼品码
      */
     public function action_checkInvitcode() {
 
         $config = Config::load('common');
 
-        $result = ['status' => 'n', 'info' => '邀请码不正确或已经使用'];
+        $result = ['status' => 'n', 'info' => '礼品码不正确或已经使用'];
         if($config['openInvitCode']) {
             $code =  Input::post('param');
             $codeModel = new Model_Invitcode();
