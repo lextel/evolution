@@ -1151,7 +1151,7 @@ table td p.tl{
 .head-set{
     position: absolute;
     top: 20px;
-    left: 0px;
+    left: 63px;
     width: 120px;
     overflow: hidden;
     padding-top: 10px;
@@ -2261,11 +2261,22 @@ a.Myahoo {
     padding: 8px;
     float: left;
 }
+.info-user a i{
+    display: inline-block;
+    height: 35px;
+    width: 15px;
+    background: url("../images/Detailsbg.png") no-repeat 3px 7px;
+    vertical-align: middle;
+}
 .jin{
-    margin:8px 5px 5px 5px;
-    vertical-align:top;
+    margin: 8px 5px 7px 0px;
+    vertical-align: top;
+    width: 17px;
+    height: 12px;
 }
 .yin{
-    margin:5px;
-    vertical-align:top;
+    margin: 6px 5px 7px 14px;
+    vertical-align: top;
+    width: 18px;
+    height: 16px;
 }

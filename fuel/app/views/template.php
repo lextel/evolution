@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title><?php echo $title?> - 独乐乐,不如众乐乐</title>
-    <?php echo Asset::css(['common.css', 'header.css']); ?>
+    <?php echo Asset::css(['common.css', 'header.css','product.css']); ?>
     <?php echo Asset::js(['jquery.min.js', 'common.js']); ?>
     <!--[if lt IE 10]>
     <?php echo Asset::js(['PIE.js']); ?>
@@ -32,18 +32,21 @@
                  <a href="<?php echo Uri::create('/signup'); ?>">注册</a>
             <?php }else {?>
                  <div class="info-wide">
-                     <img src="<?php echo \Helper\Image::showImage($current_user->avatar, '60x60');?>"/>
+                     <div style="float: left;padding: 0px 14px 0px 0px;"><img src="<?php echo \Helper\Image::showImage($current_user->avatar, '60x60');?>"/>
                      <s class="top-name"><?php echo Html::anchor('/u', $current_user->nickname);?></s>
-                     <ul class="head-set">
-                          <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐淘记录</a></li>
-                          <li><a href="<?php echo Uri::create('/u/wins'); ?>">获得的商品</a></li>
-                          <li><a href="<?php echo Uri::create('/u/getrecharge'); ?>">账户管理</a></li>
-                          <li><a href="<?php echo Uri::create('/u/profile'); ?>">个人设置</a></li>
-                          <li><?php echo Html::anchor('/signout', '退出', ['class'=>'logout'])?></li>
-                      </ul>
+                     </div>
+                     <div class="info-user" style="float: left;"><a class="x open">我的乐乐淘<i></i></a>
+                        <ul class="head-set">
+                              <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐淘记录</a></li>
+                              <li><a href="<?php echo Uri::create('/u/wins'); ?>">获得的商品</a></li>
+                              <li><a href="<?php echo Uri::create('/u/getrecharge'); ?>">账户管理</a></li>
+                              <li><a href="<?php echo Uri::create('/u/profile'); ?>">个人设置</a></li>
+                              <li><?php echo Html::anchor('/signout', '退出', ['class'=>'logout'])?></li>
+                        </ul>
+                     </div>
                  </div>
 
-                 <span style="color:#C10101;"><?php echo \Helper\Coins::showIconCoins($current_user->points);?></span>
+                 <span style="color:#C10101;margin:0px 4px 0px 14px"><?php echo \Helper\Coins::showIconCoins($current_user->points);?></span>
                  <?php if ($isnew) { ?>
                     <span><a href="<?php echo Uri::create('/u/message'); ?>">消息(<s class="r"><?php echo $isnew;?></s>)</a></span>
                  <?php } ?>
