@@ -3,7 +3,7 @@
         <div class="col-sm-3">
             <div class="input-group">
               <span class="input-group-addon">数量</span>
-              <input type="text" class="form-control" value="" id="num" placeholder="邀请码生成数量">
+              <input type="text" class="form-control" value="" id="num" placeholder="礼品码生成数量">
             </div>
         </div>
         <a class="btn btn-primary" id="create">生成</a>
@@ -17,7 +17,8 @@
     <thead>
         <tr>
             <th># ID</th>
-            <th width="45%">邀请码</th>
+            <th width="45%">礼品码</th>
+            <th width="10%">奖励价值/银币（点击可修改）</th>
             <th>状态</th>
             <th>操作</th>
         </tr>
@@ -27,6 +28,7 @@
           <tr>
             <td><?php echo $code->id; ?></td>
             <td><?php echo $code->code; ?></td>
+            <td <?php echo $code->status == 0 ? 'class="rewrite" iid="'.$code->id.'"' : '';?>><?php echo $code->award; ?></td>
             <td><?php echo $code->status == 1 ? '已使用' : '<span style="color:green">未使用</span>'; ?></td>
             <td>
             <?php echo Html::anchor('v2admin/invitcodes/delete/'.$code->id, '删除', array('onclick' => "return confirm('亲，确定删除么?')")); ?>
@@ -36,7 +38,7 @@
     </tbody>
 </table>
 <?php else: ?>
-<p style='text-align:center; padding: 40px'>还没有邀请码.</p>
+<p style='text-align:center; padding: 40px'>还没有礼品码.</p>
 <?php endif; ?>
 </div>
 <?php echo Pagination::instance('mypagination')->render();?>
@@ -44,8 +46,47 @@
     $(function(){
         $('#create').click(function(){
             var num = $('#num').val();
-            window.location.href = '<?php echo Uri::create('v2admin/invitcodes/create/')?>' + num
+            window.location.href = '<?php echo Uri::create('v2admin/invitcodes/create/')?>' + num;
         });
-    })
+    
+    
+        //获取class为caname的元素
+        $(".rewrite").click(function() {
+            var td = $(this);
+            var iid = td.attr('iid');
+            var txt = td.text();
+            var input = $("<input type='text' size='2' value='" + txt + "' />");
+            td.html(input);
+            input.click(function() { return false; });
+            //获取焦点
+            input.trigger("focus");
+            //文本框失去焦点后提交内容，重新变为文本
+            input.blur(function() {    
+                var newtxt = $(this).val();
+                //判断非负整数
+                if (!(/^[0-9]{0,5}$/.test(newtxt))){
+                    newtxt = 0;
+                    td.html(newtxt);
+                    return false;
+                }
+                //判断文本有没有修改
+                if (newtxt != txt) {                    
+                    //ajax发送信息
+                    $.post("/v2admin/invitcodes/modifyAward/"+iid, { "award": newtxt },
+                    function(data){
+                        if (data.code == 1){
+                            td.html(newtxt);
+                        }else{
+                            td.html(txt);
+                        }
+                        alert(data.msg);
+                    }, "json")
+                   
+                }else{
+                    td.html(txt);
+                }
+            });       
+        });
+    });
 </script>
 

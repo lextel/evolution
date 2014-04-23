@@ -27,7 +27,7 @@ return [
     'invitPercent' => 7,   // 消费回扣百分比  7 = 7%
 
     /**
-     * 乐淘码送元宝数量
+     * 礼品码送元宝数量
      */
     'inviteCodeAddPoints' => 10,  // 赠送元宝数量
 

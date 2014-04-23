@@ -36,7 +36,7 @@ return [
                 ['name' => '管理员列表', 'href' => Uri::create('/v2admin/users'), 'group'=>50],
                 ['name' => '会员列表', 'href' => Uri::create('/v2admin/members'), 'group'=>50],
                 ['name' => '冻结会员', 'href' => Uri::create('/v2admin/members/black'), 'group'=>50],
-                ['name' => '邀请码', 'href' => Uri::create('/v2admin/invitcodes'), 'group'=>50],
+                ['name' => '礼品码', 'href' => Uri::create('/v2admin/invitcodes'), 'group'=>50],
             ]
         ],
         [
@@ -149,6 +149,7 @@ return [
             'index'=>50,
             'create'=>50,
             'delete'=>50,
+            'modifyAward'=>50,
           ]
         ],
         ['controller'=>'Controller_V2admin_Items',

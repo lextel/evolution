@@ -1,9 +1,9 @@
 <div class="content-inner" style="min-height: 626px;">
         <!--乐淘记录开始-->
-        <div class="lead">乐淘码</div>
+        <div class="lead">礼品码</div>
         <div class="record-box" style="margin-top: 20px">
-            <span>乐淘码：</span>
-            <input type="text" id="code" style="height: 30px;border: 1px solid #D2D2D2;padding:0 5px" name="code" value="" placeholder="乐淘码">
+            <span>礼品码：</span>
+            <input type="text" id="code" style="height: 30px;border: 1px solid #D2D2D2;padding:0 5px" name="code" value="" placeholder="礼品码">
             <span style="margin-left: 15px">验证码：</span>
             <input id="captcha" maxlength="4" type="text" style="width: 80px;height: 30px;border: 1px solid #D2D2D2;padding: 0 5px" name="code" value="" placeholder="验证码">
             <img id="captcha_img" style="vertical-align: middle;margin-bottom: 2px;cursor: pointer;" src="" title="看不清？点击更换"/>
@@ -26,7 +26,7 @@ function getcaptcha(){
              var code    = $('#code').val();
              var captcha = $('#captcha').val();
              if(code.length < 1 || captcha.length < 1) {
-                alert('乐淘码或者验证码不能为空。');
+                alert('礼品码或者验证码不能为空。');
                 return false;
              }
              $.ajax({
