@@ -53,6 +53,7 @@
 .loginForm .loginBar li{
     width: 260px;
     overflow: hidden;
+    line-height:20px;
 }
 .loginForm .loginBar li .item{
     height: 67px;
@@ -1707,3 +1708,4 @@ label.error{
 .game-column ul li .lol-btn-sm{
     float: right;
 }
+
