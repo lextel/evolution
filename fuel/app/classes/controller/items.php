@@ -188,4 +188,18 @@ class Controller_Items extends Controller_Frontend {
         return 'ok';
     }
 
+    // 最新商品详情跳转
+    public function action_new($id = null) {
+        // 判定空
+        if (is_null($id)) return Response::redirect('m');
+        
+        $item = Model_Phase::find($id);
+        //判断 是否存在该ID的商品
+        if(empty($item)) return Response::redirect('m/1');
+        $item_id = $item->item_id;
+        //根据item_id获得最新的一期的商品详情
+        $newPhase = Model_Phase::find('last', ['select' => ['id'], 
+                        'where' => ['item_id'=>$item_id]]);
+        Response::redirect('m/'.$newPhase->id);
+    }
 }
