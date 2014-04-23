@@ -11,8 +11,11 @@ class AdLink
     public static function getItemId($url)
     {
 
+        preg_match("/m\/(\d+)\/new/i", $url, $itemId);
+        if ($itemId){
+            return $url;
+        }
         preg_match("/m\/(\d+)/i", $url, $itemId);
-
         if (empty($itemId)){
             return $url;
         }
