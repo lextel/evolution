@@ -823,15 +823,12 @@ table td p.tl{
     padding: 9px;
     overflow: hidden;
 }
-.titlecontent .bread{
-    margin:-15px 1px 2px -8px;
-}
 .titlecontent .title{
-    padding: 2px 0px 4px 3px;
+    padding: 0px 9px 9px 0px;
     overflow: hidden;
 }
 .left-content .title{
-    padding: 0px 9px 9px 9px;
+    padding: 0px 9px 9px 0px;
 }
 .title small{
     font-weight: normal;
@@ -1337,7 +1334,7 @@ table td p.tl{
 .footer-wrapper{
     width: 980px;
     overflow: hidden;
-    margin: 10px auto 0 9px;
+    margin: 10px auto;
     background: #ffffff;
 }
 .footerWrap{

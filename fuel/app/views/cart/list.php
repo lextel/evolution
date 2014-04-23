@@ -204,7 +204,6 @@
             },
             password:{
                 required:true,
-                rangelength:[6,18]
             }
         },
         messages:{
@@ -213,8 +212,7 @@
                 codemobile:"手机/邮箱格式错误"
             },
             password:{
-                required:"请输入密码",
-                rangelength:"密码为6~18位数"
+                required:"请输入密码"
             }
         },
         errorPlacement: function(error, element) {
