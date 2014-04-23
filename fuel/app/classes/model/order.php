@@ -198,6 +198,11 @@ class Model_Order extends \Classes\Model
 
             $root = realpath(DOCROOT . '../');
             file_put_contents($dir.$filename, 'sleep '.$sec.' && cd '. $root . ' && FUEL_ENV='.FUEL::$env.' php oil refine result ' . $phaseId . "\n");
+
+            $sleep = 5;  // 延时5秒再运行一次脚本
+            $filename = date('Y_m_d_H_i_s_', $time+$sleep) . $phaseId . '.cron';
+            $sec = $sec + $sleep;
+            file_put_contents($dir.$filename, 'sleep '.$sec.' && cd '. $root . ' && FUEL_ENV='.FUEL::$env.' php oil refine result ' . $phaseId . "\n");
         }
 
         $phase->save();
