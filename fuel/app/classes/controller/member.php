@@ -373,6 +373,7 @@ class Controller_Member extends Controller_Center{
         $codeModel = new Model_Invitcode();
         if($codeModel->check($code)) {
             $codeModel->used($this->current_user->id, $code);
+            
             return json_encode(['code' => 0]);
         }
 

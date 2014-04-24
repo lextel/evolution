@@ -96,6 +96,7 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
             $invitcode->save();
             $res['code'] = 1;
             $res['msg'] = '修改成功';
+            Model_Log::add('修改礼品码 #' . $id);
         } catch (Exception $e) {
             Log::error('修改奖励失败#'.$id.$e->getMessage());
             $res['msg'] = '修改失败';

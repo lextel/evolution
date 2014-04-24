@@ -57,8 +57,7 @@
         <div class="form-group">
           <label class="control-label col-sm-1" for="form_title">晒单奖励:</label>
           <div class="col-sm-2">
-              <?php echo Form::input('post_point', Input::post('post_point', isset($post) ? $post->post_point : '0'),
-                     ['class' => 'form-control', 'placeholder'=>'晒单奖励']); ?><em>银币</em>
+              <?php echo $post->post_point ? $post->post_point : Config::get('always'); ?>银币
           </div>
         </div>
         <div class="form-group">
@@ -71,7 +70,7 @@
                     </select>
                 </div>
                 <div class="row">
-                    <textarea class="form-control" placeholder='不通过理由' name="reason"></textarea>
+                    <?php echo Form::textarea("reason", $post->reason, ['class'=>'form-control', 'placeholder'=>'不通过理由']);?>
                 </div>
           </div>
         </div>
@@ -79,7 +78,7 @@
         <div class="form-group">
             <label class="control-label col-sm-1">&nbsp;</label>
             <div class="col-sm-8">
-                <button type="submit" class="btn">提交</button>
+                <button type="submit" class="btn btn-info">提交</button>
             </div>
         </div>
     </fieldset>
