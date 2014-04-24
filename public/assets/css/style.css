@@ -1456,6 +1456,9 @@ label.error{
     font-size: 14px;
     max-width: 325px;
     float: left;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 .column-hero dl dd .tit span{
     margin-left: 10px;
