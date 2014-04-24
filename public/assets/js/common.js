@@ -66,12 +66,16 @@ $(document).ready(function(){
  *顶部设置鼠标滑过效果
  */
 $(function(){
-    $(".divide-line .info-wide").hover(
+
+    $(".info-wide .info-user").hover(
         function(){
+            $(".info-user a").toggleClass("open");
+            //$(".info-user .x").css("color","#C10101");
             $(this).children(".head-set").css({display:"block"})},
         function(){
+            $(".info-user a").toggleClass("open")
+            //$(".info-user .x").css("color","#666");
             $(this).children(".head-set").css({display:"none"})}
-
     );
 });
 /**
@@ -355,7 +359,7 @@ function initDesc() {
     var addtion = '';
 
     // 获取参与者队列
-    $(document).queue("ajaxRequests", function(){  
+    $(document).queue("ajaxRequests", function(){
         var phaseId = $('a[href="#buylog"]').attr('phaseId');
         $.ajax({
             url: BUYLOG_URL,
@@ -374,13 +378,13 @@ function initDesc() {
                 }
                 addtion += data.page.replace(/joined/g, 'descJoined');
                 addtion += '<div style="clear:both"></div></div>';
-                $(document).dequeue("ajaxRequests"); 
+                $(document).dequeue("ajaxRequests");
             }
         });
     });
 
     // 获取晒单队列
-    $(document).queue("ajaxRequests", function(){  
+    $(document).queue("ajaxRequests", function(){
         var itemId = $('a[href="#posts"]').attr('itemId');
         $.ajax({
             url: POSTLOG_URL,
@@ -404,7 +408,7 @@ function initDesc() {
         });
     });
 
-    $(document).dequeue("ajaxRequests"); 
+    $(document).dequeue("ajaxRequests");
 }
 
 // 详情参与者切页
@@ -499,7 +503,7 @@ function phases(page) {
     });
 }
 
-// 
+//
 function handleJoined(data, needReturn) {
     var bool = !jQuery.isEmptyObject(data.orders);
     if(bool) {
@@ -777,6 +781,7 @@ $(function(){
 
     text.focus(function(){
         var c = $.cookie('userlogin');
+        console.log($.cookie());
         if (c!=true){
              $(".login2").fadeIn("fast");
              $("body").append("<div id='greybackground'></div>");
@@ -842,7 +847,7 @@ $(function(){
 **/
 $(function(){
     $(".tooltip").click(function(){
-          var num_list=$(this).next(".num-list");
+          var num_list=$(this).next("#num-list");
            if(num_list.css("display")=="none"){
               num_list.css({display:"block"});
            }

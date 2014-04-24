@@ -5,14 +5,14 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
     public function action_index() {
 
         $breads = [
-                ['name' => '用户管理'], 
-                ['name' => '邀请码'],
+                ['name' => '用户管理'],
+                ['name' => '礼品码'],
             ];
 
         $codeModel = new Model_Invitcode();
         $total = $codeModel->countCode();
         $page = new \Helper\Page();
-        $url = Uri::create('v2admin/invitcodes'); 
+        $url = Uri::create('v2admin/invitcodes');
 
         $config = $page->setConfig($url, $total, 'page');
         $pagination = Pagination::forge('mypagination', $config);
@@ -27,11 +27,11 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
         $view->set('codes', $codes);
         $view->set('pagination', $pagination);
         $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
-        $this->template->title = "用户管理 > 邀请码";
+        $this->template->title = "用户管理 > 礼品码";
         $this->template->content = $view;
     }
 
-    // 生成邀请码
+    // 生成礼品码
     public function action_create($num = 0) {
 
         if(empty($num) || !preg_match('/^\d+$/', $num)) {
@@ -39,8 +39,9 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
 
             Response::redirect('v2admin/invitcodes');
         }
-
-
+        //导入默认奖励配置
+        Config::load('common');
+        $addPoints = Config::get('point') * Config::get('inviteCodeAddPoints');
         $ids = [];
         for($i=0; $i<$num; $i++) {
             $code = Str::random('alnum', 8);
@@ -49,6 +50,7 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
                 'member_id' => 0,
                 'status' => 0,
                 'is_delete' => 0,
+                'award' => $addPoints,
                 ];
 
             $code = new Model_Invitcode($data);
@@ -56,13 +58,13 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
             $ids[] = $code->id;
         }
 
-        Model_Log::add('生成邀请码 #ID:' . implode(',', $ids));
+        Model_Log::add('生成礼品码 #ID:' . implode(',', $ids));
         Session::set_flash('success', e('生成成功'));
         Response::redirect('v2admin/invitcodes');
 
     }
 
-    // 删除邀请码
+    // 删除礼品码
     public function action_delete($id = null) {
 
         $invitcodeModel = new Model_Invitcode();
@@ -74,6 +76,32 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
 
         Response::redirect('v2admin/invitcodes');
     }
+    
+    // 修改礼品码的奖励
+    public function action_modifyAward($id = null) {
+        $res = ['code'=>0, 'msg'=>'数据为空'];
+        //检测空
+        if (is_null($id)) return json_encode($res);
+        $invitcode = Model_Invitcode::find('first', ['where' => ['is_delete' => 0, 'id'=>$id]]);
+        if (empty($invitcode)) return json_encode($res);
+        //检测格式        
+        $val = Validation::forge();
+        $val->add_field('award', 'award', 'required|valid_string[numeric]');
+        if (!$val->run()) return json_encode($res);
+        //保存更新
+        $award = Input::post('award', 0);
+        try{
+            $invitcode->award = $award;
+            $invitcode->save();
+            $res['code'] = 1;
+            $res['msg'] = '修改成功';
+        } catch (Exception $e) {
+            Log::error('修改奖励失败#'.$id.$e->getMessage());
+            $res['msg'] = '修改失败';
+        }
+        return json_encode($res);
+    }
+
 
 
 }

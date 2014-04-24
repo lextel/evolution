@@ -5,7 +5,7 @@
         <ul class="rslides f426x240 bxslider">
             <?php foreach($ads() as $ad) { ?>
             <li>
-                <a href="<?php echo Uri::create($ad->link); ?>" title="<?php echo $ad->title?>" target="_blank">
+                <a href="<?php echo Uri::create(\Classes\AdLink::getItemId($ad->link)); ?>" title="<?php echo $ad->title?>" target="_blank">
                     <img src="<?php echo \Helper\Image::showImage($ad->image);?>"/>
                 </a>
             </li>

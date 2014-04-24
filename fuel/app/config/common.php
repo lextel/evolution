@@ -15,9 +15,9 @@ return [
      * @var 积分单位
      */
 
-    'unit'     => '<img src="/assets/img/jinbi.png">',
+    'unit'     => '<img class="jin" src="/assets/img/jinbi.png">',
     'unit2'     => '元宝',
-    'unit3'    => '<img src="/assets/img/yinbi.png">',
+    'unit3'    => '<img class="yin" src="/assets/img/yinbi.png">',
     'unit4'     => '银币',
 
     /**
@@ -27,7 +27,7 @@ return [
     'invitPercent' => 7,   // 消费回扣百分比  7 = 7%
 
     /**
-     * 乐淘码送元宝数量
+     * 礼品码送元宝数量
      */
     'inviteCodeAddPoints' => 10,  // 赠送元宝数量
 

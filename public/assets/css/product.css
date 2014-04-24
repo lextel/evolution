@@ -1330,6 +1330,9 @@
 .open i{
     background-position:-10px 7px;
 }
+.info-user .open i{
+    background-position: 3px -71px;
+}
 .arrow-menu{
     height: 28px;
     width:48px;

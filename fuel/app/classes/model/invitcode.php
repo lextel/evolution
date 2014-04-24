@@ -7,6 +7,7 @@ class Model_Invitcode extends \Orm\Model
         'code',
         'status',
         'member_id',
+        'award',
         'is_delete',
         'created_at',
         'updated_at',
@@ -44,9 +45,9 @@ class Model_Invitcode extends \Orm\Model
 
         return Model_Invitcode::find('all', ['where' => ['is_delete' => 0], 'offset' => $offset, 'limit' => $pagesize, 'order_by' => ['status' => 'asc', 'id' => 'desc'] ]);
     }
-    
+
     /**
-     * 邀请码删除
+     * 礼品码删除
      *
      * @param $id integer 商品ID
      *
@@ -59,7 +60,7 @@ class Model_Invitcode extends \Orm\Model
             $code->is_delete = 1;
             $code->save();
 
-            Model_Log::add('删除邀请码 #' . $code->id);
+            Model_Log::add('删除礼品码 #' . $code->id);
 
             $result = true;
         }
@@ -68,10 +69,10 @@ class Model_Invitcode extends \Orm\Model
     }
 
     /**
-     * 验证邀请码是否可用
+     * 验证礼品码是否可用
      *
-     * @param $code string 邀请码
-     * 
+     * @param $code string 礼品码
+     *
      * @return boolean 是否可用
      */
     public function check($code) {
@@ -79,7 +80,7 @@ class Model_Invitcode extends \Orm\Model
     }
 
     /**
-     * 使用邀请码
+     * 使用礼品码
      *
      * @param $member_id int
      * @param $code      string
@@ -88,9 +89,9 @@ class Model_Invitcode extends \Orm\Model
      */
     public function used($member_id, $code) {
 
-        Config::load('common');
+        //Config::load('common');
 
-        $addPoints = Config::get('point') * Config::get('inviteCodeAddPoints');
+        //$addPoints = Config::get('point') * Config::get('inviteCodeAddPoints');
 
         $code = Model_Invitcode::find('first', ['where' => ['code' => $code]]);
 
@@ -99,7 +100,8 @@ class Model_Invitcode extends \Orm\Model
         $code->save();
 
         $member = Model_Member::find($member_id);
-        $member->points = $member->points + $addPoints;
+        //$member->points = $member->points + $addPoints;
+        $member->points = $member->points + $code->award;
         $member->save();
     }
 }

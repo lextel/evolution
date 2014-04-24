@@ -49,11 +49,14 @@
                    <s class="icon-password"></s>
                    <!--<span class="Validform_checktip"></span>-->
                 </li>
-                <li><?php echo Html::anchor('forgot', '忘记密码?', array('class' => 'fr'));?></li>
-                <li><button class="login btn-l" type="submit">登录</button></li>
+                <li>
+                <div style="margin-left:26%;clear:both;zoom:1;">
+                    <button class="login btn-l" style="float: left;" type="submit">登录</button><?php echo Html::anchor('forgot', '忘记密码?', array('class' => '' ,'style'=>'margin:2px 0px 0px 10px'));?>
+                </div>
+                </li>
             </ul>
         </form>
-        <div class="register-box">
+        <div class="register-box" style="text-align:center">
             <p>还不是乐淘用户？马上注册吧</p>
             <?php echo Html::anchor('signup', '快速注册', array('class'=>'btn-r signup'));?>
         </div>
@@ -98,8 +101,7 @@ $(function(){
                 codemobile:true
             },
             password:{
-                required:true,
-                rangelength:[6,18]
+                required:true
             }
         },
         messages:{
@@ -108,8 +110,7 @@ $(function(){
                 codemobile:"手机/邮箱格式不正确"
             },
             password:{
-                required:"请输入密码",
-                rangelength:"密码为6~18位数"
+                required:"请输入密码"
             }
         },
         errorPlacement: function(error, element) {

@@ -826,15 +826,12 @@ table td p.tl{
     padding: 9px;
     overflow: hidden;
 }
-.titlecontent .bread{
-    margin:-15px 1px 2px -8px;
-}
 .titlecontent .title{
-    padding: 2px 0px 4px 3px;
+    padding: 0px 9px 9px 0px;
     overflow: hidden;
 }
 .left-content .title{
-    padding: 0px 9px 9px 9px;
+    padding: 0px 9px 9px 0px;
 }
 .title small{
     font-weight: normal;
@@ -871,7 +868,7 @@ table td p.tl{
     text-overflow: ellipsis;
     color: #666;
 }
-.title-sm a{ 
+.title-sm a{
     color: #757575;
 }
 .title-mx{
@@ -1101,7 +1098,7 @@ table td p.tl{
 .divide-line{
     float: right;
     height: 30px;
-    max-width: 350px;
+    max-width: 450px;
 }
 .divide-line span{
     display: inline-block;
@@ -1157,12 +1154,11 @@ table td p.tl{
 .head-set{
     position: absolute;
     top: 20px;
-    left: 0px;
-    width: 120px;
+    width: 100px;
     overflow: hidden;
     padding-top: 10px;
     display: none;
-    z-index: 999;
+    z-index: 9999;
 }
 .head-set li{
     text-align: center;
@@ -1340,7 +1336,7 @@ table td p.tl{
 .footer-wrapper{
     width: 980px;
     overflow: hidden;
-    margin: 10px auto 0;
+    margin: 10px auto;
     background: #ffffff;
 }
 .footerWrap{
@@ -2266,4 +2262,23 @@ a.Myahoo {
     border: 1px solid #D2D2D2;
     padding: 8px;
     float: left;
+}
+.info-user a i{
+    display: inline-block;
+    height: 10px;
+    width: 12px;
+    background: url("../img/headbg11.png") no-repeat 3px -61px;
+    vertical-align: middle;
+}
+.jin{
+    margin: 8px 5px 7px 0px;
+    vertical-align: top;
+    width: 17px;
+    height: 12px;
+}
+.yin{
+    margin: 6px 5px 7px 14px;
+    vertical-align: top;
+    width: 18px;
+    height: 16px;
 }

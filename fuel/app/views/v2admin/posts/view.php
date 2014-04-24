@@ -42,7 +42,8 @@
               <div class="checkbox">
                 <label>
                   <?php Config::load('post');?>
-                  <input type="checkbox" name="award">奖励商品总价值<?php echo Config::get('percent');?>%
+                  <?php echo Form::checkbox('award', '1', $post->award ? true : false);?>
+                  奖励商品总价值<?php echo Config::get('percent');?>%
                 </label>
               </div>
           </div>

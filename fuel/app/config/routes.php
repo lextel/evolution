@@ -98,6 +98,7 @@ return array(
     'm/search/:title/p/:page' => 'items/search',
     'm/search/:title' => 'items/search',
     'm/(\d+)' => 'items/view/$1',
+    'm/(\d+)/new' => 'items/new/$1',
     'm' => 'items/index',
     'm/p/:page' => 'items/index',
     'm/c/:cate_id/b/:brand_id/s/:sort/p/:page' => 'items/index',

@@ -53,6 +53,7 @@
 .loginForm .loginBar li{
     width: 260px;
     overflow: hidden;
+    line-height:20px;
 }
 .loginForm .loginBar li .item{
     height: 67px;
@@ -900,6 +901,15 @@ label.error{
     height: 33px;
     line-height: 33px;
     display: inline-block;
+    text-align: right;
+    width: 150px;
+    font-size: 14px;
+    float: left;
+}
+.edit-data li label.error{
+    height: 33px;
+    line-height: 33px;
+    display: inline-block;
     text-align: left;
     width: 150px;
     font-size: 14px;
@@ -1707,7 +1717,4 @@ label.error{
 .game-column ul li .lol-btn-sm{
     float: right;
 }
-.yin{
-    position:absolute;
-    margin-top:5px;
-}
+

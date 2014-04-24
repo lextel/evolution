@@ -122,7 +122,7 @@ class Controller_Items extends Controller_Frontend {
         return json_encode(['phases' => $phases, 'page' => Pagination::instance('mypagination')->render()]);
     }
 
-    // test
+    // 强制生成新一期
     public function action_addnew($id) {
         $item = Model_Item::find($id);
 
@@ -137,4 +137,69 @@ class Controller_Items extends Controller_Frontend {
         return $res;
     }
 
+    // 修复所有有问题期数数据
+    public function action_rebuild() {
+        set_time_limit(0);
+
+        $items = Model_Item::find('all');
+        foreach($items as $item) {
+            $delete = false;
+            $phases = Model_Phase::find('all', ['select' => ['codes', 'title', 'id', 'remain'], 'where' => ['item_id' => $item->id]]);
+            $ids = [0];
+            foreach($phases as $phase) {
+                if($phase->remain != count(unserialize($phase->codes))) {
+                    echo sprintf('期数ID：%d 标题：%s数据有误<br/>', $phase->id, $phase->title);
+                    $delete = true;
+                }
+                $ids[] = $phase->id;
+            }
+
+            if($delete) {
+
+                // 删除订单
+                $orders = Model_Order::find('all', ['select' => ['id'],'where' => [['phase_id', 'in', $ids]]]);
+                foreach($orders as $order) {
+                    $id = $order->id;
+                    $o = Model_Order::find($id);
+                    $o->delete();
+                    echo 'order_id: ' . $id;
+                    echo '<br/>';
+                }
+
+                // 删除期数
+                foreach($phases as $phase) {
+                    $id = $phase->id;
+                    $p = Model_Phase::find($id);
+                    $p->delete();
+                    echo 'phase_id: ' . $id;
+                    echo '<br/>';
+                }
+
+
+                // 加回一期
+                $p = new Model_Phase();
+                $p->add($item);
+
+                echo '<hr/>';
+            }
+
+        }
+
+        return 'ok';
+    }
+
+    // 最新商品详情跳转
+    public function action_new($id = null) {
+        // 判定空
+        if (is_null($id)) return Response::redirect('m');
+        //判断 是否存在该ID的商品
+        $item = Model_Phase::find($id);       
+        if(empty($item)) return Response::redirect('m/1');
+        
+        $item_id = $item->item_id;
+        //根据item_id获得最新的一期的商品详情
+        $newPhase = Model_Phase::find('last', ['select' => ['id'], 
+                        'where' => ['item_id'=>$item_id]]);
+        Response::redirect('m/'.$newPhase->id);
+    }
 }

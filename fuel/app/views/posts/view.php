@@ -151,7 +151,6 @@
                <div><?php echo Html::anchor('u/'.$npost->member_id, $npostMembers[$npost->member_id]->nickname, ['class'=>'peoplenamea']);?>
                <s class="datetime"><?php echo \Helper\Timer::friendlyDate($npost->created_at); ?></s>
                </div>
-
                <div class="content-md">
                     <?php echo Html::anchor('p/'.$npost->id, mb_substr($npost->desc, 0, 100,'utf-8')); ?>
                </div>
@@ -182,7 +181,7 @@ $(function(){
         return true;
       return false;
     },"error zhanghao");
-    
+
     $(".siginform").validate({
         rules:{
             username:{
@@ -190,8 +189,7 @@ $(function(){
                 codemobile:true
             },
             password:{
-                required:true,
-                rangelength:[6,18]
+                required:true
             }
         },
         messages:{
@@ -200,8 +198,7 @@ $(function(){
                 codemobile:"手机/邮箱格式不正确"
             },
             password:{
-                required:"请输入密码",
-                rangelength:"密码为6~18位数"
+                required:"请输入密码"
             }
         },
         errorPlacement: function(error, element) {

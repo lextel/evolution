@@ -45,6 +45,7 @@ $(function(){
                 <?php if (Input::param('active')=='0' or Input::param('active')==null ) { ?>
                 <?php echo Html::anchor('v2admin/posts/view/'.$item->id, '审核'); ?>
                 <?php }elseif(Input::param('active')=='1') { ?>
+                <?php echo Html::anchor('v2admin/posts/view/'.$item->id, '编辑', ['target'=>'_blank']); ?> |
                 <?php echo Html::anchor('p/'.$item->id, '详情', ['target'=>'_blank']); ?>
                 <?php }else{ ?>
                 <?php }?>
