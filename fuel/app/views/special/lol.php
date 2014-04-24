@@ -17,7 +17,7 @@
 </style>
 <div class="lol-hd">
     <div class="lol-nav">
-        <ul class="one">
+        <ul class="one01">
             <li><a id="hero" href="javascript:;" class="hero"></a></li>
             <li><a id="skin" href="javascript:;" class="skin"></a></li>
         </ul>
