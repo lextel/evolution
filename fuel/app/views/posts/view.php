@@ -28,8 +28,8 @@
                    <span class="number">共乐淘：<b><?php echo $getPhase($post->phase_id)->code_count;?></b> 元宝</span>
                    <span class="number">幸运乐淘码：<b><?php echo $getPhase($post->phase_id)->code;?></b></span>
                    <span class="datetime">揭晓时间：<s><?php echo date('Y-m-d H:i:s', $getPhase($post->phase_id)->opentime);?></s></span>
-                   <div class="yinzhang1"></div>
-                   <div class="yinzhang2"></div>
+                   <div class="reward rwd01"></div>
+                   <div class="reward rwd02"></div>
                </div>
            </li>
            <li>
