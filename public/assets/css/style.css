@@ -901,6 +901,15 @@ label.error{
     height: 33px;
     line-height: 33px;
     display: inline-block;
+    text-align: right;
+    width: 150px;
+    font-size: 14px;
+    float: left;
+}
+.edit-data li label.error{
+    height: 33px;
+    line-height: 33px;
+    display: inline-block;
     text-align: left;
     width: 150px;
     font-size: 14px;

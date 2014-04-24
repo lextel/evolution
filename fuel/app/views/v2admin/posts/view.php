@@ -53,7 +53,7 @@
               </div>
           </div>
         </div>
-        <?php if($post->status == 0) { ?>
+        
         <div class="form-group">
           <label class="control-label col-sm-1" for="form_title">晒单奖励:</label>
           <div class="col-sm-2">
@@ -75,7 +75,7 @@
                 </div>
           </div>
         </div>
-        <?php } ?>
+        
         <div class="form-group">
             <label class="control-label col-sm-1">&nbsp;</label>
             <div class="col-sm-8">

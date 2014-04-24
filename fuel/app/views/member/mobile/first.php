@@ -19,7 +19,7 @@
         </div>
         <div class="row">
             <!--a href="javascript:void(0)" class="btn btn-red btn-sx mobile-next">下一步</a-->
-            <button class="btn btn-red btn-sx mobile-next" type="submit">下一步</button>
+            <button class="btn btn-red btn-sx mobile-next" type="submit" style="margin-left:140px">下一步</button>
         </div>
     <?php echo Form::close();?>
 </div>

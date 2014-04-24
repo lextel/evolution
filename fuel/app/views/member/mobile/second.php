@@ -7,22 +7,22 @@
     </div>
     <div class="prompt-bar">
         <s class="icon-plaint"></s>
-        请完成手机验证，验证手机不仅能加强账户安全，快速找回密码，还会在您成功云购到商品后及时通知您！
+        请完成手机验证，验证手机不仅能加强账户安全，快速找回密码，还会在您成功乐淘到商品后及时通知您！
     </div>
     <?php echo Form::open(['action'=>'u/mobile/check', 'class'=>"verifyForm"]);?>
         
         <div class="row" style="margin-bottom:5px;">
-            <label for="" class="fl">您的手机号码：</label>
+            <label for="" class="fl" style="width:110px">您的手机号码：</label>
             <span class="phone_num"><?php echo $mobile?><input type="hidden" name="mobile" value="<?php echo $mobile;?>"></span>
         </div>
         <div class="row">
-            <input class="btn btn-code get_code fl" type="button" value="获取验证码" />
+            <input class="btn btn-code get_code fl" type="button" style="margin-left:110px" value="获取验证码" />
         </div>
         <div class="row">
-            <label for="" class="fl">输入验证码：</label><input name="code" class="txt fl"/>
+            <label for="" class="fl" style="width:110px">输入验证码：</label><input name="code" class="txt fl"/>
         </div>
         <div class="row">
-            <button class="btn btn-red btn-sx btn-submit" id="submitID">提交</button>
+            <button class="btn btn-red btn-sx btn-submit" id="submitID" style="margin-left:110px">提交</button>
             <button class="btn btn-sx btn-gr btn-chance" id="chance" style="margin-left:10px;">返回</button>
         </div>
         <div class="row">

@@ -28,12 +28,13 @@
                    <span class="number">共乐淘：<b><?php echo $getPhase($post->phase_id)->code_count;?></b> 元宝</span>
                    <span class="number">幸运乐淘码：<b><?php echo $getPhase($post->phase_id)->code;?></b></span>
                    <span class="datetime">揭晓时间：<s><?php echo date('Y-m-d H:i:s', $getPhase($post->phase_id)->opentime);?></s></span>
-                   <?php if ($post->post_point != '0'){?>
-                        <div class="yinzhang1"></div>
+                   <?php if ($post->post_point) { ?>
+                    <div class="reward rwd01"><?php echo $post->post_point;?></div>
+                    <?php if ($post->award) { ?>
+                        <div class="reward rwd02"><?php echo $post->award_point;?></div>
+                    <?php } ?>
                    <?php } ?>
-                   <?php if ($post->award == '1'){?>
-                        <div class="yinzhang2"></div>
-                   <?php } ?>
+                   
                </div>
            </li>
            <li>

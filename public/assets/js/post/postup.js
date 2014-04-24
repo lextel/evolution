@@ -151,8 +151,7 @@ $(function(){
 
      //添加评论
      $(".btn-comment").click(function(){
-         var c = $.cookie("userlogin");
-         
+         var c = $.cookie('userlogin');
          var ccomment = $.cookie('comment');
          if(c==true) {  
             if (ccomment == null || ccomment == ""){
@@ -198,16 +197,5 @@ $(function(){
      if (postid!=undefined){
          getCommentList('/comment/'+postid+'/p/1');
      }
-
-
-    //奖励HOVER效果
-    /*$('.yinzhang1').hover(function(){
-        function() {
-            
-        }, function() {
-            
-        }
-    });*/
-    
 });
 
