@@ -1395,7 +1395,7 @@ label.error{
     width: 170px;
     height: 75px;
 }
-.lol-nav .one{
+.lol-nav .one01{
     float: left;
 }
 .lol-nav .two{
@@ -1456,6 +1456,9 @@ label.error{
     font-size: 14px;
     max-width: 325px;
     float: left;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 .column-hero dl dd .tit span{
     margin-left: 10px;
@@ -1504,6 +1507,9 @@ label.error{
     line-height: 40px;
     text-align:center;
     font-size: 14px;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 .column-skin dd .fd-col{
     height: 60px;
