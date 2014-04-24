@@ -1504,6 +1504,9 @@ label.error{
     line-height: 40px;
     text-align:center;
     font-size: 14px;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 .column-skin dd .fd-col{
     height: 60px;
