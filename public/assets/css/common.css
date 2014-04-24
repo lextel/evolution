@@ -1095,7 +1095,7 @@ table td p.tl{
 .divide-line{
     float: right;
     height: 30px;
-    max-width: 350px;
+    max-width: 450px;
 }
 .divide-line span{
     display: inline-block;

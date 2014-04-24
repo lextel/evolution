@@ -54,7 +54,7 @@
                 
             </li>
             <li>
-                <button id="sub" class="btn btn-red btn-md">提交信息</button>
+                <button id="sub" class="btn btn-red btn-md" style="margin-left:150px">提交信息</button>
             </li>
         </ul>
         <?php echo Form::close();?>
