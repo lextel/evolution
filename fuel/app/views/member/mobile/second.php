@@ -17,6 +17,7 @@
         </div>
         <div class="row">
             <input class="btn btn-code get_code fl" type="button" style="margin-left:110px" value="获取验证码" />
+            <span id="errorinfo" class="fl"></span>
         </div>
         <div class="row">
             <label for="" class="fl" style="width:110px">输入验证码：</label><input name="code" class="txt fl"/>
@@ -43,11 +44,11 @@ $(function(){
             window.clearInterval(InterValObj);//停止计时器
             $(".get_code").removeAttr("disabled");//启用按钮
             $(".get_code").val("重新获取密码");
-            $(".verification").html('');
+            $("#errorinfo").html('');
         }
         else {
             curCount--;
-            $(".verification").html("请在" + curCount + "秒内输入密码");
+            $("#errorinfo").html("请在" + curCount + "秒内输入密码");
         }
     }
     //$(".btn-submit").click(function(){
@@ -64,23 +65,23 @@ $(function(){
 		    dataType:"json",
 		    beforeSend: function(){
 			    //ShowLoading();			    
-			    $('.verification').html(img);
+			    $('#errorinfo').html(img);
 		    },
 		    success: function(data){		        
 			    if (data.code == 0){
 			        $('.get_code').attr('disabled', 'disabled');
 			        //$(".get_pwd").html('重新获取密码');
-			        $(".verification").html(data.msg);
+			        $("#errorinfo").html(data.msg);
                     InterValObj = window.setInterval(countingDown, 1000);
                 }else{
                     if (data.code == 2){
                        $('.get_code').attr('disabled', 'disabled');
                        //$(".get_pwd").html("重新获取密码");
-                       $(".verification").html(data.msg);
+                       $("#errorinfo").html(data.msg);
                        curCount = 100;
                        InterValObj = window.setInterval(countingDown, 1000);
                     }else{
-                       $(".verification").html(data.msg);
+                       $("#errorinfo").html(data.msg);
                        $(".get_code").val("重新获取密码");
                     }
                 }

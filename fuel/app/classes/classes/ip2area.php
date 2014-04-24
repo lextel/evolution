@@ -126,10 +126,7 @@ class Ip2area {
             $location["area"]=$this->getstring($byte);
             $location["operators"]=$this->getarea();
         break;}
-        if(trim($location["area"])=="CZ88.NET"){
-            $location["area"]="未知";
-        }
-        if(trim($location["area"])=="日本"){
+        if(trim($location["area"])=="CZ88.NET") {
             $location["area"]="未知";
         }
         if($location["operators"]=="CZ88.NET"){
