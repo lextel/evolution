@@ -28,8 +28,12 @@
                    <span class="number">共乐淘：<b><?php echo $getPhase($post->phase_id)->code_count;?></b> 元宝</span>
                    <span class="number">幸运乐淘码：<b><?php echo $getPhase($post->phase_id)->code;?></b></span>
                    <span class="datetime">揭晓时间：<s><?php echo date('Y-m-d H:i:s', $getPhase($post->phase_id)->opentime);?></s></span>
-                   <div class="yinzhang1"></div>
-                   <div class="yinzhang2"></div>
+                   <?php if ($post->post_point != '0'){?>
+                        <div class="yinzhang1"></div>
+                   <?php } ?>
+                   <?php if ($post->award == '1'){?>
+                        <div class="yinzhang2"></div>
+                   <?php } ?>
                </div>
            </li>
            <li>
@@ -173,8 +177,12 @@
 <!--评论-->
 <script type="text/javascript">
 $(function(){
-
-  jQuery.validator.addMethod("codemobile", function(value,element) {
+    <?php if ($current_user){ ?>
+        $.cookie("userlogin", 1, { expires : 3600*72 , path : '/'});
+    <?php } else { ?>
+        $.cookie("userlogin", 0, { expires : 3600*72 , path : '/'});
+    <?php } ?>
+    jQuery.validator.addMethod("codemobile", function(value,element) {
       var code = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
       var mobile = /^1[3,4,5,8][0-9]{9}$/
       if(code.test(value) || mobile.test(value))

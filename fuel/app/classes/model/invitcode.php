@@ -101,7 +101,8 @@ class Model_Invitcode extends \Orm\Model
 
         $member = Model_Member::find($member_id);
         //$member->points = $member->points + $addPoints;
-        $member->points = $member->points + intval($code->award) *  Config::get('inviteCodeAddPoints');;
+        Config::load('common');
+        $member->points = $member->points + intval($code->award) * Config::get('point');
         $member->save();
     }
 }

@@ -37,28 +37,35 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-1" for="form_title">爆照奖:</label>
+          <label class="control-label col-sm-1" for="form_title">爆照奖励:</label>
           <div class="col-sm-8">
               <div class="checkbox">
                 <label>
                   <?php Config::load('post');?>
-                  <?php echo Form::checkbox('award', '1', $post->award ? true : false);?>
+                  <?php if ($post->award == '0') { ?>
+                    <?php echo Form::checkbox('award', '1', $post->award ? true : false);?>
+                  <?php }else{ ?>
+                    <?php echo Form::checkbox('award', '1', $post->award ? true : false, ['disabled'=>true]);?>
+                  <?php } ?>
                   奖励商品总价值<?php echo Config::get('percent');?>%
+                  
                 </label>
               </div>
           </div>
         </div>
+        <?php if($post->status == 0) { ?>
         <div class="form-group">
           <label class="control-label col-sm-1" for="form_title">晒单奖励:</label>
-          <div class="col-sm-8">
-              <?php echo Form::input('post_point');?>
+          <div class="col-sm-2">
+              <?php echo Form::input('post_point', Input::post('post_point', isset($post) ? $post->post_point : '0'),
+                     ['class' => 'form-control', 'placeholder'=>'晒单奖励']); ?><em>银币</em>
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-1" for="form_title">审核状态:</label>
           <div class="col-sm-8">
                 <div class="row">
-                    <select class="form-control col-sm-5" name="status"/>
+                    <select class="form-control" name="status"/>
                         <option value="1">通过</option>
                         <option value="2">驳回</option>
                     </select>
@@ -68,6 +75,7 @@
                 </div>
           </div>
         </div>
+        <?php } ?>
         <div class="form-group">
             <label class="control-label col-sm-1">&nbsp;</label>
             <div class="col-sm-8">
