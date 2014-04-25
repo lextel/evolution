@@ -1,10 +1,14 @@
 <div class="panel panel-default" style="padding: 10px 0">
     <form class="navbar-form navbar-left" role="search" action="" method="get">
-        <div class="col-sm-3">
+        <div class="col-sm-5">
             <div class="input-group">
               <span class="input-group-addon">数量</span>
-              <input type="text" class="form-control" value="" id="num" placeholder="礼品码生成数量">
-            </div>
+              <input type="text" class="form-control" value="" id="num" placeholder="礼品码生成数量">              
+              <span class="input-group-addon">奖励</span>
+              <?php Config::load('common');?>
+              <input type="text" class="form-control" value="<?php echo Config::get('inviteCodeAddPoints');?>" id="award" placeholder="奖励">
+              <span class="input-group-addon"><img src="/assets/img/jinbi.png"></span>
+            </div>     
         </div>
         <a class="btn btn-primary" id="create">生成</a>
         </form>
@@ -18,7 +22,7 @@
         <tr>
             <th># ID</th>
             <th width="45%">礼品码</th>
-            <th width="10%">奖励价值/元宝（点击可修改）</th>
+            <th width="10%">奖励价值</th>
             <th>状态</th>
             <th>操作</th>
         </tr>
@@ -28,7 +32,7 @@
           <tr>
             <td><?php echo $code->id; ?></td>
             <td><?php echo $code->code; ?></td>
-            <td <?php echo $code->status == 0 ? 'class="rewrite" iid="'.$code->id.'"' : '';?>><?php echo $code->award; ?></td>
+            <td><?php echo $code->award . ' <img class="jin" src="/assets/img/jinbi.png">'; ?></td>
             <td><?php echo $code->status == 1 ? '已使用' : '<span style="color:green">未使用</span>'; ?></td>
             <td>
             <?php echo Html::anchor('v2admin/invitcodes/delete/'.$code->id, '删除', array('onclick' => "return confirm('亲，确定删除么?')")); ?>
@@ -46,11 +50,20 @@
     $(function(){
         $('#create').click(function(){
             var num = $('#num').val();
-            window.location.href = '<?php echo Uri::create('v2admin/invitcodes/create/')?>' + num;
+            var award = $('#award').val();
+            window.location.href = '<?php echo Uri::create('v2admin/invitcodes/create/')?>' + num + '?award=' + award;           
         });
-    
-    
-        //获取class为caname的元素
+        $('#award').click(function() { return false; });
+        $('#award').trigger("focus");
+        $('#award').blur(function() {    
+            var award = $(this).val();
+            //判断非负整数
+            if (!(/^[0-9]{0,2}$/.test(award))){
+                $(this).val(<?php echo Config::get('inviteCodeAddPoints');?>);
+                return false;
+            }
+        });
+        /*
         $(".rewrite").click(function() {
             var td = $(this);
             var iid = td.attr('iid');
@@ -86,7 +99,7 @@
                     td.html(txt);
                 }
             });       
-        });
+        }); */
     });
 </script>
 

@@ -36,13 +36,18 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
 
         if(empty($num) || !preg_match('/^\d+$/', $num)) {
             Session::set_flash('error', e('请输入生成数量'));
-
             Response::redirect('v2admin/invitcodes');
         }
+        $award = intval(Input::get("award", 0));
+        if (!preg_match('/^\d{1,2}$/', $award)){
+            Session::set_flash('error', e('请输入奖励元宝数'));
+            Response::redirect('v2admin/invitcodes');
+        }
+        
         //导入默认奖励配置
         Config::load('common');
         //$addPoints = Config::get('point') * Config::get('inviteCodeAddPoints');
-        $addPoints = Config::get('inviteCodeAddPoints');
+        $addPoints = $award ? $award : Config::get('inviteCodeAddPoints');
         $ids = [];
         for($i=0; $i<$num; $i++) {
             $code = Str::random('alnum', 8);
@@ -77,7 +82,7 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
 
         Response::redirect('v2admin/invitcodes');
     }
-    
+    /*
     // 修改礼品码的奖励
     public function action_modifyAward($id = null) {
         $res = ['code'=>0, 'msg'=>'数据为空'];
@@ -103,7 +108,6 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
         }
         return json_encode($res);
     }
-
-
+    */
 
 }
