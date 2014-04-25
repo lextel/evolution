@@ -37,6 +37,7 @@
           </div>
         </div>
         <?php  $phase = Model_Phase::find($post->phase_id);?>
+        <?php if ($phase) { ?>
         <div class="form-group">
           <label class="control-label col-sm-1" for="form_title">产品标题:</label>
           <div class="col-sm-8">
@@ -73,7 +74,7 @@
               </p>
           </div>
         </div>
-        
+        <?php } ?>
         <div class="form-group">
           <label class="control-label col-sm-1" for="form_title">晒单奖励:</label>
           <div class="col-sm-1">

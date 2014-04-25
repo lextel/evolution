@@ -66,13 +66,13 @@ class View_Index extends Viewmodel {
 
             $select = ['title', 'image', 'cost', 'remain', 'joined', 'amount', 'status'];
             $where = [
-                'opentime'  => \Helper\Item::NOT_OPEN, 
-                'is_delete' => \Helper\Item::NOT_DELETE, 
+                'opentime'  => \Helper\Item::NOT_OPEN,
+                'is_delete' => \Helper\Item::NOT_DELETE,
                 ['status', 'in', [\Helper\Item::IS_CHECK, \Helper\Item::IS_SHOW]],
                 'is_recommend' => 1
                 ];
 
-            $phases = Model_Phase::find('all', ['select' => $select, 'where' => $where, 'order_by' => ['sort' => 'desc'], 'limit' => 4]);
+            $phases = Model_Phase::find('all', ['select' => $select, 'where' => $where, 'order_by' => ['sort' => 'desc'], 'limit' => 8]);
 
             return $phases;
         };
