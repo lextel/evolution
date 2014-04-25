@@ -49,7 +49,7 @@
                  <?php } ?>
                  </div>
 
-                 <span style="color:#C10101;margin:0px 4px 0px 14px"><?php echo \Helper\Coins::showIconCoins($current_user->points);?></span>
+                 <span style="color:#C10101;margin:0px 4px 0px 0px"><?php echo \Helper\Coins::showIconCoins($current_user->points);?></span>
                  
             <?php }?>
             </div>

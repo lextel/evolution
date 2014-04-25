@@ -969,7 +969,7 @@
 }
 .record table tbody tr span,.look-bak table tbody tr span{
     display: inline-block;
-    margin-right: 5px;
+    margin: 0px 6px 0px 5px;
     line-height: 26px;
 }
 /*最新揭晓*/
