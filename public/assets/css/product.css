@@ -857,7 +857,6 @@
 }
 .product-bask ul{
     overflow: hidden;
-    border-top:1px dashed #E4E4E4;
     padding-top:9px;
 }
 .product-bask ul li{
@@ -882,7 +881,7 @@
 .product-bask .head-img{
     width: 100px;
     height:100px;
-    margin-bottom: 5px;
+    margin-left: 10px;
 }
 .product-bask .username{
     text-align: center;
