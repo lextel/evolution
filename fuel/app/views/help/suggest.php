@@ -40,8 +40,8 @@
             </li>
             <li>
                 <label><font color="#f00">*</font>反馈内容：</label>
-                <?php echo Form::textarea('content', isset($input) ? $input['text']: '', ['cols'=>'60', 'rows'=>'5', 'class'=>'txt']);?>
-                
+                <?php echo Form::textarea('text', isset($input) ? $input['text']: '', ['cols'=>'60', 'rows'=>'5', 'class'=>'txt']);?>
+
             </li>
             <li id="contentError" style="height:25px;margin-top:-12px;">
                 <label></label>
@@ -51,7 +51,7 @@
                 <input id="captcha" name="captcha" type="text" class="txt" />
                 <span class="captcha"><img src=""/></span>
                 <span class="recaptcha"><a href="javascript:void(0)">看不清？换一张</a></span>
-                
+
             </li>
             <li>
                 <button id="sub" class="btn btn-red btn-md" style="margin-left:150px">提交信息</button>
@@ -83,8 +83,8 @@ $(function(){
                 required: true,
                 rangelength: [4, 4],
                 remote:{
-                 url:"<?php echo Uri::create('/index/ajaxcaptcha');?>",  
-                 type:"post",  
+                 url:"<?php echo Uri::create('/index/ajaxcaptcha');?>",
+                 type:"post",
                  dataType:"json",
                  data:{ 'param':function(){return $("#captcha").val();}}
                 }
