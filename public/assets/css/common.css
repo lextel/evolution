@@ -291,14 +291,14 @@ textarea:focus,input:focus{
     float: left;
     height: 19px;
     line-height: 19px;
-    margin-right: 5px;
+    margin-right: 3px;
 }
 .btn-menu span.right{
     display: block;
     float: left;
     height: 19px;
     line-height: 19px;
-    margin-left: 5px;
+    margin-left: 3px;
 }
 .btn-menu .add{
     display: block;
