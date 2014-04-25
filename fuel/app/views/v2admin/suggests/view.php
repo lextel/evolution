@@ -7,6 +7,18 @@
           </div>
         </div>
         <div class="form-group">
+          <label class="control-label col-sm-1" for="form_title">分类:</label>
+          <div class="col-sm-8">
+            <p class="form-control-static"><?php echo $suggest->type; ?></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-1" for="form_title">提交人:</label>
+          <div class="col-sm-8">
+            <p class="form-control-static"><?php echo $suggest->nickname ? $suggest->nickname.'<br />'.$suggest->email : $suggest->email; ; ?></p>
+          </div>
+        </div>
+        <div class="form-group">
           <label class="control-label col-sm-1" for="form_title">标题:</label>
           <div class="col-sm-8">
             <p class="form-control-static"><?php echo $suggest->title; ?></p>
