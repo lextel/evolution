@@ -23,7 +23,7 @@ $(function(){
               </div>
     </div>
         <form action="/u/nickname" class="addnickname" method="POST">
-        <ul class="succeedForm">
+        <ul class="succeedForm" style="width:630px">
             <li><h2>恭喜你成为乐淘会员，输入您的昵称马上开始乐淘！</h2><li/>
             <li>
                 <label style="text-align:right">昵称：</label>
@@ -83,7 +83,7 @@ $(function (){
         messages:{
             nickname:{
                 required:"请输入昵称",
-                validatenickname:"昵称格式不正确",
+                validatenickname:"请输入2-8个中文或3-8个英文",
                 remote:"已存在"
             }
         }

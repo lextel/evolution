@@ -7,7 +7,7 @@
         </div>
          
          <?php echo Form::open(['action'=>'forgotemail','class'=> 'forgotemailform']);?>
-            <ul class="registerForm">
+            <ul class="registerForm" style="width:700px">
                 <li>
                     <label style="text-align:right">邮箱:</label>
                     <input class="txt" name="email" id="form_password">
@@ -16,7 +16,7 @@
                     <?php } ?>
                 </li>
                 <li>
-                    <input class="btn btn-red btn-md" name="submit" value="提交" type="submit" id="form_submit">
+                    <input class="btn btn-red btn-md" style="margin-left:200px;" name="submit" value="提交" type="submit" id="form_submit">
                 </li>
             </ul>
         <?php echo Form::close();?>

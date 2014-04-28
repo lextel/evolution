@@ -100,7 +100,7 @@ $(function(){
    }, "error");
 
    $(".validForm").validate({
-        onkeyup:false,
+        errorElement:"span",
         rules:{
             nickname:{
                 required:true,
@@ -116,7 +116,7 @@ $(function(){
         messages:{
             nickname:{
                 required: "请输入昵称",
-                validatenickname:"请输入正确的昵称",
+                validatenickname:"请输入2-8个中文或3-8个英文",
                 remote:"已存在"
             }
         }

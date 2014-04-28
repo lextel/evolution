@@ -2285,3 +2285,7 @@ a.Myahoo {
 span.head-sm.fl{
     margin: 0 5px;
 }
+span.error{
+    color: #F00;
+    font-size:14px;
+}
