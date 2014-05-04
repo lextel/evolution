@@ -68,7 +68,31 @@ class Ip2area {
         break;}
         return $operators;
     }
-
+    //按顺序读取IP遍历 
+    private function getdata($ip){
+        $l=0;
+        $u=$this->totalip;
+        $findip=$this->lastip;
+        while($l<=$u){
+            $i=floor(($l+$u)/2);
+            fseek($this->fp,$this->firstip+$i*7);
+            $startip=strrev(fread($this->fp,4));
+            if($ip<$startip){
+                $u=$i-1;
+            }else{
+                fseek($this->fp,$this->getlong3());
+                $endip=strrev(fread($this->fp,4));
+                if($ip>$endip){
+                    $l=$i+1;
+                }else{
+                    $findip=$this->firstip+$i*7;
+                    break;
+                }
+            }
+        }
+        fseek($this->fp,$findip);
+    }
+    
     public function getlocation($ip){
         if(!$this->fp){return null;}
         $location["ip"]=gethostbyname($ip);
