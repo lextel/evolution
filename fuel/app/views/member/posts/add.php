@@ -108,7 +108,7 @@ $(function(){
                         <input id="postid" name="phase_id" type="hidden" value="<?php echo $phase->id;?>" />
                     </li>             
                     <li>
-                        <button class="btn-red  btn-address" type="submit">发布</button>
+                        <button class="btn-red  btn-address" type="submit" style="margin-left:150px">发布</button>
                         <a href="/u/noposts" class="btn-sx btn-cancel">返回</a>
                     </li>
                 </ul>

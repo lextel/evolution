@@ -157,12 +157,12 @@ if(is_array($phasesList)) {
         <!--参与者记录开始-->
         <!--参与记录开始-->
         <div class="record d-n tab-pane" style="min-height:40px;padding:20px 10px;" id="buylog">
-            <p style="margin-bottom: 15px;text-align: center;font-size:16px;">暂无参与记录</p>
+            <p style="margin-top: 8px;text-align: center;font-size:16px;">暂无参与记录</p>
         </div>
         <!--参与记录结束-->
         <!--晒单开始-->
         <div class="product-bask tab-pane" style="min-height:40px;padding:20px 10px;" id="posts">
-            <p style="margin-bottom: 15px;text-align: center;font-size:16px;">暂无晒单记录</p>
+            <p style="margin-top: 8px;text-align: center;font-size:16px;">暂无晒单记录</p>
         </div>
         <!--晒单结束-->
         <!--往期回顾开始-->

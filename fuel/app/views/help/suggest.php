@@ -27,7 +27,7 @@
                     ['class'=>'choose']);?>
             </li>
             <li>
-                <label>昵称：</label>
+                <label>昵称1：</label>
                 <?php echo Form::input('nickname', isset($input) ? $input['nickname']: '', ['type'=>'text', 'class'=>'txt']);?>
             </li>
             <li>
@@ -44,7 +44,7 @@
 
             </li>
             <li id="contentError" style="height:25px;margin-top:-12px;">
-                <label></label>
+                <label for=""></label>
             </li>
             <li>
                 <label><font color="#f00">*</font>验证码：</label>
@@ -76,7 +76,7 @@ $(function(){
                 required:true,
                 email:true
             },
-            content:{
+            text:{
                 required: true
             },
             captcha:{
@@ -95,7 +95,7 @@ $(function(){
                 required: "请输入E-mail",
                 email:"请输入正确的E-mail"
             },
-            content:{
+            text:{
                 required: "请输入反馈内容"
             },
             captcha:{
@@ -105,7 +105,7 @@ $(function(){
             }
         },
         errorPlacement: function(error, element) {
-            if(element[0].id=="form_content"){
+            if(element[0].id=="form_text"){
                 $("#contentError").append(error);
             }else{
                 error.appendTo(element.parent());

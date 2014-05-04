@@ -167,6 +167,13 @@
      display: inline-block;
      float: left;
  }
+ .registerForm li label,.succeedForm li label.error{
+     height: 33px;
+     line-height: 33px;
+     width: 190px;
+     display: inline-block;
+     float: left;
+ }
 .registerForm li span,.succeedForm li span{
     height: 33px;
     line-height: 33px;
@@ -659,7 +666,7 @@
     max-height: 300px;
     overflow: hidden;
     float: left;
-    margin-left: 120px;
+    margin-left: 150px;
     background: #f4f4f4;
 }
 .destItem .title{
@@ -911,7 +918,7 @@ label.error{
     line-height: 33px;
     display: inline-block;
     text-align: left;
-    width: 150px;
+    max-width: 210px;
     font-size: 14px;
     float: left;
 }
