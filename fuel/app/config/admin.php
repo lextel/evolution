@@ -239,6 +239,17 @@ return [
             'pass'=>10,
           ]
         ],
+        ['controller'=>'Controller_V2admin_Apps',
+         'action'=>[
+            'index'=>10,
+            'view'=>10,
+          ]
+        ],
+        ['controller'=>'Controller_V2admin_Applogs',
+         'action'=>[
+            'index'=>10,
+          ]
+        ],
     ]
 
 ];

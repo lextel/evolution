@@ -43,7 +43,7 @@ echo Asset::js(
             </div>
         </div>
         <button type="submit" class="btn btn-primary">搜索</button>
-        <a href="<?php echo Uri::create('admin/logs'); ?>" class="btn btn-default">重置</a>
+        <a href="<?php echo Uri::create('v2admin/logs'); ?>" class="btn btn-default">重置</a>
     </form>
     <div class="clearfix"></div>
 </div>
