@@ -103,7 +103,7 @@
                     <dt>关注我们</dt>
                     <dd><a href="javascript:;">新浪微博</a></dd>
                     <dd><a href="javascript:;">官方微信</a></dd>
-                    <dd>官方QQ群：10000000</dd>
+                    <dd>官方QQ群：157425899</dd>
                 </dl>
                 <!--
                 <dl class="three">
