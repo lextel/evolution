@@ -17,12 +17,12 @@ return [
     'avatar' => [
         'path' => DOCROOT.'upload'.DS.'avatar',
         'randomize' => true,
-        'ext_whitelist' => ['img', 'jpg', 'jpeg', 'png'],
+        'ext_whitelist' => ['jpg', 'jpeg', 'png'],
     ],
     'post' => [
         'path' => DOCROOT.'upload'.DS.'post',
         'randomize' => true,
-        'ext_whitelist' => ['img', 'jpg', 'jpeg', 'png'],
+        'ext_whitelist' => ['jpg', 'jpeg', 'png'],
     ],
     'editor' => [
         'path' => DOCROOT.'upload'.DS.'item'.DS.'desc',
@@ -44,7 +44,7 @@ return [
     'mutil' => [
         'path' => DOCROOT.'upload'.DS.'multi',
         'randomize' => false,
-        'ext_whitelist' => ['jpg'],
+        'ext_whitelist' => ['jpg', 'png'],
         'auto_rename' => false,
     ],
     'csv' => [
@@ -52,6 +52,11 @@ return [
         'randomize' => false,
         'ext_whitelist' => ['csv'],
         'auto_rename' => false,
+    ],
+    'appimg' => [
+        'path' => DOCROOT.'upload'.DS.'app',
+        'randomize' => true,
+        'ext_whitelist' => ['jpg', 'jpeg', 'png'],
     ],
     'upload' => [
         'auto_process' => true,

@@ -7,18 +7,22 @@ $(function(){
    });
 });
 </script>
-            <div class="input-group">
-              <span class="input-group-addon">选择分类</span>
-<?php echo Form::select('active', Input::param('active'),[
-    '0' => '待审核晒单',
-    '1' => '已审核晒单',
-    '2' => '驳回的晒单',
-    '3' => '已删除晒单',
-    ],
-    ['class'=>'form-control postactive', 'style'=>'height:34px; width: 200px']
-);?>
+<div class="panel panel-default" style="padding: 10px 0">
+    <div class="col-sm-3">
+        <div class="input-group">
+          <span class="input-group-addon">选择分类</span>
+            <?php echo Form::select('active', Input::param('active', '0'),[
+                '0' => '待审核晒单',
+                '1' => '已审核晒单',
+                '2' => '驳回的晒单',
+                '3' => '已删除晒单',
+                ],
+                ['class'=>'form-control postactive']
+            );?>
+        </div>
+    </div>
+    <div class="clearfix"></div>
 </div>
-
 <br>
 <?php if ($posts): ?>
 <table class="table table-striped">

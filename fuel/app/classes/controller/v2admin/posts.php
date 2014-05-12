@@ -3,7 +3,7 @@ class Controller_V2admin_Posts extends Controller_V2admin{
     //晒单管理页面访问
     public function action_index()
     {
-        $active = Input::param('active');
+        $active = Input::param('active', '0');
         $type = [
                 //审核列表
                 '0'=>['status'=>0, 'is_delete'=>0],
@@ -13,12 +13,14 @@ class Controller_V2admin_Posts extends Controller_V2admin{
                 '2'=>['status'=>2, 'is_delete'=>0],
                 //已经删除列表
                 '3'=>['is_delete'=>1]];
-        if (is_null($active)){
+        /*if (is_null($active)){
             $etype = $type['0'];
         }else{
             $etype = $type[$active];
             is_null($etype) and $etype = $type['0'];
-        }
+        }*/
+        $etype = $type[$active];
+        is_null($etype) and $etype = $type['0'];
         $count = Model_Post::count(['where'=>$etype]);
         $page = new \Helper\Page();
         $url = Uri::create('v2admin/posts', ['active'=>$active], ['active' => ':active']);
