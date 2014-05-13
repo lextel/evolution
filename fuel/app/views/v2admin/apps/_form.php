@@ -46,7 +46,7 @@ echo Asset::js(
                       <input id="iconUpload" type="file" name="appimg">
                 </span>
                 <p class="form-control-static">
-                    <?php echo Html::img(isset($app) ? $app->icon : '', ['style'=>"margin: 10px; border: 1px #ccc solid; padding:3px;width:80px;height:80px", 'id'=>'icon']);?>
+                     <img src="<?php echo isset($app) ? '/'.$app->icon : ''; ?>" style="margin: 10px; border: 1px #ccc solid; padding:3px;width:80px;height:80px" id="icon" />
                      <input type="hidden" name="icon" value="<?php echo isset($app) ? $app->icon : '' ;?>">                              
                 </p>
             </div>       
