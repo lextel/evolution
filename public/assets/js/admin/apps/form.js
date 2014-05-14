@@ -27,20 +27,26 @@ $(function() {
     }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
 
     // 上传产品说明图
-    $('#imgUpload').fileupload({
-        url: UPLOAD_URL,
-        dataType: 'json',
-        done: function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                var text = '<div class="item-img-list withclose">';
-                text += '<img style="border: 1px #ccc solid; padding:5px;width:80px;height:80px" src="'+IMAGE_URL+file.link+'" alt="" />';
-                text += '<input type="hidden" name="images[]" value="'+file.link+'">'
-                text += '<d class="close">&times;</d></div>';
-                $('#imgfiles').append(text);
-            });
-        },
-    }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
-
+    $("body").on('click', '#postUpload', function(){
+        var imgs = $(".postimg dd").length;
+        if (imgs >= 3){
+            alert('您上传的图片超过了3张');
+            return false;
+        }
+        $('#imgUpload').fileupload({
+            url: UPLOAD_URL,
+            dataType: 'json',
+            done: function (e, data) {
+                $.each(data.result.files, function (index, file) {
+                    var text = '<div class="item-img-list withclose">';
+                    text += '<img style="border: 1px #ccc solid; padding:5px;width:80px;height:80px" src="'+IMAGE_URL+file.link+'" alt="" />';
+                    text += '<input type="hidden" name="images[]" value="'+file.link+'">'
+                    text += '<d class="close">&times;</d></div>';
+                    $('#imgfiles').append(text);
+                });
+            },
+        }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
+    }
     // 删除图片
     $(document).on('click', '.close', function(){
         $(this).parent().remove();

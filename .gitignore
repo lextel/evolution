@@ -61,7 +61,7 @@ Thumbs.db
 # upload
 ######################
 */upload/*
-#*/download/*
+*/download/*
 
 # crontabs
 #########################
