@@ -46,7 +46,7 @@ $(function() {
                 });
             },
         }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
-    }
+    });
     // 删除图片
     $(document).on('click', '.close', function(){
         $(this).parent().remove();
