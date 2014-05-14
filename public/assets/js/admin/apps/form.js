@@ -27,8 +27,8 @@ $(function() {
     }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
 
     // 上传产品说明图
-    $("body").on('click', '#postUpload', function(){
-        var imgs = $(".postimg dd").length;
+    $("body").on('click', '#imgUpload', function(){
+        var imgs = $(".withclose").length;
         if (imgs >= 3){
             alert('您上传的图片超过了3张');
             return false;
