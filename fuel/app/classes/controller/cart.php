@@ -202,7 +202,7 @@ class Controller_Cart extends Controller_Frontend {
     // 测试支付
     public function action_test() {
 
-        return \Classes\Payment('alipay')->pay(1, 0.1);
+        return \Classes\Payment::Instance('alipay')->pay(1, 0.1);
     }
 
 }
