@@ -24,7 +24,7 @@ class Payment {
         $types = array_keys(self::$config['type']);
 
 
-        if(!in_array($type)) {
+        if(!in_array($type, $types)) {
             throw new Exception ($type . '支付类型不存在');
         }
 
