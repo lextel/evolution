@@ -1,7 +1,8 @@
 <?php
 
-class Model_Applog extends \Classes\Model
+class Model_Awardlog extends \Classes\Model
 {
+    protected static $_table_name = 'awardlog';
     protected static $_properties = [
         'id',
         'app_id',
@@ -26,7 +27,7 @@ class Model_Applog extends \Classes\Model
             'mysql_timestamp' => false,
         ],
     ];
-    
+
     /**
      * 处理where条件
      *

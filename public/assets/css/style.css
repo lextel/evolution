@@ -1348,12 +1348,6 @@ label.error{
 .noData{
     width: 40%;
     height: 22px;
-    line-height: 22px;
-    margin: 30px auto 0;
-}
-.noData{
-    width: 40%;
-    height: 22px;
     text-align: center;
     line-height: 22px;
     margin: 30px auto 0;
@@ -1686,13 +1680,13 @@ label.error{
    color: #5a5a5a;
 }
 .game-column ul li .game-count dd{
-    float: left;
-    overflow: hidden;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    font-size: 14px;
-    color: #5a5a5a;
+   float: left;
+   overflow: hidden;
+   height: 50px;
+   line-height: 50px;
+   text-align: center;
+   font-size: 14px;
+   color: #5a5a5a;
 }
 .game-column ul li .imgBox{
     width: 230px;
@@ -1725,7 +1719,6 @@ label.error{
     width: 160px;
     overflow: hidden;
     float: left;
-    text-decoration: line-through;
 }
 .game-column ul li .lol-btn-sm{
     float: right;
