@@ -43,7 +43,7 @@ class Controller_Payment extends Controller_Frontend {
         foreach(Input::post() as $k => $v) {
             $post .= '|' . $k . '=' . $v; 
         }
-        Log::error('会员: ID#' . $userId . '支付失败! 返回内容:' . $post);
+        Log::error('支付失败! 返回内容:' . $post);
 
         return "fail";
 
