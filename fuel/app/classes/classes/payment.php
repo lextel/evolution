@@ -30,7 +30,7 @@ class Payment {
 
         $class = ucfirst($type);
 
-        return new $class(self::$config['notifyUrl'], self::$config['returnUrl'], self::$config['type'][$type]);
+        return new \Classes\$class(self::$config['notifyUrl'], self::$config['returnUrl'], self::$config['type'][$type]);
     }
 }
 
