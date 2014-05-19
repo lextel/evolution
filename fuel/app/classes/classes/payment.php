@@ -4,8 +4,7 @@
  * 支付接口
  *
  * @copyright: lltao.com
- * @author   : weelion
- * @email    : weelion@qq.com
+ * @author   : weelion <weelion@qq.com>
  * @version  : 1.0
  */
 namespace Classes;
@@ -13,8 +12,8 @@ namespace Classes;
 class Payment {
 
     private static $config = [
-                    'notifyUrl' => Uri::create('/payment/notify'),
-                    'returnUrl' => Uri::create('/payment/return'),
+                    'notifyUrl' => 'http://www.lltao.com/payment/notify',
+                    'returnUrl' => 'http://www.lltao.com/payment/return',
                     'type' => [
                         'alipay' => ['id' => '2088411000022006','key' => 'oxkzlf3f8mq63nodvoovh7w6w038xsfq'],
                     ],
@@ -22,7 +21,7 @@ class Payment {
 
     public static function Instance($type) {
 
-        $types = array_keys(self::config['type']);
+        $types = array_keys(self::$config['type']);
 
 
         if(!in_array($type)) {
@@ -31,7 +30,7 @@ class Payment {
 
         $class = ucfirst($type);
 
-        return new $class(self::config['notifyUrl'], self::config['returnUrl'], self::config['type'][$type]);
+        return new $class(self::$config['notifyUrl'], self::$config['returnUrl'], self::$config['type'][$type]);
     }
 }
 
