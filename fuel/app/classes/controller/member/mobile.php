@@ -97,7 +97,7 @@ class Controller_Member_Mobile extends Controller_Center
                     Session::delete('front_time');
                     Session::delete('front_mobile');
                     Session::set_flash('success', "绑定手机成功");
-                    return Response::redirect('u/getprofile');
+                    return Response::redirect('invit');
                 }else{
                     Session::set_flash('login_error', '您输入的密码不正确或者已经过期了');
                 }

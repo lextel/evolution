@@ -197,16 +197,5 @@ $(function(){
      if (postid!=undefined){
          getCommentList('/comment/'+postid+'/p/1');
      }
-
-
-    //奖励HOVER效果
-    $('.yinzhang1').hover(function(){
-        function() {
-            
-        }, function() {
-            
-        }
-    });
-    
 });
 

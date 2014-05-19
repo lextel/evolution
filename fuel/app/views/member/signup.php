@@ -15,9 +15,9 @@
         </div>
 
         <?php echo Form::open(array("class"=>"registerForm")); ?>
-            <ul class="">
+            <ul style="width:750px">
                 <li>
-                   <?php echo Form::label('手机/邮箱'); ?> 
+                   <label style="width:140px">手机/邮箱</label>
                    <?php echo Form::input('username', Session::get_flash('username', ''), array('class' => 'txt',
                    'id'=>'username', 'name'=>'username')); ?>
                    <?php if (Session::get_flash('usernameError', null)) { ?>
@@ -26,12 +26,12 @@
                    <?php } ?>
                 </li>
                 <li>
-                   <?php echo Form::label('密码'); ?>
+                   <label style="width:140px">密码</label>
                    <?php echo Form::input('password', '', ['type'=>"password",'class' => 'txt',
                     'name'=>'userpassword']); ?>
                 </li>
                 <li>
-                   <?php echo Form::label('确认密码'); ?>
+                   <label style="width:140px">确认密码</label>
                    <input id="xp" type="password"  name="password2" class="txt"/>
                    <span class="Validform_checktip"></span>
                 </li>

@@ -9,7 +9,7 @@
     <input type="text" class="form-control" name="nickname" value="<?php echo Input::get('nickname'); ?>" placeholder="结束时间">
   </div>
   <button type="submit" class="btn btn-default">搜索</button>
-  <a href="<?php echo Uri::create('v2admin/members'); ?>" class="btn btn-default">重置</a>
+  <a href="<?php echo Uri::create('v2admin//moneylog/recharge'); ?>" class="btn btn-default">重置</a>
 </form>
 
 <?php if ($logs): ?>

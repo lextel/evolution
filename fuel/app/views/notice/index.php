@@ -14,7 +14,7 @@
         <div class="a-title"><?php echo $item->is_top ? '<span class="is_top">置顶</span>' : '';?><a href="<?php echo Uri::create('notice/'.$item->id); ?>" class="<?php echo $item->is_top ? 'r' : '';?>"><?php echo $item->title; ?></a></div>
         <div class="datetime"><span>乐乐淘</span>发布于：<?php echo Date('Y-m-d H:i', $item->created_at);?></div>
         <div class="a-content">
-            <?php echo $item->desc;?>
+            <?php echo $item->summary;?>
         </div>
     </dd>
     <?php } ?>

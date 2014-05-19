@@ -95,7 +95,7 @@ if(is_array($phasesList)) {
                 <ol>
                     <li>1、取该商品最后购买时间前网站所有商品的最后100条购买时间记录</li>
                     <li>2、每个时间记录按时、分、秒、毫秒依次排列取数值 </li>
-                    <li>3、将这100个数值之和除以该商品总参与人次后取余数，余数加上10000001 即为“幸运云购码”。</li>
+                    <li>3、将这100个数值之和除以该商品总参与人次后取余数，余数加上10000001 即为“幸运乐淘码”。</li>
                 </ol>
                 <div class="calculation-list">
                     <table>
@@ -157,12 +157,12 @@ if(is_array($phasesList)) {
         <!--参与者记录开始-->
         <!--参与记录开始-->
         <div class="record d-n tab-pane" style="min-height:40px;padding:20px 10px;" id="buylog">
-            <p style="margin-bottom: 15px;text-align: center;font-size:16px;">暂无参与记录</p>
+            <p style="margin-top: 8px;text-align: center;font-size:16px;">暂无参与记录</p>
         </div>
         <!--参与记录结束-->
         <!--晒单开始-->
         <div class="product-bask tab-pane" style="min-height:40px;padding:20px 10px;" id="posts">
-            <p style="margin-bottom: 15px;text-align: center;font-size:16px;">暂无晒单记录</p>
+            <p style="margin-top: 8px;text-align: center;font-size:16px;">暂无晒单记录</p>
         </div>
         <!--晒单结束-->
         <!--往期回顾开始-->

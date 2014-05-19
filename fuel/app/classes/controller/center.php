@@ -6,7 +6,7 @@ class Controller_Center extends Controller_Frontend
     public function before()
     {
         parent::before();
-        if (! in_array(Request::active()->action, ['signin', 'signup', 'findpassword', 
+        if (! in_array(Request::active()->action, ['signin', 'signup', 'findpassword',
             'newpassword', 'forgotemail', 'getforgot', 'sendok', 'checkname']))
         {
             $this -> membercheck();
@@ -27,11 +27,10 @@ class Controller_Center extends Controller_Frontend
     */
     public function action_signin()
     {
-        $this->auth->check() and Response::redirect('/u');
+        $this->auth->check() and Response::redirect('/');
         if (Input::method() == 'POST')
         {
             $val = Model_Member::validateSignin('signin');
-
             if ($val->run()){
                 $username = Input::post('username');
                 $password = Input::post('password');
@@ -51,7 +50,7 @@ class Controller_Center extends Controller_Frontend
                         Response::redirect('/u/getnickname');
                     }
                     Session::set_flash('success', e('欢迎登陆, '.$current_user->username));
-                    $url = Input::server('HTTP_REFERER', '/u');
+                    $url = Input::server('HTTP_REFERER', '/');
                     return Response::redirect($url);
                 }
                 Session::set_flash('signError', '用户名或者密码错误');

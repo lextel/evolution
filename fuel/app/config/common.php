@@ -10,7 +10,12 @@ return [
      * @var 元宝:银币  1：100
      */
     'point'    => 100,
-
+    
+    /**
+    *
+    */
+    'apkFile'  => DOCROOT.'download'.DS.'app',
+    
     /**
      * @var 积分单位
      */

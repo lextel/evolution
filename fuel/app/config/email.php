@@ -1,11 +1,11 @@
 <?php
 
-return array(
+return [
 
     /**
      * Default settings
      */
-    'defaults' => array(
+    'defaults' => [
 
         /**
          * Mail useragent string
@@ -45,10 +45,10 @@ return array(
         /**
          * Default sender details
          */
-        'from'      => array(
+        'from'      => [
             'email'     => 'leletao_com@163.com',
             'name'      => '乐乐淘官方活动',
-        ),
+        ],
 
         /**
          * Default return path
@@ -88,13 +88,13 @@ return array(
         /**
          * SMTP settings
          */
-        'smtp'  => array(
+        'smtp'  => [
             'host'      => 'smtp.163.com',
             'port'      => 25,
             'username'  => 'leletao_com@163.com',
             'password'  => 'zhujianglong',
             'timeout'   => 5,
-        ),
+        ],
 
         /**
          * Newline
@@ -104,13 +104,13 @@ return array(
         /**
          * Attachment paths
          */
-        'attach_paths' => array(
+        'attach_paths' => [
             // absolute path
             '',
             // relative to docroot.
             DOCROOT,
-        ),
-    ),
+        ],
+    ],
 
     /**
      * Default setup group
@@ -120,8 +120,33 @@ return array(
     /**
      * Setup groups
      */
-    'setups' => array(
-        'default' => array(),
-    ),
+    'setups' => [
+        'default' => [],
+    ],
+    
+    'mailHost' => [
+            '163.com' => 'mail.163.com',
+            'vip.163.com' => 'vip.163.com',
+            '126.com' => 'mail.126.com',
+            'qq.com' => 'mail.qq.com',
+            'vip.qq.com' => 'mail.qq.com',
+            'foxmail.com' => 'mail.qq.com',
+            'gmail.com' => 'mail.google.com',
+            'sohu.com' => 'mail.sohu.com',
+            'tom.com' => 'mail.tom.com',
+            'vip.sina.com' => 'vip.sina.com',
+            'sina.com.cn' => 'mail.sina.com.cn',
+            'sina.com' => 'mail.sina.com.cn',
+            'yahoo.com.cn' => 'mail.cn.yahoo.com',
+            'yahoo.cn' => 'mail.cn.yahoo.com',
+            'yeah.net' => 'www.yeah.net',
+            '21cn.com' => 'mail.21cn.com',
+            'hotmail.com' => 'www.hotmail.com',
+            'sogou.com' => 'mail.sogou.com',
+            '188.com' => 'www.188.com',
+            '139.com' => 'mail.10086.cn',
+            '189.cn' => 'webmail15.189.cn/webmail',
+            'wo.com.cn' => 'mail.wo.com.cn/smsmail',
+    ],
 
-);
+];

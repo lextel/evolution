@@ -89,7 +89,7 @@ class Model_Invitcode extends \Orm\Model
      */
     public function used($member_id, $code) {
 
-        //Config::load('common');
+        Config::load('common');
 
         //$addPoints = Config::get('point') * Config::get('inviteCodeAddPoints');
 
@@ -100,8 +100,20 @@ class Model_Invitcode extends \Orm\Model
         $code->save();
 
         $member = Model_Member::find($member_id);
-        //$member->points = $member->points + $addPoints;
-        $member->points = $member->points + $code->award;
+        $addPoints = intval($code->award) * Config::get('point');
+        // 礼品码使用日志
+        $point = Config::get('point');          
+        $data = [
+            'phase_id'  => 0,
+            'total'     => $addPoints / $point,
+            'sum'       => $addPoints,
+            'type'      => 3,
+            'source'    => '礼品码',
+            'member_id' => $member_id,
+            ];           
+        $model = new Model_Member_Moneylog($data);
+        $model->save();
+        $member->points += $addPoints;
         $member->save();
     }
 }

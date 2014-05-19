@@ -49,7 +49,7 @@
                  <?php } ?>
                  </div>
 
-                 <span style="color:#C10101;margin:0px 4px 0px 14px"><?php echo \Helper\Coins::showIconCoins($current_user->points);?></span>
+                 <span style="color:#C10101;margin:0px 4px 0px 0px"><?php echo \Helper\Coins::showIconCoins($current_user->points);?></span>
                  
             <?php }?>
             </div>
@@ -99,11 +99,11 @@
                     <dd><a href="<?php echo Uri::create('/h/safeguard'); ?>">乐淘保障</a></dd>
                     <dd><a href="<?php echo Uri::create('/h/shipping'); ?>">商品配送</a></dd>
                 </dl>
-                <dl class="dl02">
+                <dl class="dl02" style="width:170px">
                     <dt>关注我们</dt>
                     <dd><a href="javascript:;">新浪微博</a></dd>
                     <dd><a href="javascript:;">官方微信</a></dd>
-                    <dd>官方QQ群：10000000</dd>
+                    <dd>官方QQ群：157425899</dd>
                 </dl>
                 <!--
                 <dl class="three">

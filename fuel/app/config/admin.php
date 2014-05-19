@@ -67,7 +67,17 @@ return [
                 ['name' => '用户充值', 'href' => Uri::create('/v2admin/moneylog/recharge'), 'group'=>50],
             ]
         ],
-
+        [
+            'name' => 'APP管理',
+            'href' => 'javascript:void(0);',
+            'class' => 'dropdown',
+            'childs' => [
+                ['name' => '添加新APP', 'href' => Uri::create('/v2admin/apps/create'), 'group'=>10],
+                ['name' => 'APP列表', 'href' => Uri::create('/v2admin/apps'), 'group'=>10],
+                ['name' => 'APP日志', 'href' => Uri::create('/v2admin/applogs'), 'group'=>10],
+                ['name' => 'APP图表', 'href' => Uri::create('/v2admin/applogs/report'), 'group'=>10],
+            ],
+        ],
         [
             'name' => '系统管理',
             'href' => 'javascript:void(0);',
@@ -92,7 +102,6 @@ return [
                 ]
             ],
         ],
-
     ],
     #使用权限设置 action=>group
     # 0 外部人员 1 员工 10 编辑  50 组长  100 管理员
@@ -237,6 +246,23 @@ return [
             'index'=>10,
             'view'=>10,
             'pass'=>10,
+          ]
+        ],
+        ['controller'=>'Controller_V2admin_Apps',
+         'action'=>[
+            'index'=>10,
+            'view'=>10,
+            'create'=>10,
+            'edit'=>10,
+            'delete'=>10,
+            'publish'=>10,
+            'uploadimg'=>10,
+          ]
+        ],
+        ['controller'=>'Controller_V2admin_Applogs',
+         'action'=>[
+            'index'=>10,
+            'report'=>10,
           ]
         ],
     ]

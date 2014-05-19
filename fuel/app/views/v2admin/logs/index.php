@@ -7,9 +7,9 @@ echo Asset::css(
 echo Asset::js(
         [
             'jquery-ui.js',
-            'admin/log/index.js', 
+            'admin/log/index.js',
             ]
-        ); 
+        );
 ?>
 <div class="panel panel-default" style="padding: 10px 0">
     <form class="navbar-form navbar-left" role="search" action="" method="get">
@@ -18,7 +18,7 @@ echo Asset::js(
               <span class="input-group-addon">操作人</span>
               <select class="form-control" name="user_id" id="form_user_id">
                   <option value=''>--请选择--</option>
-                  <?php 
+                  <?php
                       foreach($users as $user):
                           $select = '';
                           if(Input::get('user_id') == $user->id):
@@ -43,17 +43,17 @@ echo Asset::js(
             </div>
         </div>
         <button type="submit" class="btn btn-primary">搜索</button>
-        <a href="<?php echo Uri::create('admin/logs'); ?>" class="btn btn-default">重置</a>
+        <a href="<?php echo Uri::create('v2admin/logs'); ?>" class="btn btn-default">重置</a>
     </form>
     <div class="clearfix"></div>
 </div>
-<div class="panel panel-default">
+<div class="panel panel-default table-responsive">
 <?php if ($logs): ?>
 <table class="table table-striped">
     <thead>
         <tr>
             <th class="text-center">管理员</th>
-            <th class="text-center">描述</th>
+            <th class="text-center" width="60%">描述</th>
             <th class="text-center">IP</th>
             <th class="text-center">操作时间</th>
         </tr>
@@ -62,7 +62,7 @@ echo Asset::js(
     <?php foreach ($logs as $item): ?>
         <tr>
             <td class="text-center"><?php echo $getUsername($item->user_id); ?></td>
-            <td><?php echo $item->desc; ?></td>
+            <td style="word-break: break-all;"><?php echo $item->desc; ?></td>
             <td class="text-center"><?php echo $item->ip; ?></td>
             <td class="text-center"><?php echo date('Y-m-d H:i:s', $item->created_at); ?></td>
         </tr>

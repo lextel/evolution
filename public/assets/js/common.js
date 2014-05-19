@@ -368,13 +368,13 @@ function initDesc() {
             dataType: 'json',
             success: function(data) {
                 addtion = '<div style="background:#f5f7fa;height: 10px;"></div>'+
-                          '<div id="descJoined" style="border-top:2px solid #AF2812">'+
-                          '<div class="title"><h3>所有参与者记录</h3></div>';
+                          '<div id="descJoined" style="border-top:2px solid #AF2812;min-height: 80px;">'+
+                          '<div style="border-bottom:1px dashed #E4E4E4;" class="title"><h3>所有参与者记录</h3></div>';
                 var html = handleJoined(data, true);
                 if(html) {
                     addtion += html;
                 } else {
-                    addtion += '<p style="padding: 10px">暂无参与者记录</p>';
+                    addtion += '<p style="text-align: center;font-size:16px;margin-top: 10px;">暂无参与记录</p>';
                 }
                 addtion += data.page.replace(/joined/g, 'descJoined');
                 addtion += '<div style="clear:both"></div></div>';
@@ -393,13 +393,13 @@ function initDesc() {
             dataType: 'json',
             success: function(data) {
                 addtion += '<div style="background:#f5f7fa;height: 10px"></div>'+
-                          '<div id="descPosts" class="product-bask" style="border-top:2px solid #AF2812;">'+
+                          '<div id="descPosts" class="product-bask" style="border-top:2px solid #AF2812;min-height: 80px;">'+
                           '<div style="border-bottom:1px dashed #E4E4E4;" class="title"><h3>晒单</h3></div>';
                 var html = handlePosts(data, true);
                 if(html) {
                     addtion += html;
                 } else {
-                    addtion += '<p style="padding: 10px">暂无晒单数据</p>';
+                    addtion += '<p style="text-align: center;font-size:16px;margin-top: 10px;">暂无晒单记录</p>';
                 }
                 addtion += data.page.replace(/posts/g, 'descPosts');
                 addtion += '<div style="clear:both"></div></div>';

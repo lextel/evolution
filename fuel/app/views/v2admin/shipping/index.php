@@ -48,6 +48,9 @@
             foreach ($ships as $item):
             $userInfo = $getUser($item->member_id);
             $phaseInfo = $getItem($item->phase_id);
+            if (!$phaseInfo || !$userInfo){
+              continue;
+            }
         ?>
 
         <tr>

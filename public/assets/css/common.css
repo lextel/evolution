@@ -291,14 +291,14 @@ textarea:focus,input:focus{
     float: left;
     height: 19px;
     line-height: 19px;
-    margin-right: 5px;
+    margin-right: 3px;
 }
 .btn-menu span.right{
     display: block;
     float: left;
     height: 19px;
     line-height: 19px;
-    margin-left: 5px;
+    margin-left: 3px;
 }
 .btn-menu .add{
     display: block;
@@ -2277,7 +2277,7 @@ a.Myahoo {
     vertical-align: middle;
 }
 .jin{
-    margin: 8px 5px 7px 0px;
+    margin: 8px 5px 0px 14px;
     vertical-align: top;
     width: 17px;
     height: 12px;
@@ -2287,4 +2287,11 @@ a.Myahoo {
     vertical-align: top;
     width: 18px;
     height: 16px;
+}
+span.head-sm.fl{
+    margin: 0 5px;
+}
+span.error{
+    color: #F00;
+    font-size:14px;
 }

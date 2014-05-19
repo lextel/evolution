@@ -104,7 +104,7 @@ $(function(){
                         </div>
                     </li>             
                     <li>
-                        <button class="btn-red  btn-address" type="submit">发布</button>
+                        <button class="btn-red  btn-address" type="submit" style="margin-left:150px">发布</button>
                         <a href="/u/posts" class="btn-sx btn-cancel">返回</a>
                     </li>
                 </ul>
