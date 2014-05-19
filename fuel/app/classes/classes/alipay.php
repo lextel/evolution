@@ -8,7 +8,7 @@
 
 namespace Classes;
 
-Class Alipay {
+class Alipay {
 
     private $notify;
     private $return;
