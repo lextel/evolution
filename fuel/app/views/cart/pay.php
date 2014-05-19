@@ -74,7 +74,7 @@
                                 <span class="zhf"></span>
                             </label>
                         </dd>
-                        <dd>
+                        <!--dd>
                             <input type="radio" id="cft" name="account">
                             <label for="cft">
                                 <span class="cft"></span>
@@ -85,8 +85,8 @@
                             <label for="kq">
                                 <span class="kq"></span>
                             </label>
-                        </dd>
-                        <dt>网银支付</dt>
+                        </dd-->
+                        <!--dt>网银支付</dt>
                         <dd>
                             <input type="radio" id="zhs" name="account">
                             <label for="zhs">
@@ -128,7 +128,7 @@
                             <label for="ny">
                                 <span class="ny"></span>
                             </label>
-                        </dd>
+                        </dd-->
                     </dl>
                 </div>
                 <!--选择支付方式结束-->
@@ -140,14 +140,29 @@
                                    <h4 class="modal-title" id="mySmallModalLabel">温馨提示</h4>
                               </div>
                               <div class="modal-body">
-                                  您的元宝不足，请使用在线支付进行购买。</a>
-                                </div>
+                                  您的元宝不足，请使用在线支付进行购买。
                               </div>
                          </div>
                      </div>
-            </div>
+                 </div>
+                <div id="thirdPartyModal" style="top: 200px" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                     <div class="modal-dialog modal-sm">
+                         <div class="modal-content">
+                              <div class="modal-header">
+                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                   <h4 class="modal-title" id="mySmallModalLabel">支付结果</h4>
+                              </div>
+                              <div class="modal-body">
+                                    <a href="javascript:;" class="btn btn-red btn-md" id="payFinish">支付完成</a>
+                                    <a href="javascript:;" class="btn btn-state btn-md" style="margin-left: 50px" id="payFail">支付失败</a>
+                              </div>
+                         </div>
+                     </div>
+               </div>
     </div>
-    <div class="pay-row"><a href="javascript:;" class="btn btn-red btn-md fr" id="doBuy">确认支付</a></div>
+    <div class="pay-row">
+        <a href="javascript:;" class="btn btn-red btn-md fr" id="doBuy">确认支付</a>
+    </div>
     <!--选择支付方式结束-->
         <dl class="pay-help w">
             <dt>购买遇到问题</dt>

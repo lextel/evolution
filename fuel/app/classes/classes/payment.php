@@ -12,8 +12,8 @@ namespace Classes;
 class Payment {
 
     private static $config = [
-                    'notifyUrl' => 'http://www.lltao.com/payment/notify',
-                    'returnUrl' => 'http://www.lltao.com/payment/return',
+                    'notifyUrl' => 'http://et.llt.com/payment/notify',
+                    'returnUrl' => 'http://et.llt.com/payment/return',
                     'type' => [
                         'alipay' => ['id' => '2088411000022006','key' => 'oxkzlf3f8mq63nodvoovh7w6w038xsfq'],
                     ],
@@ -28,12 +28,9 @@ class Payment {
             throw new Exception ($type . '支付类型不存在');
         }
 
-        $class = ucfirst($type);
+        $class = '\Classes\\' . ucfirst($type);
 
-        return new \Classes\$class(self::$config['notifyUrl'], self::$config['returnUrl'], self::$config['type'][$type]);
+        return new $class(self::$config['notifyUrl'], self::$config['returnUrl'], self::$config['type'][$type]);
     }
 }
-
-
-
 ?>

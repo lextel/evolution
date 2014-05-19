@@ -9,6 +9,7 @@
  * 以下代码只是为了方便商户测试而提供的样例代码，商户可以根据自己网站的需要，按照技术文档编写,并非一定要使用该代码。
  * 该代码仅供学习和研究支付宝接口使用，只是提供一个参考。
  */
+namespace Classes;
 require_once("alipay_core.function.php");
 require_once("alipay_md5.function.php");
 
@@ -93,18 +94,22 @@ class AlipaySubmit {
      * @return 提交表单HTML文本
      */
 	function buildRequestForm($para_temp, $method, $button_name) {
+
 		//待请求参数数组
 		$para = $this->buildRequestPara($para_temp);
 		
-		$sHtml = "<form id='alipaysubmit' name='alipaysubmit' action='".$this->alipay_gateway_new."_input_charset=".trim(strtolower($this->alipay_config['input_charset']))."' method='".$method."'>";
+        $sHtml ="<html><head><title>跳转支付宝</title></head><body>跳转支付宝中，请稍后...";
+		$sHtml .= "<form id='alipaysubmit' name='alipaysubmit' action='".$this->alipay_gateway_new."_input_charset=".trim(strtolower($this->alipay_config['input_charset']))."' method='".$method."'>";
 		while (list ($key, $val) = each ($para)) {
             $sHtml.= "<input type='hidden' name='".$key."' value='".$val."'/>";
         }
 
 		//submit按钮控件请不要含有name属性
-        $sHtml = $sHtml."<input type='submit' value='".$button_name."'></form>";
+        $sHtml = $sHtml."<input style='display:none' type='submit' value='".$button_name."'></form>";
 		
 		$sHtml = $sHtml."<script>document.forms['alipaysubmit'].submit();</script>";
+
+        $sHtml .= '</body></html>';
 		
 		return $sHtml;
 	}

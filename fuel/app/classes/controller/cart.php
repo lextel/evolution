@@ -1,4 +1,3 @@
-
 <?php
 
 class Controller_Cart extends Controller_Frontend {
@@ -134,14 +133,6 @@ class Controller_Cart extends Controller_Frontend {
         return json_encode(['status' => $result ? 'success' : 'fail']);
     }
 
-    // 跳转支付
-    public function action_dopay() {
-        $bank = Input::get('bank');
-
-        echo '跳转银行操作。';
-        die;
-    }
-
     // 完成支付处理
     public function action_complete() {
 
@@ -202,7 +193,10 @@ class Controller_Cart extends Controller_Frontend {
     // 测试支付
     public function action_test() {
 
-        return \Classes\Payment::Instance('alipay')->pay(1, 0.1);
+        $userId = $this->current_user->id;
+
+
+        return \Classes\Payment::Instance('alipay')->pay($userId, 0.01);
     }
 
 }

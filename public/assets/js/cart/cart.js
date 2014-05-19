@@ -76,12 +76,18 @@ $(function(){
         } else {
             // 是否选择银行
             if($('input:radio[name="account"]').is(':checked')) {
-                alert('等待对接');
+                window.open('/payment/pay', '_blank');
+
+                $('#thirdPartyModal').modal('show');
             } else {
                 alert('请选择支付方式');
             }
 
         }
+    });
+
+    $('#payFinish, #payFail').click(function() {
+        $('#thirdPartyModal').modal('hide');
     });
 
     // 选择元宝
