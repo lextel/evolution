@@ -199,4 +199,10 @@ class Controller_Cart extends Controller_Frontend {
         $this->template->layout = $view;
     }
 
+    // 测试支付
+    public function action_test() {
+
+        return \Classes\Payment('alipay')->pay(1, 0.1);
+    }
+
 }
