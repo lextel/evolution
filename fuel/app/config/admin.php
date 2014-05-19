@@ -75,6 +75,7 @@ return [
                 ['name' => '添加新APP', 'href' => Uri::create('/v2admin/apps/create'), 'group'=>10],
                 ['name' => 'APP列表', 'href' => Uri::create('/v2admin/apps'), 'group'=>10],
                 ['name' => 'APP日志', 'href' => Uri::create('/v2admin/applogs'), 'group'=>10],
+                ['name' => 'APP图表', 'href' => Uri::create('/v2admin/applogs/report'), 'group'=>10],
             ],
         ],
         [
@@ -261,6 +262,7 @@ return [
         ['controller'=>'Controller_V2admin_Applogs',
          'action'=>[
             'index'=>10,
+            'report'=>10,
           ]
         ],
     ]
