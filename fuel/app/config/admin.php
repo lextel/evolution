@@ -8,7 +8,9 @@ return [
             'href' => 'javascript:void(0);',
             'class' => 'dropdown',
             'childs' => [
-                ['name' => '添加商品', 'href' => Uri::create('/v2admin/items/create'), 'group'=>10],
+                ['name' => '商品分类', 'href' => Uri::create('/v2admin/cates/cate'), 'group'=>10],
+                ['name' => '商品品牌', 'href' => Uri::create('/v2admin/cates/brand'), 'group'=>10],
+                ['name' => '添加新商品', 'href' => Uri::create('/v2admin/items/create'), 'group'=>10],
                 ['name' => '所有商品列表', 'href' => Uri::create('/v2admin/items/list/all'), 'group'=>1],
                 ['name' => '待审核商品列表', 'href' => Uri::create('/v2admin/items/list/uncheck'), 'group'=>1],
                 ['name' => '显示中的商品', 'href' => Uri::create('/v2admin/items/list/show'), 'group'=>1],
@@ -83,8 +85,7 @@ return [
             'href' => 'javascript:void(0);',
             'class' => 'dropdown',
             'childs' => [
-                ['name' => '商品分类', 'href' => Uri::create('/v2admin/cates/cate'), 'group'=>10],
-                ['name' => '商品品牌', 'href' => Uri::create('/v2admin/cates/brand'), 'group'=>10],
+                
                 [
                     'name' => '公告管理',
                     'href' => Uri::create('/v2admin/notices'),
