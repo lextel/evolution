@@ -17,6 +17,7 @@ class Controller_Payment extends Controller_Frontend {
 
     // 支付完成后台接收
     public function action_notify() {
+        set_time_limit(0);
         $status = Input::post('trade_status');
         if($status == 'TRADE_FINISHED' || $status == 'TRADE_SUCCESS') {
             $userId = Input::post('extra_common_param');
@@ -33,7 +34,7 @@ class Controller_Payment extends Controller_Frontend {
 
             if($quantity == intval(Input::post('total_fee'))) {
                 $orderModel = new Model_Order();
-                $orderIds = $orderModel->add($userId, $items);
+                $orderIds = $orderModel->add($userId, $items, true);
 
                 return "success";
             }
@@ -45,12 +46,6 @@ class Controller_Payment extends Controller_Frontend {
         }
         Log::error('支付失败! 返回内容:' . $post);
 
-
-        $post = '';
-        foreach(Input::all() as $k => $v) {
-            $post .= '|' . $k . '=' . $v; 
-        }
-        Log::error('支付失败! 返回内容:' . $post);
 
         return "fail";
 
