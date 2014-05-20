@@ -12,8 +12,8 @@ namespace Classes;
 class Payment {
 
     private static $config = [
-                    'notifyUrl' => 'http://et.llt.com/payment/notify',
-                    'returnUrl' => 'http://et.llt.com/payment/return',
+                    'notifyUrl' => 'http://et.lltao.com/payment/notify',
+                    'returnUrl' => 'http://et.lltao.com/payment/return',
                     'type' => [
                         'alipay' => ['id' => '2088411000022006','key' => 'oxkzlf3f8mq63nodvoovh7w6w038xsfq'],
                     ],
