@@ -720,6 +720,12 @@ table td p.tl{
    vertical-align: middle;
    background-position: 0 -224px;
 }
+.icon-error{
+    width:65px;
+    height: 50px;
+    vertical-align: middle;
+    background-position: 0 -395px;
+}
 .icon-arrow{
     width: 24px;
     height: 16px;

@@ -23,7 +23,7 @@ class Alipay {
 
 
 
-    public function pay($orderIds, $money) {
+    public function pay($userId, $money) {
 
         require('paymentLib/alipay/alipay_submit.class.php');
 
@@ -32,7 +32,7 @@ class Alipay {
         $notify_url = $this->notify;
         $return_url = $this->return;
         $seller_email = 'lltao@lltao.com';
-        $out_trade_no = implode('_', $orderIds);
+        $out_trade_no = 'LLT' . str_replace('.', '', microtime(true));
         $subject = '乐乐淘商品';
         $total_fee = $money;
         $body = '购买' . intval($money) . '个幸运码';
@@ -41,7 +41,7 @@ class Alipay {
         $exter_invoke_ip = "";
 
         $alipay_config = [
-            'partner'       => $this->cofnig['id'],
+            'partner'       => $this->config['id'],
             'key'           => $this->config['key'],
             'sign_type'     => strtoupper('MD5'),
             'input_charset' => 'utf-8',
@@ -62,9 +62,10 @@ class Alipay {
             "body"	=> $body,
             "show_url"	=> $show_url,
             "anti_phishing_key"	=> $anti_phishing_key,
+            "extra_common_param" => $userId,
             "exter_invoke_ip"	=> $exter_invoke_ip,
             "_input_charset"	=> trim(strtolower($alipay_config['input_charset']))
-        );
+        ];
 
         //建立请求
         $alipaySubmit = new AlipaySubmit($alipay_config);
