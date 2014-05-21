@@ -102,7 +102,6 @@ class Controller_Cart extends Controller_Frontend {
             'id'    => Input::post('id'),
             'qty'   => Input::post('qty'),
         ]);
-        Log::error(json_encode(Cart::items()));
         $count = count(Cart::items());
 
         return json_encode(['status' => $result ? 'success' : 'fail', 'msg' => $count]);
