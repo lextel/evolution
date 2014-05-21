@@ -7,7 +7,7 @@
     </div>
     <div class="prompt-bar">
         <s class="icon-plaint"></s>
-        请完成手机验证，验证手机不仅能加强账户安全，快速找回密码，还会在您成功云购到商品后及时通知您！
+        请完成手机验证，验证手机不仅能加强账户安全，快速找回密码，还会在您成功乐拍到商品后及时通知您！
     </div>
     <?php echo Form::open(['action'=>'', 'class'=>'verifyForm']); ?>
         <div class="row">
