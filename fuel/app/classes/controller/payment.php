@@ -15,6 +15,12 @@ class Controller_Payment extends Controller_Frontend {
             $orderIds = $orderModel->add($userId, $items, true);
             return "success";
         }
+        //记录需要退帐
+        //流水号
+        $tradeNo = trim(Input::post('trade_no'));
+        //订单号
+        $outTradeNo = trim(Input::post('out_trade_no'));
+        Log::error('支付失败! 需要手工退帐记录:支付宝流水号 ' . $tradeNo . ' 订单号 ' . $outTradeNo);    
     }
     //充值返回
     private function rechargeReturn($user, $source = '支付宝'){
@@ -95,7 +101,7 @@ class Controller_Payment extends Controller_Frontend {
     public function action_return() {
         $status = Input::get('trade_status');
         $success = false;
-        $reason = '';
+        $reason = Input::get('error_code', '');
         $view = View::forge('payment/fail');
         $extra_param = explode('_', trim(Input::get('extra_common_param')));
 
@@ -120,23 +126,16 @@ class Controller_Payment extends Controller_Frontend {
         if ($action == 'pay'){
             if($status == 'TRADE_FINISHED' || $status == 'TRADE_SUCCESS') {
                 $success = true;
-            }else{
-                $reason = '支付失败';
             }
-            
             $view = View::forge('payment/return');
             $this->template->title = "支付结果";
-            return;
         }
         if ($action == 'recharge'){
             if($status == 'TRADE_FINISHED' || $status == 'TRADE_SUCCESS') {
                 $success = true;
-            }else{
-                $reason = '充值失败';
             }
             $view = View::forge('payment/rechargereturn');
             $this->template->title = "充值结果";
-            return;
         }
         $view->set('status', $success);
         $view->set('reason', $reason);

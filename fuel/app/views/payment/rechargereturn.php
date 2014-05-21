@@ -9,8 +9,8 @@
             </div>
             <?php else: ?>
                 <div class="panel-head">
-                    <h2 class="title-chg"><span class="icon icon-succeed"></span>抱歉, 充值失败！</h2>
-                    <div style="padding: 20px;">
+                    <h2 class="title-chg"><span class="icon icon-error"></span>抱歉, 充值失败！</h2>
+                    <div style="padding: 40px;text-align: center">
                         失败原因：<?php echo $reason;?>
                     </div>
                 </div>
