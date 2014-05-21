@@ -63,7 +63,10 @@ class Model_Order extends \Classes\Model
 
         foreach($carts as $cart) {
 
-            $items = Cart::items();
+            //$items = Cart::items();
+            $config['impersonate'] = $memberId;
+            $defaultCart = Cart::instance('default', $config);
+            $items = $defaultCart->items();
             foreach($items as $item) {
                 if($cart->get_id() == $item->get_id()) {
                     $item->delete();
@@ -179,8 +182,8 @@ class Model_Order extends \Classes\Model
 
             $item = Model_Item::find($phase->item_id);
             // 生成新一期
-            if($item->status == \Helper\Item::IS_CHECK 
-               && $item->is_delete == \Helper\Item::NOT_DELETE 
+            if($item->status == \Helper\Item::IS_CHECK
+               && $item->is_delete == \Helper\Item::NOT_DELETE
                && ($item->phase == 0 || $item->phase >= $phase->phase_id + 1)
               ) {
                 $phaseModel = new Model_Phase();

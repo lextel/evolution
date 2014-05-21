@@ -44,13 +44,11 @@
                               <li><?php echo Html::anchor('/signout', '退出', ['class'=>'logout'])?></li>
                         </ul>
                      </div>
-                     <?php if ($isnew) { ?>
-                    <span style="margin: 0px 0px 0px 14px"><a href="<?php echo Uri::create('/u/message'); ?>">消息(<s class="r"><?php echo $isnew;?></s>)</a></span>
-                 <?php } ?>
+
                  </div>
 
                  <span style="color:#C10101;margin:0px 4px 0px 0px"><?php echo \Helper\Coins::showIconCoins($current_user->points);?></span>
-                 
+
             <?php }?>
             </div>
         </div>
@@ -188,8 +186,8 @@
         <?php
             Config::load('common');
             $point = Config::get('point');
-            $unit  = Config::get('unit');
-            $unit2 = Config::get('unit2');
+            $unit  = Config::get('unit2');
+            $unit2 = Config::get('unit4');
         ?>
         BASE_URL = '<?php echo Uri::base(); ?>';
         POINT    = '<?php echo $point; ?>';

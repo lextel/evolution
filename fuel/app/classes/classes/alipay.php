@@ -22,8 +22,8 @@ class Alipay {
     }
 
 
-
-    public function pay($userId, $money) {
+    //直接支付
+    public function pay($userId, $money, $action = 'pay') {
 
         require('paymentLib/alipay/alipay_submit.class.php');
 
@@ -35,7 +35,10 @@ class Alipay {
         $out_trade_no = 'LLT' . str_replace('.', '', microtime(true));
         $subject = '乐乐淘商品';
         $total_fee = $money;
-        $body = '购买' . intval($money) . '个幸运码';
+        $bodys = [
+                 'pay' => '购买' . intval($money) . '个幸运码', 
+                 'recharge'=> '充值' . intval($money) . '个元宝'];
+        $body = isset($bodys[$action]) ? $bodys[$action] : $bodys['pay'];
         $show_url = 'http://www.lltao.com'; // 商品展示地址
         $anti_phishing_key = "";
         $exter_invoke_ip = "";
@@ -48,7 +51,8 @@ class Alipay {
             'cacert'        => getcwd().'\\paymentLib\\alipay\\cacert.pem',
             'transport'     => 'http',
         ];
-
+        //用户名，操作，支付源
+        $extra_param = implode('_', [$userId, $action, '支付宝']);
         $parameter = [
             "service" => "create_direct_pay_by_user",
             "partner" => trim($alipay_config['partner']),
@@ -62,14 +66,15 @@ class Alipay {
             "body"	=> $body,
             "show_url"	=> $show_url,
             "anti_phishing_key"	=> $anti_phishing_key,
-            "extra_common_param" => $userId,
+            "extra_common_param" => $extra_param,
             "exter_invoke_ip"	=> $exter_invoke_ip,
             "_input_charset"	=> trim(strtolower($alipay_config['input_charset']))
         ];
-
+        
         //建立请求
+        header("Content-type: text/html; charset=utf-8");
         $alipaySubmit = new AlipaySubmit($alipay_config);
-
+        
         return $alipaySubmit->buildRequestForm($parameter, "get", "确认");
     }
 }

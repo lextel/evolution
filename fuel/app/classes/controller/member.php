@@ -47,12 +47,8 @@ class Controller_Member extends Controller_Center{
         if (Input::method() != 'POST' ){
             return Response::redirect('/u/getnickname');
         }
-        $nickname = trim(Input::post('param'));
+        $nickname = trim(Input::post('param', ''));
         $res = 'false';
-        if (is_null($nickname)){
-            return $res;
-        }
-
         if (Model_Member::checkNickname($nickname, $this->current_user->id)){
             $res = 'true';
         }
@@ -65,30 +61,28 @@ class Controller_Member extends Controller_Center{
     {
         !Input::method() == 'POST' and Response::redirect('/u/getnickname');
         $val = Model_Member::validateNickname('create');
-        if ($val->run())
+        if (!$val->run())
         {
-            $member = Model_Member::find($this->current_user->id);
-            $nickname = trim(Input::post('nickname'));
-            if (!Model_Member::checkNickname($nickname, $this->current_user->id))
-            {
-                Session::set_flash('error', '用户昵称已经存在了');
-                Session::set_flash('nickname', $nickname);
-                Response::redirect('/u/getnickname');
-            }
-
-            $member->nickname = $nickname;
-            if ($member and $member->save())
-            {
-                Session::set_flash('success', '更新个人设置OK');
-                Response::redirect('/');
-            }
-            else{
-                $res and Response::redirect('/u/getnickname');
-            }
+            Session::set_flash('error', '用户昵称已经存在了');
+            return Response::redirect('/u/getnickname');
         }
-        Session::set_flash('error', '用户昵称已经存在了');
-        Response::redirect('/u/getnickname');
-
+        $member = Model_Member::find($this->current_user->id);
+        $nickname = trim(Input::post('nickname'));
+        if (!Model_Member::checkNickname($nickname, $this->current_user->id))
+        {
+            Session::set_flash('error', '用户昵称已经存在了');
+            Session::set_flash('nickname', $nickname);
+            Response::redirect('/u/getnickname');
+        }
+        $member->nickname = $nickname;
+        if ($member and $member->save())
+        {
+            Session::set_flash('success', '更新个人设置OK');
+            Response::redirect('/');
+        }
+        else{
+            Response::redirect('/u/getnickname');
+        }       
     }
 
     /*
@@ -109,15 +103,17 @@ class Controller_Member extends Controller_Center{
     {
         !Input::method() == 'POST' and Response::redirect('/u/getavatar');
         $val = Model_Member::validateAvatar('edit');
-        if ($val->run())
+        if (!$val->run())
         {
-            $post = $member = Model_Member::find($this->current_user->id);
-            $post->avatar = Input::post('avatar');
-            if($post->save())
-            {
-                Session::set_flash('success', '更新OK');
-                Response::redirect('/u');
-            }
+            Session::set_flash('error', '更新失败');
+            return Response::redirect('/u/getavatar');
+        }
+        $post = $member = Model_Member::find($this->current_user->id);
+        $post->avatar = trim(Input::post('avatar'));
+        if($post->save())
+        {
+            Session::set_flash('success', '更新OK');
+            return Response::redirect('/u');
         }
         Session::set_flash('error', '更新失败');
         Response::redirect('/u/getavatar');
@@ -141,7 +137,7 @@ class Controller_Member extends Controller_Center{
     {
         !Input::method() == 'POST' and Response::redirect('/u');
         $member = Model_Member::find_by_id($this->current_user->id);
-        $member->bio = Input::post('bio');
+        $member->bio = trim(Input::post('bio'));
         $member-save();
         Response::redirect('/u');
     }
@@ -153,27 +149,24 @@ class Controller_Member extends Controller_Center{
     {
         !Input::method() == 'POST' and Response::redirect('/u/getprofile');
         $val = Model_Member::validateProfile('edit');
-        if ($val->run())
+        if (!$val->run())
         {
-            $member = Model_Member::find($this->current_user->id);
-            if ($member->nickname != Input::post('nickname'))
-            {
-                if (!Model_Member::checkNickname(Input::post('nickname'), $this->current_user->id))
-                {
-                    Session::set_flash('error', '用户昵称已经存在了');
-                    Response::redirect('/u/getprofile');
-                }
-            }
-            $member->nickname = Input::post('nickname');
-            $member->bio = Input::post('bio');
-            if ($member and $member->save())
-            {
-                Session::set_flash('success', '更新个人设置OK');
-                Response::redirect('/u/getprofile');
-            }
-            else{
-                $res and Response::redirect('/u/getprofile');
-            }
+            Session::set_flash('error', '数据格式不正确');
+            return Response::redirect('/u/getprofile');
+        }
+        $member = Model_Member::find($this->current_user->id);
+        if ($member->nickname != Input::post('nickname') && 
+                !Model_Member::checkNickname(Input::post('nickname'), $this->current_user->id))
+        {
+            Session::set_flash('error', '用户昵称已经存在了');
+            return Response::redirect('/u/getprofile');
+        }
+        $member->nickname = Input::post('nickname');
+        $member->bio = Input::post('bio');
+        if ($member and $member->save())
+        {
+            Session::set_flash('success', '更新个人设置OK');
+            return Response::redirect('/u/getprofile');
         }
         Session::set_flash('error', '更新个人设置失败');
         Response::redirect('/u/getprofile');
@@ -217,46 +210,6 @@ class Controller_Member extends Controller_Center{
     {
         $this->template->title = '用户充值页面';
         $this->template->layout->content = View::forge('member/money');
-    }
-
-     /*
-    *增加余额功能,根据签名充值
-    */
-    public function action_recharge()
-    {
-       $response = new Response();
-       $response->set_header('Content-Type', 'application/json');
-       $data = ['code'=>-1, 'msg'=>''];
-       if (!Input::method() == 'POST') {
-           return $response->body(json_encode($data));
-       }
-       $val = Validation::forge();
-       $val->add('money', '')
-                ->add_rule('required');
-       $val->add('source', '')
-                ->add_rule('required');
-       if (!$val->run()){
-            Session::set_flash('error', e('充值失败'));
-            return $response->body(json_encode($data));
-       }
-       $money = Input::post('money');
-
-       // 转换成积分
-       Config::load('common');
-       $point = intval($money) * Config::get('point');
-       $source = Input::post('source');
-       $sign = Input::post('sign');
-       $res = Model_Member::addMoney($this->current_user->id, $point);
-       if ($res){
-           //增加充值记录
-           Model_Member_Moneylog::recharge_log($this->current_user->id, $point, $source);
-           Session::set_flash('success', e('充值成功'));
-           $data['code'] = 0;
-           return $response->body(json_encode($data));
-       }else{
-           Session::set_flash('error', e('充值失败'));
-           return $response->body(json_encode($data));
-       }
     }
 
     // 上传头像图片

@@ -23,7 +23,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php 
+                    <?php
                         $subTotal = 0;
                         Config::load('common');
                         foreach($items as $item):
@@ -145,16 +145,19 @@
                          </div>
                      </div>
                  </div>
-                <div id="thirdPartyModal" style="top: 200px" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div id="thirdPartyModal" style="top: 220px" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                      <div class="modal-dialog modal-sm">
                          <div class="modal-content">
                               <div class="modal-header">
-                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                   <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
                                    <h4 class="modal-title" id="mySmallModalLabel">支付结果</h4>
+                                   <!--<h4 class="o">请在新打开的页面上完成支付</h4>
+                                   <p>付款完成之前，请不要关闭本窗口！ </p>
+                                   <p>完成付款后根据您的个人情况完成此操作 </p>-->
                               </div>
                               <div class="modal-body">
-                                    <a href="javascript:;" class="btn btn-red btn-md" id="payFinish">支付完成</a>
-                                    <a href="javascript:;" class="btn btn-state btn-md" style="margin-left: 50px" id="payFail">支付失败</a>
+                                    <a href="<?php echo Uri::create('/u/orders');?>" class="btn btn-red btn-md" id="payFinish">支付完成</a>
+                                    <a href="<?php echo Uri::create('/cart/pay');?>" class="btn btn-state btn-md" style="margin-left: 50px" id="payFail">支付失败</a>
                               </div>
                          </div>
                      </div>

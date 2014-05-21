@@ -2,14 +2,14 @@
         <div class="pay-panel">
             <?php if(isset($status) && $status):?>
             <div class="panel-head">
-                <h2 class="title-chg"><span class="icon icon-succeed"></span>恭喜您, 支付成功！</h2>
+                <h2 class="title-chg"><span class="icon icon-succeed"></span>恭喜您, 充值成功！</h2>
                 <div style="padding: 40px;text-align: center">
-                    商品信息请在<a style="text-decoration: none" href="<?php echo Uri::create('u/orders'); ?>">【乐淘记录】</a>查看
+                    商品信息请在<a style="text-decoration: none" href="<?php echo Uri::create('u/moneylog'); ?>">【充值记录】</a>查看
                 </div>
             </div>
             <?php else: ?>
                 <div class="panel-head">
-                    <h2 class="title-chg"><span class="icon icon-succeed"></span>抱歉, 支付失败！</h2>
+                    <h2 class="title-chg"><span class="icon icon-succeed"></span>抱歉, 充值失败！</h2>
                     <div style="padding: 20px;">
                         失败原因：<?php echo $reason;?>
                     </div>
