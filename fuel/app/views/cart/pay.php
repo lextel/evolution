@@ -1,4 +1,4 @@
-<?php echo Asset::css(['product.css', 'customBootstrap.css']); ?>
+<?php echo Asset::css(['product.css', 'customBootstrap.css', 'style.css']); ?>
 <?php echo Asset::js(['bootstrap.min.js', '/cart/cart.js']); ?>
 <div class="wrapper w">
     <div class="cart-content">
@@ -132,7 +132,7 @@
                     </dl>
                 </div>
                 <!--选择支付方式结束-->
-                <div id="payModal" style="top: 200px" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div id="payModal" style="top: 200px" class="modal fade bs-modal-sm login2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                      <div class="modal-dialog modal-sm">
                          <div class="modal-content">
                               <div class="modal-header">
@@ -145,8 +145,9 @@
                          </div>
                      </div>
                  </div>
-                <div id="thirdPartyModal" style="top: 220px" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                     <div class="modal-dialog modal-sm">
+                <!--<div id="thirdPartyModal" style="top: 220px" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">-->
+                <div class="payuse">
+                     <div class="modal-sm">
                          <div class="modal-content">
                               <div class="modal-header">
                                    <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->

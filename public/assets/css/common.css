@@ -2295,3 +2295,10 @@ span.error{
     color: #F00;
     font-size:14px;
 }
+
+/*弹出登录*/
+.payuse{
+    display: none;
+    position: absolute;
+    z-index: 9999;
+}

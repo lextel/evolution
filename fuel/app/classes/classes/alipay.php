@@ -33,12 +33,14 @@ class Alipay {
         $return_url = $this->return;
         $seller_email = 'lltao@lltao.com';
         $out_trade_no = 'LLT' . str_replace('.', '', microtime(true));
-        $subject = '乐乐淘商品';
         $total_fee = $money;
+        $subjects = ['pay'=>'乐乐淘商品', 'recharge'=>'乐乐淘充值'];
+        
         $bodys = [
                  'pay' => '购买' . intval($money) . '个幸运码', 
                  'recharge'=> '充值' . intval($money) . '个元宝'];
         $body = isset($bodys[$action]) ? $bodys[$action] : $bodys['pay'];
+        $subject = isset($subjects[$action]) ? $subjects[$action] : $subjects['pay'];;
         $show_url = 'http://www.lltao.com'; // 商品展示地址
         $anti_phishing_key = "";
         $exter_invoke_ip = "";

@@ -126,6 +126,7 @@ class Controller_Payment extends Controller_Frontend {
             
             $view = View::forge('payment/return');
             $this->template->title = "支付结果";
+            return;
         }
         if ($action == 'recharge'){
             if($status == 'TRADE_FINISHED' || $status == 'TRADE_SUCCESS') {
@@ -135,6 +136,7 @@ class Controller_Payment extends Controller_Frontend {
             }
             $view = View::forge('payment/rechargereturn');
             $this->template->title = "充值结果";
+            return;
         }
         $view->set('status', $success);
         $view->set('reason', $reason);

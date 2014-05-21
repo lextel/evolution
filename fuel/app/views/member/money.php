@@ -1,48 +1,5 @@
-<script type="text/javascript">
-$(function() {
-   $(".buy-btn").click(function(){
-       var money = $("input[name='money1']:checked").val();
-       if (!money){
-          money = $("input[name='money2']").val();
-       }
-       if (!money){
-          alert('请填写金额');
-          return false;
-       }
-       $("input[name='money']").val(money);
-       data = $('#addmoney').serialize();
-       if($('input:radio[name="account"]').is(':checked')) {
-               var url = '/u/recharge';
-               url += '?' + data;
-               window.open(url);
-               $(".moneysuss").show();
-        } else {
-              alert('请选择支付方式');
-        }
-
-   });
-   $("#money2").keyup(function(){
-    var value = $("#money2").val();
-    if((/^[0-9]{1}[0-9]*$/.test(value))|| value<0)
-    {
-      $(".moneytotal").html(value);
-      return true;
-    }
-    else
-    {
-      $("#money2").val("1");
-      $(".moneytotal").html(1);
-      return false;
-    }
-   });
-   $("input[name='money1']").change(function(){
-      var value = $("input[name='money1']:checked").val();
-      $(".moneytotal").html(value);
-   });
-
-})
-</script>
-
+<?php echo Asset::css(['product.css', 'style.css']);?>
+<?php echo Asset::js(['jquery.cookie.js', 'member/money.js']);?>
 <div class="content-inner">
         <!--充值开始-->
         <form id="addmoney">
@@ -82,7 +39,7 @@ $(function() {
                 <dl>
                     <dt>第三方平台</dt>
                     <dd>
-                        <input type="radio" id="zhf" name="account"/>
+                        <input type="radio" id="zhf" name="account" checked="checked" />
                         <label for="zhf">
                             <span class="zhf"></span>
                         </label>
