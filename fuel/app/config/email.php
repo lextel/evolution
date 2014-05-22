@@ -47,7 +47,8 @@ return [
          */
         'from'      => [
             'email'     => 'leletao_com@163.com',
-            'name'      => '乐乐淘官方活动',
+            //'email' => 'no_reply@lltao.com',
+            'name'      => '乐乐淘官方',
         ],
 
         /**
@@ -83,7 +84,7 @@ return [
         /**
          * Path to sendmail
          */
-        'sendmail_path' => '/usr/sbin/sendmail',
+        //'sendmail_path' => '/usr/sbin/sendmail',
 
         /**
          * SMTP settings
@@ -93,6 +94,11 @@ return [
             'port'      => 25,
             'username'  => 'leletao_com@163.com',
             'password'  => 'zhujianglong',
+            
+            /*'host'      => 'smtp.exmail.qq.com',
+            'port'      => 25,
+            'username'  => 'no_reply@lltao.com',
+            'password'  => 'taolele2014',*/
             'timeout'   => 5,
         ],
 

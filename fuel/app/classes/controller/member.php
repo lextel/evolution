@@ -82,7 +82,7 @@ class Controller_Member extends Controller_Center{
         }
         else{
             Response::redirect('/u/getnickname');
-        }       
+        }
     }
 
     /*
@@ -151,24 +151,24 @@ class Controller_Member extends Controller_Center{
         $val = Model_Member::validateProfile('edit');
         if (!$val->run())
         {
-            Session::set_flash('error', '数据格式不正确');
+            Session::set_flash('profileerror', '数据格式不正确');
             return Response::redirect('/u/getprofile');
         }
         $member = Model_Member::find($this->current_user->id);
-        if ($member->nickname != Input::post('nickname') && 
+        if ($member->nickname != Input::post('nickname') &&
                 !Model_Member::checkNickname(Input::post('nickname'), $this->current_user->id))
         {
-            Session::set_flash('error', '用户昵称已经存在了');
+            Session::set_flash('profileerror', '用户昵称已经存在了');
             return Response::redirect('/u/getprofile');
         }
         $member->nickname = Input::post('nickname');
         $member->bio = Input::post('bio');
         if ($member and $member->save())
         {
-            Session::set_flash('success', '更新个人设置OK');
+            Session::set_flash('profilesuccess', '更新个人设置OK');
             return Response::redirect('/u/getprofile');
         }
-        Session::set_flash('error', '更新个人设置失败');
+        Session::set_flash('profileerror', '更新个人设置失败');
         Response::redirect('/u/getprofile');
     }
     /*
@@ -283,7 +283,7 @@ class Controller_Member extends Controller_Center{
               return Response::redirect('/u/sendemailok');
            }
        }
-       Session::set_flash('error', '发送验证邮件失败');
+       Session::set_flash('profileerror', '发送验证邮件失败');
        return Response::redirect('/u/getprofile');
     }
 
@@ -326,7 +326,7 @@ class Controller_Member extends Controller_Center{
         $codeModel = new Model_Invitcode();
         if($codeModel->check($code)) {
             $codeModel->used($this->current_user->id, $code);
-            
+
             return json_encode(['code' => 0]);
         }
 
