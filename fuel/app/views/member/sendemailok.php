@@ -11,7 +11,7 @@
                        <p>乐乐淘已向你的邮箱发送了一封验证邮箱的邮件,请尽快完成验证</p>
                     </li>
                     <li>
-                       <a class="btn btn-red btn-mx" href="<?php echo \Classes\Email::toemail($email) ? 'http://'.\Classes\Email::toemail($email) : '';?>">登录邮箱完成验证</a>
+                       <a class="btn btn-red btn-mx" href="<?php echo \Classes\Email::toemail($email) ? 'http://'.\Classes\Email::toemail($email) : '';?>" target="_blank">登录邮箱完成验证</a>
                     </li>
                 </ul>
             </form>

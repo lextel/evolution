@@ -15,6 +15,7 @@ fuel/app/cache/*/*
 .gitignore
 fuel/app/tmp/qqstate/*
 fuel/app/tmp/qqstate/2698744419
+fuel/app/config/development/db.php
 # Compiled source #
 ###################
 *.com
