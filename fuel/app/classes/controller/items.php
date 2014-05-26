@@ -183,6 +183,13 @@ class Controller_Items extends Controller_Frontend {
                 echo '<hr/>';
             }
 
+            if(empty($phases)) {
+                $p = new Model_Phase();
+                $p->add($item);
+                echo '没有期数,#' . $item->id . '商品新增一期';
+                echo '<hr/>';
+            }
+
         }
 
         return 'ok';
