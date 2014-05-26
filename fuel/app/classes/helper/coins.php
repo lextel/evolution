@@ -11,7 +11,7 @@ class Coins {
      * @param $onlyGold 只显示元宝
      *
      */
-    public static function showCoins($points, $onlyGold = false) {
+    public static function showCoins($points, $onlyGold = true) {
         \Config::load('common');
 
         $point = \Config::get('point');
@@ -36,7 +36,7 @@ class Coins {
      * @param $onlyGold 只显示元宝
      *
      */
-    public static function showIconCoins($points, $onlyGold = false) {
+    public static function showIconCoins($points, $onlyGold = true) {
         \Config::load('common');
 
         $point = \Config::get('point');

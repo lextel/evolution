@@ -22,7 +22,7 @@
                         <div><a target="_blank" class="b" href="<?php echo Uri::create('u/'.$brokerage->target_id); ?>" ><?php echo $members[$brokerage->target_id]->nickname;?></a></div>
                     </td>
                     <td><?php echo $brokerage->type_id == 1 ? '注册' : '消费'; ?></td>
-                    <td><?php echo \Helper\Coins::showCoins($brokerage->points); ?></td>
+                    <td><?php echo \Helper\Coins::showCoins($brokerage->points, true); ?></td>
                     <td><div><?php echo date('Y-m-d H:i:s', $members[$brokerage->target_id]->created_at);?></div></td>
                 </tr>
                <?php };?>

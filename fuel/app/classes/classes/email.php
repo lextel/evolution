@@ -38,10 +38,13 @@ class Email {
         {
             Log::error($to.'|邮件发送失败:'.$e);
         }
-        catch (Exception $e) {
-            Log::error($to.'|邮件发送失败:'.$e);
+        catch(\SmtpCommandFailureException $e)
+        {
+            Log::error($to.'|SMTP失败:'.$e);
         }
-        exit;
+        catch (Exception $e) {
+            Log::error($to.'|邮件失败:'.$e);
+        }
         return false;
     }
     /*
@@ -51,13 +54,8 @@ class Email {
     */
     public static function checkemail($data) {
         $view = \View::forge($data['view'], $data);
-        try{
-            $res = self::send($data['email'], $view, $data['subject']);
-            return $res; 
-        }catch(Exception $e){
-            Log::error($to.'|SMTP错误:'.$e);
-        }
-        return false;
+        $res = self::send($data['email'], $view, $data['subject']);
+        return $res; 
     }
     /*
     * 功能：检测邮箱的DOMAIN

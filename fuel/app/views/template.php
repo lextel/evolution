@@ -40,7 +40,7 @@
                               <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐淘记录</a></li>
                               <li><a href="<?php echo Uri::create('/u/wins'); ?>">获得的商品</a></li>
                               <li><a href="<?php echo Uri::create('/u/getrecharge'); ?>">账户管理</a></li>
-                              <li><a href="<?php echo Uri::create('/u/profile'); ?>">个人设置</a></li>
+                              <li><a href="<?php echo Uri::create('/u/getprofile'); ?>">个人设置</a></li>
                               <li><?php echo Html::anchor('/signout', '退出', ['class'=>'logout'])?></li>
                         </ul>
                      </div>
