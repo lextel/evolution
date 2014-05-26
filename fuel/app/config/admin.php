@@ -11,14 +11,7 @@ return [
                 ['name' => '商品分类', 'href' => Uri::create('/v2admin/cates/cate'), 'group'=>10],
                 ['name' => '商品品牌', 'href' => Uri::create('/v2admin/cates/brand'), 'group'=>10],
                 ['name' => '添加新商品', 'href' => Uri::create('/v2admin/items/create'), 'group'=>10],
-                ['name' => '所有商品列表', 'href' => Uri::create('/v2admin/items/list/all'), 'group'=>1],
-                ['name' => '待审核商品列表', 'href' => Uri::create('/v2admin/items/list/uncheck'), 'group'=>1],
-                ['name' => '显示中的商品', 'href' => Uri::create('/v2admin/items/list/show'), 'group'=>1],
-                ['name' => '运行中商品列表', 'href' => Uri::create('/v2admin/items/list/active'), 'group'=>1],
-                ['name' => '已揭晓商品列表', 'href' => Uri::create('/v2admin/items/list/open'), 'group'=>1],
-                ['name' => '审核不通过商品列表', 'href' => Uri::create('/v2admin/items/list/unpass'), 'group'=>1],
-                ['name' => '已完成商品列表', 'href' => Uri::create('/v2admin/items/list/finish'), 'group'=>1],
-                ['name' => '已删除商品列表', 'href' => Uri::create('/v2admin/items/list/delete'), 'group'=>1],
+                ['name' => '商品列表', 'href' => Uri::create('/v2admin/items/list/all'), 'group'=>1],
             ]
         ],
         [
@@ -85,7 +78,7 @@ return [
             'href' => 'javascript:void(0);',
             'class' => 'dropdown',
             'childs' => [
-                
+
                 [
                     'name' => '公告管理',
                     'href' => Uri::create('/v2admin/notices'),

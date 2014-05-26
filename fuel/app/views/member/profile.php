@@ -8,7 +8,6 @@ $(function(){
         //需要个加载的图
         $(".load").show();
         window.location = "/u/checkemail";
-        $(".load").hide();
     });
 });
 </script>
@@ -27,14 +26,14 @@ $(function(){
             <?php echo Form::open(['action' => 'u/profile', 'method' => 'post', 'class'=>'form-profile validForm']); ?>
             <li>
                 <label></label>
-                <?php if (Session::get_flash('success')): ?>
+                <?php if (Session::get_flash('profilesuccess')): ?>
                     <p style="color:green;">
-                    <?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
+                    <?php echo implode('</p><p>', (array) Session::get_flash('profilesuccess')); ?>
                     </p>
                 <?php endif; ?>
-                <?php if (Session::get_flash('error')): ?>
+                <?php if (Session::get_flash('profileerror')): ?>
                     <p style="color:red;">
-                    <?php echo implode('</p><p>', (array) Session::get_flash('error')); ?>
+                    <?php echo implode('</p><p>', (array) Session::get_flash('profileerror')); ?>
                     </p>
                 <?php endif; ?>
             </li>
@@ -106,8 +105,8 @@ $(function(){
                 required:true,
                 validatenickname:true,
                 remote:{
-                 url:"<?php echo Uri::create('u/checknickname');?>",  
-                 type:"post",  
+                 url:"<?php echo Uri::create('u/checknickname');?>",
+                 type:"post",
                  dataType:"json",
                  data:{ 'param':function(){return $("#form_nickname").val();} }
               }

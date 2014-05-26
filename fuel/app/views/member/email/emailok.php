@@ -16,7 +16,7 @@
             <tr>
                 <td>
                 <?php echo \Html::anchor($href, "邮箱验证", ['style'=>'margin-left: 2em; width: 120px; height: 24px; text-decoration: none;
-                     display: inline-block;text-indent: 0; background: #eee;text-align: center;line-height: 22px;color:#000;']);?>
+                     display: inline-block;text-indent: 0; background: #F6B610;text-align: center;line-height: 22px;color:#000;']);?>
                 </td>
             </tr>
             <tr>

@@ -85,6 +85,9 @@ class Model_Member_Email extends \Classes\Model
         }
         $data['href'] = Uri::create($data['uri'], [], ['key'=>$data['key']]);
         $send =  \Classes\Email::checkemail($data);
+        if (empty($send)){
+          return false;
+        }
         return true;
     }
 

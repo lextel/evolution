@@ -37,7 +37,7 @@ $(function() {
                var url = '/u/recharge';
                url += '?' + data;
                window.open(url);
-               
+
                $(".login2").show();
                $(".login2").fadeIn("fast");
                $("body").append("<div id='greybackground'></div>");
@@ -47,11 +47,11 @@ $(function() {
         } else {
               alert('请选择支付方式');
         }
-        
+
    });
    $("#money2").keyup(function(){
     var value = $("#money2").val();
-    if((/^[0-9]{1}[0-9]*$/.test(value))|| value<0)
+    if((/^[1-9]{1}[0-9]*$/.test(value))|| value<0)
     {
       $(".moneytotal").html(value);
       return true;
