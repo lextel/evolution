@@ -1,4 +1,3 @@
-
 <?php
 
 class Controller_Cart extends Controller_Frontend {
@@ -24,7 +23,7 @@ class Controller_Cart extends Controller_Frontend {
         $carts = Cart::items();
         $ids = [0];
         foreach($carts as $cart) {
-            if(!empty($cart->get_id())) { 
+            if(!empty($cart->get_id())) {
                 $ids[] = $cart->get_id();
             }
         }
@@ -103,7 +102,6 @@ class Controller_Cart extends Controller_Frontend {
             'id'    => Input::post('id'),
             'qty'   => Input::post('qty'),
         ]);
-
         $count = count(Cart::items());
 
         return json_encode(['status' => $result ? 'success' : 'fail', 'msg' => $count]);
@@ -134,14 +132,6 @@ class Controller_Cart extends Controller_Frontend {
         return json_encode(['status' => $result ? 'success' : 'fail']);
     }
 
-    // 跳转支付
-    public function action_dopay() {
-        $bank = Input::get('bank');
-
-        echo '跳转银行操作。';
-        die;
-    }
-
     // 完成支付处理
     public function action_complete() {
 
@@ -157,12 +147,12 @@ class Controller_Cart extends Controller_Frontend {
         foreach($items as $item) {
             $quantity += $item->get_qty();
         }
-        
+
         $config = Config::load('common');
         $total = $quantity * $config['point'];
 
         if($this->current_user->points < $total) {
-            Response::redirect('/');
+            Response::redirect('u/recharge');
         }
 
         $orderModel = new Model_Order();
@@ -197,12 +187,6 @@ class Controller_Cart extends Controller_Frontend {
         $view->set('orders', $orders);
         $this->template->title = "支付结果";
         $this->template->layout = $view;
-    }
-
-    // 测试支付
-    public function action_test() {
-
-        return \Classes\Payment::Instance('alipay')->pay(1, 0.1);
     }
 
 }

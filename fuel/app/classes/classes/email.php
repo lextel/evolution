@@ -24,6 +24,7 @@ class Email {
         $email->to($to);
         $email->subject($subject);
         $email->html_body($view, true, false);
+        
         try
         {
            $email->send();
@@ -31,22 +32,30 @@ class Email {
         }
         catch(\EmailValidationFailedException $e)
         {
-            Log::error($to.'邮件过滤失败'.$e);
+            Log::error($to.'|邮件过滤失败:'.$e);
         }
         catch(\EmailSendingFailedException $e)
         {
-            Log::error($to.'邮件发送失败'.$e);
+            Log::error($to.'|邮件发送失败:'.$e);
+        }
+        catch(\SmtpCommandFailureException $e)
+        {
+            Log::error($to.'|SMTP失败:'.$e);
+        }
+        catch (Exception $e) {
+            Log::error($to.'|邮件失败:'.$e);
         }
         return false;
     }
     /*
     * 功能：发送用户邮箱验证邮件
-    * @param $data $data['view'], $data['email'], $data['subject'] 
+    * @param $data $data['view'], $data['email'], $data['subject']
     * @return boolean
     */
     public static function checkemail($data) {
         $view = \View::forge($data['view'], $data);
-        return self::send($data['email'], $view, $data['subject']);
+        $res = self::send($data['email'], $view, $data['subject']);
+        return $res; 
     }
     /*
     * 功能：检测邮箱的DOMAIN

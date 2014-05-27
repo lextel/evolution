@@ -78,5 +78,27 @@ class Model_Member_Moneylog extends \Classes\Model
         }
         return false;
     }
+    
+    /**
+     * 处理where条件
+     *
+     * @param $options array 筛选条件
+     *
+     * @return array where数组
+     */
+    public function handleWhere($options) {
+
+        $where = [];
+        /*if(isset($options['member']) && $options['member'] !== '') {
+            $where += ['username' => $options['member']];
+        }*/
+
+        if(isset($options['start_at']) && !empty($options['start_at']) && isset($options['end_at']) && !empty($options['end_at'])) {
+            $where += [['created_at', '>=', strtotime($options['start_at'])]];
+            $where += [['created_at', '<=', strtotime($options['end_at'])]];
+        }
+
+        return $where;
+    }
 
 }

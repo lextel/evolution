@@ -40,17 +40,15 @@
                               <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐淘记录</a></li>
                               <li><a href="<?php echo Uri::create('/u/wins'); ?>">获得的商品</a></li>
                               <li><a href="<?php echo Uri::create('/u/getrecharge'); ?>">账户管理</a></li>
-                              <li><a href="<?php echo Uri::create('/u/profile'); ?>">个人设置</a></li>
+                              <li><a href="<?php echo Uri::create('/u/getprofile'); ?>">个人设置</a></li>
                               <li><?php echo Html::anchor('/signout', '退出', ['class'=>'logout'])?></li>
                         </ul>
                      </div>
-                     <?php if ($isnew) { ?>
-                    <span style="margin: 0px 0px 0px 14px"><a href="<?php echo Uri::create('/u/message'); ?>">消息(<s class="r"><?php echo $isnew;?></s>)</a></span>
-                 <?php } ?>
+
                  </div>
 
                  <span style="color:#C10101;margin:0px 4px 0px 0px"><?php echo \Helper\Coins::showIconCoins($current_user->points);?></span>
-                 
+
             <?php }?>
             </div>
         </div>
@@ -127,9 +125,9 @@
                 <li>|</li>
                 <li><a href="<?php echo Uri::create('h/privacy');?>">隐私声明</a></li>
                 <li>|</li>
-                <li><a href="javascript:void(0);">合作专区</a></li>
+                <li><a href="<?php echo Uri::create('h/cooperation');?>">合作专区</a></li>
                 <li>|</li>
-                <li class="lastest"><a href="javascript:void(0);">联系我们</a></li>
+                <li class="lastest"><a href="<?php echo Uri::create('h/contact');?>">联系我们</a></li>
             </ul>
             <P style="color:#5b5b5b">Copyright © 2014<?php echo date('Y') != 2014 ? '-'.date('Y') : '';?> <a href="http://www.lltao.com">www.LLtao.com</a> 版权所有 <a href="http://www.miitbeian.gov.cn/" target="_blank" ref="nofollow">粤ICP备14017463号-1<!--服务器商要求加链接--></a></P>
 
@@ -188,8 +186,8 @@
         <?php
             Config::load('common');
             $point = Config::get('point');
-            $unit  = Config::get('unit');
-            $unit2 = Config::get('unit2');
+            $unit  = Config::get('unit2');
+            $unit2 = Config::get('unit4');
         ?>
         BASE_URL = '<?php echo Uri::base(); ?>';
         POINT    = '<?php echo $point; ?>';

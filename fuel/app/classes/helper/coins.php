@@ -11,16 +11,18 @@ class Coins {
      * @param $onlyGold 只显示元宝
      *
      */
-    public static function showCoins($points, $onlyGold = false) {
+    public static function showCoins($points, $onlyGold = true) {
         \Config::load('common');
 
         $point = \Config::get('point');
         $gold = floor($points/$point);
 
         $coins = '';
-        if(!empty($gold))
+        if(!empty($gold)) {
             $coins .= $gold . \Config::get('unit2');
-
+        } else { 
+            $coins .= '0' . \Config::get('unit2');
+        }
         if(!$onlyGold) {
             $silver = $points%$point;
             $coins .= $silver . \Config::get('unit4');
@@ -36,16 +38,18 @@ class Coins {
      * @param $onlyGold 只显示元宝
      *
      */
-    public static function showIconCoins($points, $onlyGold = false) {
+    public static function showIconCoins($points, $onlyGold = true) {
         \Config::load('common');
 
         $point = \Config::get('point');
         $gold = floor($points/$point);
 
         $coins = '';
-        if(!empty($gold))
+        if(!empty($gold)) { 
             $coins .= \Config::get('unit') . $gold . \Config::get('unit2');
-
+        } else { 
+            $coins .= \Config::get('unit') . '0' . \Config::get('unit2');
+        }
         if(!$onlyGold) {
             $silver = $points%$point;
             $coins .= \Config::get('unit3') . $silver . \Config::get('unit4');

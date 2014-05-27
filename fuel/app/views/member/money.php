@@ -1,61 +1,10 @@
-<script type="text/javascript">
-$(function() {
-   $(".buy-btn").click(function(){  
-       var money = $("input[name='money1']:checked").val();
-       if (!money){
-          money = $("input[name='money2']").val();
-       }
-       if (!money){
-          alert('请填写金额');
-          return false;
-       }
-       $("input[name='money']").val(money);
-       data = $('#addmoney').serialize();
-       $.post( '/u/recharge',
-           data,
-           function(data) {
-              if (data.code==0){
-                 $(".moneysuss").show();
-                 $(".login2").fadeIn("fast");
-                 $("body").append("<div id='greybackground'></div>");
-                 var documentheight = $(document).height();
-                 $("#greybackground").css({"opacity":"0.5","height":documentheight});
-                 return false;
-              }
-              else{
-                 alert('充值失败');
-              }
-           },
-           'json' 
-       );
-   });
-   $("#money2").keyup(function(){   
-    var value = $("#money2").val();   
-    if((/^[1-9]{1}\d*$/.test(value))|| value<0)   
-    {     
-      $(".moneytotal").html(value);
-      return true;     
-    }   
-    else
-    {    
-      $("#money2").val("1");
-      $(".moneytotal").html(1);     
-      return false;     
-    }     
-   });
-   $("input[name='money1']").change(function(){
-      var value = $("input[name='money1']:checked").val();
-      $(".moneytotal").html(value);
-   });
-
-})
-</script>
-
+<?php echo Asset::css(['product.css', 'style.css']);?>
+<?php echo Asset::js(['jquery.cookie.js', 'member/money.js']);?>
 <div class="content-inner">
         <!--充值开始-->
         <form id="addmoney">
         <input type="hidden" name="money" id="money" value="" />
-        <input type="hidden" name="source" id="source" value="网银" />
+        <input type="hidden" name="source" id="source" value="" />
         </form>
         <div class="prepaid-box">
             <dl class="pay-money">
@@ -83,19 +32,20 @@ $(function() {
                     <span>(1元=1元宝)</span>
                 </dd>
             </dl>
-            
+
             <!--选择支付方式开始-->
             <div class="pay-way">
                 <div class="title"><h4>选择付款方式</h4></div>
                 <dl>
                     <dt>第三方平台</dt>
                     <dd>
-                        <input type="radio" id="zhf" name="account"/>
+                        <input type="radio" id="zhf" name="account" checked="checked" />
                         <label for="zhf">
                             <span class="zhf"></span>
                         </label>
                     </dd>
-                    <dd>
+                    <?php if (0) { ?>
+                      <dd>
                         <input type="radio" id="cft" name="account"/>
                         <label for="cft">
                             <span class="cft"></span>
@@ -150,9 +100,11 @@ $(function() {
                             <span class="ny"></span>
                         </label>
                     </dd>
+                    <?php } ?>
                 </dl>
+
                 <div class="total-money">
-                    应付金额：￥<s class="moneytotal">00</s>.00
+                    应付金额：￥<s class="moneytotal">0</s>
                 </div>
                 <button class="btn btn-md btn-red fl buy-btn">确认支付</button>
             </div>
@@ -160,22 +112,22 @@ $(function() {
         </div>
 </div>
 <!--弹出充值提醒-->
-        <div class="login2 moneysuss">
+<div class="login2 moneysuss">
 
-                <div class="login2-head">
-                  <h3>充值提醒</h3>
-                   <button class="close" id="close"></button>
-                </div>
-                <ul class="login2-body">
-                    <h4 class="o">请在新打开的页面上完成支付</h4>
-                    <p>付款完成之前，请不要关闭本窗口！ </p>
-                    <p>完成付款后根据您的个人情况完成此操作 </p>
-                    <div class="register-bar">
-                        <div class="btn-group">
-                             <?php echo Html::anchor('/u/moneylog', '查看充值记录', ['class'=>'btn btn-red btn-sm']);?>
-                             <?php echo Html::anchor('/u/getrecharge', '返回充值页面', ['class'=>'btn btn-sm btn-state']);?>
-                          </div>
-                    </div>
-                 </ul>
-
+        <div class="login2-head">
+          <h3>充值提醒</h3>
+           <button class="close" id="close"></button>
         </div>
+        <ul class="login2-body">
+            <h4 class="o">请在新打开的页面上完成支付</h4>
+            <p>付款完成之前，请不要关闭本窗口！ </p>
+            <p>完成付款后根据您的个人情况完成此操作 </p>
+            <div class="register-bar">
+                <div class="btn-group">
+                     <?php echo Html::anchor('/u/moneylog', '查看充值记录', ['class'=>'btn btn-red btn-sm']);?>
+                     <?php echo Html::anchor('/u/getrecharge', '返回充值页面', ['class'=>'btn btn-sm btn-state']);?>
+                  </div>
+            </div>
+         </ul>
+
+</div>

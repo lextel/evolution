@@ -41,10 +41,11 @@ class Model_Order extends \Classes\Model
      *
      * @param $memberId integer 用户ID
      * @param $carts    array   购物车商品
+     * @param $isPay    boolean 是否是网银支付
      *
      * @return array 返回订单ID
      */
-    public function add($memberId, $carts) {
+    public function add($memberId, $carts, $isPay = false) {
 
         $timer = new \Helper\Timer();
 
@@ -62,7 +63,10 @@ class Model_Order extends \Classes\Model
 
         foreach($carts as $cart) {
 
-            $items = Cart::items();
+            //$items = Cart::items();
+            $config['impersonate'] = $memberId;
+            $defaultCart = Cart::instance('default', $config);
+            $items = $defaultCart->items();
             foreach($items as $item) {
                 if($cart->get_id() == $item->get_id()) {
                     $item->delete();
@@ -100,10 +104,12 @@ class Model_Order extends \Classes\Model
         }
 
         // 更新用户积分
-        $point = $quantity * Config::get('point');
-        $member->points = $member->points - $point;
-        if(!$member->save()) {
-            Log::error('会员: ID#'.$member->id . '减去金额' . $point . '操作失败');
+        if(!$isPay) {
+            $point = $quantity * Config::get('point');
+            $member->points = $member->points - $point;
+            if(!$member->save()) {
+                Log::error('!!!会员: ID#'.$member->id . '减去金额' . $point . '操作失败');
+            }
         }
 
         // 写邀请佣金
@@ -176,8 +182,8 @@ class Model_Order extends \Classes\Model
 
             $item = Model_Item::find($phase->item_id);
             // 生成新一期
-            if($item->status == \Helper\Item::IS_CHECK 
-               && $item->is_delete == \Helper\Item::NOT_DELETE 
+            if($item->status == \Helper\Item::IS_CHECK
+               && $item->is_delete == \Helper\Item::NOT_DELETE
                && ($item->phase == 0 || $item->phase >= $phase->phase_id + 1)
               ) {
                 $phaseModel = new Model_Phase();

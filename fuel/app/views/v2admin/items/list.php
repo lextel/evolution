@@ -1,8 +1,37 @@
 <?php
 echo Asset::js(['admin/items/list.js']);
 ?>
+<script type="text/javascript">
+$(function(){
+   $(".postactive").change(function(){
+       var val = $(this).val();
+       window.location.href = val;
+   });
+});
+</script>
 <div class="panel panel-default" style="padding: 10px 0">
+    <form class="navbar-form navbar-left">
+            <div class="col-sm-3">
+                <div class="input-group">
+                  <span class="input-group-addon">商品操作</span>
+                    <?php echo Form::select('active', Uri::current(), [
+                        Uri::create('v2admin/items/list/all') => '所有的商品',
+                        Uri::create('v2admin/items/list/uncheck') => '审核中的',
+                        Uri::create('v2admin/items/list/show') => '显示中的',
+                        Uri::create('v2admin/items/list/active') => '运行中的',
+                        Uri::create('v2admin/items/list/open') => '已揭晓的',
+                        Uri::create('v2admin/items/list/unpass') => '审核不通过的',
+                        Uri::create('v2admin/items/list/delete') => '已删除的',
+                        Uri::create('v2admin/items/list/finish') => '已完成的',
+                        ],
+                        ['class'=>'form-control postactive']
+                    );?>
+                </div>
+            </div>
+    <a type="submit" class="btn btn-success" href="<?php echo Uri::create('v2admin/items/create'); ?>">添加新商品</a>
+    </form>   
     <form class="navbar-form navbar-left" role="search" action="" method="get">
+        
         <div class="col-sm-3">
             <div class="input-group">
               <span class="input-group-addon">分类</span>

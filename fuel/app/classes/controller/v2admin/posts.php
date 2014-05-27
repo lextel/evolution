@@ -13,14 +13,10 @@ class Controller_V2admin_Posts extends Controller_V2admin{
                 '2'=>['status'=>2, 'is_delete'=>0],
                 //已经删除列表
                 '3'=>['is_delete'=>1]];
-        /*if (is_null($active)){
-            $etype = $type['0'];
-        }else{
-            $etype = $type[$active];
-            is_null($etype) and $etype = $type['0'];
-        }*/
+        if (!array_key_exists($active, $type)){
+            $active = '0';
+        }
         $etype = $type[$active];
-        is_null($etype) and $etype = $type['0'];
         $count = Model_Post::count(['where'=>$etype]);
         $page = new \Helper\Page();
         $url = Uri::create('v2admin/posts', ['active'=>$active], ['active' => ':active']);

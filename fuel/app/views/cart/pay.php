@@ -1,4 +1,4 @@
-<?php echo Asset::css(['product.css', 'customBootstrap.css']); ?>
+<?php echo Asset::css(['product.css', 'customBootstrap.css', 'style.css']); ?>
 <?php echo Asset::js(['bootstrap.min.js', '/cart/cart.js']); ?>
 <div class="wrapper w">
     <div class="cart-content">
@@ -23,7 +23,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php 
+                    <?php
                         $subTotal = 0;
                         Config::load('common');
                         foreach($items as $item):
@@ -60,7 +60,7 @@
             </div>
         </div>
     </div>
-    <div class="pay-row"><label><input type="checkbox" id="goldPay">使用元宝支付，您有：<?php echo \Helper\Coins::showCoins($current_user->points);?></label><b id="money" money="<?php echo $current_user->points; ?>" style="display:none"></b></div>
+    <div class="pay-row"><label><input type="checkbox" id="goldPay">使用元宝支付，您有：<?php echo \Helper\Coins::showCoins($current_user->points, true);?></label><b id="money" money="<?php echo $current_user->points; ?>" style="display:none"></b></div>
     <!--选择支付方式开始-->
     <div class="prepaid-box">
                 <!--选择支付方式开始-->
@@ -74,7 +74,7 @@
                                 <span class="zhf"></span>
                             </label>
                         </dd>
-                        <dd>
+                        <!--dd>
                             <input type="radio" id="cft" name="account">
                             <label for="cft">
                                 <span class="cft"></span>
@@ -85,8 +85,8 @@
                             <label for="kq">
                                 <span class="kq"></span>
                             </label>
-                        </dd>
-                        <dt>网银支付</dt>
+                        </dd-->
+                        <!--dt>网银支付</dt>
                         <dd>
                             <input type="radio" id="zhs" name="account">
                             <label for="zhs">
@@ -128,11 +128,11 @@
                             <label for="ny">
                                 <span class="ny"></span>
                             </label>
-                        </dd>
+                        </dd-->
                     </dl>
                 </div>
                 <!--选择支付方式结束-->
-                <div id="payModal" style="top: 200px" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div id="payModal" style="top: 200px" class="modal fade bs-modal-sm login2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                      <div class="modal-dialog modal-sm">
                          <div class="modal-content">
                               <div class="modal-header">
@@ -140,14 +140,33 @@
                                    <h4 class="modal-title" id="mySmallModalLabel">温馨提示</h4>
                               </div>
                               <div class="modal-body">
-                                  您的元宝不足，请使用在线支付进行购买。</a>
-                                </div>
+                                  您的元宝不足，请使用在线支付进行购买。
                               </div>
                          </div>
                      </div>
-            </div>
+                 </div>
+                <!--<div id="thirdPartyModal" style="top: 220px" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">-->
+                <div class="payuse">
+                     <div class="modal-sm">
+                         <div class="modal-content">
+                              <div class="modal-header">
+                                   <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+                                   <h4 class="modal-title" id="mySmallModalLabel">支付结果</h4>
+                                   <!--<h4 class="o">请在新打开的页面上完成支付</h4>
+                                   <p>付款完成之前，请不要关闭本窗口！ </p>
+                                   <p>完成付款后根据您的个人情况完成此操作 </p>-->
+                              </div>
+                              <div class="modal-body">
+                                    <a href="<?php echo Uri::create('/u/orders');?>" class="btn btn-red btn-md" id="payFinish">支付完成</a>
+                                    <a href="<?php echo Uri::create('/cart/pay');?>" class="btn btn-state btn-md" style="margin-left: 50px" id="payFail">支付失败</a>
+                              </div>
+                         </div>
+                     </div>
+               </div>
     </div>
-    <div class="pay-row"><a href="javascript:;" class="btn btn-red btn-md fr" id="doBuy">确认支付</a></div>
+    <div class="pay-row">
+        <a href="javascript:;" class="btn btn-red btn-md fr" id="doBuy">确认支付</a>
+    </div>
     <!--选择支付方式结束-->
         <dl class="pay-help w">
             <dt>购买遇到问题</dt>

@@ -80,7 +80,7 @@ return array(
     'u/wins' => 'member/wins/index',
     'u/win/p/\d+' => 'member/wins/index/$1',
     'u/getrecharge' => 'member/getrecharge',
-    'u/recharge' => 'member/recharge',
+    'u/recharge' => 'member/recharge/recharge',
     'u/moneylog' => 'member/moneylog/rechargeIndex',
     'u/moneylog/p/(\d+)' => 'member/moneylog/rechargeIndex/$1',
     'u/moneylog/b/(\d+)' => 'member/moneylog/buyIndex/$1',

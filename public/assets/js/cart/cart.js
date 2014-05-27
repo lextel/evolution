@@ -1,5 +1,28 @@
 $(function(){
-
+    var screenwidth,screenheight,mytop,getPosLeft,getPosTop;
+    screenwidth = $(document).width();
+    screenheight = $(document).height();
+    mytop = $(document).scrollTop();
+    getPosLeft = screenwidth/2 - 260;
+    getPosTop = (screenheight-mytop)/4;
+    $(".payuse").css({"left":getPosLeft,"top":getPosTop});
+    $(window).resize(function(){
+        screenwidth = $(window).width();
+        screenheight = $(window).height();
+        mytop = $(document).scrollTop();
+        getPosLeft = screenwidth/2 - 260;
+        getPosTop = (screenheight-mytop)/2-200;
+        $(".payuse").css({"left":getPosLeft,"top":getPosTop+mytop});
+    });
+    $(window).scroll(function(){
+        screenwidth = $(window).width();
+        screenheight = $(document).height();
+        mytop = $(document).scrollTop();
+        getPosLeft = screenwidth/2 - 260;
+        getPosTop = (screenheight-mytop)/4;
+        $(".payuse").css({"left":getPosLeft,"top":getPosTop+mytop});
+    });
+    
     // 批量删除
     $('button[action="batchDelete"]').click(function(){
 
@@ -76,12 +99,24 @@ $(function(){
         } else {
             // 是否选择银行
             if($('input:radio[name="account"]').is(':checked')) {
-                alert('等待对接');
+                window.open('/payment/pay', '_blank');
+
+                //$('#thirdPartyModal').modal('show');
+                $(".payuse").show();
+                $(".payuse").fadeIn("fast");
+                $("body").append("<div id='greybackground'></div>");
+                var documentheight = $(document).height();
+                $("#greybackground").css({"opacity":"0.5","height":documentheight});
+                return false;
             } else {
                 alert('请选择支付方式');
             }
 
         }
+    });
+
+    $('#payFinish, #payFail').click(function() {
+        $('#thirdPartyModal').modal('hide');
     });
 
     // 选择元宝

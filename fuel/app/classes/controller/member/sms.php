@@ -1,4 +1,3 @@
-
 <?php
 class Controller_Member_Sms extends Controller_Center{
 

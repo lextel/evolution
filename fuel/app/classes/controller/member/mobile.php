@@ -7,6 +7,9 @@ class Controller_Member_Mobile extends Controller_Center
     * 开始验证手机页面
     */
     public function action_first(){
+        //邀请来源跳转
+        $url = Input::server('HTTP_REFERER', 'u/getprofile');
+        Session::set('mobilereferer', $url);
         $user = $this->current_user;
         $view = View::forge('member/mobile/first');
         $view->set('user', $user);
@@ -97,7 +100,9 @@ class Controller_Member_Mobile extends Controller_Center
                     Session::delete('front_time');
                     Session::delete('front_mobile');
                     Session::set_flash('success', "绑定手机成功");
-                    return Response::redirect('invit');
+                    $url = Session::get('mobilereferer', 'u/getprofile');
+                    Session::delete('mobilereferer');
+                    return Response::redirect($url);
                 }else{
                     Session::set_flash('login_error', '您输入的密码不正确或者已经过期了');
                 }
