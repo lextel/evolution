@@ -88,8 +88,18 @@ echo Asset::js(
             
         </div>
         <div class="form-group">
+            <?php echo Form::label('系统', 'os', array('class'=>'control-label col-sm-1')); ?>
+            <div class="col-sm-2">
+                <?php echo Form::select('os', Input::post('os', isset($app) ? $app->os : '1'), ['1'=>'安卓', '2'=>'苹果'],['class' => 'form-control oschange']); ?>
+            </div>
+        </div>
+        <?php $os = Input::post('os', isset($app) ? $app->os : '1'); 
+               $style1 = $os == '1' ? '' : ' style="display:none"';
+               $style2 = $os == '2' ? '' : ' style="display:none"';
+        ?>
+        <div class="form-group">
             <?php echo Form::label('文件选择', 'link', array('class'=>'control-label col-sm-1')); ?>
-            <div class="col-sm-7">
+            <div class="col-sm-7 filelink1"<?php echo $style1;?>>
                 <?php  $tmp = [''=>'请选需要的文件'];
                         foreach($appfile as $file ) {
                             $tmp[$file] = $file;      
@@ -97,18 +107,15 @@ echo Asset::js(
                 ?>
                 <?php echo Form::select('link', Input::post('link', isset($app) ? $app->link : ''), $tmp, ['class' => 'form-control apkfile']); ?>
             </div>
+            <div class="col-sm-7 filelink2"<?php echo $style2;?>>
+                <?php echo Form::input('link', Input::post('link', isset($app) ? $app->link : ''), ['class' => 'form-control']); ?>
+            </div>
         </div>
         <div class="form-group">
             <?php echo Form::label('文件大小', 'size', array('class'=>'control-label col-sm-1')); ?>
             <div class="col-sm-2 input-group">
                 <?php echo Form::input('size', Input::post('size', isset($app) ? $app->size : ''), ['class' => 'form-control', 'placeholder'=>'文件大小']); ?>
                 <span class="input-group-addon"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <?php echo Form::label('系统', 'os', array('class'=>'control-label col-sm-1')); ?>
-            <div class="col-sm-2">
-                <?php echo Form::select('os', Input::post('os', isset($app) ? $app->os : '1'), ['1'=>'安卓', '2'=>'苹果'],['class' => 'form-control']); ?>
             </div>
         </div>
         <div class="form-group">
