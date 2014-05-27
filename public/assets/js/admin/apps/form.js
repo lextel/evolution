@@ -66,4 +66,15 @@ $(function() {
        }
        $('input[name=size]').val(size);
     });
+    
+    $(".oschange").change( function(){
+       var link = $('select[name=os]').val();
+       if (link != '2'){
+            $(".filelink2").hide();
+            $(".filelink1").show();
+            return;
+       }
+       $(".filelink1").hide();
+       $(".filelink2").show();
+   });
 });

@@ -36,6 +36,7 @@ $(function(){
             <th class="text-center">名称</th>
             <th class="text-center">奖励</th>
             <th class="text-center">大小</th>
+            <th class="text-center">系统</th>
             <th class="text-center">操作</th>
         </tr>
     </thead>
@@ -49,6 +50,7 @@ $(function(){
             <td class="text-center"><?php echo $item->title; ?></td>
             <td class="text-center"><?php echo $item->award; ?><img src="/assets/img/yinbi.png" /></td>
             <td class="text-center"><?php echo $item->size; ?></td>
+            <td class="text-center"><?php echo ['1'=>'安卓', '2'=>'苹果'][$item->os]; ?></td>
             <td class="text-center">
                 <?php if ( $item->status == 0 ) { ?>
                     <?php echo Html::anchor('v2admin/apps/publish/'.$item->id, '发布', ['class'=>'btn btn-primary btn-xs', 'onclick' => "return confirm('亲，您确定要发布#".$item->id."吗?')",]); ?> |
