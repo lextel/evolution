@@ -2320,12 +2320,15 @@ span.error{
     padding-left: 38px;
     background: url("../images/consociation-tit.png") no-repeat -0px -0px;
 }
+.consociation .row{
+   margin-bottom: 40px;
+}
 .consociation .p-c{
-   margin: 15px 20px;
+   margin: 10px 20px;
 }
 .superiority{
     padding: 20px;
-   overflow: hidden;
+    overflow: hidden;
 }
 .superiority li{
     width: 404px;
