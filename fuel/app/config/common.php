@@ -67,5 +67,7 @@ return [
               'safeguard'=>['title'=>'乐淘保障体系', 'page'=>'help/safeguard'],
               'serve'=>['title'=>'服务协议', 'page'=>'help/serve'],
               'suggest'=>['title'=>'投诉与建议', 'page'=>'help/suggest'],
+              'cooperation'=>['title'=>'合作专区', 'page'=>'help/cooperation'],
+              'contact'=>['title'=>'联系我们', 'page'=>'help/contact'],
     ]
 ];
