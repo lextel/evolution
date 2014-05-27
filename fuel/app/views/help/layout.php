@@ -29,9 +29,9 @@
                <dd><?php echo Html::anchor('h/examine', '商品验货与签收');?></dd>
                <dd><?php echo Html::anchor('h/longTime', '未收到商品问题');?></dd>
                <dt>关于乐乐淘</dt>
-               <dd>联系我们</dd>
-               <dd>商务合作</dd>
-               <dd>市场推广</dd>
+               <dd><?php echo Html::anchor('h/contact', '联系我们');?></dd>
+               <dd><?php echo Html::anchor('h/cooperation', '商务合作');?></dd>
+               <dd><?php echo Html::anchor('h/spread', '市场推广');?></dd>
            </dl>
         </div>
         <?php echo $content;?>
