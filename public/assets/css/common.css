@@ -2302,3 +2302,100 @@ span.error{
     position: absolute;
     z-index: 9999;
 }
+/*商务合作*/
+.consociation{
+    width: 980px;
+    overflow: hidden;
+    margin:0 auto;
+    border: #DDDDDD;
+    padding: 20px;
+    font-size: 14px;
+    background: #ffffff;
+}
+.consociation .tit{
+    color: #ffffff;
+    font-size:20px;
+    height: 54px;
+    line-height: 54px;
+    padding-left: 38px;
+    background: url("../images/consociation-tit.png") no-repeat -0px -0px;
+}
+.consociation .row{
+   margin-bottom: 40px;
+}
+.consociation .p-c{
+   margin: 10px 20px;
+}
+.superiority{
+    padding: 20px;
+    overflow: hidden;
+}
+.superiority li{
+    width: 404px;
+    height: 240px;
+    float: left;
+    margin: 25px;
+    border: 1px solid #DDDDDD;
+    background: #EEEEEE url("../images/consociation02.png") no-repeat;
+}
+.superiority  li.two{
+   background-position: -404px -0px;
+}
+.superiority  li.three{
+    background-position: -0px -278px;
+}
+.superiority  li.four{
+    background-position: -404px -278px;
+}
+.superiority li b{
+   display: block;
+   font-size: 16px;
+   height: 48px;
+   line-height: 48px;
+   margin-left: 130px;
+}
+.superiority li p{
+    margin:0 20px 0 90px;
+    text-indent: 2em;
+    line-height: 25px;
+}
+.flow{
+    padding: 35px;
+    overflow: hidden;
+}
+.flow li{
+    overflow: hidden;
+    margin-bottom:50px;
+}
+.flow li .img{
+    width: 35%;
+    float: left;
+}
+.flow li .info{
+    margin-top:30px;
+    width: 60%;
+    float: left;
+}
+.flow li .info h1{
+    margin-bottom: 15px;
+    font-size: 34px;
+}
+.flow li .info .assistant{
+    font-size: 30px;
+    color: #999;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
