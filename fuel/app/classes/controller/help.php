@@ -21,7 +21,11 @@ class Controller_Help extends Controller_Frontend
         if($page == 'guide') {
             $this->template->layout = View::forge('help/none');
         }
-        $this->template->layout->content = View::forge($pageInfo['page']);
+        if($page == 'cooperation') {
+            $this->template->layout = View::forge('help/cooperation');
+        }else{
+            $this->template->layout->content = View::forge($pageInfo['page']);
+        }
     }
     /*
     * 添加反馈
