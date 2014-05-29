@@ -36,31 +36,4 @@ class Image {
 
         return $server . $path;
     }
-<<<<<<< HEAD
-    /*
-    *qiniu 图片调用
-    */
-    public static function showQiniuImage($path, $size = '') {
-        Config::load('common');
-        $server = Config::get('qiniu.host');
-        if (empty($size)) return $host.$src;
-        $sizes = [$size];
-        $w = $sizes[0];
-        $h = $sizes[1];
-        $mode = 'imageView2/1/w/'.$w.'/h/'.$h;
-        return $host.$path.'?'.$mode;
-=======
-    
-    
-    public static function showImage($src, $size = '') {
-        //补全url
-        $host = '';
-        $path = '';
-        if (empty($size)) return $host.$src;
-        $mode = '/1/w/<Width>/h/<Height>';
-        $w = '';
-        $h = '';
-        return $host.$path.$mode;
->>>>>>> qiniu
-    }
 }
