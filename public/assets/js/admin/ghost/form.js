@@ -15,7 +15,7 @@ $(function() {
      // 广告图上传
     UPLOAD_URL = "/v2admin/ghost/avatarUpload";
     IMAGE_URL  = "/";
-    $('#avatarUpload').fileupload({
+    /*$('#avatarUpload').fileupload({
         url: UPLOAD_URL,
         dataType: 'json',
         done: function (e, data) {
@@ -26,11 +26,26 @@ $(function() {
             });
         },
     }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
-
+    */
 
     // 删除图片
     $(document).on('click', '.close', function(){
         $(this).parent().remove();
+    });
+    
+
+    
+    $("#avatarUpload").change(function(){
+       var f = $("#avatarUpload").prop("files")[0];
+       var token = $("#token").val();    
+       var res = Qiniu_upload(f, token);
+        //console.log(res);
+        res.done(function( msg ) {
+          console.log(msg);
+        });
+        res.fail(function( jqXHR, textStatus ) {
+          alert( "Request failed: " + jqXHR.status );
+        });
     });
 
 

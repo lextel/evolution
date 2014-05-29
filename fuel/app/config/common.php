@@ -69,5 +69,22 @@ return [
               'suggest'=>['title'=>'投诉与建议', 'page'=>'help/suggest'],
               'cooperation'=>['title'=>'合作专区', 'page'=>'help/cooperation'],
               'contact'=>['title'=>'联系我们', 'page'=>'help/contact'],
-    ]
+    ],
+    
+    //七牛云图片配置
+    'qiniu' => [
+             'bucket' => 'lltao',//空间
+             'host' => 'http://lltao.qiniudn.com/',//图片访问HOST
+             'AK' => 'YB6eiXY9QgJ1kpNlm21W7Nx9q_dDrnax8ZHJeITv',//AK
+             'SK' => 'wmEaMc2akoZM31Oq8xQFjTfXw78r9RbjSVM3HeID',//SK
+             'mimeLimit' => 'image/jpeg;image/png;image/gif;image/jpg',//限制类型主要是图片
+    ],
+    //图片路径配置
+    'qiniuImg' => [
+        'app' => 'upload/app/',
+        'post' => 'upload/post/',
+        'avatar' => 'upload/avatar/',
+        'item' => 'upload/item/',
+        'ads' => 'upload/ads/',
+    ],
 ];
