@@ -61,15 +61,13 @@ class Controller_V2admin_Items extends Controller_V2admin {
     // 商品详情
     public function action_view($id = null, $phaseId= null) {
 
-        $breads = [['name' => '商品详情', 'href'=> 'javascript::void(0);']];
+        $breads = [['name' => '商品列表', 'href'=> Uri::create('v2admin/items/list/all')], ['name' => '商品详情', 'href'=> 'javascript::void(0);']];
 
         $item = Model_Item::find($id);
-        $phase = Model_Phase::find($phaseId);
 
         $view = View::forge('v2admin/items/view');
 
         $view->set('item', $item, false);
-        $view->set('phase', $phase);
         $breadcrumb = new Helper\Breadcrumb();
         $view->set('url', Uri::create('v2admin/items/check/'. $id));
         $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
@@ -81,7 +79,7 @@ class Controller_V2admin_Items extends Controller_V2admin {
     public function action_create() {
 
         $breads = [
-                ['name' => '商品列表', 'href' => Uri::create('v2admin/items/list/active')], 
+                ['name' => '商品列表', 'href' => Uri::create('v2admin/items/list/all')], 
                 ['name' => '添加商品', 'href' => Uri::create('v2admin/items/create')],
             ];
 
@@ -115,7 +113,7 @@ class Controller_V2admin_Items extends Controller_V2admin {
             $rs = $itemModel->add(Input::post());
             if($rs) {
                 Session::set_flash('success', e('添加成功.'));
-                Response::redirect('v2admin/items/list/uncheck');
+                Response::redirect('v2admin/items/list/all');
             } else {
               Session::set_flash('error', e('保存失败.'));
             }
@@ -134,7 +132,7 @@ class Controller_V2admin_Items extends Controller_V2admin {
     public function action_edit($id = null, $resell = '') {
 
         $breads = [
-                ['name' => '商品列表', 'href'=> Uri::create('v2admin/items/list/active')], 
+                ['name' => '商品列表', 'href'=> Uri::create('v2admin/items/list/all')], 
                 ['name' => '编辑商品'],
             ];
 
@@ -189,7 +187,7 @@ class Controller_V2admin_Items extends Controller_V2admin {
             if($rs) {
                 Session::set_flash('success', e('更新成功 #' . $id));
                 if($resell == 'resell') {
-                    Response::redirect('admin/items/list/uncheck');
+                    Response::redirect('admin/items/list/all');
                 } else {
                     Response::redirect_back();
                 }
@@ -221,7 +219,7 @@ class Controller_V2admin_Items extends Controller_V2admin {
             Session::set_flash('error', e('删除失败 #'.$id));
         }
 
-        Response::redirect('v2admin/items/list/active');
+        Response::redirect('v2admin/items/list/all');
     }
 
     // 上传商品图片

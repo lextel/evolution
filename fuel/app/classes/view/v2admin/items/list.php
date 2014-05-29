@@ -34,71 +34,9 @@ class View_V2admin_Items_List extends ViewModel
         // 获取操作
         $this->getOperate = function($type, $id, $phaseId) {
 
-            $group = $this->current_user->group;
-            switch($type) {
-                case 'uncheck':
-                    if($group < 50) {
-                        $operate = Html::anchor('v2admin/items/view/'.$id.'/'.$phaseId, '详情') .' | ' .
-                                   Html::anchor('v2admin/items/edit/'.$id, '编辑');
-                                   Html::anchor('v2admin/items/delete/'.$id, '删除', array('onclick' => "return confirm('亲，确定删除么?')"));
-                    } else {
-                        $operate = Html::anchor('v2admin/items/view/'.$id.'/'.$phaseId, '详情') .' | ' .
-                                   Html::anchor('v2admin/items/sell/'.$id, '上架') . ' | ' .
-                                   Html::anchor('v2admin/items/isPass/'.$id, '通过') . ' | ' .
-                                   Html::anchor('v2admin/items/notPass/'.$id, '不通过') . ' | ' .
-                                   Html::anchor('v2admin/items/delete/'.$id, '删除', array('onclick' => "return confirm('亲，确定删除么?')"));
-                    }
-                    break;
-                case 'show':
-                    if($group < 50) {
-                        $operate = Html::anchor('v2admin/items/view/'.$id.'/'.$phaseId, '详情');
-                    } else {
-                        $operate = Html::anchor('v2admin/items/view/'.$id.'/'.$phaseId, '详情') .' | ' .
-                                   Html::anchor('v2admin/items/sell/'.$id, '上架') . ' | ' .
-                                   Html::anchor('v2admin/items/edit/'.$id, '编辑') . ' | ' .
-                                   Html::anchor('v2admin/items/delete/'.$id, '删除', array('onclick' => "return confirm('亲，确定删除么?')"));
-                    }
-                    break;
-                case 'active':
-                    if($group < 50) {
-                        $operate = Html::anchor('v2admin/items/view/'.$id.'/'.$phaseId, '详情');
-                    } else {
-                        $operate = Html::anchor('v2admin/items/view/'.$id.'/'.$phaseId, '详情') .' | ' .
-                                   Html::anchor('v2admin/items/edit/'.$id, '编辑') .' | ' .
-                                   Html::anchor('v2admin/items/delete/'.$id, '删除', array('onclick' => "return confirm('亲，确定删除么?')"));
-                    }
-                    break;
-                case 'open':
-                    $operate = Html::anchor('v2admin/items/view/'.$id.'/'.$phaseId, '详情');
-                    break;
-                case 'unpass':
-                    $operate = Html::anchor('v2admin/items/view/'.$id.'/'.$phaseId, '详情') . ' | ' .
-                               Html::anchor('v2admin/items/delete/'.$id, '删除', array('onclick' => "return confirm('亲，确定删除么?')"));
-                    break;
-                case 'finish':
-                    if($group < 50) {
-                        $operate = Html::anchor('v2admin/items/view/'.$id.'/'.$phaseId, '详情');
-                    } else {
-                        $operate = Html::anchor('v2admin/items/view/'.$id.'/'.$phaseId, '详情') . ' | ' .
-                                   Html::anchor('v2admin/items/resell/'.$id, '重新发布');
-                    }
-                    break;
-                case 'delete':
-                    if($group < 50) {
-                        $operate = Html::anchor('v2admin/items/view/'.$id.'/'.$phaseId, '详情');
-                    } else {
-                        $operate = Html::anchor('v2admin/items/view/'.$id.'/'.$phaseId, '详情') . ' | ' .
-                                   Html::anchor('v2admin/items/restore/'.$id, '恢复');
-                    }
-                    break;
-                case 'all':
-                    $operate = Html::anchor('v2admin/items/view/'.$id.'/'.$phaseId, '详情') . ' | ' .
-                               Html::anchor('v2admin/items/edit/'.$id, '编辑');
-                    break;
-                default:
-                    $operate = '';
-                    break;
-            }
+            $operate = Html::anchor('v2admin/items/view/'.$id.'/'.$phaseId, '详情') .' | ' .
+                       Html::anchor('v2admin/items/edit/'.$id, '编辑') .' | ' .
+                       Html::anchor('v2admin/items/delete/'.$id, '删除', array('onclick' => "return confirm('亲，确定删除么?')"));
 
             return $operate;
         };
