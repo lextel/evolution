@@ -5,10 +5,7 @@
         <div class="lead">乐淘记录</div>
         <div class="record-box">
             <div class="remind ">乐淘提醒：
-                <?php $ordercount = $countOrder($myorders);?>
-                <span>即将揭晓商品（<s class="r"><?php echo $ordercount['winstart']; ?></s>）件</span>
-                <span>进行中的商品（<s class="r"><?php echo $ordercount['buy']; ?></s>）件</span>
-                <span>揭晓的商品（<s class="r"><?php echo $ordercount['winok']; ?></s>）件</span>
+                <span>总共购买的商品（<s class="r"><?php echo $count; ?></s>）件</span>
             </div>
             <div class="select-box">
                 <label for=""><?php echo Html::anchor('/u/orders', '全部商品', ['class'=>'b']);?></label>
@@ -29,9 +26,9 @@
                     <tr>
                         <th>商品图片</th>
                         <th>商品名称</th>
-                        <th>乐淘状态</th>
                         <th>购买数量</th>
-                        <th>乐淘码</th>
+                        <th>快递状态</th>                       
+                        <th>快递信息</th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -51,19 +48,12 @@
                             </div>
                         </td>
                         <td>
-                            <div class="title-lg">（第<?php echo $phase->phase_id;?>期）<?php echo $phase->title;?></div>
-                            <?php if ($getPhaseInfo($order->phase_id)->member_id !=0) {?>
-                            <div class="username">获得者：<span class="b"><?php echo $getUser($phase->member_id)->nickname;?></span></div>
-                            <div class="number">幸运乐淘码：<span class="r"><?php echo $phase->code;?></span></div>
-                            <div class="datetime">揭晓时间：<?php echo Date("Y-m-d H:i:s", $phase->opentime);?></div>
-                            <?php }else{ ?>
-
-                            <?php } ?>
+                            <div class="title-lg"><?php echo $phase->title;?></div>
                         </td>
-                        <td><?php echo ($phase->member_id !=0) ? "已经揭晓": "进行中";?></td>
-                        <td><?php echo $order->code_count;?>元宝</td>
+                        <td><?php echo $order->code_count;?>件</td>
+                        <td><?php echo ($phase->member_id !=0) ? "已经揭晓": "进行中";?></td>                       
                         <td><div class="toolbox">
-                           <a class="tooltip" href="javascript:void(0)">乐淘码</a>
+                           <a class="tooltip" href="javascript:void(0)">快递</a>
                            <div class="num-list"  id="num-list">
                                 <div class="icon-arrow"></div>
                                 <ul>
@@ -78,7 +68,7 @@
                             </div>
                         </div>
                             </td>
-                        <td><?php echo Html::anchor("/m/".$order->phase_id, "详情");?></td>
+                        <td><?php echo Html::anchor("/m/".$order->phase_id, "继续购物");?></td>
                     </tr>
                     <?php } ?>
                     </tbody>

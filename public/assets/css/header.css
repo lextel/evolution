@@ -110,7 +110,7 @@
 .editor ul li{
     float: left;
     width: 230px;
-    height: 383px;
+    height: 330px;
     position: relative;
     padding-bottom: 10px;
     margin: 2px 0 2px 10px;
@@ -123,7 +123,7 @@
 .recommended ul li{
     float: left;
     width: 230px;
-    height: 383px;
+    height: 330px;
     position: relative;
     margin: 2px 0 2px 10px;
     border: 1px solid #d2d2d2;
@@ -153,7 +153,7 @@
 .second ul li{
     float: left;
     width: 230px;
-    height: 383px;
+    height: 330px;
     position: relative;
     padding-bottom: 10px;
     margin-left: 10px;

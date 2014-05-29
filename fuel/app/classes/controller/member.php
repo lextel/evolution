@@ -11,21 +11,9 @@ class Controller_Member extends Controller_Center{
                             'order_by'=>['id'=>'desc'],
                             'rows_limit'=>3,
                             ]);
-        $posts = Model_Post::find('all', [
-                            'where'=>['member_id'=>$member_id],
-                            'order_by'=>['id'=>'desc'],
-                            'rows_limit'=>3,
-                            ]);
-        $wins = Model_Phase::find('all', [
-                            'where'=>['member_id'=>$member_id],
-                            'order_by'=>['id'=>'desc'],
-                            'rows_limit'=>3,
-                            ]);
         $view = ViewModel::forge('member/index', 'view');
         $view->set([
                 'orders'=>$orders,
-                'posts'=>$posts,
-                'wins'=>$wins,
                 ]);
         $this->template->title = "用户中心";
         $this->template->layout->content = $view;
