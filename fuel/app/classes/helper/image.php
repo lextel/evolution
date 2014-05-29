@@ -28,4 +28,16 @@ class Image {
 
         return $server . $path;
     }
+    
+    
+    public static function showImage($src, $size = '') {
+        //补全url
+        $host = '';
+        $path = '';
+        if (empty($size)) return $host.$src;
+        $mode = '/1/w/<Width>/h/<Height>';
+        $w = '';
+        $h = '';
+        return $host.$path.$mode;
+    }
 }
