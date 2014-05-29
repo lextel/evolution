@@ -14,11 +14,11 @@ class Model_Item extends \Classes\Model {
         'cate_id',
         'brand_id',
         'sort',
-        'phase',
         'status',
         'reason',
         'is_recommend',
         'is_delete',
+        'hots',
         'created_at',
         'updated_at',
     );
@@ -66,9 +66,9 @@ class Model_Item extends \Classes\Model {
 
         $limit = \Helper\Page::PAGESIZE;
         $offset = ($options['page'] - 1) * $limit;
-        $select = ['id', 'title', 'image', 'joined', 'remain', 'amount', 'cost', 'status'];
+        $select = ['id', 'title', 'image', 'price', 'status'];
 
-        return Model_Phase::find('all', ['select' => $select, 'where' => $where, 'offset' => $offset, 'limit' => $limit, 'order_by' => $orderBy]);
+        return Model_Item::find('all', ['select' => $select, 'where' => $where, 'offset' => $offset, 'limit' => $limit, 'order_by' => $orderBy]);
     }
 
     /**
@@ -155,7 +155,7 @@ class Model_Item extends \Classes\Model {
 
         $where = $this->handleWhere($get, false);
 
-        $phases = Model_Phase::find('all', ['where' => $where, 'offset' => $get['offset'], 'limit' => $get['limit'], 'order_by' => ['id' => 'desc']]);
+        $phases = Model_Item::find('all', ['where' => $where, 'offset' => $get['offset'], 'limit' => $get['limit'], 'order_by' => ['id' => 'desc']]);
 
         return $phases;
     }
@@ -469,7 +469,7 @@ class Model_Item extends \Classes\Model {
         $itemModel = new Model_Item();
         $where = $itemModel->handleWhere($options, $isFrontEnd);
 
-        $query = Model_Phase::query()->where($where);
+        $query = Model_Item::query()->where($where);
 
         return $query->count();
     }
@@ -518,19 +518,11 @@ class Model_Item extends \Classes\Model {
 
         } else if (isset($options['is_delete']) && $options['is_delete'] !== '') {
             $where += ['is_delete' => $options['is_delete']];
+        } else {
+            $where += [['is_delete', '!=', '2']];
+        
         }
 
-        if($isFrontEnd) {
-            if(!isset($options['opentime'])) {
-                $where += ['opentime' => \Helper\Item::NOT_OPEN];
-            } else {
-                $where += [['opentime', '>', 0]];
-            }
-        } else if(isset($options['opentime'])) {
-            $where += [['opentime', '<', time()]];
-        } else {
-            $where += ['opentime' => \Helper\Item::NOT_OPEN];
-        }
 
         return $where;
     }
@@ -585,17 +577,13 @@ class Model_Item extends \Classes\Model {
      */
     public function view($phaseId) {
 
-        $phase = Model_Phase::find($phaseId);
-        $item = [];
+        $phase = Model_Item::find($phaseId);
         if($phase) {
-            $itemModel = new Model_Item();
-            $item = $itemModel->itemInfo($phase);
-
             $phase->hots = $phase->hots+1;
             $phase->save();
         }
 
-        return $item;
+        return $phase;
     }
 
     /**
@@ -639,7 +627,6 @@ class Model_Item extends \Classes\Model {
               'price'     => $post['price'],
               'cate_id'   => $post['cate_id'],
               'brand_id'  => $post['brand_id'],
-              'phase'     => $post['phase'],
               'image'     => $image,
               'images'    => serialize($post['images']),
               'status'    => \Helper\Item::NOT_CHECK,
@@ -652,8 +639,6 @@ class Model_Item extends \Classes\Model {
 
         $result = false;
         if ($item && $item->save()) {
-            $phaseModel = new Model_Phase();
-            $phaseModel->add($item);
             Model_Log::add('添加商品 #' . $item->id);
             $result = true;
         }
@@ -683,68 +668,11 @@ class Model_Item extends \Classes\Model {
         $item->cate_id  = $post['cate_id'];
         $item->brand_id = $post['brand_id'];
         $item->sort     = $post['sort'];
-        $item->phase    = $post['phase'];
         $item->image    = $image;
         $item->images   = serialize($post['images']);
 
         if ($item->save()) {
             Model_Log::add('编辑商品 #' . $item->id);
-
-            /*
-             * 编辑期同步更新期数信息 =============begins=================
-             *
-             * (不修改往期已经揭晓的期数)
-             *
-             */
-            Config::load('common');
-            $phases = Model_Phase::find('all', ['select' => ['id', 'phase_id'], 'where' => ['item_id' => $item->id, 'opentime' => 0]]);
-            foreach($phases as $phase) {
-                $data = Model_Phase::find($phase->id);
-                $data->title    = $item->title;
-                $data->cate_id  = $item->cate_id;
-                $data->brand_id = $item->brand_id;
-                $data->image    = $item->image;
-
-                /*
-                 * !!! 如果改了价格
-                 *
-                 * 需要重新生成期数的礼品码，以及cost joined amount remain字段
-                 *
-                 */
-                $allow = true;
-                if($item->price != $oldItem['price']) {
-                    Session::set_flash('error', e($phase->id.'修改了价格'));
-
-                    /**先判断是否有订单，有订单不给改**/
-                    $order = Model_Order::find('first', ['where' => ['phase_id' => $phase->id]]);
-                    if(empty($order)) {
-                        $data->cost   = $item->price * Config::get('point');
-                        $data->amount = $item->price;
-                        $data->remain = $item->price;
-                        $data->joined = 0;
-
-                        // 重新生成codes
-                        $p = new Model_Phase();
-                        $codes = $p->_createCodes($item->price);
-                        $data->codes = serialize($codes);
-
-                    } else {
-                        $allow = false;
-                        Session::set_flash('error', e('本商品第'.$phase->phase_id.'期由于已经产生订单，不会更新本次修改的内容，下一期将会按本次编辑的内容生成期数。'));
-                    }
-                }
-
-                if($allow) $data->save();
-            }
-            // =============ends===================
-
-            // 更新正在进行的期数的排序
-            if($item->sort != $oldItem['sort']) {
-                DB::update('phases')->value('sort', $post['sort'])
-                                    ->where('item_id', $item->id)
-                                    ->execute();
-            }
-
             $result = true;
         }
 
@@ -766,10 +694,6 @@ class Model_Item extends \Classes\Model {
             $item->save();
 
             Model_Log::add('删除商品 #' . $item->id);
-
-            DB::update('phases')->value('is_delete', \Helper\Item::IS_DELETE)
-                                ->where('item_id', $item->id)
-                                ->execute();
             $result = true;
         }
 
@@ -816,6 +740,21 @@ class Model_Item extends \Classes\Model {
         }
 
         return $rs;
+    }
+
+   /**
+     * 获取最新
+     *
+     * @param $offset integer 偏移
+     * @param $limit  integer 限制
+     *
+     * @return array
+     */
+    public function getWins($offset, $limit) {
+
+        $where = [['is_delete', '=', 0]];
+
+        return Model_Item::find('all', ['where' => $where, 'offset' => $offset, 'limit' => $limit, 'order_by' => ['created_at' => 'desc']]);
     }
 
 }

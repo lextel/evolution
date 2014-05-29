@@ -53,13 +53,6 @@ echo Asset::js(
             <span class="help-block">数字，值越大排越前</span>
         </div>
         <div class="form-group">
-            <?php echo Form::label('期数:', 'phase', array('class'=>'control-label col-sm-1')); ?>
-            <div class="col-sm-2">
-                <?php echo Form::input('phase', Input::post('phase', isset($item) ? $item->phase : '0'), array('class' => 'form-control', 'placeholder'=>'开放期数')); ?>
-            </div>
-            <span class="help-block">数字，本商品运行多少期，为0时不限制期数<?php if(isset($resell) && $resell == 'resell') echo '（<span style="color:red">已进行<d id="pCount">'.$pCount.'</d>期</span>）';?></span>
-        </div>
-        <div class="form-group">
             <?php echo Form::label('价值:', 'price', array('class'=>'control-label col-sm-1')); ?>
             <div class="col-sm-2">
             <?php echo Form::input('price', Input::post('price', isset($item) ? $item->price : ''), array('class' => 'form-control', 'placeholder'=>'商品价值')); ?>

@@ -10,26 +10,7 @@ $(function(){
 });
 </script>
 <div class="panel panel-default" style="padding: 10px 0">
-    <form class="navbar-form navbar-left">
-            <div class="col-sm-3">
-                <div class="input-group">
-                  <span class="input-group-addon">商品操作</span>
-                    <?php echo Form::select('active', Uri::current(), [
-                        Uri::create('v2admin/items/list/all') => '所有的商品',
-                        Uri::create('v2admin/items/list/uncheck') => '审核中的',
-                        Uri::create('v2admin/items/list/show') => '显示中的',
-                        Uri::create('v2admin/items/list/active') => '运行中的',
-                        Uri::create('v2admin/items/list/open') => '已揭晓的',
-                        Uri::create('v2admin/items/list/unpass') => '审核不通过的',
-                        Uri::create('v2admin/items/list/delete') => '已删除的',
-                        Uri::create('v2admin/items/list/finish') => '已完成的',
-                        ],
-                        ['class'=>'form-control postactive']
-                    );?>
-                </div>
-            </div>
     <a type="submit" class="btn btn-success" href="<?php echo Uri::create('v2admin/items/create'); ?>">添加新商品</a>
-    </form>   
     <form class="navbar-form navbar-left" role="search" action="" method="get">
         
         <div class="col-sm-3">
@@ -88,9 +69,7 @@ $(function(){
             <th>图片</th>
             <th width="45%">标题</th>
             <th>价格</th>
-            <th>进度</th>
             <th>推荐</th>
-            <th>状态</th>
             <th>是否删除</th>
             <th>操作</th>
         </tr>
@@ -100,11 +79,10 @@ $(function(){
         <?php foreach ($items as $item): ?>
           <tr>
             <td><img src="<?php echo \Helper\Image::showImage($item->image, '80x80'); ?>" style="width: 40px; height: 40px"/></td>
-            <td><a href="<?php echo Uri::create('m/'.$item->id); ?>" target="_blank"><?php echo '(第'.$item->phase_id.'期)'.$item->title; ?></a></td>
-            <td><?php echo '￥' . sprintf('%.2f', $item->cost/Config::get('point')); ?></td>
-            <td><?php echo $item->joined, '/', $item->amount; ?></td>
+            <td><a href="<?php echo Uri::create('m/'.$item->id); ?>" target="_blank"><?php echo $item->title; ?></a></td>
+            <td><?php echo '￥' . sprintf('%.2f', $item->price); ?></td>
             <td title="点击即可修改">
-                <select class="form-control recommend" data-id="<?php echo $item->item_id;?>">
+                <select class="form-control recommend" data-id="<?php echo $item->id;?>">
                   <?php
                     $recommends = ['否', '首页', '列表'];
                     foreach($recommends as $k => $recommend) {
@@ -114,10 +92,9 @@ $(function(){
                   ?>
                 </select>
             </td>
-            <td><?php echo $getStatus($item->status);  ?></td>
             <td><?php echo $item->is_delete == 1 ? '<span style="color:red">是</span>':'否';  ?></td>
             <td>
-            <?php echo $getOperate($type, $item->item_id, $item->id); ?>
+            <?php echo $getOperate($type, $item->id, $item->id); ?>
             </td>
         </tr>
     <?php endforeach; ?>
