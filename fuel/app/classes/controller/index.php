@@ -7,19 +7,15 @@ class Controller_Index extends Controller_Frontend {
      */
     public function action_index() {
 
-        $phaseModel = new Model_Phase();
+        $phaseModel = new Model_Item();
 
         $memberIds = [0];
         $phaseIds = [0];
 
         // 最新揭晓
         $data['wins'] = $phaseModel->getWins(0, 4);
-        if($data['wins']) {
-            list($mids) = Model_Phase::getIds($data['wins'], ['member_id']);
-            $memberIds = array_merge($memberIds, $mids);
-        }
 
-        // 正在乐淘
+        // 正在购买
         $orderModel = new Model_Order();
         $data['orders'] = $orderModel->newOrders(0, 8);
         if($data['orders']) {
@@ -28,18 +24,8 @@ class Controller_Index extends Controller_Frontend {
             $phaseIds = array_merge($phaseIds, $pids);
         }
 
-        // 晒单分享
-        $postModel = new Model_Post();
-        $data['posts'] =$postModel->newPosts(4);
-        if($data['posts']) {
-            list($mids, $pids) = Model_Post::getIds($data['posts'], ['member_id', 'phase_id']);
-            $memberIds = array_merge($memberIds, $mids);
-            $phaseIds = array_merge($phaseIds, $pids);
-        }
-
-        // 订单的期数信息
-        $data['phases'] = Model_Phase::byIds($phaseIds);
         $data['members'] = Model_Member::byIds($memberIds);
+        $data['phases'] = Model_Item::byIds($memberIds);
 
         $view = ViewModel::forge('index', 'view');
         $view->set('data', $data);

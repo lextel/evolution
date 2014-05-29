@@ -22,8 +22,8 @@ class View_Index extends Viewmodel {
 
        //获得人气推荐1
        $this->topHotItems = function() {
-           $select = ['id', 'title', 'image', 'joined', 'remain', 'amount', 'cost', 'status'];
-           $items = Model_Phase::find('all', ['select' => $select, 'where'=>['status'=>1, 'opentime' => 0, 'is_delete' => 0],
+           $select = ['id', 'title', 'image', 'price', 'status'];
+           $items = Model_Item::find('all', ['select' => $select, 'where'=>['is_delete' => 0],
                      'order_by'=>['hots'=>'desc'],
                      'limit'=>3
                      ]);
@@ -33,8 +33,8 @@ class View_Index extends Viewmodel {
 
        //获得人气推荐2
        $this->hotItems = function() {
-           $select = ['id', 'title', 'image', 'joined', 'remain', 'amount', 'cost', 'status'];
-           $items = Model_Phase::find('all', ['select' => $select, 'where'=>['status'=>1, 'opentime' => 0, 'is_delete' => 0],
+           $select = ['id', 'title', 'image', 'price', 'status'];
+           $items = Model_Item::find('all', ['select' => $select, 'where'=>['is_delete' => 0],
                      'order_by'=>['hots'=>'desc'],
                      'limit'=>4,
                      'offset'=>3,
@@ -64,15 +64,13 @@ class View_Index extends Viewmodel {
         // 编辑推荐
         $this->getRecommends = function() {
 
-            $select = ['title', 'image', 'cost', 'remain', 'joined', 'amount', 'status'];
+            $select = ['title', 'image', 'price', 'status'];
             $where = [
-                'opentime'  => \Helper\Item::NOT_OPEN,
                 'is_delete' => \Helper\Item::NOT_DELETE,
-                ['status', 'in', [\Helper\Item::IS_CHECK, \Helper\Item::IS_SHOW]],
                 'is_recommend' => 1
                 ];
 
-            $phases = Model_Phase::find('all', ['select' => $select, 'where' => $where, 'order_by' => ['sort' => 'desc'], 'limit' => 8]);
+            $phases = Model_Item::find('all', ['select' => $select, 'where' => $where, 'order_by' => ['sort' => 'desc'], 'limit' => 8]);
 
             return $phases;
         };
