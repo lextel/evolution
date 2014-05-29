@@ -5,6 +5,8 @@
             'jquery.iframe-transport.js',
             'jquery.fileupload.js',
             'admin/cates/listCate.js',
+            'md5.js',
+            'qiniu.js',
             ]);
     echo Asset::css(['jquery.fileupload.css']);
 ?>
@@ -12,6 +14,7 @@
     UPLOAD_URL = '<?php echo Uri::create('v2admin/cates/upload'); ?>';
     IMAGE_URL  = '<?php echo Uri::create('/'); ?>';
 </script>
+<input id="token" name="token" type="hidden" value="<?php echo \Helper\Qiniu::setToken();?>">
 <div class="panel panel-default" style="padding: 10px 0">
     <form class="navbar-form navbar-left" id="addCate" role="search" method="post" action="<?php echo Uri::create('v2admin/cates/createCate'); ?>">
         <div class="col-sm-3">
