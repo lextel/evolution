@@ -15,6 +15,7 @@
     <!--banner结束-->
     <!--内容开始-->
     <div class="w">
+
         <!--最新开始-->
         <div class="announced-news fl">
                 <div class="title">
@@ -23,7 +24,7 @@
                 </div>
                     <ul>
                         <?php
-                            foreach($data['wins'] as $win) { 
+                            foreach($data['wins'] as $win) {
                         ?>
                         <li>
                             <div class="img-box img-md">
@@ -32,7 +33,7 @@
                             <h4 class="title-br"><?php echo Html::anchor('m/'.$win->id, $win->title);?></h4>
                         </li>
                         <?php
-                            } 
+                            }
                         ?>
                     </ul>
             </div>
@@ -54,9 +55,9 @@
                     <?php echo Html::anchor('m', '更多>>', ['class'=>'more']);?>
                 </div>
              <ul class="list-hover">
-                    <?php 
+                    <?php
                         Config::load('common');
-                        foreach($topHotItems() as $phase) { 
+                        foreach($topHotItems() as $phase) {
                     ?>
                     <li>
                         <div class="title-box">
@@ -68,9 +69,10 @@
                         </div>
                         <div class="btn-group tc">
                             <?php if($phase->status == \Helper\Item::IS_CHECK):?>
+
                                 <?php echo Html::anchor('m/'.$phase->id, '立即购买', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                             <?php else: ?>
-                                <?php echo Html::anchor('m/'.$phase->id, '即将开拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                                <?php echo Html::anchor('m/'.$phase->id, '即将开卖', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                             <?php endif;?>
                         </div>
                     </li>
@@ -82,7 +84,7 @@
                 <div class="title"><h3>大家正在购买</h3></div>
                 <div class="buyListdiv" >
                 <ul class="buyList">
-                    <?php 
+                    <?php
                     foreach($data['orders'] as $order) {
                     ?>
                     <li>
@@ -121,9 +123,10 @@
                 </div>
                 <div class="btn-group tc">
                     <?php if($phase->status == \Helper\Item::IS_CHECK):?>
+
                         <?php echo Html::anchor('m/'.$phase->id, '立即购买', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                     <?php else: ?>
-                        <?php echo Html::anchor('m/'.$phase->id, '即将开拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                        <?php echo Html::anchor('m/'.$phase->id, '即将开卖', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                     <?php endif;?>
                 </div>
             </li>
@@ -150,9 +153,10 @@
                 </div>
                 <div class="btn-group tc">
                     <?php if($phase->status == \Helper\Item::IS_CHECK):?>
+
                         <?php echo Html::anchor('m/'.$phase->id, '立即购买', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                     <?php else: ?>
-                        <?php echo Html::anchor('m/'.$phase->id, '即将开拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                        <?php echo Html::anchor('m/'.$phase->id, '即将开卖', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                     <?php endif;?>
                 </div>
             </li>

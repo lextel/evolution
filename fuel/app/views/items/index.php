@@ -128,17 +128,15 @@
                                     <div class="img-box img-lg">
                                         <a href="<?php echo Uri::create('m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($item->image, '400x400');?>"/></a>
                                     </div>
-                                    <?php if($item->status == \Helper\Item::IS_CHECK): ?>
+
+                               
+                                    
                                     <div class="btn-group">
                                         <input name="id" value="<?php echo $item->id; ?>" type="hidden">
                                         <button class="btn btn-red btn-md" type="submit" >立即购买</button>
                                         <a class="btn btn-y btn-md  doCart" href="javascript:void(0);" phaseId="<?php echo $item->id; ?>">加入购物车</a>
                                     </div>
-                                    <?php else: ?>
-                                    <div class="btn-group soon">
-                                        <button class="btn btn-red" onclick="window.location.href='<?php echo Uri::create('/m/'.$item->id); ?>'; return false;">即将开拍</button>
-                                    </div>
-                                    <?php endif;?>
+                                    
                                 </form>
                             </li>
                             <?php endforeach; ?>

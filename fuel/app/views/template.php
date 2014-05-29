@@ -38,7 +38,6 @@
                      <div class="info-user" style="float: left;"><a class="x open">我的乐乐淘<i></i></a>
                         <ul class="head-set">
                               <li><a href="<?php echo Uri::create('/u/orders'); ?>">乐淘记录</a></li>
-                              <li><a href="<?php echo Uri::create('/u/wins'); ?>">获得的商品</a></li>
                               <li><a href="<?php echo Uri::create('/u/getrecharge'); ?>">账户管理</a></li>
                               <li><a href="<?php echo Uri::create('/u/getprofile'); ?>">个人设置</a></li>
                               <li><?php echo Html::anchor('/signout', '退出', ['class'=>'logout'])?></li>
@@ -46,9 +45,6 @@
                      </div>
 
                  </div>
-
-                 <span style="color:#C10101;margin:0px 4px 0px 0px"><?php echo \Helper\Coins::showIconCoins($current_user->points);?></span>
-
             <?php }?>
             </div>
         </div>
@@ -67,9 +63,9 @@
                         <a href="javascript:void(0);" class="car-t"><i class="icon icon-car"></i>购物车</a>
                           <ul class="dropdown-list" style="display:none"></ul>
                     </div>
-                    <div class="all">
+                    <!--<div class="all">
                         <a href="/l">当前乐淘人数<b id="totalbuy"><?php echo $count;?></b></a>
-                    </div>
+                    </div>-->
                 </div>
          </div>
     </div>
@@ -77,9 +73,6 @@
         <ul>
             <li><a href="<?php echo Uri::base(); ?>">首页</a></li>
             <li><a href="<?php echo Uri::create('/m'); ?>">所有商品</a></li>
-            <li><a href="<?php echo Uri::create('/w'); ?>">最新揭晓</a></li>
-            <li><?php echo Html::anchor('p', '晒单分享'); ?></li>
-            <li><a href="<?php echo Uri::create('/invit'); ?>">邀请</a></li>
             <li><a href="<?php echo Uri::create('/h'); ?>">新手指南</a></li>
         </ul>
     </div>

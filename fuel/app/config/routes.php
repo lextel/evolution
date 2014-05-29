@@ -31,8 +31,6 @@ return array(
     'u/(\d+)/orders/p/(\d+)' => 'home/orders/$1/$2',
     'u/(\d+)/wins' => 'home/wins/$1',
     'u/(\d+)/wins/p/(\d+)' => 'home/wins/$1/$2',
-    'u/(\d+)/posts' => 'home/posts/$1',
-    'u/(\d+)/posts/p/(\d+)' => 'home/posts/$1/$2',
 
     'u' => 'member/index',
     'u/getnickname' => 'member/getnickname' ,
@@ -58,17 +56,6 @@ return array(
     'u/address/(\d+)/default' => 'member/address/default/$1',
     'u/address/(\d+)/undefault' => 'member/address/undefault/$1',
 
-    'u/posts' => 'member/posts/index',
-    'u/noposts' => 'member/posts/noposts',
-    'u/posts/p/(\d+)' => 'member/posts/index/$1',
-    'u/noposts/p/(\d+)' => 'member/posts/noposts/$1',
-    'u/posts/view/(\d+)' => 'member/posts/view',
-    'u/posts/getadd/(\d+)' => 'member/posts/getadd/$1',
-    'u/posts/upload' => 'member/posts/upload',
-    'u/posts/add' => 'member/posts/add',
-    'u/posts/getedit/(\d+)' => 'member/posts/getedit/$1',
-    'u/posts/edit/(\d+)' => 'member/posts/edit/$1',
-    'u/posts/delete/(\d+)' => 'member/posts/delete/$1',
 
     'u/invit' => 'member/invit/index',
     'u/invit/p/(\d+)' => 'member/invit/index/$1',

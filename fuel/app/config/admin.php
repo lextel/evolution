@@ -31,25 +31,12 @@ return [
                 ['name' => '管理员列表', 'href' => Uri::create('/v2admin/users'), 'group'=>50],
                 ['name' => '会员列表', 'href' => Uri::create('/v2admin/members'), 'group'=>50],
                 ['name' => '冻结会员', 'href' => Uri::create('/v2admin/members/black'), 'group'=>50],
-                ['name' => '礼品码', 'href' => Uri::create('/v2admin/invitcodes'), 'group'=>50],
             ]
         ],
-        [
-            'name' => '马甲管理',
-            'href' => 'javascript:void(0);',
-            'class' => 'dropdown',
-            'childs' => [
-                ['name' => '添加马甲', 'href' => Uri::create('/v2admin/ghost/create'), 'group'=>50],
-                ['name' => '马甲列表', 'href' => Uri::create('/v2admin/ghost/lists'), 'group'=>50],
-                ['name' => '中奖列表', 'href' => Uri::create('/v2admin/ghost/win'), 'group'=>50],
-                ['name' => '在拍列表', 'href' => Uri::create('/v2admin/ghost/sell'), 'group'=>50],
-            ]
-        ],
-        ['name' => '晒单/物流',
+        ['name' => '物流',
              'href' => 'javascript:void(0);',
              'class'=> 'dropdown',
              'childs'=> [
-                  ['name' => '晒单管理', 'href' => Uri::create('/v2admin/posts'), 'group'=>1],
                   ['name' => '物流管理', 'href' => Uri::create('/v2admin/shipping'), 'group'=>1],
              ]
         ],
@@ -61,17 +48,6 @@ return [
                 ['name' => '用户消费', 'href' => Uri::create('/v2admin/moneylog/buy'), 'group'=>50],
                 ['name' => '用户充值', 'href' => Uri::create('/v2admin/moneylog/recharge'), 'group'=>50],
             ]
-        ],
-        [
-            'name' => 'APP管理',
-            'href' => 'javascript:void(0);',
-            'class' => 'dropdown',
-            'childs' => [
-                ['name' => '添加新APP', 'href' => Uri::create('/v2admin/apps/create'), 'group'=>10],
-                ['name' => 'APP列表', 'href' => Uri::create('/v2admin/apps'), 'group'=>10],
-                ['name' => 'APP日志', 'href' => Uri::create('/v2admin/applogs'), 'group'=>10],
-                ['name' => 'APP图表', 'href' => Uri::create('/v2admin/applogs/report'), 'group'=>10],
-            ],
         ],
         [
             'name' => '系统管理',
@@ -209,14 +185,6 @@ return [
             'editorUpload'=>10,
           ]
         ],
-        ['controller'=>'Controller_V2admin_Posts',
-         'action'=>[
-            'index'=>1,
-            'view'=>10,
-            'edit'=>10,
-            'delete'=>10,
-          ]
-        ],
         ['controller'=>'Controller_V2admin_Shipping',
          'action'=>[
             'index'=>1,
@@ -240,23 +208,6 @@ return [
             'index'=>10,
             'view'=>10,
             'pass'=>10,
-          ]
-        ],
-        ['controller'=>'Controller_V2admin_Apps',
-         'action'=>[
-            'index'=>10,
-            'view'=>10,
-            'create'=>10,
-            'edit'=>10,
-            'delete'=>10,
-            'publish'=>10,
-            'uploadimg'=>10,
-          ]
-        ],
-        ['controller'=>'Controller_V2admin_Applogs',
-         'action'=>[
-            'index'=>10,
-            'report'=>10,
           ]
         ],
     ]

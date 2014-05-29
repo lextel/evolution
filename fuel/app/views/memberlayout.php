@@ -46,9 +46,6 @@
                 <a href="javascript:void(null)" style="color: #af2812;" class="ali">我的乐淘<span class="icon-arrow"></span><s></s></a>
                 <ul class="dropdown-menu" style="display:block">
                     <li><?php echo Html::anchor('u/orders', '乐淘记录');?></li>
-                    <li><?php echo Html::anchor('u/wins', '获得的商品');?></li>
-                    <li><?php echo Html::anchor('u/posts', '晒单');?></li>
-                    <li><?php echo Html::anchor('u/noposts', '未晒单', ['style'=>'display:none']);?></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -59,14 +56,6 @@
                     <li><?php echo Html::anchor('u/moneylog', '消费记录', ['style'=>'display:none']);?></li>
                 </ul>
             </li>
-            <li class="dropdown">
-                <a href="javascript:void(null)" style="color: #af2812;" class="ali">邀请管理<span class="icon-arrow"></span><s></s></a>
-                <ul class="dropdown-menu" style="display:block">
-                    <li><?php echo Html::anchor('u/invit', '邀请好友');?></li>
-                    <li><?php echo Html::anchor('u/brokerage', '佣金明细');?></li>
-                </ul>
-            </li>
-            <li><?php echo Html::anchor('u/code', '礼品码<s></s>', ['style'=>'color: #af2812;']);?><s></s></li>
             <li><?php echo Html::anchor('u/message', '消息管理<s></s>', ['style'=>'color: #af2812;']);?></li>
             <li><?php echo Html::anchor('u/getprofile', '个人设置<s></s>', ['style'=>'color: #af2812;']);?><s></s></li>
         </ul>
