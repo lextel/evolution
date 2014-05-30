@@ -14,7 +14,9 @@ echo Asset::js(
             'jquery.iframe-transport.js',
             'jquery.fileupload.js',
             'jquery-ui.js',
-            'admin/ghost/form.js', 
+            'admin/ghost/form.js',
+            'md5.js',
+            'qiniu.js',
             ]
         ); 
 ?>
@@ -55,7 +57,7 @@ echo Asset::js(
                 <div id="files" class="files">
                   <?php 
                     if(isset($user)) {
-                        echo '<p><img style="margin:5px; float: left; width=80px;" src="'.Uri::create($user->avatar).'"><d class="close"></d><input type="hidden" name="avatar" value="'.$user->avatar.'"></p>';
+                        echo '<p><img style="margin:5px; float: left; width=80px;" src="'.\Helper\Image::showImage($user->avatar, '80x80', 'qiniu').'"><d class="close"></d><input type="hidden" name="avatar" value="'.$user->avatar.'"></p>';
                     }else{
                         if(Input::post('avatar', '')!=''){
                         echo '<p><img style="margin:5px; float: left; width=80px;" src="'.Uri::create(Input::post('avatar', '')).'"><d class="close"></d><input type="hidden" name="avatar" value="'.Input::post('avatar', '').'"></p>';
@@ -77,6 +79,7 @@ echo Asset::js(
             <?php echo Form::select('area', isset($user) ? \Helper\Ip2area::toarea($user->ip) : 'none',  $areas, array('class' => 'form-control', 'placeholder'=>'注册地区')); ?>
             </div>
         </div>
+        <input id="token" name="token" type="hidden" value="<?php echo \Helper\Qiniu::setToken();?>">
         <div class="form-group">
             <label class='control-label col-sm-1'>&nbsp;</label>
             <div class="col-sm-2">
