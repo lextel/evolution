@@ -239,14 +239,14 @@ $(function(){
 
         val = parseInt(val);
         if(val < 1) {
-            alert('数量不能小于1元宝');
+            alert('数量不能小于1元');
             val = 1;
             $(this).select();
         }
 
         var remain = $(this).attr('remain');
         if(val > parseInt(remain)) {
-            alert('数量不能大于还需元宝');
+            alert('数量不能大于'+parseInt(remain)+'元');
             val = remain;
             $(this).select();
         }
@@ -266,7 +266,7 @@ $(function(){
         var max = input.attr('remain');
         var val = parseInt(input.val());
         if(val + 1 > parseInt(max)) {
-            alert('购买数量不能大于还需元宝');
+            alert('购买数量不能大于'+parseInt(max)+"元");
         } else {
             var qty = val + 1;
             countPercent(qty, input);
@@ -283,7 +283,7 @@ $(function(){
         var val = parseInt(input.val());
 
         if(val -1 < parseInt(min)) {
-            alert('购买数量不能小于1元宝');
+            alert('购买数量不能小于1元');
         } else {
             var qty = val - 1;
             countPercent(qty, input);
