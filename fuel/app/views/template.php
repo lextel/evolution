@@ -191,17 +191,17 @@
         BASE_URL = '<?php echo Uri::base(); ?>';
         POINT    = '<?php echo $point; ?>';
         UNIT     = '<?php echo $unit; ?>';
-        UNIT2    = '<?php echo $unit2?>';
+        //UNIT2    = '';
 
         function showCoins(point) {
+            Console.log(point)
             var gold = parseInt(point/POINT);
             var silver = point%POINT;
-
             var unit = gold + UNIT;
+            alert(gold+"    "+ silver +"     " +unit);
             if(silver > 0) {
-                unit += silver + UNIT2;
+                unit += silver ;
             }
-
             return unit;
         }
     </script>
