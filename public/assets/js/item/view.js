@@ -38,6 +38,7 @@ $(function(){
         var imgtodrag = $('.jqzoom img');
         var id = $(this).attr('phaseId');
         var qty = $(this).parent().prev().find('input').val();
+        var price = $('#price').val();
         if (imgtodrag) {
             var imgclone = imgtodrag.clone()
                 .offset({
@@ -66,7 +67,7 @@ $(function(){
                 $(this).detach()
                 $.ajax({
                     url: BASE_URL + 'cart/new',
-                    data: {id:id, qty:qty},
+                    data: {id:id, qty:qty, price:price},
                     type: 'post',
                     dataType: 'json',
                     success: function(data) {

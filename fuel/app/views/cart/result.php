@@ -9,7 +9,6 @@
                     <th width="60%">商品名称</th>
                     <th>购买时间</th>
                     <th>数量</th>
-                    <th>乐淘码</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,22 +27,6 @@
                             ?>
                         </td>
                         <td><?php echo $item->code_count; ?></td>
-                        <td>
-                        <div class="toolbox">
-                            <a class="tooltip" href="javascript:void(0)">查看</a>
-                            <div class="codeList" id="num-list">
-                                <dl>
-                                     <dt>所有乐淘码</dt>
-                                     <?php
-                                        $codes = \Helper\Codes::getArray($item->codes);
-                                        foreach($codes as $code) {
-                                            echo "<dd>{$code}</dd>";
-                                        }
-                                     ?>
-                                 </dl>
-                                 <span class="icon icon-shut"></span>
-                            </div>
-                         </div>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -53,7 +36,7 @@
         </div>
         <!--今日热门开始-->
         <div class="unveiled w">
-            <h3>以下商品即将揭晓,快去乐淘吧~</h3>
+            <div class="caption">以下是热门商品，亲，赶紧淘了吧~</div>
             <ul>
                 <?php
                 $remains = $getRemains();
@@ -61,17 +44,20 @@
                 ?>
                 <li>
                     <form action="<?php echo Uri::create('cart/add'); ?>" method="post" />
-                        <div class="title-box">
-                            <h3 class="title-md"><?php echo $remain->title; ?></h3>
-                            <div class="price">价值<b>￥<?php echo sprintf('%.2f', $remain->price); ?></b></div>
+                        <div class="title">
+                            <h5 class="title-md"><?php echo $remain->title; ?></h5>
+                            <div class="price fr">价格<b>￥<?php echo sprintf('%.2f', $remain->price); ?></b></div>
                         </div>
-                        <div class="img-box">
+                        <div class="img-box img-lg">
                             <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>">
                                 <img src="<?php echo \Helper\Image::showImage($remain->image, '200x200');?>"/>
                             </a>
+<<<<<<< HEAD
                             <div class="sheng-yi">
                                 还需 <b class="red"><?php echo $remain->phase->remain; ?></b>元！
                             </div>
+=======
+>>>>>>> 86ce40a975a0e24e5c59e1de5793569fbd1340da
                         </div>
                         <div class="btn-group">
                             <input type="hidden" name="id" value="<?php echo $remain->phase->id; ?>"/>

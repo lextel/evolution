@@ -5,9 +5,8 @@
             <ol class="pay-prompt">
                 <li class="active"><span>1</span><a href="">确认提交订单></a></li>
                 <li><span>2</span><a href="">网银支付></a></li>
-                <li><span>3</span><a href="">等待揭晓></a></li>
-                <li><span>4</span><a href="">揭晓获奖者></a></li>
-                <li><span>5</span><a href="">晒单分享></a></li>
+                <li><span>3</span><a href="">等待收货></a></li>
+                <li><span>4</span><a href="">评价服务></a></li>
             </ol>
             <form action="<?php echo Uri::create('cart/pay'); ?>" method="post" id="cartForm">
                 <div class="cart-list">
@@ -16,7 +15,10 @@
                         <tr>
                             <th></th>
                             <th>商品名称</th>
+<<<<<<< HEAD
                             <th>总元</th>
+=======
+>>>>>>> 86ce40a975a0e24e5c59e1de5793569fbd1340da
                             <th>单价</th>
                             <th>购买数量</th>
                             <th>小计</th>
@@ -32,7 +34,7 @@
                             endif;
                             if(isset($normalList) && !empty($normalList)):
                                 foreach($normalList as $item):
-                                $subTotal += $item['qty'];
+                                $subTotal += $item['price'] * $item['qty'];
                         ?>
                         <tr>
                             <td><input type="checkbox" name="ids[]" checked="true" value="<?php echo $item['rowid'];?>"/></td>
@@ -46,20 +48,25 @@
                                     <div class="title-row">
                                          <a href="<?php echo Uri::create('m/'. $item['id']); ?>"><?php echo $item['title']; ?></a>
                                     </div>
+<<<<<<< HEAD
                                     <div class="remain">还需<b class="o"><?php echo $item['remain']; ?></b>元</div>
+=======
+>>>>>>> 86ce40a975a0e24e5c59e1de5793569fbd1340da
                                 </div>
                             </td>
-                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins($item['cost'], true); ?></b></span></td>
-                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point'), true); ?></b></span></td>
+                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins($item['price'], true); ?></b></span></td>
                             <td>
                                 <div class="btn-menu inner-b-m">
                                     <a class="add btn-jian" href="javascript:void(0);">-</a>
-                                    <input type="text" value="<?php echo $item['qty']; ?>" class="qty" name="qty" rowId="<?php echo $item['rowid']; ?>" remain="<?php echo $item['remain'];?>">
+                                    <input type="text" value="<?php echo $item['qty']; ?>" class="qty" name="qty" rowId="<?php echo $item['rowid']; ?>" remain="99999" price="<?php echo $item['price'];?>">
                                     <a class="add btn-jia" href="javascript:void(0);">+</a>
+<<<<<<< HEAD
                                     <span>元</span>
+=======
+>>>>>>> 86ce40a975a0e24e5c59e1de5793569fbd1340da
                                 </div>
                             </td>
-                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point') * $item['qty'], true); ?></b></span></td>
+                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins($item['price'] * $item['qty'], true); ?></b></span></td>
                             <td><a href="javascript:void(0)" action="delete" rowId="<?php echo $item['rowid'];?>">删除</a></td>
                         </tr>
                         <?php 
@@ -85,15 +92,20 @@
                                     <div class="title-row">
                                          <a href="<?php echo Uri::create('m/'. $item['id']); ?>"><?php echo $item['title']; ?></a>
                                     </div>
+<<<<<<< HEAD
                                     <div class="remain">还需<b class="o"><?php echo $item['remain']; ?></b>元</div>
+=======
+>>>>>>> 86ce40a975a0e24e5c59e1de5793569fbd1340da
                                 </div>
                             </td>
                             <td><span class="price"><b><?php echo \Helper\Coins::showCoins($item['cost'], true); ?></b></span></td>
-                            <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point'), true); ?></b></span></td>
                             <td>
                                 <div class="btn-menu inner-b-m">
                                     <?php echo $item['qty']; ?>
+<<<<<<< HEAD
                                     <span>元</span>
+=======
+>>>>>>> 86ce40a975a0e24e5c59e1de5793569fbd1340da
                                 </div>
                             </td>
                             <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point') * $item['qty'], true); ?></b></span></td>
@@ -116,7 +128,11 @@
                     </table>
                     <div class="cart-footer">
                         <label class="fl"><input type="checkbox" action="selectAll" checked="true"/>全选/取消</label>
+<<<<<<< HEAD
                         <div class="total fr">总元：<b id="total"><?php echo $subTotal ? \Helper\Coins::showCoins($subTotal * Config::get('point'), true) : $subTotal . Config::get('unit'); ?></b></div>
+=======
+                        <div class="total fr">总金额：<b id="total"><?php echo $subTotal ? \Helper\Coins::showCoins($subTotal, true) : $subTotal . '元'; ?></b></div>
+>>>>>>> 86ce40a975a0e24e5c59e1de5793569fbd1340da
                     </div>
                 </div>
                 <div class="btn-group tr">
@@ -153,7 +169,7 @@
         <!--登陆框-->
         <!--今日热门开始-->
         <div class="unveiled w">
-            <div class="caption">以下商品即将揭晓,快去乐淘吧~</div>
+            <div class="caption">以下是热门商品，亲，赶紧淘了吧~</div>
             <ul>
                 <?php
                 $remains = $getRemains();
@@ -163,15 +179,18 @@
                     <form action="<?php echo Uri::create('cart/add'); ?>" method="post" />
                         <div class="title">
                             <h5 class="title-md"><?php echo $remain->title; ?></h5>
-                            <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $remain->price); ?></b></div>
+                            <div class="price fr">价格<b>￥<?php echo sprintf('%.2f', $remain->price); ?></b></div>
                         </div>
                         <div class="img-box img-lg">
                             <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>">
                                 <img src="<?php echo \Helper\Image::showImage($remain->image, '200x200');?>"/>
                             </a>
+<<<<<<< HEAD
                             <div class="sheng-yi">
                                 还需 <s style="font-size:18px;font-weight: normal;"><?php echo $remain->phase->remain; ?></s>元！
                             </div>
+=======
+>>>>>>> 86ce40a975a0e24e5c59e1de5793569fbd1340da
                         </div>
                         <div class="btn-group">
                             <input type="hidden" name="id" value="<?php echo $remain->phase->id; ?>"/>

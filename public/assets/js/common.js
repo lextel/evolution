@@ -239,7 +239,7 @@ $(function(){
 
         val = parseInt(val);
         if(val < 1) {
-            alert('数量不能小于1元');
+            alert('数量不能小于1');
             val = 1;
             $(this).select();
         }
@@ -283,16 +283,44 @@ $(function(){
         var val = parseInt(input.val());
 
         if(val -1 < parseInt(min)) {
-            alert('购买数量不能小于1元');
+            alert('购买数量不能小于1');
         } else {
             var qty = val - 1;
-            countPercent(qty, input);
             updateCart(qty, input, val);
             input.val(qty);
         }
     });
 
+    //商品详情字体颜色
+    $('a[href="#desc"]').click(function() {
+        $(".fl").find("a").css("color","#666");
+        $(this).css("color","#af2812");
+    });
 
+    // 是否是初次加载详情页，如果是拉取参与者和晒单否则copy参与者和晒单到页尾
+    if($("#tab-content").length > 0) {
+        initDesc();
+    }
+
+    // 参与者拉取
+    $('a[href="#buylog"]').click(function() {
+        $(".fl").find("a").css("color","#666");
+        $(this).css("color","#af2812");
+        joined(1);
+    });
+
+    // 晒单拉取
+    $('a[href="#posts"]').click(function() {
+        $(".fl").find("a").css("color","#666");
+        $(this).css("color","#af2812");
+        posts(1);
+    });
+    // 拉取期数
+    $('a[href="#phase"]').click(function() {
+        $(".fl").find("a").css("color","#666");
+        $(this).css("color","#af2812");
+        phases(1);
+    });
 
     // 当前nav标识
     var location_url = window.location.href;
@@ -391,7 +419,7 @@ $(function(){
                         html += '<a href="'+BASE_URL + 'm/' + data[i].id +'"><img src="'+ data[i].image+'" alt=""></a>';
                         html += '</div><div class="info-side fl"><div class="title-md">';
                         html += '<a href="'+BASE_URL + 'm/' + data[i].id +'">'+data[i].title+'</a>';
-                        html += '</div><div class="price tl">'+showCoins(100) +' x <b class="y">'+data[i].qty+'</b></div>';
+                        html += '</div><div class="price tl">'+ data[i].point +' x <b class="y">'+data[i].qty+'</b></div>';
                         html += '<a href="javascript:void(0);" class="cartRemove btn-delete" rowId="'+data[i].rowId+'">删除</a></div></li>';
                     }
                     html += '<div class="btn-group tr"><a href="'+BASE_URL + 'cart/list' + '" class="btn-red underway fr btn">查看购物车</a></div>';
@@ -437,10 +465,11 @@ $(function(){
     $('.doCart').click(function () {
 
         var cart = $('.item-cart');
-        var imgtodrag = $(this).parent().prev().prev().prev().find("a img");
+        var imgtodrag = $(this).parent().prev().find("a img");
         //console.log(imgtodrag);
         var id = $(this).attr('phaseId');
-        var qty = $(this).parent().prev().find('input').val();
+        var qty = 1;
+        var price = $(this).attr('price');
         if (imgtodrag) {
             var imgclone = imgtodrag.clone()
                 .offset({
@@ -470,7 +499,7 @@ $(function(){
                 // 提交到后台
                 $.ajax({
                     url: BASE_URL + 'cart/new',
-                    data: {id:id, qty:qty},
+                    data: {id:id, qty:qty, price: price},
                     type: 'post',
                     dataType: 'json',
                     success: function(data) {
@@ -622,13 +651,6 @@ $(function (){
     });
     }
 });
-
-//当前乐淘人数
-$(function(){
-    getTotalBuy();
-    setInterval(getTotalBuy,3000);
-});
-
 
 function getTotalBuy(){
     $.get(BASE_URL+"totalbuycount?callback="+ new Date().getTime(), function(data){

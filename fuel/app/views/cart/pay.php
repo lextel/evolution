@@ -5,9 +5,8 @@
         <ol class="pay-prompt">
                         <li><span>1</span><a href="">确认提交订单></a></li>
                         <li class="active"><span>2</span><a href="">网银支付></a></li>
-                        <li><span>3</span><a href="">等待揭晓></a></li>
-                        <li><span>4</span><a href="">揭晓获奖者></a></li>
-                        <li><span>5</span><a href="">晒单分享></a></li>
+                        <li><span>3</span><a href="">等待收货></a></li>
+                        <li><span>4</span><a href="">评价服务></a></li>
                     </ol>
         <div class="cart-list">
             <form id="cartForm" action="<?php echo Uri::create('cart/remove'); ?>" method="post">
@@ -28,7 +27,7 @@
                         Config::load('common');
                         foreach($items as $item):
                             $info = $getInfo($item->get_id());
-                            $subTotal += $item->get_qty();
+                            $subTotal += $item->get_qty() * $item->get_price();
                     ?>
                     <tr>
                         <td style="display:none">&nbsp;</td>
@@ -45,10 +44,9 @@
                                 <div class="remain">还需<b class="red"><?php echo $info->phase->remain; ?></b>元</div>
                             </div>
                         </td>
-                        <td><s><?php echo \Helper\Coins::showCoins($info->phase->cost, true); ?></s></td>
-                        <td><s><?php echo \Helper\Coins::showCoins(Config::get('point'), true); ?></s></td>
+                        <td><s><?php echo \Helper\Coins::showCoins($item->get_price(), true); ?></s></td>
                         <td><?php echo $item->get_qty(); ?></td>
-                        <td><s><?php echo \Helper\Coins::showCoins($item->get_qty() * Config::get('point'), true); ?></s></td>
+                        <td><s><?php echo \Helper\Coins::showCoins($item->get_qty() * $item->get_price(), true); ?></s></td>
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
@@ -61,11 +59,18 @@
         </div>
     </div>
     <div class="pay-row"><label><input type="checkbox" id="goldPay">使用元支付，您有：<?php echo \Helper\Coins::showCoins($current_user->points, true);?></label><b id="money" money="<?php echo $current_user->points; ?>" style="display:none"></b></div>
+                <div class="all-price fr">总金额：<b id="total" total="<?php echo $subTotal*Config::get('point'); ?>"><?php echo \Helper\Coins::showCoins($subTotal, true); ?></b></div>
+            </div>
+        </div>
+    </div>
+    <div class="pay-row"><label><input type="checkbox" id="goldPay">使用余额支付，您有：<?php echo \Helper\Coins::showCoins($current_user->points, true);?></label><b id="money" money="<?php echo $current_user->points; ?>" style="display:none"></b></div>
     <!--选择支付方式开始-->
     <div class="prepaid-box">
                 <!--选择支付方式开始-->
                 <div class="pay-way">
-                    <div class="caption" style="margin-bottom: 8px">元不足？请选择下面方式购买</div>
+
+                    <div class="caption" style="margin-bottom: 8px">余额不足？请选择下面方式购买</div>
+
                     <dl>
                         <dt>第三方平台</dt>
                         <dd>
@@ -140,7 +145,7 @@
                                    <h4 class="modal-title" id="mySmallModalLabel">温馨提示</h4>
                               </div>
                               <div class="modal-body">
-                                  您的元不足，请使用在线支付进行购买。
+                                  您的余额不足，请使用在线支付进行购买。
                               </div>
                          </div>
                      </div>

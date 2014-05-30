@@ -70,9 +70,15 @@
          </div>
     </div>
     <div class="navbar">
+    <?php
+        $cates = Model_Cate::find('all', ['where' => ['parent_id' => 0], 'limit' => 3]);
+    ?>
         <ul>
             <li><a href="<?php echo Uri::base(); ?>">首页</a></li>
             <li><a href="<?php echo Uri::create('/m'); ?>">所有商品</a></li>
+            <?php foreach($cates as $cate):?>
+            <li><a href="<?php echo Uri::create('/m/c/' . $cate->id); ?>"><?php echo $cate->name;?></a></li>
+            <?php endforeach;?>
             <li><a href="<?php echo Uri::create('/h'); ?>">新手指南</a></li>
         </ul>
     </div>

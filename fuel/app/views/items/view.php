@@ -57,6 +57,7 @@
                   </div>
                   <div class="btn-group" style="margin-left: 57px">
                       <input type="hidden" value="<?php echo $item->id ?>" name="id"/>
+                      <input type="hidden" value="<?php echo $item->price ?>" name="price" id="price"/>
                       <button type="submit" class="btn btn-red btn-w" style="margin: 8px 0; height: 40px; line-height: 40px; width: 158px;font-size: 18px">立即购买</button>
                       <a class="btn btn-y btn-w doAddCart" style="margin-left: 28px; height: 40px; line-height: 40px; width: 158px;font-size: 18px" href="javascript:void(0);" phaseId="<?php echo $item->id; ?>">加入购物车</a>
                   </div>
