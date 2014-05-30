@@ -322,5 +322,5 @@ return array(
          * 图片服务器配置
          *
          */
-        'image_server' => 'http://dev_img.lltao.com/',
+        'image_server' => 'http://www.llta.com:82/',
 );

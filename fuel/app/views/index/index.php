@@ -68,12 +68,7 @@
                             <a href="<?php echo Uri::create('m/'.$phase->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($phase->image, '400x400');?>"/></a>
                         </div>
                         <div class="btn-group tc">
-                            <?php if($phase->status == \Helper\Item::IS_CHECK):?>
-
                                 <?php echo Html::anchor('m/'.$phase->id, '立即购买', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
-                            <?php else: ?>
-                                <?php echo Html::anchor('m/'.$phase->id, '即将开卖', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
-                            <?php endif;?>
                         </div>
                     </li>
                     <?php } ?>
@@ -97,7 +92,7 @@
                         </div>
                         <div class="info-side fr">
                             <div class="username">
-                                <?php echo Html::anchor('u/'.$order->member_id, $data['members'][$order->member_id]->nickname, ['class'=>'b']);?>
+                               <?php echo $data['members'][$order->member_id]->nickname;?>
                                 <?php echo \Helper\Timer::friendlyDate($order->created_at);?>购买了
                              </div>
                             <h4 class="title-br"><?php echo Html::anchor('m/'.$order->phase_id, $order->title);?></h4>
@@ -152,12 +147,7 @@
                     </a>
                 </div>
                 <div class="btn-group tc">
-                    <?php if($phase->status == \Helper\Item::IS_CHECK):?>
-
                         <?php echo Html::anchor('m/'.$phase->id, '立即购买', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
-                    <?php else: ?>
-                        <?php echo Html::anchor('m/'.$phase->id, '即将开卖', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
-                    <?php endif;?>
                 </div>
             </li>
             <?php } ?>

@@ -36,7 +36,7 @@ class Timer {
             }elseif($timestamp<$today && $timestamp>($today-86400)){
                 $return="昨天 ".date("H:i",$timestamp);
             }else{
-                $return=date("Y-m-d H:i",$timestamp);
+                $return=date("m-d H:i",$timestamp);
             }
         }
 

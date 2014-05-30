@@ -4,7 +4,7 @@ return array(
     '_404_'   => 'error/404',    // The main 404 route
     '_500_'   => 'error/500',    // The main 500 route
 
-    'totalbuycount' => 'index/totalCount',
+    //'totalbuycount' => 'index/totalCount',
     'checkInvitcode' => 'index/checkInvitcode',
     'captcha'=> 'index/captcha',
 
@@ -20,17 +20,17 @@ return array(
     'checkname'=> 'center/checkname',
     'emailok'=>'center/emailok',
 
-    'invit/:id' => 'invit/invit',
-    'invit' => 'invit/index',
+    //'invit/:id' => 'invit/invit',
+    //'invit' => 'invit/index',
 
 
     'u/checkemail' => 'member/checkemail',
     'u/sendemailok' => 'member/sendemailok',
-    'u/(\d+)' => 'home/index/$1',
-    'u/(\d+)/orders' => 'home/orders/$1',
-    'u/(\d+)/orders/p/(\d+)' => 'home/orders/$1/$2',
-    'u/(\d+)/wins' => 'home/wins/$1',
-    'u/(\d+)/wins/p/(\d+)' => 'home/wins/$1/$2',
+    //'u/(\d+)' => 'home/index/$1',
+    //'u/(\d+)/orders' => 'home/orders/$1',
+    //'u/(\d+)/orders/p/(\d+)' => 'home/orders/$1/$2',
+    //'u/(\d+)/wins' => 'home/wins/$1',
+    //'u/(\d+)/wins/p/(\d+)' => 'home/wins/$1/$2',
 
     'u' => 'member/index',
     'u/getnickname' => 'member/getnickname' ,
@@ -41,8 +41,8 @@ return array(
     'u/avatar/upload' => 'member/avatarUpload',
     'u/getprofile' => 'member/getprofile',
     'u/profile' => 'member/profile',
-    'u/code' => 'member/code',
-    'u/usecode' => 'member/usecode',
+    //'u/code' => 'member/code',
+    //'u/usecode' => 'member/usecode',
     'u/passwd' => 'member/changepassword',
     'u/passwd/forgot' => 'member/forgotpassword',
     'u/message' => 'member/sms/index',
@@ -57,15 +57,15 @@ return array(
     'u/address/(\d+)/undefault' => 'member/address/undefault/$1',
 
 
-    'u/invit' => 'member/invit/index',
-    'u/invit/p/(\d+)' => 'member/invit/index/$1',
-    'u/brokerage' => 'member/brokerage/index',
-    'u/brokerage/p/(\d+)' => 'member/brokerage/index/$1',
+    //'u/invit' => 'member/invit/index',
+    //'u/invit/p/(\d+)' => 'member/invit/index/$1',
+    //'u/brokerage' => 'member/brokerage/index',
+    ///'u/brokerage/p/(\d+)' => 'member/brokerage/index/$1',
 
     'u/orders' => 'member/orders/my',
     'u/orders/p/(\d+)' => 'member/orders/my/$1',
-    'u/wins' => 'member/wins/index',
-    'u/win/p/\d+' => 'member/wins/index/$1',
+    //'u/wins' => 'member/wins/index',
+    //'u/win/p/\d+' => 'member/wins/index/$1',
     'u/getrecharge' => 'member/getrecharge',
     'u/recharge' => 'member/recharge/recharge',
     'u/moneylog' => 'member/moneylog/rechargeIndex',
@@ -98,7 +98,7 @@ return array(
     'm/c/:cate_id/b/:brand_id' => 'items/index',
     'm/c/:cate_id/p/:page' => 'items/index',
     'm/c/:cate_id' => 'items/index',
-
+    /*
     'p' => 'posts/index',
     'p/up/(\d+)' => 'posts/up/$1',
     'p/p/(\d+)' => 'posts/index/$1',
@@ -113,7 +113,7 @@ return array(
     'w/p/(\d+)' => 'wins/index/$1',
     'w/(\d+)' => 'wins/view/$1',
     'w/result' => 'wins/result',
-
+    */
     'l' => 'orders/index',
     'l/p/(\d+)' => 'orders/index/$1',
     'l/joined' => 'orders/joined',
