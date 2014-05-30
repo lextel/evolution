@@ -12,23 +12,8 @@ class Coins {
      *
      */
     public static function showCoins($points, $onlyGold = true) {
-        \Config::load('common');
 
-        $point = \Config::get('point');
-        $gold = floor($points/$point);
-
-        $coins = '';
-        if(!empty($gold)) {
-            $coins .= $gold . \Config::get('unit2');
-        } else { 
-            $coins .= '0' . \Config::get('unit2');
-        }
-        if(!$onlyGold) {
-            $silver = $points%$point;
-            $coins .= $silver . \Config::get('unit4');
-        }
-
-        return $coins;
+        return $points . '元';
     }
 
      /**

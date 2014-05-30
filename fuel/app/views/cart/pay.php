@@ -16,7 +16,6 @@
                     <tr>
                         <th style="display:none"></th>
                         <th>商品名称</th>
-                        <th>总元宝</th>
                         <th>单价</th>
                         <th>数量</th>
                         <th>小计</th>
@@ -28,7 +27,7 @@
                         Config::load('common');
                         foreach($items as $item):
                             $info = $getInfo($item->get_id());
-                            $subTotal += $item->get_qty();
+                            $subTotal += $item->get_qty() * $item->get_price();
                     ?>
                     <tr>
                         <td style="display:none">&nbsp;</td>
@@ -42,13 +41,11 @@
                                 <h4>
                                     <a href="<?php echo Uri::create('/m/'.$item->get_id()); ?>"><?php echo $info->title; ?></a>
                                 </h4>
-                                <div class="remain">还需<b class="red"><?php echo $info->phase->remain; ?></b>元宝</div>
                             </div>
                         </td>
-                        <td><s><?php echo \Helper\Coins::showCoins($info->phase->cost, true); ?></s></td>
-                        <td><s><?php echo \Helper\Coins::showCoins(Config::get('point'), true); ?></s></td>
+                        <td><s><?php echo \Helper\Coins::showCoins($item->get_price(), true); ?></s></td>
                         <td><?php echo $item->get_qty(); ?></td>
-                        <td><s><?php echo \Helper\Coins::showCoins($item->get_qty() * Config::get('point'), true); ?></s></td>
+                        <td><s><?php echo \Helper\Coins::showCoins($item->get_qty() * $item->get_price(), true); ?></s></td>
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
@@ -56,16 +53,16 @@
             </form>
             <div class="cart-footer">
                 <a class="btn btn-sx btn-gy fl" style="margin-left: 0px" href="<?php echo Uri::create('cart/list'); ?>"> < 返回修改订单</a>
-                <div class="all-price fr">总元宝：<b id="total" total="<?php echo $subTotal*Config::get('point'); ?>"><?php echo \Helper\Coins::showCoins($subTotal * Config::get('point'), true); ?></b></div>
+                <div class="all-price fr">总金额：<b id="total" total="<?php echo $subTotal*Config::get('point'); ?>"><?php echo \Helper\Coins::showCoins($subTotal, true); ?></b></div>
             </div>
         </div>
     </div>
-    <div class="pay-row"><label><input type="checkbox" id="goldPay">使用元宝支付，您有：<?php echo \Helper\Coins::showCoins($current_user->points, true);?></label><b id="money" money="<?php echo $current_user->points; ?>" style="display:none"></b></div>
+    <div class="pay-row"><label><input type="checkbox" id="goldPay">使用余额支付，您有：<?php echo \Helper\Coins::showCoins($current_user->points, true);?></label><b id="money" money="<?php echo $current_user->points; ?>" style="display:none"></b></div>
     <!--选择支付方式开始-->
     <div class="prepaid-box">
                 <!--选择支付方式开始-->
                 <div class="pay-way">
-                    <div class="caption" style="margin-bottom: 8px">元宝不足？请选择下面方式购买</div>
+                    <div class="caption" style="margin-bottom: 8px">余额不足？请选择下面方式购买</div>
                     <dl>
                         <dt>第三方平台</dt>
                         <dd>

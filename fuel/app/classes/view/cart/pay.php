@@ -6,11 +6,9 @@ class View_Cart_Pay extends Viewmodel {
 
         // 获取商品信息
         $this->getInfo = function($phaseId){
-            $phase = Model_Phase::find($phaseId);
+            $phase = Model_Item::find($phaseId);
 
-            $itemModel = new Model_Item();
-
-            return $itemModel->itemInfo($phase);
+            return $phase;
         };
 
         // 获取用户信息
