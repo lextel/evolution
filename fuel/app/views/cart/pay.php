@@ -5,9 +5,8 @@
         <ol class="pay-prompt">
                         <li><span>1</span><a href="">确认提交订单></a></li>
                         <li class="active"><span>2</span><a href="">网银支付></a></li>
-                        <li><span>3</span><a href="">等待揭晓></a></li>
-                        <li><span>4</span><a href="">揭晓获奖者></a></li>
-                        <li><span>5</span><a href="">晒单分享></a></li>
+                        <li><span>3</span><a href="">等待收货></a></li>
+                        <li><span>4</span><a href="">评价服务></a></li>
                     </ol>
         <div class="cart-list">
             <form id="cartForm" action="<?php echo Uri::create('cart/remove'); ?>" method="post">

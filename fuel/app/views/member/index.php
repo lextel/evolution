@@ -16,7 +16,7 @@
         <?php if ($orders) { ?>
         <?php foreach($orders as $item) { ?>
         <ul class="buy-menu">
-            <li>在<?php echo \Helper\Timer::friendlyDate($item->ordered_at);?>乐淘了 </li>
+            <li>在<?php echo \Helper\Timer::friendlyDate($item->ordered_at);?>购买了 </li>
             <li class="right-box">
                 <div class="img-box img-md fl">
                     <a href="<?php echo Uri::create('m/'.$item->phase_id); ?>" rel="nofollow">
@@ -24,9 +24,9 @@
                     </a>
                 </div>
                 <div class="buy-record fl">
-                    <h4 class="title-lg"><?php echo Html::anchor('/m/'.$item->id, $item->id, ['class'=>'chance']);?></h4>
+                    <h4 class="title-lg" style="overflow: visible;"><?php echo Html::anchor('/m/'.$item->id, $item->title, ['class'=>'chance']);?></h4>
                     <div class="price">价值：￥<b><?php echo sprintf( '%.2f','11120');?></b></div>
-                    <?php echo Html::anchor('m/'.$item->phase_id, '<button class="btn-topUp btn-red">去乐淘</button>');?>
+                    <?php echo Html::anchor('m/'.$item->phase_id, '<button class="btn-topUp btn-red">继续购买</button>');?>
                 </div>
             </li>
         </ul>
