@@ -24,7 +24,7 @@
     <div class="column">
         <div class="rule">
             <div class="title"><img src="../assets/img/guide04_03.png"/><span><b>1元乐淘规则</b></span></div>
-            <p><img src="../assets/img/guide04_07.png" /><span>每件商品参考市场价平分成相应“等份”，每份1元宝（100银币），一份对应一个乐淘码。</span></p>
+            <p><img src="../assets/img/guide04_07.png" /><span>每件商品参考市场价平分成相应“等份”，每份1元（100银币），一份对应一个乐淘码。</span></p>
             <p><img src="../assets/img/guide04_10.png" /><span>同一件商品可以购买多次或一次购买多份。</span></p>
             <p><img src="../assets/img/guide04_16.png" /><span>当一件商品所有“等份”全部售出后计算出的“幸运乐淘码”，拥有“幸运乐淘码“的用户者即可获得此商品。</span></p>
         </div>

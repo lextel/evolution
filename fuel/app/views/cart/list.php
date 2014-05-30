@@ -15,6 +15,7 @@
                         <tr>
                             <th></th>
                             <th>商品名称</th>
+                            <th>总元</th>
                             <th>单价</th>
                             <th>购买数量</th>
                             <th>小计</th>
@@ -44,6 +45,7 @@
                                     <div class="title-row">
                                          <a href="<?php echo Uri::create('m/'. $item['id']); ?>"><?php echo $item['title']; ?></a>
                                     </div>
+                                    <div class="remain">还需<b class="o"><?php echo $item['remain']; ?></b>元</div>
                                 </div>
                             </td>
                             <td><span class="price"><b><?php echo \Helper\Coins::showCoins($item['price'], true); ?></b></span></td>
@@ -52,6 +54,7 @@
                                     <a class="add btn-jian" href="javascript:void(0);">-</a>
                                     <input type="text" value="<?php echo $item['qty']; ?>" class="qty" name="qty" rowId="<?php echo $item['rowid']; ?>" remain="99999" price="<?php echo $item['price'];?>">
                                     <a class="add btn-jia" href="javascript:void(0);">+</a>
+                                    <span>元</span>
                                 </div>
                             </td>
                             <td><span class="price"><b><?php echo \Helper\Coins::showCoins($item['price'] * $item['qty'], true); ?></b></span></td>
@@ -80,12 +83,14 @@
                                     <div class="title-row">
                                          <a href="<?php echo Uri::create('m/'. $item['id']); ?>"><?php echo $item['title']; ?></a>
                                     </div>
+                                    <div class="remain">还需<b class="o"><?php echo $item['remain']; ?></b>元</div>
                                 </div>
                             </td>
                             <td><span class="price"><b><?php echo \Helper\Coins::showCoins($item['cost'], true); ?></b></span></td>
                             <td>
                                 <div class="btn-menu inner-b-m">
                                     <?php echo $item['qty']; ?>
+                                    <span>元</span>
                                 </div>
                             </td>
                             <td><span class="price"><b><?php echo \Helper\Coins::showCoins(Config::get('point') * $item['qty'], true); ?></b></span></td>
@@ -161,6 +166,9 @@
                             <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>">
                                 <img src="<?php echo \Helper\Image::showImage($remain->image, '200x200');?>"/>
                             </a>
+                            <div class="sheng-yi">
+                                还需 <s style="font-size:18px;font-weight: normal;"><?php echo $remain->phase->remain; ?></s>元！
+                            </div>
                         </div>
                         <div class="btn-group">
                             <input type="hidden" name="id" value="<?php echo $remain->phase->id; ?>"/>

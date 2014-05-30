@@ -40,7 +40,7 @@
                     <td><?php echo Date('Y-m-d H:i:s', $item->created_at);?></td>
                     <td><?php echo Html::anchor('u/'.$item->member_id, $members[$item->member_id]->nickname);?></td>
                     <td><p class="tl"><?php echo Html::anchor('m/'.$item->phase_id,'（第'.$phases[$item->phase_id]->phase_id.'期) '.$item->title);?></p></td>
-                    <td><?php echo $item->code_count;?>元宝</td>
+                    <td><?php echo $item->code_count;?>元</td>
                 </tr>
                 <?php } ?>
                 

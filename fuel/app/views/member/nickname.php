@@ -17,7 +17,7 @@ $(function(){
                   <li><a href="javascript:;"></a></li>
               </ul>
               <div class="link fr">
-                   <?php echo Html::anchor('invit', '邀请好友赢元宝', array('class' => 'btn btn-red b', 'style' => 'margin-right: 10px; padding:5px 10px'));?>
+                   <?php echo Html::anchor('invit', '邀请好友赢元', array('class' => 'btn btn-red b', 'style' => 'margin-right: 10px; padding:5px 10px'));?>
                         已经是会员，直接
                    <?php echo Html::anchor('signin', '登录', array('class' => 'blue'));?>
               </div>

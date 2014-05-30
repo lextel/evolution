@@ -52,6 +52,12 @@
                             <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>">
                                 <img src="<?php echo \Helper\Image::showImage($remain->image, '200x200');?>"/>
                             </a>
+<<<<<<< HEAD
+                            <div class="sheng-yi">
+                                还需 <b class="red"><?php echo $remain->phase->remain; ?></b>元！
+                            </div>
+=======
+>>>>>>> 86ce40a975a0e24e5c59e1de5793569fbd1340da
                         </div>
                         <div class="btn-group">
                             <input type="hidden" name="id" value="<?php echo $remain->phase->id; ?>"/>
