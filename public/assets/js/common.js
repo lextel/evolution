@@ -316,7 +316,6 @@ $(function(){
         $(this).css("color","#af2812");
         posts(1);
     });
-
     // 拉取期数
     $('a[href="#phase"]').click(function() {
         $(".fl").find("a").css("color","#666");
@@ -718,10 +717,11 @@ $(function(){
     $('.doCart').click(function () {
 
         var cart = $('.item-cart');
-        var imgtodrag = $(this).parent().prev().prev().prev().find("a img");
+        var imgtodrag = $(this).parent().prev().find("a img");
         //console.log(imgtodrag);
         var id = $(this).attr('phaseId');
-        var qty = $(this).parent().prev().find('input').val();
+        var qty = 1;
+        var price = $(this).attr('price');
         if (imgtodrag) {
             var imgclone = imgtodrag.clone()
                 .offset({
@@ -751,7 +751,7 @@ $(function(){
                 // 提交到后台
                 $.ajax({
                     url: BASE_URL + 'cart/new',
-                    data: {id:id, qty:qty},
+                    data: {id:id, qty:qty, price: price},
                     type: 'post',
                     dataType: 'json',
                     success: function(data) {

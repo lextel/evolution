@@ -132,9 +132,8 @@
                                
                                     
                                     <div class="btn-group">
-                                        <input name="id" value="<?php echo $item->id; ?>" type="hidden">
                                         <button class="btn btn-red btn-md" type="submit" >立即购买</button>
-                                        <a class="btn btn-y btn-md  doCart" href="javascript:void(0);" phaseId="<?php echo $item->id; ?>">加入购物车</a>
+                                        <a class="btn btn-y btn-md  doCart" href="javascript:void(0);" price="<?php echo $item->price;?>" phaseId="<?php echo $item->id; ?>">加入购物车</a>
                                     </div>
                                     
                                 </form>
