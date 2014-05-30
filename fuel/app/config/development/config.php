@@ -323,4 +323,6 @@ return array(
          *
          */
         'image_server' => 'http://www.llta.com:82/',
+
+        //'image_server' => 'http://img.lltao.com/',
 );

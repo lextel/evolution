@@ -39,7 +39,7 @@ $(function(){
 
     // 分类上传图标
     'use strict';
-    $(document).on('click', '.uploadField', function() {
+    /*$(document).on('click', '.uploadField', function() {
         $(this).fileupload({
             url: UPLOAD_URL,
             dataType: 'json',
@@ -63,6 +63,27 @@ $(function(){
             },
         }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
 
+    });*/
+    
+    //分类图片上传到七牛
+    var UPLOAD_PATH = "upload/avatar/";
+    var WH = '?imageView2/1/w/34/h/34';//缩略
+    $(document).on('change', '.uploadField', function() {
+        var f = $(this).prop("files")[0];
+        var token = $("#token").val();    
+        var res = Qiniu_upload(f, token, '', UPLOAD_PATH);
+        res.done(function( msg ) {
+            console && console.log(msg);
+            var dom = $(this);
+            var link = msg['x:album'];
+            var text = '<span class="withclose" style="position: relative;"><img src="'+link+WH+'" style="width: 34px; height: 34px; margin-left: 10px"/>';
+            text += '<input type="hidden" name="icon" value="'+msg.key+'"/><d class="close" style="top:-12px;right:1px">&times;</d></span>'
+            console.log(dom.parent().text());
+            dom.parent().after(text);
+        });
+        res.fail(function( jqXHR, textStatus ) {
+            alert("图片上传失败，请刷新页面再上传");
+        });
     });
     
     // 删除图片

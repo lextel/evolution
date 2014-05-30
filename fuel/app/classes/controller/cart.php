@@ -28,14 +28,14 @@ class Controller_Cart extends Controller_Frontend {
             }
         }
 
-        $phases = Model_Phase::byIds($ids);
+        $phases = Model_Item::byIds($ids);
         $data = [];
         foreach($carts as $cart) {
             $data[] = [
                     'image' => \Helper\Image::showImage($phases[$cart->get_id()]->image, '80x80'),
                     'title' => $phases[$cart->get_id()]->title,
-                    'unit'  => Config::get('unit'),
-                    'point'  => Config::get('point'),
+                    'unit'  => '元',
+                    'point' => $cart->get_price(),
                     'qty'   => $cart->get_qty(),
                     'id'    => $cart->get_id(),
                     'rowId' => $cart->get_rowid(),
@@ -51,6 +51,7 @@ class Controller_Cart extends Controller_Frontend {
         Cart::add([
             'id'    => Input::post('id'),
             'qty'   => Input::post('qty'),
+            'price' => sprintf('%.2f', Input::post('price')),
         ]);
 
         Response::redirect('cart/list');
@@ -69,6 +70,7 @@ class Controller_Cart extends Controller_Frontend {
                     $payCart->add([
                         'id'  => $item->get_id(),
                         'qty' => $item->get_qty(),
+                        'price' => $item->get_price(),
                     ]);
                 }
             }
@@ -101,6 +103,7 @@ class Controller_Cart extends Controller_Frontend {
         $result = Cart::add([
             'id'    => Input::post('id'),
             'qty'   => Input::post('qty'),
+            'price' => sprintf('%.2f', Input::post('price')),
         ]);
         $count = count(Cart::items());
 

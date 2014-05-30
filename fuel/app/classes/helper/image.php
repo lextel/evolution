@@ -36,4 +36,21 @@ class Image {
 
         return $server . $path;
     }
+
+    /*
+    *qiniu 图片调用
+    */
+    public static function showQiniuImage($path, $size = '') {
+        Config::load('common');
+        $server = Config::get('qiniu.host');
+        if (empty($size)) return $server.$path;
+        $sizes = explode('x', $size);
+        if (count($sizes) != 2){
+            return $server.$path;
+        }
+        $w = $sizes[0];
+        $h = $sizes[1];
+        $mode = 'imageView2/1/w/'.$w.'/h/'.$h;
+        return $server.$path.'?'.$mode;
+    }
 }

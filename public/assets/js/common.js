@@ -239,14 +239,14 @@ $(function(){
 
         val = parseInt(val);
         if(val < 1) {
-            alert('数量不能小于1元宝');
+            alert('数量不能小于1');
             val = 1;
             $(this).select();
         }
 
         var remain = $(this).attr('remain');
         if(val > parseInt(remain)) {
-            alert('数量不能大于还需元宝');
+            alert('数量不能大于99999');
             val = remain;
             $(this).select();
         }
@@ -266,7 +266,7 @@ $(function(){
         var max = input.attr('remain');
         var val = parseInt(input.val());
         if(val + 1 > parseInt(max)) {
-            alert('购买数量不能大于还需元宝');
+            alert('购买数量不能大于99999');
         } else {
             var qty = val + 1;
             countPercent(qty, input);
@@ -283,10 +283,9 @@ $(function(){
         var val = parseInt(input.val());
 
         if(val -1 < parseInt(min)) {
-            alert('购买数量不能小于1元宝');
+            alert('购买数量不能小于1');
         } else {
             var qty = val - 1;
-            countPercent(qty, input);
             updateCart(qty, input, val);
             input.val(qty);
         }
@@ -317,7 +316,6 @@ $(function(){
         $(this).css("color","#af2812");
         posts(1);
     });
-
     // 拉取期数
     $('a[href="#phase"]').click(function() {
         $(".fl").find("a").css("color","#666");
@@ -673,7 +671,7 @@ $(function(){
                         html += '<a href="'+BASE_URL + 'm/' + data[i].id +'"><img src="'+ data[i].image+'" alt=""></a>';
                         html += '</div><div class="info-side fl"><div class="title-md">';
                         html += '<a href="'+BASE_URL + 'm/' + data[i].id +'">'+data[i].title+'</a>';
-                        html += '</div><div class="price tl">'+showCoins(100) +' x <b class="y">'+data[i].qty+'</b></div>';
+                        html += '</div><div class="price tl">'+ data[i].point +' x <b class="y">'+data[i].qty+'</b></div>';
                         html += '<a href="javascript:void(0);" class="cartRemove btn-delete" rowId="'+data[i].rowId+'">删除</a></div></li>';
                     }
                     html += '<div class="btn-group tr"><a href="'+BASE_URL + 'cart/list' + '" class="btn-red underway fr btn">查看购物车</a></div>';
@@ -719,10 +717,11 @@ $(function(){
     $('.doCart').click(function () {
 
         var cart = $('.item-cart');
-        var imgtodrag = $(this).parent().prev().prev().prev().find("a img");
+        var imgtodrag = $(this).parent().prev().find("a img");
         //console.log(imgtodrag);
         var id = $(this).attr('phaseId');
-        var qty = $(this).parent().prev().find('input').val();
+        var qty = 1;
+        var price = $(this).attr('price');
         if (imgtodrag) {
             var imgclone = imgtodrag.clone()
                 .offset({
@@ -752,7 +751,7 @@ $(function(){
                 // 提交到后台
                 $.ajax({
                     url: BASE_URL + 'cart/new',
-                    data: {id:id, qty:qty},
+                    data: {id:id, qty:qty, price: price},
                     type: 'post',
                     dataType: 'json',
                     success: function(data) {
@@ -904,13 +903,6 @@ $(function (){
     });
     }
 });
-
-//当前乐淘人数
-$(function(){
-    getTotalBuy();
-    setInterval(getTotalBuy,3000);
-});
-
 
 function getTotalBuy(){
     $.get(BASE_URL+"totalbuycount?callback="+ new Date().getTime(), function(data){

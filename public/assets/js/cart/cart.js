@@ -141,11 +141,11 @@ $(function(){
 function updateTotal() {
     var total = 0;
     $('.qty').each(function(){
-        total = total + parseInt($(this).val());
+        total = total + parseInt($(this).val()) * parseInt($(this).attr('price'));
     });
 
 
-    $('#total').html(showCoins(total*POINT));
+    $('#total').html(showCoins(total));
 }
 
 /**
@@ -155,6 +155,6 @@ function updateSubtotal(obj) {
     var val = obj.val();
     var target = obj.parent().parent().next();
 
-    var subtotal = parseInt(val) * parseInt(POINT);
+    var subtotal = parseInt(val) * parseInt(obj.attr('price'));
     target.html('<span class="price"><b>' +showCoins(subtotal)+'</b></span>');
 }
