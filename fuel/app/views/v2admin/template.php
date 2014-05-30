@@ -53,7 +53,7 @@
                                          '</li>';
                                     }
                                 } else {
-                                    
+
                                     echo '<li class=""><a href="'.$nav['href'].'">'.$nav['name'].'</a></li>';
                                 }
                             }
@@ -111,7 +111,10 @@
         </footer>
     </div>
     <script>
+        <?php \Config::load('common');?>
         BASE_URL = '<?php echo Uri::base(); ?>';
+        QINIU_FORMURL = '<?php echo \Config::get("qiniu.formurl")?>';
+        QINIU_HOST = '<?php echo \Config::get("qiniu.host")?>';
     </script>
 </body>
 </html>
