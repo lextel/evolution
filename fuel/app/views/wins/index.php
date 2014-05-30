@@ -47,7 +47,7 @@
                             </div>
                         </div>
                         <div class="p-info">
-                            <div class="number">本期乐淘：<b><?php echo $win->code_count; ?></b>元宝</div>
+                            <div class="number">本期乐淘：<b><?php echo $win->code_count; ?></b>元</div>
                             <div class="datetime">揭晓时间：<?php echo date('Y-m-d H:i:s', $win->opentime);?></div>
                         </div>
                     </div>
@@ -170,7 +170,7 @@
                         </div>
                         <div class="info-side fr">
                             <div class="title-sm"><a href=""><?php echo $hot->title; ?></a></div>
-                            <div class="remain">还需元宝: <b class="red"><?php echo $hot->remain; ?></b></div>
+                            <div class="remain">还需元: <b class="red"><?php echo $hot->remain; ?></b></div>
                         </div>
                     </div>
                     <div class="longItem" style="display: <?php echo $i == 1 ? 'block' : 'none'; ?>">
@@ -184,7 +184,7 @@
                                     <img src="<?php echo \Helper\Image::showImage($hot->image, '200x200');?>"/>
                                 </a>
                             </div>
-                            <div class="remain tc">还需元宝: <b class="red"><?php echo $hot->remain; ?></b></div>
+                            <div class="remain tc">还需: <b class="red"><?php echo $hot->remain; ?></b></div>
                             <div class="btn-group">
                                 <input name="qty" value="1" type="hidden"/>
                                 <input name="id" value="<?php echo $hot->id; ?>" type="hidden">

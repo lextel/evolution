@@ -38,8 +38,8 @@
                                     <span class="fl r"><?php echo $phase->joined;?></span>
                                     <span class="fr b"><?php echo $phase->remain;?></span>
                                 <li>
-                                    <span class="fl">已攒元宝</span>
-                                    <span class="fr">还需元宝</span>
+                                    <span class="fl">已攒元</span>
+                                    <span class="fr">还需元</span>
                                 </li>
                             </ol>
                         <?php }else{ ?>

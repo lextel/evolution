@@ -70,7 +70,7 @@
                                 <img src="<?php echo \Helper\Image::showImage($remain->image, '200x200');?>"/>
                             </a>
                             <div class="sheng-yi">
-                                还需 <b class="red"><?php echo $remain->phase->remain; ?></b>元宝！
+                                还需 <b class="red"><?php echo $remain->phase->remain; ?></b>元！
                             </div>
                         </div>
                         <div class="btn-group">
