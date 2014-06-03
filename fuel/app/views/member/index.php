@@ -15,6 +15,7 @@
         </ul>
         <?php if ($orders) { ?>
         <?php foreach($orders as $item) { ?>
+        <?php $itemInfo = $getItemInfo($item->phase_id);?>
         <ul class="buy-menu">
             <li>在<?php echo \Helper\Timer::friendlyDate($item->ordered_at);?>购买了 </li>
             <li class="right-box">
@@ -24,8 +25,8 @@
                     </a>
                 </div>
                 <div class="buy-record fl">
-                    <h4 class="title-lg" style="overflow: visible;"><?php echo Html::anchor('/m/'.$item->id, $item->title, ['class'=>'chance']);?></h4>
-                    <div class="price">价值：￥<b><?php echo sprintf( '%.2f','11120');?></b></div>
+                    <h4 class="title-lg" style="overflow: visible;"><?php echo Html::anchor('/m/'.$itemInfo->id, $itemInfo->title, ['class'=>'chance']);?></h4>
+                    <div class="price">价值：￥<b><?php echo sprintf( '%.2f', $itemInfo->price);?></b></div>
                     <?php echo Html::anchor('m/'.$item->phase_id, '<button class="btn-topUp btn-red">继续购买</button>');?>
                 </div>
             </li>

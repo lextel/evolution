@@ -7,7 +7,7 @@
     <div class="account-box">
         <div class="lead">账户明细</div>
         <div class="remind ">
-            <span class="balance">财富：<s><?php echo \Helper\Coins::showCoins($current_user->points, true);?></s></span>
+            <span class="balance">余额:<s><?php echo $current_user->points;?>元</s></span>
             <?php echo Html::anchor('u/getrecharge', '充值', ['class'=>'btn-pay']);?>
         </div>
         <div class="toggles">
@@ -42,7 +42,7 @@
                 <td style="text-align: left;"><?php echo '第('.$item->phase_id.')期 '.$phaselist[$item->phase_id]->title; ?></td>
                 <td><?php echo $item->total; ?></td>
                 <td><?php echo Date::forge($item->created_at)->format("%Y-%m-%d %H:%M:%S"); ?></td>
-                <td><?php echo \Helper\Coins::showCoins($item->sum, true); ?></td>
+                <td><?php echo sprintf('%.2f',$item->sum/Config::get('point', 100)); ?>元</td>
 
             </tr>
             <?php } ?>

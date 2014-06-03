@@ -45,7 +45,7 @@
             <li class="dropdown">
                 <a href="javascript:void(null)" style="color: #af2812;" class="ali">我的乐淘<span class="icon-arrow"></span><s></s></a>
                 <ul class="dropdown-menu" style="display:block">
-                    <li><?php echo Html::anchor('u/orders', '乐淘记录');?></li>
+                    <li><?php echo Html::anchor('u/orders', '购买记录');?></li>
                 </ul>
             </li>
             <li class="dropdown">

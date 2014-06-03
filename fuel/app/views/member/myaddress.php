@@ -51,7 +51,7 @@
                         </li>
                         <li>
                             <label class="align">*街道地址：</label>
-                            <input name="address" id="address" class="txt" style="width:380px;" />                            
+                            <input name="address" id="address" class="txt" style="width:380px;" />
                         </li>
                         <li>
                             <label>*收货人：</label>
