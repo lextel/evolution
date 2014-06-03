@@ -194,15 +194,13 @@
         //UNIT2    = '';
 
         function showCoins(point) {
-            Console.log(point)
-            var gold = parseInt(point/POINT);
+            /*var gold = parseInt(point/POINT);
             var silver = point%POINT;
             var unit = gold + UNIT;
-            alert(gold+"    "+ silver +"     " +unit);
             if(silver > 0) {
                 unit += silver ;
-            }
-            return unit;
+            }*/
+            return point;
         }
     </script>
     <script>
