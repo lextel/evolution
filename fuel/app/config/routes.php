@@ -4,6 +4,9 @@ return array(
     '_404_'   => 'error/404',    // The main 404 route
     '_500_'   => 'error/500',    // The main 500 route
 
+     'cart/list' => 'error/500',
+     'cart/pay' => 'error/500',
+     'cart/result' => 'error/500',
     //'totalbuycount' => 'index/totalCount',
     'checkInvitcode' => 'index/checkInvitcode',
     'captcha'=> 'index/captcha',

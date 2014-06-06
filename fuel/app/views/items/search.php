@@ -27,44 +27,21 @@
               <form class="xpxp" id="xpxp" action="<?php echo Uri::create('cart/add'); ?>" method="post">
                 <div class="title-box">
                     <h4 class="title-md"><a href="<?php echo Uri::create('m/' . $item->id); ?>"><?php echo $item->title; ?></a></h4>
-                    <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $item->cost/Config::get('point')); ?></b></span>
+                    <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $item->price); ?></b></span>
                 </div>
                 <div class="img-box img-lg">
                     <a href="<?php echo Uri::create('m/' . $item->id); ?>">
                        <img src="<?php echo \Helper\Image::showImage($item->image, '400x400');?>"/>
                     </a>
                 </div>
-                <dl class="progress-side">
-                    <dd>
-                        <div class="progress"><div class="progress-bar" style="width: <?php echo sprintf('%.2f', $item->joined/$item->amount*100)?>%"></div></div>
-                    </dd>
-                    <dd>
-                        <span class="fl r"><?php echo $item->joined; ?></span>
-                        <span class="fr b"><?php echo $item->remain; ?></span>
-                    </dd>
-                    <dd>
-                        <span class="fl c9">已攒元</span>
-                        <span class="fr c9">还需元</span>
-                    </dd>
-                </dl>
-                <?php if($item->status == \Helper\Item::IS_CHECK): ?>
-                <div class="btn-menu">
-                    <span class="left">我要乐淘</span>
-                    <a class="add btn-jian" href="javascript:void(0);">-</a>
-                    <input type="text" value="1" name="qty" remain="<?php echo $item->remain; ?>"/>
-                    <a class="add btn-jia" href="javascript:void(0);">+</a>
-                    <span class="right">元</span>
-                </div>
+                
+                
                 <div class="btn-group">
                     <input name="id" value="<?php echo $item->id; ?>" type="hidden">
-                    <button class="btn btn-md btn-red" type="submit" >立即一元乐淘</button>
+                    <button class="btn btn-md btn-red" type="submit" >立即乐淘</button>
                     <a class="btn btn-md btn-y doCart" href="javascript:void(0);" phaseId="<?php echo $item->id; ?>">加入购物车</a>
                 </div>
-                <?php else: ?>
-                <div class="btn-group soon">
-                    <button class="btn btn-red" onclick="window.location.href='<?php echo Uri::create('/m/'.$item->id); ?>'; return false;">即将开拍</button>
-                </div>
-                <?php endif;?>
+               
               </form>
             </li>
             <?php
@@ -91,14 +68,14 @@
                             <a href="<?php echo Uri::create('/m/'.$item->id); ?>" rel="nofollow">
                                 <img src="<?php echo \Helper\Image::showImage($item->image, '200x200');?>"/>
                              </a>
-                             <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->cost / Config::get('point')); ?></b></div>
+                             <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->price); ?></b></div>
                           </div>
                           <h4 class="caption"><?php echo $item->title; ?></h4>
                           <div class="btn-group">
                                 <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
                                     <input name="id" value="<?php echo $item->id; ?>" type="hidden">
                                     <input name="qty" value="1" type="hidden">
-                                    <button class="btn btn-red hot-buy" type="submit">立即一元乐淘</button>
+                                    <button class="btn btn-red hot-buy" type="submit">立即乐淘</button>
                                 </form>
                           </div>
                       </li>

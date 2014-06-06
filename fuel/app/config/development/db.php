@@ -7,7 +7,7 @@ return array(
         'connection'  => array(
             //'dsn'        => 'mysql:host=127.0.0.1;dbname=lltao',
             //'dsn'        => 'mysql:host=192.168.3.10;dbname=llt_dev',
-            'dsn'        => 'mysql:host=192.168.3.170;dbname=llt_bro',
+            'dsn'        => 'mysql:host=localhost;dbname=llt_bro',
             'username'   => 'root',
             'password'   => '1',
         ),

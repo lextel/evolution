@@ -19,7 +19,7 @@
         <!--最新开始-->
         <div class="announced-news fl">
                 <div class="title">
-                    <h3>最新上架</h3>
+                    <h3>最新购买</h3>
                     <?php echo Html::anchor('m', '更多>>', ['class'=>'more']);?>
                 </div>
                     <ul>
@@ -68,7 +68,7 @@
                             <a href="<?php echo Uri::create('m/'.$phase->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($phase->image, '400x400');?>"/></a>
                         </div>
                         <div class="btn-group tc">
-                                <?php echo Html::anchor('m/'.$phase->id, '立即购买', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                                <?php echo Html::anchor('m/'.$phase->id, '立即乐淘', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                         </div>
                     </li>
                     <?php } ?>
@@ -119,7 +119,7 @@
                 <div class="btn-group tc">
                     <?php if($phase->status == \Helper\Item::IS_CHECK):?>
 
-                        <?php echo Html::anchor('m/'.$phase->id, '立即购买', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                        <?php echo Html::anchor('m/'.$phase->id, '立即乐淘', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                     <?php else: ?>
                         <?php echo Html::anchor('m/'.$phase->id, '即将开卖', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                     <?php endif;?>
@@ -147,7 +147,7 @@
                     </a>
                 </div>
                 <div class="btn-group tc">
-                        <?php echo Html::anchor('m/'.$phase->id, '立即购买', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                        <?php echo Html::anchor('m/'.$phase->id, '立即乐淘', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                 </div>
             </li>
             <?php } ?>

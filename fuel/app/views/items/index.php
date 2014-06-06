@@ -83,7 +83,7 @@
                         <a href="<?php echo Uri::create('m/'.$topItem->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($topItem->image, '400x400');?>"/></a>
                         <div class="sheng-yi2">热门推荐</div>
                     </div>
-                    <div class="btn-group tc"><a href="<?php echo Uri::create('/m/'.$topItem->id); ?>" class="btn btn-red btn-hot">立即购买</a></div>
+                    <div class="btn-group tc"><a href="<?php echo Uri::create('/m/'.$topItem->id); ?>" class="btn btn-red btn-hot">立即乐淘</a></div>
               <?php
                }
               ?>
@@ -132,7 +132,7 @@
                                
                                     
                                     <div class="btn-group">
-                                        <button class="btn btn-red btn-md" type="submit" >立即购买</button>
+                                        <button class="btn btn-red btn-md" type="submit" >立即乐淘</button>
                                         <a class="btn btn-y btn-md  doCart" href="javascript:void(0);" price="<?php echo $item->price;?>" phaseId="<?php echo $item->id; ?>">加入购物车</a>
                                     </div>
                                     
@@ -164,7 +164,7 @@
                                 <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
                                     <input name="id" value="<?php echo $item->id; ?>" type="hidden">
                                     <input name="qty" value="1" type="hidden">
-                                    <button class="btn btn-red hot-buy" type="submit">立即购买</button>
+                                    <button class="btn btn-red hot-buy" type="submit">立即乐淘</button>
                                 </form>
                           </div>
                       </li>
