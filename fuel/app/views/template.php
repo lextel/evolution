@@ -71,7 +71,7 @@
     </div>
     <div class="navbar">
     <?php
-        $cates = Model_Cate::find('all', ['where' => ['parent_id' => 0], 'limit' => 3]);
+        $cates = Model_Cate::find('all', ['where' => ['parent_id' => 0, 'is_delete'=>0], 'limit' => 3]);
     ?>
         <ul>
             <li><a href="<?php echo Uri::base(); ?>">首页</a></li>

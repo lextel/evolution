@@ -76,9 +76,7 @@
                  </div>
                 <div class="new-buyer-body tab-content">
                     <div class="tab-pane active" id="help">
-                        <p>乐乐淘是指只需1元就有机会买到想要的商品。即每件商品被平分成若干“等份”出售，每份1元，
-                         当一件商品所有“等份”售出后，根据乐淘规则产生一名幸运者，该幸运者即可获得此商品。
-                        </p>
+
                         <p>
                             乐乐淘以“独乐乐，不如众乐乐”为宗旨，力求打造一个100%公平公正、100%正品保障、寄娱乐与购物一体化的新型购物网站。
                         </p>
@@ -190,7 +188,7 @@ $(function(){
         },
         errorPlacement: function(error, element) {
             error.css({"display":"inline-block","line-height":"29px"});
-            
+
             error.appendTo(element.parent());
         }
     });
