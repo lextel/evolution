@@ -80,7 +80,7 @@
                         <p>
                             乐乐淘以“独乐乐，不如众乐乐”为宗旨，力求打造一个100%公平公正、100%正品保障、寄娱乐与购物一体化的新型购物网站。
                         </p>
-                        <div class="tr"><a href="<?php echo Uri::create('h/new'); ?>" class="link">更多详情></a></div>
+                        <div class="tr"><a href="<?php echo Uri::create(''); ?>" class="link">更多详情></a></div>
                     </div>
                 </div>
             </div>
