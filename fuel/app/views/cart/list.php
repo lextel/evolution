@@ -15,7 +15,7 @@
                         <tr>
                             <th></th>
                             <th>商品名称</th>
-                            <th>总元</th>
+                            <th>单价</th>
      
                             <th>购买数量</th>
                             <th>小计</th>
@@ -162,12 +162,12 @@
                             <div class="price fr">价格<b>￥<?php echo sprintf('%.2f', $remain->price); ?></b></div>
                         </div>
                         <div class="img-box img-lg">
-                            <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>">
+                            <a href="<?php echo Uri::create('/m/'.$remain->id); ?>">
                                 <img src="<?php echo \Helper\Image::showImage($remain->image, '200x200');?>"/>
                             </a>
                         </div>
                         <div class="btn-group">
-                            <input type="hidden" name="id" value="<?php echo $remain->phase->id; ?>"/>
+                            <input type="hidden" name="id" value="<?php echo $remain->id; ?>"/>
                             <input type="hidden" name="qty" value="1"/>
                             <button class="btn btn-red btn-atc" type="submit">放入购物车</button>
                         </div>

@@ -27,7 +27,7 @@
                         <th>商品图片</th>
                         <th>商品名称</th>
                         <th>购买数量</th>
-                        <th>快递状态</th>                       
+                        <th>快递状态</th>
                         <th>快递信息</th>
                         <th>操作</th>
                     </tr>
@@ -38,7 +38,7 @@
                     }
                     ?>
                     <?php foreach($orders as $order) { ?>
-                    <?php $phase = $getPhaseInfo($order->phase_id);?>
+                    <?php $phase = $getItemInfo($order->phase_id);?>
                     <tr>
                         <td>
                             <div class="img-box img-sm">
@@ -51,18 +51,13 @@
                             <div class="title-lg"><?php echo $phase->title;?></div>
                         </td>
                         <td><?php echo $order->code_count;?>件</td>
-                        <td><?php echo ($phase->member_id !=0) ? "已经揭晓": "进行中";?></td>                       
+                        <td><?php echo 1 ? "进行中": "进行中";?></td>
                         <td><div class="toolbox">
                            <a class="tooltip" href="javascript:void(0)">快递</a>
                            <div class="num-list"  id="num-list">
                                 <div class="icon-arrow"></div>
                                 <ul>
-                                     <?php
-                                        $codes = \Helper\Codes::getArray($order->codes);
-                                        foreach($codes as $code) {
-                                            echo "<li>{$code}</li>";
-                                        }
-                                     ?>
+
                                  </ul>
                                  <button class="icon-close"></button>
                             </div>

@@ -17,7 +17,7 @@
                         $info = $getInfo($item->phase_id);
                     ?>
                     <tr>
-                        <td style="text-align: left">(第<?php echo $info->phase->phase_id; ?>期)<?php echo $info->phase->title; ?></td>
+                        <td style="text-align: left"><?php echo $info->title; ?></td>
                         <td>
                             <?php
                                 $ordered_at = $item->ordered_at;
@@ -49,18 +49,12 @@
                             <div class="price fr">价格<b>￥<?php echo sprintf('%.2f', $remain->price); ?></b></div>
                         </div>
                         <div class="img-box img-lg">
-                            <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>">
+                            <a href="<?php echo Uri::create('/m/'.$remain->id); ?>">
                                 <img src="<?php echo \Helper\Image::showImage($remain->image, '200x200');?>"/>
                             </a>
-<<<<<<< HEAD
-                            <div class="sheng-yi">
-                                还需 <b class="red"><?php echo $remain->phase->remain; ?></b>元！
-                            </div>
-=======
->>>>>>> 86ce40a975a0e24e5c59e1de5793569fbd1340da
                         </div>
                         <div class="btn-group">
-                            <input type="hidden" name="id" value="<?php echo $remain->phase->id; ?>"/>
+                            <input type="hidden" name="id" value="<?php echo $remain->id; ?>"/>
                             <input type="hidden" name="qty" value="1"/>
                             <button class="btn btn-red btn-atc" type="submit">放入购物车</button>
                         </div>

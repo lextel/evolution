@@ -74,16 +74,15 @@ class Model_Order extends \Classes\Model
             }
 
             $phaseId = $cart->get_id();
-            $fetchCodes = $this->buy($phaseId, $cart->get_qty());
-
-            if(!empty($fetchCodes)) {
-                $phase = Model_Phase::find($phaseId);
+            $fetchCodes = [];//$this->buy($phaseId, $cart->get_qty());
+            //if(!empty($fetchCodes)) {
+                $phase = Model_Item::find($phaseId);
                 $data = [
                     'title'      => $phase->title,
                     'phase_id'   => $phaseId,
                     'member_id'  => $memberId,
                     'codes'      => serialize($fetchCodes),
-                    'code_count' => count($fetchCodes),
+                    'code_count' => $cart->get_qty(),
                     'ip'         => $ip,
                     'area'       => $location['area'],
                     'ordered_at' => $timer->millitime(),
@@ -100,7 +99,7 @@ class Model_Order extends \Classes\Model
                 // 写消费日志
                 $perPoint = count($fetchCodes) * Config::get('point');
                 Model_Member_Moneylog::buy_log($memberId, $perPoint, $phaseId, count($fetchCodes));
-            }
+            //}
         }
 
         // 更新用户积分
