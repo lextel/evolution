@@ -299,7 +299,7 @@ $(function(){
 
     // 是否是初次加载详情页，如果是拉取参与者和晒单否则copy参与者和晒单到页尾
     if($("#tab-content").length > 0) {
-        initDesc();
+        //initDesc();
     }
 
     // 参与者拉取
