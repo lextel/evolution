@@ -84,7 +84,7 @@ return [
         /**
          * Path to sendmail
          */
-        //'sendmail_path' => '/usr/sbin/sendmail',
+        'sendmail_path' => '/usr/sbin/sendmail',
 
         /**
          * SMTP settings
