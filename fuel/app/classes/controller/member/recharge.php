@@ -62,6 +62,8 @@ class Controller_Member_Recharge extends Controller_Frontend{
         $order['orderAmount'] = $money * 100;
         $order['orderTime'] = $new->created_at;
         $order['ets_license'] = '';
+        $order['userId'] = $userId;
+        $order['action'] = 'recharge';
         $kq = new \Classes\Kqpay();
         $request = $kq->request($order);
         $view = View::forge('kqbill');

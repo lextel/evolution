@@ -145,4 +145,7 @@ return array(
 
      'u/alipay' => 'member/recharge/alipay',
      'u/kq' => 'member/recharge/kq',
+     '99bill/fail' => 'pay/kqpayment/fail',
+     '99bill/success' => 'pay/kqpayment/success',
+     '99bill/receive' => 'pay/kqpayment/receive',
 );
