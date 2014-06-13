@@ -39,24 +39,26 @@
                 <dl>
                     <dt>第三方平台</dt>
                     <dd>
-                        <input type="radio" id="zhf" name="account" checked="checked" />
+                        <input type="radio" id="zhf" name="account" value="alipay"/>
                         <label for="zhf">
                             <span class="zhf"></span>
                         </label>
                     </dd>
-                    <?php if (0) { ?>
+                    <dd>
+                        <input type="radio" id="kq" name="account" value="99bill"/>
+                        <label for="kq">
+                            <span class="kq"></span>
+                        </label>
+                    </dd>
+                     <?php if (0) { ?>
                       <dd>
                         <input type="radio" id="cft" name="account"/>
                         <label for="cft">
                             <span class="cft"></span>
                         </label>
                     </dd>
-                    <dd>
-                        <input type="radio" id="kq" name="account"/>
-                        <label for="kq">
-                            <span class="kq"></span>
-                        </label>
-                    </dd>
+                   
+                    
                     <dt>网银支付</dt>
                     <dd>
                         <input type="radio" id="zhs" name="account"/>

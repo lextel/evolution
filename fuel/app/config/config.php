@@ -181,6 +181,7 @@ return array(
             'Fuel\Core\Validation',
             'Cart\Cart_Item',
             'Closure',
+            'Classes\KqRequest',
         ),
     ),
 

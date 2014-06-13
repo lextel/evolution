@@ -142,4 +142,7 @@ return array(
     'notice' => 'notice/index',
 
     'image/:size/:link' => 'image/index',
+
+     'u/alipay' => 'member/recharge/alipay',
+     'u/kq' => 'member/recharge/kq',
 );
