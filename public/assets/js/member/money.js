@@ -24,6 +24,8 @@ $(function() {
     });
    $(".buy-btn").click(function(){
        var money = $("input[name='money1']:checked").val();
+       var source = $("input[name='account']:checked").val();
+       $("input[name='source']").val(source);
        if (!money){
           money = $("input[name='money2']").val();
        }
