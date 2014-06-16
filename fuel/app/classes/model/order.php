@@ -55,6 +55,7 @@ class Model_Order extends \Classes\Model
         Config::load('common');
 
         $member = Model_Member::find($memberId);
+        if (empty($member)) return ;
         $ip = $member->ip;
 
         $ip2area = new \Classes\Ip2area(APPPATH . 'qqwry.dat');

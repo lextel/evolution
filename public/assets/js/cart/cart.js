@@ -99,7 +99,9 @@ $(function(){
         } else {
             // 是否选择银行
             if($('input:radio[name="account"]').is(':checked')) {
-                window.open('/payment/pay', '_blank');
+                var source = $('input:radio[name="account"]').val();
+                
+                window.open('/payment/pay' + '?source=' + source, '_blank');
 
                 //$('#thirdPartyModal').modal('show');
                 $(".payuse").show();

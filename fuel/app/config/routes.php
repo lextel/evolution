@@ -138,4 +138,6 @@ return array(
     '99bill/fail' => 'pay/kqpayment/fail',
     '99bill/success' => 'pay/kqpayment/success',
     '99bill/receive' => 'pay/kqpayment/receive',
+    '99bill/pay' => 'pay/kqpayment/pay',
+    'payment/pay' => 'pay/cartment/cartpay',
 );

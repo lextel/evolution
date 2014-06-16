@@ -67,22 +67,22 @@
 
                     <dl>
                         <dt>第三方平台</dt>
-                        <dd>
+                        <!--<dd>
                             <input type="radio" id="zhf" name="account">
                             <label for="zhf">
                                 <span class="zhf"></span>
                             </label>
+                        </dd> -->
+                        <dd>
+                            <input type="radio" id="kq" name="account" value="99bill">
+                            <label for="kq">
+                                <span class="kq"></span>
+                            </label>
                         </dd>
-                        <!--dd>
+                        <!--<dd>
                             <input type="radio" id="cft" name="account">
                             <label for="cft">
                                 <span class="cft"></span>
-                            </label>
-                        </dd>
-                        <dd>
-                            <input type="radio" id="kq" name="account">
-                            <label for="kq">
-                                <span class="kq"></span>
                             </label>
                         </dd-->
                         <!--dt>网银支付</dt>

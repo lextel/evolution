@@ -38,7 +38,7 @@ class Controller_Member_Recharge extends Controller_Frontend{
         $new->save();
         return \Classes\Payment::Instance('alipay')->pay($userId, $money, 'recharge');
     }
-    
+
     /*
     * 快钱接口
     */
@@ -69,6 +69,6 @@ class Controller_Member_Recharge extends Controller_Frontend{
         $view = View::forge('kqbill');
         $view->set('BillRequest', $request);
         $this->template->title = '快钱跳转POST页面';
-        $this->template = $view;      
+        $this->template = $view;
     }
 }

@@ -88,4 +88,9 @@ return [
         'item' => 'upload/item/',
         'ads' => 'upload/ads/',
     ],
+    
+    '99bill' => [
+        'sendUrl' => 'https://sandbox.99bill.com/gateway/recvMerchantInfoAction.htm', //测试
+        'returnUrl' => 'http://www.lltao.com/99bill/receive',
+    ],
 ];
