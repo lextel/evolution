@@ -145,12 +145,12 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
                 $user = Model_Member::find($userId);
                 //$actions = ['pay', 'recharge'];
                 if ($action == 'pay'){
-                    $msg = $this->payReturn($userId);
-                    return "<result>1</result><redirecturl>http://www.lltao.com/99bill/sucess</redirecturl>";exit;
+                    //$msg = $this->payReturn($userId);
+                    return "<result>1</result><redirecturl>http://www.lltao.com/99bill/success</redirecturl>";exit;
                 }
                 if ($action == 'recharge'){
-                    $msg = $this->rechargeReturn($userId);
-                    return "<result>1</result><redirecturl>http://www.lltao.com/99bill/sucess</redirecturl>";exit;
+                    //$msg = $this->rechargeReturn($userId);
+                    return "<result>1</result><redirecturl>http://www.lltao.com/99bill/success</redirecturl>";exit;
                 }               
         }
         //返回给快钱，快钱会按照redirecturl地址跳到新页面，这个是失败页面
@@ -161,6 +161,17 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
     //成功
     public function action_success()
     {
+        $action = isset($req['ext2']) ? $req['ext2']: '';
+        $userId = isset($req['ext1']) ? $req['ext1']: '';
+        $user = Model_Member::find($userId);
+        if ($action == 'pay'){
+            $msg = $this->payReturn($userId);
+            //return "<result>1</result><redirecturl>http://www.lltao.com/99bill/success</redirecturl>";exit;
+        }
+        if ($action == 'recharge'){
+            $msg = $this->rechargeReturn($userId);
+            //return "<result>1</result><redirecturl>http://www.lltao.com/99bill/success</redirecturl>";exit;
+        }        
         $view = View::forge('payment/rechargereturn');
         $this->template->title = "结果页面";
         $view->set('status', true);
