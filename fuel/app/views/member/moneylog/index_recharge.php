@@ -38,7 +38,7 @@
              <tr>
                 <td><?php echo Date::forge($item->created_at)->format("%Y-%m-%d %H:%M:%S"); ?></td>
                 <td><?php echo $item->source; ?></td>
-                <td>￥<?php echo sprintf('%.2f',$item->sum/Config::get('point')); ?>元</td>
+                <td>￥<?php echo sprintf('%.2f',$item->sum); ?>元</td>
             </tr>
         <?php endforeach; ?>
         </tbody>

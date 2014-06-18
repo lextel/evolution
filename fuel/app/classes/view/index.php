@@ -24,7 +24,7 @@ class View_Index extends Viewmodel {
        $this->topHotItems = function() {
            $select = ['id', 'title', 'image', 'price', 'status'];
            $items = Model_Item::find('all', ['select' => $select, 'where'=>['is_delete' => 0],
-                     'order_by'=>['hots'=>'desc'],
+                     //'order_by'=>['hots'=>'desc'],
                      'limit'=>3
                      ]);
 
@@ -35,7 +35,7 @@ class View_Index extends Viewmodel {
        $this->hotItems = function() {
            $select = ['id', 'title', 'image', 'price', 'status'];
            $items = Model_Item::find('all', ['select' => $select, 'where'=>['is_delete' => 0],
-                     'order_by'=>['hots'=>'desc'],
+                     //'order_by'=>['hots'=>'desc'],
                      'limit'=>4,
                      'offset'=>3,
                      ]);

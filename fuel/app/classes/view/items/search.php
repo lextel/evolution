@@ -22,7 +22,7 @@ class View_Items_Search extends Viewmodel {
                 'status'    => \Helper\Item::IS_CHECK
                 ];
 
-            $phases = Model_Item::find('all', ['order_by' => ['hots' => 'desc'], 'limit' => 10]);
+            $phases = Model_Item::find('all',['limit' => 10]);
 
             return $phases;
         };

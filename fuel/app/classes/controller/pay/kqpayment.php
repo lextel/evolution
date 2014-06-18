@@ -55,7 +55,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         foreach($items as $item) {
             $quantity += $item->get_price();
         }
-        if($quantity == intval(Input::post('payAmount'))) {
+        if($quantity == (intval(Input::post('payAmount')) / 100)) {
             $orderModel = new Model_Order();
             $orderIds = $orderModel->add($userId, $items, true);
             return true;
@@ -66,6 +66,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         //订单号
         //$outTradeNo = trim(Input::post('out_trade_no'));
         Log::error('支付失败! 需要手工退帐记录:快钱流水号 ' . $tradeNo);
+        return false;
     }
 
     //充值返回
@@ -76,19 +77,20 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         if (!empty($log)){
             $money = $log->total;
         }
-        $point = $money;
-        if ($money != intval(Input::post('payAmount', 0))){
-            return true;
+        //echo intval(Input::post('payAmount', 0)) /100;
+        if ($money != (intval(Input::post('payAmount', 0)) / 100)){
+            return false;
         }
-        $res = Model_Member::addMoney($userId, $point);
+        $res = Model_Member::addMoney($userId, $money);
         if ($res){
             //增加充值记录
             $log->type=0;
             $log->save();
             DB::delete('member_moneylogs')->where('member_id', '=', $userId)
                                         ->where('type', '=', '-1')->execute();
-
+            return true;
         }
+        
     }
 
     //bgUrl地址指向这里
@@ -144,12 +146,11 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
                 $userId = isset($req['ext1']) ? $req['ext1']: '';
                 $user = Model_Member::find($userId);
                 //$actions = ['pay', 'recharge'];
-                if ($action == 'pay'){
+                if ($action == 'pay' && $this->payReturn($userId)){
                     //$msg = $this->payReturn($userId);
                     return "<result>1</result><redirecturl>http://www.lltao.com/99bill/success</redirecturl>";exit;
                 }
-                if ($action == 'recharge'){
-                    //$msg = $this->rechargeReturn($userId);
+                if ($action == 'recharge' && $this->rechargeReturn($userId)){
                     return "<result>1</result><redirecturl>http://www.lltao.com/99bill/success</redirecturl>";exit;
                 }               
         }
@@ -161,9 +162,12 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
     //成功
     public function action_success()
     {
+        $msg = true;
+        $req = Input::param();
         $action = isset($req['ext2']) ? $req['ext2']: '';
         $userId = isset($req['ext1']) ? $req['ext1']: '';
         $user = Model_Member::find($userId);
+        echo $action;
         if ($action == 'pay'){
             $msg = $this->payReturn($userId);
             //return "<result>1</result><redirecturl>http://www.lltao.com/99bill/success</redirecturl>";exit;
@@ -171,10 +175,10 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         if ($action == 'recharge'){
             $msg = $this->rechargeReturn($userId);
             //return "<result>1</result><redirecturl>http://www.lltao.com/99bill/success</redirecturl>";exit;
-        }        
+        }       
         $view = View::forge('payment/rechargereturn');
         $this->template->title = "结果页面";
-        $view->set('status', true);
+        $view->set('status', $msg);
         $view->set('reason', '');
         $this->template->layout = $view;
     }

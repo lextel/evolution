@@ -38,7 +38,7 @@ class View_Items_index extends Viewmodel {
                                                          ->where('is_delete', self::NOT_DELETE)
                                                          ->limit(7)
                                                          ->execute();
-                $brands[$cate->id] = $brand->as_array(); 
+                $brands[$cate->id] = $brand->as_array();
             }
 
             return $brands;
@@ -49,8 +49,8 @@ class View_Items_index extends Viewmodel {
 
             $time = time();
             $where = [
-                'zone'      => self::IS_LIST, 
-                'status'    => self::NORMAL, 
+                'zone'      => self::IS_LIST,
+                'status'    => self::NORMAL,
                 'is_delete' => self::NOT_DELETE,
                ];
 
@@ -62,7 +62,7 @@ class View_Items_index extends Viewmodel {
 
             $select = ['title', 'image', 'price'];
             $where = [
-                'is_delete' => \Helper\Item::NOT_DELETE, 
+                'is_delete' => \Helper\Item::NOT_DELETE,
                 'is_recommend' => 2,
                 ];
             $orderBy = ['sort' => 'desc'];
@@ -81,7 +81,7 @@ class View_Items_index extends Viewmodel {
                     'cateId'  => $active->param('cate_id'),
                     'brandId' => $active->param('brand_id'),
                 ];
-            
+
             Config::load('sort');
             $sorts = Config::get('item');
 
@@ -89,7 +89,7 @@ class View_Items_index extends Viewmodel {
             $itemModel = new Model_Item();
             $flag = '';
             foreach($sorts as $val) {
-                
+
                 $url = $itemModel->handleUrl($options);
                 $field = isset($val['alias']) ? $val['alias'] : $val['field'];
 
@@ -121,10 +121,10 @@ class View_Items_index extends Viewmodel {
 
             $select = ['title', 'image', 'status', 'price'];
             $where = [
-                'is_delete' => \Helper\Item::NOT_DELETE, 
+                'is_delete' => \Helper\Item::NOT_DELETE,
                 ];
 
-            $phases = Model_Item::find('all', ['select' => $select, 'where' => $where, 'order_by' => ['hots' => 'desc'], 'limit' => 10]);
+            $phases = Model_Item::find('all', ['select' => $select, 'where' => $where, 'limit' => 10]);
 
             return $phases;
         };

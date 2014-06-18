@@ -55,7 +55,7 @@ class View_Items_view extends Viewmodel {
                 'is_delete' => \Helper\Item::NOT_DELETE,
                 ];
 
-            $phases = Model_Item::find('all', ['select' => $select, 'where' => $where, 'order_by' => ['hots' => 'desc'], 'limit' => 10]);
+            $phases = Model_Item::find('all', ['select' => $select, 'where' => $where, 'limit' => 10]);
 
             return $phases;
         };
@@ -90,7 +90,7 @@ class View_Items_view extends Viewmodel {
 
             $select = ['name', 'id'];
             $cates = Model_Cate::find('all', ['select' => $select, 'where' => [['id', 'in', $ids]]]);
-            
+
             $bread = '<li><a href="'.Uri::create('/').'">首页</a></li><li><em>&gt;</em></li><li><a href="'.Uri::create('m').'">所有商品</a></li>';
 
             $sp = '<li><em>&gt;</em></li>';

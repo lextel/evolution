@@ -18,7 +18,6 @@ class Model_Item extends \Classes\Model {
         'reason',
         'is_recommend',
         'is_delete',
-        'hots',
         'created_at',
         'updated_at',
     );
@@ -520,7 +519,7 @@ class Model_Item extends \Classes\Model {
             $where += ['is_delete' => $options['is_delete']];
         } else {
             $where += [['is_delete', '!=', '2']];
-        
+
         }
 
 
@@ -579,8 +578,8 @@ class Model_Item extends \Classes\Model {
 
         $phase = Model_Item::find($phaseId);
         if($phase) {
-            $phase->hots = $phase->hots+1;
-            $phase->save();
+            //$phase->hots = $phase->hots+1;
+            //$phase->save();
         }
 
         return $phase;

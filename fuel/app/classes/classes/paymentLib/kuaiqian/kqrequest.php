@@ -25,7 +25,7 @@ class KqRequest
         //支付人联系方式，与payerContactType设置对应，payerContactType为1，则填写邮箱地址；payerContactType为2，则填写手机号码。可以为空。  
         $this->payerContact =  "";  
         //商品名称，可以为空。  
-        $this->productName= isset($MockOrder['pName']) ? $MockOrder['pName'] : '充值';  
+        $this->productName= $MockOrder['pName'];  
         //商品数量，可以为空。  
         $this->productNum = "1";  
         //商品代码，可以为空。  
