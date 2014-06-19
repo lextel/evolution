@@ -142,7 +142,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         $req = Input::param();
         $log = '';
         foreach($req as $val){
-            $log .= ":".$val.'_'.$req[$val];
+            $log .= ":".$val;
         }
         Log::error('交易日志记录：'.$log);
         $res = $kq->respone($req);
