@@ -88,7 +88,7 @@ return [
         'item' => 'upload/item/',
         'ads' => 'upload/ads/',
     ],
-
+    //
     '99bill' => [
         'merchantAcctId' => '1001213884201',
         'sendUrl' => 'https://sandbox.99bill.com/gateway/recvMerchantInfoAction.htm', //测试
@@ -98,4 +98,14 @@ return [
         'prikey' => 'pcarduser.pem',
         'pubkey' => '99bill.cert.rsa.20140803.cer',
     ],
+    //
+    '99bill2' => [
+        'merchantAcctId' => '1002359733101',
+        'sendUrl' => 'https://www.99bill.com/gateway/recvMerchantInfoAction.htm',
+        'returnUrl' => 'http://www.lltao.com/99bill/receive',
+        'success' => 'http://www.lltao.com/99bill/success',
+        'fail' => 'http://www.lltao.com/99bill/fail',
+        'prikey' => '99bill-rsa.pem',
+        'pubkey' => '99bill.cert.rsa.20140728.cer', // quality date to 2014-06 ~ 2016 -06
+    ]
 ];

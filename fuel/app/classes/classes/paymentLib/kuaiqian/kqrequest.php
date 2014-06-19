@@ -18,7 +18,7 @@ class KqRequest
         //商户订单号，以下采用时间来定义订单号，商户可以根据自己订单号的定义规则来定义该值//不能为空。  
         $this->orderId = 'LLTAO'.sprintf("%09d", $MockOrder['orderId']);  
         //订单金额，金额以“分”为单位，商户测试以1分测试即可，切勿以大金额测试，该参数必填//不能为空  
-        $this->orderAmount = 1;//$MockOrder['orderAmount'];  
+        $this->orderAmount = $MockOrder['orderAmount'];  
         //订单提交时间，格式：yyyyMMddHHmmss，如：20071117020101//不能为空。  
         $this->orderTime = date("YmdHis", $MockOrder['orderTime']);  
         //支付人姓名,可以为空。  
@@ -54,7 +54,7 @@ class KqRequest
         //银行代码，如果payType为00，该值可以为空；如果payType为10，该值必须填写，具体请参考银行列表。  
         $this->bankId = "";  
         //同一订单禁止重复提交标志，实物购物车填1，虚拟产品用0。1代表只能提交一次，0代表在支付不成功情况下可以再提交。可为空。  
-        $this->redoFlag = "0";  
+        $this->redoFlag = "1";  
         //快钱合作伙伴的帐户号，即商户编号，可为空。  
         $this->pid = "";  
           

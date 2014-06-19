@@ -35,7 +35,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         $order['ets_license'] = '';
         $order['userId'] = $userId;
         $order['action'] = 'pay';
-        $order['pName'] = '支付';
+        $order['pName'] = '支付_'.$new->id;
         $kq = new \Classes\Kqpay();
         $request = $kq->request($order);
         $view = View::forge('kqbill');
