@@ -55,7 +55,9 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         foreach($items as $item) {
             $quantity += $item->get_price();
         }
-        if($quantity == (intval(Input::post('payAmount')) / 100) || 1) {
+        Config::load('common');
+        $testFlag = Config::get('99bill.testflag') ? 1 : 0;
+        if($quantity == (intval(Input::post('payAmount')) / 100) || $testFlag) {
             $orderModel = new Model_Order();
             $orderIds = $orderModel->add($userId, $items, true);
             return true;
@@ -78,7 +80,8 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
             $money = $log->total;
         }
         //echo intval(Input::post('payAmount', 0)) /100;
-        if ($money != (intval(Input::post('payAmount', 0)) / 100)  && 0){
+        $testFlag = Config::get('99bill.testflag') ? 0 : 1;
+        if ($money != (intval(Input::post('payAmount', 0)) / 100) && $testFlag){
             return false;
         }
         $res = Model_Member::addMoney($userId, $money);
@@ -163,23 +166,14 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
     //成功
     public function action_success()
     {
-        $msg = true;
-        /*$req = Input::param();
+        $req = Input::param();
         $action = isset($req['ext2']) ? $req['ext2']: '';
-        $userId = isset($req['ext1']) ? $req['ext1']: '';
-        $user = Model_Member::find($userId);
-        echo $action;
-        if ($action == 'pay'){
-            $msg = $this->payReturn($userId);
-            //return "<result>1</result><redirecturl>http://www.lltao.com/99bill/success</redirecturl>";exit;
-        }
-        if ($action == 'recharge'){
-            $msg = $this->rechargeReturn($userId);
-            //return "<result>1</result><redirecturl>http://www.lltao.com/99bill/success</redirecturl>";exit;
-        }*/
         $view = View::forge('payment/rechargereturn');
+        if ($action == 'pay'){
+            $view = View::forge('payment/return');
+        }
         $this->template->title = "结果页面";
-        $view->set('status', $msg);
+        $view->set('status', $true);
         $view->set('reason', '');
         $this->template->layout = $view;
     }
@@ -187,7 +181,12 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
     //失败
     public function action_fail()
     {
+        $req = Input::param();
+        $action = isset($req['ext2']) ? $req['ext2']: '';
         $view = View::forge('payment/rechargereturn');
+        if ($action == 'pay'){
+            $view = View::forge('payment/return');
+        }
         $this->template->title = "结果页面";
         $view->set('status', false);
         $view->set('reason', '');

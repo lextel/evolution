@@ -97,9 +97,10 @@ return [
         'fail' => 'http://et.lltao.com/99bill/fail',
         'prikey' => 'pcarduser.pem',
         'pubkey' => '99bill.cert.rsa.20140803.cer',
+        'testflag' => true,
     ],
     //
-    '99bill2' => [
+    '99bill1' => [
         'merchantAcctId' => '1002359733101',
         'sendUrl' => 'https://www.99bill.com/gateway/recvMerchantInfoAction.htm',
         'returnUrl' => 'http://www.lltao.com/99bill/receive',
@@ -107,5 +108,6 @@ return [
         'fail' => 'http://www.lltao.com/99bill/fail',
         'prikey' => '99bill-rsa.pem',
         'pubkey' => '99bill.cert.rsa.20140728.cer', // quality date to 2014-06 ~ 2016 -06
+         'testflag' => false,
     ]
 ];
