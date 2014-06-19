@@ -89,16 +89,27 @@ return [
         'ads' => 'upload/ads/',
     ],
     //
-    '99bill' => [
+    '99billtest' => [
         'merchantAcctId' => '1001213884201',
         'sendUrl' => 'https://sandbox.99bill.com/gateway/recvMerchantInfoAction.htm', //测试
-        'returnUrl' => 'http://www.lltao.com/99bill/receive',
+        'returnUrl' => 'http://et.lltao.com/99bill/receive',
         'success' => 'http://www.lltao.com/99bill/success',
         'fail' => 'http://www.lltao.com/99bill/fail',
         'prikey' => 'pcarduser.pem',
         'pubkey' => '99bill.cert.rsa.20140803.cer',
         'testflag' => false,
     ],
+
+    '99bill' => [
+        'merchantAcctId' => '1002359733101',
+        'sendUrl' => 'https://www.99bill.com/gateway/recvMerchantInfoAction.htm',
+        'returnUrl' => 'http://et.lltao.com/99bill/receive',
+        'success' => 'http://et.lltao.com/99bill/success',
+        'fail' => 'http://et.lltao.com/99bill/fail',
+        'prikey' => '99bill-rsa.pem',
+        'pubkey' => '99bill.cert.rsa.20140728.cer', // quality date to 2014-06 ~ 2016 -06
+         'testflag' => false,
+    ]
     //
     '99bill2' => [
         'merchantAcctId' => '1002359733101',
