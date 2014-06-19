@@ -1,5 +1,6 @@
 <?php
 namespace Classes;
+use Fuel\Core\Config;
 
 class KqRequest  
 {  
@@ -8,10 +9,12 @@ class KqRequest
          * 人民币网关账号。 
          *第一种方式：该账号为11位人民币网关商户编号+01,该参数必填。01对应工商银行。 
          *第二种方式：该账号为16位人民币网关商户 
-         */  
-        $this->merchantAcctId = "1001213884201";   
+         */
+        Config::load('common');
+        $this->merchantAcctId = Config::get('99bill.merchantAcctId');;   
         //服务器接收支付结果的后台地址，该参数务必填写，绝对路径//不能为空.返回地址
-        $this->bgUrl = "http://www.lltao.com/99bill/receive";  
+        
+        $this->bgUrl = Config::get('99bill.returnUrl');  
         //商户订单号，以下采用时间来定义订单号，商户可以根据自己订单号的定义规则来定义该值//不能为空。  
         $this->orderId = 'LLTAO'.sprintf("%09d", $MockOrder['orderId']);  
         //订单金额，金额以“分”为单位，商户测试以1分测试即可，切勿以大金额测试，该参数必填//不能为空  
@@ -51,7 +54,7 @@ class KqRequest
         //银行代码，如果payType为00，该值可以为空；如果payType为10，该值必须填写，具体请参考银行列表。  
         $this->bankId = "";  
         //同一订单禁止重复提交标志，实物购物车填1，虚拟产品用0。1代表只能提交一次，0代表在支付不成功情况下可以再提交。可为空。  
-        $this->redoFlag = "1";  
+        $this->redoFlag = "0";  
         //快钱合作伙伴的帐户号，即商户编号，可为空。  
         $this->pid = "";  
           
@@ -73,8 +76,9 @@ class KqRequest
     public function getSignMsg($param){  
         //99bill-rsa.pem是快钱的一个CA证书  
         //本地随机生成一个KEY,用此KEY加密数据 KEY为$priv_key_id  
-        //$priv_key_id = openssl_get_privatekey(file_get_contents("99bill-rsa.pem", "r"));  
-        $priv_key_id = openssl_get_privatekey(file_get_contents("pcarduser.pem", "r")); 
+        //$priv_key_id = openssl_get_privatekey(file_get_contents("99bill-rsa.pem", "r"));
+        Config::load('common');
+        $priv_key_id = openssl_get_privatekey(file_get_contents(Config::get('99bill.prikey'), "r")); 
         //用$priv_key_id给$param数据加密。  
         //计算一个签名字符串$param通过使用SHA1哈希加密，随后$priv_key_id私钥加密。数据本身是不加密的。  
         openssl_sign($param, $signMsg, $priv_key_id, OPENSSL_ALGO_SHA1);  

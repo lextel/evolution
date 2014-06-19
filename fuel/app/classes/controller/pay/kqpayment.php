@@ -139,6 +139,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         $req = Input::param();
         $res = $kq->respone($req);
         //验证签名字符串是否正确，防止bug漏洞等
+        Config::load('common');
         if($res->checkSignMsg() && $res->isSuccess()){
             //判断订单支付是否成功
                 //返回给快钱，快钱会按照redirecturl地址跳到新页面，这里是成功页面
@@ -148,14 +149,14 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
                 //$actions = ['pay', 'recharge'];
                 if ($action == 'pay' && $this->payReturn($userId)){
                     //$msg = $this->payReturn($userId);
-                    return "<result>1</result><redirecturl>http://www.lltao.com/99bill/success</redirecturl>";exit;
+                    return "<result>1</result><redirecturl>" . Config::get('99bill.success') . "</redirecturl>";exit;
                 }
                 if ($action == 'recharge' && $this->rechargeReturn($userId)){
-                    return "<result>1</result><redirecturl>http://www.lltao.com/99bill/success</redirecturl>";exit;
+                    return "<result>1</result><redirecturl>" . Config::get('99bill.success') . "</redirecturl>";exit;
                 }
         }
         //返回给快钱，快钱会按照redirecturl地址跳到新页面，这个是失败页面
-        return "<result>1</result><redirecturl>http://www.lltao.com/99bill/fail</redirecturl>";exit;
+        return "<result>1</result><redirecturl>" . Config::get('99bill.fail') . "</redirecturl>";exit;
     }
 
     //redirecturl地址
@@ -163,7 +164,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
     public function action_success()
     {
         $msg = true;
-        $req = Input::param();
+        /*$req = Input::param();
         $action = isset($req['ext2']) ? $req['ext2']: '';
         $userId = isset($req['ext1']) ? $req['ext1']: '';
         $user = Model_Member::find($userId);
@@ -175,7 +176,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         if ($action == 'recharge'){
             $msg = $this->rechargeReturn($userId);
             //return "<result>1</result><redirecturl>http://www.lltao.com/99bill/success</redirecturl>";exit;
-        }
+        }*/
         $view = View::forge('payment/rechargereturn');
         $this->template->title = "结果页面";
         $view->set('status', $msg);
