@@ -100,7 +100,7 @@ return [
         'testflag' => false,
     ],
 
-    '99bill' => [
+    '99bill2' => [
         'merchantAcctId' => '1002359733101',
         'sendUrl' => 'https://www.99bill.com/gateway/recvMerchantInfoAction.htm',
         'returnUrl' => 'http://et.lltao.com/99bill/receive',
@@ -111,7 +111,7 @@ return [
          'testflag' => false,
     ],
     //
-    '99bill2' => [
+    '99bill' => [
         'merchantAcctId' => '1002359733101',
         'sendUrl' => 'https://www.99bill.com/gateway/recvMerchantInfoAction.htm',
         'returnUrl' => 'http://www.lltao.com/99bill/receive',
