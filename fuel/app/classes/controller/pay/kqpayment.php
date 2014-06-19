@@ -140,6 +140,11 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         //$BillResponse = new BillResponse($_REQUEST);
         $kq = new \Classes\Kqpay();
         $req = Input::param();
+        $log = '';
+        foreach($req as $val){
+            $log .= ":".$val.'_'.$req[$val];
+        }
+        Log::error('交易日志记录：'.$log);
         $res = $kq->respone($req);
         //验证签名字符串是否正确，防止bug漏洞等
         Config::load('common');
