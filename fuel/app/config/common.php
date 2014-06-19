@@ -92,15 +92,15 @@ return [
     '99bill' => [
         'merchantAcctId' => '1001213884201',
         'sendUrl' => 'https://sandbox.99bill.com/gateway/recvMerchantInfoAction.htm', //测试
-        'returnUrl' => 'http://et.lltao.com/99bill/receive',
-        'success' => 'http://et.lltao.com/99bill/success',
-        'fail' => 'http://et.lltao.com/99bill/fail',
+        'returnUrl' => 'http://www.lltao.com/99bill/receive',
+        'success' => 'http://www.lltao.com/99bill/success',
+        'fail' => 'http://www.lltao.com/99bill/fail',
         'prikey' => 'pcarduser.pem',
         'pubkey' => '99bill.cert.rsa.20140803.cer',
         'testflag' => false,
     ],
     //
-    '99bill1' => [
+    '99bill2' => [
         'merchantAcctId' => '1002359733101',
         'sendUrl' => 'https://www.99bill.com/gateway/recvMerchantInfoAction.htm',
         'returnUrl' => 'http://www.lltao.com/99bill/receive',
