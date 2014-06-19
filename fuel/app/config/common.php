@@ -97,7 +97,7 @@ return [
         'fail' => 'http://et.lltao.com/99bill/fail',
         'prikey' => 'pcarduser.pem',
         'pubkey' => '99bill.cert.rsa.20140803.cer',
-        'testflag' => true,
+        'testflag' => false,
     ],
     //
     '99bill1' => [
