@@ -57,7 +57,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         }
         Config::load('common');
         $testFlag = Config::get('99bill.testflag') ? 1 : 0;
-        if($quantity == (intval(Input::post('payAmount')) / 100) || $testFlag) {
+        if($quantity == (intval(Input::post('payAmount')) / 100)) {
             $orderModel = new Model_Order();
             $orderIds = $orderModel->add($userId, $items, true);
             return true;
@@ -81,7 +81,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         }
         //echo intval(Input::post('payAmount', 0)) /100;
         $testFlag = Config::get('99bill.testflag') ? 0 : 1;
-        if ($money != (intval(Input::post('payAmount', 0)) / 100) && $testFlag){
+        if ($money != (intval(Input::post('payAmount', 0)) / 100)){
             return false;
         }
         $res = Model_Member::addMoney($userId, $money);
