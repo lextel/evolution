@@ -141,8 +141,8 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         $kq = new \Classes\Kqpay();
         $req = Input::param();
         $log = '';
-        foreach($req as $val){
-            $log .= ":".$val;
+        foreach($req as $key => $val){
+            $log .= ":".$key.'_'.$val;
         }
         Log::error('交易日志记录：'.$log);
         $res = $kq->respone($req);
