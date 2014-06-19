@@ -173,7 +173,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
             $view = View::forge('payment/return');
         }
         $this->template->title = "结果页面";
-        $view->set('status', $true);
+        $view->set('status', true);
         $view->set('reason', '');
         $this->template->layout = $view;
     }
