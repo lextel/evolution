@@ -109,7 +109,7 @@ return [
         'prikey' => '99bill-rsa.pem',
         'pubkey' => '99bill.cert.rsa.20140728.cer', // quality date to 2014-06 ~ 2016 -06
          'testflag' => false,
-    ]
+    ],
     //
     '99bill2' => [
         'merchantAcctId' => '1002359733101',
