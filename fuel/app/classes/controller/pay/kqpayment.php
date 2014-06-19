@@ -46,7 +46,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
 
 
     //支付返回
-    private function payReturn($userId){
+    private function payReturn($req, $userId){
         $config['impersonate'] = $userId;
         $payCart = Cart::instance('pay', $config);
         $items = $payCart->items();
@@ -57,14 +57,14 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         }
         Config::load('common');
         $testFlag = Config::get('99bill.testflag') ? 1 : 0;
-        if($quantity == (intval(Input::post('payAmount')) / 100)) {
+        if($quantity == (intval($req['payAmount']) / 100)) {
             $orderModel = new Model_Order();
             $orderIds = $orderModel->add($userId, $items, true);
             return true;
         }
         //记录需要退帐
         //流水号
-        $tradeNo = trim(Input::post('dealId'));
+        $tradeNo = trim($req['dealId']);
         //订单号
         //$outTradeNo = trim(Input::post('out_trade_no'));
         Log::error('支付失败! 需要手工退帐记录:快钱流水号 ' . $tradeNo);
@@ -72,7 +72,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
     }
 
     //充值返回
-    private function rechargeReturn($userId, $source = '快钱'){
+    private function rechargeReturn($req, $userId, $source = '快钱'){
         Config::load('common');
         $log = Model_Member_Moneylog::find('last', ['where'=>['member_id'=>$userId, 'type'=>'-1']]);
         $money = 0;
@@ -81,7 +81,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         }
         //echo intval(Input::post('payAmount', 0)) /100;
         $testFlag = Config::get('99bill.testflag') ? 0 : 1;
-        if ($money != (intval(Input::post('payAmount', 0)) / 100)){
+        if ($money != (intval($req['payAmount']) / 100)){
             return false;
         }
         $res = Model_Member::addMoney($userId, $money);
@@ -150,18 +150,18 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         Config::load('common');
         if($res->checkSignMsg() && $res->isSuccess()){
             //判断订单支付是否成功
-                //返回给快钱，快钱会按照redirecturl地址跳到新页面，这里是成功页面
-                $action = isset($req['ext2']) ? $req['ext2']: '';
-                $userId = isset($req['ext1']) ? $req['ext1']: '';
-                $user = Model_Member::find($userId);
-                //$actions = ['pay', 'recharge'];
-                if ($action == 'pay' && $this->payReturn($userId)){
-                    //$msg = $this->payReturn($userId);
-                    return "<result>1</result><redirecturl>" . Config::get('99bill.success') . "</redirecturl>";exit;
-                }
-                if ($action == 'recharge' && $this->rechargeReturn($userId)){
-                    return "<result>1</result><redirecturl>" . Config::get('99bill.success') . "</redirecturl>";exit;
-                }
+            //返回给快钱，快钱会按照redirecturl地址跳到新页面，这里是成功页面
+            $action = isset($req['ext2']) ? $req['ext2']: '';
+            $userId = isset($req['ext1']) ? $req['ext1']: '';
+            $user = Model_Member::find($userId);
+            //$actions = ['pay', 'recharge'];
+            if ($action == 'pay'){
+                $msg = $this->payReturn($req, $userId);    
+            }
+            if ($action == 'recharge'){
+                $msg = $this->rechargeReturn($req, $userId);
+            }
+            return "<result>1</result><redirecturl>" . Config::get('99bill.success') . "</redirecturl>";exit;
         }
         //返回给快钱，快钱会按照redirecturl地址跳到新页面，这个是失败页面
         return "<result>1</result><redirecturl>" . Config::get('99bill.fail') . "</redirecturl>";exit;
