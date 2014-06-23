@@ -50,6 +50,12 @@
                             <span class="kq"></span>
                         </label>
                     </dd>
+                    <dd>
+                        <input type="radio" id="bfb" name="account" value="bfb"/>
+                        <label for="bfb">
+                            <span class="bfb"></span>
+                        </label>
+                    </dd>
                      <?php if (0) { ?>
                       <dd>
                         <input type="radio" id="cft" name="account"/>

@@ -90,10 +90,10 @@
         <div class="help-bg">
             <div class="footer-help w">
                 <dl class="dl01">
-                    <dt><a href="<?php echo Uri::create('/'); ?>">帮助中心</a></dt>
-                    <dd><a href="<?php echo Uri::create('/'); ?>">新手指南</a></dd>
-                    <dd><a href="<?php echo Uri::create('/'); ?>">乐淘保障</a></dd>
-                    <dd><a href="<?php echo Uri::create('/'); ?>">商品配送</a></dd>
+                    <dt>帮助中心</dt>
+                    <dd><a href="<?php echo Uri::create('/h/about'); ?>">新手指南</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/safeguard'); ?>">乐淘保障</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/expressinfo'); ?>">商品配送</a></dd>
                 </dl>
                 <dl class="dl02" style="width:170px">
                     <dt>关注我们</dt>
@@ -119,13 +119,13 @@
             <ul class="bottom-nav">
                 <li><a href="<?php echo Uri::create('/');?>">首页</a></li>
                 <li>|</li>
-                <li><a href="<?php echo Uri::create('/');?>">关于乐淘</a></li>
+                <li><a href="<?php echo Uri::create('/h/about');?>">关于乐淘</a></li>
                 <li>|</li>
-                <li><a href="<?php echo Uri::create('/');?>">隐私声明</a></li>
+                <li><a href="<?php echo Uri::create('/h/privacy');?>">隐私声明</a></li>
                 <li>|</li>
-                <li><a href="<?php echo Uri::create('/');?>">合作专区</a></li>
+                <li><a href="<?php echo Uri::create('/h/cooperation');?>">合作专区</a></li>
                 <li>|</li>
-                <li class="lastest"><a href="<?php echo Uri::create('/');?>">联系我们</a></li>
+                <li class="lastest"><a href="<?php echo Uri::create('/h/contact');?>">联系我们</a></li>
             </ul>
             <P style="color:#5b5b5b">Copyright © 2014<?php echo date('Y') != 2014 ? '-'.date('Y') : '';?> <a href="http://www.lltao.com">www.LLtao.com</a> 版权所有 <a href="http://www.miitbeian.gov.cn/" target="_blank" ref="nofollow">粤ICP备14017463号-1<!--服务器商要求加链接--></a></P>
 

@@ -1685,6 +1685,11 @@ table td p.tl{
     height: 31px;
     background:url("../images/bank_logo.png") no-repeat;
 }
+.pay-way dl dd label .bfb{
+    display:block;
+    margin-top: 2px;
+    background:url("../images/baifubao.jpg") no-repeat;
+}
 .pay-way dl dd label .zhs{
     background-position: 0 -36px;
 }

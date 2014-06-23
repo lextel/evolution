@@ -123,7 +123,7 @@ return array(
     'l/posts' => 'posts/posts',
     'l/phases' => 'items/phases',
 
-    'h' => 'help/page',
+    'h' => 'help/page/about',
     'ha/addsuggest' => 'help/addSuggest',
     'h/(\w+)' => 'help/page/$1',
 

@@ -55,7 +55,7 @@ return [
     'helppages' => [
               'guide'=>['title'=>'新手指南', 'page'=>'help/guide'],
               'about'=>['title'=>'关于乐淘', 'page'=>'help/about'],
-              //'new'=>['title'=>'了解乐淘', 'page'=>'help/new'],
+              'new'=>['title'=>'了解乐淘', 'page'=>'help/new'],
               'examine'=>['title'=>'商品验货与签收', 'page'=>'help/examine'],
               'shipping'=>['title'=>'配送费用', 'page'=>'help/expressCost'],
               'expressinfo'=>['title'=>'商品配送', 'page'=>'help/expressInfo'],
