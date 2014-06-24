@@ -133,11 +133,17 @@ return array(
 
     'image/:size/:link' => 'image/index',
 
-    'u/alipay' => 'member/recharge/alipay',
-    'u/kq' => 'member/recharge/kq',
+
     '99bill/fail' => 'pay/kqpayment/fail',
     '99bill/success' => 'pay/kqpayment/success',
     '99bill/receive' => 'pay/kqpayment/receive',
     '99bill/pay' => 'pay/kqpayment/pay',
+
+    'bfb/payreturn' => 'pay/baidupayment/payreturn',
+    'bfb/return' => 'pay/baidupayment/rechargereturn',
+    'bfb/paypage' => 'pay/baidupayment/paypage',
+    'bfb/page' => 'pay/baidupayment/rechargepage',
+    'bfb/pay' => 'pay/baidupayment/pay',
+
     'payment/pay' => 'pay/cartment/cartpay',
 );

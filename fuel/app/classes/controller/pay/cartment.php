@@ -22,6 +22,10 @@ class Controller_Pay_Cartment extends Controller_Frontend
         if ($source == '99bill') {
             return Response::redirect('99bill/pay');
         }
+        //
+        if ($source == 'bfb') {
+            return Response::redirect('bfb/pay');
+        }
         return Response::redirect('cart/pay');
     }
     

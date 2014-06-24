@@ -22,7 +22,7 @@ $(function(){
         getPosTop = (screenheight-mytop)/4;
         $(".payuse").css({"left":getPosLeft,"top":getPosTop+mytop});
     });
-    
+
     // 批量删除
     $('button[action="batchDelete"]').click(function(){
 
@@ -84,7 +84,7 @@ $(function(){
         updateTotal();
     });
 
-    // 购买 
+    // 购买
     $('#doBuy').click(function() {
 
         // 如果是元宝支付
@@ -99,8 +99,8 @@ $(function(){
         } else {
             // 是否选择银行
             if($('input:radio[name="account"]').is(':checked')) {
-                var source = $('input:radio[name="account"]').val();
-                
+                var source = $('input:radio[name="account"]:checked').val();
+
                 window.open('/payment/pay' + '?source=' + source, '_blank');
 
                 //$('#thirdPartyModal').modal('show');
@@ -134,7 +134,7 @@ $(function(){
             $('#goldPay').attr('checked', false);
         }
     });
-    
+
 });
 
 /**

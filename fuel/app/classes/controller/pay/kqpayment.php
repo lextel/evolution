@@ -66,7 +66,6 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         //流水号
         $tradeNo = trim($req['dealId']);
         //订单号
-        //$outTradeNo = trim(Input::post('out_trade_no'));
         Log::error('支付失败! 需要手工退帐记录:快钱流水号 ' . $tradeNo);
         return false;
     }
