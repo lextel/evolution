@@ -74,8 +74,7 @@ class Controller_Member_Recharge extends Controller_Frontend{
     * 百度钱包接口
     */
     private function bfb()
-    {
-        
+    {   
         $money = intval(Input::get('money', 0));
         $userId = $this->current_user->id;
         Config::load('common');
@@ -84,7 +83,6 @@ class Controller_Member_Recharge extends Controller_Frontend{
                   'phase_id'=>'0', 'sum'=>$money * Config::get('point1', 1)];
         $new = new Model_Member_Moneylog($props);
         $new->save();
-        // 用于测试的商户请求支付接口的表单参数，具体的表单参数各项的定义和取值参见接口文档
         $order_create_time = date("YmdHis");
         $expire_time = date('YmdHis', strtotime('+2 day'));
         $order_no = $order_create_time . sprintf ( '%06d', rand(0, 999999));
@@ -92,8 +90,8 @@ class Controller_Member_Recharge extends Controller_Frontend{
 		        'goods_name' => iconv('utf-8', 'gb2312', '充值_' . $new->id),
 		        'order_create_time' => $order_create_time,
 		        'order_no' => $order_no,
-		        'page_url' => Config::get('bfb.rechargepage'),//$page_url,
-		        'return_url' => Config::get('bfb.rechargereturn'),//$return_url,
+		        'page_url' => Config::get('bfb.rechargepage'),
+		        'return_url' => Config::get('bfb.rechargereturn'),
 		        'total_amount' => $money * 100,
 		        'extra' => $new->id,
         ];
