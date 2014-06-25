@@ -116,12 +116,12 @@ return [
         'rechargereturn' => 'http://et.lltao.com/bfb/return',
         'paypage' => 'http://et.lltao.com/bfb/paypage',
         'rechargepage' => 'http://et.lltao.com/bfb/page',
-    ]
+    ],
     //百度钱包
     'bfb' => [
         'payreturn' => 'http://www.lltao.com/bfb/payreturn',
         'rechargereturn' => 'http://www.lltao.com/bfb/return',
         'paypage' => 'http://www.lltao.com/bfb/paypage',
         'rechargepage' => 'http://www.lltao.com/bfb/page',
-    ]
+    ],
 ];
