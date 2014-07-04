@@ -15,13 +15,14 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         $items = $payCart->items();
 
         $quantity = 0;
+        $money = 0;
         foreach($items as $item) {
-            $quantity += $item->get_price();
+            $money += $item->get_price() * intval($item->get_qty());
+            $quantity += $item->get_qty();
         }
-        $money = $quantity;
         $userId = $current_user->id;
         Config::load('common');
-        $props = ['member_id'=>$userId, 'total'=>$money,
+        $props = ['member_id'=>$userId, 'total'=>$quantity,
                   'source'=>'快钱', 'type'=> -2,
                   'phase_id'=>'0', 'sum'=>$money * Config::get('point1', 1)];
         $new = new Model_Member_Moneylog($props);
@@ -53,10 +54,10 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
 
         $quantity = 0;
         foreach($items as $item) {
-            $quantity += $item->get_price();
+            $quantity += $item->get_qty() * $item->get_price();
         }
         Config::load('common');
-        $testFlag = Config::get('99bill.testflag') ? 1 : 0;
+
         if($quantity == (intval($req['payAmount']) / 100)) {
             $orderModel = new Model_Order();
             $orderIds = $orderModel->add($userId, $items, true);

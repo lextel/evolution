@@ -16,13 +16,14 @@ class Controller_Pay_Baidupayment extends Controller_Frontend
         $items = $payCart->items();
 
         $quantity = 0;
+        $money = 0;
         foreach($items as $item) {
-            $quantity += $item->get_price();
+            $money += $item->get_price() * intval($item->get_qty());
+            $quantity += $item->get_qty();
         }
-        $money = $quantity;
         $userId = $current_user->id;
         Config::load('common');
-        $props = ['member_id'=>$userId, 'total'=>$money,
+        $props = ['member_id'=>$userId, 'total'=>$quantity,
                   'source'=>'百度钱包', 'type'=> -2,
                   'phase_id'=>'0', 'sum'=>$money * Config::get('point1', 1)];
         $new = new Model_Member_Moneylog($props);
@@ -70,7 +71,7 @@ class Controller_Pay_Baidupayment extends Controller_Frontend
 
         $quantity = 0;
         foreach($items as $item) {
-            $quantity += $item->get_price();
+            $quantity += $item->get_price() * $item->get_qty();
         }
         $total_amount = isset($req['total_amount']) ? $req['total_amount'] : 0;
         if($money != 0 && $quantity == (intval($req['total_amount']) / 100 && $total_amount != 0)) {

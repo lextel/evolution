@@ -17,9 +17,9 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
 
         $quantity = 0;
         foreach($items as $item) {
-            $quantity += $item->get_price();
+            $quantity += $item->get_qty() * $item->get_price();
         }
-        echo '+'.$quantity*100 .'_'.intval(Input::get('total_fee'));
+        
         if($quantity*100 == intval(Input::get('total_fee'))) {
             $orderModel = new Model_Order();
             $orderIds = $orderModel->add($userId, $items, true);
@@ -30,7 +30,7 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
         $tradeNo = trim(Input::get('transaction_id'));
         //订单号
         $outTradeNo = trim(Input::get('out_trade_no'));
-        Log::error('支付失败! 需要记录:财付通流水号 ' . $tradeNo . ' 订单号 ' . $outTradeNo);    
+        Log::error('支付失败! 需要记录:财付通流水号 ' . $tradeNo . ' 订单号 ' . $outTradeNo);
     }
     //充值返回
     private function rechargeReturn($logId, $source = '财付通'){
@@ -57,7 +57,7 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
             return "success";
         }
     }
-    
+
     // 购物车支付
     public function action_pay()
     {
@@ -69,13 +69,15 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
         $items = $payCart->items();
 
         $quantity = 0;
+        $money = 0;
         foreach($items as $item) {
-            $quantity += $item->get_price();
+            $money += $item->get_price() * intval($item->get_qty());
+            $quantity += $item->get_qty();
+            
         }
-        $money = $quantity;
         $userId = $current_user->id;
         Config::load('common');
-        $props = ['member_id'=>$userId, 'total'=>$money,
+        $props = ['member_id'=>$userId, 'total'=>$quantity,
                   'source'=>'财付通', 'type'=> -2,
                   'phase_id'=>'0', 'sum'=>$money * Config::get('point1', 1)];
         $new = new Model_Member_Moneylog($props);
@@ -104,17 +106,18 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
         $resHandler->setKey($key);
         $status = false;//默认为失败
         //判断签名
-        if($resHandler->isTenpaySign() || 1) {
-	        //支付结果
-	        $trade_state = $resHandler->getParameter("trade_state");
-	        //交易模式,1即时到账
-	        $trade_mode = $resHandler->getParameter("trade_mode");
-	        
-	        $attach = $resHandler->getParameter("attach");
-	        list($action, $logId) = explode('_', $attach);
-	        if("1" == $trade_mode && "0" == $trade_state) {				
-			    $status = true;            	
-	        }
+        
+        if($resHandler->isTenpaySign()) {
+            //支付结果
+            $trade_state = $resHandler->getParameter("trade_state");
+            //交易模式,1即时到账
+            $trade_mode = $resHandler->getParameter("trade_mode");
+
+            $attach = $resHandler->getParameter("attach");
+            list($action, $logId) = explode('_', $attach);
+            if("1" == $trade_mode && "0" == $trade_state) {
+                $status = true;
+            }
             $actions = ['pay', 'recharge'];
             if (! in_array($action, $actions)){
                 return "fail";
@@ -127,11 +130,11 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
             }
             if (!empty($msg)){
                 return "success";
-            }        
+            }
         }
         return 'fail';
     }
-    
+
     //结果返回页面
     public function action_return()
     {
@@ -145,16 +148,16 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
         $status = false;//默认为失败
         //判断签名
         if($resHandler->isTenpaySign()) {
-	        //支付结果
-	        $trade_state = $resHandler->getParameter("trade_state");
-	        //交易模式,1即时到账
-	        $trade_mode = $resHandler->getParameter("trade_mode");
-	        
-	        $attach = $resHandler->getParameter("attach");
-	        list($action, $logid) = explode('_', $attach);
-	        if("1" == $trade_mode && "0" == $trade_state) {				
-			    $status = true;            	
-	        }        
+            //支付结果
+            $trade_state = $resHandler->getParameter("trade_state");
+            //交易模式,1即时到账
+            $trade_mode = $resHandler->getParameter("trade_mode");
+
+            $attach = $resHandler->getParameter("attach");
+            list($action, $logid) = explode('_', $attach);
+            if("1" == $trade_mode && "0" == $trade_state) {
+                $status = true;
+            }
         }
         $view = View::forge('payment/rechargereturn');
         if ($action == 'pay'){
