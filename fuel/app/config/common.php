@@ -110,18 +110,19 @@ return [
         'pubkey' => '99bill.cert.rsa.20140728.cer', // quality date to 2014-06 ~ 2016 -06
          'testflag' => false,
     ],
-    //百度钱包
-    'bfbtest' => [
-        'payreturn' => 'http://et.lltao.com/bfb/payreturn',
-        'rechargereturn' => 'http://et.lltao.com/bfb/return',
-        'paypage' => 'http://et.lltao.com/bfb/paypage',
-        'rechargepage' => 'http://et.lltao.com/bfb/page',
-    ],
+
     //百度钱包
     'bfb' => [
         'payreturn' => 'http://www.lltao.com/bfb/payreturn',
         'rechargereturn' => 'http://www.lltao.com/bfb/return',
         'paypage' => 'http://www.lltao.com/bfb/paypage',
         'rechargepage' => 'http://www.lltao.com/bfb/page',
+    ],
+    //
+    'tenpay' => [
+        'partner' => '1219629701',
+        'key' => '4881e529321e9c27a7ab6023b6bb701e',
+        'returnurl' => 'http://www.lltao.com/tenpay/return',
+        'notifyurl' => 'http://www.lltao.com/tenpay/notify',
     ],
 ];

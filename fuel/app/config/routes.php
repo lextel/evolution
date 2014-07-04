@@ -145,5 +145,10 @@ return array(
     'bfb/page' => 'pay/baidupayment/rechargepage',
     'bfb/pay' => 'pay/baidupayment/pay',
 
+    'tenpay/pay' => 'pay/tenpayment/pay',
+    'tenpay/notify' => 'pay/tenpayment/notify',
+    'tenpay/return' => 'pay/tenpayment/return',
+
     'payment/pay' => 'pay/cartment/cartpay',
+
 );

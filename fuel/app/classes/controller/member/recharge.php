@@ -10,7 +10,7 @@ class Controller_Member_Recharge extends Controller_Frontend{
         $this->current_user = $auth->check() ? Model_Member::find_by_username($auth->get_screen_name()) : null;
         if (is_null($this->current_user)) return Response::redirect('/signin');
         $source = trim(Input::get('source', ''));
-        //
+        //IF太多，是否能改成LIST呢
         if ($source == 'alipay') {
             return $this->alipay();
         }
@@ -20,6 +20,9 @@ class Controller_Member_Recharge extends Controller_Frontend{
         }
         if ($source == 'bfb') {
             return $this->bfb();
+        }
+        if ($source == 'tenpay') {
+            return $this->tenpay();
         }
         return Response::redirect('/u/getrecharge');
     }
@@ -97,5 +100,31 @@ class Controller_Member_Recharge extends Controller_Frontend{
         ];
         $baidu = new \Classes\Baidupay();
         return $baidu->pay($params);        
+    }
+    
+    /*
+    * 财付通充值接口
+    */
+    private function tenpay()
+    {
+        $money = intval(Input::get('money', 0));
+        $userId = $this->current_user->id;
+        Config::load('common');
+        $props = ['member_id'=>$userId, 'total'=>$money,
+                  'source'=>'财付通', 'type'=> -1,
+                  'phase_id'=>'0', 'sum'=>$money * Config::get('point1', 1)];
+        $new = new Model_Member_Moneylog($props);
+        $new->save();
+        //order_no, product_name, order_price,log_id,ip,action,
+        $param = [
+                'ip' => Input::ip(),
+                'order_no' => date('YmdHis').$new->id,
+                'product_name' => '充值',
+                'action' => 'recharge',
+                'order_price' => $money,
+                'log_id' => $new->id,
+        ];
+        $tenpay = new \Classes\Tenpay();
+        return Response::redirect($tenpay->pay($param));
     }
 }

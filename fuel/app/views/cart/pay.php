@@ -85,12 +85,13 @@
                                 <span class="bfb"></span>
                             </label>
                         </dd>
-                        <!--<dd>
-                            <input type="radio" id="cft" name="account">
+                        <dd>
+                            <input type="radio" id="cft" name="account" value="tenpay">
                             <label for="cft">
                                 <span class="cft"></span>
                             </label>
-                        </dd-->
+                        </dd>
+                        
                         <!--dt>网银支付</dt>
                         <dd>
                             <input type="radio" id="zhs" name="account">
