@@ -8,6 +8,7 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
     private function payReturn($logId){
         $log = Model_Member_Moneylog::find('last', ['where'=>['id'=>$logId, 'type'=>'-2']]);
         if (empty($log)){
+            Log::error("财付通支付空记录");
             return;
         }
         $userId = $log->member_id;
@@ -23,6 +24,7 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
         if($quantity*100 == intval(Input::get('total_fee'))) {
             $orderModel = new Model_Order();
             $orderIds = $orderModel->add($userId, $items, true);
+            Log::error("财付通支付成功");
             return "success";
         }
         //记录需要退帐
@@ -97,7 +99,11 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
     //后台通知
     public function action_notify()
     {
-        if (empty(Input::get('sign'))) return 'fail';
+        if (empty(Input::get('sign')))
+        {
+            Log::error("财付通支付空签名");
+            return 'fail';
+        }
         $tenpay = new \Classes\Tenpay();
         $resHandler = $tenpay->response();
         Config::load('common');
@@ -106,7 +112,13 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
         $resHandler->setKey($key);
         $status = false;//默认为失败
         //判断签名
-        
+        //打印输入
+        $req = Input::param();
+        $log = '';
+        foreach($req as $key => $val){
+            $log .= "&".$key.'='.$val;
+        }
+        Log::error('财付通交易日志记录：'.$log);
         if($resHandler->isTenpaySign()) {
             //支付结果
             $trade_state = $resHandler->getParameter("trade_state");
@@ -120,6 +132,7 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
             }
             $actions = ['pay', 'recharge'];
             if (! in_array($action, $actions)){
+                Log::error("财付通支付方式正确");
                 return "fail";
             }
             if ($action == 'pay'){
@@ -131,6 +144,8 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
             if (!empty($msg)){
                 return "success";
             }
+        }else{
+            Log::error("财付通支付签名不正确");
         }
         return 'fail';
     }
@@ -138,6 +153,7 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
     //结果返回页面
     public function action_return()
     {
+        if (empty(Input::get('sign'))) $status = false;
         $tenpay = new \Classes\Tenpay();
         $resHandler = $tenpay->response();
         Config::load('common');

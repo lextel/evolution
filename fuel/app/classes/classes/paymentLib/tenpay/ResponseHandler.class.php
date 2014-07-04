@@ -89,6 +89,8 @@ class ResponseHandler  {
 		//debug信息
 		$this->_setDebugInfo($signPars . " => sign:" . $sign .
 				" tenpaySign:" . $this->getParameter("sign"));
+	    \Log::error('财付通接受后台'.$signPars . " => sign:" . $sign .
+				" tenpaySign:" . $this->getParameter("sign"));
 		return $sign == $tenpaySign;
 		
 	}
