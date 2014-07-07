@@ -155,7 +155,15 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
     {
         if (empty(Input::get('sign'))) $status = false;
         $tenpay = new \Classes\Tenpay();
-        $resHandler = $tenpay->response();
+        $resHandler = $tenpay->response();        
+        ////////////////////////////////////
+        $req = Input::param();
+        $log = '';
+        foreach($req as $key => $val){
+            $log .= "&".$key.'='.$val;
+        }
+        Log::error('财付通返回日志记录：'.$log);
+        ////////////////////////////////////
         Config::load('common');
         //签名密钥
         $key = Config::get('tenpay.key');
