@@ -153,7 +153,10 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
     //结果返回页面
     public function action_return()
     {
-        if (empty(Input::get('sign'))) $status = false;
+        if (empty(Input::get('sign'))){
+            echo "错误缺少签名";
+            die;
+        }
         $tenpay = new \Classes\Tenpay();
         $resHandler = $tenpay->response();        
         ////////////////////////////////////
