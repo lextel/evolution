@@ -77,6 +77,7 @@ class ResponseHandler  {
 		ksort($this->parameters);
 		foreach($this->parameters as $k => $v) {
 			if("sign" != $k && "" != $v) {
+			    if (strpos($k, '?')) continue; 
 				$signPars .= $k . "=" . $v . "&";
 			}
 		}
