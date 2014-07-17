@@ -9,7 +9,7 @@ return array(
             //'dsn'        => 'mysql:host=192.168.3.10;dbname=llt_dev',
             'dsn'        => 'mysql:host=localhost;dbname=llt_dev',
             'username'   => 'root',
-            'password'   => '1',
+            'password'   => '@@__++///db',
         ),
         'profiling' => true,
     ),
