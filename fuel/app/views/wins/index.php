@@ -43,7 +43,7 @@
                             </div>
                             <div class="user-info fl">
                                 <div class="username">获奖者：<a href="<?php echo Uri::create('u/'.$win->member_id); ?>"><?php echo $members[$win->member_id]->nickname; ?></a></div>
-                                <div class="ip">来自：<?php echo $areas[$win->order_id]->area; ?></div>
+                                <div class="ip">来自：<?php echo isset($areas[$win->order_id]) ? $areas[$win->order_id]->area : 'NA'; ?></div>
                             </div>
                         </div>
                         <div class="p-info">

@@ -23,7 +23,7 @@
                 </div>
                     <ul>
                         <?php
-                            foreach($data['wins'] as $win) { 
+                            foreach($data['wins'] as $win) {
                                 if($win->code_count == 0) {
                         ?>
                         <li class="active">
@@ -44,9 +44,9 @@
                             <h4 class="title-br"><?php echo Html::anchor('w/'.$win->id, $win->title);?></h4>
                             <div class="username">获得者: <?php echo Html::anchor('u/'.$win->member_id, $data['members'][$win->member_id]->nickname, ['class'=>'']);?></div>
                         </li>
-                        <?php 
+                        <?php
                                 }
-                            } 
+                            }
                         ?>
                     </ul>
             </div>
@@ -68,9 +68,9 @@
                     <?php echo Html::anchor('m', '更多>>', ['class'=>'more']);?>
                 </div>
              <ul class="list-hover">
-                    <?php 
+                    <?php
                         Config::load('common');
-                        foreach($topHotItems() as $phase) { 
+                        foreach($topHotItems() as $phase) {
                     ?>
                     <li>
                         <div class="title-box">
@@ -109,7 +109,7 @@
                 <div class="title"><h3>大家正在乐淘</h3></div>
                 <div class="buyListdiv" >
                 <ul class="buyList">
-                    <?php 
+                    <?php
                     foreach($data['orders'] as $order) {
                     ?>
                     <li>
@@ -216,7 +216,7 @@
         </div>
 
         <div class="bask-side">
-            <?php 
+            <?php
                 if(isset($data['posts']) && !empty($data['posts'])):
                 $post = array_shift($data['posts']);
             ?>
