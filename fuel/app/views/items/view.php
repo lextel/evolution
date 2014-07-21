@@ -44,7 +44,7 @@ if(is_array($phasesList)) {
                     ?>
                     <li>
                         <a class="<?php echo $image == $item->image ? 'zoomThumbActive' : ''; ?>" rel='<?php echo str_replace('\/', '/', $getZoom($image));?>'>
-                            <img src="<?php echo \Helper\Image::showImage($image, '80x80');?>"/>
+                            <img src="<?php echo $image;?>"/>
                             <span></span>
                         </a>
                     </li>
