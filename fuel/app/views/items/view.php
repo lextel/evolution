@@ -32,8 +32,8 @@ if(is_array($phasesList)) {
             <!--商品图片切换开始-->
             <div class="lantern-slide">
                 <div class="slide-img">
-                    <a href="<?php echo $item->image;?>" class="jqzoom" rel="zoom">
-                        <img src="<?php echo $item->image;?>"/>
+                    <a href="<?php echo '/' . $item->image;?>" class="jqzoom" rel="zoom">
+                        <img src="<?php echo '/' . $item->image;?>"/>
                     </a>
                 </div>
                 <ul class="slide-list" id="thumblist">
@@ -44,7 +44,7 @@ if(is_array($phasesList)) {
                     ?>
                     <li>
                         <a class="<?php echo $image == $item->image ? 'zoomThumbActive' : ''; ?>" rel='<?php echo str_replace('\/', '/', $getZoom($image));?>'>
-                            <img src="<?php echo $image;?>"/>
+                            <img src="<?php echo '/' . $image;?>"/>
                             <span></span>
                         </a>
                     </li>
