@@ -39,7 +39,7 @@ $(function(){
 
     // 分类上传图标
     'use strict';
-    /*$(document).on('click', '.uploadField', function() {
+    $(document).on('click', '.uploadField', function() {
         $(this).fileupload({
             url: UPLOAD_URL,
             dataType: 'json',
@@ -63,14 +63,14 @@ $(function(){
             },
         }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
 
-    });*/
-    
+    });
+
     //分类图片上传到七牛
-    var UPLOAD_PATH = "upload/avatar/";
+    /*var UPLOAD_PATH = "upload/avatar/";
     var WH = '?imageView2/1/w/34/h/34';//缩略
     $(document).on('change', '.uploadField', function() {
         var f = $(this).prop("files")[0];
-        var token = $("#token").val();    
+        var token = $("#token").val();
         var res = Qiniu_upload(f, token, '', UPLOAD_PATH);
         res.done(function( msg ) {
             console && console.log(msg);
@@ -85,7 +85,8 @@ $(function(){
             alert("图片上传失败，请刷新页面再上传");
         });
     });
-    
+*/
+
     // 删除图片
     $(document).on('click', '.close', function(){
         $(this).parent().remove();
