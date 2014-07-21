@@ -127,7 +127,7 @@
                                         <span class="price">价值 <b>￥<?php echo sprintf('%.2f' ,$item->cost / Config::get('point')); ?></b></span>
                                     </div>
                                     <div class="img-box img-lg">
-                                        <a href="<?php echo Uri::create('m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($item->image, '400x400');?>"/></a>
+                                        <a href="<?php echo Uri::create('m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo $item->image;?>"/></a>
                                     </div>
                                     <dl class="progress-side">
                                         <dd>

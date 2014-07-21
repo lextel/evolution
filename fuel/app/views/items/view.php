@@ -32,8 +32,8 @@ if(is_array($phasesList)) {
             <!--商品图片切换开始-->
             <div class="lantern-slide">
                 <div class="slide-img">
-                    <a href="<?php echo \Helper\Image::showImage($item->image, '600x600');?>" class="jqzoom" rel="zoom">
-                        <img src="<?php echo \Helper\Image::showImage($item->image, '400x400');?>"/>
+                    <a href="<?php echo $item->image;?>" class="jqzoom" rel="zoom">
+                        <img src="<?php echo $item->image;?>"/>
                     </a>
                 </div>
                 <ul class="slide-list" id="thumblist">
