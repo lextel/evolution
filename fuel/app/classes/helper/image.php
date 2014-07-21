@@ -13,7 +13,7 @@ class Image {
      * @type  $size string 选择类型（空为默认，可选qiniu）
      * @return string
      */
-    public static function showImage($path, $size = '', $type = '') { 
+    public static function showImage($path, $size = '', $type = '') {
         if ($type == 'qiniu'){
             return self::showQiniuImage($path, $size);
         }
@@ -22,7 +22,7 @@ class Image {
     //默认
     public static function showDefaultImage($path, $size = '') {
         $server = Config::get('image_server');
-
+        return $path;
         $paths = explode('/', $path);
         array_shift($paths);
         if(!empty($size)) {
