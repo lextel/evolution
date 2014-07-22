@@ -789,6 +789,7 @@ table td p.tl{
     max-width: 100%;
     vertical-align: middle;
     height: auto;
+    max-height: 210px;
 }
 .head-img{
     text-align: center;
