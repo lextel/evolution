@@ -12,11 +12,11 @@ namespace Classes;
 class Payment {
 
     private static $config = [
-                        'notifyUrl' => 'http://et.lltao.com/payment/notify',
-                        'returnUrl' => 'http://et.lltao.com/payment/return',
-                        'type' => [
-                            'alipay' => ['id' => '2088411000022006','key' => 'oxkzlf3f8mq63nodvoovh7w6w038xsfq'],
-                        ],
+                    'notifyUrl' => 'http://et.lltao.com/payment/notify',
+                    'returnUrl' => 'http://et.lltao.com/payment/return',
+                    'type' => [
+                        'alipay' => ['id' => '2088411000022006','key' => 'oxkzlf3f8mq63nodvoovh7w6w038xsfq'],
+                    ],
                 ];
 
     public static function Instance($type) {
@@ -29,6 +29,7 @@ class Payment {
         }
 
         $class = '\Classes\\' . ucfirst($type);
+
         return new $class(self::$config['notifyUrl'], self::$config['returnUrl'], self::$config['type'][$type]);
     }
 }

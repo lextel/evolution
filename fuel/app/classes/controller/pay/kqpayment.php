@@ -4,50 +4,96 @@
 */
 class Controller_Pay_Kqpayment extends Controller_Frontend
 {
+    // 购物车支付页面
+    public function action_pay() {
+
+        $auth = Auth::instance('Memberauth');
+        $current_user = $auth->check() ? Model_Member::find_by_username($auth->get_screen_name()) : null;
+        if (is_null($current_user)) return Response::redirect('/signin');
+
+        $payCart = Cart::instance('pay');
+        $items = $payCart->items();
+
+        $quantity = 0;
+        $money = 0;
+        foreach($items as $item) {
+            $money += $item->get_price() * intval($item->get_qty());
+            $quantity += $item->get_qty();
+        }
+        $userId = $current_user->id;
+        Config::load('common');
+        $props = ['member_id'=>$userId, 'total'=>$quantity,
+                  'source'=>'快钱', 'type'=> -2,
+                  'phase_id'=>'0', 'sum'=>$money * Config::get('point1', 1)];
+        $new = new Model_Member_Moneylog($props);
+        $new->save();
+        //跳转到
+        $order = [];
+        $order['orderId'] = $new->id;
+        // 总额度需要 × 100，快钱按份来算
+        $order['orderAmount'] = $money * 100;
+        $order['orderTime'] = time();
+        $order['ets_license'] = '';
+        $order['userId'] = $userId;
+        $order['action'] = 'pay';
+        $order['pName'] = '支付_'.$new->id;
+        $kq = new \Classes\Kqpay();
+        $request = $kq->request($order);
+        $view = View::forge('kqbill');
+        $view->set('BillRequest', $request);
+        $this->template->title = '快钱跳转POST页面';
+        $this->template = $view;
+    }
+
+
     //支付返回
-    private function payReturn($userId){
+    private function payReturn($req, $userId){
         $config['impersonate'] = $userId;
         $payCart = Cart::instance('pay', $config);
         $items = $payCart->items();
 
         $quantity = 0;
         foreach($items as $item) {
-            $quantity += $item->get_qty();
+            $quantity += $item->get_qty() * $item->get_price();
         }
-        if($quantity == intval(Input::post('payAmount'))) {
+        Config::load('common');
+
+        if($quantity == (intval($req['payAmount']) / 100)) {
             $orderModel = new Model_Order();
             $orderIds = $orderModel->add($userId, $items, true);
             return true;
         }
         //记录需要退帐
         //流水号
-        $tradeNo = trim(Input::post('dealId'));
+        $tradeNo = trim($req['dealId']);
         //订单号
-        //$outTradeNo = trim(Input::post('out_trade_no'));
         Log::error('支付失败! 需要手工退帐记录:快钱流水号 ' . $tradeNo);
+        return false;
     }
 
     //充值返回
-    private function rechargeReturn($userId, $source = '快钱'){
+    private function rechargeReturn($req, $userId, $source = '快钱'){
         Config::load('common');
         $log = Model_Member_Moneylog::find('last', ['where'=>['member_id'=>$userId, 'type'=>'-1']]);
         $money = 0;
         if (!empty($log)){
             $money = $log->total;
         }
-        $point = $money;
-        if ($money != intval(Input::post('payAmount', 0))){
-            return true;
+        //echo intval(Input::post('payAmount', 0)) /100;
+        $testFlag = Config::get('99bill.testflag') ? 0 : 1;
+        if ($money != (intval($req['payAmount']) / 100)){
+            return false;
         }
-        $res = Model_Member::addMoney($userId, $point);
+        $res = Model_Member::addMoney($userId, $money);
         if ($res){
             //增加充值记录
             $log->type=0;
             $log->save();
             DB::delete('member_moneylogs')->where('member_id', '=', $userId)
                                         ->where('type', '=', '-1')->execute();
-
+            return true;
         }
+
     }
 
     //bgUrl地址指向这里
@@ -93,36 +139,44 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
          */
         //$BillResponse = new BillResponse($_REQUEST);
         $kq = new \Classes\Kqpay();
-        $_REQUEST = Input::param();
-        $res = $kq->respone($_REQUEST);
-        //$BillResponse->checkSignMsg验证签名字符串是否正确，防止bug漏洞等
-        if($res->checkSignMsg()){
+        $req = Input::param();
+        $log = '';
+        foreach($req as $key => $val){
+            $log .= ":".$key.'_'.$val;
+        }
+        Log::error('交易日志记录：'.$log);
+        $res = $kq->respone($req);
+        //验证签名字符串是否正确，防止bug漏洞等
+        Config::load('common');
+        if($res->checkSignMsg() && $res->isSuccess()){
             //判断订单支付是否成功
-            if($res->isSuccess()){
-                //返回给快钱，快钱会按照redirecturl地址跳到新页面，这里是成功页面
-                $action = $_REQUEST.get('ext2');
-                $userId = $_REQUEST.get('ext1');
-                $user = Model_Member::find($userId);
-                $actions = ['pay', 'recharge'];
-                if ($action == 'pay'){
-                    $msg = $this->payReturn($userId);
-                    return "<result>1</result><redirecturl>http://99bill/default/index/sucess</redirecturl>";exit;
-                }
-                if ($action == 'recharge'){
-                    $msg = $this->rechargeReturn($userId);
-                    return "<result>1</result><redirecturl>http://99bill/default/index/sucess</redirecturl>";exit;
-                }
-                }
+            //返回给快钱，快钱会按照redirecturl地址跳到新页面，这里是成功页面
+            $action = isset($req['ext2']) ? $req['ext2']: '';
+            $userId = isset($req['ext1']) ? $req['ext1']: '';
+            $user = Model_Member::find($userId);
+            //$actions = ['pay', 'recharge'];
+            if ($action == 'pay'){
+                $msg = $this->payReturn($req, $userId);    
+            }
+            if ($action == 'recharge'){
+                $msg = $this->rechargeReturn($req, $userId);
+            }
+            return "<result>1</result><redirecturl>" . Config::get('99bill.success') . "</redirecturl>";exit;
         }
         //返回给快钱，快钱会按照redirecturl地址跳到新页面，这个是失败页面
-        return "<result>1</result><redirecturl>http://99bill/default/index/fail</redirecturl>";exit;
+        return "<result>1</result><redirecturl>" . Config::get('99bill.fail') . "</redirecturl>";exit;
     }
 
     //redirecturl地址
     //成功
     public function action_success()
     {
+        $req = Input::param();
+        $action = isset($req['ext2']) ? $req['ext2']: '';
         $view = View::forge('payment/rechargereturn');
+        if ($action == 'pay'){
+            $view = View::forge('payment/return');
+        }
         $this->template->title = "结果页面";
         $view->set('status', true);
         $view->set('reason', '');
@@ -132,7 +186,12 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
     //失败
     public function action_fail()
     {
+        $req = Input::param();
+        $action = isset($req['ext2']) ? $req['ext2']: '';
         $view = View::forge('payment/rechargereturn');
+        if ($action == 'pay'){
+            $view = View::forge('payment/return');
+        }
         $this->template->title = "结果页面";
         $view->set('status', false);
         $view->set('reason', '');

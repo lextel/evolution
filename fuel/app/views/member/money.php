@@ -38,27 +38,33 @@
                 <div class="title"><h4>选择付款方式</h4></div>
                 <dl>
                     <dt>第三方平台</dt>
-                    <dd>
+                    <!--<dd>
                         <input type="radio" id="zhf" name="account" value="alipay"/>
                         <label for="zhf">
                             <span class="zhf"></span>
                         </label>
-                    </dd>
+                    </dd>-->
                     <dd>
                         <input type="radio" id="kq" name="account" value="99bill"/>
                         <label for="kq">
                             <span class="kq"></span>
                         </label>
                     </dd>
-                     <?php if (0) { ?>
-                      <dd>
-                        <input type="radio" id="cft" name="account"/>
+                    <dd>
+                        <input type="radio" id="bfb" name="account" value="bfb"/>
+                        <label for="bfb">
+                            <span class="bfb"></span>
+                        </label>
+                    </dd>
+                     
+                    <dd>
+                        <input type="radio" id="cft" name="account" value="tenpay"/>
                         <label for="cft">
                             <span class="cft"></span>
                         </label>
                     </dd>
-                   
-                    
+
+                    <?php if (0) { ?>
                     <dt>网银支付</dt>
                     <dd>
                         <input type="radio" id="zhs" name="account"/>
