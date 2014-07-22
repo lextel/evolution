@@ -21,7 +21,7 @@ class Image {
     }
     //默认
     public static function showDefaultImage($path, $size = '') {
-        $server = Config::get('image_server');
+        $server = Config::get('image_server', 'http://www.lltao.com');
         return  $server . '/' . $path;
         $paths = explode('/', $path);
         array_shift($paths);
