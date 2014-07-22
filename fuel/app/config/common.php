@@ -88,4 +88,41 @@ return [
         'item' => 'upload/item/',
         'ads' => 'upload/ads/',
     ],
+    //
+    '99billtest' => [
+        'merchantAcctId' => '1001213884201',
+        'sendUrl' => 'https://sandbox.99bill.com/gateway/recvMerchantInfoAction.htm', //测试
+        'returnUrl' => 'http://et.lltao.com/99bill/receive',
+        'success' => 'http://et.lltao.com/99bill/success',
+        'fail' => 'http://www.lltao.com/99bill/fail',
+        'prikey' => 'pcarduser.pem',
+        'pubkey' => '99bill.cert.rsa.20140803.cer',
+        'testflag' => false,
+    ],
+    //快钱平台
+    '99bill' => [
+        'merchantAcctId' => '1002359733101',
+        'sendUrl' => 'https://www.99bill.com/gateway/recvMerchantInfoAction.htm',
+        'returnUrl' => 'http://www.lltao.com/99bill/receive',
+        'success' => 'http://www.lltao.com/99bill/success',
+        'fail' => 'http://www.lltao.com/99bill/fail',
+        'prikey' => '99bill-rsa.pem',
+        'pubkey' => '99bill.cert.rsa.20140728.cer', // quality date to 2014-06 ~ 2016 -06
+         'testflag' => false,
+    ],
+
+    //百度钱包
+    'bfb' => [
+        'payreturn' => 'http://www.lltao.com/bfb/payreturn',
+        'rechargereturn' => 'http://www.lltao.com/bfb/return',
+        'paypage' => 'http://www.lltao.com/bfb/paypage',
+        'rechargepage' => 'http://www.lltao.com/bfb/page',
+    ],
+    //
+    'tenpay' => [
+        'partner' => '1219629701',
+        'key' => '4881e529321e9c27a7ab6023b6bb701e',
+        'returnurl' => 'http://www.lltao.com/tenpay/return',
+        'notifyurl' => 'http://www.lltao.com/tenpay/notify',
+    ],
 ];

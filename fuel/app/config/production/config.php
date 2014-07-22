@@ -324,6 +324,7 @@ return array(
          * 图片服务器配置
          *
          */
-        'image_server' => 'http://img.lltao.com/',
+        //'image_server' => 'http://img.lltao.com/',
+        'image_server' => 'http://www.lltao.com/',
 
 );
