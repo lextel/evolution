@@ -632,7 +632,6 @@
 .lantern-slide .slide-img a img{
     width:376px;
     height:376px;
-    height: auto;
     overflow: hidden;
     vertical-align: middle;
 }
@@ -657,7 +656,7 @@
    display: block;
 }
 .slide-list li img{
-    height: auto;
+    height: 67px;
     max-width: 100%;
     vertical-align: middle;
 }
