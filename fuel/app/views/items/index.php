@@ -24,10 +24,10 @@
             ?>
         </ul>
         <div class="sub-menu fl">
-            <?php 
+            <?php
             $brands = $getBrands($cates);
             $i = 0;
-            foreach($brands as $k => $brand) : 
+            foreach($brands as $k => $brand) :
                 $style = $i == $bannerIdx ? '' : 'display:none';
             ?>
             <dl class="fl" style="<?php echo $style; ?>">
@@ -40,12 +40,12 @@
                         }
                         $bactive = ($brandId == $val['id']) ? 'color: #af2812' : '';
                         echo "<dd><a style='{$bactive}' href='" . Uri::create('m/c/'. $k . '/b/'. $val['id']) . "'>{$icon}{$val['name']}</a></dd>";
-                    } 
+                    }
                 ?>
             </dl>
-            <?php 
+            <?php
                 $i++;
-            endforeach; 
+            endforeach;
             ?>
         </div>
 
@@ -67,7 +67,7 @@
              </div>
         </div>
 
-        <?php 
+        <?php
             $topItem = $getTopItem();
             Config::load('common');
         ?>
@@ -127,7 +127,7 @@
                                         <span class="price">价值 <b>￥<?php echo sprintf('%.2f' ,$item->cost / Config::get('point')); ?></b></span>
                                     </div>
                                     <div class="img-box img-lg">
-                                        <a href="<?php echo Uri::create('m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo $item->image;?>"/></a>
+                                        <a href="<?php echo Uri::create('m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($item->image);?>"/></a>
                                     </div>
                                     <dl class="progress-side">
                                         <dd>
