@@ -389,7 +389,7 @@ class Model_Member extends \Classes\Model
      */
     public function randGhost() {
 
-        return DB::query('SELECT id FROM `members` where type = 1 order by rand() limit 1')->execute()->as_array();
+        return DB::query('SELECT id FROM `members` where type = 1 and is_delete = 0 order by rand() limit 1')->execute()->as_array();
     }
 
     /*
