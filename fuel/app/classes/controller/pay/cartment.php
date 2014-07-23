@@ -26,7 +26,7 @@ class Controller_Pay_Cartment extends Controller_Frontend
         if ($source == 'bfb') {
             return Response::redirect('bfb/pay');
         }
-        
+
         //财付通
         if ($source == 'tenpay') {
             return Response::redirect('tenpay/pay');

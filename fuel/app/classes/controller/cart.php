@@ -61,7 +61,6 @@ class Controller_Cart extends Controller_Frontend {
 
         $ids = Input::post('ids');
         if(!empty($ids) && $this->auth->check()) {
-
             $items = Cart::items();
             $payCart = Cart::instance('pay');
             foreach($items as $item) {
@@ -72,7 +71,6 @@ class Controller_Cart extends Controller_Frontend {
                     ]);
                 }
             }
-
             $items = $payCart->items();
 
             $view = ViewModel::forge('cart/pay');

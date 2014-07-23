@@ -17,7 +17,8 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         $quantity = 0;
         $money = 0;
         foreach($items as $item) {
-            $money += $item->get_price() * intval($item->get_qty());
+            //$money += $item->get_price() * intval($item->get_qty());
+            $money += intval($item->get_qty());
             $quantity += $item->get_qty();
         }
         $userId = $current_user->id;
@@ -54,7 +55,8 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
 
         $quantity = 0;
         foreach($items as $item) {
-            $quantity += $item->get_qty() * $item->get_price();
+            //$quantity += $item->get_qty() * $item->get_price();
+            $quantity += $item->get_qty() * 1;
         }
         Config::load('common');
 
@@ -156,7 +158,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
             $user = Model_Member::find($userId);
             //$actions = ['pay', 'recharge'];
             if ($action == 'pay'){
-                $msg = $this->payReturn($req, $userId);    
+                $msg = $this->payReturn($req, $userId);
             }
             if ($action == 'recharge'){
                 $msg = $this->rechargeReturn($req, $userId);
