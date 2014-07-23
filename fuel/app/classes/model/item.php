@@ -63,7 +63,7 @@ class Model_Item extends \Classes\Model {
 
         $where = $this->handleWhere($options, true);
         $orderBy = $this->handleOrderBy($options);
-
+        $orderBy += ['status'];
         $limit = \Helper\Page::PAGESIZE;
         $offset = ($options['page'] - 1) * $limit;
         $select = ['id', 'title', 'image', 'joined', 'remain', 'amount', 'cost', 'status'];
