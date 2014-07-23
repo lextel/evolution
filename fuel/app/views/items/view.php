@@ -110,7 +110,7 @@ if(is_array($phasesList)) {
                   </div>
                   <div class="btn-group" style="margin-left: 57px">
                       <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>
-                      <button type="submit" class="btn btn-red btn-w" style="margin: 8px 0; height: 40px; line-height: 40px; width: 158px;font-size: 18px">立即一元乐淘</button>
+                      <button type="submit" class="btn btn-red btn-w" style="margin: 8px 0; height: 40px; line-height: 40px; width: 158px;font-size: 18px">立即乐淘</button>
                       <a class="btn btn-y btn-w doAddCart" style="margin-left: 28px; height: 40px; line-height: 40px; width: 158px;font-size: 18px" href="javascript:void(0);" phaseId="<?php echo $item->phase->id; ?>">加入购物车</a>
                   </div>
               </form>
@@ -199,7 +199,7 @@ if(is_array($phasesList)) {
                                     <dt>请先登录</dt>
                                     <dd>
                                           <input type="text"  placeholder="请输入注册邮箱" class="text" id="username" name="username" />
-                                          
+
                                     </dd>
                                     <dd>
                                           <input type="password"   placeholder="请输入密码" class="password" name="password">
@@ -289,7 +289,7 @@ if(is_array($phasesList)) {
                                 <form action="<?php echo Uri::create('cart/add'); ?>" method="post">
                                     <input name="id" value="<?php echo $item->id; ?>" type="hidden">
                                     <input name="qty" value="1" type="hidden">
-                                    <button class="btn btn-red hot-buy" type="submit">立即一元乐淘</button>
+                                    <button class="btn btn-red hot-buy" type="submit">立即乐淘</button>
                                 </form>
                           </div>
                       </li>
@@ -342,7 +342,7 @@ $(function(){
         },
         errorPlacement: function(error, element) {
             error.css({"display":"inline-block","line-height":"29px"});
-            
+
             error.appendTo(element.parent());
         }
     });

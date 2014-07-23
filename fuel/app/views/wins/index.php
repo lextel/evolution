@@ -188,7 +188,7 @@
                             <div class="btn-group">
                                 <input name="qty" value="1" type="hidden"/>
                                 <input name="id" value="<?php echo $hot->id; ?>" type="hidden">
-                                <button type="submit" class="btn btn-red btn-w">立即一元乐淘</button>
+                                <button type="submit" class="btn btn-red btn-w">立即乐淘</button>
                             </div>
                             <div class="top2 <?php echo $i < 4 ? 'one' : '';?>"><?php echo $i; ?></div>
                         </form>

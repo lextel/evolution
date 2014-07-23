@@ -95,7 +95,7 @@
                         </dl>
                         <div class="btn-group tc">
                             <?php if($phase->status == \Helper\Item::IS_CHECK):?>
-                                <?php echo Html::anchor('m/'.$phase->id, '立即一元乐淘', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                                <?php echo Html::anchor('m/'.$phase->id, '立即乐淘', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                             <?php else: ?>
                                 <?php echo Html::anchor('m/'.$phase->id, '即将开拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                             <?php endif;?>
@@ -157,7 +157,7 @@
                 </dl>
                 <div class="btn-group tc">
                     <?php if($phase->status == \Helper\Item::IS_CHECK):?>
-                        <?php echo Html::anchor('m/'.$phase->id, '立即一元乐淘', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                        <?php echo Html::anchor('m/'.$phase->id, '立即乐淘', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                     <?php else: ?>
                         <?php echo Html::anchor('m/'.$phase->id, '即将开拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                     <?php endif;?>
@@ -199,7 +199,7 @@
                 </dl>
                 <div class="btn-group tc">
                     <?php if($phase->status == \Helper\Item::IS_CHECK):?>
-                        <?php echo Html::anchor('m/'.$phase->id, '立即一元乐淘', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
+                        <?php echo Html::anchor('m/'.$phase->id, '立即乐淘', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                     <?php else: ?>
                         <?php echo Html::anchor('m/'.$phase->id, '即将开拍', ['rel' => 'nofollow','class'=>'btn btn-red btn-lg']);?>
                     <?php endif;?>
