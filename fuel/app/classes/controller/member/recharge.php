@@ -47,13 +47,13 @@ class Controller_Member_Recharge extends Controller_Frontend{
     */
     private function kq()
     {
-        
+
         $money = intval(Input::get('money', 0));
         $userId = $this->current_user->id;
         Config::load('common');
         $props = ['member_id'=>$userId, 'total'=>$money,
                   'source'=>'快钱', 'type'=> -1,
-                  'phase_id'=>'0', 'sum'=>$money * Config::get('point1', 1)];
+                  'phase_id'=>'0', 'sum'=>$money * Config::get('point', 100)];
         $new = new Model_Member_Moneylog($props);
         $new->save();
         //跳转到
@@ -77,7 +77,7 @@ class Controller_Member_Recharge extends Controller_Frontend{
     * 百度钱包接口
     */
     private function bfb()
-    {   
+    {
         $money = intval(Input::get('money', 0));
         $userId = $this->current_user->id;
         Config::load('common');
@@ -99,9 +99,9 @@ class Controller_Member_Recharge extends Controller_Frontend{
 		        'extra' => $new->id,
         ];
         $baidu = new \Classes\Baidupay();
-        return $baidu->pay($params);        
+        return $baidu->pay($params);
     }
-    
+
     /*
     * 财付通充值接口
     */

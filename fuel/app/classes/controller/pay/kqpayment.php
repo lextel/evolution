@@ -81,7 +81,8 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         if ($money != (intval($req['payAmount']) / 100)){
             return false;
         }
-        $res = Model_Member::addMoney($userId, $money);
+        //总额是按分计算
+        $res = Model_Member::addMoney($userId, $log->sum);
         if ($res){
             //增加充值记录
             $log->type=0;
@@ -90,7 +91,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
                                         ->where('type', '=', '-1')->execute();
             return true;
         }
-        
+
     }
 
     //bgUrl地址指向这里
@@ -160,12 +161,12 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
             }
             if ($action == 'recharge'){
                 $msg = $this->rechargeReturn($req, $userId);
-            }    
+            }
             if ($msg) {
                 Log::error('快钱交易成功');
                 return "<result>1</result><redirecturl>" . Config::get('99bill.success') . "</redirecturl>";exit;
             }
-            $mess = '签名成功，服务器流程处理失败';          
+            $mess = '签名成功，服务器流程处理失败';
         }
         $tradeNo = trim($req['dealId']);
         Log::error('支付失败! 需要手工退帐记录:快钱流水号 ' . $tradeNo);
