@@ -2,7 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title><?php echo $title?> - 独乐乐,不如众乐乐</title>
+    <title>乐乐淘-独乐乐,不如众乐乐!! <?php echo $title?></title>
+    <meta name="keywords" content="乐乐淘,乐淘,leletao,购物,网购,网上商城,网上购物,1元购,一元购,1元购物,一元购物网,云购,众筹,购物网站" />
+<meta name="description" content="乐乐淘（www.lltao.com）是一种全新的互动购物体验方式,是时尚、潮流的风向标，能满足个性、年轻消费者的购物需求，由深圳市乐乐淘兄弟科技有限公司注入巨资打造的新型购物网。" />
     <?php echo Asset::css(['common.css', 'header.css','product.css']); ?>
     <?php echo Asset::js(['jquery.min.js', 'common.js']); ?>
     <!--[if lt IE 10]>
