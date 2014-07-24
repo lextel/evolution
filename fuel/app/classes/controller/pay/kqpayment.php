@@ -65,11 +65,6 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
             $orderIds = $orderModel->add($userId, $items, true);
             return true;
         }
-        //记录需要退帐
-        //流水号
-        $tradeNo = trim($req['dealId']);
-        //订单号
-        Log::error('支付失败! 需要手工退帐记录:快钱流水号 ' . $tradeNo);
         return false;
     }
 
@@ -95,7 +90,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
                                         ->where('type', '=', '-1')->execute();
             return true;
         }
-
+        
     }
 
     //bgUrl地址指向这里
@@ -152,23 +147,29 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         Config::load('common');
         Log::error('---' . $res->checkSignMsg());
         Log::error('+++' . $res->isSuccess());
+        $mess = '签名失败';
         if($res->checkSignMsg() && $res->isSuccess()){
             //判断订单支付是否成功
             //返回给快钱，快钱会按照redirecturl地址跳到新页面，这里是成功页面
             $action = isset($req['ext2']) ? $req['ext2']: '';
             $userId = isset($req['ext1']) ? $req['ext1']: '';
             $user = Model_Member::find($userId);
-            //$actions = ['pay', 'recharge'];
+            $msg = '';
             if ($action == 'pay'){
                 $msg = $this->payReturn($req, $userId);
             }
             if ($action == 'recharge'){
                 $msg = $this->rechargeReturn($req, $userId);
+            }    
+            if ($msg) {
+                Log::error('快钱交易成功');
+                return "<result>1</result><redirecturl>" . Config::get('99bill.success') . "</redirecturl>";exit;
             }
-            Log::error('快钱交易成功');
-            return "<result>1</result><redirecturl>" . Config::get('99bill.success') . "</redirecturl>";exit;
+            $mess = '签名成功，服务器流程处理失败';          
         }
-        Log::error('快钱交易失败， 签名失败');
+        $tradeNo = trim($req['dealId']);
+        Log::error('支付失败! 需要手工退帐记录:快钱流水号 ' . $tradeNo);
+        Log::error('快钱交易失败,' . $mess);
         //返回给快钱，快钱会按照redirecturl地址跳到新页面，这个是失败页面
         return "<result>1</result><redirecturl>" . Config::get('99bill.fail') . "</redirecturl>";exit;
     }
