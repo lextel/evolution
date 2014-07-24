@@ -34,7 +34,8 @@ class KqResponse
         }  
         //$pub_key_id 公钥
         Config::load('common');
-        $pub_key_id = openssl_get_publickey(file_get_contents(Config::get('99bill.pubkey'), "r"));  
+        $pub_key_id = openssl_get_publickey(file_get_contents(Config::get('99bill.pubkey'), "r"));
+        
         return openssl_verify(urldecode(http_build_query($params)), base64_decode($this->signMsg), $pub_key_id);   
     }  
   

@@ -163,8 +163,10 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
             if ($action == 'recharge'){
                 $msg = $this->rechargeReturn($req, $userId);
             }
+            Log::error('快钱交易成功');
             return "<result>1</result><redirecturl>" . Config::get('99bill.success') . "</redirecturl>";exit;
         }
+        Log::error('快钱交易失败， 签名失败');
         //返回给快钱，快钱会按照redirecturl地址跳到新页面，这个是失败页面
         return "<result>1</result><redirecturl>" . Config::get('99bill.fail') . "</redirecturl>";exit;
     }
