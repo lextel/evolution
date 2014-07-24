@@ -150,6 +150,8 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         $res = $kq->respone($req);
         //验证签名字符串是否正确，防止bug漏洞等
         Config::load('common');
+        Log::error('---' . $res->checkSignMsg());
+        Log::error('+++' . $res->isSuccess());
         if($res->checkSignMsg() && $res->isSuccess()){
             //判断订单支付是否成功
             //返回给快钱，快钱会按照redirecturl地址跳到新页面，这里是成功页面
