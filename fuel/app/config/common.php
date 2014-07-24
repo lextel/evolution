@@ -107,7 +107,7 @@ return [
         'success' => 'http://www.lltao.com/99bill/success',
         'fail' => 'http://www.lltao.com/99bill/fail',
         'prikey' => '99bill-rsa.pem',
-        'pubkey' => '99bill.cert.rsa.20140728.cer', // quality date to 2014-06 ~ 2016 -06
+        'pubkey' => '99bill.cert.rsa.20340630.cer', // quality date to 2014-06 ~ 2016 -06
          'testflag' => false,
     ],
 
