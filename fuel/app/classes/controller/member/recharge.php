@@ -83,7 +83,7 @@ class Controller_Member_Recharge extends Controller_Frontend{
         Config::load('common');
         $props = ['member_id'=>$userId, 'total'=>$money,
                   'source'=>'百度钱包', 'type'=> -1,
-                  'phase_id'=>'0', 'sum'=>$money * Config::get('point1', 1)];
+                  'phase_id'=>'0', 'sum'=>$money * Config::get('point', 100)];
         $new = new Model_Member_Moneylog($props);
         $new->save();
         $order_create_time = date("YmdHis");
@@ -112,7 +112,7 @@ class Controller_Member_Recharge extends Controller_Frontend{
         Config::load('common');
         $props = ['member_id'=>$userId, 'total'=>$money,
                   'source'=>'财付通', 'type'=> -1,
-                  'phase_id'=>'0', 'sum'=>$money * Config::get('point1', 1)];
+                  'phase_id'=>'0', 'sum'=>$money * Config::get('point', 100)];
         $new = new Model_Member_Moneylog($props);
         $new->save();
         //order_no, product_name, order_price,log_id,ip,action,

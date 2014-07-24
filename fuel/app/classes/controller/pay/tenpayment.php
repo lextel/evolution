@@ -20,7 +20,7 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
         foreach($items as $item) {
             $quantity += $item->get_qty() * $item->get_price();
         }
-        
+
         if($quantity*100 == intval(Input::get('total_fee'))) {
             $orderModel = new Model_Order();
             $orderIds = $orderModel->add($userId, $items, true);
@@ -75,13 +75,13 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
         foreach($items as $item) {
             $money += $item->get_price() * intval($item->get_qty());
             $quantity += $item->get_qty();
-            
+
         }
         $userId = $current_user->id;
         Config::load('common');
         $props = ['member_id'=>$userId, 'total'=>$quantity,
                   'source'=>'财付通', 'type'=> -2,
-                  'phase_id'=>'0', 'sum'=>$money * Config::get('point1', 1)];
+                  'phase_id'=>'0', 'sum'=>$money * Config::get('point', 100)];
         $new = new Model_Member_Moneylog($props);
         $new->save();
         //GET方式
@@ -158,7 +158,7 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
             die;
         }
         $tenpay = new \Classes\Tenpay();
-        $resHandler = $tenpay->response();        
+        $resHandler = $tenpay->response();
         ////////////////////////////////////
         $req = Input::param();
         $log = '';

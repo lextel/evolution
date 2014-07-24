@@ -25,10 +25,10 @@ class Controller_Pay_Baidupayment extends Controller_Frontend
         Config::load('common');
         $props = ['member_id'=>$userId, 'total'=>$quantity,
                   'source'=>'百度钱包', 'type'=> -2,
-                  'phase_id'=>'0', 'sum'=>$money * Config::get('point1', 1)];
+                  'phase_id'=>'0', 'sum'=>$money * Config::get('point', 100)];
         $new = new Model_Member_Moneylog($props);
         $new->save();
-        
+
         $order_create_time = date("YmdHis");
         $expire_time = date('YmdHis', strtotime('+2 day'));
         $order_no = $order_create_time . sprintf ( '%06d', rand(0, 999999));
@@ -44,7 +44,7 @@ class Controller_Pay_Baidupayment extends Controller_Frontend
         $baidu = new \Classes\Baidupay();
         return $baidu->pay($params);
     }
-    
+
     // 购物车支付返回
     public function action_payreturn()
     {
@@ -59,7 +59,7 @@ class Controller_Pay_Baidupayment extends Controller_Frontend
         if (empty($return)){
             return $baidu->error();
         }
-        
+
         $logId = isset($req['extra']) ? $req['extra'] : 0;
         $log = Model_Member_Moneylog::find('last', ['where'=>['id'=>$logId, 'type'=>'-2']]);
         if (empty($log)) return $baidu->error();
@@ -81,7 +81,7 @@ class Controller_Pay_Baidupayment extends Controller_Frontend
         }
         return $baidu->error();
     }
-    
+
     //充值接收返回结果
     public function action_rechargereturn()
     {
@@ -96,7 +96,7 @@ class Controller_Pay_Baidupayment extends Controller_Frontend
         if (empty($return)){
             return $baidu->error();
         }
-        
+
         $logId = isset($req['extra']) ? $req['extra'] : 0;
         $log = Model_Member_Moneylog::find('last', ['where'=>['id'=>$logId, 'type'=>'-1']]);
         $money = 0;
@@ -108,7 +108,7 @@ class Controller_Pay_Baidupayment extends Controller_Frontend
         if ($money == 0 || $money != intval($total_amount) / 100 || $total_amount == 0){
             return $baidu->error();
         }
-        $res = Model_Member::addMoney($userId, $money);
+        $res = Model_Member::addMoney($userId, $log->sum);
         if ($res){
             //增加充值记录
             $log->type=0;
@@ -119,7 +119,7 @@ class Controller_Pay_Baidupayment extends Controller_Frontend
         }
         return $baidu->error();
     }
-    
+
     //购物返回页面
     public function action_paypage()
     {
@@ -138,7 +138,7 @@ class Controller_Pay_Baidupayment extends Controller_Frontend
         $view->set('reason', '');
         $this->template->layout = $view;
     }
-    
+
     //充值返回页面
     public function action_rechargepage()
     {
@@ -157,7 +157,7 @@ class Controller_Pay_Baidupayment extends Controller_Frontend
         $view->set('reason', '');
         $this->template->layout = $view;
     }
-    
+
 }
 
 ?>

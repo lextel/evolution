@@ -25,7 +25,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         Config::load('common');
         $props = ['member_id'=>$userId, 'total'=>$quantity,
                   'source'=>'快钱', 'type'=> -2,
-                  'phase_id'=>'0', 'sum'=>$money * Config::get('point1', 1)];
+                  'phase_id'=>'0', 'sum'=>$money * Config::get('point', 100)];
         $new = new Model_Member_Moneylog($props);
         $new->save();
         //跳转到
