@@ -27,7 +27,6 @@ $(function(){
     $('button[action="batchDelete"]').click(function(){
 
         var len = $('input[name="ids[]"]:checked').length;
-
         if(len > 0) {
             $('#cartForm').submit();
         } else {
@@ -143,10 +142,9 @@ $(function(){
 function updateTotal() {
     var total = 0;
     $('.qty').each(function(){
+        alert($(this).val());
         total = total + parseInt($(this).val()) * parseInt($(this).attr('price'));
     });
-
-
     $('#total').html(showCoins(total));
 }
 

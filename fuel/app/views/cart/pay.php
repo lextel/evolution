@@ -65,7 +65,7 @@
     <div class="prepaid-box">
                 <!--选择支付方式开始-->
                 <div class="pay-way">
-                    <div class="caption" style="margin-bottom: 8px">元宝不足？请选择下面方式购买</div>
+                    <div class="caption" style="margin-bottom: 8px">元宝不足？请选择下面方式购买（1元宝=1元）</div>
                     <dl>
                         <dt>第三方平台</dt>
                          <dd>

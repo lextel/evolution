@@ -50,13 +50,14 @@
                             <span class="kq"></span>
                         </label>
                     </dd>
+                    <?php if (0) { ?>
                     <dd>
                         <input type="radio" id="bfb" name="account" value="bfb"/>
                         <label for="bfb">
                             <span class="bfb"></span>
                         </label>
                     </dd>
-                     
+
                     <dd>
                         <input type="radio" id="cft" name="account" value="tenpay"/>
                         <label for="cft">
@@ -64,7 +65,7 @@
                         </label>
                     </dd>
 
-                    <?php if (0) { ?>
+
                     <dt>网银支付</dt>
                     <dd>
                         <input type="radio" id="zhs" name="account"/>

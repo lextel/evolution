@@ -89,7 +89,7 @@ return [
         'ads' => 'upload/ads/',
     ],
     //
-    '99billtest' => [
+    '99bill' => [
         'merchantAcctId' => '1001213884201',
         'sendUrl' => 'https://sandbox.99bill.com/gateway/recvMerchantInfoAction.htm', //测试
         'returnUrl' => 'http://et.lltao.com/99bill/receive',
@@ -100,7 +100,7 @@ return [
         'testflag' => false,
     ],
     //快钱平台
-    '99bill' => [
+    '99bill1' => [
         'merchantAcctId' => '1002359733101',
         'sendUrl' => 'https://www.99bill.com/gateway/recvMerchantInfoAction.htm',
         'returnUrl' => 'http://www.lltao.com/99bill/receive',
