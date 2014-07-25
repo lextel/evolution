@@ -156,11 +156,11 @@ class Model_Phase extends \Classes\Model {
      */
     public function win($id) {
 
-        return Model_Phase::find($id);
+        return Model_Phase::find('first', ['where' => ['id' => $id, 'is_delete' => '0']]);
     }
-    
-    
-    public static function byWinsIds($ids, $options) {        
+
+
+    public static function byWinsIds($ids, $options) {
         if(!is_array($ids)) $ids = [0];
         if ($ids[0] == 0){
             return [];
@@ -183,9 +183,9 @@ class Model_Phase extends \Classes\Model {
                $postid = 0;
                $condition['where'] += ['and'=>['post_id', '!=', $postid]];
             }else{
-               
+
             }
-            
+
         }
         $condition['order_by'] = ['id' => 'desc'];
         $results = $model::find('all', $condition);
@@ -197,7 +197,7 @@ class Model_Phase extends \Classes\Model {
 
         return $data;
     }
-    
+
     public static function byWinsIdsCount($ids, $options) {
 
         if(!is_array($ids)) $ids = [0];
@@ -217,9 +217,9 @@ class Model_Phase extends \Classes\Model {
                $postid = 0;
                $condition['where'] += ['and'=>['post_id', '!=', $postid]];
             }else{
-               
+
             }
-            
+
         }
         $count = $model::count($condition);
 
