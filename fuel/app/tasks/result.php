@@ -12,6 +12,7 @@ class Result {
         if(empty($phaseId)) return 'phaseId fail';
 
         $time = time();
+        echo $time;
         $phase = \Model_Phase::find('first', ['where' => ['id' => $phaseId, 'member_id' => 0,['opentime', '!=', 0], ['opentime', '<=', $time]]]);
 
         if(empty($phase)) return 'phase valid fail';
