@@ -30,7 +30,7 @@
                <dd><?php echo Html::anchor('h/longTime', '未收到商品问题');?></dd>
                <dt>关于乐乐淘</dt>
                <dd><?php echo Html::anchor('h/contact', '联系我们');?></dd>
-               <dd><?php echo Html::anchor('h/cooperation', '合作专区');?></dd>
+               <!--<dd><?php echo Html::anchor('h/cooperation', '合作专区');?></dd>-->
            </dl>
         </div>
         <?php echo $content;?>
