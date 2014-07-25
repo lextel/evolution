@@ -1,14 +1,14 @@
 <?php
 echo Asset::css(
     [
-        'jquery.fileupload.css', 
-        'admin/items/form.css', 
+        'jquery.fileupload.css',
+        'admin/items/form.css',
         'member/jquery-ui.css',
         ]
     );
 echo Asset::js(
         [
-            'jquery.validate.js', 
+            'jquery.validate.js',
             'additional-methods.min.js',
             'jquery.ui.widget.js',
             'jquery.iframe-transport.js',
@@ -18,7 +18,7 @@ echo Asset::js(
             'md5.js',
             'qiniu.js',
             ]
-        ); 
+        );
 ?>
 <?php echo Form::open(array("class"=>"form-horizontal", 'action' => $url)); ?>
     <fieldset>
@@ -39,7 +39,7 @@ echo Asset::js(
                 <?php echo Form::input('nickname', Input::post('nickname', isset($user) ? $user->nickname : ''), array('class' => 'form-control', 'placeholder'=>'昵称')); ?>
             </div>
         </div>
-       
+
         <div class="form-group">
             <?php echo Form::label('头像', 'avatar', array('class'=>'control-label col-sm-1')); ?>
             <div class="col-sm-2">
@@ -49,13 +49,13 @@ echo Asset::js(
                       <input id="avatarUpload" type="file" name="avatar" multiple>
                 </span>
             </div>
-          
+
         </div>
         <div class="form-group">
             <?php echo Form::label('', 'avatar', array('class'=>'control-label col-sm-1')); ?>
             <div class="col-sm-1">
                 <div id="files" class="files">
-                  <?php 
+                  <?php
                     if(isset($user)) {
                         echo '<p><img style="margin:5px; float: left; width=80px;" src="'.\Helper\Image::showImage($user->avatar, '80x80', 'qiniu').'"><d class="close"></d><input type="hidden" name="avatar" value="'.$user->avatar.'"></p>';
                     }else{
@@ -83,7 +83,7 @@ echo Asset::js(
         <div class="form-group">
             <label class='control-label col-sm-1'>&nbsp;</label>
             <div class="col-sm-2">
-            <?php echo Form::submit('submit', '保存', array('class' => 'btn btn-primary')); ?>        
+            <?php echo Form::submit('submit', '保存', array('class' => 'btn btn-primary')); ?>
             <?php echo Html::anchor('/v2admin/ghost', '返回', array('class' => 'btn btn-info')); ?></div>
             </div>
     </fieldset>

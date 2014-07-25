@@ -41,7 +41,7 @@
         <tr>
 
             <td><?php echo $item->id; ?></td>
-            <td class="text-center"><?php echo Html::img(\Helper\Image::showImage($item->avatar, '30x30', 'qiniu'), ['style'=>'width:30px;height: 30px;']); ?></td>
+            <td class="text-center"><?php echo Html::img(\Helper\Image::showImage($item->avatar, '30x30'), ['style'=>'width:30px;height: 30px;']); ?></td>
             <td class="text-center"><?php echo Html::anchor('v2admin/ghost/forcelogin/'.$item->id, $item->nickname, ['target'=>'blank']); ?></td>
             <td class="text-center"><?php echo $item->ip; ?></td>
             <td class="text-center"><?php echo \Helper\Ip2area::toarea($item->ip); ?></td>
