@@ -83,7 +83,7 @@ class Controller_Home extends Controller_Frontend {
         $config = $page->setCofigPage('/u/'.$member_id.'/wins/p', $count, 12, 5);
         $pagination = Pagination::forge('hwins', $config);
         $wins = Model_Phase::find('all', [
-                                                  'where'=>['member_id'=>$member_id],
+                                                  'where'=>['member_id'=>$member_id, 'is_delete'=>0],
                                                   'order_by' =>array('id' => 'desc'),
                                                   'rows_limit'=>$pagination->per_page,
                                                   'rows_offset'=>$pagination->offset,]
