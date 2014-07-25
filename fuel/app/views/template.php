@@ -129,8 +129,8 @@
                 <li>|</li>
                 <?php if (0) { ?>
                 <li><a href="<?php echo Uri::create('h/cooperation');?>">合作专区</a></li>
+                 <li>|</li>
                 <?php } ?>
-                <li>|</li>
                 <li class="lastest"><a href="<?php echo Uri::create('h/contact');?>">联系我们</a></li>
             </ul>
             <P style="color:#5b5b5b">Copyright © 2014<?php echo date('Y') != 2014 ? '-'.date('Y') : '';?> <a href="http://www.lltao.com">www.lltao.com</a> 版权所有 <a href="http://www.miitbeian.gov.cn/" target="_blank" ref="nofollow">粤ICP备14017463号-1<!--服务器商要求加链接--></a></P>
@@ -141,6 +141,7 @@
                     <a href="http://www.xda.cn" target="_blank">XDA</a>
                     <a href="http://www.wanggouchao.com" target="_blank">网购潮</a>
                     <a href="http://www.kuaidi100.com/all/sf.shtml" target="_blank">顺丰快递查询</a>
+                    <script type="text/javascript" src="http://links.webscan.360.cn/index/index/5a921b4ccb556a6f7b8b23b0ae066fe5"></script>
             </div>
             <!--
             <div style="clear:both"></div>
@@ -200,12 +201,10 @@
         function showCoins(point) {
             var gold = parseInt(point/POINT);
             var silver = point%POINT;
-
             var unit = gold + UNIT;
             if(silver > 0) {
                 unit += silver + UNIT2;
             }
-
             return unit;
         }
     </script>
