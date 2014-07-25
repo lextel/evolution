@@ -106,7 +106,6 @@ if(is_array($phasesList)) {
                       <input style="margin: 0;border: 1px solid #e5e5e5;font-size: 14px;height:28px" type="text" value="1" name="qty" amount="<?php echo $item->phase->amount; ?>" remain="<?php echo $item->phase->remain; ?>">
                       <a class="add btn-jia" style="height: 30px; font-size: 14px; line-height: 30px" href="javascript:void(0);">+</a>
                       <span class="right" style="line-height: 30px">(还需<?php echo $item->phase->remain; ?>元宝)</span>
-                      <span class="chance fl" style="line-height: 30px">获得几率：<s class="red" id="percent"><?php echo sprintf('%.2f', 1/$item->phase->amount*100); ?>%</s> </span>
                   </div>
                   <div class="btn-group" style="margin-left: 57px">
                       <input type="hidden" value="<?php echo $item->phase->id ?>" name="id"/>
