@@ -9,12 +9,12 @@ class Result {
     public static function run($phaseId = null)
     {
         $phaseId = intval($phaseId);
-        if(empty($phaseId)) return 'fail';
+        if(empty($phaseId)) return 'phaseId fail';
 
         $time = time();
         $phase = \Model_Phase::find('first', ['where' => ['id' => $phaseId, 'member_id' => 0,['opentime', '!=', 0], ['opentime', '<=', $time]]]);
 
-        if(empty($phase)) return 'fail';
+        if(empty($phase)) return 'phase valid fail';
 
         // 获取100个支付记录
         $orders = \Model_Order::find('all', ['where' => [['created_at', '<=', $phase->updated_at]] , 'order_by' => ['id'=>'desc'], 'limit' => 100]);

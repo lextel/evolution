@@ -1076,7 +1076,7 @@
 }
 .countdown{
     overflow: hidden;
-    margin-top: 10px;
+    /*margin-top: 10px;*/
 }
 .countdown dt{
     font-size: 18px;
@@ -1216,32 +1216,32 @@
 .scrollleft {
     padding-bottom: 10px;
     overflow: hidden;
-	position:relative;
+    position:relative;
 }
 
 .scrollleft .scrollcontainer{
-	width:850px;
-	height:210px;
-	overflow:hidden;
-	position:relative;
-	margin:0 auto;
+    width:850px;
+    height:210px;
+    overflow:hidden;
+    position:relative;
+    margin:0 auto;
 }
 
 
 .scrollleft .scrollcontainer ul{
-	width:20000px;
-	position:absolute;
-	left:0px;
-	top:0px;
+    width:20000px;
+    position:absolute;
+    left:0px;
+    top:0px;
 }
 .scrollleft a.abtn{
-	position:absolute;
+    position:absolute;
     top: 62px;
     display: block;
     width:30px;
     height: 58px;
-	overflow:hidden;
-	background:url("../images/bg02.png") no-repeat;
+    overflow:hidden;
+    background:url("../images/bg02.png") no-repeat;
 }
 .scrollleft a.aleft{
     left: 10px;
@@ -1250,7 +1250,7 @@
 }
 .scrollleft a.aright{
     cursor:pointer;
-	right:10px;
+    right:10px;
     background-position:   -166px 0px;
 }
 .no-show{
