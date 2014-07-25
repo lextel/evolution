@@ -66,7 +66,7 @@ class View_Items_view extends Viewmodel {
         $this->phases = function($item) {
 
             $select = ['phase_id', 'opentime', 'id'];
-            $phases = Model_Phase::find('all', ['select' => $select, 'where' => ['item_id' => $item->id], 'order_by' => ['id' => 'desc']]);
+            $phases = Model_Phase::find('all', ['select' => $select, 'where' => ['item_id' => $item->id, 'is_delete' => 0], 'order_by' => ['id' => 'desc']]);
 
             $ids = [];
             foreach($phases as $phase) {
@@ -92,7 +92,7 @@ class View_Items_view extends Viewmodel {
 
             $select = ['name', 'id'];
             $cates = Model_Cate::find('all', ['select' => $select, 'where' => [['id', 'in', $ids]]]);
-            
+
             $bread = '<li><a href="'.Uri::create('/').'">首页</a></li><li><em>&gt;</em></li><li><a href="'.Uri::create('m').'">所有商品</a></li>';
 
             $sp = '<li><em>&gt;</em></li>';
