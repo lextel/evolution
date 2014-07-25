@@ -59,7 +59,7 @@
         <div class="logo"><a href="<?php echo Uri::base(); ?>"><img src="<?php echo Uri::create('assets/images/logo.png');?>" alt="乐乐淘首页"/></a></div>
          <div class="right-box">
                 <div class="search">
-                    <input id="txtSearch" type="text" value="" name="title" placeholder="输入“LOL”试试" onfocus="this.placeholder = ''" onblur="this.placeholder = '输入“LOL”试试'"/>
+                    <input id="txtSearch" type="text" value="" name="title" placeholder="输入“iPhone”试试" onfocus="this.placeholder = ''" onblur="this.placeholder = '输入“iPhone”试试'"/>
                     <a href="javascript:void(0);" class="search-btn" id="doSearch">
                         <span class="icon icon-search"></span>
                     </a>
