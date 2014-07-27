@@ -1,8 +1,9 @@
 <script type="text/javascript">
-    UPLOAD_URL = '<?php echo Uri::create('v2admin/items/upload'); ?>';
-    EDITOR_URL = '<?php echo Uri::create('v2admin/items/editorUpload'); ?>';
+    // UPLOAD_URL = '<?php echo Uri::create('v2admin/items/upload'); ?>';
+    ITEMS_URL = '<?php echo \Helper\Qiniu::getHost('items'); ?>';
+    EDITOR_URL = 'http://up.qiniu.com/';
     CATE_URL = '<?php echo Uri::create('v2admin/cates/brands'); ?>';
-    IMAGE_URL  = '<?php echo Uri::create('/'); ?>';
+    INTROS_URL  = '<?php echo \Helper\Qiniu::getHost('intros'); ?>';
 </script>
 <?php
 echo Asset::css(
@@ -15,9 +16,11 @@ echo Asset::js(
         [
             'jquery.validate.js', 
             'additional-methods.min.js',
-            'jquery.ui.widget.js',
-            'jquery.iframe-transport.js',
-            'jquery.fileupload.js',
+            // 'jquery.ui.widget.js',
+            // 'jquery.iframe-transport.js',
+            // 'jquery.fileupload.js',
+            'md5.js',
+            'qiniu.js',
             'ueditor/ueditor.config.js',
             'ueditor/ueditor.all.min.js',
             'ueditor/lang/zh-cn/zh-cn.js',

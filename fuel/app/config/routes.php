@@ -7,6 +7,7 @@ return array(
     'totalbuycount' => 'index/totalCount',
     'checkInvitcode' => 'index/checkInvitcode',
     'captcha'=> 'index/captcha',
+    'token'=> 'index/token',
 
     'signin' => 'center/signin',
     'signup' => 'center/signup',

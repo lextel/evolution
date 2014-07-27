@@ -1,5 +1,13 @@
+/**
+ * 七牛上传
+ *
+ * @param f
+ * @param token string
+ * 
+ * @return 
+ */
 function Qiniu_upload(f, token) {
-    var formURL = QINIU_FORMURL;//'http://up.qiniu.com/';
+    var formURL = 'http://up.qiniu.com/';
     var host = QINIU_HOST;//"http://lltao.qiniudn.com/";
     var form_data = new FormData();
     var d = new Date();
@@ -24,5 +32,6 @@ function Qiniu_upload(f, token) {
         cache: false,
         processData:false,       
         });
+
     return xhr;   
 }

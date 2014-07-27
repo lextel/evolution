@@ -97,5 +97,29 @@ class Controller_Index extends Controller_Frontend {
         $response = new Response();
         return $response->body(json_encode($result));
     }
+
+
+    /**
+     * 获取七牛token
+     *
+     */
+    public function action_token() {
+
+        $bucket = Input::get('bucket');
+
+        $buckets = ['items', 'intros'];
+
+        $result = ['status' => 'fail'];
+        if(in_array($bucket, $buckets)) {
+
+            $qiniu = new Classes\Qiniu();
+
+            $token = $qiniu->getToken($bucket);
+            $result = ['status' => 'success', 'token' => $token];
+        }
+
+        $response = new Response();
+        return $response->body(json_encode($result));
+    }
 }
 

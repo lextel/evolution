@@ -1,32 +1,59 @@
 $(function () {
 
     // 文件上传
-    'use strict';
-    $('#fileupload').fileupload({
-        url: UPLOAD_URL,
-        dataType: 'json',
-        limitMultiFileUploads: 5,
-        add: function (e, data) {
-            // 限制5张图片
-            var num = $("#files div a img").length + data.originalFiles.length;
-            if(5 < data.originalFiles.length || 5 < num){
-                alert("不能超过5张图片");
-                return false;
+    // 'use strict';
+    // $('#fileupload').fileupload({
+    //     url: UPLOAD_URL,
+    //     dataType: 'json',
+    //     limitMultiFileUploads: 5,
+    //     add: function (e, data) {
+    //         // 限制5张图片
+    //         var num = $("#files div a img").length + data.originalFiles.length;
+    //         if(5 < data.originalFiles.length || 5 < num){
+    //             alert("不能超过5张图片");
+    //             return false;
+    //         }
+    //         data.submit();
+    //     },
+    //     done: function (e, data) {
+    //         $.each(data.result.files, function (index, file) {
+    //             var idx = $('#files').find('a').length;
+    //             var topClass = ''
+    //             if(idx == 0) {
+    //                 topClass = ' top';
+    //                 $('#top').html('<div><img src="'+BASE_URL + file.link+'" style="width: 80px;height: 80px"/><p style="font-size: 10px; text-align: center; width:80px">当前首图</p></div>');
+    //             }
+    //             $('#files').append('<div class="item-img-list withclose'+topClass+'"><a href="javascript:void(0);" style="display:block" index="'+idx+'"><img src="'+BASE_URL+file.link+'" style="width: 80px; height: 80px"/></a><input type="hidden" name="images[]" value="'+file.link+'"><d class="close">&times;</d></div>');
+    //         });
+    //     },
+    // }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+    // 商品图片上传七牛
+    $('#fileupload').change(function() {
+
+        var $this = $(this);
+
+        $.get('/token', {bucket:'items'}, function(data) {
+            if(data.status == 'success') {
+                var token = data.token;
+                var f = $this.prop("files")[0];
+                var res = Qiniu_upload(f, token).success(function(data) {
+                    var link = data.key;
+
+                    var idx = $('#files').find('a').length;
+                    var topClass = ''
+                    if(idx == 0) {
+                        topClass = ' top';
+                        $('#top').html('<div><img src="'+ITEMS_URL + link+'" style="width: 80px;height: 80px"/><p style="font-size: 10px; text-align: center; width:80px">当前首图</p></div>');
+                    }
+                    $('#files').append('<div class="item-img-list withclose'+topClass+'"><a href="javascript:void(0);" style="display:block" index="'+idx+'"><img src="'+ITEMS_URL+link+'" style="width: 80px; height: 80px"/></a><input type="hidden" name="images[]" value="'+link+'"><d class="close">&times;</d></div>');
+                });
+
+
             }
-            data.submit();
-        },
-        done: function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                var idx = $('#files').find('a').length;
-                var topClass = ''
-                if(idx == 0) {
-                    topClass = ' top';
-                    $('#top').html('<div><img src="'+BASE_URL + file.link+'" style="width: 80px;height: 80px"/><p style="font-size: 10px; text-align: center; width:80px">当前首图</p></div>');
-                }
-                $('#files').append('<div class="item-img-list withclose'+topClass+'"><a href="javascript:void(0);" style="display:block" index="'+idx+'"><img src="'+BASE_URL+file.link+'" style="width: 80px; height: 80px"/></a><input type="hidden" name="images[]" value="'+file.link+'"><d class="close">&times;</d></div>');
-            });
-        },
-    }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
+        }, 'json');
+
+    });
 
     // 实例化编辑器
     var ue = new UE.ui.Editor();
