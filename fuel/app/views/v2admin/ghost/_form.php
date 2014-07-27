@@ -57,7 +57,7 @@ echo Asset::js(
                 <div id="files" class="files">
                   <?php
                     if(isset($user)) {
-                        echo '<p><img style="margin:5px; float: left; width=80px;" src="'.\Helper\Image::showImage($user->avatar, '80x80', 'qiniu').'"><d class="close"></d><input type="hidden" name="avatar" value="'.$user->avatar.'"></p>';
+                        echo '<p><img style="margin:5px; float: left; width=80px;" src="'.\Helper\Image::showImage($user->avatar, '80x80', '').'"><d class="close"></d><input type="hidden" name="avatar" value="'.$user->avatar.'"></p>';
                     }else{
                         if(Input::post('avatar', '')!=''){
                         echo '<p><img style="margin:5px; float: left; width=80px;" src="'.Uri::create(Input::post('avatar', '')).'"><d class="close"></d><input type="hidden" name="avatar" value="'.Input::post('avatar', '').'"></p>';

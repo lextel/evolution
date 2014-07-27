@@ -358,7 +358,10 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
     }
 
     // 马甲拍下
-    public function action_order($id = 0, $num = 0, $mid = 0) {
+    public function action_order() {
+        $id = Input::get('id', 0) ? Input::get('id', 0) : 0;
+        $mid = Input::get('mid', 0) ? Input::get('mid', 0) : 0;
+        $num = Input::get('num', 1) ? Input::get('num', 1) : 1;
         Config::load('common');
         $timer = new \Helper\Timer();
 
@@ -385,8 +388,8 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
             return json_encode(['code' => 1, 'msg' => '这个用户不是马甲']);
         }
 
-        $member->points = $num * Config::get('point');
-        $member->save();
+        //$member->points = $num * Config::get('point');
+        //$member->save();
 
         $orderModel = new Model_Order();
         $fetchCodes = $orderModel->buy($id, $num);
@@ -397,7 +400,7 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
         if(empty($fetchCodes)) return json_encode(['code' => 1, 'msg' => '本期已卖完']);
 
         $phase = Model_Phase::find($id);
-            $data = [
+        $data = [
                 'title'      => $phase->title,
                 'phase_id'   => $id,
                 'member_id'  => $mid,
@@ -406,19 +409,18 @@ class Controller_V2admin_Ghost extends Controller_V2admin{
                 'ip'         => $member->ip,
                 'area'       => $location['area'],
                 'ordered_at' => $timer->millitime(),
-                ];
+        ];
 
-            $orderModel = new Model_Order($data);
-            if($orderModel->save()) {
+        $orderModel = new Model_Order($data);
+        if($orderModel->save()) {
+            // 写消费日志
+            $perPoint = count($fetchCodes) * Config::get('point');
+            Model_Member_Moneylog::buy_log($mid, $perPoint, $id, count($fetchCodes));
 
-                // 写消费日志
-                $perPoint = count($fetchCodes) * Config::get('point');
-                Model_Member_Moneylog::buy_log($mid, $perPoint, $id, count($fetchCodes));
+            return json_encode(['code' => 0, 'msg' => '乐淘成功', 'data' => ['joined' => $phase->joined], 'codeNum' => count($fetchCodes), 'points' => $perPoint]);
+        }
 
-                return json_encode(['code' => 0, 'msg' => '乐淘成功', 'data' => ['joined' => $phase->joined], 'codeNum' => count($fetchCodes), 'points' => $perPoint]);
-            }
-
-            return json_encode(['code' => 1, 'msg' => '乐淘失败']);
+        return json_encode(['code' => 1, 'msg' => '乐淘失败']);
     }
 
     // 上传头像图片
