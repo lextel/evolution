@@ -32,7 +32,7 @@ if(is_array($phasesList)) {
             </h2>
         </div>
         <div class="results-img fl">
-            <img src="<?php echo \Helper\Image::showImage($itemInfo->image, '400x400');?>"/>
+            <img src="<?php echo \Helper\Image::showImage($itemInfo->image, '400x400', 'items');?>"/>
         </div>
         <div class="state-column fr">
             <div class="state-heading">

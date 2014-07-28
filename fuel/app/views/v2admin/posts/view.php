@@ -25,7 +25,7 @@
                 <?php
                     $images = unserialize($post->images);
                     foreach($images as $image) { ?>
-                        <?php echo Html::img($image, ['style'=>"margin: 10px; border: 1px #ccc solid; padding:3px;width:80px"]);?>
+                        <?php echo Html::img(\Helper\Image::showImage($image, '80x80', 'shares'), ['style'=>"margin: 10px; border: 1px #ccc solid; padding:3px;width:80px"]);?>
                 <?php } ?>
             </p>
           </div>
@@ -49,7 +49,7 @@
         <div class="form-group">
           <label class="control-label col-sm-1" for="form_title">产品图片:</label>
           <div class="col-sm-8">
-            <p class="form-control-static"><?php echo Html::img($phase->image, ['style'=>"margin: 10px; border: 1px #ccc solid; padding:3px;width:80px"]); ?></p>
+            <p class="form-control-static"><?php echo Html::img(\Helper\Image::showImage($phase->image, '80x80', 'items'), ['style'=>"margin: 10px; border: 1px #ccc solid; padding:3px;width:80px"]); ?></p>
           </div>
         </div>
         <div class="form-group">

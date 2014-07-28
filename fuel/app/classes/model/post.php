@@ -118,7 +118,7 @@ class Model_Post extends \Classes\Model
             $newImages = [];
             $images = unserialize($post->images);
             foreach($images as $image) {
-                $newImages[] = \Helper\Image::showImage($image, '120x120');
+                $newImages[] = \Helper\Image::showImage($image, '120x120', 'shares');
 
             }
             $data[] = [

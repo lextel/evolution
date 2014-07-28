@@ -36,7 +36,7 @@
                                  <div class="product-item">
                                  <div class="img-box">
                                       <a href="<?php echo Uri::create('p/'.$item->id); ?>">
-                                        <img src="<?php echo \Helper\Image::showImage($item->topimage, '235x0');?>"/>
+                                        <img src="<?php echo \Helper\Image::showImage($item->topimage, '235x0', 'shares');?>"/>
                                       </a>
                                  </div>
                                  <div class="item-head">

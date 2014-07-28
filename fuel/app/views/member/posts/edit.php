@@ -7,9 +7,11 @@ echo Asset::css(
     );
 echo Asset::js(
         [
-            'jquery.ui.widget.js',
-            'jquery.iframe-transport.js',
-            'jquery.fileupload.js',
+            // 'jquery.ui.widget.js',
+            // 'jquery.iframe-transport.js',
+            // 'jquery.fileupload.js',
+            'md5.js',
+            'qiniu.js',
             'jquery.validate.js'
             ]
         ); 
@@ -38,22 +40,44 @@ $(function(){
     //上传图片
     $("body").on('click', '#postUpload', function(){
     var imgs = $(".postimg dd").length;
-    if (imgs >= 5){
-        alert('您上传的图片超过了5张');
+    if (imgs >= 10){
+        alert('您上传的图片超过了10张');
         return false;
     }
-    $('#postUpload').fileupload({
-        url: UPLOAD_URL,
-        dataType: 'json',
-        done: function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                var text = '<dd class="img-box"><img src="/'+file.link+'" alt="" /><input type="hidden" name="images[]" value="'+file.link+'"><a href="javascript:;" class="delete"></a></dd>';
-                $(".postimg").append(text);
-            });
+    // $('#postUpload').fileupload({
+    //     url: UPLOAD_URL,
+    //     dataType: 'json',
+    //     done: function (e, data) {
+    //         $.each(data.result.files, function (index, file) {
+    //             var text = '<dd class="img-box"><img src="/'+file.link+'" alt="" /><input type="hidden" name="images[]" value="'+file.link+'"><a href="javascript:;" class="delete"></a></dd>';
+    //             $(".postimg").append(text);
+    //         });
             
-        },
-      }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
+    //     },
+    //   }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
     });
+
+    // 七牛上传图片
+    QINIU_HOST = '<?php echo \Helper\Qiniu::getHost('shares'); ?>';
+    ITEMS_URL = '<?php echo \Helper\Qiniu::getHost('shares'); ?>';
+    $('#postUpload').change(function() {
+
+        var $this = $(this);
+
+        $.get('/token', {bucket:'shares'}, function(data) {
+            if(data.status == 'success') {
+                var token = data.token;
+                var f = $this.prop("files")[0];
+                var res = Qiniu_upload(f, token).success(function(data) {
+                    var link = data.key;
+                    var text = '<dd class="img-box"><img src="'+ITEMS_URL+link+'" alt="" /><input type="hidden" name="images[]" value="'+link+'"><a href="javascript:;" class="delete"></a></dd>';
+                    $(".postimg").append(text);
+                });
+            }
+        }, 'json');
+
+    });
+
 });
 </script>
 <div class="content-inner">
@@ -95,7 +119,7 @@ $(function(){
                         <dl class="postimg">
                             <?php foreach(unserialize($post->images) as $img) { ?>
                             <dd class="img-box">
-                                <?php echo Html::img($img);?>
+                                <?php echo Html::img(\Helper\Image::showImage($img, '160x160', 'shares'));?>
                                 <input type="hidden" name="images[]" value="<?php echo $img;?>">
                                 <a href="javascript:;" class="delete"></a>
                             </dd>
