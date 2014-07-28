@@ -6,9 +6,9 @@
 return array(
     'default' => array(
         'connection'  => array(
-            'dsn'        => 'mysql:host=192.168.3.10;dbname=llt_dev',
+            'dsn'        => 'mysql:host=127.0.0.1;dbname=lltao',
             'username'   => 'root',
-            'password'   => '1',
+            'password'   => 'a',
         ),
         'profiling' => true,
     ),

@@ -79,7 +79,7 @@ echo Asset::js(
             <?php echo Form::select('area', isset($user) ? \Helper\Ip2area::toarea($user->ip) : 'none',  $areas, array('class' => 'form-control', 'placeholder'=>'注册地区')); ?>
             </div>
         </div>
-        <input id="token" name="token" type="hidden" value="<?php echo \Helper\Qiniu::setToken();?>">
+        <input id="token" name="token" type="hidden" value="">
         <div class="form-group">
             <label class='control-label col-sm-1'>&nbsp;</label>
             <div class="col-sm-2">

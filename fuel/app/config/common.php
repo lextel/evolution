@@ -71,23 +71,15 @@ return [
               'contact'=>['title'=>'联系我们', 'page'=>'help/contact'],
     ],
 
-    //七牛云图片配置
+    // 七牛配置
     'qiniu' => [
-             'bucket' => 'lltao',//空间
-             'host' => 'http://lltao.qiniudn.com/',//图片访问HOST
-             'formurl' => 'http://up.qiniu.com/',
-             'AK' => 'YB6eiXY9QgJ1kpNlm21W7Nx9q_dDrnax8ZHJeITv',//AK
-             'SK' => 'wmEaMc2akoZM31Oq8xQFjTfXw78r9RbjSVM3HeID',//SK
-             'mimeLimit' => 'image/jpeg;image/png;image/gif;image/jpg',//限制类型主要是图片
+        'ak'      => 'b7TsugV0nZ2bGV75GFdyAwwqGvop4tki75kWct90',   // AK 密钥
+        'sk'      => 'VzOGW0G1FFqaCxy-2QKkU9oI3MO2XuUBO8Qp0OfT',   // SK 密钥
+        'mime'    => 'image/jpeg;image/png;image/gif;image/jpg', // 上传mime头信息限制
+        'host'    => 'http://lltao-%s.qiniudn.com/',
+        'formurl' => 'http://up.qiniu.com/',
     ],
-    //图片路径配置
-    'qiniuImg' => [
-        'app' => 'upload/app/',
-        'post' => 'upload/post/',
-        'avatar' => 'upload/avatar/',
-        'item' => 'upload/item/',
-        'ads' => 'upload/ads/',
-    ],
+
     //
     '99billtest' => [
         'merchantAcctId' => '1001213884201',

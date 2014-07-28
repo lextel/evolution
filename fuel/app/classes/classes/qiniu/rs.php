@@ -1,5 +1,5 @@
 <?php
-namespace Helper;
+namespace Classes;
 require_once("http.php");
 
 // ----------------------------------------------------------
