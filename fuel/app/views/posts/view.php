@@ -40,7 +40,7 @@
            <li>
                <div class="img-box img-sm fl">
                     <a href="<?php echo Uri::create('m/'.$post->phase_id); ?>" rel="nofollow">
-                        <img src="<?php echo \Helper\Image::showImage($getItem($post->item_id)->image, '80x80');?>"/>
+                        <img src="<?php echo \Helper\Image::showImage($getItem($post->item_id)->image, '80x80', 'items');?>"/>
                     </a>
                </div>
                <div class="info fl">

@@ -35,7 +35,7 @@
                         <td>
                             <div class="img-sm fl">
                                 <a href="<?php echo Uri::create('/m/'.$item->get_id()); ?>">
-                                    <img src="<?php echo \Helper\Image::showImage($info->image, '80x80');?>"/>
+                                    <img src="<?php echo \Helper\Image::showImage($info->image, '80x80', 'items');?>"/>
                                 </a>
                             </div>
                             <div class="info-side fl">

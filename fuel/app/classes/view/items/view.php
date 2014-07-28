@@ -9,8 +9,8 @@ class View_Items_view extends Viewmodel {
 
             $rel = [
                 'gallery'    => 'zoom',
-                'smallimage' => \Helper\Image::showImage($link, '400x400'),
-                'largeimage' => \Helper\Image::showImage($link, '600x600'),
+                'smallimage' => \Helper\Image::showImage($link, '400x400', 'items'),
+                'largeimage' => \Helper\Image::showImage($link, '600x600', 'items'),
             ];
 
             return json_encode($rel);

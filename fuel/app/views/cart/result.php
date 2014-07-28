@@ -67,7 +67,7 @@
                         </div>
                         <div class="img-box">
                             <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>">
-                                <img src="<?php echo \Helper\Image::showImage($remain->image, '200x200');?>"/>
+                                <img src="<?php echo \Helper\Image::showImage($remain->image, '200x200', 'items');?>"/>
                             </a>
                             <div class="sheng-yi">
                                 还需 <b class="red"><?php echo $remain->phase->remain; ?></b>元宝！

@@ -32,7 +32,7 @@ class Controller_Cart extends Controller_Frontend {
         $data = [];
         foreach($carts as $cart) {
             $data[] = [
-                    'image' => \Helper\Image::showImage($phases[$cart->get_id()]->image, '80x80'),
+                    'image' => \Helper\Image::showImage($phases[$cart->get_id()]->image, '80x80', 'items'),
                     'title' => $phases[$cart->get_id()]->title,
                     'unit'  => Config::get('unit'),
                     'point'  => Config::get('point'),

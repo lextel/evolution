@@ -31,7 +31,7 @@
                 <div class="item-body">
                     <div class="img-box img-md fl">
                         <a href="<?php echo Uri::create('w/'.$win->id); ?>" rel="nofollow">
-                            <img src="<?php echo \Helper\Image::showImage($win->image, '200x200');?>"/>
+                            <img src="<?php echo \Helper\Image::showImage($win->image, '200x200', 'items');?>"/>
                         </a>
                     </div>
                     <div class="info-side fr">
@@ -66,7 +66,7 @@
                 <div class="item-body">
                     <div class="img-box img-md fl">
                         <a href="<?php echo Uri::create('m/'.$win->id); ?>" rel="nofollow">
-                            <img src="<?php echo \Helper\Image::showImage($win->image, '200x200');?>"/>
+                            <img src="<?php echo \Helper\Image::showImage($win->image, '200x200', 'items');?>"/>
                         </a>
                     </div>
                     <div class="info-side fr">
@@ -96,7 +96,7 @@
                 <div class="item-body">
                     <div class="img-box img-md fl">
                         <a href="<?php echo Uri::create('m/'.$win->id); ?>" rel="nofollow">
-                            <img src="<?php echo \Helper\Image::showImage($win->image, '200x200');?>"/>
+                            <img src="<?php echo \Helper\Image::showImage($win->image, '200x200', 'items');?>"/>
                         </a>
                     </div>
                     <div class="info-side fr">
@@ -138,7 +138,7 @@
                     <li>
                         <div class="img-wide fl">
                             <a href="<?php echo Uri::create('m/'.$order->phase_id); ?>" rel="nofollow">
-                                <img src="<?php echo \Helper\Image::showImage($phaseByOrders[$order->phase_id]->image, '80x80');?>"/>
+                                <img src="<?php echo \Helper\Image::showImage($phaseByOrders[$order->phase_id]->image, '80x80', 'items');?>"/>
                             </a>
                         </div>
                         <div class="info-side">
@@ -164,7 +164,7 @@
                     <div class="shortItem" style="display: <?php echo $i == 1 ? 'none' : 'block'; ?>">
                         <div class="img-box img-sm fl">
                             <a href="<?php echo Uri::create('m/'.$hot->id); ?>" rel="nofollow">
-                                <img src="<?php echo \Helper\Image::showImage($hot->image, '80x80');?>"/>
+                                <img src="<?php echo \Helper\Image::showImage($hot->image, '80x80', 'items');?>"/>
                             </a>
                             <div class="top <?php echo $i < 4 ? 'one' : '';?>"><?php echo $i; ?></div>
                         </div>
@@ -181,7 +181,7 @@
                             </div>
                             <div class="img-box">
                                 <a href="<?php echo Uri::create('m/'.$hot->id); ?>" rel="nofollow">
-                                    <img src="<?php echo \Helper\Image::showImage($hot->image, '200x200');?>"/>
+                                    <img src="<?php echo \Helper\Image::showImage($hot->image, '200x200', 'items');?>"/>
                                 </a>
                             </div>
                             <div class="remain tc">还需元宝: <b class="red"><?php echo $hot->remain; ?></b></div>

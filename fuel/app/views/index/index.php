@@ -28,7 +28,7 @@
                         ?>
                         <li class="active">
                             <div class="img-box img-md">
-                                <a href="<?php echo Uri::create('w/'.$win->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($win->image, '200x200');?>"/></a>
+                                <a href="<?php echo Uri::create('w/'.$win->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($win->image, '200x200', 'items');?>"/></a>
                             </div>
                             <h4 class="title-br"><?php echo Html::anchor('m/'.$win->id, $win->title);?></h4>
                             <div id="win<?php echo $win->id; ?>" class="news-count countdown" endtime="<?php echo date('M d, Y H:i:s', $win->opentime);?>" phaseId="<?php echo $win->id; ?>"></div>
@@ -39,7 +39,7 @@
                         ?>
                         <li>
                             <div class="img-box img-md">
-                                <a href="<?php echo Uri::create('w/'.$win->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($win->image, '200x200');?>"/></a>
+                                <a href="<?php echo Uri::create('w/'.$win->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($win->image, '200x200', 'items');?>"/></a>
                             </div>
                             <h4 class="title-br"><?php echo Html::anchor('w/'.$win->id, $win->title);?></h4>
                             <div class="username">获得者: <?php echo Html::anchor('u/'.$win->member_id, $data['members'][$win->member_id]->nickname, ['class'=>'']);?></div>
@@ -78,7 +78,7 @@
                             <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
                         </div>
                         <div class="img-box img-lg">
-                            <a href="<?php echo Uri::create('m/'.$phase->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($phase->image, '400x400');?>"/></a>
+                            <a href="<?php echo Uri::create('m/'.$phase->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($phase->image, '400x400', 'items');?>"/></a>
                         </div>
                         <dl class="progress-side">
                             <dd>
@@ -114,7 +114,7 @@
                     ?>
                     <li>
                         <div class="img-wide fl">
-                            <a href="<?php echo Uri::create('m/'.$order->phase_id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($data['phases'][$order->phase_id]->image, '80x80');?>"/></a>
+                            <a href="<?php echo Uri::create('m/'.$order->phase_id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($data['phases'][$order->phase_id]->image, '80x80', 'items');?>"/></a>
                         </div>
                         <div class="info-side fr">
                             <div class="username">
@@ -140,7 +140,7 @@
                     <span class="price">价值 <b>￥<?php echo sprintf('%.2f', $phase->cost / Config::get('point')) ?></b></span>
                 </div>
                 <div class="img-box img-lg">
-                    <a href="<?php echo Uri::create('m/'.$phase->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($phase->image, '400x400');?>"/></a>
+                    <a href="<?php echo Uri::create('m/'.$phase->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($phase->image, '400x400', 'items');?>"/></a>
                 </div>
                 <dl class="progress-side">
                     <dd>
@@ -181,7 +181,7 @@
                 </div>
                 <div class="img-box img-lg">
                     <a href="<?php echo Uri::create('m/'.$phase->id); ?>" rel="nofollow">
-                        <img src="<?php echo \Helper\Image::showImage($phase->image, '400x400');?>"/>
+                        <img src="<?php echo \Helper\Image::showImage($phase->image, '400x400', 'items');?>"/>
                     </a>
                 </div>
                 <dl class="progress-side">
@@ -223,7 +223,7 @@
             <div class="bask fl">
                 <div class="img-wide fl">
                     <a href="<?php echo Uri::create('p/'.$post->id); ?>" rel="nofollow">
-                        <img src="<?php echo \Helper\Image::showImage($post->topimage, '120x120');?>"/>
+                        <img src="<?php echo \Helper\Image::showImage($post->topimage, '120x120', 'items');?>"/>
                     </a>
                 </div>
                 <div class="bask-info fr">
@@ -242,7 +242,7 @@
                     <li>
                         <div class="img-box img-md">
                             <a href="<?php echo Uri::create('p/'.$post->id); ?>" rel="nofollow">
-                                <img src="<?php echo \Helper\Image::showImage($post->topimage, '120x120');?>"/>
+                                <img src="<?php echo \Helper\Image::showImage($post->topimage, '120x120', 'items');?>"/>
                             </a>
                         </div>
                         <h4 class="title-02"><?php echo Html::anchor('p/'.$post->id, $post->title);?></h4>

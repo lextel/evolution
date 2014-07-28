@@ -46,7 +46,7 @@
                         <td>
                             <div class="img-box img-sm">
                                 <a href="<?php echo Uri::create('m/'.$order->phase_id); ?>" rel="nofollow">
-                                    <img src="<?php echo \Helper\Image::showImage($phase->image, '80x80');?>"/>
+                                    <img src="<?php echo \Helper\Image::showImage($phase->image, '80x80', 'items');?>"/>
                                 </a>
                             </div>
                         </td>

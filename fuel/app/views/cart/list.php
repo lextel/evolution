@@ -39,7 +39,7 @@
                             <td>
                                 <div class="img-sm fl">
                                     <a href="<?php echo Uri::create('m/'. $item['id']); ?>">
-                                        <img src="<?php echo \Helper\Image::showImage($item['image'], '80x80');?>"/>
+                                        <img src="<?php echo \Helper\Image::showImage($item['image'], '80x80', 'items');?>"/>
                                     </a>
                                 </div>
                                 <div class="info-side fl">
@@ -78,7 +78,7 @@
                             <td>
                                 <div class="img-sm fl">
                                     <a href="<?php echo Uri::create('m/'. $item['id']); ?>">
-                                        <img src="<?php echo \Helper\Image::showImage($item['image'], '80x80');?>"/>
+                                        <img src="<?php echo \Helper\Image::showImage($item['image'], '80x80', 'items');?>"/>
                                     </a>
                                 </div>
                                 <div class="info-side fl">
@@ -167,7 +167,7 @@
                         </div>
                         <div class="img-box img-lg">
                             <a href="<?php echo Uri::create('/m/'.$remain->phase->id); ?>">
-                                <img src="<?php echo \Helper\Image::showImage($remain->image, '200x200');?>"/>
+                                <img src="<?php echo \Helper\Image::showImage($remain->image, '200x200', 'items');?>"/>
                             </a>
                             <div class="sheng-yi">
                                 还需 <s style="font-size:18px;font-weight: normal;"><?php echo $remain->phase->remain; ?></s>元宝！
