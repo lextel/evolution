@@ -18,7 +18,7 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
 
         $quantity = 0;
         foreach($items as $item) {
-            $quantity += $item->get_qty() * $item->get_price();
+            $quantity += $item->get_qty() * 1; //$item->get_price();
         }
 
         if($quantity*100 == intval(Input::get('total_fee'))) {
@@ -73,7 +73,7 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
         $quantity = 0;
         $money = 0;
         foreach($items as $item) {
-            $money += $item->get_price() * intval($item->get_qty());
+            $money += 1 * intval($item->get_qty());
             $quantity += $item->get_qty();
 
         }
