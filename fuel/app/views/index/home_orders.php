@@ -17,7 +17,7 @@
                 <dd>
                     <div class="img-box">
                         <a href="<?php echo Uri::create('m/'.$item->phase_id); ?>" rel="nofollow">
-                            <img src="<?php echo \Helper\Image::showImage($phase->image, '200x200');?>"/>
+                            <img src="<?php echo \Helper\Image::showImage($phase->image, '200x200', 'items');?>"/>
                         </a>
                         <?php if ($phase->code != '') { ?>
                              <span class="icon-jx">已揭晓</span>

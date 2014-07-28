@@ -87,7 +87,7 @@ class Controller_Wins extends Controller_Frontend{
                         'member_id' => $member->id,
                         'avatar'    => \Helper\Image::showImage($member->avatar, '60x60'),
                         'nickname'  => $member->nickname,
-                        'image'     => \Helper\Image::showImage($item->image, '200x200'),
+                        'image'     => \Helper\Image::showImage($item->image, '200x200', 'items'),
                         'title'     => '(第'.$win->phase_id.'期)'.$win->title,
                         'link'      => Uri::create('w/'.$win->id),
                         'userlink'  => Uri::create('u/'.$member->id),

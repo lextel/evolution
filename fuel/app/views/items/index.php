@@ -80,7 +80,7 @@
                         <span class="price tr">价值<b>￥<?php echo sprintf('%.2f', $topItem->cost / Config::get('point')); ?></b></span>
                     </div>
                     <div class="img-wide">
-                        <a href="<?php echo Uri::create('m/'.$topItem->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($topItem->image, '400x400');?>"/></a>
+                        <a href="<?php echo Uri::create('m/'.$topItem->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($topItem->image, '400x400', 'items');?>"/></a>
                         <!--<div class="sheng-yi2">还需 <b><?php echo $topItem->remain ?></b>元宝！</div>-->
                         <div class="sheng-yi2">热门推荐</div>
                     </div>
@@ -127,7 +127,7 @@
                                         <span class="price">价值 <b>￥<?php echo sprintf('%.2f' ,$item->cost / Config::get('point')); ?></b></span>
                                     </div>
                                     <div class="img-box img-lg">
-                                        <a href="<?php echo Uri::create('m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($item->image);?>"/></a>
+                                        <a href="<?php echo Uri::create('m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($item->image, '', 'items');?>"/></a>
                                     </div>
                                     <dl class="progress-side">
                                         <dd>
@@ -180,7 +180,7 @@
                         foreach($hotItems as $item) { ?>
                       <li>
                           <div class="img-box img-md">
-                             <a href="<?php echo Uri::create('m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($item->image, '200x200');?>"/></a>
+                             <a href="<?php echo Uri::create('m/'.$item->id); ?>" rel="nofollow"><img src="<?php echo \Helper\Image::showImage($item->image, '200x200', 'items');?>"/></a>
                              <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->cost / Config::get('point')); ?></b></div>
                           </div>
                           <h4 class="caption"><?php echo $item->title; ?></h4>

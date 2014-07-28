@@ -89,7 +89,7 @@ $(function(){
                             <div class="img-box img-sm">
 
                                 <a href="<?php echo Uri::create('w/'.$phase->id)?>">
-                                    <img src="<?php echo \Helper\Image::showImage($getItem($phase->item_id)->image, '70x70');?>"/>
+                                    <img src="<?php echo \Helper\Image::showImage($getItem($phase->item_id)->image, '70x70', 'items');?>"/>
                                 </a>
                             </div></td>
                         <td>

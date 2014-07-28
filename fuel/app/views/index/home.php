@@ -16,7 +16,7 @@
                     <dd class="right-box">
                         <div class="img-box img-md fl">
                             <a href="<?php echo Uri::create('m/'.$oitem->phase_id); ?>" rel="nofollow">
-                                <img src="<?php echo \Helper\Image::showImage($phase->image, '200x200');?>"/>
+                                <img src="<?php echo \Helper\Image::showImage($phase->image, '200x200', 'items');?>"/>
                             </a>
                             <?php if ($getProgress($phase) == 100) { ?>
                              <span class="icon-jx">已揭晓</span>

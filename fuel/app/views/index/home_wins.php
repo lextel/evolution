@@ -14,7 +14,7 @@
                     <dd>
                         <div class="img-box">
                             <a href="<?php echo Uri::create('m/'.$item->id); ?>" rel="nofollow">
-                                <img src="<?php echo \Helper\Image::showImage($item->image, '200x200');?>"/>
+                                <img src="<?php echo \Helper\Image::showImage($item->image, '200x200', 'items');?>"/>
                             </a>
                         </div>
                         <div class="title-box">

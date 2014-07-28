@@ -43,7 +43,7 @@
                         <td>
                             <div class="img-box img-sm">
                                 <a href="<?php echo Uri::create('w/'.$win->id); ?>" rel="nofollow">
-                                    <img src="<?php echo \Helper\Image::showImage($win->image, '80x80');?>"/>
+                                    <img src="<?php echo \Helper\Image::showImage($win->image, '80x80', 'items');?>"/>
                                 </a>
                             </div>
                         </td>

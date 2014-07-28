@@ -32,8 +32,8 @@ if(is_array($phasesList)) {
             <!--商品图片切换开始-->
             <div class="lantern-slide">
                 <div class="slide-img">
-                    <a href="<?php echo '/' . $item->image;?>" class="jqzoom" rel="zoom">
-                        <img src="<?php echo '/' . $item->image;?>"/>
+                    <a href="<?php echo \Helper\Image::showImage($item->image, '', 'items');?>" class="jqzoom" rel="zoom">
+                        <img src="<?php echo \Helper\Image::showImage($item->image, '', 'items');?>"/>
                     </a>
                 </div>
                 <ul class="slide-list" id="thumblist">
@@ -44,7 +44,7 @@ if(is_array($phasesList)) {
                     ?>
                     <li>
                         <a class="<?php echo $image == $item->image ? 'zoomThumbActive' : ''; ?>" rel='<?php echo str_replace('\/', '/', $getZoom($image));?>'>
-                            <img src="<?php echo '/' . $image;?>"/>
+                            <img src="<?php echo \Helper\Image::showImage($image, '', 'items');?>"/>
                             <span></span>
                         </a>
                     </li>
@@ -279,7 +279,7 @@ if(is_array($phasesList)) {
                       <li>
                           <div class="img-box img-md">
                             <a href="<?php echo Uri::create('/m/'.$item->id); ?>" rel="nofollow">
-                                <img src="<?php echo \Helper\Image::showImage($item->image, '200x200');?>"/>
+                                <img src="<?php echo \Helper\Image::showImage($item->image, '200x200', 'items');?>"/>
                              </a>
                              <div class="price fr">价值<b>￥<?php echo sprintf('%.2f', $item->cost / Config::get('point')); ?></b></div>
                           </div>
