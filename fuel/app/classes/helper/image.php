@@ -25,7 +25,7 @@ class Image {
         if($match) {
             return self::showDefaultImage($path, $size);
         } else {
-            return self::showQiniuImage($path, $bucket, $size = '');
+            return self::showQiniuImage($path, $bucket, $size);
         }
     }
 
@@ -58,7 +58,6 @@ class Image {
      */
     public static function showQiniuImage($path, $bucket, $size = '') {
 
-
         Config::load('common');
         $server = Config::get('qiniu.host');
         $server = sprintf($server, $bucket);
@@ -69,7 +68,7 @@ class Image {
         }
         $w = $sizes[0];
         $h = $sizes[1];
-        $mode = '/imageView2/1/w/'.$w.'/h/'.$h;
+        $mode = 'imageView2/1/w/'.$w.'/h/'.$h;
 
         return $server.$path.'?'.$mode;
     }

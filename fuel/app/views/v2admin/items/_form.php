@@ -84,7 +84,7 @@ echo Asset::js(
               <div id="top" class="col-sm-1">
                 <?php 
                     if(isset($item)):
-                        echo "<div><img src='".Uri::create('image/80x80/' .$item->image)."'>";
+                        echo "<div><img src='".\Helper\Image::showImage($item->image, '80x80', 'items')."'>";
                         echo "<p style='font-size: 10px; text-align: center; width:80px'>当前首图</p></div>";
                     endif;
                 ?>
@@ -102,7 +102,7 @@ echo Asset::js(
                               }
                               echo '<div class="item-img-list'.$top.' withclose">';
                               echo '<a style="display:block;" href="javascript:void(0);" index="'.$idx.'">';
-                              echo '<img src="'.Uri::create('image/80x80/'.$image).'">';
+                              echo '<img src="'.\Helper\Image::showImage($image, '80x80', 'items').'">';
                               echo '</a>';
                               echo '<input type="hidden" name="images[]" value="'.$image.'">';
                               echo '<d class="close">&times;</d></div>';
