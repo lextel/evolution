@@ -142,6 +142,7 @@
                     <a href="http://www.xda.cn" target="_blank">XDA</a>
                     <a href="http://www.wanggouchao.com" target="_blank">网购潮</a>
                     <a href="http://www.kuaidi100.com/all/sf.shtml" target="_blank">顺丰快递查询</a>
+                    <a href="http://www.yyyg.com" target="_blank">一元云购</a>
                     <script type="text/javascript" src="http://links.webscan.360.cn/index/index/5a921b4ccb556a6f7b8b23b0ae066fe5"></script>
             </div>
             <!--
