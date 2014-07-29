@@ -24,7 +24,7 @@ class Controller_Member_Recharge extends Controller_Frontend{
         if ($source == 'tenpay') {
             return $this->tenpay();
         }
-        if ($source != '99bill' && $source != 'tenpay'){
+        if ($source != '99bill' && $source != 'tenpay' && is_numeric($source)){
             return $this->tenpay();
         }
         return Response::redirect('/u/getrecharge');
@@ -119,6 +119,7 @@ class Controller_Member_Recharge extends Controller_Frontend{
         $new = new Model_Member_Moneylog($props);
         $new->save();
         //order_no, product_name, order_price,log_id,ip,action, bankID
+        $bankID = Input::get('source') == 'tenpay' ? 'DEFAULT': Input::get('source', 'DEFAULT');
         $param = [
                 'ip' => Input::ip(),
                 'order_no' => date('YmdHis').$new->id,
@@ -126,7 +127,7 @@ class Controller_Member_Recharge extends Controller_Frontend{
                 'action' => 'recharge',
                 'order_price' => $money,
                 'log_id' => $new->id,
-                'bankID' => Input::get('source', 'DEFAULT'),
+                'bankID' => $bankID,
         ];
         $tenpay = new \Classes\Tenpay();
         return Response::redirect($tenpay->pay($param));

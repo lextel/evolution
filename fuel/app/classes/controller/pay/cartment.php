@@ -14,6 +14,7 @@ class Controller_Pay_Cartment extends Controller_Frontend
         $current_user = $auth->check() ? Model_Member::find_by_username($auth->get_screen_name()) : null;
         if (is_null($current_user)) return Response::redirect('/signin');
         $source = trim(Input::get('source', ''));
+        $bankID = trim(Input::get('bankID', 'DEFAULT'));
         //支付宝
         if ($source == 'alipay') {
             return Response::redirect('alipay/pay');
@@ -29,7 +30,7 @@ class Controller_Pay_Cartment extends Controller_Frontend
 
         //财付通
         if ($source == 'tenpay') {
-            return Response::redirect('tenpay/pay');
+            return Response::redirect('tenpay/pay?bankID=' . $bankID);
         }
         return Response::redirect('cart/pay');
     }
