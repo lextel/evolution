@@ -22,7 +22,7 @@
             <li class="right-box">
                 <div class="img-box img-md fl">
                     <a href="<?php echo Uri::create('m/'.$item->phase_id); ?>" rel="nofollow">
-                        <img src="<?php echo \Helper\Image::showImage($getItemInfo($phase->item_id)->image, '200x200');?>"/>
+                        <img src="<?php echo \Helper\Image::showImage($getItemInfo($phase->item_id)->image, '200x200', 'items');?>"/>
                     </a>
                     <?php if ($phase->code != '') { ?>
                              <span class="icon-jx">已揭晓</span>

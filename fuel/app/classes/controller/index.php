@@ -107,7 +107,7 @@ class Controller_Index extends Controller_Frontend {
 
         $bucket = Input::get('bucket');
 
-        $buckets = ['items', 'intros'];
+        $buckets = ['items', 'intros', 'shares'];
 
         $result = ['status' => 'fail'];
         if(in_array($bucket, $buckets)) {

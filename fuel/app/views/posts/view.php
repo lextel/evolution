@@ -60,7 +60,7 @@
        </p>
        <?php foreach(unserialize($post->images) as $img) { ?>
            <p style="text-align: center;text-indent: 0;">
-           <img src="/<?php echo $img;?>" />
+           <img src="<?php echo \Helper\Image::showImage($img, '', 'shares');?>" />
            </p>
        <?php } ?>
        </div>
@@ -164,7 +164,7 @@
                     <?php foreach(unserialize($npost->images) as $v=>$img1) { ?>
                     <?php if ($v < 3) { ?>
                     <dd>
-                        <img src="<?php echo \Helper\Image::showImage($img1, '70x70');?>"/>
+                        <img src="<?php echo \Helper\Image::showImage($img1, '70x70', 'shares');?>"/>
                     </dd>
                     <?php } ?>
                     <?php } ?>

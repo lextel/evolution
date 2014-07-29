@@ -68,8 +68,13 @@ class Image {
         }
         $w = $sizes[0];
         $h = $sizes[1];
-        $mode = 'imageView2/1/w/'.$w.'/h/'.$h;
 
-        return $server.$path.'?'.$mode;
+        if($w == 0 || $h == 0) {
+            $handle = 'imageMogr2/thumbnail/'.$w.'x/';
+        } else {
+            $handle = 'imageView2/1/w/'.$w.'/h/'.$h;
+        }
+
+        return $server.$path.'?'.$handle;
     }
 }

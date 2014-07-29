@@ -30,10 +30,10 @@
                     <td><div class="img-box img-sm">
                     <?php if ($post->status == 1) { ?>
                         <a href="<?php echo Uri::create('p/'.$post->id)?>">
-                            <img src="<?php echo \Helper\Image::showImage($post->topimage, '70x70');?>"/>
+                            <img src="<?php echo \Helper\Image::showImage($post->topimage, '70x70', 'shares');?>"/>
                         </a>
                     <?php } else { ?>
-                        <img src="<?php echo \Helper\Image::showImage($post->topimage, '70x70');?>"/>
+                        <img src="<?php echo \Helper\Image::showImage($post->topimage, '70x70', 'shares');?>"/>
                     <?php }?>
                     </div></td>
                     <td>
