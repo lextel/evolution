@@ -99,12 +99,6 @@
                                 </label>
                             </dd>
                              <dd>
-                                <input type="radio" id="szfz" name="account" value="1008">
-                                <label for="szfz">
-                                    <span class="szfz"></span>
-                                </label>
-                            </dd>
-                             <dd>
                                 <input type="radio" id="xy" name="account" value="1009">
                                 <label for="xy">
                                     <span class="xy"></span>
