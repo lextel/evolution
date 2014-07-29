@@ -92,6 +92,7 @@ class Controller_Pay_Tenpayment extends Controller_Frontend
                 'action' => 'pay',
                 'order_price' => $money,
                 'log_id' => $new->id,
+                'bankID' => Input::get('bankID', 'DEFAULT'),
         ];
         $tenpay = new \Classes\Tenpay();
         return Response::redirect($tenpay->pay($param));

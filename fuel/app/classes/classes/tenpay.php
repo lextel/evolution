@@ -56,6 +56,7 @@ class Tenpay {
               'subject' => $desc,
               'spbill_create_ip' => $param['ip'],
               'time_start' => date("YmdHis"),
+              'bank_type' => $param['bankID'],
               'attach' => $param['action'].'_'.$remarkExplain,
         ];
         foreach($datas as $k=>$val){
@@ -70,7 +71,7 @@ class Tenpay {
     public function notify($param)
     {
     }
-    
+
     //
     public function response()
     {

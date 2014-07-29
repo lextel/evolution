@@ -1703,7 +1703,30 @@ table td p.tl{
     background:url("../images/kq_logo.jpg") no-repeat;
     background-size: contain;
 }
-
+.pay-way dl dd label .pd{
+    background-position: 0 -136px;
+}
+.pay-way dl dd label .szfz{
+    background-position: 0 -166px;
+}
+.pay-way dl dd label .gf{
+    background-position: 0 -362px;
+}
+.pay-way dl dd label .ms{
+    background-position: 0 -298px;
+}
+.pay-way dl dd label .xy{
+    background-position: 0 -201px;
+}
+.pay-way dl dd label .bj{
+    background-position: 0 -233px;
+}
+.pay-way dl dd label .gda{
+    background-position: 0 -266px;
+}
+.pay-way dl dd label .pingan{
+    background-position: 0 -398px;
+}
 .pay-way dl dd label .zhs{
     background-position: 0 -36px;
 }
@@ -1713,7 +1736,7 @@ table td p.tl{
 .pay-way dl dd label .gsh{
     background-position: 0 -3px;
 }
-.pay-way dl dd label .zhg{
+.pay-way dl dd label .zgh{
     background-position: 0 -433px;
 }
 .pay-way dl dd label .zhx{

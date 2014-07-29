@@ -24,6 +24,9 @@ class Controller_Member_Recharge extends Controller_Frontend{
         if ($source == 'tenpay') {
             return $this->tenpay();
         }
+        if ($source != '99bill' && $source != 'tenpay'){
+            return $this->tenpay();
+        }
         return Response::redirect('/u/getrecharge');
     }
     /*
@@ -123,6 +126,7 @@ class Controller_Member_Recharge extends Controller_Frontend{
                 'action' => 'recharge',
                 'order_price' => $money,
                 'log_id' => $new->id,
+                'bankID' => Input::get('bankID', 'DEFAULT'),
         ];
         $tenpay = new \Classes\Tenpay();
         return Response::redirect($tenpay->pay($param));

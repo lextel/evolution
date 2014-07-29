@@ -37,6 +37,98 @@
             <div class="pay-way">
                 <div class="title"><h4>选择付款方式</h4></div>
                 <dl>
+                <dt>网银支付</dt>
+                            <dd>
+                                <input type="radio" id="gsh" name="account"  value="1002">
+                                <label for="gsh">
+                                    <span class="gsh"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="zhs" name="account" value="1001">
+                                <label for="zhs">
+                                    <span class="zhs"></span>
+                                </label>
+                            </dd>
+                            <dd>
+                                <input type="radio" id="jsh" name="account" value="1003">
+                                <label for="jsh">
+                                    <span class="jsh"></span>
+                                </label>
+                            </dd>
+                            <dd>
+                                <input type="radio" id="ny" name="account" value="1005">
+                                <label for="ny">
+                                    <span class="ny"></span>
+                                </label>
+                            </dd>
+                            <dd>
+                                <input type="radio" id="pd" name="account" value="1004">
+                                <label for="pd">
+                                    <span class="pd"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="szfz" name="account" value="1008">
+                                <label for="szfz">
+                                    <span class="szfz"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="xy" name="account" value="1009">
+                                <label for="xy">
+                                    <span class="xy"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="bj" name="account" value="1032">
+                                <label for="bj">
+                                    <span class="bj"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="gda" name="account" value="1022">
+                                <label for="gda">
+                                    <span class="gda"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="ms" name="account" value="1006">
+                                <label for="ms">
+                                    <span class="ms"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="zhx" name="account" value="1021">
+                                <label for="zhx">
+                                    <span class="zhx"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="gf" name="account" value="1027">
+                                <label for="gf">
+                                    <span class="gf"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="pingan" name="account" value="1010">
+                                <label for="pingan">
+                                    <span class="pingan"></span>
+                                </label>
+                            </dd>
+                            <dd>
+                                <input type="radio" id="zgh" name="account" value="1052">
+                                <label for="zgh">
+                                    <span class="zgh"></span>
+                                </label>
+                            </dd>
+                            <dd>
+                                <input type="radio" id="jt" name="account" value="1020">
+                                <label for="jt">
+                                    <span class="jt"></span>
+                                </label>
+                            </dd>
+                        </dt>
                     <dt>第三方平台</dt>
                     <!--<dd>
                         <input type="radio" id="zhf" name="account" value="alipay"/>
@@ -64,49 +156,7 @@
                         </label>
                     </dd>
                     <?php } ?>
-                    <dt>网银支付</dt>
-                    <dd>
-                        <input type="radio" id="zhs" name="account"/>
-                        <label for="zhs">
-                            <span class="zhs"></span>
-                        </label>
-                    </dd>
-                    <dd>
-                        <input type="radio" id="jt" name="account"/>
-                        <label for="jt">
-                            <span class="jt"></span>
-                        </label>
-                    </dd>
-                    <dd>
-                        <input type="radio" id="gsh" name="account"/>
-                        <label for="gsh">
-                            <span class="gsh"></span>
-                        </label>
-                    </dd>
-                    <dd style="margin-right: 0;">
-                        <input type="radio" id="zhg" name="account"/>
-                        <label for="zhg">
-                            <span class="zhg"></span>
-                        </label>
-                    </dd>
-                    <dd>
-                        <input type="radio" id="zhx" name="account"/>
-                        <label for="zhx">
-                            <span class="zhx"></span>
-                        </label>
-                    </dd>
-                    <dd>
-                        <input type="radio" id="jsh" name="account"/>
-                        <label for="jsh">
-                            <span class="jsh"></span>
-                        </label>
-                    </dd>
-                    <dd>
-                        <input type="radio" id="ny" name="account"/>
-                        <label for="ny">
-                            <span class="ny"></span>
-                        </label>
-                    </dd>
+
                 </dl>
 
                 <div class="total-money">
