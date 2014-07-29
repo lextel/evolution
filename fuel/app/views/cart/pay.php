@@ -67,6 +67,98 @@
                 <div class="pay-way">
                     <div class="caption" style="margin-bottom: 8px">元宝不足？请选择下面方式购买（1元宝=1元）</div>
                     <dl>
+                        <dt>网银支付</dt>
+                            <dd>
+                                <input type="radio" id="zhs" name="bankID"  value="">
+                                <label for="zhs">
+                                    <span class="zhs"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="gsh" name="account">
+                                <label for="gsh">
+                                    <span class="gsh"></span>
+                                </label>
+                            </dd>
+                            <dd>
+                                <input type="radio" id="jsh" name="account">
+                                <label for="jsh">
+                                    <span class="jsh"></span>
+                                </label>
+                            </dd>
+                            <dd>
+                                <input type="radio" id="ny" name="account">
+                                <label for="ny">
+                                    <span class="ny"></span>
+                                </label>
+                            </dd>
+                            <dd>
+                                <input type="radio" id="jt" name="account">
+                                <label for="jt">
+                                    <span class="jt"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="jt" name="account">
+                                <label for="jt">
+                                    <span class="jt"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="jt" name="account">
+                                <label for="jt">
+                                    <span class="jt"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="jt" name="account">
+                                <label for="jt">
+                                    <span class="jt"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="jt" name="account">
+                                <label for="jt">
+                                    <span class="jt"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="jt" name="account">
+                                <label for="jt">
+                                    <span class="jt"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="jt" name="account">
+                                <label for="jt">
+                                    <span class="jt"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="jt" name="account">
+                                <label for="jt">
+                                    <span class="jt"></span>
+                                </label>
+                            </dd>
+                             <dd>
+                                <input type="radio" id="jt" name="account">
+                                <label for="jt">
+                                    <span class="jt"></span>
+                                </label>
+                            </dd>
+                            <dd>
+                                <input type="radio" id="zhg" name="account">
+                                <label for="zhg">
+                                    <span class="zhg"></span>
+                                </label>
+                            </dd>
+                            <dd>
+                                <input type="radio" id="zhx" name="account">
+                                <label for="zhx">
+                                    <span class="zhx"></span>
+                                </label>
+                            </dd>
+                        </dt>
                         <dt>第三方平台</dt>
                          <dd>
                             <input type="radio" id="kq" name="account" value="99bill">
@@ -80,56 +172,13 @@
                                 <span class="cft"></span>
                             </label>
                         </dd>
-                        <?php if (0) { ?><dd>
+
+                         <!--dd>
                             <input type="radio" id="bfb" name="account" value="bfb"/>
                             <label for="bfb">
                                 <span class="bfb"></span>
                             </label>
-                        </dd>
-                        <?php } ?>
-                        <dt>网银支付</dt>
-                        <dd>
-                            <input type="radio" id="zhs" name="account">
-                            <label for="zhs">
-                                <span class="zhs"></span>
-                            </label>
-                        </dd>
-                        <dd>
-                            <input type="radio" id="jt" name="account">
-                            <label for="jt">
-                                <span class="jt"></span>
-                            </label>
-                        </dd>
-                        <dd>
-                            <input type="radio" id="gsh" name="account">
-                            <label for="gsh">
-                                <span class="gsh"></span>
-                            </label>
-                        </dd>
-                        <dd>
-                            <input type="radio" id="zhg" name="account">
-                            <label for="zhg">
-                                <span class="zhg"></span>
-                            </label>
-                        </dd>
-                        <dd>
-                            <input type="radio" id="zhx" name="account">
-                            <label for="zhx">
-                                <span class="zhx"></span>
-                            </label>
-                        </dd>
-                        <dd>
-                            <input type="radio" id="jsh" name="account">
-                            <label for="jsh">
-                                <span class="jsh"></span>
-                            </label>
-                        </dd>
-                        <dd>
-                            <input type="radio" id="ny" name="account">
-                            <label for="ny">
-                                <span class="ny"></span>
-                            </label>
-                        </dd>
+                        </dd-->
                     </dl>
                 </div>
                 <!--选择支付方式结束-->
