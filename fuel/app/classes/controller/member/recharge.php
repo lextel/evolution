@@ -118,7 +118,7 @@ class Controller_Member_Recharge extends Controller_Frontend{
                   'phase_id'=>'0', 'sum'=>$money * Config::get('point', 100)];
         $new = new Model_Member_Moneylog($props);
         $new->save();
-        //order_no, product_name, order_price,log_id,ip,action,
+        //order_no, product_name, order_price,log_id,ip,action, bankID
         $param = [
                 'ip' => Input::ip(),
                 'order_no' => date('YmdHis').$new->id,
@@ -126,7 +126,7 @@ class Controller_Member_Recharge extends Controller_Frontend{
                 'action' => 'recharge',
                 'order_price' => $money,
                 'log_id' => $new->id,
-                'bankID' => Input::get('bankID', 'DEFAULT'),
+                'bankID' => Input::get('source', 'DEFAULT'),
         ];
         $tenpay = new \Classes\Tenpay();
         return Response::redirect($tenpay->pay($param));
