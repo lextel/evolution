@@ -18,7 +18,8 @@ class Controller_Pay_Baidupayment extends Controller_Frontend
         $quantity = 0;
         $money = 0;
         foreach($items as $item) {
-            $money += $item->get_price() * intval($item->get_qty());
+            //$money += $item->get_price() * intval($item->get_qty());
+            $money +=1 * intval($item->get_qty());
             $quantity += $item->get_qty();
         }
         $userId = $current_user->id;
@@ -71,7 +72,8 @@ class Controller_Pay_Baidupayment extends Controller_Frontend
 
         $quantity = 0;
         foreach($items as $item) {
-            $quantity += $item->get_price() * $item->get_qty();
+            //$quantity += $item->get_price() * $item->get_qty();
+            $quantity += 1* $item->get_qty();
         }
         $total_amount = isset($req['total_amount']) ? $req['total_amount'] : 0;
         if($money != 0 && $quantity == (intval($req['total_amount']) / 100 && $total_amount != 0)) {

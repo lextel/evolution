@@ -130,26 +130,25 @@
                             <span class="zhf"></span>
                         </label>
                     </dd>-->
-                    <dd>
+                    <?php if(0) { ?><dd>
                         <input type="radio" id="kq" name="account" value="99bill"/>
                         <label for="kq">
                             <span class="kq"></span>
                         </label>
                     </dd>
+                    <?php } ?>
                     <dd>
                         <input type="radio" id="cft" name="account" value="tenpay"/>
                         <label for="cft">
                             <span class="cft"></span>
                         </label>
                     </dd>
-                    <?php if (0) { ?>
                     <dd>
                         <input type="radio" id="bfb" name="account" value="bfb"/>
                         <label for="bfb">
                             <span class="bfb"></span>
                         </label>
                     </dd>
-                    <?php } ?>
 
                 </dl>
 

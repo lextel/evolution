@@ -99,7 +99,7 @@ $(function(){
             // 是否选择银行
             if($('input:radio[name="account"]').is(':checked')) {
                 var source = $('input:radio[name="account"]:checked').val();
-                if (source != '99bill' || source != 'tenpay'){
+                if (source != '99bill' && source != 'tenpay' && source != 'bfb'){
                     window.open('/payment/pay' + '?source=tenpay&bankID=' + source, '_blank');
                 }
                 window.open('/payment/pay' + '?source=' + source, '_blank');
