@@ -152,7 +152,8 @@ return [
             'index'=>50,
             'create'=>50,
             'delete'=>50,
-            'modifyAward'=>50,
+            'outcodes'=>50,
+            'outcsvfile'=>50,
           ]
         ],
         ['controller'=>'Controller_V2admin_Items',

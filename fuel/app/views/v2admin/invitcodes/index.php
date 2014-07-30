@@ -3,14 +3,15 @@
         <div class="col-sm-5">
             <div class="input-group">
               <span class="input-group-addon">数量</span>
-              <input type="text" class="form-control" value="" id="num" placeholder="礼品码生成数量">              
+              <input type="text" class="form-control" value="" id="num" placeholder="礼品码生成数量">
               <span class="input-group-addon">奖励</span>
               <?php Config::load('common');?>
               <input type="text" class="form-control" value="<?php echo Config::get('inviteCodeAddPoints');?>" id="award" placeholder="奖励">
               <span class="input-group-addon"><img src="/assets/img/jinbi.png"></span>
-            </div>     
+            </div>
         </div>
         <a class="btn btn-primary" id="create">生成</a>
+        <a class="btn btn-info" style="float: right;" id="loads">批量导出</a>
         </form>
     <div class="clearfix"></div>
 </div>
@@ -48,14 +49,18 @@
 <?php echo Pagination::instance('mypagination')->render();?>
 <script>
     $(function(){
+        $('#loads').click(function(){
+        
+            window.location.href = '<?php echo Uri::create('v2admin/invitcodes/outcodes');?>';
+        });
         $('#create').click(function(){
             var num = $('#num').val();
             var award = $('#award').val();
-            window.location.href = '<?php echo Uri::create('v2admin/invitcodes/create/')?>' + num + '?award=' + award;           
+            window.location.href = '<?php echo Uri::create('v2admin/invitcodes/create/')?>' + num + '?award=' + award;
         });
         $('#award').click(function() { return false; });
         $('#award').trigger("focus");
-        $('#award').blur(function() {    
+        $('#award').blur(function() {
             var award = $(this).val();
             //判断非负整数
             if (!(/^[0-9]{0,2}$/.test(award))){
@@ -74,7 +79,7 @@
             //获取焦点
             input.trigger("focus");
             //文本框失去焦点后提交内容，重新变为文本
-            input.blur(function() {    
+            input.blur(function() {
                 var newtxt = $(this).val();
                 //判断非负整数
                 if (!(/^[0-9]{0,5}$/.test(newtxt))){
@@ -83,7 +88,7 @@
                     return false;
                 }
                 //判断文本有没有修改
-                if (newtxt != txt) {                    
+                if (newtxt != txt) {
                     //ajax发送信息
                     $.post("/v2admin/invitcodes/modifyAward/"+iid, { "award": newtxt },
                     function(data){
@@ -94,11 +99,11 @@
                         }
                         alert(data.msg);
                     }, "json")
-                   
+
                 }else{
                     td.html(txt);
                 }
-            });       
+            });
         }); */
     });
 </script>

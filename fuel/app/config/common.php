@@ -34,7 +34,7 @@ return [
     /**
      * 礼品码送元宝数量
      */
-    'inviteCodeAddPoints' => 10,  // 赠送元宝数量
+    'inviteCodeAddPoints' => 1,  // 赠送元宝数量
 
     /**
      * @var 揭晓时间 （单位:分钟）

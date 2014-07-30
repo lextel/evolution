@@ -43,7 +43,7 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
             Session::set_flash('error', e('请输入奖励元宝数'));
             Response::redirect('v2admin/invitcodes');
         }
-        
+
         //导入默认奖励配置
         Config::load('common');
         //$addPoints = Config::get('point') * Config::get('inviteCodeAddPoints');
@@ -79,8 +79,39 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
         } else {
             Session::set_flash('error', e('删除失败 #'.$id));
         }
-
         Response::redirect('v2admin/invitcodes');
+    }
+    //打开页面
+    public function action_outcodes(){
+        $view = View::forge('v2admin/invitcodes/outcsv');
+        $breadcrumb = new Helper\Breadcrumb();
+        $breads = [
+                ['name' => '用户管理'],
+                ['name' => '礼品码'],
+                ['name' => '批量导出'],
+            ];
+        $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $this->template->title = "用户管理 > 礼品码 > 批量导出";
+        $this->template->content = $view;
+    }
+
+
+    //批量导出礼品码
+    public function action_outcsvfile(){
+        $startId = intval(Input::get('startId', 0));
+        $endId = intval(Input::get('endId', 0));
+        if ((empty($startId) && empty($endId)) || ($endId < $startId)) return Response::redirect('v2admin/invitcodes');
+        $codes = Model_Invitcode::find('all',
+                ['where' => [['id', '<=', $endId],
+                ['id', '>=', $startId], 'status' => '0', 'is_delete' => '0']]);
+        $datas = [];
+        foreach($codes as $i=>$code){
+            $datas[] = [$i, $code->code];
+        }
+        $csv = new Classes\Csv;
+        $date = date('Ymd');
+        $csvFileName = $date . '_' . $startId . '_' . $endId . '.xls';
+        return $csv->output($csvFileName, $datas);
     }
     /*
     // 修改礼品码的奖励
@@ -90,7 +121,7 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
         if (is_null($id)) return json_encode($res);
         $invitcode = Model_Invitcode::find('first', ['where' => ['is_delete' => 0, 'id'=>$id]]);
         if (empty($invitcode)) return json_encode($res);
-        //检测格式        
+        //检测格式
         $val = Validation::forge();
         $val->add_field('award', 'award', 'required|valid_string[numeric]');
         if (!$val->run()) return json_encode($res);
