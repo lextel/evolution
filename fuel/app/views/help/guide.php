@@ -32,7 +32,7 @@
             <div class="intro_box">
                 <div class="intro">
                     <div class="tit"></div>
-                    <p>支付100银币(1元宝=100银币)购买乐淘包获得“幸运乐淘码” 1元宝/次</p>
+                    <p>支付一元宝  支付100银币(1元宝=100银币)购买乐淘包，获得乐淘包的“幸运乐淘码” 1元宝/次</p>
                 </div>
                 <p><img src="../assets/images/novice05.png" alt="" style="max-height: none;"/></p>
             </div>
@@ -53,7 +53,7 @@
                 <dd><s class="icon">2</s>所出售的每组乐淘包中，只有一个乐淘包包含实物商品，剩余乐淘包包含一个虚拟商品。</dd>
                 <dd><s class="icon">3</s>乐友购买乐淘包之后，可以获得所购乐淘包的编号“乐淘码”</dd>
                 <dd><s class="icon">4</s>包含实物商品的乐淘包的“乐淘码”将会按照公开算法计算得出</dd>
-                <dd><s class="icon">5</s>等价等值的虚拟商品将随机发放</dd>
+                <dd><s class="icon">5</s>等价等值的虚拟商品将随机发放。(<a class="b" href="<?php echo Uri::create('/h/expressinfo'); ?>">虚拟商品领取方式</a>)</dd>
                 <dd><s class="icon">6</s>实物商品将送到您所指定的送货地址，全国免费配送（港澳台地区除外）</dd>
             </dl>
             <dl>
