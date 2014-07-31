@@ -135,8 +135,6 @@
                 <?php } ?>
                 <li class="lastest"><a href="<?php echo Uri::create('h/contact');?>">联系我们</a></li>
             </ul>
-            <P style="color:#5b5b5b">Copyright © 2014<?php echo date('Y') != 2014 ? '-'.date('Y') : '';?> <a href="http://www.lltao.com">www.lltao.com</a> 版权所有 <a href="http://www.miitbeian.gov.cn/" target="_blank" ref="nofollow">粤ICP备14017463号-1<!--服务器商要求加链接--></a></P>
-            <!--<div class="slogan"><img src=<?php echo Uri::create("/assets/images/slogan.png");?>></div>-->
             <div class="flink" style="text-align:center">
                 <span>友情链接:</span>
                     <a href="http://bbs.anzhi.com" target="_blank">安智论坛</a>
@@ -146,6 +144,16 @@
                     <a href="http://www.yyyg.com" target="_blank">一元云购</a>
                     <script type="text/javascript" src="http://links.webscan.360.cn/index/index/5a921b4ccb556a6f7b8b23b0ae066fe5"></script>
             </div>
+            <div>
+                <script type="text/javascript">
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5959034'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/stat.php%3Fid%3D5959034' type='text/javascript'%3E%3C/script%3E"));
+                </script>
+
+                <script id="ebsgovicon" src="https://cert.ebs.gov.cn/govicon.js?id=ddc62feb-c968-4272-b63e-6a94ec87682f&width=128&height=52&type=2" type="text/javascript" charset="utf-8"></script>
+            </div>
+
+            <P style="color:#5b5b5b">Copyright © 2014<?php echo date('Y') != 2014 ? '-'.date('Y') : '';?> <a href="http://www.lltao.com">www.lltao.com</a> 版权所有 <a href="http://www.miitbeian.gov.cn/" target="_blank" ref="nofollow">粤ICP备14017463号-1<!--服务器商要求加链接--></a></P>
+            <div class="slogan"><img src=<?php echo Uri::create("/assets/images/slogan.png");?>></div>
             <!--
             <div style="clear:both"></div>
              <ul class="safety">
@@ -219,9 +227,6 @@
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
-    </script>
-    <script type="text/javascript">
-    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5959034'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/stat.php%3Fid%3D5959034' type='text/javascript'%3E%3C/script%3E"));
     </script>
 </body>
 </html>
