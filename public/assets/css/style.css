@@ -1419,6 +1419,154 @@ label.error{
     height: 2710px;
     background:url("../img/lol_bd-bg.jpg") no-repeat center 0;
 }
+.guide_bg{
+    width: 100%;
+    overflow: hidden;
+    background: url("../images/novice_bg.png") repeat;
+}
+.guide-banner{
+    width: 980px;
+    height: 180px;
+    padding-top: 80px;
+    text-align: center;
+    margin: 0 auto;
+    z-index: 1;
+}
+.guide-content{
+    width: 980px;
+    overflow: hidden;
+    margin: -4px auto 20px;
+    background: #fffef3;
+    border-radius: 8px;
+    box-shadow: 0 0 35px #969494;
+}
+.guide-content .intro .tit{
+    width: 330px;
+    height: 64px;
+    margin-bottom: 20px;
+    background: url("../images/novice.png") no-repeat;
+}
+.guide-content p{
+    font-size: 14px;
+    line-height: 22px;
+}
+.guide-col01{
+    width: 840px;
+    height: 430px;
+    padding: 70px 70px 0;
+}
+.guide-col01 .img-box{
+    width: 430px;
+    height: 430px;
+    float: left;
+}
+.guide-col01 .intro{
+    width: 300px;
+    height: 300px;
+    float: left;
+    margin: 70px 0 0 70px;
+}
+.guide-col01 .intro .tit{
+    background-position: -0px -0px;
+}
+.guide-col02{
+    width: 980px;
+    height: 430px;
+}
+.guide-col02 .img-box{
+    width: 570px;
+    height: 370px;
+    float: right;
+}
+.guide-col02 .intro{
+    width: 320px;
+    height: 200px;
+    float: left;
+    margin: 70px 0 0 70px;
+}
+.guide-col02 .intro .tit{
+    background-position: -0px -63px;
+}
+.guide-col03{
+    width: 980px;
+    height: 430px;
+}
+.guide-col03 .img-box{
+    width: 425px;
+    height: 430px;
+    float: left;
+    margin-left: 70px;
+}
+.guide-col03 .intro{
+    width: 350px;
+    height: 143px;
+    float: left;
+    margin: 70px 0 0 70px;
+}
+.guide-col03 .intro_box{
+    width:474px;
+    height: 200px;
+    float: left;
+}
+.guide-col02 .intro .tit{
+    background-position: -0px -63px;
+}
+.guide-col03 .intro .tit{
+    background-position: -0px -129px;
+}
+.guide-col04 .intro .tit{
+    background-position: -0px -63px;
+}
+.guide-col04{
+    width: 980px;
+    height: 555px;
+    padding-top: 50px;
+}
+.guide-col05{
+    height: 58px;
+    margin: 30px 0;
+    text-align: center;
+}
+.guide-col05 .btn{
+    display: inline-block;
+    width: 268px;
+    height: 58px;
+    background: url("../images/novice.png") no-repeat 0 -193px;
+}
+.guide-info{
+    overflow: hidden;
+    /*margin: 50px 70px;*/
+    background: #ffffff;
+}
+.guide-info dl{
+    overflow: hidden;
+    margin: 20px 60px;
+}
+.guide-info dl dt{
+    height:40px;
+    line-height: 40px;
+    padding-left: 40px;
+    font-size: 18px;
+    background: url("../images/novice.png") no-repeat 0 -300px;
+}
+.guide-info dl dd{
+     height: 30px;
+     color: #666;
+     line-height: 30px;
+     font-size: 14px;
+     margin-left: 40px;
+ }
+.guide-info dl dd .icon{
+    width: 22px;
+    height: 22px;
+    color: #ffffff;
+    margin-right:10px;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 22px;
+    display: inline-block;
+    background: url("../images/novice.png") no-repeat 0 -268px;
+}
 .column-hero{
     margin: 0 auto;
     width: 1016px;
@@ -1559,84 +1707,6 @@ label.error{
     height: 447px;
     margin-top: -38px;
 }
-.guide-bd{
-    width: 100%;
-    height: auto;
-    margin-top:-10px;
-    /*background: url("../img/guidebg.png") repeat top center;*/
-}
-.guide-fd .column .title{
-    padding:30px 0 15px 15px;
-}
-.guide-fd .column .title span{
-    margin-top:10px;
-    position: absolute;
-    font-size:16px;
-    margin-left:9px;
-    color: #757575;
-}
-.guide-fd .column p img{
-    padding:10px 10px 0px 60px;
-}
-.guide-fd .column p span{
-    margin-top:16px;
-    font-size:12px;
-    color: #666;
-    letter-spacing:1px;
-    position: absolute;
-}
-
-
-.guide-banner{
-    width: 980px;
-    height: 349px;
-    margin: 0 auto -10px;
-    background:url("../img/guide_bn-bg.png") no-repeat top center;
-}
-.guide-bd .column01{
-    width: 980px;
-    height: 386px;
-    margin: 0 auto;
-
-    background: url("../img/guide01.png") no-repeat;
-}
-.guide-bd .column02{
-    width: 980px;
-    height: 450px;
-    margin: 0 auto;
-    background: url("../img/guide02.png") no-repeat;
-}
-.guide-bd .column03{
-    width: 980px;
-    height: 703px;
-    margin: 0 auto;
-    position: relative;
-    background: url("../img/guide03.png") no-repeat;
-}
-.guide-fd{
-    width: 100%;
-    overflow: hidden;
-    background: #ffffff;
-}
-.guide-fd .column{
-    width: 980px;
-    height: 576px;
-    margin: 0 auto;
-}
-.guide-btn-wide{
-    overflow: hidden;
-    margin-top: 25px;
-    text-align: center;
-}
-.guide-btn{
-    width: 200px;
-    height: 50px;
-    display: inline-block;
-    background: url("../img/guide-btn.png") no-repeat;
-    position: absolute;
-    left: 40%;
-    bottom: 60px;
- }
 .game-hd{
     width: 100%;
     height: 755px;

@@ -9,31 +9,57 @@
             <li><?php echo $title;?></li>
             <?php endif;?>
         </ul>
-    </div>
-<div class="guide-bd">
-
-    <div class="column01">
-    </div>
-    <div class="column02">
-    </div>
-    <div class="column03">
-        <a href="<?php echo Uri::create('/');?>" class="guide-btn"></a>
-    </div>
 </div>
-<div class="guide-fd">
-    <div class="column">
-        <div class="rule">
-            <div class="title"><img src="../assets/img/guide04_03.png"/><span><b>1元乐淘规则</b></span></div>
-            <p><img src="../assets/img/guide04_07.png" /><span>每件商品参考市场价平分成相应“等份”，每份1元宝（100银币），一份对应一个乐淘码。</span></p>
-            <p><img src="../assets/img/guide04_10.png" /><span>同一件商品可以购买多次或一次购买多份。</span></p>
-            <p><img src="../assets/img/guide04_16.png" /><span>当一件商品所有“等份”全部售出后计算出的“幸运乐淘码”，拥有“幸运乐淘码“的用户者即可获得此商品。</span></p>
+<div class="guide_bg">
+    <div class="guide-banner"><img src="../assets/images/novice_banner.png" alt=""/></div>
+    <div class="guide-content">
+        <div class="guide-col01">
+            <div class="img-box"><img src="../assets/images/novice01.png" alt="" style="max-height: none;"/></div>
+            <div class="intro">
+                <div class="tit"></div>
+                <p>注册属于你的乐乐淘帐号</p>
+            </div>
+        </div>
+        <div class="guide-col02">
+            <div class="img-box"><img src="../assets/images/novice02.png" alt="" style="max-height: none;"/></div>
+            <div class="intro">
+                <div class="tit"></div>
+                <p>选择一款你喜欢的虚拟道具与实体商品，点击“立即乐淘”</p>
+            </div>
+        </div>
+        <div class="guide-col03">
+            <div class="img-box"><img src="../assets/images/novice03.png" alt="" style="max-height: none;"/></div>
+            <div class="intro_box">
+                <div class="intro">
+                    <div class="tit"></div>
+                    <p>支付100银币(1元宝=100银币)购买乐淘包获得“幸运乐淘码” 1元宝/次</p>
+                </div>
+                <p><img src="../assets/images/novice05.png" alt="" style="max-height: none;"/></p>
+            </div>
+        </div>
+        <div class="guide-col04">
+            <div class="img-box"><img src="../assets/images/novice04.png" alt="" style="max-height: none;"/></div>
+        </div>
+        <div class="guide-col05">
+            <a href="<?php echo Uri::create('/');?>" class="btn"></a>
         </div>
 
-        <div class="calculation">
-            <div class="title"><img src="../assets/img/guide04_03.png"/><span><b>乐淘码计算方式</b></span></div>
-            <p><img src="../assets/img/guide04_07.png" /><span>当一件商品所有“等份”全部售出后计算出的“幸运乐淘码”，拥有“幸运乐淘码“的用户者即可获得此商品。</span></p>
-            <p><img src="../assets/img/guide04_10.png" /><span>时间按时，分，秒毫秒依次排列组成一组数值。</span></p>
-            <p><img src="../assets/img/guide04_16.png" /><span>将这100组数值之和除以商品总需参与人次后取余数，余数加上10,000,001即为“幸运乐淘码”。</span></p>
-        </div>
     </div>
 </div>
+<div class="guide-info">
+            <dl>
+                <dt>乐淘规则</dt>
+                <dd><s class="icon">1</s>每一个乐淘包中包含一件商品</dd>
+                <dd><s class="icon">2</s>所出售的每组乐淘包中，只有一个乐淘包包含实物商品，剩余乐淘包包含一个虚拟商品。</dd>
+                <dd><s class="icon">3</s>乐友购买乐淘包之后，可以获得所购乐淘包的编号“乐淘码”</dd>
+                <dd><s class="icon">4</s>包含实物商品的乐淘包的“乐淘码”将会按照公开算法计算得出</dd>
+                <dd><s class="icon">5</s>等价等值的虚拟商品将随机发放</dd>
+                <dd><s class="icon">6</s>实物商品将送到您所指定的送货地址，全国免费配送（港澳台地区除外）</dd>
+            </dl>
+            <dl>
+                <dt>乐淘码计算方式</dt>
+                <dd><s class="icon">1</s>取该商品最后购买时间前网站所有商品100条购买时间记录（即时揭晓商品取截止时间前网站所有商品100条购买记录）</dd>
+                <dd><s class="icon">2</s>时间按时、分、秒、毫秒依次排列组成一组数值。</dd>
+                <dd><s class="icon">3</s>将这100组数值之和除以商品总需参与人次后取余数，余数加上10,000,001即为“幸运乐淘码”。</dd>
+            </dl>
+    </div>
