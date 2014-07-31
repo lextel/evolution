@@ -32,7 +32,7 @@
             <div class="intro_box">
                 <div class="intro">
                     <div class="tit"></div>
-                    <p>支付一元宝  支付100银币(1元宝=100银币)购买乐淘包，获得乐淘包的“幸运乐淘码” 1元宝/次</p>
+                    <p>支付100银币(1元宝=100银币)购买乐淘包，获得乐淘包的“幸运乐淘码” 1元宝/次</p>
                 </div>
                 <p><img src="../assets/images/novice05.png" alt="" style="max-height: none;"/></p>
             </div>
