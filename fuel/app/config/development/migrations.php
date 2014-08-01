@@ -22,6 +22,13 @@ return array(
 				13 => '016_create_shippings',
 				14 => '017_create_member_emails',
 				15 => '018_create_shippings',
+				16 => '019_create_invitcodes',
+				17 => '020_add_is_delete_to_invitcodes',
+				18 => '021_create_member_mobiles',
+				19 => '023_create_member_invits',
+				20 => '024_create_member_brokerages',
+				21 => '025_create_gifts',
+				22 => '026_create_goods',
 			),
 		),
 		'module' => 
