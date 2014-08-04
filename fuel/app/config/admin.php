@@ -32,6 +32,7 @@ return [
                 ['name' => '会员列表', 'href' => Uri::create('/v2admin/members'), 'group'=>50],
                 ['name' => '冻结会员', 'href' => Uri::create('/v2admin/members/black'), 'group'=>50],
                 ['name' => '礼品码', 'href' => Uri::create('/v2admin/invitcodes'), 'group'=>50],
+                ['name' => '乐淘奖品', 'href' => Uri::create('/v2admin/gift'), 'group'=>50],
             ]
         ],
         [
@@ -62,7 +63,7 @@ return [
                 ['name' => '用户充值', 'href' => Uri::create('/v2admin/moneylog/recharge'), 'group'=>50],
             ]
         ],
-        [
+        /*[
             'name' => 'APP管理',
             'href' => 'javascript:void(0);',
             'class' => 'dropdown',
@@ -72,7 +73,7 @@ return [
                 ['name' => 'APP日志', 'href' => Uri::create('/v2admin/applogs'), 'group'=>10],
                 ['name' => 'APP图表', 'href' => Uri::create('/v2admin/applogs/report'), 'group'=>10],
             ],
-        ],
+        ],*/
         [
             'name' => '系统管理',
             'href' => 'javascript:void(0);',
@@ -145,6 +146,13 @@ return [
             'avatarUpload'=>50,
             'multiUpload'=>50,
             'csvUpload'=>50,
+          ]
+        ],
+        ['controller'=>'Controller_V2admin_Gift',
+         'action'=>[
+            'index'=>50,
+            'create'=>50,
+            'delete' => 50,
           ]
         ],
         ['controller'=>'Controller_V2admin_Invitcodes',
