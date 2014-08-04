@@ -25,8 +25,8 @@
             <th width="20%">礼品码</th>
             <th width="10%">奖励价值</th>
             <th>状态</th>
-            <th width="20%">兑奖人</th>
-            <th width="20%">兑奖日期</th>
+            <th width="20%">激活ID</th>
+            <th width="20%">激活时间</th>
             <th>操作</th>
         </tr>
     </thead>
