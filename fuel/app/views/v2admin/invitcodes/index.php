@@ -54,7 +54,7 @@
 <script>
     $(function(){
         $('#loads').click(function(){
-        
+
             window.location.href = '<?php echo Uri::create('v2admin/invitcodes/outcodes');?>';
         });
         $('#create').click(function(){
@@ -67,7 +67,7 @@
         $('#award').blur(function() {
             var award = $(this).val();
             //判断非负整数
-            if (!(/^[0-9]{0,2}$/.test(award))){
+            if (!(/^[0-9]{0,3}$/.test(award))){
                 $(this).val(<?php echo Config::get('inviteCodeAddPoints');?>);
                 return false;
             }
