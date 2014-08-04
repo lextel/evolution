@@ -39,7 +39,7 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
             Response::redirect('v2admin/invitcodes');
         }
         $award = intval(Input::get("award", 0));
-        if (!preg_match('/^\d{1,2}$/', $award)){
+        if (!preg_match('/^\d{1,3}$/', $award)){
             Session::set_flash('error', e('请输入奖励元宝数'));
             Response::redirect('v2admin/invitcodes');
         }
