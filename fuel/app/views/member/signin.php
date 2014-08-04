@@ -34,7 +34,7 @@
             <ul class="loginBar">
                 <li>
                     <div class="item">
-                        <?php echo Form::input('username', Session::get_flash('username', ''), array('type'=>"text",'name'=>'username','placeholder'=>'请输入手机/邮箱')); ?>
+                        <?php echo Form::input('username', Session::get_flash('username', '') ? Session::get_flash('username', '') : Input::get('username'), array('type'=>"text",'name'=>'username','placeholder'=>'请输入手机/邮箱')); ?>
                          <s class="icon-user"></s>
                         <?php if (Session::get_flash('signError', null)) { ?>
                         <label for="form_username" class="error" style="display:inline-block;line-height:29px"><?php echo Session::get_flash('signError');?></label>

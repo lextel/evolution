@@ -56,7 +56,8 @@ class Controller_Center extends Controller_Frontend
                 Session::set_flash('signError', '用户名或者密码错误');
             }
             Session::set_flash('signError', '用户名或者密码格式错误');
-            return Response::redirect('/signin');
+            //Session::set_flash('username', Input::post('username'));
+            return Response::redirect('/signin?username=' . Input::post('username'));
         }
         return Response::forge(View::forge('member/signin', [], false));
     }
