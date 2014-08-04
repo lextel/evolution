@@ -22,9 +22,11 @@
     <thead>
         <tr>
             <th># ID</th>
-            <th width="45%">礼品码</th>
+            <th width="20%">礼品码</th>
             <th width="10%">奖励价值</th>
             <th>状态</th>
+            <th width="20%">兑奖人</th>
+            <th width="20%">兑奖日期</th>
             <th>操作</th>
         </tr>
     </thead>
@@ -35,6 +37,8 @@
             <td><?php echo $code->code; ?></td>
             <td><?php echo $code->award . ' <img class="jin" src="/assets/img/jinbi.png">'; ?></td>
             <td><?php echo $code->status == 1 ? '已使用' : '<span style="color:green">未使用</span>'; ?></td>
+            <td><?php echo $code->status == 1 ? $getUsername($code->member_id) : ''; ?></td>
+            <td><?php echo $code->status == 1 ? date('Y-m-d H:i:s', $code->updated_at) : ''; ?></td>
             <td>
             <?php echo Html::anchor('v2admin/invitcodes/delete/'.$code->id, '删除', array('onclick' => "return confirm('亲，确定删除么?')")); ?>
             </td>

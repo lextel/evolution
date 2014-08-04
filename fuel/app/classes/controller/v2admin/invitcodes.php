@@ -17,7 +17,7 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
         $config = $page->setConfig($url, $total, 'page');
         $pagination = Pagination::forge('mypagination', $config);
 
-        $view = View::forge('v2admin/invitcodes/index');
+        $view = ViewModel::forge('v2admin/invitcodes/index');
         $breadcrumb = new Helper\Breadcrumb();
 
         $offset = $pagination->offset;
