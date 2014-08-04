@@ -159,5 +159,9 @@ return array(
     'tenpay/notify' => 'pay/tenpayment/notify',
     'tenpay/return' => 'pay/tenpayment/return',
 
+    'yeebao/pay' => 'pay/yeebaopayment/pay',
+    'yeebao/pay' => 'pay/yeebaopayment/pay',
+    'yeebao/pay' => 'pay/yeebaopayment/pay',
+
     'payment/pay' => 'pay/cartment/cartpay',
 );

@@ -149,7 +149,12 @@
                             <span class="bfb"></span>
                         </label>
                     </dd>
-
+                    <dd>
+                        <input type="radio" id="yeebao" name="account" value="yeebao"/>
+                        <label for="yeebao">
+                            <span class="yeebao"></span>
+                        </label>
+                    </dd>
                 </dl>
 
                 <div class="total-money">

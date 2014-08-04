@@ -21,10 +21,14 @@ class Controller_Member_Recharge extends Controller_Frontend{
         if ($source == 'bfb') {
             return $this->bfb();
         }
+        if ($source == 'yeebao') {
+            return $this->yeebao();
+        }
         if ($source == 'tenpay') {
             return $this->tenpay();
         }
-        if ($source != '99bill' && $source != 'tenpay' && is_numeric($source)){
+        $arrs = ['alipay', '99bill', 'bfb', 'tenpay', 'yeebao'];
+        if (!(in_array($source, $arrs)) && is_numeric($source)){
             return $this->tenpay();
         }
         return Response::redirect('/u/getrecharge');
@@ -93,13 +97,13 @@ class Controller_Member_Recharge extends Controller_Frontend{
         $expire_time = date('YmdHis', strtotime('+2 day'));
         $order_no = $order_create_time . sprintf ( '%06d', rand(0, 999999));
         $params = [
-		        'goods_name' => iconv('utf-8', 'gb2312', '充值_' . $new->id),
-		        'order_create_time' => $order_create_time,
-		        'order_no' => $order_no,
-		        'page_url' => Config::get('bfb.rechargepage'),
-		        'return_url' => Config::get('bfb.rechargereturn'),
-		        'total_amount' => $money * 100,
-		        'extra' => $new->id,
+                'goods_name' => iconv('utf-8', 'gb2312', '充值_' . $new->id),
+                'order_create_time' => $order_create_time,
+                'order_no' => $order_no,
+                'page_url' => Config::get('bfb.rechargepage'),
+                'return_url' => Config::get('bfb.rechargereturn'),
+                'total_amount' => $money * 100,
+                'extra' => $new->id,
         ];
         $baidu = new \Classes\Baidupay();
         return $baidu->pay($params);
@@ -131,5 +135,31 @@ class Controller_Member_Recharge extends Controller_Frontend{
         ];
         $tenpay = new \Classes\Tenpay();
         return Response::redirect($tenpay->pay($param));
+    }
+    /*
+    * 易宝支付充值接口
+    */
+    private function yeebao()
+    {
+        $money = intval(Input::get('money', 0));
+        $userId = $this->current_user->id;
+        Config::load('common');
+        $props = ['member_id'=>$userId, 'total'=>$money,
+                  'source'=>'易宝支付', 'type'=> -1,
+                  'phase_id'=>'0', 'sum'=>$money * Config::get('point', 100)];
+        $new = new Model_Member_Moneylog($props);
+        $new->save();
+               
+        $param = [
+                'ip' => Input::ip(),
+                'order_no' => date('YmdHis').$new->id,
+                'product_name' => '充值',
+                'action' => 'recharge',
+                'order_price' => $money,
+                'log_id' => $new->id,
+        ];
+        //$tenpay = new \Classes\Tenpay();
+        //return Response::redirect($tenpay->pay($param));
+        return;
     }
 }

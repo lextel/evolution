@@ -32,6 +32,10 @@ class Controller_Pay_Cartment extends Controller_Frontend
         if ($source == 'tenpay') {
             return Response::redirect('tenpay/pay?bankID=' . $bankID);
         }
+        //易宝支付
+        if ($source == 'yeebao') {
+            return Response::redirect('yeebao/pay');
+        }
         return Response::redirect('cart/pay');
     }
 }

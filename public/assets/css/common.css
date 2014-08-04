@@ -1703,6 +1703,12 @@ table td p.tl{
     background:url("../images/kq_logo.jpg") no-repeat;
     background-size: contain;
 }
+.pay-way dl dd label .yeebao{
+    display:block;
+    margin-top: 2px;
+    background:url("../images/yeebaologo.jpg") no-repeat;
+    background-size: contain;
+}
 .pay-way dl dd label .pd{
     background-position: 0 -136px;
 }
