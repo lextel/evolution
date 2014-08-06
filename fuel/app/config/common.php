@@ -117,4 +117,9 @@ return [
         'returnurl' => 'http://www.lltao.com/tenpay/return',
         'notifyurl' => 'http://www.lltao.com/tenpay/notify',
     ],
+    //
+    'yeebao' => [
+        'requrl' => 'https://www.yeepay.com/app-merchant-proxy/node',
+        'bgurl' => 'yeebao/callback',
+    ]
 ];

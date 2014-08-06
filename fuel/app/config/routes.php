@@ -160,8 +160,8 @@ return array(
     'tenpay/return' => 'pay/tenpayment/return',
 
     'yeebao/pay' => 'pay/yeebaopayment/pay',
-    'yeebao/pay' => 'pay/yeebaopayment/pay',
-    'yeebao/pay' => 'pay/yeebaopayment/pay',
+    'yeebao/callback' => 'pay/yeebaopayment/callback',
+    'yeebao/return' => 'pay/yeebaopayment/return',
 
     'payment/pay' => 'pay/cartment/cartpay',
 );

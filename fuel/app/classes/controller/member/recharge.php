@@ -75,7 +75,7 @@ class Controller_Member_Recharge extends Controller_Frontend{
         $order['pName'] = '充值_' . $new->id;
         $kq = new \Classes\Kqpay();
         $request = $kq->request($order);
-        $view = View::forge('kqbill');
+        $view = View::forge('payment/kqbill');
         $view->set('BillRequest', $request);
         $this->template->title = '快钱跳转POST页面';
         $this->template = $view;
@@ -149,17 +149,21 @@ class Controller_Member_Recharge extends Controller_Frontend{
                   'phase_id'=>'0', 'sum'=>$money * Config::get('point', 100)];
         $new = new Model_Member_Moneylog($props);
         $new->save();
-               
+        $p_name = 'pay_' . $new->id;
+        Log::error($p_name);
         $param = [
-                'ip' => Input::ip(),
-                'order_no' => date('YmdHis').$new->id,
-                'product_name' => '充值',
-                'action' => 'recharge',
-                'order_price' => $money,
-                'log_id' => $new->id,
+                'p2_Order' => date('YmdHis').$new->id,
+                'p5_Pid' => $p_name,
+                'pa_MP' => 'recharge_' . $new->id,
+                'p3_Amt' => $money,
+                'p8_Url' => Uri::base() . Config::get('yeebao.bgurl'),
         ];
-        //$tenpay = new \Classes\Tenpay();
-        //return Response::redirect($tenpay->pay($param));
-        return;
+        $yeebao = new \Classes\Yeebaopay();
+        $params = $yeebao->pay($param);
+        
+        $view = View::forge('payment/yeebao');
+        $view->set('params', $params);
+        $this->template->title = '易宝支付跳转POST页面';
+        $this->template = $view;
     }
 }

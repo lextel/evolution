@@ -40,7 +40,7 @@ class Controller_Pay_Kqpayment extends Controller_Frontend
         $order['pName'] = '支付_'.$new->id;
         $kq = new \Classes\Kqpay();
         $request = $kq->request($order);
-        $view = View::forge('kqbill');
+        $view = View::forge('payment/kqbill');
         $view->set('BillRequest', $request);
         $this->template->title = '快钱跳转POST页面';
         $this->template = $view;

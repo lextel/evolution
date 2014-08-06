@@ -60,7 +60,7 @@
             </div>
         </div>
     </div>
-    <div class="pay-row"><label><input type="checkbox" id="goldPay">使用元宝支付，您有：<?php echo \Helper\Coins::showCoins($current_user->points, true);?></label><b id="money" money="<?php echo $current_user->points; ?>" style="display:none"></b></div>
+    <!--div class="pay-row"><label><input type="checkbox" id="goldPay">使用元宝支付，您有：<?php echo \Helper\Coins::showCoins($current_user->points, true);?></label><b id="money" money="<?php echo $current_user->points; ?>" style="display:none"></b></div>
     <!--选择支付方式开始-->
     <div class="prepaid-box">
                 <!--选择支付方式开始-->
@@ -172,6 +172,12 @@
                             <input type="radio" id="bfb" name="account" value="bfb"/>
                             <label for="bfb">
                                 <span class="bfb"></span>
+                            </label>
+                        </dd>
+                        <dd>
+                            <input type="radio" id="yeebao" name="account" value="yeebao"/>
+                            <label for="yeebao">
+                                <span class="yeebao"></span>
                             </label>
                         </dd>
                     </dl>

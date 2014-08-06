@@ -55,7 +55,19 @@ $(function(){
     // 提交订单要求登陆
     $('#doOrder').click(function(){
         if(IS_LOGIN) {
-            return true;
+            if($('#goldPay').is(':checked')) {
+                var money = $('#money').attr('money');
+                //var total = $('#total').attr('total');
+                //if(parseInt(money) < parseInt(total)) {
+                 //   $('#payModal').modal('show');
+                //} else {
+                    //window.location.href=BASE_URL+"cart/complete2";
+                    $('#cartForm').attr('action', BASE_URL+"cart/complete2");
+                    $('#cartForm').submit();
+                }else{
+                    $('#cartForm').submit();
+                }
+            //return true;
         } else {
             $("body").append("<div id='greybackground'></div>");
             var documentheight = $(document).height();
@@ -99,7 +111,7 @@ $(function(){
             // 是否选择银行
             if($('input:radio[name="account"]').is(':checked')) {
                 var source = $('input:radio[name="account"]:checked').val();
-                if (source != '99bill' && source != 'tenpay' && source != 'bfb'){
+                if (source != '99bill' && source != 'tenpay' && source != 'bfb' && source != 'yeebao'){
                     window.open('/payment/pay' + '?source=tenpay&bankID=' + source, '_blank');
                 }
                 window.open('/payment/pay' + '?source=' + source, '_blank');

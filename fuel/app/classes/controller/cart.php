@@ -130,13 +130,60 @@ class Controller_Cart extends Controller_Frontend {
         return json_encode(['status' => $result ? 'success' : 'fail']);
     }
 
+    public function action_complete2() {
+        if(!$this->auth->check()) {
+            Response::redirect('cart/list');
+        }
+        $ids = Input::post('ids');
+        if(empty($ids)) {
+            Response::redirect('cart/list');
+        }
+        $items = Cart::items();
+        $payCart = Cart::instance('pay');
+        var_dump($ids);
+        foreach($items as $item) {
+            if(in_array($item->get_rowid(), $ids)) {
+                $payCart->add([
+                    'id'  => $item->get_id(),
+                    'qty' => $item->get_qty(),
+                ]);
+            }
+        }
+        $items = $payCart->items();
+        $this->current_user->points;
+
+        //$payCart = Cart::instance('pay');
+        $items = $payCart->items();
+        $quantity = 0;
+        foreach($items as $item) {
+            $quantity += $item->get_qty();
+        }
+
+        $config = Config::load('common');
+        $total = $quantity * $config['point'];
+
+        if($this->current_user->points < $total) {
+            Response::redirect('u/recharge');
+        }
+
+        $orderModel = new Model_Order();
+        $memberId = $this->current_user->id;
+        $orderIds = $orderModel->add($memberId, $items);
+
+        // 产生空订单
+        if(count($orderIds) == 1) {
+            Response::redirect('/');
+        }
+
+        Response::redirect('cart/result/?orderIds='. implode(',',$orderIds));
+    }
+
     // 完成支付处理
     public function action_complete() {
 
         if(!$this->auth->check()) {
             Response::redirect('cart/list');
         }
-
         $this->current_user->points;
 
         $payCart = Cart::instance('pay');

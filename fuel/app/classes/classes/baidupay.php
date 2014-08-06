@@ -14,20 +14,20 @@ class Baidupay {
         require_once('paymentLib/baidu/' . 'bfb_pay.cfg.php');
         $bfb_sdk = new bfb_sdk();
         $datas = [
-		        'currency' => sp_conf::BFB_INTERFACE_CURRENTCY,
-		        'goods_name' => $params['goods_name'],
-		        'input_charset' => sp_conf::BFB_INTERFACE_ENCODING,
-		        'order_create_time' => $params['order_create_time'],
-		        'order_no' => $params['order_no'],
-		        'page_url' => $params['page_url'],
-		        'pay_type' => 2, //不登录支付
-		        'return_url' => $params['return_url'],
-		        'service_code' => sp_conf::BFB_PAY_INTERFACE_SERVICE_ID,
-		        'sign_method' => sp_conf::SIGN_METHOD_MD5,
-		        'sp_no' => sp_conf::SP_NO,
-		        'total_amount' => $params['total_amount'],
-		        'version' => sp_conf::BFB_INTERFACE_VERSION,
-		        'extra' => $params['extra'],		        
+                'currency' => sp_conf::BFB_INTERFACE_CURRENTCY,
+                'goods_name' => $params['goods_name'],
+                'input_charset' => sp_conf::BFB_INTERFACE_ENCODING,
+                'order_create_time' => $params['order_create_time'],
+                'order_no' => $params['order_no'],
+                'page_url' => $params['page_url'],
+                'pay_type' => 2, //不登录支付
+                'return_url' => $params['return_url'],
+                'service_code' => sp_conf::BFB_PAY_INTERFACE_SERVICE_ID,
+                'sign_method' => sp_conf::SIGN_METHOD_MD5,
+                'sp_no' => sp_conf::SP_NO,
+                'total_amount' => $params['total_amount'],
+                'version' => sp_conf::BFB_INTERFACE_VERSION,
+                'extra' => $params['extra'],
         ];
         $order_url = $bfb_sdk->create_baifubao_pay_order_url($datas, sp_conf::BFB_PAY_DIRECT_NO_LOGIN_URL);
         \Log::error($order_url);
@@ -41,8 +41,8 @@ class Baidupay {
         $bfb_sdk = new bfb_sdk();
         $bfb_sdk->log(sprintf('百度钱包返回结果：[%s]', print_r($_GET, true)));
         if (false === $bfb_sdk->check_bfb_pay_result_notify()) {
-	        $bfb_sdk->log('百度支付不成功');
-	        return;
+            $bfb_sdk->log('百度支付不成功');
+            return;
         }
         $bfb_sdk->log('支付成功');
         return $bfb_sdk;
