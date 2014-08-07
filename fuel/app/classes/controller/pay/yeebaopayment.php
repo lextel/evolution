@@ -63,7 +63,7 @@ class Controller_Pay_Yeebaopayment extends Controller_Frontend
                 $msg = $this->recharge($logId);
             }
             if (!empty($msg)){
-                return "";
+                return "success";
             }
         }
         if ($cb == 1){
@@ -94,13 +94,14 @@ class Controller_Pay_Yeebaopayment extends Controller_Frontend
             Log::error("易宝支付成功");
             return "success";
         }
-        //记录需要退帐
-        //流水号
-        $tradeNo = trim(Input::get('r2_TrxId'));
-        //订单号
-        $outTradeNo = trim(Input::get('r6_Order'));
-        Log::error('支付失败! 需要记录:易宝支付流水号 ' . $tradeNo . ' 订单号 ' . $outTradeNo);
-
+        if ($quantity != 0){
+            //记录需要退帐
+            //流水号
+            $tradeNo = trim(Input::get('r2_TrxId'));
+            //订单号
+            $outTradeNo = trim(Input::get('r6_Order'));
+            Log::error('支付失败! 需要记录:易宝支付流水号 ' . $tradeNo . ' 订单号 ' . $outTradeNo);
+        }
     }
     // 充值支付核对
     private function recharge($logId, $source = '易宝支付'){
