@@ -28,7 +28,7 @@ class Controller_Pay_Yeebaopayment extends Controller_Frontend
                   'phase_id'=>'0', 'sum'=>$money * Config::get('point', 100)];
         $new = new Model_Member_Moneylog($props);
         $new->save();
-        
+
         $param = [
                 'p2_Order' => date('YmdHis').$new->id,
                 'p5_Pid' => 'pay_' . $new->id,
@@ -38,14 +38,14 @@ class Controller_Pay_Yeebaopayment extends Controller_Frontend
         ];
         $yeebao = new \Classes\Yeebaopay();
         $params = $yeebao->pay($param);
-        
+
         $view = View::forge('payment/yeebao');
         $view->set('params', $params);
         $this->template->title = '易宝支付跳转POST页面';
         $this->template = $view;
     }
-    
-    
+
+
     // 支付回调
     public function action_callback() {
         $yeebao = new \Classes\Yeebaopay();
@@ -64,10 +64,10 @@ class Controller_Pay_Yeebaopayment extends Controller_Frontend
             }
             if (!empty($msg)){
                 return "支付成功";
-            }       
+            }
         }
         if ($cb == 1){
-            $this->yeebaoreturn();
+            return $this->yeebaoreturn();
         }
         return '支付失败';
     }
@@ -100,7 +100,7 @@ class Controller_Pay_Yeebaopayment extends Controller_Frontend
         //订单号
         $outTradeNo = trim(Input::get('r6_Order'));
         Log::error('支付失败! 需要记录:易宝支付流水号 ' . $tradeNo . ' 订单号 ' . $outTradeNo);
-        
+
     }
     // 充值支付核对
     private function recharge($logId, $source = '易宝支付'){
@@ -119,7 +119,7 @@ class Controller_Pay_Yeebaopayment extends Controller_Frontend
             echo '支付失败';
             die;
         }
-        $res = Model_Member::addMoney($userId, $point);
+        $res = Model_Member::addMoney($userId, $log->sum);
         if ($res){
             //增加充值记录
             $log->type=0;
@@ -130,7 +130,7 @@ class Controller_Pay_Yeebaopayment extends Controller_Frontend
             die;
         }
     }
-    
+
     // 支付结构返回
     private function yeebaoreturn() {
         $status = true;
@@ -145,5 +145,5 @@ class Controller_Pay_Yeebaopayment extends Controller_Frontend
         $view->set('reason', '');
         $this->template->layout = $view;
     }
-} 
-   
+}
+
