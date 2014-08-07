@@ -268,7 +268,7 @@ class Model_Order extends \Classes\Model
      *
      * @return array
      */
-    public function newOrders($phaseId = 0, $len = 4) {
+    public function newOrders($phaseId = 0, $len = 6) {
 
         $where = [];
         if(!empty($phaseId)) {
@@ -288,7 +288,7 @@ class Model_Order extends \Classes\Model
      *
      * @return array
      */
-    public function myOrder($memberId, $phaseId, $len = 5) {
+    public function myOrder($memberId, $phaseId, $len = 6) {
 
         $where = ['member_id' => $memberId, 'phase_id' => $phaseId];
         $orderBy = ['id' => 'desc'];
