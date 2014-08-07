@@ -97,47 +97,40 @@
         <div class="help-bg">
             <div class="footer-help w">
                 <dl class="dl01">
-                    <dt><a href="<?php echo Uri::create('/h'); ?>">新手指南</a></dt>
-                    <dd><a href="<?php echo Uri::create('/h/new'); ?>">新手指南</a></dd>
-                    <dd><a href="<?php echo Uri::create('/h/safeguard'); ?>">乐淘保障</a></dd>
-                    <dd><a href="<?php echo Uri::create('/h/expressinfo'); ?>">商品配送</a></dd>
+                    <dt>新手指南</a></dt>
+                    <dd><a href="<?php echo Uri::create('/h'); ?>">新手指南</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/question'); ?>">常见问题</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/serve'); ?>">服务协议</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/privacy'); ?>">隐私声明</a></dd>
                 </dl>
                 <dl class="dl02">
                     <dt>乐淘保障</dt>
-                    <dd><a href="javascript:;">保障体系</a></dd>
-                    <dd><a href="javascript:;">正品保障</a></dd>
-                    <dd><a href="javascript:;">安全支付</a></dd>
-                    <dd><a href="javascript:;">投诉建议</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/safeguard'); ?>">保障体系</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/promise'); ?>">正品承诺</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/pay'); ?>">安全支付</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/suggest'); ?>">投诉建议</a></dd>
                 </dl>
-                <dl class="dl03">
+                <dl class="dl02">
                     <dt>商品配送</dt>
-                    <dd><a href="javascript:;">商品配送</a></dd>
-                    <dd><a href="javascript:;">配送费用</a></dd>
-                    <dd><a href="javascript:;">商品验货与签收</a></dd>
-                    <dd><a href="javascript:;">长时间未收到商品</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/expressinfo');?>">商品配送</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/shipping');?>">配送费用</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/examine');?>">验货签收</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/longTime');?>">长时间未收到商品</a></dd>
                 </dl>
-                <dl class="dl04">
+                <dl class="dl02">
                     <dt>关于乐淘</dt>
-                    <dd><a href="javascript:;">关于我们</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/about');?>">关于我们</a></dd>
                     <dd><a href="javascript:;">新浪微博</a></dd>
                     <dd><a href="javascript:;">官方微信</a></dd>
-                    <dd><a href="javascript:;">联系我们</a></dd>
+                    <dd><a href="<?php echo Uri::create('/h/contact');?>">联系我们</a></dd>
                 </dl>
-                <dl class="dl05">
+                <dl class="dl02">
                     <dt>乐淘商务</dt>
                     <dd><a href="javascript:;">商务合作</a></dd>
                     <dd><a href="javascript:;">友情链接</a></dd>
-                    <dd>官方QQ群：157425899</dd>
+                    <dd>官方QQ群：<br />157425899</dd>
                 </dl>
-                <!--
-                <dl class="three">
-                    <dt>联系我们</dt>
-                    <dd><p class="r" style="font-size:22px;"><span class="icon icon-phone"></span>4008123123</p></dd>
-                    <dd><p class="pl-01">仅收市话费，周一至周日8.00-18.00</p></dd>
-                    <dd><span class="kf"><i class="icon icon-online"></i>24小时在线客服</span></dd>
-                </dl>
-                -->
-                <dl class="dl04">
+                <dl class="dl06">
                     <dt>关注微信</dt>
                     <dd><img src="<?php echo Uri::create("/assets/images/wxin1.jpg");?>"></dd>
                 </dl>
