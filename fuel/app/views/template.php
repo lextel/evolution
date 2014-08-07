@@ -97,15 +97,36 @@
         <div class="help-bg">
             <div class="footer-help w">
                 <dl class="dl01">
-                    <dt><a href="<?php echo Uri::create('/h'); ?>">帮助中心</a></dt>
+                    <dt><a href="<?php echo Uri::create('/h'); ?>">新手指南</a></dt>
                     <dd><a href="<?php echo Uri::create('/h/new'); ?>">新手指南</a></dd>
                     <dd><a href="<?php echo Uri::create('/h/safeguard'); ?>">乐淘保障</a></dd>
                     <dd><a href="<?php echo Uri::create('/h/expressinfo'); ?>">商品配送</a></dd>
                 </dl>
-                <dl class="dl02" style="width:170px">
-                    <dt>关注我们</dt>
+                <dl class="dl02">
+                    <dt>乐淘保障</dt>
+                    <dd><a href="javascript:;">保障体系</a></dd>
+                    <dd><a href="javascript:;">正品保障</a></dd>
+                    <dd><a href="javascript:;">安全支付</a></dd>
+                    <dd><a href="javascript:;">投诉建议</a></dd>
+                </dl>
+                <dl class="dl03">
+                    <dt>商品配送</dt>
+                    <dd><a href="javascript:;">商品配送</a></dd>
+                    <dd><a href="javascript:;">配送费用</a></dd>
+                    <dd><a href="javascript:;">商品验货与签收</a></dd>
+                    <dd><a href="javascript:;">长时间未收到商品</a></dd>
+                </dl>
+                <dl class="dl04">
+                    <dt>关于乐淘</dt>
+                    <dd><a href="javascript:;">关于我们</a></dd>
                     <dd><a href="javascript:;">新浪微博</a></dd>
                     <dd><a href="javascript:;">官方微信</a></dd>
+                    <dd><a href="javascript:;">联系我们</a></dd>
+                </dl>
+                <dl class="dl05">
+                    <dt>乐淘商务</dt>
+                    <dd><a href="javascript:;">商务合作</a></dd>
+                    <dd><a href="javascript:;">友情链接</a></dd>
                     <dd>官方QQ群：157425899</dd>
                 </dl>
                 <!--
