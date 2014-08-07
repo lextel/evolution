@@ -119,7 +119,7 @@
                         <div class="total fr">总元宝：<b id="total"><?php echo $subTotal ? \Helper\Coins::showCoins($subTotal * Config::get('point'), true) : $subTotal . Config::get('unit'); ?></b></div>
                     </div>
                 </div>
-                <?php if (isset($current_user)){ ?>
+                <?php if (isset($current_user) && ($current_user->points) && ($subTotal <= $current_user->points)){ ?>
                 <div class="pay-row"><label><input type="checkbox" id="goldPay">直接使用元宝支付，您有：<?php echo \Helper\Coins::showCoins($current_user->points, true);?></label><b id="money" money="<?php echo $current_user->points; ?>" style="display:none"></b></div>
                 <?php } ?>
                 

@@ -57,16 +57,17 @@ $(function(){
         if(IS_LOGIN) {
             if($('#goldPay').is(':checked')) {
                 var money = $('#money').attr('money');
-                //var total = $('#total').attr('total');
-                //if(parseInt(money) < parseInt(total)) {
+                var total = $('#total').attr('total');
+                if(parseInt(money) < parseInt(total)) {
                  //   $('#payModal').modal('show');
-                //} else {
-                    //window.location.href=BASE_URL+"cart/complete2";
+                        alert('');
+                }else{
                     $('#cartForm').attr('action', BASE_URL+"cart/complete2");
                     $('#cartForm').submit();
-                }else{
-                    $('#cartForm').submit();
-                }
+                    }
+            }else{
+                $('#cartForm').submit();
+            }
             //return true;
         } else {
             $("body").append("<div id='greybackground'></div>");
