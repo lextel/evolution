@@ -6,15 +6,19 @@ return array(
 		array(
 			'default' => 
 			array(
-				0 => '014_create_phases',
-				1 => '015_create_members',
-				2 => '017_create_member_emails',
-				3 => '018_create_shippings',
-				4 => '019_create_invitcodes',
-				5 => '020_add_is_delete_to_invitcodes',
-				6 => '021_create_member_mobiles',
-				7 => '023_create_member_invits',
-				8 => '024_create_member_brokerages',
+				0 => '001_create_users',
+				1 => '014_create_phases',
+				2 => '015_create_members',
+				3 => '017_create_member_emails',
+				4 => '018_create_shippings',
+				5 => '019_create_invitcodes',
+				6 => '020_add_is_delete_to_invitcodes',
+				7 => '021_create_member_mobiles',
+				8 => '023_create_member_invits',
+				9 => '024_create_member_brokerages',
+				10 => '025_create_gifts',
+				11 => '026_create_goods',
+				12 => '027_create_giftcodes',
 			),
 		),
 		'module' => 
