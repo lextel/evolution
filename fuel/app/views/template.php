@@ -167,6 +167,9 @@
                 </script>
 
                 <script id="ebsgovicon" src="https://cert.ebs.gov.cn/govicon.js?id=ddc62feb-c968-4272-b63e-6a94ec87682f&width=128&height=52&type=2" type="text/javascript" charset="utf-8"></script>
+                <!--可信网站图片LOGO安装开始-->
+                <script src="http://kxlogo.knet.cn/seallogo.dll?sn=e14080644030052139ynxi000000&size=0"></script>
+                <!--可信网站图片LOGO安装结束-->
             </div>
             <!--
             <div style="clear:both"></div>
