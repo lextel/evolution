@@ -1,31 +1,16 @@
 ﻿<?php
-include 'merchantProperties.php';
 /*
  * @Description 易宝支付产品通用接口范例
  * @V3.0
  * @Author rui.xin
  */
-
-    #   产品通用接口请求地址
-    #$reqURL_onLine = "https://www.yeepay.com/app-merchant-proxy/node";
-
-
-    # 业务类型
-    # 支付请求，固定值"Buy" .
-    $p0_Cmd = "Buy";
-
-    #   送货地址
-    # 为"1": 需要用户将送货地址留在易宝支付系统;为"0": 不需要，默认为 "0".
-    $p9_SAF = "0";
-
 #签名函数生成签名串
 function getReqHmacString($p2_Order,$p3_Amt,$p4_Cur,$p5_Pid,$p6_Pcat,$p7_Pdesc,$p8_Url,$pa_MP,$pd_FrpId,$pr_NeedResponse)
 {
-    global $p0_Cmd;
-    global $p9_SAF;
-    include 'merchantProperties.php';
-
     #进行签名处理，一定按照文档中标明的签名顺序进行
+     \Config::load("common");
+    $p1_MerId           = \Config::get('yeebao.p1_MerId');                                                                                                        #测试使用
+    $merchantKey    = \Config::get('yeebao.merchantKey');       #测试使用
     $sbOld = "";
     $p0_Cmd = "Buy";
     $p9_SAF = "0";
@@ -56,17 +41,18 @@ function getReqHmacString($p2_Order,$p3_Amt,$p4_Cur,$p5_Pid,$p6_Pcat,$p7_Pdesc,$
     #加入是否需要应答机制
     $sbOld = $sbOld.$pr_NeedResponse;
     logstr($p2_Order,$sbOld,HmacMd5($sbOld,$merchantKey));
-    
+
     return HmacMd5($sbOld,$merchantKey);
 
 }
 
 function getCallbackHmacString($r0_Cmd,$r1_Code,$r2_TrxId,$r3_Amt,$r4_Cur,$r5_Pid,$r6_Order,$r7_Uid,$r8_MP,$r9_BType)
 {
-
-    include 'merchantProperties.php';
-
     #取得加密前的字符串
+    //require_once('merchantProperties.php');
+    \Config::load("common");
+    $p1_MerId           = \Config::get('yeebao.p1_MerId');                                                                                                        #测试使用
+    $merchantKey    = \Config::get('yeebao.merchantKey');       #测试使用
     $sbOld = "";
     #加入商家ID
     $sbOld = $sbOld.$p1_MerId;
@@ -154,11 +140,7 @@ function HmacMd5($data,$key)
 
 function logstr($orderid,$str,$hmac)
 {
-    include 'merchantProperties.php';
-    //$james=fopen($logName,"a+");
-    //fwrite($james,"\r\n".date("Y-m-d H:i:s")."|orderid[".$orderid."]|str[".$str."]|hmac[".$hmac."]");
     \Log::error("\r\n".date("Y-m-d H:i:s")."|orderid[".$orderid."]|str[".$str."]|hmac[".$hmac."]");
-    //fclose($james);
 }
 
 ?>

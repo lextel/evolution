@@ -121,5 +121,7 @@ return [
     'yeebao' => [
         'requrl' => 'https://www.yeepay.com/app-merchant-proxy/node',
         'bgurl' => 'yeebao/callback',
+        'p1_MerId'           => "10012408438",                                                                                                      #测试使用
+        'merchantKey'    => "5h8h79262c5PJ579391nW745Y17RB4D05MAN81yPeT945M7lV659hT7I4ot6",       #测试使用
     ]
 ];

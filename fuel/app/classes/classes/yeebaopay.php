@@ -52,9 +52,10 @@ class Yeebaopay {
 
         #调用签名函数生成签名串
         $hmac = getReqHmacString($p2_Order,$p3_Amt,$p4_Cur,$p5_Pid,$p6_Pcat,$p7_Pdesc,$p8_Url,$pa_MP,$pd_FrpId,$pr_NeedResponse);
-        //\Log::error(iconv("GB2312", "UTF-8", $p5_Pid));
+        \Config::load("common");
+        $p1_MerId           = \Config::get('yeebao.p1_MerId');
         return [
-                 'p0_Cmd' => $p0_Cmd, 'p1_MerId'=>$p1_MerId,
+                 'p0_Cmd' => "Buy", 'p1_MerId'=>$p1_MerId,
                  'p2_Order'=>$p2_Order, 'p3_Amt'=>$p3_Amt, 'p4_Cur'=>$p4_Cur,
                  'p5_Pid'=>$p5_Pid, 'p6_Pcat'=>$p6_Pcat, 'p7_Pdesc'=>$p7_Pdesc,
                  'p8_Url'=>$p8_Url, 'p9_SAF'=>'0', 'pa_MP'=>$pa_MP, 'pd_FrpId'=>$pd_FrpId,
@@ -70,7 +71,6 @@ class Yeebaopay {
         #   判断返回签名是否正确（True/False）
         $bRet = CheckHmac($r0_Cmd,$r1_Code,$r2_TrxId,$r3_Amt,$r4_Cur,$r5_Pid,$r6_Order,$r7_Uid,$r8_MP,$r9_BType,$hmac);
         #   以上代码和变量不需要修改.
-
         #   校验码正确.
         if($bRet){
             if($r9_BType=="1"){
@@ -79,7 +79,7 @@ class Yeebaopay {
                 return 1;
             }elseif($r9_BType=="2"){
                 #如果需要应答机制则必须回写流,以success开头,大小写不敏感.
-                echo "success";
+                //echo "success";
                 //echo "<br />交易成功";
                 //echo  "<br />在线支付服务器返回";
                 return 2;

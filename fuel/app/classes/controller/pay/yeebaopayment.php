@@ -69,7 +69,7 @@ class Controller_Pay_Yeebaopayment extends Controller_Frontend
         if ($cb == 1){
             return $this->yeebaoreturn();
         }
-        return '';
+        return 'error';
     }
     // 购物车支付核对
     private function pay($logId, $source = '易宝支付'){
@@ -109,14 +109,14 @@ class Controller_Pay_Yeebaopayment extends Controller_Frontend
         $log = Model_Member_Moneylog::find('last', ['where'=>['id'=>$logId, 'type'=>'-1']]);
         if (empty($log)){
             Log::error("易宝支付空记录");
-            die;
+            return ;
         }
         $userId = $log->member_id;
         $money = $log->total;
         $point = $money;
         if ($point != intval(Input::get('r3_Amt', 0))){
             Log::error("易宝支付金额对不上".$point);
-            die;
+            return;
         }
         $res = Model_Member::addMoney($userId, $log->sum);
         if ($res){
@@ -125,7 +125,7 @@ class Controller_Pay_Yeebaopayment extends Controller_Frontend
             $log->save();
             DB::delete('member_moneylogs')->where('member_id', '=', $userId)
                                        ->where('type', '=', '-1')->execute();
-            die;
+            return 'success';
         }
     }
 
