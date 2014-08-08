@@ -67,7 +67,6 @@ class Yeebaopay {
     public function callback(){
 
         require_once('paymentLib/yeebao/' . 'yeepayCommon.php');
-        echo 11;
         $return = getCallBackValue($r0_Cmd,$r1_Code,$r2_TrxId,$r3_Amt,$r4_Cur,$r5_Pid,$r6_Order,$r7_Uid,$r8_MP,$r9_BType,$hmac);
 
         #   判断返回签名是否正确（True/False）
