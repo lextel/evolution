@@ -12,7 +12,7 @@
             line-height: 36px;
             font-size: 14px;
             color: #000;
-            border-bottom: 2px solid #DD0404;
+            border-bottom: 2px solid #af2812;
         }
         .links_list ul{
             overflow: hidden;
@@ -38,7 +38,19 @@
         }
         .links_list li a:hover{
             text-decoration: underline;
-            color: #DD0404;
+            color: #af2812;
+        }
+        .links_list p{
+            margin: 0 20px;
+            font-size: 14px;
+            line-height: 30px;
+        }
+        .links_list .desc{
+            width: 980px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-sizing: border-box;
+            border: 1px solid #eeeeee;
         }
 </style>
 <div class="w links_list">
@@ -53,4 +65,17 @@
             <li><script type="text/javascript" src="http://links.webscan.360.cn/index/index/5a921b4ccb556a6f7b8b23b0ae066fe5"></script>
             </li>
         </ul>
+        <h4 class="tit">申请步骤：</h4>
+        <div class="desc">
+            <p>
+            1. 请先在贵网站做好乐乐淘的文字友情链接：</p><p>
+               链接文字：乐乐淘 链接地址：http://www.lltao.com
+            </p>
+            <p>
+            2. 做好链接后，请发送邮件联系：lltao@lltao.com
+            </p>
+            <p>
+               注明：友情链接交换。乐乐淘只接受申请文字友情链接。
+            </p>
+        </div>
 </div>
