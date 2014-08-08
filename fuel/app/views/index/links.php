@@ -40,7 +40,7 @@
             text-decoration: underline;
             color: #af2812;
         }
-       
+
         .links_list p{
             margin: 0 20px;
             font-size: 14px;
@@ -69,7 +69,7 @@
         <h4 class="tit">申请步骤：</h4>
         <div class="desc">
             <p>
-            1. 请先在贵网站做好乐乐淘的文字友情链接：</p><p>
+            1. 请先在贵网站做好乐乐淘的文字友情链接。</p><p>
                链接文字：乐乐淘 链接地址：http://www.lltao.com
             </p>
             <p>
