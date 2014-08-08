@@ -8,6 +8,7 @@ return array(
     'checkInvitcode' => 'index/checkInvitcode',
     'captcha'=> 'index/captcha',
     'token'=> 'index/token',
+    'links' => 'index/links',
 
     'signin' => 'center/signin',
     'signup' => 'center/signup',
@@ -91,11 +92,7 @@ return array(
     'u/mobile/second/(\d+)' => 'member/mobile/second/$1',
     'u/mobile/getcode' => 'member/mobile/getcode',
     'u/mobile/check' => 'member/mobile/check',
-/*
-    'u/friends' => 'friends/my',
-    'u/follow' => 'friends/follow',
-    'u/unfollow' => 'friends/unfollow',
-*/
+
     'm/search/:title/p/:page' => 'items/search',
     'm/search/:title' => 'items/search',
     'm/(\d+)' => 'items/view/$1',

@@ -127,7 +127,7 @@
                 <dl class="dl02">
                     <dt>乐淘商务</dt>
                     <dd><a href="javascript:;">商务合作</a></dd>
-                    <dd><a href="javascript:;">友情链接</a></dd>
+                    <dd><a href="<?php echo Uri::create('links');?>">友情链接</a></dd>
                     <dd>官方QQ群：<br />157425899</dd>
                 </dl>
                 <dl class="dl06">
@@ -141,6 +141,8 @@
                 <li><a href="<?php echo Uri::create('/');?>">首页</a></li>
                 <li>|</li>
                 <li><a href="<?php echo Uri::create('h/about');?>">关于乐淘</a></li>
+                <li>|</li>
+                <li><a href="<?php echo Uri::create('links');?>">友情链接</a></li>
                 <li>|</li>
                 <li><a href="<?php echo Uri::create('h/privacy');?>">隐私声明</a></li>
                 <li>|</li>

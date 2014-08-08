@@ -121,5 +121,15 @@ class Controller_Index extends Controller_Frontend {
         $response = new Response();
         return $response->body(json_encode($result));
     }
+    
+    /**
+    *  友情链接列表
+    *
+    */
+    public function action_links() {
+        $view = View::forge('index/links');
+        $this->template->title = '乐乐淘-友情链接';
+        $this->template->layout = $view;
+    }
 }
 
