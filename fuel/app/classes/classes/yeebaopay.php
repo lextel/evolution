@@ -79,7 +79,7 @@ class Yeebaopay {
                 return 1;
             }elseif($r9_BType=="2"){
                 #如果需要应答机制则必须回写流,以success开头,大小写不敏感.
-                //echo "success";
+                echo "success";
                 //echo "<br />交易成功";
                 //echo  "<br />在线支付服务器返回";
                 return 2;
