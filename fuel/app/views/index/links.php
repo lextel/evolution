@@ -40,6 +40,7 @@
             text-decoration: underline;
             color: #af2812;
         }
+       
         .links_list p{
             margin: 0 20px;
             font-size: 14px;
@@ -58,13 +59,11 @@
 <div class="w links_list">
         <h4 class="tit">友情链接</h4>
         <ul>
-            <li><a href="http://bbs.anzhi.com" target="_blank">安智论坛</a>
+            <li><span></span>
                 <a href="http://www.xda.cn" target="_blank">XDA</a>
                 <a href="http://www.wanggouchao.com" target="_blank">网购潮</a>
                 <a href="http://www.kuaidi100.com/all/sf.shtml" target="_blank">顺丰快递查询</a>
-                <a href="http://www.yyyg.com" target="_blank">一元云购</a>             
-            </li>
-            <li><script type="text/javascript" src="http://links.webscan.360.cn/index/index/5a921b4ccb556a6f7b8b23b0ae066fe5"></script>
+                <a href="http://www.yyyg.com" target="_blank">一元云购</a>
             </li>
         </ul>
         <h4 class="tit">申请步骤：</h4>
