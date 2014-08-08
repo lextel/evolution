@@ -16,7 +16,7 @@
         }
         .links_list ul{
             overflow: hidden;
-            min-height: 400px;
+            min-height: 300px;
             padding: 20px;
         }
         .links_list li{
@@ -44,6 +44,7 @@
             margin: 0 20px;
             font-size: 14px;
             line-height: 30px;
+            color: #666;
         }
         .links_list .desc{
             width: 980px;
@@ -51,6 +52,7 @@
             background: #ffffff;
             box-sizing: border-box;
             border: 1px solid #eeeeee;
+            min-height: 175px;
         }
 </style>
 <div class="w links_list">
