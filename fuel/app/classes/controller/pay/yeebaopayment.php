@@ -62,9 +62,7 @@ class Controller_Pay_Yeebaopayment extends Controller_Frontend
             if ($action == 'recharge'){
                 $msg = $this->recharge($logId);
             }
-            if (!empty($msg)){
-                return "success";
-            }
+            return "success";
         }
         if ($cb == 1){
             return $this->yeebaoreturn();
