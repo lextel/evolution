@@ -62,30 +62,7 @@
             <?php
             else:
             ?>
-            <!--<li id="win<?php echo $win->id; ?>">
-                <div class="item-body">
-                    <div class="img-box img-md fl">
-                        <a href="<?php echo Uri::create('m/'.$win->id); ?>" rel="nofollow">
-                            <img src="<?php echo \Helper\Image::showImage($win->image, '200x200', 'items');?>"/>
-                        </a>
-                    </div>
-                    <div class="info-side fr">
-                        <div class="p-info">
-                            <h5 class="title-sm">
-                                <a href="<?php echo Uri::create('m/'.$win->id); ?>">(第<?php echo $win->phase_id;?>期)<?php echo $win->title; ?></a>
-                            </h5>
-                            <div class="price">价值：<b>￥<?php echo sprintf('%.2f', $win->amount); ?></b>元</div>
-                        </div>
-                        <dl class="countdown" style="min-height: 29px" endtime="<?php echo date('M d, Y H:i:s', $win->opentime);?>" phaseId="<?php echo $win->id;?>"></dl>
-                        <div class="counting">
-                            <h2>正在计算...</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="item-footer">
-                    <span>即将揭晓，敬请期待...</span>
-                </div>
-            </li>-->
+
             <li class="active" id="win<?php echo $win->id; ?>">
                 <div class="item-head">
                     <h4 class="title-sm fl">
@@ -142,7 +119,7 @@
                             </a>
                         </div>
                         <div class="info-side">
-                            <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $members[$order->member_id]->nickname, ['class'=>'bule']);?> 刚刚乐淘了</div>
+                            <div class="username"><?php echo Html::anchor('u/'.$order->member_id, $members[$order->member_id]->nickname, ['class'=>'bule']);?> <?php echo \Helper\Timer::friendlyDate($order->created_at);?>乐淘了</div>
                             <h4 class="title-br"><?php echo Html::anchor('m/'.$order->phase_id, $phaseByOrders[$order->phase_id]->title);?></h4>
                         </div>
                     </li>

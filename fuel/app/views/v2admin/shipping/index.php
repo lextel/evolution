@@ -59,7 +59,9 @@
             <td><?php echo $userInfo->nickname; ?></td>
             <td><?php echo $getStatus($item->status); ?></td>
             <td>
+                <?php echo Html::anchor('v2admin/members/smsget/'.$item->member_id, '站内信', array('onclick' => "return confirm('亲，您确定要发布站内信?')")); ?> |
                 <?php echo Html::anchor(Uri::create('v2admin/shipping/view/'.$item->id), '查看'); ?>
+                
                 <?php
                     if($item->status == 100):
                         echo ' | ' . Html::anchor(Uri::create('v2admin/shipping/ship/'.$item->id), '发货');

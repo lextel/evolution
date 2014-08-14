@@ -62,7 +62,7 @@ return [
                 ['name' => '用户充值', 'href' => Uri::create('/v2admin/moneylog/recharge'), 'group'=>50],
             ]
         ],
-        [
+        /*[
             'name' => 'APP管理',
             'href' => 'javascript:void(0);',
             'class' => 'dropdown',
@@ -72,7 +72,7 @@ return [
                 ['name' => 'APP日志', 'href' => Uri::create('/v2admin/applogs'), 'group'=>10],
                 ['name' => 'APP图表', 'href' => Uri::create('/v2admin/applogs/report'), 'group'=>10],
             ],
-        ],
+        ],*/
         [
             'name' => '系统管理',
             'href' => 'javascript:void(0);',
@@ -190,6 +190,8 @@ return [
             'disable'=>50,
             'enable'=>50,
             'delete'=>50,
+            'sms' => 50,
+            'smsget' => 50,
           ]
         ],
         ['controller'=>'Controller_V2admin_Moneylog',

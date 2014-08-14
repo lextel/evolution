@@ -33,7 +33,7 @@ class Controller_V2admin_Members extends Controller_V2admin{
         $this->template->content = $view;
 
     }
-
+    //冻结
     public function action_black() {
 
         $breads = [
@@ -110,7 +110,49 @@ class Controller_V2admin_Members extends Controller_V2admin{
 
         Response::redirect('v2admin/members');
     }
+    // 后台发送会员站内信息VIEW页面
+    public function action_smsget($id = null){
+        $breads = [
+                ['name' => '用户管理'], 
+                ['name' => '会员列表' , 'href' => Uri::create('v2admin/members')],
+                ['name' => '发送用户信息'], 
+            ];
 
+        $member = Model_Member::find('first', ['where' => 
+                                     ['is_delete' => '0', 'is_disable' => '0',
+                                      'id' => $id]]);
+
+        $view = View::forge('v2admin/members/sms');
+        $breadcrumb = new Helper\Breadcrumb();
+        $view->set('member', $member);
+        $view->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);
+        $this->template->title = "Member";
+        $this->template->content = $view;
+    }
+    
+    // 系统给会员发送信息
+    public function action_sms($id = null){
+        //检测会员是否存在
+        $member = Model_Member::find('first', ['where' => 
+                                     ['is_delete' => '0', 'is_disable' => '0',
+                                      'id' => $id]]);
+        Session::set_flash('error', e('未发现用户 #' . $id));
+        if (!$member) return Response::redirect('v2admin/members');
+        $title = Input::post('sms');
+        if (empty(trim($title))) return Response::redirect('v2admin/members/smsget/' . $id);
+        $data = [
+            'owner_id'  => $id,
+            'title'     => $title,
+            'type'      => 'note',
+            'user_id'   => 0,
+            'user_name' => '系统',
+            ];
+        $sms = new Model_Member_Sm($data);
+        $sms->save();
+        Session::set_flash('success', e('发送信息成功 #' . $id));
+        return Response::redirect('v2admin/members');
+    }
+    
     // 会员删除
     public function action_delete($id = null) {
 
