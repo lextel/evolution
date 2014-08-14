@@ -155,6 +155,13 @@ return [
             'delete' => 50,
           ]
         ],
+        ['controller'=>'Controller_V2admin_Giftgame',
+         'action'=>[
+            'index'=>50,
+            'create'=>50,
+            'delete' => 50,
+          ]
+        ],
         ['controller'=>'Controller_V2admin_Invitcodes',
          'action'=>[
             'index'=>50,

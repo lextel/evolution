@@ -64,5 +64,31 @@ class Controller_Member_Orders extends Controller_Center
         return json_encode(['orders' => $orders, 'page' => Pagination::instance('mypagination')->render()]);
 
     }
+    
+    //游戏码换抽奖
+    public function action_gamecode(){
+        //获得传入的订单和码,检测是否是中奖的码，是中奖的则返回
+        //获得随机的游戏，需要检测游戏是否有空余的码
+        
+        
+        $view = View::forge('member/gamecode/index');
+        $this->template->title = '虚拟游戏兑奖页面';
+        $this->template->layout->content =$view;
+    }
+    
+    //填写游戏名称
+    public function action_addGameId(){    
+        $project = Input::post('project', '');
+        $game_Id    = Input::post('game_Id');
+        if (empty($gameId)) return json_encode(['code' => 1, 'msg' => '']);
+        //获得游戏ID，然后发放游戏码
+        $gift = Model_Gift::find('first', ['where' => ['game_id' => $game_id, 'status' => 0, 'is_delete' => 0]]);
+        if (!$gitf) return json_encode(['code' => 1, 'msg' => '']);
+        $gift->status = 1;
+        $gift->project = $project;
+        $gitf->member_id = $this->current_user->id;       
+        $gift->save();
+        return json_encode(['code' => 0]);
+    }
 
 }

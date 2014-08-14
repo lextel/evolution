@@ -24,7 +24,8 @@ return array(
     'invit/:id' => 'invit/invit',
     'invit' => 'invit/index',
 
-
+    'u/gamecode/(\d+)/(\d+)' => 'member/orders/gamecode/$1/$2',
+    'u/addgameid' => 'member/orders/addGameId',
     'u/checkemail' => 'member/checkemail',
     'u/sendemailok' => 'member/sendemailok',
     'u/(\d+)' => 'home/index/$1',
@@ -91,11 +92,7 @@ return array(
     'u/mobile/second/(\d+)' => 'member/mobile/second/$1',
     'u/mobile/getcode' => 'member/mobile/getcode',
     'u/mobile/check' => 'member/mobile/check',
-/*
-    'u/friends' => 'friends/my',
-    'u/follow' => 'friends/follow',
-    'u/unfollow' => 'friends/unfollow',
-*/
+
     'm/search/:title/p/:page' => 'items/search',
     'm/search/:title' => 'items/search',
     'm/(\d+)' => 'items/view/$1',
