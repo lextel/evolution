@@ -114,8 +114,8 @@ class Controller_V2admin_Members extends Controller_V2admin{
     public function action_smsget($id = null){
         $breads = [
                 ['name' => '用户管理'], 
-                ['name' => '会员列表' , 'href' => Uri::create('v2admin/members')],
-                ['name' => '发送用户信息'], 
+                ['name' => '物流管理' , 'href' => Uri::create('v2admin/shipping')],
+                ['name' => '虚拟商品发送'], 
             ];
 
         $member = Model_Member::find('first', ['where' => 
@@ -137,7 +137,7 @@ class Controller_V2admin_Members extends Controller_V2admin{
                                      ['is_delete' => '0', 'is_disable' => '0',
                                       'id' => $id]]);
         Session::set_flash('error', e('未发现用户 #' . $id));
-        if (!$member) return Response::redirect('v2admin/members');
+        if (!$member) return Response::redirect('v2admin/shipping');
         $title = Input::post('sms');
         if (empty(trim($title))) return Response::redirect('v2admin/members/smsget/' . $id);
         $data = [
@@ -150,7 +150,7 @@ class Controller_V2admin_Members extends Controller_V2admin{
         $sms = new Model_Member_Sm($data);
         $sms->save();
         Session::set_flash('success', e('发送信息成功 #' . $id));
-        return Response::redirect('v2admin/members');
+        return Response::redirect('v2admin/sms');
     }
     
     // 会员删除

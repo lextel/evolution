@@ -94,6 +94,11 @@ return [
                     'name' => '反馈建议',
                     'href' => Uri::create('v2admin/suggests'),
                     'group' => 10,
+                ],
+                [
+                    'name' => '站内消息',
+                    'href' => Uri::create('v2admin/sms'),
+                    'group' => 50,
                 ]
             ],
         ],
@@ -241,6 +246,7 @@ return [
             'view'=>10,
             'ship'=>10,
             'save'=>10,
+            'savevir'=>10,
           ]
         ],
         ['controller'=>'Controller_V2admin_Users',
@@ -275,6 +281,11 @@ return [
          'action'=>[
             'index'=>10,
             'report'=>10,
+          ]
+        ],
+        ['controller'=>'Controller_V2admin_Sms',
+         'action'=>[
+            'index'=>50,
           ]
         ],
     ]

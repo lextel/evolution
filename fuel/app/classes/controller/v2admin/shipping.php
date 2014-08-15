@@ -106,5 +106,28 @@ class Controller_V2admin_Shipping extends Controller_V2admin
 
         Response::redirect('v2admin/shipping');
     }
+    
+    public function action_savevir($id = null) {
+
+
+        $ship = Model_Shipping::find($id);
+        $ship->name = '';
+        $ship->address = '';
+        $ship->mobile = '';
+        $ship->postcode = '';
+        $ship->exname = '';
+        $ship->excode = '';
+        $ship->status = 3;
+        $ship->admin_id = $this->current_user->id;
+
+        if($ship->save()) {
+            Model_Log::add('发货操作 #' . $id);
+            Session::set_flash('success', e('发货成功 #' . $id));
+        } else {
+            Session::set_flash('error', e('发货失败 #' . $id));
+        }
+
+        Response::redirect('v2admin/shipping');
+    }
 
 }

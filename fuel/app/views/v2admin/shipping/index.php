@@ -46,11 +46,11 @@
     <tbody>
         <?php
             foreach ($ships as $item):
-            $userInfo = $getUser($item->member_id);
-            $phaseInfo = $getItem($item->phase_id);
-            if (!$phaseInfo || !$userInfo){
-              continue;
-            }
+                $userInfo = $getUser($item->member_id);
+                $phaseInfo = $getItem($item->phase_id);
+                if (!$phaseInfo || !$userInfo){
+                  continue;
+                }
         ?>
 
         <tr>
@@ -59,14 +59,21 @@
             <td><?php echo $userInfo->nickname; ?></td>
             <td><?php echo $getStatus($item->status); ?></td>
             <td>
-                <?php echo Html::anchor('v2admin/members/smsget/'.$item->member_id, '站内信', array('onclick' => "return confirm('亲，您确定要发布站内信?')")); ?> |
-                <?php echo Html::anchor(Uri::create('v2admin/shipping/view/'.$item->id), '查看'); ?>
-                
-                <?php
-                    if($item->status == 100):
-                        echo ' | ' . Html::anchor(Uri::create('v2admin/shipping/ship/'.$item->id), '发货');
-                    endif;
-                ?>
+                <?php echo Html::anchor(Uri::create('v2admin/shipping/view/'.$item->id), '查看', ['class' => 'btn btn-info']); ?>
+                <?php if ($item->status != 3 ) { ?>
+                <?php echo Html::anchor(Uri::create('v2admin/shipping/savevir/'.$item->id), '设置结束', ['class' => 'btn btn-primary', 'onclick' => "return confirm('亲，你确定这个是虚拟物品吗?')"]); ?>
+                <?php } ?>
+                <?php if ($item->status == 100) { ?>
+                <div class="btn-group">
+                      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                        发货 <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="<?php echo Uri::create('v2admin/members/smsget/'.$item->member_id);?>">虚拟物品</a></li>
+                        <li><a href="<?php echo Uri::create('v2admin/shipping/ship/'.$item->id);?>">实体物品</a></li>
+                      </ul>
+                </div>
+                <?php } ?>
             </td>
         </tr>
         <?php endforeach; ?>
