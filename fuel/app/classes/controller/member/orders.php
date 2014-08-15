@@ -104,13 +104,16 @@ class Controller_Member_Orders extends Controller_Center
         }
         //检查是否入库了
         $gift = Model_GiftCode::find('first', ['where' => ['order_id' => $orderId, 'code' => $code]]);
+        
         if (!$gift){
+            $gameid = $this->getRandGame();
+            if (empty($gameid)) return Response::redirect('/u/orders');
             $data = [
                 'order_id' => $orderId,
                 'code' => $code,
                 'status' => 0,
                 'is_delete' => 0,
-                'game_id' => $this->getRandGame(),
+                'game_id' => $gameid,
                 'member_id' => $this->current_user->id,
                 'gift_id' => '',
                 'phase_id' => $phase->id,

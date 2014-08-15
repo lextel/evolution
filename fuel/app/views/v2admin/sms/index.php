@@ -13,23 +13,7 @@ echo Asset::js(
 ?>
 <div class="panel panel-default" style="padding: 10px 0">
     <form class="navbar-form navbar-left" role="search" action="" method="get">
-        <div class="col-sm-3">
-            <div class="input-group">
-              <span class="input-group-addon">操作人</span>
-              <select class="form-control" name="user_id" id="form_user_id">
-                  <option value=''>--请选择--</option>
-                  <?php
-                      foreach($users as $user):
-                          $select = '';
-                          if(Input::get('user_id') == $user->id):
-                              $select = 'selected="selected"';
-                          endif;
-                          echo '<option value="'.$user->id.'" '.$select.'>'.$user->username.'</option>';
-                      endforeach;
-                  ?>
-              </select>
-            </div>
-        </div>
+        
         <div class="col-sm-3">
             <div class="input-group">
               <span class="input-group-addon">开始时间</span>
