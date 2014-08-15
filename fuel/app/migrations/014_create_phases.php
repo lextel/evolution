@@ -6,6 +6,7 @@ class Create_phases
 {
     public function up()
     {
+        return;
         \DBUtil::create_table('phases', array(
             'id' => array('constraint' => 11, 'type' => 'int', 'auto_increment' => true, 'unsigned' => true),
             'item_id' => array('constraint' => 11, 'type' => 'int'),

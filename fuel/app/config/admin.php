@@ -32,6 +32,7 @@ return [
                 ['name' => '会员列表', 'href' => Uri::create('/v2admin/members'), 'group'=>50],
                 ['name' => '冻结会员', 'href' => Uri::create('/v2admin/members/black'), 'group'=>50],
                 ['name' => '礼品码', 'href' => Uri::create('/v2admin/invitcodes'), 'group'=>50],
+                ['name' => '乐淘奖品', 'href' => Uri::create('/v2admin/gift'), 'group'=>50],
             ]
         ],
         [
@@ -145,6 +146,20 @@ return [
             'avatarUpload'=>50,
             'multiUpload'=>50,
             'csvUpload'=>50,
+          ]
+        ],
+        ['controller'=>'Controller_V2admin_Gift',
+         'action'=>[
+            'index'=>50,
+            'create'=>50,
+            'delete' => 50,
+          ]
+        ],
+        ['controller'=>'Controller_V2admin_Giftgame',
+         'action'=>[
+            'index'=>50,
+            'create'=>50,
+            'delete' => 50,
           ]
         ],
         ['controller'=>'Controller_V2admin_Invitcodes',

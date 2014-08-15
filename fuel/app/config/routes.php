@@ -25,7 +25,8 @@ return array(
     'invit/:id' => 'invit/invit',
     'invit' => 'invit/index',
 
-
+    'u/gamecode/(\d+)/(\d+)' => 'member/orders/gamecode/$1/$2',
+    'u/addgameid' => 'member/orders/addGameId',
     'u/checkemail' => 'member/checkemail',
     'u/sendemailok' => 'member/sendemailok',
     'u/(\d+)' => 'home/index/$1',

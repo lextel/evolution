@@ -1,42 +1,19 @@
 <?php
 return array(
-	'version' => 
+	'version' =>
 	array(
-		'app' => 
+		'app' =>
 		array(
-			'default' => 
+			'default' =>
 			array(
-				0 => '001_create_users',
-				1 => '003_create_comments',
-				2 => '004_create_cates',
-				3 => '005_create_logs',
-				4 => '006_create_orders',
-				5 => '007_create_member_addresses',
-				6 => '008_create_member_moneylogs',
-				7 => '009_create_notices',
-				8 => '010_create_ads',
-				9 => '011_create_member_sms',
-				10 => '012_create_posts',
-				11 => '013_create_items',
-				12 => '015_create_members',
-				13 => '016_create_shippings',
-				14 => '017_create_member_emails',
-				15 => '018_create_shippings',
-				16 => '019_create_invitcodes',
-				17 => '020_add_is_delete_to_invitcodes',
-				18 => '021_create_member_mobiles',
-				19 => '023_create_member_invits',
-				20 => '024_create_member_brokerages',
-				21 => '025_create_gifts',
-				22 => '026_create_goods',
 			),
 		),
-		'module' => 
+		'module' =>
 		array(
 		),
-		'package' => 
+		'package' =>
 		array(
-			'auth' => 
+			'auth' =>
 			array(
 				0 => '001_auth_create_usertables',
 				1 => '002_auth_create_grouptables',

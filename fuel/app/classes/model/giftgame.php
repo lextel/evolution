@@ -1,15 +1,12 @@
 <?php
 
-class Model_Lottery extends \Orm\Model
+class Model_Giftgame extends \Orm\Model
 {
     protected static $_properties = array(
         'id',
-        'item_id',
-        'phase_id',
-         'order_id',
-        'code',
-        'member_id',
-        'post_id',
+        'name',
+        'status',
+        'is_delete',
         'created_at',
         'updated_at',
     );
@@ -24,6 +21,12 @@ class Model_Lottery extends \Orm\Model
             'mysql_timestamp' => false,
         ),
     );
-    protected static $_table_name = 'lotteries';
+    protected static $_table_name = 'giftgames';
 
+    public static function validate($factory)
+    {
+        $val = Validation::forge($factory);
+        $val->add_field('name', 'name', 'required');
+        return $val;
+    }
 }

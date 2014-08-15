@@ -1,5 +1,4 @@
 <?php
-
 class Model_Order extends \Classes\Model
 {
     protected static $_properties = array(
