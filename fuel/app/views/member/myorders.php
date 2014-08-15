@@ -70,7 +70,13 @@
                                      <?php
                                         $codes = \Helper\Codes::getArray($order->codes);
                                         foreach($codes as $code) {
-                                            echo "<li>{$code}</li>";
+                                            if ($code != $phase->code){
+                                                $a = Html::anchor("/u/gamecode/{$order->id}/{$code}", $code);
+                                               
+                                                echo "<li>{$a}</li>";
+                                            }else{
+                                                echo "<li class='r'>{$code}</li>";
+                                            }
                                         }
                                      ?>
                                  </ul>
