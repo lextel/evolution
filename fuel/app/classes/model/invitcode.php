@@ -30,8 +30,10 @@ class Model_Invitcode extends \Orm\Model
      *
      * @return int
      */
-    public function countCode() {
-        return Model_Invitcode::count(['where' => ['is_delete' => 0]]);
+    public function countCode($get) {
+        $where = ['is_delete' => 0];
+        if (isset($get['code']) && ($get['code'])) $where += ['code' => $get['code']];
+        return Model_Invitcode::count(['where' => $where]);
     }
 
     /**
@@ -41,9 +43,10 @@ class Model_Invitcode extends \Orm\Model
      *
      * @return obj
      */
-    public function lists($offset, $pagesize) {
-
-        return Model_Invitcode::find('all', ['where' => ['is_delete' => 0], 'offset' => $offset, 'limit' => $pagesize, 'order_by' => ['status' => 'asc', 'id' => 'desc'] ]);
+    public function lists($get, $offset, $pagesize) {
+        $where = ['is_delete' => 0];
+        if (isset($get['code']) && $get['code']) $where += ['code' => $get['code']];
+        return Model_Invitcode::find('all', ['where' =>$where, 'offset' => $offset, 'limit' => $pagesize, 'order_by' => ['status' => 'asc', 'id' => 'desc'] ]);
     }
 
     /**
@@ -102,7 +105,7 @@ class Model_Invitcode extends \Orm\Model
         $member = Model_Member::find($member_id);
         $addPoints = intval($code->award) * Config::get('point');
         // 礼品码使用日志
-        $point = Config::get('point');          
+        $point = Config::get('point');
         $data = [
             'phase_id'  => 0,
             'total'     => $addPoints / $point,
@@ -110,7 +113,7 @@ class Model_Invitcode extends \Orm\Model
             'type'      => 3,
             'source'    => '礼品码',
             'member_id' => $member_id,
-            ];           
+            ];
         $model = new Model_Member_Moneylog($data);
         $model->save();
         $member->points += $addPoints;

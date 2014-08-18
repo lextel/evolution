@@ -8,11 +8,12 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
                 ['name' => '用户管理'],
                 ['name' => '礼品码'],
             ];
-
+        $get = Input::get();
         $codeModel = new Model_Invitcode();
-        $total = $codeModel->countCode();
+        $total = $codeModel->countCode($get);
         $page = new \Helper\Page();
-        $url = Uri::create('v2admin/invitcodes');
+        $url = Uri::create('v2admin/invitcodes',['code' => Input::get('code')],
+                ['code' => ':code']);
 
         $config = $page->setConfig($url, $total, 'page');
         $pagination = Pagination::forge('mypagination', $config);
@@ -23,7 +24,7 @@ class Controller_V2admin_Invitcodes extends Controller_V2admin{
         $offset = $pagination->offset;
         $limit = $pagination->per_page;
 
-        $codes = $codeModel->lists($offset, $limit);
+        $codes = $codeModel->lists($get, $offset, $limit);
         $view->set('codes', $codes);
         $view->set('pagination', $pagination);
         $this->template->set_global('breadcrumb', $breadcrumb->breadcrumb($breads), false);

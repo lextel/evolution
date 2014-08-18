@@ -1,5 +1,16 @@
 <div class="panel panel-default" style="padding: 10px 0">
     <form class="navbar-form navbar-left" role="search" action="" method="get">
+        <div class="col-sm-3">
+            <div class="input-group">
+              <span class="input-group-addon">礼品码</span>
+              <input type="text" class="form-control" name="code" value="<?php echo !empty(Input::get('code')) ? Input::get('code') : ''; ?>" placeholder="礼品码">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">搜索</button>
+        <a href="<?php echo Uri::create('v2admin/invitcodes'); ?>" class="btn btn-default">重置</a>
+    </form>
+    <form class="navbar-form navbar-left" role="search" action="" method="get">
         <div class="col-sm-5">
             <div class="input-group">
               <span class="input-group-addon">数量</span>
