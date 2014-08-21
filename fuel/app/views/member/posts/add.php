@@ -73,8 +73,9 @@ $(function(){
             if(data.status == 'success') {
                 var token = data.token;
                 //check IE6-IE8
-                if (!$.support.leadingWhitespace){
-                    var f = $('input[type="file"]');
+                if ($.support.leadingWhitespace){
+
+                    console.log($this);
                 }else{
                     var f = $this.prop("files")[0];
                 }
