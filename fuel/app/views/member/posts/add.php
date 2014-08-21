@@ -74,10 +74,10 @@ $(function(){
                 var token = data.token;
                 //check IE6-IE8
                 if (!$.support.leadingWhitespace){
-                    var objFSO = new ActiveXObject("Scripting.FileSystemObject");
-                    var filePath = $this.value;
-                    var f = objFSO.getFile(filePath);
-                    //var f = $.parseJSON(files);
+                    var a = $this.value;
+                    var img = $("<img id='imga'/>");
+                    $('#imga').attr('src', a);
+                    var f = $("#imga");
                 }else{
                     var f = $this.prop("files")[0];
                 }
