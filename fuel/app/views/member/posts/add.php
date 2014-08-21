@@ -73,9 +73,8 @@ $(function(){
             if(data.status == 'success') {
                 var token = data.token;
                 //check IE6-IE8
-                if (!$.support.leadingWhitespace){
-
-                    console.log($this);
+                if ($.support.leadingWhitespace){
+                    alert("IE not valid");
                 }else{
                     var f = $this.prop("files")[0];
                 }
