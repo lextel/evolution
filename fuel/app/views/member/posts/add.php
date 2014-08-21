@@ -74,10 +74,7 @@ $(function(){
                 var token = data.token;
                 //check IE6-IE8
                 if (!$.support.leadingWhitespace){
-                    var a = $this.value;
-                    var img = $("<img id='imga'/>");
-                    $('#imga').attr('src', a);
-                    var f = $("#imga");
+                    var f = $('input[type="file"]');
                 }else{
                     var f = $this.prop("files")[0];
                 }
