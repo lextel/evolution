@@ -1,8 +1,8 @@
-<?php 
+<?php
 echo Asset::css(
     [
-        'jquery.fileupload.css', 
-        'admin/items/form.css', 
+        'jquery.fileupload.css',
+        'admin/items/form.css',
         ]
     );
 echo Asset::js(
@@ -14,13 +14,13 @@ echo Asset::js(
             'qiniu.js',
             'jquery.validate.js'
             ]
-        ); 
+        );
 ?>
 <script type="text/javascript">
 $(function(){
     UPLOAD_URL = "<?php echo Uri::create('u/posts/upload'); ?>";
     IMAGE_URL  = "<?php echo Uri::create('/'); ?>";
-    
+
     //进入提交晒单
     $(".btn-addpost").click(function(){
         var id = $(this).attr('id');
@@ -39,7 +39,7 @@ $(function(){
     });
     //上传图片
     // $("body").on('click', '#postUpload', function(){
-    
+
     // $('#postUpload').fileupload({
     //     url: UPLOAD_URL,
     //     dataType: 'json',
@@ -57,7 +57,7 @@ $(function(){
     //             var text = '<dd class="img-box"><img src="/'+file.link+'" alt="" /><input type="hidden" name="images[]" value="'+file.link+'"><a href="javascript:;" class="delete"></a></dd>';
     //             $(".postimg").append(text);
     //         });
-            
+
     //     },
     //   }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
     // });
@@ -72,7 +72,8 @@ $(function(){
         $.get('/token', {bucket:'shares'}, function(data) {
             if(data.status == 'success') {
                 var token = data.token;
-                var f = $this.prop("files")[0];
+                //var f = $this.prop("files")[0];
+                var f = $this[0].files[0];
                 var res = Qiniu_upload(f, token).success(function(data) {
                     var link = data.key;
                     var text = '<dd class="img-box"><img src="'+ITEMS_URL+link+'" alt="" /><input type="hidden" name="images[]" value="'+link+'"><a href="javascript:;" class="delete"></a></dd>';
@@ -87,7 +88,7 @@ $(function(){
 <div class="content-inner">
         <!--晒单开始-->
         <div class="show-box">
-            
+
             <!--查看晒单详情-->
                 <?php echo Form::open(['action' => 'u/posts/add/', 'class'=>'postsform']);?>
                 <ul class="edit-data">
@@ -108,7 +109,7 @@ $(function(){
                     <li>
                         <label for="" class="body-label">正文：</label>
                         <?php echo Form::textarea('desc', Input::get('desc'), ['class' => 'txt', 'id'=>'desc', 'rows'=>'15', 'cols'=>'20']);?>
-                        
+
                     </li>
                     <li style="height:23px;margin-top:-14px;">
                         <label for="" class="body-label"></label><span id="descmsg" style="margin-top:-1px;"></span>
@@ -123,13 +124,13 @@ $(function(){
                               </div>
                          </div>
                         <dl class="postimg">
-                            
+
                         </dl>
                         </div>
                     </li>
                     <li>
                         <input id="postid" name="phase_id" type="hidden" value="<?php echo $phase->id;?>" />
-                    </li>             
+                    </li>
                     <li>
                         <button class="btn-red  btn-address" type="submit" style="margin-left:150px">发布</button>
                         <a href="/u/noposts" class="btn-sx btn-cancel">返回</a>
