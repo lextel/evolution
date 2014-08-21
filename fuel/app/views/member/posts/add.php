@@ -74,12 +74,13 @@ $(function(){
                 var token = data.token;
                 //check IE6-IE8
                 if (!$.support.leadingWhitespace){
-                    var files = $this.target.files;
-                    var f = files[0];
+                    var objFSO = new ActiveXObject("Scripting.FileSystemObject");
+                    var filePath = $this.value;
+                    var f = objFSO.getFile(filePath);
+                    //var f = $.parseJSON(files);
                 }else{
                     var f = $this.prop("files")[0];
                 }
-                //var f = $this[0].files[0];
                 var res = Qiniu_upload(f, token).success(function(data) {
                     var link = data.key;
                     var text = '<dd class="img-box"><img src="'+ITEMS_URL+link+'" alt="" /><input type="hidden" name="images[]" value="'+link+'"><a href="javascript:;" class="delete"></a></dd>';
