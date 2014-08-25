@@ -64,6 +64,11 @@
                 <a href="http://www.wanggouchao.com" target="_blank">网购潮</a>
                 <a href="http://www.kuaidi100.com/all/sf.shtml" target="_blank">顺丰快递查询</a>
                 <a href="http://www.yyyg.com" target="_blank">一元云购</a>
+                <a href="http://www.51fanli.com" target="_blank">返利网</a>
+                <a href="http://www.miaokenet.com" target="_blank">秒客网</a>
+                <a href="http://www.vip.com" target="_blank">唯品会</a>
+                <a href="http://www.jd.com" target="_blank">京东</a>
+                <a href="http://www.1yyg.com" target="_blank">一元云购</a>
             </li>
         </ul>
         <h4 class="tit">申请步骤：</h4>
