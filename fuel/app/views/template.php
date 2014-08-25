@@ -163,6 +163,7 @@
                 <!--可信网站图片LOGO安装开始-->
                 <script src="http://kxlogo.knet.cn/seallogo.dll?sn=e14080644030052139ynxi000000&size=0"></script>
                 <!--可信网站图片LOGO安装结束-->
+                <a  key ="53faf147efbfb072fb956aee"  logo_size="124x47"  logo_type="business"  href="http://www.anquan.org" ><script src="http://static.anquan.org/static/outer/js/aq_auth.js"></script></a>
             </div>
             <!--
             <div style="clear:both"></div>
