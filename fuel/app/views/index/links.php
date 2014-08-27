@@ -70,6 +70,7 @@
                 <a href="http://www.jd.com" target="_blank">京东</a>
                 <a href="http://www.1yyg.com" target="_blank">一元云购</a>
                 <a href="http://www.51jfb.net" target="_blank">集分宝</a>
+                <a href="http://www.longfeng.com" target="_blank">龙派凤族</a>
             </li>
         </ul>
         <h4 class="tit">申请步骤：</h4>
