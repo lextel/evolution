@@ -1,6 +1,6 @@
 <?php
 return [
-    # 0 外部人员 1 员工 10 编辑  50 组长  100 管理员
+    # 0 外部人员 1 员工 10 编辑  20 编辑 50 组长  100 管理员
     'navs' => [
         ['name' => '管理首页', 'href' => Uri::create('/v2admin'), 'group'=>0],
         [
@@ -40,10 +40,10 @@ return [
             'href' => 'javascript:void(0);',
             'class' => 'dropdown',
             'childs' => [
-                ['name' => '添加马甲', 'href' => Uri::create('/v2admin/ghost/create'), 'group'=>50],
-                ['name' => '马甲列表', 'href' => Uri::create('/v2admin/ghost/lists'), 'group'=>50],
-                ['name' => '中奖列表', 'href' => Uri::create('/v2admin/ghost/win'), 'group'=>50],
-                ['name' => '在拍列表', 'href' => Uri::create('/v2admin/ghost/sell'), 'group'=>50],
+                ['name' => '添加马甲', 'href' => Uri::create('/v2admin/ghost/create'), 'group'=>100],
+                ['name' => '马甲列表', 'href' => Uri::create('/v2admin/ghost/lists'), 'group'=>100],
+                ['name' => '中奖列表', 'href' => Uri::create('/v2admin/ghost/win'), 'group'=>100],
+                ['name' => '在拍列表', 'href' => Uri::create('/v2admin/ghost/sell'), 'group'=>100],
             ]
         ],
         ['name' => '晒单/物流',
